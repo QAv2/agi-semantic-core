@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.env
+.venv/
+venv/
+
+# Exports are generated, not source
+exports/
+
+# DB is the source of truth but binary — track it
+# db/semantic.db
