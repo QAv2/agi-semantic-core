@@ -1,0 +1,202 @@
+[
+  {
+    "name": "COMMUNICATION",
+    "x": 0.3, "y": 0.2, "z": 0.35,
+    "e": 0.2, "f": 0.35, "g": 0.7, "h": 0.5,
+    "fx": 0.25, "fy": 0.15, "fz": 0.3,
+    "fe": 0.15, "ff": 0.3, "fg": 0.65, "fh": 0.45,
+    "level": 5, "pos": "noun",
+    "description": "The exchange of meaning between beings; sharing of thought or feeling",
+    "session": 104
+  },
+  {
+    "name": "KNOWLEDGE",
+    "x": 0.35, "y": -0.35, "z": 0.55,
+    "e": 0.15, "f": 0.35, "g": 0.45, "h": 0.6,
+    "fx": 0.3, "fy": -0.25, "fz": 0.45,
+    "fe": 0.1, "ff": 0.3, "fg": 0.4, "fh": 0.55,
+    "level": 7, "pos": "noun",
+    "description": "Accumulated understanding gained through experience or learning",
+    "session": 104
+  },
+  {
+    "name": "BEGINNING",
+    "x": 0.3, "y": 0.55, "z": 0.15,
+    "e": 0.3, "f": 0.7, "g": 0.2, "h": 0.2,
+    "fx": 0.25, "fy": 0.5, "fz": 0.1,
+    "fe": 0.25, "ff": 0.65, "fg": 0.15, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "The point at which something starts; the origin of a process",
+    "session": 104
+  },
+  {
+    "name": "EXPERIENCE",
+    "x": 0.15, "y": 0.1, "z": 0.4,
+    "e": 0.25, "f": 0.4, "g": 0.4, "h": 0.7,
+    "fx": 0.1, "fy": 0.05, "fz": 0.3,
+    "fe": 0.2, "ff": 0.35, "fg": 0.35, "fh": 0.65,
+    "level": 7, "pos": "noun",
+    "description": "Direct personal encounter with events; lived awareness of something",
+    "session": 104
+  },
+  {
+    "name": "MOTION",
+    "x": 0.45, "y": 0.4, "z": 0.3,
+    "e": 0.65, "f": 0.5, "g": 0.15, "h": 0.15,
+    "fx": 0.4, "fy": 0.35, "fz": 0.2,
+    "fe": 0.6, "ff": 0.45, "fg": 0.1, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "The process of continuous change of position; physical movement",
+    "session": 104
+  },
+  {
+    "name": "CONTACT",
+    "x": 0.2, "y": 0.05, "z": 0.15,
+    "e": 0.55, "f": 0.2, "g": 0.6, "h": 0.35,
+    "fx": 0.15, "fy": 0.0, "fz": 0.1,
+    "fe": 0.5, "ff": 0.15, "fg": 0.55, "fh": 0.3,
+    "level": 5, "pos": "noun",
+    "description": "Physical touching; the state of being in connection with",
+    "session": 104
+  },
+  {
+    "name": "SENSATION",
+    "x": 0.15, "y": 0.2, "z": 0.2,
+    "e": 0.35, "f": 0.3, "g": 0.25, "h": 0.75,
+    "fx": 0.1, "fy": 0.15, "fz": 0.15,
+    "fe": 0.3, "ff": 0.25, "fg": 0.2, "fh": 0.7,
+    "level": 4, "pos": "noun",
+    "description": "A physical feeling or perception through the senses",
+    "session": 104
+  },
+  {
+    "name": "PHYSICAL",
+    "x": 0.3, "y": 0.1, "z": 0.15,
+    "e": 0.85, "f": 0.2, "g": 0.15, "h": 0.25,
+    "fx": 0.25, "fy": 0.05, "fz": 0.1,
+    "fe": 0.8, "ff": 0.15, "fg": 0.1, "fh": 0.2,
+    "level": 4, "pos": "adj",
+    "description": "Of or relating to the body or material world; tangible",
+    "session": 104
+  },
+  {
+    "name": "INTENSITY",
+    "x": 0.5, "y": 0.35, "z": 0.35,
+    "e": 0.3, "f": 0.45, "g": 0.2, "h": 0.45,
+    "fx": 0.45, "fy": 0.3, "fz": 0.3,
+    "fe": 0.25, "ff": 0.4, "fg": 0.15, "fh": 0.4,
+    "level": 4, "pos": "noun",
+    "description": "The degree of force or strength; how strongly something is felt",
+    "session": 104
+  },
+  {
+    "name": "AUTHORITY",
+    "x": 0.5, "y": -0.3, "z": 0.55,
+    "e": 0.2, "f": 0.25, "g": 0.65, "h": 0.45,
+    "fx": 0.45, "fy": -0.2, "fz": 0.45,
+    "fe": 0.15, "ff": 0.2, "fg": 0.6, "fh": 0.4,
+    "level": 7, "pos": "noun",
+    "description": "Legitimate power to command or govern; recognized right to direct",
+    "session": 104
+  },
+  {
+    "name": "AMOUNT",
+    "x": 0.05, "y": -0.05, "z": 0.35,
+    "e": 0.6, "f": 0.15, "g": 0.2, "h": 0.1,
+    "fx": 0.0, "fy": 0.0, "fz": 0.25,
+    "fe": 0.55, "ff": 0.1, "fg": 0.15, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A quantity or sum; how much of something there is",
+    "session": 104
+  },
+  {
+    "name": "EXISTENCE",
+    "x": 0.0, "y": -0.05, "z": 0.5,
+    "e": 0.3, "f": 0.35, "g": 0.35, "h": 0.55,
+    "fx": 0.0, "fy": 0.0, "fz": 0.4,
+    "fe": 0.25, "ff": 0.3, "fg": 0.3, "fh": 0.5,
+    "level": 7, "pos": "noun",
+    "description": "The fact or condition of being; that which is real",
+    "session": 104
+  },
+  {
+    "name": "PRESENCE",
+    "x": 0.2, "y": 0.0, "z": 0.35,
+    "e": 0.45, "f": 0.3, "g": 0.4, "h": 0.55,
+    "fx": 0.15, "fy": 0.0, "fz": 0.25,
+    "fe": 0.4, "ff": 0.25, "fg": 0.35, "fh": 0.5,
+    "level": 5, "pos": "noun",
+    "description": "The state of being present in a place; immediate awareness",
+    "session": 104
+  },
+  {
+    "name": "EMOTION",
+    "x": 0.2, "y": 0.3, "z": 0.3,
+    "e": 0.15, "f": 0.35, "g": 0.4, "h": 0.8,
+    "fx": 0.15, "fy": 0.25, "fz": 0.2,
+    "fe": 0.1, "ff": 0.3, "fg": 0.35, "fh": 0.75,
+    "level": 4, "pos": "noun",
+    "description": "A strong feeling arising from within; an inner response to experience",
+    "session": 104
+  },
+  {
+    "name": "TRANSFORMATION",
+    "x": 0.15, "y": 0.55, "z": 0.35,
+    "e": 0.25, "f": 0.7, "g": 0.3, "h": 0.2,
+    "fx": 0.1, "fy": 0.5, "fz": 0.3,
+    "fe": 0.2, "ff": 0.65, "fg": 0.25, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "A thorough change in form or nature; the process of becoming different",
+    "session": 104
+  },
+  {
+    "name": "WARMTH",
+    "x": 0.35, "y": 0.3, "z": 0.15,
+    "e": 0.4, "f": 0.3, "g": 0.45, "h": 0.6,
+    "fx": 0.3, "fy": 0.25, "fz": 0.1,
+    "fe": 0.35, "ff": 0.25, "fg": 0.4, "fh": 0.55,
+    "level": 4, "pos": "noun",
+    "description": "Gentle heat; emotional kindness and affection",
+    "session": 104
+  },
+  {
+    "name": "INFORMATION",
+    "x": 0.15, "y": -0.2, "z": 0.45,
+    "e": 0.2, "f": 0.35, "g": 0.55, "h": 0.4,
+    "fx": 0.1, "fy": -0.1, "fz": 0.35,
+    "fe": 0.15, "ff": 0.3, "fg": 0.5, "fh": 0.35,
+    "level": 7, "pos": "noun",
+    "description": "Knowledge communicated; data that conveys meaning",
+    "session": 104
+  },
+  {
+    "name": "CREATIVE",
+    "x": 0.5, "y": 0.45, "z": 0.45,
+    "e": 0.35, "f": 0.45, "g": 0.35, "h": 0.5,
+    "fx": 0.45, "fy": 0.4, "fz": 0.35,
+    "fe": 0.3, "ff": 0.4, "fg": 0.3, "fh": 0.45,
+    "level": 4, "pos": "adj",
+    "description": "Having the ability to bring new things into being; inventive",
+    "session": 104
+  },
+  {
+    "name": "AGAINST",
+    "x": -0.3, "y": 0.2, "z": 0.1,
+    "e": 0.55, "f": 0.25, "g": 0.45, "h": 0.25,
+    "fx": -0.25, "fy": 0.15, "fz": 0.05,
+    "fe": 0.5, "ff": 0.2, "fg": 0.4, "fh": 0.2,
+    "level": 5, "pos": "prep",
+    "description": "In opposition to; in contact with for resistance",
+    "session": 104
+  },
+  {
+    "name": "UPPER",
+    "x": 0.35, "y": 0.05, "z": 0.5,
+    "e": 0.7, "f": 0.15, "g": 0.15, "h": 0.2,
+    "fx": 0.3, "fy": 0.0, "fz": 0.4,
+    "fe": 0.65, "ff": 0.1, "fg": 0.1, "fh": 0.15,
+    "level": 4, "pos": "adj",
+    "description": "Higher in position; situated above another part",
+    "session": 104
+  }
+]

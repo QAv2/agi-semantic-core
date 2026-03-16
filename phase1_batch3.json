@@ -1,0 +1,202 @@
+[
+  {
+    "name": "COVERING",
+    "x": -0.15, "y": -0.2, "z": 0.2,
+    "e": 0.75, "f": 0.15, "g": 0.25, "h": 0.2,
+    "fx": -0.1, "fy": -0.15, "fz": 0.15,
+    "fe": 0.7, "ff": 0.1, "fg": 0.2, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "Something placed over or upon; a layer that protects or conceals",
+    "session": 104
+  },
+  {
+    "name": "OUTWARD",
+    "x": 0.4, "y": 0.2, "z": 0.15,
+    "e": 0.7, "f": 0.2, "g": 0.25, "h": 0.15,
+    "fx": 0.35, "fy": 0.15, "fz": 0.1,
+    "fe": 0.65, "ff": 0.15, "fg": 0.2, "fh": 0.1,
+    "level": 5, "pos": "adv",
+    "description": "Toward the outside; directed away from the center",
+    "session": 104
+  },
+  {
+    "name": "TRANSFER",
+    "x": 0.2, "y": 0.3, "z": 0.25,
+    "e": 0.5, "f": 0.45, "g": 0.5, "h": 0.2,
+    "fx": 0.15, "fy": 0.25, "fz": 0.2,
+    "fe": 0.45, "ff": 0.4, "fg": 0.45, "fh": 0.15,
+    "level": 6, "pos": "verb",
+    "description": "To move from one place or person to another; conveyance",
+    "session": 104
+  },
+  {
+    "name": "GREAT",
+    "x": 0.5, "y": 0.15, "z": 0.5,
+    "e": 0.6, "f": 0.2, "g": 0.3, "h": 0.35,
+    "fx": 0.4, "fy": 0.1, "fz": 0.4,
+    "fe": 0.55, "ff": 0.15, "fg": 0.25, "fh": 0.3,
+    "level": 4, "pos": "adj",
+    "description": "Of impressive size, extent, or degree; remarkable in power",
+    "session": 104
+  },
+  {
+    "name": "EXTENT",
+    "x": 0.1, "y": -0.1, "z": 0.4,
+    "e": 0.65, "f": 0.25, "g": 0.3, "h": 0.1,
+    "fx": 0.05, "fy": -0.05, "fz": 0.3,
+    "fe": 0.6, "ff": 0.2, "fg": 0.25, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "The degree to which something reaches; range or scope",
+    "session": 104
+  },
+  {
+    "name": "HEAT",
+    "x": 0.6, "y": 0.5, "z": -0.1,
+    "e": 0.55, "f": 0.4, "g": 0.1, "h": 0.3,
+    "fx": 0.5, "fy": 0.4, "fz": -0.05,
+    "fe": 0.5, "ff": 0.35, "fg": 0.1, "fh": 0.25,
+    "level": 4, "pos": "noun",
+    "description": "Thermal energy; the condition of being hot or warm",
+    "session": 104
+  },
+  {
+    "name": "SIDE",
+    "x": 0.05, "y": -0.15, "z": 0.2,
+    "e": 0.8, "f": 0.1, "g": 0.3, "h": 0.15,
+    "fx": 0.0, "fy": -0.1, "fz": 0.15,
+    "fe": 0.75, "ff": 0.1, "fg": 0.25, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A surface or edge of something; one of two or more positions",
+    "session": 104
+  },
+  {
+    "name": "INTENSE",
+    "x": 0.55, "y": 0.45, "z": 0.2,
+    "e": 0.35, "f": 0.45, "g": 0.2, "h": 0.55,
+    "fx": 0.5, "fy": 0.4, "fz": 0.15,
+    "fe": 0.3, "ff": 0.4, "fg": 0.15, "fh": 0.5,
+    "level": 4, "pos": "adj",
+    "description": "Of extreme force, degree, or strength; strongly felt",
+    "session": 104
+  },
+  {
+    "name": "GOAL",
+    "x": 0.35, "y": -0.35, "z": 0.55,
+    "e": 0.2, "f": 0.55, "g": 0.35, "h": 0.45,
+    "fx": 0.3, "fy": -0.25, "fz": 0.45,
+    "fe": 0.15, "ff": 0.5, "fg": 0.3, "fh": 0.4,
+    "level": 7, "pos": "noun",
+    "description": "An aim or desired outcome; the purpose toward which effort is directed",
+    "session": 104
+  },
+  {
+    "name": "WAY",
+    "x": 0.15, "y": 0.2, "z": 0.2,
+    "e": 0.55, "f": 0.4, "g": 0.35, "h": 0.25,
+    "fx": 0.1, "fy": 0.15, "fz": 0.15,
+    "fe": 0.5, "ff": 0.35, "fg": 0.3, "fh": 0.2,
+    "level": 5, "pos": "noun",
+    "description": "A method, path, or manner of doing; a route or direction",
+    "session": 104
+  },
+  {
+    "name": "PASSAGE",
+    "x": 0.1, "y": 0.25, "z": 0.2,
+    "e": 0.65, "f": 0.45, "g": 0.2, "h": 0.15,
+    "fx": 0.05, "fy": 0.2, "fz": 0.15,
+    "fe": 0.6, "ff": 0.4, "fg": 0.15, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A way through or across; the act of moving from one place to another",
+    "session": 104
+  },
+  {
+    "name": "DIRECTION",
+    "x": 0.3, "y": 0.1, "z": 0.35,
+    "e": 0.65, "f": 0.3, "g": 0.25, "h": 0.2,
+    "fx": 0.25, "fy": 0.1, "fz": 0.3,
+    "fe": 0.6, "ff": 0.25, "fg": 0.2, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "The path along which something moves or faces; guidance",
+    "session": 104
+  },
+  {
+    "name": "PERCEPTION",
+    "x": 0.2, "y": -0.2, "z": 0.4,
+    "e": 0.2, "f": 0.35, "g": 0.4, "h": 0.65,
+    "fx": 0.15, "fy": -0.1, "fz": 0.3,
+    "fe": 0.15, "ff": 0.3, "fg": 0.35, "fh": 0.6,
+    "level": 7, "pos": "noun",
+    "description": "Awareness through the senses; the ability to perceive and interpret",
+    "session": 104
+  },
+  {
+    "name": "HARM",
+    "x": 0.4, "y": 0.3, "z": -0.2,
+    "e": 0.45, "f": 0.35, "g": 0.35, "h": 0.5,
+    "fx": 0.35, "fy": 0.25, "fz": -0.15,
+    "fe": 0.4, "ff": 0.3, "fg": 0.3, "fh": 0.45,
+    "level": 5, "pos": "noun",
+    "description": "Physical or moral damage; injury or hurt caused to someone",
+    "session": 104
+  },
+  {
+    "name": "PERSON",
+    "x": 0.15, "y": 0.1, "z": 0.35,
+    "e": 0.35, "f": 0.25, "g": 0.55, "h": 0.75,
+    "fx": 0.1, "fy": 0.05, "fz": 0.25,
+    "fe": 0.3, "ff": 0.2, "fg": 0.5, "fh": 0.7,
+    "level": 5, "pos": "noun",
+    "description": "An individual human being; a self-aware entity",
+    "session": 104
+  },
+  {
+    "name": "POSITIVE",
+    "x": 0.5, "y": 0.2, "z": 0.4,
+    "e": 0.25, "f": 0.3, "g": 0.35, "h": 0.5,
+    "fx": 0.4, "fy": 0.15, "fz": 0.3,
+    "fe": 0.2, "ff": 0.25, "fg": 0.3, "fh": 0.45,
+    "level": 4, "pos": "adj",
+    "description": "Affirming or constructive; expressing presence rather than absence",
+    "session": 104
+  },
+  {
+    "name": "SIZE",
+    "x": 0.05, "y": -0.1, "z": 0.35,
+    "e": 0.8, "f": 0.1, "g": 0.15, "h": 0.1,
+    "fx": 0.0, "fy": -0.05, "fz": 0.25,
+    "fe": 0.75, "ff": 0.1, "fg": 0.1, "fh": 0.05,
+    "level": 5, "pos": "noun",
+    "description": "The dimensions or magnitude of something; how large or small it is",
+    "session": 104
+  },
+  {
+    "name": "INWARD",
+    "x": -0.4, "y": -0.1, "z": 0.15,
+    "e": 0.55, "f": 0.2, "g": 0.25, "h": 0.5,
+    "fx": -0.35, "fy": -0.1, "fz": 0.1,
+    "fe": 0.5, "ff": 0.15, "fg": 0.2, "fh": 0.45,
+    "level": 5, "pos": "adv",
+    "description": "Toward the inside or center; directed internally",
+    "session": 104
+  },
+  {
+    "name": "VIEW",
+    "x": 0.25, "y": -0.15, "z": 0.3,
+    "e": 0.5, "f": 0.2, "g": 0.35, "h": 0.55,
+    "fx": 0.2, "fy": -0.1, "fz": 0.25,
+    "fe": 0.45, "ff": 0.15, "fg": 0.3, "fh": 0.5,
+    "level": 5, "pos": "noun",
+    "description": "What can be seen from a place; a way of regarding something",
+    "session": 104
+  },
+  {
+    "name": "CONSCIOUSNESS",
+    "x": 0.0, "y": -0.1, "z": 0.7,
+    "e": 0.1, "f": 0.35, "g": 0.45, "h": 0.85,
+    "fx": 0.0, "fy": -0.05, "fz": 0.6,
+    "fe": 0.1, "ff": 0.3, "fg": 0.4, "fh": 0.8,
+    "level": 7, "pos": "noun",
+    "description": "Awareness of existence and experience; the fundamental ground of being",
+    "session": 104
+  }
+]

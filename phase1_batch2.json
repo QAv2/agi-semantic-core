@@ -1,0 +1,202 @@
+[
+  {
+    "name": "ACTIVITY",
+    "x": 0.45, "y": 0.4, "z": 0.35,
+    "e": 0.35, "f": 0.55, "g": 0.3, "h": 0.25,
+    "fx": 0.4, "fy": 0.35, "fz": 0.2,
+    "fe": 0.3, "ff": 0.5, "fg": 0.25, "fh": 0.2,
+    "level": 5, "pos": "noun",
+    "description": "Energetic doing; the state of being active and engaged",
+    "session": 104
+  },
+  {
+    "name": "ANOTHER",
+    "x": 0.05, "y": 0.15, "z": 0.25,
+    "e": 0.3, "f": 0.4, "g": 0.45, "h": 0.3,
+    "fx": 0.0, "fy": 0.1, "fz": 0.15,
+    "fe": 0.25, "ff": 0.35, "fg": 0.4, "fh": 0.25,
+    "level": 5, "pos": "pron",
+    "description": "One more of the same kind; a different or additional one",
+    "session": 104
+  },
+  {
+    "name": "EXPRESSION",
+    "x": 0.35, "y": 0.3, "z": 0.4,
+    "e": 0.25, "f": 0.35, "g": 0.55, "h": 0.6,
+    "fx": 0.3, "fy": 0.25, "fz": 0.3,
+    "fe": 0.2, "ff": 0.3, "fg": 0.5, "fh": 0.55,
+    "level": 5, "pos": "noun",
+    "description": "Outward manifestation of inner feeling or thought; communication",
+    "session": 104
+  },
+  {
+    "name": "LIQUID",
+    "x": -0.2, "y": 0.4, "z": 0.1,
+    "e": 0.75, "f": 0.35, "g": 0.1, "h": 0.1,
+    "fx": -0.15, "fy": 0.35, "fz": 0.05,
+    "fe": 0.7, "ff": 0.3, "fg": 0.1, "fh": 0.1,
+    "level": 4, "pos": "noun",
+    "description": "A fluid substance that flows and takes shape of its container",
+    "session": 104
+  },
+  {
+    "name": "OBJECT",
+    "x": -0.05, "y": -0.2, "z": 0.3,
+    "e": 0.7, "f": 0.15, "g": 0.25, "h": 0.15,
+    "fx": 0.0, "fy": -0.15, "fz": 0.2,
+    "fe": 0.65, "ff": 0.1, "fg": 0.2, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A material thing that can be perceived; a physical entity",
+    "session": 104
+  },
+  {
+    "name": "STRENGTH",
+    "x": 0.55, "y": 0.1, "z": 0.5,
+    "e": 0.55, "f": 0.25, "g": 0.3, "h": 0.35,
+    "fx": 0.5, "fy": 0.15, "fz": 0.4,
+    "fe": 0.5, "ff": 0.2, "fg": 0.25, "fh": 0.3,
+    "level": 4, "pos": "noun",
+    "description": "The quality of being strong; power of body or will",
+    "session": 104
+  },
+  {
+    "name": "BRING",
+    "x": 0.3, "y": 0.3, "z": 0.2,
+    "e": 0.55, "f": 0.4, "g": 0.45, "h": 0.3,
+    "fx": 0.25, "fy": 0.25, "fz": 0.15,
+    "fe": 0.5, "ff": 0.35, "fg": 0.4, "fh": 0.25,
+    "level": 6, "pos": "verb",
+    "description": "To carry toward; to cause to come or be present",
+    "session": 104
+  },
+  {
+    "name": "GARMENT",
+    "x": 0.35, "y": -0.1, "z": 0.3,
+    "e": 0.9, "f": 0.2, "g": 0.4, "h": 0.45,
+    "fx": 0.1, "fy": -0.05, "fz": 0.2,
+    "fe": 0.85, "ff": 0.15, "fg": 0.35, "fh": 0.4,
+    "level": 5, "pos": "noun",
+    "description": "A piece of clothing; woven covering worn on the body",
+    "session": 104
+  },
+  {
+    "name": "LOW",
+    "x": -0.4, "y": -0.1, "z": -0.4,
+    "e": 0.7, "f": 0.15, "g": 0.15, "h": 0.2,
+    "fx": -0.3, "fy": -0.1, "fz": -0.3,
+    "fe": 0.65, "ff": 0.1, "fg": 0.1, "fh": 0.15,
+    "level": 4, "pos": "adj",
+    "description": "Near the ground; not high in position or degree",
+    "session": 104
+  },
+  {
+    "name": "LARGE",
+    "x": 0.45, "y": 0.2, "z": 0.35,
+    "e": 0.85, "f": 0.05, "g": 0.05, "h": 0.25,
+    "fx": 0.35, "fy": 0.15, "fz": 0.25,
+    "fe": 0.8, "ff": 0.05, "fg": 0.05, "fh": 0.2,
+    "level": 4, "pos": "adj",
+    "description": "Of great size or extent; big in scale",
+    "session": 104
+  },
+  {
+    "name": "POSSIBILITY",
+    "x": -0.3, "y": 0.6, "z": 0.5,
+    "e": 0.35, "f": 0.75, "g": 0.3, "h": 0.35,
+    "fx": -0.2, "fy": 0.5, "fz": 0.35,
+    "fe": 0.3, "ff": 0.7, "fg": 0.25, "fh": 0.3,
+    "level": 7, "pos": "noun",
+    "description": "The state of being possible; potential for something to occur",
+    "session": 104
+  },
+  {
+    "name": "PLANT",
+    "x": -0.25, "y": 0.3, "z": 0.15,
+    "e": 0.8, "f": 0.35, "g": 0.15, "h": 0.15,
+    "fx": -0.15, "fy": 0.25, "fz": 0.1,
+    "fe": 0.75, "ff": 0.3, "fg": 0.1, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A living organism rooted in earth; vegetation that grows",
+    "session": 104
+  },
+  {
+    "name": "CONTAINER",
+    "x": -0.1, "y": -0.25, "z": 0.25,
+    "e": 0.8, "f": 0.1, "g": 0.2, "h": 0.15,
+    "fx": -0.05, "fy": -0.2, "fz": 0.15,
+    "fe": 0.75, "ff": 0.1, "fg": 0.15, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "Something that holds or encloses; a vessel for contents",
+    "session": 104
+  },
+  {
+    "name": "AREA",
+    "x": 0.1, "y": -0.15, "z": 0.25,
+    "e": 0.8, "f": 0.15, "g": 0.25, "h": 0.1,
+    "fx": 0.05, "fy": -0.1, "fz": 0.2,
+    "fe": 0.75, "ff": 0.1, "fg": 0.2, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A region or extent of surface; a defined space",
+    "session": 104
+  },
+  {
+    "name": "SUPPORT",
+    "x": 0.1, "y": -0.2, "z": 0.3,
+    "e": 0.5, "f": 0.2, "g": 0.55, "h": 0.4,
+    "fx": 0.05, "fy": -0.15, "fz": 0.25,
+    "fe": 0.45, "ff": 0.15, "fg": 0.5, "fh": 0.35,
+    "level": 6, "pos": "verb",
+    "description": "To bear weight or give assistance; to hold up from below",
+    "session": 104
+  },
+  {
+    "name": "COLOR",
+    "x": 0.3, "y": 0.15, "z": 0.25,
+    "e": 0.6, "f": 0.15, "g": 0.15, "h": 0.45,
+    "fx": 0.2, "fy": 0.1, "fz": 0.15,
+    "fe": 0.55, "ff": 0.1, "fg": 0.1, "fh": 0.4,
+    "level": 4, "pos": "noun",
+    "description": "The visual quality of light reflected by a surface; hue",
+    "session": 104
+  },
+  {
+    "name": "CONNECTION",
+    "x": 0.25, "y": 0.0, "z": 0.3,
+    "e": 0.2, "f": 0.25, "g": 0.8, "h": 0.45,
+    "fx": 0.2, "fy": 0.0, "fz": 0.25,
+    "fe": 0.15, "ff": 0.2, "fg": 0.7, "fh": 0.4,
+    "level": 5, "pos": "noun",
+    "description": "A link or bond between things; a relationship or tie",
+    "session": 104
+  },
+  {
+    "name": "UNDERSTANDING",
+    "x": 0.3, "y": -0.3, "z": 0.5,
+    "e": 0.15, "f": 0.4, "g": 0.5, "h": 0.55,
+    "fx": 0.25, "fy": -0.2, "fz": 0.4,
+    "fe": 0.1, "ff": 0.35, "fg": 0.45, "fh": 0.5,
+    "level": 7, "pos": "noun",
+    "description": "Comprehension of meaning; the ability to grasp and interpret",
+    "session": 104
+  },
+  {
+    "name": "ABILITY",
+    "x": 0.55, "y": -0.35, "z": 0.5,
+    "e": 0.35, "f": 0.3, "g": 0.5, "h": 0.3,
+    "fx": 0.45, "fy": -0.25, "fz": 0.4,
+    "fe": 0.3, "ff": 0.25, "fg": 0.45, "fh": 0.25,
+    "level": 7, "pos": "noun",
+    "description": "The power or skill to do something; competence",
+    "session": 104
+  },
+  {
+    "name": "SOURCE",
+    "x": 0.1, "y": -0.1, "z": 0.35,
+    "e": 0.55, "f": 0.35, "g": 0.3, "h": 0.2,
+    "fx": 0.05, "fy": -0.05, "fz": 0.25,
+    "fe": 0.5, "ff": 0.3, "fg": 0.25, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "The origin or beginning of something; where it comes from",
+    "session": 104
+  }
+]

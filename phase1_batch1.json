@@ -1,0 +1,202 @@
+[
+  {
+    "name": "STATE",
+    "x": -0.1, "y": -0.35, "z": 0.55,
+    "e": 0.2, "f": 0.6, "g": 0.3, "h": 0.4,
+    "fx": 0.0, "fy": -0.2, "fz": 0.3,
+    "fe": 0.15, "ff": 0.5, "fg": 0.25, "fh": 0.35,
+    "level": 7, "pos": "noun",
+    "description": "A condition or mode of being; the way something currently exists",
+    "session": 104
+  },
+  {
+    "name": "ACTION",
+    "x": 0.4, "y": 0.35, "z": 0.55,
+    "e": 0.3, "f": 0.55, "g": 0.4, "h": 0.3,
+    "fx": 0.4, "fy": 0.4, "fz": 0.2,
+    "fe": 0.3, "ff": 0.5, "fg": 0.35, "fh": 0.25,
+    "level": 7, "pos": "noun",
+    "description": "Directed effort or activity; something done with intent",
+    "session": 104
+  },
+  {
+    "name": "FORCE",
+    "x": 0.55, "y": 0.15, "z": 0.45,
+    "e": 0.7, "f": 0.3, "g": 0.2, "h": 0.15,
+    "fx": 0.5, "fy": 0.2, "fz": 0.3,
+    "fe": 0.6, "ff": 0.25, "fg": 0.15, "fh": 0.1,
+    "level": 4, "pos": "noun",
+    "description": "Power exerted upon something; strength that causes change",
+    "session": 104
+  },
+  {
+    "name": "MOVEMENT",
+    "x": 0.5, "y": 0.45, "z": 0.5,
+    "e": 0.65, "f": 0.5, "g": 0.25, "h": 0.2,
+    "fx": 0.5, "fy": 0.5, "fz": 0.2,
+    "fe": 0.65, "ff": 0.45, "fg": 0.2, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "The act of changing position; motion through space",
+    "session": 104
+  },
+  {
+    "name": "POSITION",
+    "x": -0.15, "y": -0.5, "z": 0.35,
+    "e": 0.75, "f": 0.2, "g": 0.35, "h": 0.2,
+    "fx": -0.1, "fy": -0.4, "fz": 0.2,
+    "fe": 0.7, "ff": 0.15, "fg": 0.3, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "A specific location or place; where something is situated",
+    "session": 104
+  },
+  {
+    "name": "FEELING",
+    "x": 0.25, "y": 0.25, "z": 0.35,
+    "e": 0.2, "f": 0.3, "g": 0.35, "h": 0.8,
+    "fx": 0.1, "fy": 0.2, "fz": 0.2,
+    "fe": 0.15, "ff": 0.25, "fg": 0.3, "fh": 0.7,
+    "level": 4, "pos": "noun",
+    "description": "An emotional state or inner experience; a sensation",
+    "session": 104
+  },
+  {
+    "name": "ENERGY",
+    "x": 0.55, "y": 0.35, "z": 0.5,
+    "e": 0.45, "f": 0.5, "g": 0.2, "h": 0.15,
+    "fx": 0.5, "fy": 0.4, "fz": 0.3,
+    "fe": 0.4, "ff": 0.45, "fg": 0.15, "fh": 0.1,
+    "level": 4, "pos": "noun",
+    "description": "Capacity for work or activity; animating force in nature",
+    "session": 104
+  },
+  {
+    "name": "STRUCTURE",
+    "x": -0.2, "y": -0.45, "z": 0.6,
+    "e": 0.5, "f": 0.2, "g": 0.6, "h": 0.1,
+    "fx": -0.1, "fy": -0.3, "fz": 0.5,
+    "fe": 0.45, "ff": 0.15, "fg": 0.55, "fh": 0.1,
+    "level": 7, "pos": "noun",
+    "description": "Arrangement of parts into an organized whole; a framework",
+    "session": 104
+  },
+  {
+    "name": "SOMETHING",
+    "x": 0.1, "y": 0.05, "z": 0.2,
+    "e": 0.4, "f": 0.35, "g": 0.35, "h": 0.35,
+    "fx": 0.0, "fy": 0.0, "fz": 0.1,
+    "fe": 0.35, "ff": 0.35, "fg": 0.35, "fh": 0.35,
+    "level": 5, "pos": "pron",
+    "description": "An unspecified entity or thing; any object or idea",
+    "session": 104
+  },
+  {
+    "name": "GRADUALLY",
+    "x": -0.3, "y": 0.35, "z": 0.15,
+    "e": 0.1, "f": 0.8, "g": 0.1, "h": 0.1,
+    "fx": -0.2, "fy": 0.3, "fz": 0.1,
+    "fe": 0.05, "ff": 0.7, "fg": 0.1, "fh": 0.1,
+    "level": 5, "pos": "adv",
+    "description": "Slowly over time; by small degrees rather than suddenly",
+    "session": 104
+  },
+  {
+    "name": "LACKING",
+    "x": -0.4, "y": -0.15, "z": -0.15,
+    "e": 0.2, "f": 0.3, "g": 0.35, "h": 0.45,
+    "fx": -0.3, "fy": -0.1, "fz": -0.1,
+    "fe": 0.15, "ff": 0.3, "fg": 0.35, "fh": 0.4,
+    "level": 4, "pos": "adj",
+    "description": "Being without; not having enough of something needed",
+    "session": 104
+  },
+  {
+    "name": "MENTAL",
+    "x": 0.15, "y": 0.2, "z": 0.3,
+    "e": 0.1, "f": 0.4, "g": 0.3, "h": 0.7,
+    "fx": 0.2, "fy": 0.25, "fz": 0.3,
+    "fe": 0.05, "ff": 0.35, "fg": 0.25, "fh": 0.6,
+    "level": 4, "pos": "adj",
+    "description": "Of or relating to the mind; pertaining to thought and cognition",
+    "session": 104
+  },
+  {
+    "name": "TOGETHER",
+    "x": 0.3, "y": 0.1, "z": 0.2,
+    "e": 0.35, "f": 0.2, "g": 0.75, "h": 0.45,
+    "fx": 0.2, "fy": 0.1, "fz": 0.15,
+    "fe": 0.3, "ff": 0.15, "fg": 0.65, "fh": 0.4,
+    "level": 5, "pos": "adv",
+    "description": "In unity or combination; with each other as one",
+    "session": 104
+  },
+  {
+    "name": "CAUSE",
+    "x": 0.35, "y": 0.2, "z": 0.45,
+    "e": 0.2, "f": 0.55, "g": 0.5, "h": 0.2,
+    "fx": 0.4, "fy": 0.3, "fz": 0.4,
+    "fe": 0.15, "ff": 0.5, "fg": 0.4, "fh": 0.15,
+    "level": 7, "pos": "noun",
+    "description": "That which produces an effect; the reason something happens",
+    "session": 104
+  },
+  {
+    "name": "BEYOND",
+    "x": 0.3, "y": 0.25, "z": 0.55,
+    "e": 0.7, "f": 0.3, "g": 0.2, "h": 0.15,
+    "fx": 0.3, "fy": 0.25, "fz": 0.4,
+    "fe": 0.6, "ff": 0.25, "fg": 0.15, "fh": 0.1,
+    "level": 5, "pos": "prep",
+    "description": "Further than; past the limit or boundary of",
+    "session": 104
+  },
+  {
+    "name": "CAPACITY",
+    "x": 0.1, "y": -0.25, "z": 0.5,
+    "e": 0.35, "f": 0.3, "g": 0.45, "h": 0.35,
+    "fx": 0.0, "fy": -0.15, "fz": 0.35,
+    "fe": 0.3, "ff": 0.25, "fg": 0.4, "fh": 0.3,
+    "level": 7, "pos": "noun",
+    "description": "Ability to contain or hold; potential to do or receive",
+    "session": 104
+  },
+  {
+    "name": "QUANTITY",
+    "x": 0.1, "y": -0.1, "z": 0.5,
+    "e": 0.55, "f": 0.2, "g": 0.3, "h": 0.1,
+    "fx": 0.0, "fy": -0.05, "fz": 0.4,
+    "fe": 0.45, "ff": 0.15, "fg": 0.25, "fh": 0.05,
+    "level": 7, "pos": "noun",
+    "description": "An amount or number; how much of something exists",
+    "session": 104
+  },
+  {
+    "name": "PROCESS",
+    "x": 0.15, "y": 0.5, "z": 0.3,
+    "e": 0.2, "f": 0.7, "g": 0.35, "h": 0.15,
+    "fx": 0.1, "fy": 0.5, "fz": 0.25,
+    "fe": 0.15, "ff": 0.65, "fg": 0.3, "fh": 0.1,
+    "level": 5, "pos": "noun",
+    "description": "A series of steps or changes leading to a result",
+    "session": 104
+  },
+  {
+    "name": "ABSENCE",
+    "x": -0.5, "y": -0.3, "z": 0.3,
+    "e": 0.4, "f": 0.35, "g": 0.25, "h": 0.35,
+    "fx": -0.4, "fy": -0.2, "fz": 0.2,
+    "fe": 0.35, "ff": 0.3, "fg": 0.2, "fh": 0.3,
+    "level": 4, "pos": "noun",
+    "description": "The state of not being present; a void or emptiness",
+    "session": 104
+  },
+  {
+    "name": "QUALITY_ATTR",
+    "x": 0.0, "y": -0.2, "z": 0.55,
+    "e": 0.2, "f": 0.3, "g": 0.55, "h": 0.35,
+    "fx": 0.0, "fy": -0.1, "fz": 0.4,
+    "fe": 0.15, "ff": 0.25, "fg": 0.5, "fh": 0.3,
+    "level": 7, "pos": "noun",
+    "description": "An inherent attribute or characteristic; the nature of something",
+    "session": 104
+  }
+]
