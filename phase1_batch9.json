@@ -1,0 +1,202 @@
+[
+  {
+    "name": "EXIST",
+    "x": 0.10, "y": -0.20, "z": 0.60,
+    "e": 0.30, "f": 0.40, "g": 0.25, "h": 0.55,
+    "fx": 0.08, "fy": -0.15, "fz": 0.50,
+    "fe": 0.25, "ff": 0.35, "fg": 0.20, "fh": 0.50,
+    "level": 6, "pos": "verb",
+    "description": "To have being; the fundamental state of presence in reality",
+    "session": 107
+  },
+  {
+    "name": "BALANCE",
+    "x": 0.00, "y": -0.30, "z": 0.40,
+    "e": 0.55, "f": 0.30, "g": 0.45, "h": 0.25,
+    "fx": 0.00, "fy": -0.25, "fz": 0.35,
+    "fe": 0.50, "ff": 0.25, "fg": 0.40, "fh": 0.20,
+    "level": 4, "pos": "noun",
+    "description": "Equal distribution of weight or force; stable equilibrium between opposing elements",
+    "session": 107
+  },
+  {
+    "name": "WEIGHT",
+    "x": -0.20, "y": -0.20, "z": 0.35,
+    "e": 0.75, "f": 0.15, "g": 0.15, "h": 0.20,
+    "fx": -0.15, "fy": -0.15, "fz": 0.25,
+    "fe": 0.70, "ff": 0.10, "fg": 0.10, "fh": 0.15,
+    "level": 4, "pos": "noun",
+    "description": "The downward force of matter; heaviness or significance of something",
+    "session": 107
+  },
+  {
+    "name": "SHORT",
+    "x": -0.25, "y": -0.15, "z": -0.20,
+    "e": 0.65, "f": 0.35, "g": 0.15, "h": 0.15,
+    "fx": -0.20, "fy": -0.10, "fz": -0.15,
+    "fe": 0.60, "ff": 0.30, "fg": 0.10, "fh": 0.10,
+    "level": 4, "pos": "adj",
+    "description": "Having little length or duration; not reaching far in space or time",
+    "session": 107
+  },
+  {
+    "name": "SIGHT",
+    "x": 0.25, "y": -0.25, "z": 0.35,
+    "e": 0.65, "f": 0.25, "g": 0.30, "h": 0.45,
+    "fx": 0.20, "fy": -0.20, "fz": 0.30,
+    "fe": 0.60, "ff": 0.20, "fg": 0.25, "fh": 0.40,
+    "level": 4, "pos": "noun",
+    "description": "The ability to perceive through vision; awareness gained by looking",
+    "session": 107
+  },
+  {
+    "name": "SAME",
+    "x": 0.00, "y": -0.45, "z": 0.30,
+    "e": 0.30, "f": 0.20, "g": 0.55, "h": 0.25,
+    "fx": 0.00, "fy": -0.40, "fz": 0.25,
+    "fe": 0.25, "ff": 0.15, "fg": 0.50, "fh": 0.20,
+    "level": 4, "pos": "adj",
+    "description": "Identical or unchanged; not different from what is compared",
+    "session": 107
+  },
+  {
+    "name": "EASY",
+    "x": 0.20, "y": 0.10, "z": -0.15,
+    "e": 0.25, "f": 0.30, "g": 0.25, "h": 0.50,
+    "fx": 0.15, "fy": 0.05, "fz": -0.10,
+    "fe": 0.20, "ff": 0.25, "fg": 0.20, "fh": 0.45,
+    "level": 4, "pos": "adj",
+    "description": "Not difficult; requiring little effort to accomplish or understand",
+    "session": 107
+  },
+  {
+    "name": "SET",
+    "x": 0.10, "y": -0.25, "z": 0.40,
+    "e": 0.40, "f": 0.20, "g": 0.55, "h": 0.20,
+    "fx": 0.05, "fy": -0.20, "fz": 0.35,
+    "fe": 0.35, "ff": 0.15, "fg": 0.50, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "A collection of distinct things grouped together as a whole",
+    "session": 107
+  },
+  {
+    "name": "FUNDAMENTAL",
+    "x": 0.15, "y": -0.40, "z": 0.65,
+    "e": 0.30, "f": 0.25, "g": 0.35, "h": 0.30,
+    "fx": 0.10, "fy": -0.35, "fz": 0.55,
+    "fe": 0.25, "ff": 0.20, "fg": 0.30, "fh": 0.25,
+    "level": 4, "pos": "adj",
+    "description": "Serving as the essential foundation; basic and primary in nature",
+    "session": 107
+  },
+  {
+    "name": "INNER",
+    "x": -0.30, "y": -0.20, "z": 0.25,
+    "e": 0.60, "f": 0.20, "g": 0.25, "h": 0.55,
+    "fx": -0.25, "fy": -0.15, "fz": 0.20,
+    "fe": 0.55, "ff": 0.15, "fg": 0.20, "fh": 0.50,
+    "level": 4, "pos": "adj",
+    "description": "Located within; relating to the interior or hidden aspect of something",
+    "session": 107
+  },
+  {
+    "name": "REMOVE",
+    "x": -0.40, "y": 0.35, "z": 0.20,
+    "e": 0.55, "f": 0.40, "g": 0.30, "h": 0.15,
+    "fx": -0.35, "fy": 0.30, "fz": 0.15,
+    "fe": 0.50, "ff": 0.35, "fg": 0.25, "fh": 0.10,
+    "level": 6, "pos": "verb",
+    "description": "To take away from a position or place; to separate and displace",
+    "session": 107
+  },
+  {
+    "name": "RELATE",
+    "x": 0.20, "y": 0.15, "z": 0.30,
+    "e": 0.15, "f": 0.25, "g": 0.75, "h": 0.50,
+    "fx": 0.15, "fy": 0.10, "fz": 0.25,
+    "fe": 0.10, "ff": 0.20, "fg": 0.70, "fh": 0.45,
+    "level": 6, "pos": "verb",
+    "description": "To connect or establish a link between things; to have bearing upon",
+    "session": 107
+  },
+  {
+    "name": "ESTABLISH",
+    "x": 0.35, "y": -0.30, "z": 0.50,
+    "e": 0.40, "f": 0.40, "g": 0.45, "h": 0.25,
+    "fx": 0.30, "fy": -0.25, "fz": 0.45,
+    "fe": 0.35, "ff": 0.35, "fg": 0.40, "fh": 0.20,
+    "level": 6, "pos": "verb",
+    "description": "To set up firmly; to bring into lasting existence or acceptance",
+    "session": 107
+  },
+  {
+    "name": "SPATIAL",
+    "x": 0.05, "y": -0.15, "z": 0.25,
+    "e": 0.85, "f": 0.10, "g": 0.15, "h": 0.10,
+    "fx": 0.03, "fy": -0.10, "fz": 0.20,
+    "fe": 0.80, "ff": 0.08, "fg": 0.12, "fh": 0.08,
+    "level": 4, "pos": "adj",
+    "description": "Relating to or occupying space; concerning physical extent and position",
+    "session": 107
+  },
+  {
+    "name": "EFFECT",
+    "x": 0.20, "y": 0.25, "z": 0.35,
+    "e": 0.35, "f": 0.55, "g": 0.35, "h": 0.20,
+    "fx": 0.15, "fy": 0.20, "fz": 0.30,
+    "fe": 0.30, "ff": 0.50, "fg": 0.30, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "A result produced by a cause; the change brought about by an action",
+    "session": 107
+  },
+  {
+    "name": "BREAK",
+    "x": -0.45, "y": 0.50, "z": -0.20,
+    "e": 0.60, "f": 0.45, "g": 0.20, "h": 0.15,
+    "fx": -0.40, "fy": 0.45, "fz": -0.15,
+    "fe": 0.55, "ff": 0.40, "fg": 0.15, "fh": 0.10,
+    "level": 6, "pos": "verb",
+    "description": "To separate into parts by force; to disrupt or shatter what was whole",
+    "session": 107
+  },
+  {
+    "name": "CARE",
+    "x": 0.25, "y": -0.15, "z": 0.35,
+    "e": 0.15, "f": 0.35, "g": 0.55, "h": 0.70,
+    "fx": 0.20, "fy": -0.10, "fz": 0.30,
+    "fe": 0.10, "ff": 0.30, "fg": 0.50, "fh": 0.65,
+    "level": 5, "pos": "noun",
+    "description": "Attentive concern for the wellbeing of another; watchful responsibility",
+    "session": 107
+  },
+  {
+    "name": "COMMON",
+    "x": -0.05, "y": -0.20, "z": -0.10,
+    "e": 0.25, "f": 0.25, "g": 0.70, "h": 0.40,
+    "fx": -0.03, "fy": -0.15, "fz": -0.08,
+    "fe": 0.20, "ff": 0.20, "fg": 0.65, "fh": 0.35,
+    "level": 4, "pos": "adj",
+    "description": "Shared by all; ordinary and widely found among many",
+    "session": 107
+  },
+  {
+    "name": "PASS",
+    "x": 0.15, "y": 0.45, "z": 0.10,
+    "e": 0.60, "f": 0.50, "g": 0.25, "h": 0.15,
+    "fx": 0.10, "fy": 0.40, "fz": 0.08,
+    "fe": 0.55, "ff": 0.45, "fg": 0.20, "fh": 0.10,
+    "level": 6, "pos": "verb",
+    "description": "To move beyond or through a point; to transfer onward in space or time",
+    "session": 107
+  },
+  {
+    "name": "MANNER",
+    "x": 0.10, "y": -0.20, "z": 0.25,
+    "e": 0.20, "f": 0.25, "g": 0.45, "h": 0.55,
+    "fx": 0.08, "fy": -0.15, "fz": 0.20,
+    "fe": 0.15, "ff": 0.20, "fg": 0.40, "fh": 0.50,
+    "level": 5, "pos": "noun",
+    "description": "The way in which something is done; a particular style or method of acting",
+    "session": 107
+  }
+]

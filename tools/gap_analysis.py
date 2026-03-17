@@ -40,7 +40,8 @@ STOP_WORDS = {
 NOISE_WORDS = {
     'yang', 'yin', 'pure', 'session', 'fix', 'adjusted', 'calibrated',
     'orthogonal', 'complement', 'encoded', 'encoding', 'domain', 'axis',
-    'component', 'vector', 'trigram', 'hexagram', 'qian', 'kun',
+    'component', 'vector', 'trigram', 'hexagram',
+    'qian', 'kun', 'li', 'dui', 'zhen', 'gen', 'kan', 'xun',
     'number', 'fold', 'symmetry', 'geometry', 'shape', 'polygon',
 }
 

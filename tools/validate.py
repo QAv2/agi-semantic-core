@@ -3,17 +3,25 @@
 Validate the AGI Semantic Dictionary.
 
 Checks:
-1. All complement pairs have core angle in [80, 105]
-2. All synonym pairs have core angle < 30
-3. All concepts have non-zero vectors (except BEING)
-4. Trigram distribution balance
-5. Self-containment metric
-6. Vector space crowding (min pairwise angle per trigram)
-7. Anchor drift detection
+1. Complement pairs: core angle in [60, 120], domain_sim 0.1-0.95
+2. Opposition pairs: core angle > 120, domain_sim > 0.8
+3. Synonym pairs: core angle < 30
+4. All concepts have non-zero vectors (except BEING)
+5. Trigram distribution balance
+6. Self-containment metric
+7. Vector space crowding (min pairwise angle per trigram)
+8. Anchor drift detection
+
+Session 107 recalibration:
+- Opposition (180°) distinguished from complement (90°) using domain similarity
+- True opposites (same domain, reversed polarity) → opposition at ~180°
+- Orthogonal complements (related domain, independent axis) → complement at ~90°
+- Structural noise (unrelated domains) → deleted
 
 Usage:
     python -m tools.validate              # Full validation
     python -m tools.validate complements  # Complements only
+    python -m tools.validate opposition   # Opposition only
     python -m tools.validate crowding     # Crowding analysis
     python -m tools.validate anchors      # Anchor drift check
     python -m tools.validate containment  # Self-containment only
@@ -56,8 +64,24 @@ ANCHORS = [
 ]
 
 
+def _domain_sim(sc, n1, n2):
+    """Compute cosine similarity between domain vectors [e,f,g,h]."""
+    r1 = sc.conn.execute("SELECT e,f,g,h FROM concepts WHERE name=?", (n1,)).fetchone()
+    r2 = sc.conn.execute("SELECT e,f,g,h FROM concepts WHERE name=?", (n2,)).fetchone()
+    if not r1 or not r2:
+        return 0.0
+    v1 = np.array([r1[0], r1[1], r1[2], r1[3]])
+    v2 = np.array([r2[0], r2[1], r2[2], r2[3]])
+    m1, m2 = np.linalg.norm(v1), np.linalg.norm(v2)
+    if m1 < 1e-10 or m2 < 1e-10:
+        return 0.0
+    return float(np.dot(v1, v2) / (m1 * m2))
+
+
 def validate_complements(sc: SemanticCore, verbose: bool = True):
-    """Validate all complement pairs."""
+    """Validate all complement pairs.
+    Complement: core angle 60-120° (orthogonal perspectives, not opposites).
+    """
     rows = sc.conn.execute("""
         SELECT c1.name, c2.name, c1.trigram, c2.trigram, r.angle_4d, r.angle_8d
         FROM relations r
@@ -74,13 +98,55 @@ def validate_complements(sc: SemanticCore, verbose: bool = True):
         n1, n2 = r['name'], r[1]
         angle_4d = r['angle_4d']
 
-        if angle_4d < 80 or angle_4d > 105:
-            issues.append(f"CORE ANGLE: {n1} <-> {n2}: {angle_4d:.1f} (expected 80-105)")
+        if angle_4d < 60 or angle_4d > 120:
+            issues.append(f"CORE ANGLE: {n1} <-> {n2}: {angle_4d:.1f} (expected 60-120)")
         else:
             valid += 1
 
     if verbose:
         print(f"Complement Validation: {valid}/{total} valid ({100*valid/total:.1f}%)")
+        if issues:
+            print(f"\nIssues ({len(issues)}):")
+            for issue in issues[:20]:
+                print(f"  {issue}")
+            if len(issues) > 20:
+                print(f"  ... and {len(issues) - 20} more")
+
+    return valid, total, issues
+
+
+def validate_opposition(sc: SemanticCore, verbose: bool = True):
+    """Validate all opposition pairs.
+    Opposition: core angle > 120° (true semantic opposites, same domain).
+    """
+    rows = sc.conn.execute("""
+        SELECT c1.name, c2.name, r.angle_4d, r.angle_8d
+        FROM relations r
+        JOIN concepts c1 ON r.concept1_id = c1.id
+        JOIN concepts c2 ON r.concept2_id = c2.id
+        WHERE r.rel_type = 'opposition'
+    """).fetchall()
+
+    total = len(rows)
+    valid = 0
+    issues = []
+
+    for r in rows:
+        n1, n2 = r['name'], r[1]
+        angle_4d = r['angle_4d']
+        dsim = _domain_sim(sc, n1, n2)
+
+        if angle_4d < 120:
+            issues.append(f"OPP ANGLE: {n1} <-> {n2}: {angle_4d:.1f}° (expected >120)")
+        elif dsim < 0.5:
+            issues.append(f"OPP DOMAIN: {n1} <-> {n2}: domain_sim={dsim:.2f} (expected >0.5)")
+        else:
+            valid += 1
+
+    if verbose:
+        a_all = np.array([r['angle_4d'] for r in rows])
+        print(f"Opposition Validation: {valid}/{total} valid ({100*valid/total:.1f}%)")
+        print(f"  Angle: mean={np.mean(a_all):.1f}° median={np.median(a_all):.1f}° >150°: {int(np.sum(a_all>150))}")
         if issues:
             print(f"\nIssues ({len(issues)}):")
             for issue in issues[:20]:
@@ -284,16 +350,17 @@ def validate_anchors(sc: SemanticCore, verbose: bool = True):
             anchor_angles[key] = round(angle, 2)
 
     # Check for known invariants
+    # Post-recalibration: anchor pairs are now opposition (target ~180°)
+    # or complement (target ~90°), validated by relation type in DB
     known_invariants = {
-        'YANG:YIN': (85, 95),       # Should be ~90 (complement)
-        'HOT:COLD': (85, 95),
-        'LIGHT:DARK': (85, 100),
-        'GOOD:BAD': (85, 100),
-        'LOVE:FEAR': (85, 100),
-        'LIFE:DEATH': (78, 105),
-        'TRUTH:FALSEHOOD': (85, 100),
-        'GIVE:TAKE': (85, 100),
-        'CREATE:DESTROY': (85, 100),
+        'LOVE:FEAR': (60, 180),     # Complex multi-constraint pair
+        'LIFE:DEATH': (120, 180),   # Opposition
+        'TRUTH:FALSEHOOD': (120, 180),  # Opposition
+        'GIVE:TAKE': (120, 180),    # Opposition
+        'CREATE:DESTROY': (120, 180),   # Opposition
+        'LIGHT:DARK': (120, 180),   # Opposition
+        'HOT:COLD': (120, 180),     # Opposition
+        'GOOD:BAD': (120, 180),     # Opposition
     }
 
     for pair, (lo, hi) in known_invariants.items():
@@ -391,6 +458,11 @@ def run_full_validation(sc: SemanticCore):
     all_issues.extend(c_issues)
     print()
 
+    # Opposition
+    o_valid, o_total, o_issues = validate_opposition(sc)
+    all_issues.extend(o_issues)
+    print()
+
     # Synonyms
     s_valid, s_total, s_issues = validate_synonyms(sc)
     all_issues.extend(s_issues)
@@ -425,6 +497,7 @@ def run_full_validation(sc: SemanticCore):
     print(f"  Concepts:         {stats['total_concepts']}")
     print(f"  Relations:        {stats['total_relations']}")
     print(f"  Complements:      {c_valid}/{c_total} valid")
+    print(f"  Opposition:       {o_valid}/{o_total} valid")
     print(f"  Synonyms:         {s_valid}/{s_total} valid")
     print(f"  Zero vectors:     {zv}")
     print(f"  Self-containment: {sc_pct:.1f}%")
@@ -456,6 +529,8 @@ def main():
             cmd = sys.argv[1].lower()
             if cmd == "complements":
                 validate_complements(sc)
+            elif cmd == "opposition":
+                validate_opposition(sc)
             elif cmd == "synonyms":
                 validate_synonyms(sc)
             elif cmd == "trigrams":

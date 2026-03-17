@@ -1,0 +1,202 @@
+[
+  {
+    "name": "DIFFICULT",
+    "x": -0.20, "y": 0.25, "z": 0.30,
+    "e": 0.30, "f": 0.35, "g": 0.30, "h": 0.55,
+    "fx": -0.15, "fy": 0.20, "fz": 0.25,
+    "fe": 0.25, "ff": 0.30, "fg": 0.25, "fh": 0.50,
+    "level": 4, "pos": "adj",
+    "description": "Requiring much effort or skill to accomplish; not easy to do or understand",
+    "session": 107
+  },
+  {
+    "name": "GROUP",
+    "x": 0.10, "y": -0.15, "z": 0.30,
+    "e": 0.30, "f": 0.20, "g": 0.70, "h": 0.35,
+    "fx": 0.08, "fy": -0.10, "fz": 0.25,
+    "fe": 0.25, "ff": 0.15, "fg": 0.65, "fh": 0.30,
+    "level": 5, "pos": "noun",
+    "description": "A number of individuals gathered or classed together as a whole",
+    "session": 107
+  },
+  {
+    "name": "AGREEMENT",
+    "x": 0.35, "y": -0.15, "z": 0.40,
+    "e": 0.15, "f": 0.30, "g": 0.70, "h": 0.65,
+    "fx": 0.30, "fy": -0.10, "fz": 0.35,
+    "fe": 0.10, "ff": 0.25, "fg": 0.65, "fh": 0.60,
+    "level": 5, "pos": "noun",
+    "description": "A state of shared understanding between minds; harmony of opinion or will",
+    "session": 107
+  },
+  {
+    "name": "OPPOSITE",
+    "x": -0.10, "y": 0.15, "z": -0.20,
+    "e": 0.45, "f": 0.20, "g": 0.55, "h": 0.20,
+    "fx": -0.08, "fy": 0.10, "fz": -0.15,
+    "fe": 0.40, "ff": 0.15, "fg": 0.50, "fh": 0.15,
+    "level": 4, "pos": "adj",
+    "description": "Completely different in every way; placed directly facing or across from another",
+    "session": 107
+  },
+  {
+    "name": "DISTINCT",
+    "x": 0.25, "y": -0.20, "z": 0.35,
+    "e": 0.35, "f": 0.15, "g": 0.50, "h": 0.30,
+    "fx": 0.20, "fy": -0.15, "fz": 0.30,
+    "fe": 0.30, "ff": 0.10, "fg": 0.45, "fh": 0.25,
+    "level": 4, "pos": "adj",
+    "description": "Clearly separate and recognizable; not the same as another",
+    "session": 107
+  },
+  {
+    "name": "ESSENTIAL",
+    "x": 0.20, "y": -0.35, "z": 0.60,
+    "e": 0.25, "f": 0.25, "g": 0.35, "h": 0.35,
+    "fx": 0.15, "fy": -0.30, "fz": 0.55,
+    "fe": 0.20, "ff": 0.20, "fg": 0.30, "fh": 0.30,
+    "level": 4, "pos": "adj",
+    "description": "Absolutely necessary and of the greatest importance; belonging to the core nature",
+    "session": 107
+  },
+  {
+    "name": "SIGNIFICANCE",
+    "x": 0.20, "y": -0.25, "z": 0.45,
+    "e": 0.20, "f": 0.30, "g": 0.50, "h": 0.45,
+    "fx": 0.15, "fy": -0.20, "fz": 0.40,
+    "fe": 0.15, "ff": 0.25, "fg": 0.45, "fh": 0.40,
+    "level": 5, "pos": "noun",
+    "description": "The quality of having meaning or importance; the weight a thing carries",
+    "session": 107
+  },
+  {
+    "name": "SPECIFIC",
+    "x": 0.20, "y": -0.30, "z": 0.40,
+    "e": 0.40, "f": 0.15, "g": 0.45, "h": 0.25,
+    "fx": 0.15, "fy": -0.25, "fz": 0.35,
+    "fe": 0.35, "ff": 0.10, "fg": 0.40, "fh": 0.20,
+    "level": 4, "pos": "adj",
+    "description": "Clearly defined and particular; relating to one thing and not others",
+    "session": 107
+  },
+  {
+    "name": "REALITY",
+    "x": 0.15, "y": -0.35, "z": 0.55,
+    "e": 0.45, "f": 0.30, "g": 0.25, "h": 0.40,
+    "fx": 0.10, "fy": -0.30, "fz": 0.50,
+    "fe": 0.40, "ff": 0.25, "fg": 0.20, "fh": 0.35,
+    "level": 5, "pos": "noun",
+    "description": "The state of things as they actually exist; what is true and present",
+    "session": 107
+  },
+  {
+    "name": "NEGATIVE",
+    "x": -0.40, "y": 0.15, "z": -0.20,
+    "e": 0.25, "f": 0.25, "g": 0.35, "h": 0.40,
+    "fx": -0.35, "fy": 0.10, "fz": -0.15,
+    "fe": 0.20, "ff": 0.20, "fg": 0.30, "fh": 0.35,
+    "level": 4, "pos": "adj",
+    "description": "Expressing denial or absence; harmful or lacking positive quality",
+    "session": 107
+  },
+  {
+    "name": "DYNAMIC",
+    "x": 0.45, "y": 0.40, "z": 0.25,
+    "e": 0.40, "f": 0.55, "g": 0.25, "h": 0.30,
+    "fx": 0.40, "fy": 0.35, "fz": 0.20,
+    "fe": 0.35, "ff": 0.50, "fg": 0.20, "fh": 0.25,
+    "level": 4, "pos": "adj",
+    "description": "Characterized by constant change and activity; full of force and motion",
+    "session": 107
+  },
+  {
+    "name": "LASTING",
+    "x": -0.10, "y": -0.50, "z": 0.35,
+    "e": 0.20, "f": 0.75, "g": 0.20, "h": 0.25,
+    "fx": -0.08, "fy": -0.45, "fz": 0.30,
+    "fe": 0.15, "ff": 0.70, "fg": 0.15, "fh": 0.20,
+    "level": 4, "pos": "adj",
+    "description": "Continuing for a long time; enduring and not quickly passing away",
+    "session": 107
+  },
+  {
+    "name": "LITTLE",
+    "x": -0.40, "y": 0.15, "z": -0.25,
+    "e": 0.70, "f": 0.15, "g": 0.10, "h": 0.25,
+    "fx": -0.35, "fy": 0.10, "fz": -0.20,
+    "fe": 0.65, "ff": 0.10, "fg": 0.08, "fh": 0.20,
+    "level": 4, "pos": "adj",
+    "description": "Small in size or amount; not much in degree or extent",
+    "session": 107
+  },
+  {
+    "name": "LOCATION",
+    "x": 0.05, "y": -0.20, "z": 0.30,
+    "e": 0.85, "f": 0.10, "g": 0.20, "h": 0.10,
+    "fx": 0.03, "fy": -0.15, "fz": 0.25,
+    "fe": 0.80, "ff": 0.08, "fg": 0.15, "fh": 0.08,
+    "level": 5, "pos": "noun",
+    "description": "A particular place or position in space where something is found",
+    "session": 107
+  },
+  {
+    "name": "ACCESS",
+    "x": 0.30, "y": 0.20, "z": 0.25,
+    "e": 0.55, "f": 0.25, "g": 0.40, "h": 0.30,
+    "fx": 0.25, "fy": 0.15, "fz": 0.20,
+    "fe": 0.50, "ff": 0.20, "fg": 0.35, "fh": 0.25,
+    "level": 5, "pos": "noun",
+    "description": "The means or ability to approach and enter; a way of reaching something",
+    "session": 107
+  },
+  {
+    "name": "PERIOD",
+    "x": 0.00, "y": -0.15, "z": 0.25,
+    "e": 0.10, "f": 0.80, "g": 0.15, "h": 0.10,
+    "fx": 0.00, "fy": -0.10, "fz": 0.20,
+    "fe": 0.08, "ff": 0.75, "fg": 0.10, "fh": 0.08,
+    "level": 5, "pos": "noun",
+    "description": "A length of time with a beginning and end; a defined span of duration",
+    "session": 107
+  },
+  {
+    "name": "PRESS",
+    "x": 0.30, "y": 0.25, "z": 0.15,
+    "e": 0.65, "f": 0.30, "g": 0.20, "h": 0.15,
+    "fx": 0.25, "fy": 0.20, "fz": 0.10,
+    "fe": 0.60, "ff": 0.25, "fg": 0.15, "fh": 0.10,
+    "level": 6, "pos": "verb",
+    "description": "To push firmly against; to apply steady force upon a surface",
+    "session": 107
+  },
+  {
+    "name": "FEMALE",
+    "x": -0.50, "y": -0.10, "z": 0.35,
+    "e": 0.20, "f": 0.25, "g": 0.45, "h": 0.70,
+    "fx": -0.45, "fy": -0.08, "fz": 0.30,
+    "fe": 0.15, "ff": 0.20, "fg": 0.40, "fh": 0.65,
+    "level": 4, "pos": "noun",
+    "description": "The receptive principle in living beings; one who carries and nurtures new life",
+    "session": 107
+  },
+  {
+    "name": "SEASON",
+    "x": 0.10, "y": 0.40, "z": 0.20,
+    "e": 0.30, "f": 0.80, "g": 0.15, "h": 0.15,
+    "fx": 0.08, "fy": 0.35, "fz": 0.15,
+    "fe": 0.25, "ff": 0.75, "fg": 0.10, "fh": 0.10,
+    "level": 5, "pos": "noun",
+    "description": "A division of the year marked by changes in weather and light; a recurring time of nature",
+    "session": 107
+  },
+  {
+    "name": "HORIZONTAL",
+    "x": 0.00, "y": -0.10, "z": -0.10,
+    "e": 0.85, "f": 0.05, "g": 0.10, "h": 0.05,
+    "fx": 0.00, "fy": -0.08, "fz": -0.08,
+    "fe": 0.80, "ff": 0.03, "fg": 0.08, "fh": 0.03,
+    "level": 4, "pos": "adj",
+    "description": "Parallel to the ground; extending flat across rather than up or down",
+    "session": 107
+  }
+]

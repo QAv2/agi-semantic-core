@@ -1,0 +1,162 @@
+[
+  {
+    "name": "ELEVATE",
+    "x": 0.40, "y": 0.35, "z": 0.40,
+    "e": 0.70, "f": 0.35, "g": 0.20, "h": 0.25,
+    "fx": 0.35, "fy": 0.30, "fz": 0.35,
+    "fe": 0.65, "ff": 0.30, "fg": 0.15, "fh": 0.20,
+    "level": 6, "pos": "verb",
+    "description": "To raise higher in position or status; to lift upward",
+    "session": 107
+  },
+  {
+    "name": "EMIT",
+    "x": 0.35, "y": 0.40, "z": 0.20,
+    "e": 0.55, "f": 0.40, "g": 0.25, "h": 0.15,
+    "fx": 0.30, "fy": 0.35, "fz": 0.15,
+    "fe": 0.50, "ff": 0.35, "fg": 0.20, "fh": 0.10,
+    "level": 6, "pos": "verb",
+    "description": "To send forth or release outward; to give off energy or substance",
+    "session": 107
+  },
+  {
+    "name": "POSSESS",
+    "x": -0.30, "y": -0.25, "z": 0.35,
+    "e": 0.25, "f": 0.30, "g": 0.50, "h": 0.65,
+    "fx": -0.25, "fy": -0.20, "fz": 0.30,
+    "fe": 0.20, "ff": 0.25, "fg": 0.45, "fh": 0.60,
+    "level": 6, "pos": "verb",
+    "description": "To have and hold as belonging to oneself; to own or contain within",
+    "session": 107
+  },
+  {
+    "name": "OVERWHELM",
+    "x": -0.50, "y": 0.55, "z": -0.25,
+    "e": 0.50, "f": 0.45, "g": 0.30, "h": 0.60,
+    "fx": -0.45, "fy": 0.50, "fz": -0.20,
+    "fe": 0.45, "ff": 0.40, "fg": 0.25, "fh": 0.55,
+    "level": 6, "pos": "verb",
+    "description": "To defeat completely by superior force; to flood beyond capacity to handle",
+    "session": 107
+  },
+  {
+    "name": "REFER",
+    "x": 0.15, "y": 0.10, "z": 0.30,
+    "e": 0.20, "f": 0.20, "g": 0.65, "h": 0.40,
+    "fx": 0.10, "fy": 0.08, "fz": 0.25,
+    "fe": 0.15, "ff": 0.15, "fg": 0.60, "fh": 0.35,
+    "level": 6, "pos": "verb",
+    "description": "To direct attention toward; to point to something as a source of meaning",
+    "session": 107
+  },
+  {
+    "name": "MARK",
+    "x": 0.20, "y": -0.10, "z": 0.30,
+    "e": 0.55, "f": 0.25, "g": 0.40, "h": 0.20,
+    "fx": 0.15, "fy": -0.05, "fz": 0.25,
+    "fe": 0.50, "ff": 0.20, "fg": 0.35, "fh": 0.15,
+    "level": 5, "pos": "noun",
+    "description": "A visible sign left on a surface; an indicator that distinguishes or identifies",
+    "session": 107
+  },
+  {
+    "name": "DECREASE",
+    "x": -0.35, "y": 0.30, "z": -0.30,
+    "e": 0.35, "f": 0.55, "g": 0.25, "h": 0.20,
+    "fx": -0.30, "fy": 0.25, "fz": -0.25,
+    "fe": 0.30, "ff": 0.50, "fg": 0.20, "fh": 0.15,
+    "level": 6, "pos": "verb",
+    "description": "To become or make smaller in amount or degree; to diminish over time",
+    "session": 107
+  },
+  {
+    "name": "MUTUAL",
+    "x": 0.05, "y": -0.10, "z": 0.30,
+    "e": 0.15, "f": 0.20, "g": 0.80, "h": 0.45,
+    "fx": 0.03, "fy": -0.08, "fz": 0.25,
+    "fe": 0.10, "ff": 0.15, "fg": 0.75, "fh": 0.40,
+    "level": 4, "pos": "adj",
+    "description": "Shared equally between two or more; experienced or done by each toward the other",
+    "session": 107
+  },
+  {
+    "name": "ACCEPTANCE",
+    "x": 0.40, "y": -0.20, "z": 0.40,
+    "e": 0.25, "f": 0.35, "g": 0.55, "h": 0.75,
+    "fx": 0.35, "fy": -0.15, "fz": 0.35,
+    "fe": 0.20, "ff": 0.30, "fg": 0.50, "fh": 0.70,
+    "level": 5, "pos": "noun",
+    "description": "The willing reception of what is offered or present; agreement to receive",
+    "session": 107
+  },
+  {
+    "name": "ENTHUSIASM",
+    "x": 0.55, "y": 0.45, "z": 0.30,
+    "e": 0.20, "f": 0.45, "g": 0.35, "h": 0.70,
+    "fx": 0.50, "fy": 0.40, "fz": 0.25,
+    "fe": 0.15, "ff": 0.40, "fg": 0.30, "fh": 0.65,
+    "level": 4, "pos": "noun",
+    "description": "Intense and eager enjoyment or interest; passionate energy directed toward something",
+    "session": 107
+  },
+  {
+    "name": "SERIOUS",
+    "x": 0.15, "y": -0.35, "z": 0.45,
+    "e": 0.20, "f": 0.30, "g": 0.35, "h": 0.60,
+    "fx": 0.10, "fy": -0.30, "fz": 0.40,
+    "fe": 0.15, "ff": 0.25, "fg": 0.30, "fh": 0.55,
+    "level": 4, "pos": "adj",
+    "description": "Demanding careful thought; weighty and not given to levity or play",
+    "session": 107
+  },
+  {
+    "name": "FORMAL",
+    "x": 0.20, "y": -0.35, "z": 0.50,
+    "e": 0.30, "f": 0.25, "g": 0.60, "h": 0.35,
+    "fx": 0.15, "fy": -0.30, "fz": 0.45,
+    "fe": 0.25, "ff": 0.20, "fg": 0.55, "fh": 0.30,
+    "level": 4, "pos": "adj",
+    "description": "Following established rules or conventions; structured and proper in arrangement",
+    "session": 107
+  },
+  {
+    "name": "SUPREME",
+    "x": 0.50, "y": -0.30, "z": 0.75,
+    "e": 0.30, "f": 0.20, "g": 0.40, "h": 0.45,
+    "fx": 0.45, "fy": -0.25, "fz": 0.70,
+    "fe": 0.25, "ff": 0.15, "fg": 0.35, "fh": 0.40,
+    "level": 4, "pos": "adj",
+    "description": "Highest in rank, authority, or quality; above all others in degree",
+    "session": 107
+  },
+  {
+    "name": "FORTH",
+    "x": 0.30, "y": 0.35, "z": 0.15,
+    "e": 0.70, "f": 0.35, "g": 0.20, "h": 0.10,
+    "fx": 0.25, "fy": 0.30, "fz": 0.10,
+    "fe": 0.65, "ff": 0.30, "fg": 0.15, "fh": 0.08,
+    "level": 5, "pos": "adv",
+    "description": "Forward and outward from a starting point; onward into view or existence",
+    "session": 107
+  },
+  {
+    "name": "DOWNWARD",
+    "x": -0.35, "y": 0.20, "z": -0.30,
+    "e": 0.75, "f": 0.30, "g": 0.10, "h": 0.10,
+    "fx": -0.30, "fy": 0.15, "fz": -0.25,
+    "fe": 0.70, "ff": 0.25, "fg": 0.08, "fh": 0.08,
+    "level": 5, "pos": "adv",
+    "description": "Toward a lower position or level; moving from higher to lower",
+    "session": 107
+  },
+  {
+    "name": "CONJUNCTION",
+    "x": 0.05, "y": -0.15, "z": 0.35,
+    "e": 0.10, "f": 0.15, "g": 0.80, "h": 0.15,
+    "fx": 0.03, "fy": -0.10, "fz": 0.30,
+    "fe": 0.08, "ff": 0.10, "fg": 0.75, "fh": 0.10,
+    "level": 7, "pos": "noun",
+    "description": "A joining or meeting together; a word that connects parts of thought",
+    "session": 107
+  }
+]
