@@ -350,17 +350,17 @@ def validate_anchors(sc: SemanticCore, verbose: bool = True):
             anchor_angles[key] = round(angle, 2)
 
     # Check for known invariants
-    # Post-recalibration: anchor pairs are now opposition (target ~180°)
-    # or complement (target ~90°), validated by relation type in DB
+    # Anchor pairs use 90° complement geometry (not 180° opposition)
+    # The Hangul-origin 90° rule is the correct encoding for 3D space
     known_invariants = {
-        'LOVE:FEAR': (60, 180),     # Complex multi-constraint pair
-        'LIFE:DEATH': (120, 180),   # Opposition
-        'TRUTH:FALSEHOOD': (120, 180),  # Opposition
-        'GIVE:TAKE': (120, 180),    # Opposition
-        'CREATE:DESTROY': (120, 180),   # Opposition
-        'LIGHT:DARK': (120, 180),   # Opposition
-        'HOT:COLD': (120, 180),     # Opposition
-        'GOOD:BAD': (120, 180),     # Opposition
+        'LOVE:FEAR': (75, 105),
+        'LIFE:DEATH': (75, 105),
+        'TRUTH:FALSEHOOD': (85, 95),
+        'GIVE:TAKE': (85, 95),
+        'CREATE:DESTROY': (85, 100),
+        'LIGHT:DARK': (85, 100),
+        'HOT:COLD': (85, 95),
+        'GOOD:BAD': (85, 100),
     }
 
     for pair, (lo, hi) in known_invariants.items():
