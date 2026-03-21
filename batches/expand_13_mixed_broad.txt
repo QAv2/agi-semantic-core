@@ -1,0 +1,49 @@
+# Batch 13: Mixed broad — communication, governance, nature, emotional, mathematical
+
+# === Communication/Language ===
+DIALECT | A regional variety of language with distinct features | DUI
+JARGON | Specialized vocabulary used by a particular group | KAN
+RHETORIC | The art of effective or persuasive communication | DUI
+METAPHOR | A figure of speech applying a term to something it does not literally denote | LI
+ALLEGORY | A story with hidden political or moral meaning | GEN
+ANECDOTE | A short amusing or interesting story about a real incident | DUI
+PROVERB | A short well-known saying expressing a general truth | GEN
+PARABLE | A simple story illustrating a moral or spiritual lesson | GEN
+EULOGY | A speech praising someone who has recently died | DUI
+EPITAPH | An inscription on a tombstone in memory of the dead | GEN
+MANIFESTO | A public declaration of policy and aims | DUI
+PROCLAMATION | An official public announcement | DUI
+WHISPER | Very soft speech intended for private communication | GEN
+ANTHEM | A rousing song of praise or devotion | DUI
+
+# === Governance/Political ===
+SOVEREIGNTY | Supreme power or authority over a territory | QIAN
+REFERENDUM | A direct vote by the electorate on a specific proposal | LI
+CONSTITUENCY | A body of voters or supporters in an electoral district | KAN
+LEGISLATURE | The body of government responsible for making laws | LI
+RATIFICATION | The formal approval of an agreement or treaty | KAN
+VETO | The power to reject a decision or proposal | KAN
+SANCTION | An official penalty for disobeying a law or agreement | KAN
+IMPEACHMENT | The formal charging of a public official with misconduct | KAN
+
+# === More Nature (targeted trigrams) ===
+LICHEN | A composite organism of fungi and algae growing on surfaces | XUN
+POLLEN | Fine powder from flowers enabling plant fertilization | XUN
+STALACTITE | A mineral formation hanging from the ceiling of a cave | XUN
+STALAGMITE | A mineral formation rising from the floor of a cave | GEN
+PLANKTON | Tiny organisms drifting in bodies of water | KUN
+FUNGUS | An organism that feeds on organic matter including mushrooms and molds | XUN
+PEAT | Partially decomposed plant material found in wetlands | XUN
+TIDAL | Relating to the regular rise and fall of sea levels | XUN
+
+# === Mathematical/Logical ===
+THEOREM | A statement proven on the basis of accepted truths | GEN
+COROLLARY | A proposition that follows directly from a proven theorem | GEN
+HYPOTHESIS | A proposed explanation made as a starting point for investigation | LI
+ALGORITHM | A step-by-step procedure for solving a problem | LI
+LOGARITHM | The power to which a base must be raised to produce a number | GEN
+COEFFICIENT | A numerical factor in a mathematical term | KAN
+DENOMINATOR | The bottom number in a fraction indicating parts | KUN
+PERMUTATION | An arrangement of items in a specific order | ZHEN
+ASYMPTOTE | A line that a curve approaches but never meets | XUN
+MEDIAN | The middle value in a set of ordered numbers | GEN

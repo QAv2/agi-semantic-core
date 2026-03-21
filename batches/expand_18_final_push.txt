@@ -1,0 +1,59 @@
+# Batch 18: Final push — everyday objects, actions, states, sensory, weather
+
+# === Everyday Objects ===
+CANDLE | A cylinder of wax with a wick that gives light when burning | LI
+LANTERN | A portable lamp with a protective frame | LI
+NEEDLE | A thin sharp instrument for sewing or injection | LI
+THREAD | A long thin strand of cotton or other fiber | XUN
+RIBBON | A narrow strip of fabric used for tying or decoration | DUI
+BUCKET | An open cylindrical container for carrying liquids | KUN
+SPOOL | A cylinder for winding thread, wire, or tape | KUN
+BELLJAR | A glass dome placed over objects to protect or contain | GEN
+PESTLE | A heavy club-shaped tool for grinding in a mortar | QIAN
+TROWEL | A small flat-bladed tool for spreading mortar | QIAN
+AWNING | A sheet of material extended over a window or doorway | KUN
+SHEATH | A close-fitting cover for a blade or object | GEN
+CLASP | A device for fastening things together | KAN
+HINGE | A joint allowing a door or lid to swing open | LI
+VALVE | A device controlling the flow of fluid through a pipe | KAN
+
+# === Actions/Verbs ===
+BRANDISH | To wave or flourish something as a threat or display | ZHEN
+SUPPLICATE | To ask or beg for something earnestly or humbly | GEN
+IMPLORE | To beg someone earnestly or desperately | GEN
+BESIEGE | To surround a place with armed forces to capture it | KAN
+SUBJUGATE | To bring under domination or control by force | KAN
+CONSECRATE | To make or declare sacred for religious purpose | LI
+GALVANIZE | To shock or excite someone into taking action | ZHEN
+EXHORT | To strongly encourage or urge someone to do something | DUI
+ADJUDICATE | To make a formal judgment or decision about a dispute | LI
+EMANCIPATE | To set free from legal, social, or political restrictions | DUI
+ABDICATE | To renounce a throne, power, or responsibility | GEN
+CAPITULATE | To cease resisting and surrender | GEN
+ACQUIESCE | To accept something reluctantly without protest | GEN
+DISSEMINATE | To spread information or knowledge widely | DUI
+PROMULGATE | To make known or promote a law, decree, or idea | DUI
+RUMINATE | To think deeply about something over a long period | GEN
+DELIBERATE | To engage in long and careful consideration | GEN
+
+# === Sensory/Physical States ===
+VERTIGO | A sensation of dizziness and disorientation | GEN
+NAUSEA | A feeling of sickness with an inclination to vomit | GEN
+TREMOR | An involuntary shaking movement of the body | ZHEN
+PARALYSIS | The loss of ability to move part of the body | GEN
+SPASM | A sudden involuntary muscular contraction | ZHEN
+CONVULSION | A violent irregular movement of the body | ZHEN
+RIGOR | Stiffness or rigidity of the body | GEN
+DELIRIUM | An acutely disturbed state of mind with confusion | ZHEN
+LETHARGY | A lack of energy and enthusiasm | XUN
+TORPOR | A state of physical or mental inactivity | XUN
+
+# === Weather/Seasonal ===
+SQUALL | A sudden violent gust of wind often with rain | ZHEN
+TEMPEST | A violent windy storm | ZHEN
+DRIZZLE | Light rain falling in fine drops | XUN
+SLEET | A mixture of rain and snow or ice pellets | KUN
+FROST | A deposit of small white ice crystals on surfaces | GEN
+DUSK | The darker part of twilight as day transitions to night | XUN
+DAWN | The first light of day as night transitions to morning | ZHEN
+MIST | A cloud of tiny water droplets reducing visibility | XUN

@@ -1,0 +1,54 @@
+# Batch 14: Diverse fill — transportation, music, education, fabrics, minerals, virtues/vices
+
+# === Transportation/Travel ===
+LOCOMOTIVE | A powered railway vehicle for pulling trains | ZHEN
+CARAVAN | A group of travelers journeying together through wilderness | KUN
+FERRY | A boat carrying passengers and vehicles across water | DUI
+GONDOLA | A narrow flat-bottomed boat used in Venetian canals | XUN
+CHARIOT | An ancient two-wheeled horse-drawn vehicle used in battle | ZHEN
+CANOE | A narrow lightweight boat propelled by paddles | DUI
+RAFT | A flat structure for floating on water | KUN
+SLEIGH | A vehicle on runners for traveling over snow | DUI
+GALLEON | A large multi-decked sailing ship from the age of exploration | QIAN
+BARGE | A flat-bottomed boat for carrying heavy goods on waterways | KUN
+
+# === Education/Knowledge ===
+CURRICULUM | The subjects and content taught in a school program | LI
+APPRENTICESHIP | A period of learning a trade under a skilled worker | XUN
+SEMINAR | A small group session for focused study and discussion | LI
+PEDAGOGY | The method and practice of teaching | LI
+SYLLABUS | An outline of subjects covered in a course of study | GEN
+TUITION | A fee charged for instruction at a school | KAN
+ENROLLMENT | The act of registering for membership or a course | KAN
+SCHOLARSHIP | Financial aid awarded for academic achievement | DUI
+THESIS | A long essay presenting original research and argument | GEN
+DISSERTATION | A lengthy formal document defending a specific position | GEN
+
+# === Minerals/Gems ===
+QUARTZ | A hard mineral composed of silicon dioxide | QIAN
+SAPPHIRE | A precious blue gemstone variety of corundum | GEN
+EMERALD | A precious green gemstone variety of beryl | DUI
+TOPAZ | A hard silicate mineral valued as a gemstone | DUI
+JADE | A green ornamental stone prized in Asian cultures | GEN
+OPAL | A gemstone showing an iridescent play of colors | DUI
+TURQUOISE | A blue-green mineral prized as a semiprecious stone | DUI
+
+# === Social Virtues/Qualities (GEN/DUI targeted) ===
+COURTESY | Polite behavior showing respect for others | DUI
+GALLANTRY | Courageous and courteous behavior especially toward women | DUI
+CIVILITY | Formal politeness in behavior or speech | DUI
+BENEVOLENCE | An inclination to do good and show kindness | DUI
+MAGNANIMITY | Generosity of spirit especially toward a rival or enemy | DUI
+CHIVALRY | The medieval code of knightly conduct and courtesy | LI
+VALOR | Great courage in the face of danger | ZHEN
+FORTITUDE | Courage and strength in bearing pain or adversity | GEN
+PIETY | Devoted reverence toward the divine or sacred | GEN
+HUMILITY | A modest view of one's own importance | GEN
+
+# === XUN/GEN fillers ===
+EROSION_COASTAL | The gradual wearing away of shoreline by waves | XUN
+SILTATION | The gradual deposit of fine sediment in waterways | XUN
+LEACHING | The gradual draining away of soluble material by water | XUN
+CORROSION_METAL | The electrochemical degradation of metal surfaces | XUN
+DORMANCY | A period of suspended biological activity | XUN
+SENESCENCE | The gradual deterioration of function with age | XUN

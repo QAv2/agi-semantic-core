@@ -1,0 +1,52 @@
+# Batch 09: Warfare, Economics, Philosophy, Textiles, Maritime — trigram-balanced
+
+# === Warfare/Military ===
+SIEGE | A military operation surrounding a fortification | KAN
+AMBUSH | A surprise attack from a concealed position | KAN
+GARRISON | A body of troops stationed in a fortress | GEN
+ARTILLERY | Large-caliber mounted firearms and their use | QIAN
+CAVALRY | Soldiers who fight mounted on horseback | ZHEN
+INFANTRY | Soldiers who fight on foot | QIAN
+FORTIFICATION | A defensive military construction | GEN
+RECONNAISSANCE | Military observation of a region to locate an enemy | XUN
+ARMISTICE | An agreement to stop fighting temporarily | KAN
+BLOCKADE | A barrier preventing access to an area or port | KAN
+GUERRILLA | Irregular warfare using small mobile forces | ZHEN
+MUNITIONS | Military weapons and ammunition | QIAN
+CONSCRIPTION | Compulsory enrollment for military service | KAN
+CEASEFIRE | An order to stop shooting | KAN
+
+# === Economics/Trade ===
+INFLATION | A general increase in prices and fall in purchasing value | XUN
+DEFLATION | A general decrease in prices increasing purchasing power | XUN
+TARIFF | A tax on imported or exported goods | KAN
+SUBSIDY | Financial assistance granted by government to an industry | DUI
+MONOPOLY | Exclusive control of a commodity or service | KAN
+COMMODITY | A raw material or primary agricultural product for trade | QIAN
+DIVIDEND | A sum of money paid to shareholders from profits | DUI
+COLLATERAL | Something pledged as security for repayment of a loan | KAN
+INSOLVENCY | The state of being unable to pay debts | XUN
+SPECULATION | Risky financial transactions for potential profit | DUI
+EMBARGO | An official ban on trade with a particular country | KAN
+AUSTERITY_ECON | Strict economic measures to reduce government spending | GEN
+
+# === Philosophy/Abstract ===
+PARADOX | A seemingly contradictory statement that may be true | GEN
+AXIOM | A self-evident truth requiring no proof | GEN
+DOGMA | A set of principles held to be incontrovertibly true | GEN
+DIALECTIC | The art of investigating truth through reasoned argument | LI
+EMPIRICISM | The theory that knowledge comes from sensory experience | LI
+RELATIVISM | The view that truth depends on individual perspective | DUI
+DETERMINISM | The doctrine that all events are causally inevitable | GEN
+NIHILISM | The rejection of all moral and religious principles | GEN
+PRAGMATISM | An approach that evaluates ideas by their practical outcomes | DUI
+
+# === Maritime/Navigation ===
+HARBOR | A sheltered body of water for anchoring vessels | KUN
+BUOY | A floating marker anchored to indicate position | DUI
+ANCHOR | A heavy device for securing a vessel to the seabed | GEN
+RUDDER | A flat piece at the stern for steering a vessel | LI
+CARGO | Goods carried by a vehicle or vessel | KUN
+BALLAST | Heavy material used to stabilize a vessel | KUN
+LIGHTHOUSE | A tower with a light to guide ships at sea | LI
+RIGGING | The ropes and cables supporting a ship's masts | QIAN

@@ -1,0 +1,44 @@
+# Batch 02: KAN (Water/Relational+Yin) + DUI (Lake/Personal+Yang) + more GEN
+# KAN = social bonds, obligation, hidden depths, yin relationships
+# DUI = expression, joy, charisma, personal yang energy
+# GEN = more introspective/still concepts
+
+# === KAN targets (relational, yin — social structures, obligations, bonds) ===
+SERVITUDE | The condition of being enslaved or bound to serve | KAN
+HIERARCHY | A system of ranking people or things by authority | KAN
+SUBJUGATION | The act of bringing under domination or control | KAN
+COERCION | The use of force or threats to compel action | KAN
+MANIPULATION | Skillful or devious control of others | KAN
+DEPENDENCY | The state of relying on someone or something | KAN
+SUBORDINATION | Placement in a lower rank or position of authority | KAN
+ALLEGIANCE | Loyalty or commitment to a group or cause | KAN
+DIPLOMACY | The art of managing international or interpersonal relations | KAN
+TREACHERY | Betrayal of trust or confidence | KAN
+COMPLICITY | Involvement as an accomplice in wrongdoing | KAN
+EXPLOITATION | The unfair use of someone or something for profit | KAN
+SOLIDARITY | Unity arising from common interests or purpose | KAN
+RIVALRY | Competition between parties for the same objective | KAN
+TREASON | The crime of betraying one's country or sovereign | KAN
+
+# === DUI targets (personal, yang — expression, joy, outward energy) ===
+LAUGHTER | Spontaneous vocal expression of amusement | DUI
+CELEBRATION | Joyful observance of a special occasion | DUI
+FESTIVITY | Cheerful and elaborate social gathering | DUI
+CHARISMA | Compelling personal charm that inspires devotion | DUI
+ELOQUENCE | Fluent and persuasive speaking or writing | DUI
+FLIRTATION | Playful romantic or sexual attention | DUI
+EXUBERANCE | Overflowing energy, excitement, and cheerfulness | DUI
+PLAYFULNESS | A lighthearted and fun-loving quality | DUI
+HOSPITALITY | The friendly reception and entertainment of guests | DUI
+BRAVADO | A bold display of confidence or courage | DUI
+SWAGGER | A confident and arrogant manner of walking or behaving | DUI
+
+# === More GEN (personal, yin — stillness, contemplation) ===
+MEDITATION | The practice of focused contemplation and mental stillness | GEN
+INTROSPECTION | Self-examination of one's own thoughts and feelings | GEN
+WITHDRAWAL | The act of retreating from engagement or society | GEN
+RETICENCE | The quality of being reluctant to speak or reveal | GEN
+INHIBITION | A restraint on the direct expression of instincts | GEN
+COMPOSURE | The state of being calm and self-possessed | GEN
+DETACHMENT | Emotional distance or lack of involvement | GEN
+PRUDENCE | Careful judgment to avoid risk or harm | GEN

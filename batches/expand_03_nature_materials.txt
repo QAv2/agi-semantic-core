@@ -1,0 +1,41 @@
+# Batch 03: Nature, Geography, Materials, Elements
+# Spread across trigrams — physical/spatial concepts
+
+# === Nature/Geography (mostly QIAN/KUN — spatial) ===
+GLACIER | A slow-moving mass of ice carved by gravity | XUN
+VOLCANO | A mountain that erupts molten rock from the earth | ZHEN
+CANYON | A deep gorge carved by flowing water over time | KUN
+MARSH | A low-lying wetland saturated with water | KUN
+TUNDRA | A vast treeless arctic region with frozen subsoil | GEN
+REEF | An underwater ridge of rock or coral near the surface | KUN
+PLATEAU | A flat elevated landform rising sharply above surroundings | GEN
+AVALANCHE | A sudden rapid flow of snow and ice down a slope | ZHEN
+GEYSER | A hot spring that periodically erupts water and steam | ZHEN
+DELTA | A landform created by sediment deposit at a river mouth | XUN
+ESTUARY | A tidal zone where a river meets the sea | KAN
+ARCHIPELAGO | A chain or cluster of islands | QIAN
+SAVANNA | A grassy plain with scattered trees in tropical regions | QIAN
+STEPPE | A vast flat unforested grassland in continental interiors | KUN
+OASIS | A fertile area in a desert sustained by water | DUI
+
+# === Materials/Substances (spatial) ===
+GRANITE | A hard ignite rock composed of quartz and feldspar | QIAN
+LIMESTONE | A sedimentary rock composed mainly of calcium carbonate | KUN
+OBSIDIAN | A dark volcanic glass formed by rapid cooling of lava | GEN
+AMBER | Fossilized tree resin that preserves ancient inclusions | XUN
+BRONZE | An alloy of copper and tin used since ancient times | QIAN
+CERAMIC | A hard brittle material made by firing clay at high heat | QIAN
+IVORY | A hard white material from animal tusks | KUN
+SILK | A fine strong fiber produced by silkworms | XUN
+RUBBER | An elastic material derived from latex or synthetic sources | DUI
+CHARCOAL | A black carbon residue produced by slow burning of wood | XUN
+
+# === Weather/Atmosphere ===
+MONSOON | A seasonal wind pattern bringing heavy rains | ZHEN
+DROUGHT | A prolonged period of abnormally low rainfall | XUN
+HURRICANE | A violent rotating tropical storm with extreme winds | ZHEN
+BLIZZARD | A severe snowstorm with strong sustained winds | ZHEN
+FOG | A thick cloud of water droplets near the ground reducing visibility | KUN
+HAZE | A slight obscuration of the atmosphere by particles | XUN
+AURORA | A luminous atmospheric phenomenon near the poles | DUI
+TSUNAMI | A massive ocean wave caused by undersea disturbance | ZHEN

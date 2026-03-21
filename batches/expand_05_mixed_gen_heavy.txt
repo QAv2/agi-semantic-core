@@ -1,0 +1,49 @@
+# Batch 05: Heavy GEN + DUI + KAN targeting with mixed themes
+# GEN needs the most (207), then XUN (223), KAN (247), DUI (251)
+
+# === GEN: Emotions/Inner States (personal+yin) ===
+GRIEF | Intense sorrow from loss | GEN
+DREAD | Deep anticipatory fear of something terrible | GEN
+DISMAY | A feeling of shock and discouragement | GEN
+HUMILIATION | The state of being publicly shamed or degraded | GEN
+REMORSE | Deep regret for wrongdoing | GEN
+NOSTALGIA | A sentimental longing for the past | GEN
+MELANCHOLY | A deep persistent sadness without clear cause | GEN
+FATIGUE | Physical or mental exhaustion from sustained effort | GEN
+BEWILDERMENT | The state of being utterly confused and lost | GEN
+DISILLUSION | The loss of naive belief or idealism | GEN
+RESTLESSNESS | An inability to remain still or at ease | GEN
+FOREBODING | A feeling that something bad will happen | GEN
+
+# === GEN: Qualities/States (personal+yin) ===
+AUSTERITY | Severe simplicity and lack of luxury | GEN
+MODERATION | The avoidance of excess or extremes | GEN
+SOBRIETY | The state of being sober or serious | GEN
+PERSEVERANCE | Steady persistence despite difficulty | GEN
+DIGNITY | The quality of being worthy of respect | GEN
+DISCRETION | The quality of being careful about what one says or does | GEN
+FRUGALITY | Careful economy in the use of resources | GEN
+
+# === DUI: Expression/Social Yang (personal+yang) ===
+SARCASM | The use of irony to mock or convey contempt | DUI
+FLATTERY | Excessive praise given to gain favor | DUI
+BOASTING | Excessive prideful talk about achievements | DUI
+GOSSIP | Casual talk about other people's affairs | DUI
+BANTER | Playful exchange of teasing remarks | DUI
+APPLAUSE | The clapping of hands to show approval | DUI
+ORATORY | The art of public speaking | DUI
+SATIRE | The use of humor to expose and criticize folly | DUI
+SPECTACLE | A visually striking public display or performance | DUI
+PANACHE | Flamboyant confidence of style | DUI
+VIVACITY | The quality of being lively and animated | DUI
+AUDACITY | Bold willingness to take risks or cause offense | DUI
+
+# === KAN: Social Bonds/Structures (relational+yin) ===
+ASYLUM | Protection granted to political refugees | KAN
+PATRONAGE | Support given by a patron to an artist or cause | KAN
+CUSTODY | Protective care or guardianship over someone | KAN
+RANSOM | Payment demanded for the release of a captive | KAN
+EXTORTION | Obtaining something through force or threats | KAN
+BLACKMAIL | Coercion using threats of exposure | KAN
+AMNESTY | An official pardon for political offenses | KAN
+EXILE | Forced absence from one's homeland | KAN

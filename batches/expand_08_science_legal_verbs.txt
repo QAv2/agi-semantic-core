@@ -1,0 +1,50 @@
+# Batch 08: Science, Legal, Verbs, Abstract — GEN/XUN/KAN/DUI targeted
+
+# === Scientific Concepts ===
+ENTROPY | The measure of disorder in a system that tends to increase | XUN
+INERTIA | The resistance of a body to changes in its state of motion | GEN
+FRICTION | The resistance to motion between surfaces in contact | KAN
+VISCOSITY | The internal resistance of a fluid to flow | KUN
+AMPLITUDE | The maximum extent of a vibration or oscillation | QIAN
+WAVELENGTH | The spatial period of a wave | QIAN
+OSMOSIS | The movement of solvent through a membrane to equalize concentration | XUN
+PHOTOSYNTHESIS | The process by which plants convert light to chemical energy | LI
+METABOLISM | The chemical processes sustaining life in an organism | ZHEN
+ANTIBODY | A protein produced by the immune system to neutralize pathogens | LI
+CHROMOSOME | A structure of DNA carrying genetic information | KUN
+ENZYME | A biological catalyst that accelerates chemical reactions | ZHEN
+ISOTOPE | Atoms of the same element with different numbers of neutrons | KUN
+NUCLEUS | The central core of an atom or cell | QIAN
+PLASMA | An ionized gas forming the fourth state of matter | ZHEN
+QUANTUM | The minimum amount of a physical quantity involved in an interaction | GEN
+
+# === Legal/Governance ===
+VERDICT | The decision of a jury or judge in a trial | LI
+TESTIMONY | A formal statement given under oath | LI
+SUBPOENA | A legal order requiring court appearance or document production | KAN
+INJUNCTION | A court order requiring or prohibiting an action | KAN
+JURISDICTION | The official authority to make legal decisions | LI
+STATUTE | A written law passed by a legislative body | KAN
+LITIGATION | The process of taking legal action in court | LI
+ACQUITTAL | A judgment of not guilty in a criminal trial | DUI
+INDICTMENT | A formal charge of a serious crime | KAN
+PERJURY | The offense of lying under oath in court | KAN
+ARBITRATION | Resolution of a dispute by an impartial third party | KAN
+PRECEDENT | A previous case used as an example for future decisions | GEN
+CLEMENCY | Mercy shown toward an offender by authority | DUI
+
+# === Verbs/Actions ===
+SMOLDER | To burn slowly without flame | XUN
+QUENCH | To satisfy or extinguish thirst or fire | DUI
+RECOIL | To spring back suddenly from impact or revulsion | ZHEN
+SUFFOCATE | To be deprived of air or unable to breathe | KUN
+EXCAVATE | To dig out material from the ground | QIAN
+ILLUMINATE | To light up or make clear and understandable | LI
+CALIBRATE | To adjust precisely for accurate measurement | GEN
+FERMENT | To undergo chemical change through enzymatic action | XUN
+CONGEAL | To solidify or thicken from liquid state | XUN
+COALESCE | To come together and form a unified whole | LI
+MEANDER | To follow a winding course without urgency | XUN
+STAGNATE | To cease flowing or developing | XUN
+OSCILLATE | To move back and forth in a regular pattern | ZHEN
+SATURATE | To soak thoroughly or fill to capacity | KUN

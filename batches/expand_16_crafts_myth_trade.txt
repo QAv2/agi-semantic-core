@@ -1,0 +1,47 @@
+# Batch 16: Crafts, Mythology, Trade, Marine biology, Botany, Construction
+
+# === Mythology/Legend ===
+LABYRINTH | A complex maze-like structure difficult to navigate | GEN
+CHIMERA | A mythical creature composed of parts from different animals | DUI
+PHOENIX | A mythical bird that cyclically regenerates from its ashes | ZHEN
+MINOTAUR | A mythical creature with a bull's head and human body | KAN
+SIREN | A mythical creature whose song lures sailors to destruction | DUI
+GRYPHON | A legendary creature with the body of a lion and head of an eagle | QIAN
+LEVIATHAN | A massive sea creature of biblical mythology | KUN
+HYDRA | A multi-headed serpent that grows two heads for each one cut | ZHEN
+CENTAUR | A mythical creature with human upper body and horse lower body | LI
+ORACLE_DELPHI | A sacred site where prophecies were delivered | GEN
+
+# === Marine Biology ===
+CORAL | Marine organisms that build calcium carbonate structures | KUN
+KELP | Large brown seaweed forming underwater forests | KUN
+BARNACLE | A marine crustacean that attaches permanently to surfaces | GEN
+ANEMONE | A marine polyp with tentacles surrounding a central mouth | KUN
+JELLYFISH | A gelatinous free-swimming marine creature | XUN
+NAUTILUS | A marine mollusk with a chambered spiral shell | GEN
+SEAHORSE | A small marine fish with a horse-shaped head | DUI
+STARFISH | A marine echinoderm with radiating arms | LI
+
+# === Botany/Plants ===
+RHIZOME | An underground stem growing horizontally | XUN
+TUBER | A swollen underground stem storing nutrients | KUN
+TENDRIL | A slender threadlike growth used for climbing | XUN
+THORN | A sharp pointed growth on a plant stem | GEN
+CANKER | A disease causing decay in tree bark and wood | XUN
+BLIGHT | A plant disease causing rapid withering and death | XUN
+PETAL | A segment of the corolla of a flower | DUI
+STAMEN | The pollen-producing organ of a flower | ZHEN
+PISTIL | The female reproductive organ of a flower | KUN
+CHLOROPHYLL | The green pigment enabling photosynthesis in plants | LI
+
+# === Construction/Building ===
+MORTAR | A mixture of cement, sand, and water for binding bricks | KUN
+RAFTER | A structural beam supporting a roof | QIAN
+JOIST | A horizontal beam supporting a floor or ceiling | QIAN
+TRUSS | A framework of beams forming a rigid structure | QIAN
+LINTEL | A horizontal support across the top of a door or window | QIAN
+PLINTH | The base or platform upon which a column or statue stands | GEN
+GROUT | A fluid mortar used to fill gaps and seal joints | KUN
+SCAFFOLDING | Temporary framework for supporting construction workers | QIAN
+MASONRY | Stonework or brickwork in building construction | QIAN
+TRESTLE | A framework of horizontal beams supported by legs | QIAN

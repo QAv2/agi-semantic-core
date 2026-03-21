@@ -1,0 +1,35 @@
+# Batch 01: GEN (Mountain/Stillness) + XUN (Wind/Gentle) focus
+# GEN = Personal + Yin (introspection, solitude, inner states)
+# XUN = Temporal + Yin (gradual processes, erosion, slow change)
+
+# === GEN targets (personal, yin, introspective) ===
+SOLEMNITY | A serious, dignified quality or manner | GEN
+RESIGNATION | Acceptance of something undesirable but inevitable | GEN
+STOICISM | Endurance of hardship without complaint | GEN
+INTROVERSION | The quality of being inwardly focused and reserved | GEN
+BROODING | Deep, dark contemplation; dwelling on troubling thoughts | GEN
+LONELINESS | The distress of being alone or feeling isolated | GEN
+WEARINESS | A state of exhaustion or fatigue from prolonged effort | GEN
+STUBBORNNESS | Unyielding refusal to change position or opinion | GEN
+SKEPTICISM | A doubting or questioning attitude toward claims | GEN
+RESENTMENT | Bitter indignation at perceived unfair treatment | GEN
+SHYNESS | Timid reluctance to engage socially | GEN
+NUMBNESS | Loss of sensation or emotional responsiveness | GEN
+PESSIMISM | A tendency to see the worst in situations | GEN
+
+# === XUN targets (temporal, yin, gradual processes) ===
+EROSION | The gradual wearing away of material by natural forces | XUN
+CORROSION | The slow chemical destruction of metal or material | XUN
+ATROPHY | The gradual decline or wasting of tissue or ability | XUN
+FADING | The slow loss of color, intensity, or prominence | XUN
+WITHERING | The slow drying and shriveling of living things | XUN
+FERMENTATION | Slow chemical transformation by microorganisms | XUN
+SEDIMENTATION | The gradual settling and accumulation of particles | XUN
+INFILTRATION | The slow, stealthy entry into a space or organization | XUN
+DIFFUSION | The gradual spreading of particles or ideas through a medium | XUN
+GESTATION | The slow development of offspring or ideas before emergence | XUN
+INCUBATION | A period of slow hidden development before manifestation | XUN
+OXIDATION | The slow chemical process of combining with oxygen | XUN
+MATURATION | The gradual process of reaching full development | XUN
+WEATHERING | The slow breakdown of rock by atmospheric exposure | XUN
+PERCOLATION | The slow filtering of liquid through porous material | XUN

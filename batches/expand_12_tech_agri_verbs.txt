@@ -1,0 +1,57 @@
+# Batch 12: Technology, Agriculture, Geometry, Clothing, Verbs — 40+ concepts
+
+# === Technology/Mechanics ===
+PISTON | A component that moves up and down in a cylinder | ZHEN
+LEVER | A rigid bar pivoting on a fulcrum to amplify force | QIAN
+GEAR | A toothed wheel that meshes with another to transmit motion | ZHEN
+AXLE | A rod on which a wheel or pair of wheels rotates | QIAN
+PULLEY | A wheel with a groove for a rope to change force direction | QIAN
+HYDRAULIC | Relating to power transmitted by pressurized liquid | KUN
+PNEUMATIC | Operated by compressed air or gas | ZHEN
+THERMOSTAT | A device that regulates temperature automatically | GEN
+GYROSCOPE | A spinning device that resists changes in orientation | GEN
+SOLENOID | A coil of wire that produces a magnetic field when electrified | ZHEN
+
+# === Agriculture/Farming ===
+IRRIGATION | The artificial application of water to land for crops | KUN
+CULTIVATION | The preparation and use of land for growing crops | KUN
+HARVEST | The gathering of ripe crops from the fields | DUI
+COMPOST | Decayed organic material used as fertilizer | XUN
+PASTURE | Land covered with grass for grazing livestock | KUN
+ORCHARD | An area of land planted with fruit trees | QIAN
+VINEYARD | A plantation of grapevines for winemaking | XUN
+GRANARY | A storehouse for threshed grain | GEN
+PLOW | An implement for cutting and turning soil | QIAN
+SICKLE | A curved blade for cutting grain or tall grass | KUN
+TILLAGE | The cultivation of land by plowing and preparing soil | KUN
+CROP_ROTATION | The practice of alternating crops on the same land | XUN
+HUSBANDRY | The care and breeding of farm animals | KAN
+
+# === Geometry/Shapes ===
+HELIX | A three-dimensional spiral curve | ZHEN
+TESSELLATION | A pattern of shapes that fit together without gaps | LI
+SYMMETRY | Balanced proportions with exact correspondence of parts | LI
+TANGENT | A line that touches a curve at exactly one point | LI
+VERTEX | The highest point or the point where two lines meet | QIAN
+CIRCUMFERENCE | The distance around the boundary of a circle | KAN
+PERPENDICULAR | At right angles to a given line or surface | GEN
+
+# === Clothing/Textiles ===
+GARMENT | An article of clothing | KUN
+TUNIC | A loose-fitting garment extending to the knees | KUN
+VEIL | A piece of cloth concealing the face or covering | GEN
+SHROUD | A cloth wrapping a body for burial | GEN
+TANNING | The process of treating animal hide to make leather | XUN
+DYEING | The process of adding color to textile materials | XUN
+
+# === More Verbs (mixed trigrams) ===
+KINDLE | To ignite a flame or arouse an emotion | ZHEN
+QUIVER | To tremble or shake with a slight rapid motion | GEN
+PONDER | To think about something carefully and at length | GEN
+WIELD | To hold and use a weapon or tool with skill | QIAN
+BECKON | To make a gesture inviting someone to approach | DUI
+MURMUR | To speak softly and indistinctly | XUN
+LINGER | To stay in a place longer than necessary | XUN
+UNRAVEL | To undo twisted threads or investigate a mystery | XUN
+RELINQUISH | To voluntarily give up possession or control | GEN
+INCITE | To urge or stir up violent or unlawful action | ZHEN

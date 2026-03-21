@@ -1,0 +1,48 @@
+# Batch 07: Broad vocabulary — animals, food, architecture, music, science, legal
+
+# === Animals/Creatures ===
+FALCON | A swift predatory bird trained for hunting | ZHEN
+SERPENT | A large snake, often symbolizing cunning or wisdom | KAN
+WHALE | The largest marine mammal of the deep ocean | KUN
+MOTH | A nocturnal insect drawn to light | XUN
+PARASITE | An organism that lives on or in a host at its expense | KAN
+PREDATOR | An animal that hunts and kills others for food | ZHEN
+STALLION | An adult male horse of breeding quality | QIAN
+RAVEN | A large black corvid associated with intelligence and omens | GEN
+SCORPION | An arachnid with a venomous stinger on its tail | KAN
+BEETLE | A hard-shelled insect with modified forewings | KUN
+LARVAE | The immature form of an insect before metamorphosis | XUN
+COCOON | A silky case spun by larvae for protection during transformation | XUN
+
+# === Food/Drink/Sustenance ===
+BROTH | A savory liquid made by simmering meat or vegetables | KUN
+VINEGAR | A sour liquid produced by fermenting alcohol | XUN
+YEAST | A single-celled fungus used in fermentation and baking | XUN
+NECTAR | A sweet liquid secreted by flowers to attract pollinators | DUI
+SPICE | An aromatic plant substance used to flavor food | DUI
+GRAIN | The seed of a cereal grass used as food | KUN
+PASTRY | A dough of flour, fat, and water baked as food | DUI
+BREWER | One who makes beer or ale by fermentation | XUN
+
+# === Architecture/Structures ===
+VAULT | An arched structure forming a ceiling or roof | QIAN
+PARAPET | A low protective wall along the edge of a roof or bridge | GEN
+BUTTRESS | A projecting support built against a wall | QIAN
+TURRET | A small tower at the corner of a building or wall | GEN
+ATRIUM | An open central court in a building | DUI
+ALCOVE | A recessed section of a room or wall | GEN
+SPIRE | A tall pointed structure atop a tower or building | QIAN
+CRYPT | An underground room beneath a church for burial | GEN
+ARCADE | A covered passageway with arches along one side | LI
+PORTICO | A porch leading to a building entrance with columns | LI
+
+# === Music/Sound ===
+MELODY | A sequence of musical notes forming a pleasing pattern | DUI
+HARMONY | The combination of simultaneous musical notes into chords | LI
+RHYTHM | A regular repeated pattern of beats or sounds | ZHEN
+DISCORD | A harsh disagreeable combination of sounds | KAN
+RESONANCE | The reinforcement of sound by sympathetic vibration | LI
+CADENCE | The rise and fall of sound in speech or music | XUN
+TIMBRE | The distinctive quality of a musical sound | GEN
+CRESCENDO | A gradual increase in loudness or intensity | ZHEN
+DIMINUENDO | A gradual decrease in loudness or intensity | XUN

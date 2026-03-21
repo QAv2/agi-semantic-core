@@ -1,0 +1,54 @@
+# Batch 17: Heavy XUN/GEN/KAN/DUI targeting — diverse topics
+
+# === XUN: Gradual/temporal processes ===
+EROSION_WIND | The gradual wearing of surfaces by wind-carried particles | XUN
+OXIDATION_RUST | The gradual rusting of iron by moisture and oxygen | XUN
+SEDIMENTATION_LAKE | The gradual filling of a lake with settled deposits | XUN
+RIPENING | The gradual process of fruit reaching maturity | XUN
+FERMENTATION_CHEESE | The slow bacterial process of making cheese | XUN
+CURING_LEATHER | The gradual preservation of animal hide | XUN
+SEASONING_WOOD | The gradual drying of lumber for construction use | XUN
+COMPOSTING | The gradual decomposition of organic waste into fertilizer | XUN
+PICKLING | The preservation of food by immersion in acid or brine | XUN
+TARNISHING | The gradual discoloration of metal surfaces | XUN
+BREWING | The process of making beer through steeping and fermentation | XUN
+STEEPING | Soaking a substance in liquid to extract its essence | XUN
+SEEPAGE | The slow oozing of fluid through porous material | XUN
+GRADATION | A gradual transition through stages or degrees | XUN
+DIMINISHMENT | The gradual reduction in size, extent, or importance | XUN
+
+# === GEN: Internal/contemplative/still ===
+RESIGNATION_INNER | Inner acceptance and surrender to circumstances | GEN
+IMPASSIVITY | The quality of showing no emotion or reaction | GEN
+STOLIDITY | Calm dependable endurance without emotional display | GEN
+FORBEARANCE_INNER | Patient tolerance of provocation without retaliation | GEN
+CONTEMPLATION | Deep reflective thought about spiritual matters | GEN
+DELIBERATION | Long and careful consideration before decision | GEN
+SELF_DISCIPLINE | The ability to control one's impulses and behavior | GEN
+SELF_RESTRAINT | Control exercised over one's own desires and actions | GEN
+CIRCUMSPECTION_INNER | Careful awareness of potential consequences | GEN
+RESERVE | A quality of being slow to reveal emotions or opinions | GEN
+TACITNESS | The quality of being understood without being stated | GEN
+INSCRUTABILITY | The quality of being impossible to understand or interpret | GEN
+IMPENETRABILITY | The quality of being impossible to pass through or understand | GEN
+OPACITY | The quality of being difficult to see through or understand | GEN
+
+# === KAN: Relational bonds ===
+INDENTURE | A formal contract binding one person to serve another | KAN
+FEALTY | A feudal tenant's sworn loyalty to a lord | KAN
+VASSALAGE | The state of being subordinate to a feudal superior | KAN
+CLIENTELE | The body of customers or clients served by a business | KAN
+FEDERATION | A union of states under a central authority retaining autonomy | KAN
+CONFEDERATION | A loose alliance of independent states or groups | KAN
+CONSORTIUM | An association of companies for a common purpose | KAN
+SYNDICATE | A group of individuals organized to conduct business | KAN
+
+# === DUI: Expressive/social/joyful ===
+JUBILATION | Great joy and celebration | DUI
+MERRIMENT | Lively enjoyment and amusement | DUI
+REVELRY | Noisy festive celebration and merrymaking | DUI
+JEST | A thing said or done for amusement | DUI
+QUIP | A witty remark or response | DUI
+WITTICISM | A cleverly amusing remark or observation | DUI
+OVATION | Enthusiastic prolonged applause from an audience | DUI
+ACCLAMATION | Loud eager expression of approval or welcome | DUI

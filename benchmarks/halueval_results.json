@@ -1,0 +1,10 @@
+{
+  "dataset": "HaluEval-QA",
+  "n_records": 1000,
+  "standalone_accuracy": 0.05,
+  "context_accuracy": 0.436,
+  "mean_angle_right": 27.19,
+  "mean_angle_hallu": 25.21,
+  "mean_angle_rh": 33.89,
+  "elapsed_seconds": 175.5
+}

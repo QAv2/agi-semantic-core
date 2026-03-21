@@ -1,0 +1,51 @@
+# Batch 06: XUN-heavy + GEN + broad vocabulary filling
+# XUN (223) and GEN (219) still lowest
+
+# === XUN: Slow processes, temporal yin, gradual change ===
+DECOMPOSITION | The slow breakdown of organic matter | XUN
+DETERIORATION | The gradual decline in quality or condition | XUN
+EVAPORATION | The slow transformation of liquid to vapor | XUN
+GERMINATION | The beginning of growth from seed or spore | XUN
+HIBERNATION | A state of dormancy during winter months | XUN
+MIGRATION | The seasonal movement of animals between regions | XUN
+FOSSILIZATION | The slow process of organic remains becoming stone | XUN
+CALCIFICATION | The gradual hardening of tissue by calcium deposits | XUN
+ACCUMULATION | The gradual gathering of increasing quantities | XUN
+DEPRECIATION | The gradual decrease in value over time | XUN
+DISINTEGRATION | The slow falling apart into component pieces | XUN
+PROPAGATION | The gradual spreading or reproduction of something | XUN
+SUBSIDENCE | The gradual sinking or settling of ground | XUN
+DILUTION | The gradual weakening by adding more solvent | XUN
+ASSIMILATION | The gradual absorption into a larger cultural group | XUN
+ACCLIMATIZATION | The slow adjustment to a new climate or conditions | XUN
+STRATIFICATION | The gradual formation of distinct layers | XUN
+CRYSTALLIZATION | The slow formation of a crystal structure | XUN
+
+# === GEN: Contemplative/Internal/Stoic qualities ===
+ENDURANCE | The ability to withstand hardship over time | GEN
+FORBEARANCE | Patient self-control and restraint under provocation | GEN
+TEMPERANCE | Moderation and self-restraint in behavior | GEN
+RECTITUDE | Moral uprightness and correctness of behavior | GEN
+DECORUM | Dignified propriety of behavior and manners | GEN
+SOLITUDE | The state of being alone without distress | GEN
+SERENITY | The state of calm and untroubled peace | GEN
+EQUANIMITY | Mental calmness under stress or difficulty | GEN
+TACITURNITY | The quality of being reserved and uncommunicative | GEN
+TENACITY | The quality of holding firmly to a purpose | GEN
+VIGILANCE | Watchful alertness to danger or difficulty | GEN
+CIRCUMSPECTION | Careful consideration of all circumstances | GEN
+ABSTINENCE | The practice of voluntarily refraining from indulgence | GEN
+
+# === Mixed vocabulary — common words likely in definitions ===
+SCAFFOLD | A temporary framework for supporting workers during construction | QIAN
+MEMBRANE | A thin flexible layer separating or lining structures | KUN
+CATALYST | A substance that accelerates a reaction without being consumed | ZHEN
+RESIDUE | Material remaining after a process is complete | XUN
+SPECIMEN | A sample taken for examination or display | LI
+APPARATUS | A complex device or system for a specific purpose | QIAN
+TERRAIN | A stretch of land with particular physical features | KUN
+CANOPY | An overhead covering providing shade or shelter | KUN
+FURNACE | An enclosed chamber for producing intense heat | ZHEN
+CISTERN | A tank for storing water | KUN
+CONDUIT | A channel for conveying fluid or signals | KAN
+TURBINE | A machine driven by a flow of fluid against blades | ZHEN

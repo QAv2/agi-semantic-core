@@ -1,0 +1,53 @@
+# Batch 21: THE FINAL 40+ — crossing 3000
+
+# === Mixed domains — filling the last gap ===
+EULOGY_FUNERAL | A tribute speech honoring the deceased | DUI
+DIRGE | A slow mournful piece of music for the dead | GEN
+REQUIEM | A musical composition for the repose of the dead | GEN
+LULLABY | A quiet gentle song sung to send a child to sleep | XUN
+BALLAD | A narrative poem or song telling a popular story | DUI
+SONNET | A fourteen-line poem in iambic pentameter | GEN
+HAIKU | A Japanese poem of three lines with seventeen syllables | GEN
+LIMERICK | A humorous five-line poem with a specific rhyme scheme | DUI
+PSALM | A sacred song or hymn of praise | GEN
+
+CRUCIFORM | Having the shape of a cross | LI
+MONOLITH | A large single upright block of stone | GEN
+OBELISK | A tall four-sided narrow tapering monument | QIAN
+CAIRN | A mound of rough stones built as a memorial or landmark | GEN
+DOLMEN | A megalithic tomb with a large flat stone on uprights | GEN
+
+TEMPEST_SEA | A violent storm at sea with high waves | ZHEN
+MAELSTROM | A powerful whirlpool in the sea | ZHEN
+DOLDRUMS | A region of calm winds near the equator | XUN
+MISTRAL | A strong cold northwesterly wind in southern France | ZHEN
+
+EMBARGO_TRADE | A government order prohibiting commercial trade | KAN
+TARIFF_PROTECTIVE | A duty imposed to protect domestic industry | KAN
+QUOTA | A limited quantity of a product permitted for import | KAN
+LEVY | A tax or compulsory payment imposed by authority | KAN
+
+INCANDESCENCE | The emission of light from a heated body | LI
+PHOSPHORESCENCE | The emission of light without combustion or heat | XUN
+FLUORESCENCE | The emission of light by a substance absorbing radiation | LI
+BIOLUMINESCENCE | The production of light by living organisms | LI
+IRIDESCENCE | A lustrous rainbow-like play of color on a surface | DUI
+
+ABRASION | The process of scraping or wearing away by friction | XUN
+ACCRETION | Growth or increase by gradual external addition | XUN
+AGGLOMERATION | The collecting of things into a mass or group | QIAN
+AMALGAMATION | The action of combining or uniting | LI
+
+VESTIBULE | An antechamber or hall between the entrance and interior | GEN
+ALCAZAR | A Spanish palace or fortress of Moorish origin | QIAN
+CITADEL | A fortress commanding a city | GEN
+BASTION | A projecting part of a fortification | QIAN
+KEEP | The strongest tower of a castle serving as last refuge | GEN
+TURRET_CASTLE | A small tower at the corner of a castle wall | GEN
+MOAT | A deep wide water-filled ditch surrounding a castle | KAN
+BARBICAN | A fortified outpost or gateway to a castle | GEN
+PORTCULLIS | A heavy grated gate that slides vertically in grooves | KAN
+BATTLEMENT | A parapet with alternating openings for defense | GEN
+PINNACLE | The highest point or a small ornamental turret | QIAN
+CUPOLA | A small dome atop a roof or turret | DUI
+GARGOYLE | A carved stone figure projecting from a roof gutter | GEN

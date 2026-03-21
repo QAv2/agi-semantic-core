@@ -1,0 +1,41 @@
+# Batch 04: Professions/Roles + Body/Anatomy + Tools/Instruments
+# Targeting GEN, KAN, DUI to keep catching up
+
+# === Professions/Roles ===
+SURGEON | A doctor who performs operations on the body | LI
+CARPENTER | A craftsperson who builds with wood | QIAN
+BLACKSMITH | A metalworker who forges iron and steel | QIAN
+LIBRARIAN | A keeper and organizer of books and knowledge | GEN
+SHEPHERD | One who tends and guards a flock of sheep | KAN
+MIDWIFE | A person trained to assist in childbirth | LI
+MERCHANT | A person who buys and sells goods for profit | DUI
+DIPLOMAT | An official who manages international relations | KAN
+MONK | A member of a religious community living in contemplation | GEN
+HERMIT | A person living in solitude away from society | GEN
+SCOUT | One who explores ahead to gather information | ZHEN
+COURIER | A messenger who carries documents or packages | ZHEN
+ARTISAN | A skilled manual worker who crafts goods by hand | LI
+SENTINEL | A guard stationed to keep watch | GEN
+ASSASSIN | One who kills a prominent person by stealth | KAN
+ORACLE | A priest or priestess serving as a channel for prophecy | XUN
+SCRIBE | One who writes or copies documents by hand | KAN
+
+# === Body/Anatomy ===
+SKELETON | The internal framework of bones supporting the body | QIAN
+TENDON | A tough cord of tissue connecting muscle to bone | QIAN
+MARROW | The soft tissue inside bones that produces blood cells | KUN
+CARTILAGE | Flexible connective tissue found in joints and structures | DUI
+PUPIL | The opening in the iris that admits light to the eye | KAN
+DIAPHRAGM | The muscular partition between chest and abdomen | QIAN
+CAPILLARY | The smallest blood vessel connecting arteries to veins | XUN
+SYNAPSE | The junction between two nerve cells for signal transmission | ZHEN
+
+# === Tools/Instruments ===
+ANVIL | A heavy block on which metal is hammered and shaped | QIAN
+CRUCIBLE | A container for melting materials at high temperature | ZHEN
+LOOM | A device for weaving thread into cloth | KAN
+BELLOWS | A device that blows air to increase combustion | ZHEN
+COMPASS | An instrument for determining direction via magnetism | GEN
+SCALPEL | A small sharp-bladed knife used for surgery | LI
+PENDULUM | A weight suspended to swing freely under gravity | XUN
+PRISM | A transparent body that disperses light into a spectrum | DUI

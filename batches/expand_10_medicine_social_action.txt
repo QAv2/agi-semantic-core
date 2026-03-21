@@ -1,0 +1,51 @@
+# Batch 10: Medicine, Social, Emotions, Actions — GEN/XUN priority
+
+# === Medicine/Health ===
+SYMPTOM | An indication of disease or disorder noticed by the patient | GEN
+DIAGNOSIS | Identification of the nature of an illness | LI
+PROGNOSIS | A forecast of the likely course of a disease | XUN
+CONTAGION | The spreading of disease by direct or indirect contact | XUN
+INOCULATION | Introduction of a vaccine to produce immunity | LI
+ANESTHESIA | Loss of sensation induced for medical procedures | GEN
+INFLAMMATION | Redness and swelling as a response to injury | ZHEN
+HEMORRHAGE | Severe uncontrolled bleeding from a ruptured blood vessel | ZHEN
+AMPUTATION | The surgical removal of a limb or body part | KUN
+PROSTHESIS | An artificial device replacing a missing body part | QIAN
+QUARANTINE | Isolation imposed to prevent spread of disease | GEN
+TRIAGE | The assignment of priority to patients based on severity | LI
+PALLIATIVE | Treatment relieving symptoms without curing the disease | XUN
+REMISSION | A temporary diminishing of disease severity | XUN
+RELAPSE | A return of disease symptoms after improvement | XUN
+TRAUMA | A deeply distressing or disturbing experience | GEN
+
+# === Social Structures/Concepts ===
+CASTE | A rigid social class determined by birth | KAN
+ARISTOCRACY | A ruling class of privileged nobility | KAN
+PEASANTRY | The class of small farmers and agricultural laborers | KUN
+BOURGEOISIE | The middle class, especially property owners | DUI
+PROLETARIAT | The working class who sell their labor | KUN
+OLIGARCHY | Government by a small group of powerful people | KAN
+THEOCRACY | Government ruled by religious authority | KAN
+FEUDALISM | A medieval social system of lords and vassals | KAN
+MERITOCRACY | A system where advancement is based on ability | LI
+BUREAUCRACY | Administration through departments and rules | KAN
+PATRIARCHY | A social system in which men hold primary authority | KAN
+
+# === More Emotions/Inner States (GEN) ===
+ANGUISH | Severe mental or physical pain and suffering | GEN
+EXASPERATION | Intense irritation and frustration | GEN
+TREPIDATION | A feeling of fear about something that may happen | GEN
+DESOLATION | A state of complete emptiness and bleakness | GEN
+YEARNING | An intense longing for something distant or lost | GEN
+CONSTERNATION | A feeling of shock and dismay causing confusion | GEN
+ELATION | Great happiness and exhilaration | DUI
+EUPHORIA | An intense feeling of well-being and excitement | DUI
+RAPTURE | A feeling of intense pleasure or joy | DUI
+
+# === More XUN: Gradual/Temporal processes ===
+ATTRITION | The gradual wearing down through sustained pressure | XUN
+OBSOLESCENCE | The process of becoming outdated or no longer used | XUN
+CONVALESCENCE | The gradual recovery of health after illness | XUN
+DEPLETION | The reduction of a resource through consumption | XUN
+FERMENTATION_WINE | The slow conversion of grape juice into wine | XUN
+PUTREFACTION | The slow decomposition of organic matter by bacteria | XUN

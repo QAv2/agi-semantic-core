@@ -1,0 +1,50 @@
+# Batch 19: Sprint to 3000 — XUN-heavy + LI/KAN/DUI/GEN balance
+
+# === XUN: More gradual processes (XUN is floor at 303) ===
+WEATHERING_CHEM | The gradual chemical breakdown of minerals by water | XUN
+SILTING | The gradual choking of waterways with fine sediment | XUN
+RUSTING | The gradual oxidation of iron forming reddish deposits | XUN
+WILTING | The gradual drooping of a plant from lack of water | XUN
+SMOLDERING | A slow burn without flame producing smoke | XUN
+SIMMERING | Cooking at a temperature just below boiling | XUN
+STEAMING | The slow cooking of food by steam heat | XUN
+CURDLING | The separation of milk into solid curds and liquid whey | XUN
+MARINATING | Soaking food in a seasoned liquid to enhance flavor | XUN
+SEASONING_FOOD | The gradual enhancement of flavor by adding spices | XUN
+AGING_WINE | The slow maturation of wine in barrels | XUN
+TEMPERING | The gradual reheating and cooling of metal to reduce brittleness | XUN
+ANNEALING | The gradual heating and slow cooling to remove internal stresses | XUN
+PATINATION | The gradual formation of a surface layer through oxidation | XUN
+SILICIFICATION | The gradual replacement of organic material with silica | XUN
+SALINIZATION | The gradual increase in salt concentration in soil or water | XUN
+
+# === LI: Relational+Yang (connection, illumination, structure) ===
+SYMPOSIUM | A conference for discussion of a particular subject | LI
+TRIBUNAL | A court of justice for hearing cases | LI
+JURISPRUDENCE | The theory and philosophy of law | LI
+CONCORDANCE | An agreement or consistency between things | LI
+RECIPROCITY | The practice of exchanging things for mutual benefit | LI
+CORRELATION | A mutual relationship between two or more things | LI
+PARITY | The state of being equal or equivalent | LI
+SYNERGY | Combined interaction producing an effect greater than separate parts | LI
+
+# === KAN: More relational bonds ===
+CARTEL | An association of manufacturers maintaining high prices | KAN
+COVENANT | A solemn agreement between parties | KAN
+ALLIANCE | A union formed for mutual benefit between nations or groups | KAN
+COMPACT | A formal agreement between two or more parties | KAN
+CONCESSION | A thing granted as a compromise | KAN
+STIPULATION | A condition or requirement specified in an agreement | KAN
+FIDUCIARY | Relating to a position of trust managing another's assets | KAN
+
+# === DUI/GEN mix ===
+PANEGYRIC | A public speech of elaborate praise | DUI
+ENCOMIUM | A speech or text in warm praise of someone | DUI
+DIATRIBE | A forceful and bitter verbal attack | DUI
+TIRADE | A long angry speech of criticism | DUI
+SOLILOQUY | An act of speaking one's thoughts aloud when alone | GEN
+REVERIE | A state of being pleasantly lost in thought | GEN
+STUPOR | A state of near-unconsciousness or insensibility | GEN
+CATATONIA | A state of immobility and unresponsiveness | GEN
+TRANCE | A half-conscious state between sleeping and waking | GEN
+DORMANCY_SEED | A period of suspended growth in a seed before germination | XUN

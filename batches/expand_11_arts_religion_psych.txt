@@ -1,0 +1,55 @@
+# Batch 11: Arts, Religion, Psychology, Geography, Domestic
+# Balancing GEN/XUN/KAN/DUI as priority
+
+# === Arts/Craft (mixed trigrams) ===
+MOSAIC | A picture made from small colored pieces assembled together | LI
+TAPESTRY | A heavy textile with woven pictorial designs | KAN
+FRESCO | A painting done on fresh wet plaster | LI
+CALLIGRAPHY | The art of beautiful handwriting | GEN
+SCULPTURE | The art of shaping solid materials into forms | QIAN
+ETCHING | The art of producing images by acid on metal plates | XUN
+POTTERY | Objects made from clay hardened by heat | KUN
+GLAZE | A smooth glassy coating applied to ceramics | DUI
+PATINA | A surface coating that develops on metal over time | XUN
+LACQUER | A hard glossy finish applied in thin layers | XUN
+PIGMENT | A coloring substance used in paint or dye | KUN
+PALETTE | A range of colors used by an artist | DUI
+STENCIL | A template used to apply a pattern or design | LI
+KILN | A furnace for hardening or drying materials | ZHEN
+
+# === Religion/Ritual ===
+PILGRIMAGE | A journey to a sacred place for spiritual purposes | XUN
+LITURGY | A prescribed form of public worship | KAN
+SACRAMENT | A religious ceremony regarded as imparting grace | LI
+PENANCE | An act of self-punishment for wrongdoing | GEN
+ATONEMENT | Making amends for a wrongdoing or sin | GEN
+HERESY | A belief contrary to established religious doctrine | DUI
+RELIC | An object surviving from a sacred or historical past | GEN
+TABOO | A social prohibition against certain behaviors | KAN
+CONSECRATION | The act of declaring something sacred or dedicated | LI
+APOSTASY | The abandonment of a religious or political belief | DUI
+MARTYRDOM | Suffering or death for a cause or belief | GEN
+
+# === Psychology/Mind ===
+PROJECTION | Attribution of one's feelings to another person | DUI
+REPRESSION | The unconscious blocking of unpleasant thoughts | GEN
+SUBLIMATION | The channeling of impulses into socially acceptable activity | XUN
+FIXATION | An obsessive attachment to a person or thing | GEN
+DISSOCIATION | A disconnection from thoughts, feelings, or identity | GEN
+COMPULSION | An irresistible urge to perform an action | ZHEN
+PARANOIA | Irrational suspicion and mistrust of others | GEN
+PHOBIA | An extreme irrational fear of something specific | GEN
+CATHARSIS | The purging of emotions through art or expression | DUI
+TRANSFERENCE | The redirection of feelings onto a substitute | KAN
+REGRESSION | A return to an earlier stage of development | XUN
+CONDITIONING | The process of training behavior through reinforcement | XUN
+HABITUATION | The gradual diminishing of response to repeated stimuli | XUN
+
+# === Domestic/Household ===
+HEARTH | The floor of a fireplace, symbolizing home | GEN
+THRESHOLD | The strip of ground at the entrance of a doorway | GEN
+PANTRY | A room for storing food and provisions | KUN
+CELLAR | An underground room used for storage | KUN
+CHIMNEY | A vertical channel for conveying smoke upward | QIAN
+SHUTTER | A hinged cover for a window | GEN
+CRADLE | A small bed for an infant that rocks | GEN

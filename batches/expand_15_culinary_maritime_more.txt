@@ -1,0 +1,54 @@
+# Batch 15: Culinary, emotions, social dynamics, natural phenomena, abstract
+
+# === Culinary/Food ===
+MARINADE | A seasoned liquid for soaking food before cooking | XUN
+SOURDOUGH | Bread made from a fermented dough starter | XUN
+DISTILLATION | The purification of liquid by heating and condensing vapor | XUN
+BRINE | Water saturated with salt used for preserving food | KUN
+FERMENTATION_BEER | The slow conversion of sugars into alcohol for beer | XUN
+CURING | The preservation of food by salting, smoking, or drying | XUN
+INFUSION | The process of steeping a substance in liquid to extract flavor | XUN
+CARAMELIZATION | The browning of sugar when heated | ZHEN
+PASTEURIZATION | Heat treatment to destroy harmful microorganisms | LI
+EMULSION | A mixture of two immiscible liquids | KUN
+
+# === More Emotions (GEN) ===
+APPREHENSION | Anxiety about a future event or its outcome | GEN
+DESPONDENCY | A state of low spirits from loss of hope | GEN
+MORTIFICATION | Great embarrassment and shame | GEN
+STUPEFACTION | A state of being stunned or dazed | GEN
+DISENCHANTMENT | A feeling of disappointment from lost illusions | GEN
+WISTFULNESS | A feeling of vague longing tinged with sadness | GEN
+INCREDULITY | Inability or unwillingness to believe something | GEN
+INDIGNATION | Anger provoked by what is perceived as unfair | GEN
+
+# === Social Dynamics (KAN) ===
+NEPOTISM | Favoritism granted to relatives in positions of power | KAN
+CORRUPTION | Dishonest conduct by those in power for personal gain | KAN
+BRIBERY | The offering of something to influence official action | KAN
+FAVORITISM | Unfair preferential treatment of one person over others | KAN
+COLLUSION | Secret agreement for fraudulent or illegal purpose | KAN
+SEGREGATION | The separation of people based on race or class | KAN
+OSTRACISM | Exclusion from a group or society by common consent | KAN
+DEFAMATION | The damaging of someone's reputation by false statements | KAN
+
+# === Natural Phenomena (mixed) ===
+ECLIPSE | The obscuring of one celestial body by another | GEN
+EQUINOX | The time when day and night are of equal length | GEN
+SOLSTICE | The point when the sun reaches its highest or lowest arc | GEN
+AURORA_BOREALIS | The northern lights caused by solar particles | DUI
+MIRAGE | An optical illusion caused by atmospheric refraction | DUI
+AFTERGLOW | The light remaining after sunset or after a bright event | XUN
+UNDERTOW | A current below the surface moving away from shore | XUN
+WHIRLPOOL | A rapidly rotating body of water | ZHEN
+EDDY | A circular current of water running against the main flow | KAN
+RAPIDS | A section of river with fast turbulent flow | ZHEN
+
+# === Abstract/Philosophical (GEN) ===
+ABSURDITY | The quality of being ridiculous or wildly unreasonable | DUI
+AMBIGUITY | The quality of being open to more than one interpretation | GEN
+CONTINGENCY | A possible future event or circumstance | GEN
+INEVITABILITY | The quality of being certain to happen | GEN
+TRANSIENCE | The state of lasting only a short time | XUN
+PERMANENCE | The state of lasting indefinitely without change | GEN
+ENTROPY_SOCIAL | The gradual decline into disorder in social systems | XUN

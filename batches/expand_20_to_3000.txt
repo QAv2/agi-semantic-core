@@ -1,0 +1,73 @@
+# Batch 20: The final 100 — diverse, balanced across all trigrams
+
+# === Astronomy/Cosmos ===
+NEBULA | A vast cloud of gas and dust in space | KUN
+QUASAR | An extremely luminous galactic nucleus powered by a black hole | ZHEN
+SUPERNOVA | The explosive death of a massive star | ZHEN
+PULSAR | A rapidly rotating neutron star emitting beams of radiation | ZHEN
+ASTEROID | A small rocky body orbiting the sun | KUN
+COMET | An icy body that releases gas and dust as it nears the sun | ZHEN
+CONSTELLATION | A group of stars forming a recognized pattern | LI
+ORBIT | The curved path of a celestial body around another | KAN
+PERIHELION | The point in orbit nearest to the sun | DUI
+APHELION | The point in orbit farthest from the sun | GEN
+
+# === Textiles/Fibers ===
+LINEN | A fabric woven from the fibers of the flax plant | KUN
+BURLAP | A coarse fabric woven from jute or hemp | KUN
+MUSLIN | A lightweight cotton fabric with a plain weave | XUN
+VELVET | A soft fabric with a dense short pile | DUI
+TWEED | A rough woolen fabric with a soft texture | GEN
+SATIN | A glossy smooth fabric with a lustrous surface | DUI
+GAUZE | A thin translucent fabric used for bandaging | XUN
+
+# === Minerals/Chemistry ===
+ALLOY | A metallic substance composed of two or more elements | QIAN
+AMALGAM | A mixture or blend of different elements | KAN
+PRECIPITATE | A solid formed from a solution during a chemical reaction | XUN
+REAGENT | A substance used to cause a chemical reaction | ZHEN
+SOLVENT | A liquid capable of dissolving other substances | KUN
+CATALYST_CHEM | A substance that increases reaction rate without being consumed | ZHEN
+
+# === Human Behavior/Qualities ===
+DILIGENCE | Careful and persistent effort in work | GEN
+NEGLIGENCE | Failure to take proper care in doing something | XUN
+COMPLACENCY | Smug satisfaction with oneself without awareness of danger | GEN
+ARROGANCE | An attitude of superiority and overbearing pride | DUI
+OBSTINACY | Stubborn refusal to change opinion or course of action | GEN
+AVARICE | Extreme greed for wealth or material possessions | KAN
+PROFLIGACY | Reckless extravagance and waste of resources | DUI
+SYCOPHANCY | Excessive flattery to gain advantage from the powerful | KAN
+DUPLICITY | Deceitfulness in speech or conduct | KAN
+VERACITY | Conformity to truth and accuracy | GEN
+CANDOR | The quality of being open, honest, and sincere | DUI
+
+# === Physical Processes ===
+CONDENSATION | The change of vapor to liquid upon cooling | XUN
+SUBLIMATION_PHYS | The transition of a solid directly to gas | ZHEN
+COAGULATION | The process of a liquid becoming semi-solid | XUN
+PRECIPITATION | Water falling from the atmosphere as rain, snow, or hail | KUN
+SEDIMENTATION_GEO | The geological process of depositing sediment in layers | XUN
+LIQUEFACTION | The process of making or becoming liquid | XUN
+SOLIDIFICATION | The process of a liquid becoming solid | GEN
+
+# === Musical/Sound ===
+STACCATO | Short detached notes played in quick succession | ZHEN
+VIBRATO | A rapid slight variation in pitch producing a rich tone | DUI
+FORTISSIMO | A very loud passage in music | ZHEN
+PIANISSIMO | A very soft quiet passage in music | GEN
+LEGATO | Smooth connected notes played without separation | XUN
+ARPEGGIO | The notes of a chord played in rapid succession | DUI
+DISSONANCE | A lack of harmony among musical notes | KAN
+SYNCOPATION | A disturbance of regular rhythm through accent displacement | ZHEN
+
+# === Architecture/Urban ===
+MINARET | A tall slender tower of a mosque with a balcony | QIAN
+PAGODA | A tiered tower of multiple eaves common in East Asia | QIAN
+AQUEDUCT | A bridge-like structure for conveying water across valleys | QIAN
+RAMPART | A defensive wall of a castle or fortified city | GEN
+DRAWBRIDGE | A bridge that can be raised to prevent access | KAN
+GATEHOUSE | A building at or over a gate controlling entry | GEN
+COLONNADE | A row of columns supporting a roof or arches | LI
+CLOISTER | A covered walkway around an open courtyard | GEN
+PARAPET_WALL | A low protective wall along a roof or bridge edge | GEN
