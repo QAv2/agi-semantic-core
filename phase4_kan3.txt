@@ -1,0 +1,27 @@
+# Phase 4 KAN round 3 — deeply yin-relational
+# Darkness, concealment, tangled bonds, shadow, confusion, hidden depths
+ALIAS | false name used to conceal true identity from others
+PSEUDONYM | assumed name to conceal the identity of an author
+DISGUISE | altered appearance to conceal identity through deception
+FACADE | false front concealing the true nature hidden behind
+PRETENSE | false appearance maintained to conceal true intention
+SUBTERFUGE | deception used to conceal true purpose from others
+DUPLICITY | deliberate deception through double dealing and false bonds
+TREACHERY | betrayal of trust, violation of a concealed bond of loyalty
+TREASON | betrayal of allegiance to a group, the ultimate broken bond
+SEDITION | speech or action intended to undermine concealed authority
+INTRIGUE_VERB | to secretly plot and scheme within hidden alliances
+CONNIVE | to secretly allow wrongdoing through concealed complicity
+ABET | to help another in concealed wrongdoing as a hidden ally
+ABSCOND | to flee secretly to avoid detection or legal obligation
+SKULK | to move furtively while concealing presence from others
+LURK | to wait in concealment, hidden and watching
+PROWL | to move stealthily while searching in concealment
+STALK_FOLLOW | to follow with concealed intent, pursuing in secret
+SMOTHER | to suppress or conceal by covering and suffocating
+MUFFLE | to deaden sound through concealment and muffling
+OBFUSCATE | to deliberately make unclear and murky to confuse
+PERPLEX | to cause confusion and doubt through complexity
+MYSTIFY | to bewilder through obscure and enigmatic concealment
+BAFFLE | to confuse utterly, leaving in a state of bewildered doubt
+CONFOUND | to confuse by mixing together, making unclear and murky

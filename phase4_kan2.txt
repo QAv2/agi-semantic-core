@@ -1,0 +1,46 @@
+# Phase 4 KAN round 2 — deeper yin-relational concepts
+# Passive bonds, hidden depths, entanglement, debt, shadow, unknowing
+DEBT_MORAL | obligation owed from past wrongdoing, a hidden bond of guilt
+GRUDGE | resentment held over time, a concealed bond of hate
+VENDETTA | prolonged feud between groups driven by vengeance and hate
+FEUD | bitter ongoing conflict between rival groups or families
+COLLUSION | secret cooperation between parties to deceive others
+COMPLICITY | silent involvement in concealed wrongdoing between allies
+ENTANGLE | to become caught in a web of hidden bonds and dependency
+ENMESH | to trap within a network of obligation and dependency
+SNARE_VERB | to catch or trap through hidden means and deception
+ENTRAP | to lure into a situation of concealment and bondage
+IMPLORE | to beg desperately, seeking mercy from one who holds power
+GROVEL | to humble oneself in submission before another
+KOWTOW | to submit with extreme deference to concealed power
+SUBJUGATE | to bring under forceful control through domination
+OPPRESS | to keep down through unjust exercise of hidden power
+EXPLOIT_VERB | to take unfair advantage of a bond or dependency
+MANIPULATE | to control through subtle hidden influence on another
+COERCE | to compel through threat and hidden pressure
+INTIMIDATE | to frighten into compliance through implicit threat
+MENACE | a hidden threat, something that causes dread and fear
+PERIL | serious hidden danger threatening harm or ruin
+JEOPARDY | danger of loss or harm from unknown hidden risk
+QUANDARY | state of confusion and doubt with no clear path
+PREDICAMENT | difficult situation with no obvious escape from danger
+PLIGHT | dangerous condition requiring help from others
+STIGMA | mark of disgrace creating a hidden bond of shame
+TABOO | something forbidden by social convention, a hidden rule
+FORBIDDEN | not permitted, kept from access by concealed authority
+SECRET_NOUN | information deliberately concealed from others
+WHISPER_NOUN | quiet speech meant to conceal information from others
+RUMOR | unverified information spread through hidden channels
+GOSSIP | casual talk about others, spreading concealed information
+SLANDER | false spoken information intended to harm another
+LIBEL | false written information intended to damage reputation
+PERJURY | lying under oath in court, deliberate false testimony
+FORGERY | creating false documents to deceive through imitation
+COUNTERFEIT | imitation made to deceive, a false copy of the real
+FRAUD | deliberate deception for unfair gain through false bonds
+SWINDLE | to cheat through elaborate deception and false trust
+HOAX | deliberate deception meant to trick a group of people
+RUSE | trick or deception used to mislese or confuse an enemy
+PLOY | stratagem designed to gain advantage through subtle deception
+ULTERIOR | hidden beneath the surface, concealed true motive
+INSIDIOUS | proceeding in a subtle way but with harmful hidden effect

@@ -1,0 +1,46 @@
+# Phase 4 XUN round 2 — deeper yin-temporal concepts
+# Slowness, waiting, fading, aging, deterioration, memory, dusk
+WANE | to gradually decrease in strength or intensity over time
+DWINDLE_SLOW | to slowly become less and less over extended duration
+LANGUISH | to remain in a weakened state over prolonged duration
+STAGNATE_TIME | to remain unchanged for too long, failing to evolve or grow
+DETERIORATE | to become progressively worse over time through slow decay
+DEGRADE | to slowly break down in quality over prolonged duration
+TARNISH | to lose luster gradually through exposure over time
+CORRODE_SLOW | to slowly eat away at through gradual chemical decay
+WEATHER_VERB | to slowly change through long exposure to wind and rain
+WEAR | to gradually diminish through sustained friction over time
+FRAY | to become worn at edges through gradual use over time
+CRUMBLE | to slowly fall apart into fragments through age and decay
+DISINTEGRATE | to slowly break into fragments through prolonged decay
+WILT_SLOW | to gradually lose freshness and droop from lack of sustenance
+SHRIVEL | to become wrinkled and diminished through slow loss of moisture
+PARCH | to become extremely dry through prolonged exposure to heat
+DEHYDRATE | to slowly lose water content through evaporation over time
+DESICCATE | to thoroughly dry out through prolonged lack of moisture
+FOSSILIZE | to slowly turn to stone over vast ages of time
+CALCIFY | to gradually harden through slow mineral deposit over time
+OXIDIZE | to slowly combine with air causing gradual rust and decay
+PATINA | surface change that develops gradually through age and exposure
+SEDIMENT_VERB | to settle slowly to the bottom over prolonged duration
+ACCUMULATE_SLOW | to gradually gather over extended duration through patience
+ACCRUE | to gradually increase over time through slow accumulation
+MELLOW | to become softer and more moderate gradually with age
+SEASON_VERB | to improve gradually through prolonged exposure and age
+CURE_TIME | to preserve through slow process requiring patience and duration
+AGE_VERB | to grow old gradually through the passage of long duration
+WIZEN | to become dry and wrinkled through slow aging over time
+SENESCENCE | gradual deterioration of function with advancing age
+DECREPITUDE | state of being worn out through old age and prolonged decay
+OBSOLESCENCE | process of becoming outdated gradually over time
+ANTIQUATE | to make old or outdated through the slow passage of time
+ARCHIVE | to preserve for the future by storing records of the past
+CHRONICLE | to record events in order of time as history unfolds
+MEMENTO | object kept as a reminder of the past and memory
+SOUVENIR | keepsake from the past serving as reminder of memory
+VESTIGE | remaining trace of something that has mostly faded away
+REMNANT | small remaining portion of what has mostly disappeared
+RESIDUE | what remains after most has slowly disappeared or evaporated
+AFTERGLOW | lingering light remaining after the sun has set at dusk
+TWILIGHT_TIME | dim light between day and night, a slow fading of brightness
+DAWN_SLOW | gradual emergence of light before the sun fully rises

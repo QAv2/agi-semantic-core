@@ -1,0 +1,42 @@
+# Phase 4 XUN round 3 — deeply yin-temporal
+# Remnants, traces, dust, ancient stillness, quiet fading, weathered things
+RUIN | remains of something destroyed long ago by time and neglect
+RUBBLE | broken fragments remaining after slow collapse and decay
+DEBRIS | scattered remains left behind after gradual destruction
+DUST | fine particles remaining after matter has slowly disintegrated
+ASH_REMAINS | powdery residue remaining after something has burned away
+COBWEB | old neglected web accumulating dust through long disuse
+MOTH | insect that slowly consumes fabric in dark neglected storage
+LICHEN | organism growing imperceptibly slowly on stone over decades
+MOSS | soft growth slowly covering stone and wood in damp shade
+MOLD_GROWTH | fungal growth spreading slowly in damp neglected darkness
+BRINE | water slowly saturated with salt through prolonged soaking
+PICKLE | food preserved through slow soaking in brine over duration
+VINEGAR | liquid produced through slow fermentation of alcohol over time
+AMBER_RESIN | fossilized tree resin preserving ancient things within
+PEAT | partially decayed plant matter accumulated over centuries
+LOAM | rich soil formed through centuries of slow organic decay
+HUMUS | dark organic matter formed by prolonged decomposition of leaves
+SOOT | black residue slowly deposited by smoke over time
+DREGS | sediment settling to the bottom after liquid has been drained
+LEES | sediment remaining at the bottom after slow fermentation
+SCUM | layer forming slowly on the surface of stagnant liquid
+STALE | no longer fresh, having lost quality through prolonged duration
+MUSTY | having a smell of damp decay from prolonged neglect and age
+MOLDY | covered with slow fungal growth from damp neglect over time
+DECREPIT | worn out and deteriorated through prolonged age and neglect
+DILAPIDATED | fallen into disrepair through prolonged neglect over time
+DERELICT | abandoned and deteriorated through long duration of neglect
+FALLOW | land left unplanted, resting dormant for a prolonged season
+BARREN_TIME | unproductive through prolonged period without growth or yield
+DORMANT_THING | inactive and waiting through prolonged period before awakening
+OVERRIPE | past the point of readiness through too much waiting
+WITHERED | dried and shrunken through gradual loss of moisture over time
+PARCHED_DRY | extremely dry from prolonged duration without moisture
+BLEACHED | color slowly drained away through prolonged exposure to light
+THREADBARE | fabric worn thin through prolonged use until nearly transparent
+FRAYED_EDGE | worn and unraveling at edges through prolonged gradual use
+WEATHERED_ADJ | worn and changed by prolonged exposure to wind and time
+ANCIENT | from the far distant past, extremely old in duration
+PRIMORDIAL | existing from the very earliest time, before recorded memory
+ARCHAIC | belonging to a much earlier period, no longer in current use

@@ -1,0 +1,54 @@
+# Phase 4 XUN candidates — temporal-dominant, yin concepts
+# Gradual change, patience, aging, cycles, maturation, subtle process
+WITHER | to gradually dry and shrink with age, to fade and decay
+RIPEN | to gradually mature and become ready through slow growth
+MATURE | to develop fully through gradual growth over duration
+GESTATE | to develop slowly within, as life grows before birth
+INCUBATE | to maintain warmth over duration until growth emerges
+HIBERNATE | to sleep through winter, a dormant period of waiting
+DORMANCY_STATE | period of suspended growth, waiting for conditions to change
+GERMINATE | to begin growing from seed after a period of dormancy
+SPROUT | early growth emerging from seed, the beginning of becoming
+BLOOM | to flower, the culmination of gradual growth into beauty
+WILT | to droop and weaken gradually, losing vitality over time
+COMPOST | decomposed matter that becomes soil through slow decay
+FOSSIL | remains preserved from a past era, evidence of ancient life
+RELIC | object surviving from a past era, a trace of history
+ANTIQUE | object valued for its age and connection to the past
+VINTAGE | from a past era, valued for age and quality over duration
+HERITAGE | traditions passed down through generations over time
+LEGACY_GIFT | what is passed down from the past to shape the future
+ANCESTRY | lineage extending back through history and generations
+GENEALOGY | study of family history and lineage through past generations
+RITUAL | repeated ceremony performed over time with tradition
+CUSTOM | habitual practice passed through tradition over duration
+TRADITION_ACT | handing down of beliefs through generations over time
+LORE | knowledge passed down through oral history and memory
+FOLKLORE | traditional stories preserved through memory and retelling
+NOSTALGIA | longing for the past, a bittersweet memory of before
+REGRET | sorrow over a past action, wishing to change what was
+HINDSIGHT | understanding that comes only after an event has passed
+PREMONITION | feeling about something before it happens, anticipation of future
+OMEN | sign suggesting future events, an indication before change
+PROPHECY | prediction of future events, knowledge before the time
+CHRONIC | persisting over long duration, gradual and ongoing
+PERENNIAL | lasting through many seasons, returning year after year
+EPHEMERAL | lasting a very brief duration, quickly fading
+TRANSIENT | passing quickly, of brief duration before fading
+FLEETING | passing swiftly, lasting only a moment before vanishing
+LINGER | to remain slowly, to fade gradually rather than departing
+PROCRASTINATE | to delay action, letting duration pass before beginning
+POSTPONE | to move an event to a later time, to defer in duration
+OVERDUE | past the expected time, delayed beyond duration
+PREMATURE | occurring before the proper time, too early in the process
+PUNCTUAL | arriving at the correct time, respecting duration
+TARDY | arriving after the expected time, delayed
+SEASONAL | recurring with the cycle of seasons through the year
+ANNUAL | occurring once per year, a yearly cycle of duration
+LUNAR | relating to the moon and its monthly cycle
+TIDAL | rising and falling in regular cycles like the sea
+ERODE_WATER | gradual wearing away by water over long duration
+SILT_DEPOSIT | fine sediment deposited gradually by flowing water
+PETRIFY | to gradually turn to stone over vast duration
+RUST | gradual corrosion of metal through slow chemical decay
+MILDEW | gradual fungal growth in damp conditions over time

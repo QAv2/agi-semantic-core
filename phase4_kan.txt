@@ -1,0 +1,53 @@
+# Phase 4 KAN candidates — relational-dominant, yin concepts
+# Hidden bonds, depth, danger, mystery, obligation, strategy, network
+NEGOTIATE | to reach agreement through mutual concession and compromise
+TREATY | formal agreement between groups establishing peace or trade
+CONTRACT | binding agreement creating mutual obligation and duty
+OATH_PROMISE | solemn vow creating a bond of duty and honor
+PLEDGE | promise or commitment creating a bond of obligation
+RANSOM | payment demanded for release of a captive, a forced bond
+HOSTAGE | person held as security to ensure compliance with a demand
+LEVERAGE | advantage used to influence or compel another in negotiation
+BLACKMAIL | coercion through threat to reveal concealed information
+ESPIONAGE | secret gathering of concealed information from an enemy
+INFILTRATE | to penetrate a group by concealment and deception
+UNDERCOVER | operating in concealment within an enemy group
+CONSPIRACY | secret agreement between allies to deceive or betray
+SABOTAGE | deliberate concealed destruction to undermine an enemy
+AMBUSH | concealed attack from a hidden position, a trap or snare
+TRAP | device or scheme to ensnare through deception
+RIDDLE | question requiring hidden knowledge or lateral thinking to answer
+PUZZLE | problem requiring logic and hidden pattern recognition
+CLUE | piece of information that helps solve a mystery or enigma
+SUSPECT | person believed to be guilty, subject of doubt and inquiry
+WITNESS_LEGAL | person who provides information in a court of law
+VERDICT | judgment or decision by a court after deliberation
+SENTENCE_LAW | punishment determined by a judge in court
+PAROLE | conditional release from prison, a bond of compliance
+BAIL | payment to secure temporary release, a bond with the court
+REFUGEE | person who flees danger seeking shelter in another group
+EXILE | forced removal from one's group or homeland
+DIPLOMAT | person who negotiates between groups to maintain harmony
+RIVAL | competitor who opposes in a contest, not quite an enemy
+NEMESIS | persistent adversary or source of downfall and dread
+GAMBLE | risk taken with uncertain outcome, a hazard embraced
+WAGER | bet placed on an uncertain outcome, a bond of risk
+BLUFF | deception intended to conceal weakness or true intention
+STRATAGEM | cunning plan designed to deceive an opponent
+DECOY | distraction or lure used in deception or ambush
+DILEMMA | situation forcing choice between equally difficult options
+PARADOX | statement that contradicts itself yet reveals hidden truth
+IRONY | contrast between appearance and hidden reality or meaning
+SUBVERSIVE | acting to undermine a group from within through concealment
+COVERT | hidden, secret, operating in concealment
+CLANDESTINE | kept secret, especially because forbidden or subversive
+MERCENARY | soldier who fights for payment rather than loyalty or bond
+RANSOM_VERB | to pay for the release of a captive from bondage
+INTERROGATE | to question intensely, seeking concealed information
+IMPLICATE | to show involvement in wrongdoing through evidence
+COMPLICIT | involved as an ally in concealed wrongdoing
+EXTORT | to obtain through coercion and threat, forced compliance
+BRIBE | payment to corrupt, a hidden bond of mutual guilt
+SMUGGLE | to move goods in concealment past a barrier
+LAUNDER | to conceal the origin of something through deception
+ARBITRATE | to judge between disputing groups as a neutral party
