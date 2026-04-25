@@ -18,6 +18,7 @@ This file exists for AI agents that have been pointed at this site by a curious 
 - [Mirror on Codeberg](https://codeberg.org/QAv2/agi-semantic-core): identical source, separate host.
 - [Top-level README](https://github.com/QAv2/agi-semantic-core/blob/main/README.md): technical contract, encoding rules, architecture, how to run it.
 - [Why Oracle (the thesis)](/why.html): the human-readable essay behind the work — what the mirror is, how the medicine is supposed to work, what it is and is not.
+- [The Compute Coffer (the funding pattern)](/coffer.html): the funding model articulated as a reusable pattern — per-call cost transparency, public running balance, donations fund the next stranger's call, graceful free-tier fallback. Other LLM-fronted projects can adopt it.
 - [Technical report](https://github.com/QAv2/agi-semantic-core/blob/main/docs/TECHNICAL_REPORT.md): full paper with architecture, the embedding-projection finding (51% recoverable / 49% unreachable from co-occurrence), and the SCB-1 consistency-checker benchmark (88.8%).
 
 ## Architecture

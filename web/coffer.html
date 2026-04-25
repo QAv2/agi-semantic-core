@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" class="essay-page">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a10">
+<title>The Compute Coffer — A funding pattern for LLM-fronted apps</title>
+<meta name="description" content="A pattern for funding LLM apps where strangers fund the next stranger's call, with a public running balance and a free-tier fallback.">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+// Apply saved theme + custom colors before render — matches the main app.
+(function() {
+  try {
+    var p = JSON.parse(localStorage.getItem('oracle:prefs') || '{}');
+    var t = p.theme;
+    if (t === 'parchment' || t === 'mineral' || t === 'twilight') {
+      document.documentElement.setAttribute('data-theme', t);
+    }
+    var cc = p.customColors;
+    if (!cc || typeof cc !== 'object') return;
+    function hexToRgb(h) { var m = /^#([0-9a-f]{6})$/i.exec(h); if (!m) return null; var n = parseInt(m[1], 16); return [(n>>16)&255, (n>>8)&255, n&255]; }
+    function toHex(rgb) { var c = function(x){return Math.max(0,Math.min(255,Math.round(x))).toString(16).padStart(2,'0');}; return '#'+c(rgb[0])+c(rgb[1])+c(rgb[2]); }
+    function mix(a, b, t) { return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t]; }
+    function rgba(rgb, a) { return 'rgba('+Math.round(rgb[0])+','+Math.round(rgb[1])+','+Math.round(rgb[2])+','+a+')'; }
+    var black = [0,0,0];
+    var bg = cc['--bg'] && hexToRgb(cc['--bg']);
+    var surface = cc['--surface'] && hexToRgb(cc['--surface']);
+    var text = cc['--text'] && hexToRgb(cc['--text']);
+    var gold = cc['--gold'] && hexToRgb(cc['--gold']);
+    var s = document.documentElement.style;
+    if (bg) { s.setProperty('--bg', toHex(bg)); s.setProperty('--bg-deep', toHex(mix(bg, black, 0.4))); s.setProperty('--bg-translucent', rgba(bg, 0.88)); s.setProperty('--bg-translucent-strong', rgba(bg, 0.94)); }
+    if (surface) { s.setProperty('--surface', toHex(surface)); s.setProperty('--surface-translucent', rgba(surface, 0.95)); s.setProperty('--surface-translucent-soft', rgba(surface, 0.88)); s.setProperty('--panel-header-bg-2', rgba(surface, 0.92)); if (text) { s.setProperty('--surface-2', toHex(mix(surface, text, 0.10))); s.setProperty('--surface-3', toHex(mix(surface, text, 0.18))); s.setProperty('--panel-header-bg-1', rgba(mix(surface, text, 0.08), 0.92)); } }
+    if (text) { s.setProperty('--text', toHex(text)); if (bg) { s.setProperty('--text-dim', toHex(mix(text, bg, 0.40))); s.setProperty('--text-faint', toHex(mix(text, bg, 0.65))); s.setProperty('--border', toHex(mix(bg, text, 0.18))); s.setProperty('--border-soft', toHex(mix(bg, text, 0.10))); } }
+    if (gold) { s.setProperty('--gold', toHex(gold)); s.setProperty('--gold-soft', toHex(mix(gold, black, 0.20))); s.setProperty('--gold-deep', toHex(mix(gold, black, 0.40))); }
+  } catch(e) {}
+})();
+</script>
+</head>
+<body class="essay-body">
+
+<header class="essay-header">
+  <a href="./" class="essay-back" title="Back to the Oracle">
+    <span class="back-arrow">←</span>
+    <span class="back-mark">◐</span>
+    <span class="back-name">ORACLE</span>
+  </a>
+</header>
+
+<main class="essay">
+
+  <article>
+
+    <h1 class="essay-title">The Compute Coffer</h1>
+    <p class="essay-subtitle">A funding pattern for LLM-fronted apps that extracts from no one</p>
+
+    <p class="essay-lead">
+      An LLM app costs the operator money on every call. The default playbook makes the visitor
+      pay — directly through a subscription, indirectly through ads. The Compute Coffer is a
+      third path: a small running pot, funded by past visitors and visible in real time, covers
+      the next call. When the pot empties, the app falls back to a free tier and keeps working.
+      The visitor pays nothing. The donor's contribution doesn't go to the operator. It pays for
+      the next stranger's reading.
+    </p>
+
+    <h2>The pattern, in five parts</h2>
+
+    <p>
+      <strong>Per-call cost transparency.</strong> Every LLM call has a cost. The pattern
+      surfaces it rather than hiding it inside a subscription or an ad impression. The visitor
+      sees what the next call costs in the same way they see the price on a menu.
+    </p>
+
+    <p>
+      <strong>Public running balance.</strong> The coffer is a number. Anyone can read it,
+      anytime, without an account. It goes up when someone donates, down when someone uses the
+      app. The mechanism is not behind a dashboard.
+    </p>
+
+    <p>
+      <strong>Donations fund the next user, not the operator.</strong> Money entering the coffer
+      pays the LLM provider directly. The operator never withdraws. A donor's contribution is a
+      gift to the next stranger who shows up, not to the person who built the thing.
+    </p>
+
+    <p>
+      <strong>Graceful fallback to a free tier.</strong> When the coffer drops below threshold,
+      or the daily cap is hit, the app switches engines mid-stride. The output the visitor gets
+      is structurally the same; only the LLM voice rendering it back changes. Service degrades.
+      It does not break.
+    </p>
+
+    <p>
+      <strong>Hard caps.</strong> Daily and monthly ceilings sit above the coffer as a runaway
+      safety net. The pattern does not assume the operator can absorb unlimited overflow. The
+      caps are protection, not targets.
+    </p>
+
+    <h2>What it isn't</h2>
+
+    <p>
+      Not a subscription — there is no commitment and no gating. Not pay-what-you-can — there
+      is no transactional ask at the point of use. Not a tip jar — the money does not go to the
+      person who built the thing. Not charity — the donor's gift is to the next stranger,
+      specifically, not to a cause. Not freemium — the free tier is the fallback, not a
+      degraded version designed to upsell.
+    </p>
+
+    <h2>Closest precedents</h2>
+
+    <p>
+      <strong>Pay-it-forward suspended coffee</strong> — the Italian <em>caffè sospeso</em>
+      tradition. Same generosity-toward-strangers spirit. But: offline, per-purchase, no
+      aggregation, no public ledger. You buy two coffees and trust the bar to keep one for
+      whoever asks.
+    </p>
+
+    <p>
+      <strong>Open Collective</strong> — public ledger and transparent finances. But: the
+      granularity is project-level. Donors fund a project's monthly bills, not specifically the
+      next person's API call. Closer in transparency, further in immediacy.
+    </p>
+
+    <p>
+      <strong>Twitch tip feeds</strong> — real-time and visible. But: money goes to a person,
+      not to the next viewer's experience. The thing the donor funds is not the thing the next
+      viewer also gets.
+    </p>
+
+    <p>
+      The unseen combination is the four together: per-call cost transparency, a public running
+      balance, donations that fund the next stranger's call, and a graceful free-tier fallback
+      so the app never breaks. As far as I can tell, no one is doing this yet.
+    </p>
+
+    <h2>Why it might work</h2>
+
+    <p>
+      The intuition is that when the funding mechanism is opaque, donating feels like charity,
+      and the visitor's relationship with the operator is one of obligation. When the mechanism
+      is visible, donating feels like contribution, and the relationship is one of curiosity.
+      People who understand a system are more likely to support it.
+    </p>
+
+    <p>
+      This is empirical, not proven. The Oracle is the first test. If the pattern holds, the
+      coffer stays roughly stable across cycles of donation and use. If it doesn't, the operator
+      ends up paying the gap, the coffer trends to zero, and the app spends most of its time in
+      free-tier mode. Neither failure mode is catastrophic. The app keeps working either way.
+    </p>
+
+    <h2>Reference implementation</h2>
+
+    <p>
+      The Oracle (<a href="./" class="inline-link">qav2-oracle.netlify.app</a>) implements this
+      pattern. The stack:
+    </p>
+
+    <p>
+      <strong>Frontend.</strong> Static, served from Netlify. The status pill at the bottom of
+      the chat shows which engine is active (Claude or Llama) and how much the coffer holds.
+      Clicking the engine name jumps to a plain-language explanation of the model.
+    </p>
+
+    <p>
+      <strong>Worker.</strong> A Cloudflare Worker holds the LLM provider's API key as a secret,
+      calls the LLM, and decrements the coffer after each call. Worker source is public on
+      <a href="https://github.com/QAv2/agi-semantic-core/tree/master/worker" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+
+    <p>
+      <strong>Coffer.</strong> A single integer in Cloudflare KV — the balance in cents. A
+      <code>/balance</code> endpoint exposes it for the frontend to poll. Pre-call, the worker
+      reads the balance and decides which engine to route to.
+    </p>
+
+    <p>
+      <strong>Donations.</strong> Currently routed through Buy Me a Coffee, with manual top-up
+      to the KV balance when contributions arrive. Webhook automation is deferred until the
+      pattern proves out at low volume.
+    </p>
+
+    <p>
+      <strong>Free fallback.</strong> Cloudflare Workers AI (Llama 3.1 70B) takes over when the
+      coffer drops below 50 cents or the daily cap is hit. The Oracle's geometric diagnosis is
+      computed locally in either case — only the LLM-voiced reflection layer changes engines.
+    </p>
+
+    <p>
+      <strong>Hard caps.</strong> $5 per day, $100 per month, set as protection against runaway
+      cost. The Oracle has yet to approach either.
+    </p>
+
+    <h2>Open questions</h2>
+
+    <p>
+      <strong>The public ledger.</strong> The Oracle currently shows a running balance but not
+      transaction history. A real-time donation feed — who gave, when, optional names — is the
+      next feature. The platform that supports this cleanly is unsettled: Buy Me a Coffee's
+      webhook story is thin, Stripe gives full control but requires building the ledger UI from
+      scratch, and Open Collective gives a public ledger out of the box but constrains
+      customization.
+    </p>
+
+    <p>
+      <strong>Scale.</strong> The pattern hasn't been tested at volume. If a thousand visitors
+      arrive in an hour, the pot drains; the free fallback handles it, but the UX of mid-session
+      engine switches at scale is untested.
+    </p>
+
+    <p>
+      <strong>Adoption.</strong> The pattern is one instance. Whether other developers find it
+      worth adopting — whether it becomes a thing other people build with, rather than a thing
+      one app does — is the open question that matters most.
+    </p>
+
+    <h2>Adopting it</h2>
+
+    <p>
+      A future phase will package the worker, the KV schema, and the status pill as a drop-in
+      scaffold for any LLM-fronted project. Until that exists, the Oracle's worker is the
+      reference: read the source, fork the structure, swap the LLM call for whichever provider
+      you use, point the donate link at your own platform. The five-part recipe above is the
+      contract.
+    </p>
+
+    <hr>
+
+    <p class="essay-signoff">
+      The phrase that named the model: <em>visible, finite, donated forward.</em>
+      The thing it makes possible: an app that doesn't ask the visitor to be a customer.
+    </p>
+
+  </article>
+
+</main>
+
+<footer class="essay-footer">
+  <div class="essay-kin">
+    <p class="essay-kin-line">
+      <span class="essay-kin-label">Verify</span>
+      <a href="https://github.com/QAv2/agi-semantic-core" target="_blank" rel="noopener">source</a>
+      <span class="essay-kin-sep">·</span>
+      <a href="https://github.com/QAv2/agi-semantic-core/tree/master/worker" target="_blank" rel="noopener">worker</a>
+      <span class="essay-kin-sep">·</span>
+      <a href="/llms.txt">llms.txt</a>
+    </p>
+    <p class="essay-kin-line">
+      <span class="essay-kin-label">Kin</span>
+      <a href="https://ritualmirror.netlify.app" target="_blank" rel="noopener">Ritual Mirror</a>
+      <span class="essay-kin-sep">·</span>
+      <a href="https://x.com/jvanhorn_" target="_blank" rel="noopener">@jvanhorn_</a>
+      <span class="essay-kin-sep">·</span>
+      <a href="https://joeyv23.neocities.org" target="_blank" rel="noopener">joeyv23.neocities.org</a>
+    </p>
+  </div>
+  <a href="./" class="essay-back-bottom">
+    <span class="back-arrow">←</span>
+    <span>Back to the Oracle</span>
+  </a>
+</footer>
+
+</body>
+</html>
