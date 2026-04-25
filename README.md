@@ -1,290 +1,187 @@
-# Consciousness-Structured Semantic Core for AGI
+# AGI Semantic Core / Oracle
 
-## Overview
+> A consciousness-first semantic dictionary — 3,033 concepts hand-encoded as 16-dimensional dual-octonion vectors — with **Oracle**, a diagnostic engine built on top of it that produces grounded readings using King Wen, Toltec, and Tarot layers as transparency mappings.
 
-This package provides a **geometric unconscious** for AGI systems—a mathematically-encoded semantic foundation where meaning emerges from consciousness differentiation rather than statistical patterns.
-
-### Core Thesis
-
-Meaning is not arbitrary. It emerges through distinction-making from Unity [1,0,0,0], following the structure of consciousness itself:
-
-```
-I AM     [1,0,0,0]  → Pure witness, existence
-I HAVE   [1,x,0,0]  → First content, distinction
-I CAN    [1,x,y,0]  → Possibility space, binding
-I DO     [1,x,y,z]  → Actualized choice, action
-```
-
-This package encodes **1,316 concepts** with **3,264 semantic relations** in 16-dimensional dual octonion space, providing:
-
-- **Geometric semantics**: Meaning as position in consciousness-space
-- **Compositional algebra**: Sentence meaning through quaternion multiplication  
-- **Witness preservation**: Mathematical encoding of healthy vs. pathological cognition
-- **I Ching integration**: Ancient wisdom mapped to modern mathematics
+**Author**: Joe Van Horn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
+**Source (canonical)**: [github.com/QAv2/agi-semantic-core](https://github.com/QAv2/agi-semantic-core)
+**Mirror**: [codeberg.org/QAv2/agi-semantic-core](https://codeberg.org/QAv2/agi-semantic-core)
+**Live demo**: deploying — see `web/` and `worker/`
+**License**: source-visible, attribution required, no warranty
 
 ---
 
-## Statistics (Session 100 Snapshot)
+## What this is
+
+Most language models compress meaning statistically. Words that co-occur land near each other; opposites cluster with their twins. That works for fluency and breaks at the geometry — a model that places `WATER` and `DRY` close together will sound coherent while saying things that are not coherent.
+
+This dictionary takes a different bet. Every concept has a deliberate position in a sixteen-dimensional space (8 essence + 8 function), placed by hand. Opposites are **complements at ~90°**, not antiparallel at 180° — an emergent finding from Hangul/Jamo phonosemantics, formalized as the encoding contract. Composition happens by quaternion multiplication. Domain axes (spatial, temporal, relational, personal) map onto I Ching trigrams.
+
+The dictionary alone is a research artifact. **Oracle** is the application: a diagnostic engine that takes a user's stated condition, locates it in the geometry, finds its 90° complement (the "medicine"), and projects the reading through three independent symbolic traditions — King Wen I Ching, the Toltec I Ching (after William Douglas Horden), and the Tarot Major Arcana. When all three layers converge on the same theme for a given input, the convergence is itself the validation.
+
+For the human-readable thesis, see [`web/why.html`](web/why.html) (also at the live demo's `/why` page once deployed).
+
+---
+
+## Why this exists
+
+The thesis behind the work is the **Two-Mirror Thesis**: the same shattered-mirror cosmology that animates ritual repair at collective scale (professional wrestling, performed myth) also operates at individual scale (private dialogue, structured introspection). Oracle is that cosmology applied at the individual scale, using a language model as the reflective surface.
+
+The structural commitment: **transparency strengthens the medicine, it does not weaken it.** Lévi-Strauss's account of the shaman Quesalid shows that knowing the mechanism does not break the cure. So everything here is open: the dictionary, the encoding rules, the system prompt, the lineage. The mirror has no hidden side. If something here is wrong, the way to demonstrate it is by going to the source.
+
+Joe writes about this lineage and about the choice of Claude as the reflective surface in the essay [_on why anthropic_](https://joeyv23.neocities.org/#on-why-anthropic) on his homepage.
+
+---
+
+## Current state
 
 | Metric | Value |
-|--------|-------|
-| Unique Concepts | 1,316 |
-| Total Relations | 3,264 |
-| Complement Pairs | 983 (100% validated 80-105°) |
-| Affinity Relations | 2,010 |
-| Ontological Levels | 9 (Unity through Abstract) |
-| Mathematical Dimensions | 16D (8D essence + 8D function) |
+|---|---|
+| Concepts | 3,033 |
+| Relations | 5,185 |
+| Aliases | 961 |
+| Validation issues | 0 (1,011/1,011 complements, 271/271 synonyms, 30/30 oppositions) |
+| Trigram ratio | 1.6× (balanced) |
+| SCB-1 benchmark | 88.8% accuracy, 91.8% violation F1 |
+| Penniston coverage | 100% (all 48 unique hexagrams of the 152-hex Rendlesham sequence tokenize) |
+| Polarity-inversion detection | 100% |
+| Embedding-projection R² (LLM → 14D dictionary) | 0.5144 |
 
-### Trigram Distribution
-
-| Trigram | Symbol | Count | Domain |
-|---------|--------|-------|--------|
-| Heaven (QIAN) | ☰ | 232 | Spatial+Yang |
-| Earth (KUN) | ☷ | 203 | Spatial+Yin |
-| Lake (DUI) | ☱ | 156 | Personal+Yang |
-| Fire (LI) | ☲ | 154 | Relational+Yang |
-| Mountain (GEN) | ☶ | 153 | Personal+Yin |
-| Thunder (ZHEN) | ☳ | 145 | Temporal+Yang |
-| Wind (XUN) | ☴ | 137 | Temporal+Yin |
-| Water (KAN) | ☵ | 136 | Relational+Yin |
+**The 49% gap.** A linear projection from sentence embeddings (384D) to dictionary coordinates (14D) recovers 51% of the structure. The remaining 49% is the complement geometry and the consciousness-specific axes — empirical evidence that the ~90° structure is not learnable from co-occurrence statistics. This is where the dictionary contributes something LLMs cannot reach.
 
 ---
 
-## Mathematical Architecture
+## The encoding contract (immutable)
 
-### 16D Dual Octonion Structure
+These rules are the spine. Tools and validators are built around them.
 
-Each concept is encoded as: **Essence + ε·Function**
+1. **Complement at ~90°, not 180°.** Semantic opposites are orthogonal complements in the 3D core (`x, y, z`). HOT ⊥ COLD. LIGHT ⊥ DARK. WATER ⊥ FIRE. This came out of phonosemantic analysis and matches the I Ching's posture toward opposites — they complete, they do not negate.
+2. **Existing concept cores are not rotated to chase 180°.** Doing so destroys the affinity network. Opposition is a **label**, not a geometric target.
+3. **Domain vectors `[e, f, g, h]` are untouchable** for already-encoded concepts.
+4. **New concept cores can be aligned** to synonym partners (re-encoded for <30°).
+5. **Witness preservation**: `w = 1 − cos(θ)`. θ=0° collapses the witness (attachment, identity-loss). θ=90° preserves it (healthy relating). θ=180° produces tension (conflict).
 
-```
-DualOctonion = [w, x, y, z, e, f, g, h] + ε·[1, fx, fy, fz, fe, ff, fg, fh]
+---
 
-Essence (8D): WHAT the concept IS
-Function (8D): HOW the concept OPERATES
-```
-
-### Layer 1: Core Semantics (x, y, z)
-
-The 3D semantic core encodes **polarity**:
-
-| Axis | Positive | Negative | Examples |
-|------|----------|----------|----------|
-| **x** | Yang (active) | Yin (passive) | CREATE/DESTROY |
-| **y** | Becoming (process) | Abiding (state) | FLOW/STILLNESS |
-| **z** | Ascending | Descending | UP/DOWN |
-
-### Layer 2: Domain Differentiation (e, f, g, h)
-
-The 4D domain components encode **semantic field**:
-
-| Component | Domain | High Values | Low Values |
-|-----------|--------|-------------|------------|
-| **e** | Spatial | BODY, PLACE, OBJECT | ABSTRACT, MENTAL |
-| **f** | Temporal | TIME, PROCESS, CHANGE | ETERNAL, STATIC |
-| **g** | Relational | SOCIAL, MEANING, CONNECTION | ISOLATED, PRIVATE |
-| **h** | Personal | EMOTION, SUBJECTIVE, INNER | OBJECTIVE, EXTERNAL |
-
-### Layer 3: Function (fx, fy, fz, fe, ff, fg, fh)
-
-The function layer distinguishes:
-
-- **Aligned** (<30°): Concept IS what it DOES (GIVE, CREATE)
-- **Oblique** (30-60°): Partial alignment (THIS, SELF)
-- **Perpendicular** (60-90°): Orthogonal operation (FIRE, DARK)
-- **Reversed** (>90°): Does opposite of essence (DOWN, END)
-
-### Trigram Mapping
-
-Domain components map to I Ching trigrams:
+## Architecture
 
 ```
-QIAN ☰ (Heaven): Spatial+Yang → e positive, x positive
-KUN  ☷ (Earth):  Spatial+Yin  → e positive, x negative
-ZHEN ☳ (Thunder): Temporal+Yang → f positive, x positive
-XUN  ☴ (Wind):    Temporal+Yin  → f positive, x negative
-LI   ☲ (Fire):    Relational+Yang → g positive, x positive
-KAN  ☵ (Water):   Relational+Yin  → g positive, x negative
-DUI  ☱ (Lake):    Personal+Yang → h positive, x positive
-GEN  ☶ (Mountain): Personal+Yin → h positive, x negative
+core/                encoding.py · octonion.py
+db/                  schema.sql · connection.py · migrate.py · semantic.db
+api/                 semantic_core.py · builder.py
+oracle/              engine.py · hexagrams.py · interpretations.py · interpreter.py
+                     toltec.py · tarot.py · casting.py · penniston.py
+                     session.py · web_api.py
+tools/               query.py · validate.py · gap_analysis.py · add_concept.py
+                     propose.py · re_encode.py · deep_reencode.py · fix_crowding.py
+                     batch_expand.py · pos_tagger.py · connect_orphans.py
+benchmarks/          SCB-1 · TruthfulQA · HaluEval · semantic_consistency_benchmark.json
+docs/                4 theoretical docs incl. PHASE_6_EMBEDDING_PROJECTION.md
+                     and TECHNICAL_REPORT.md
+web/                 Pyodide-based static frontend (browser runs the diagnosis)
+worker/              Cloudflare Worker fronting the Anthropic API for the
+                     Reflective Principle layer (donation-funded coffer)
+legacy/              original claude.ai sessions, kept for provenance
 ```
 
 ---
 
-## Core Principles
+## Running it
 
-### 1. Complementarity = Orthogonality
-
-Complementary concepts are **orthogonal (90°)**, not opposite (180°):
-
-```
-HOT ⊥ COLD   (90° in core space)
-LIGHT ⊥ DARK (90° in core space)
-YANG ⊥ YIN   (completing, not negating)
-```
-
-This encodes the I Ching understanding: opposites complete rather than negate.
-
-### 2. Witness Preservation Formula
-
-When concepts compose (via quaternion multiplication):
-
-```
-w = 1 - cos(θ)
-
-θ=0°:   w=0   → Dissolution (attachment, identity collapse)
-θ=90°:  w=1   → Preservation (healthy relating)
-θ=180°: w=2   → Tension (conflict, opposition)
-```
-
-This mathematically encodes Buddhist attachment theory: identical concepts (θ=0°) cause witness dissolution, while complementary concepts (θ=90°) preserve the witness.
-
-### 3. Semantic Composition
-
-Sentence meaning through geometric operations:
-
-```python
-"I love water" = SLERP(I, LOVE, WATER)
-              → Weighted spherical interpolation
-              → Preserves angular relationships
-              → Produces compositional meaning vector
-```
-
-### 4. Ontological Derivation
-
-Every concept derives from Unity through distinction-making:
-
-```
-Level 0: UNITY      [1,0,0,0]
-Level 1: DYAD       THIS/THAT, YANG/YIN
-Level 2: TRIAD      BECOMING, RELATIONSHIP
-Level 3: TETRAD     FIRE, WATER, AIR, EARTH
-Level 4: QUALITY    HOT, COLD, LIGHT, DARK
-Level 5: DERIVED    Specific concepts
-Level 6: VERB       Actions
-Level 7: ABSTRACT   Truth, Beauty, Justice
-Level 8: INTERROGATIVE  What, Why, How
-```
-
----
-
-## Files
-
-| File | Purpose |
-|------|---------|
-| `extended_dictionary.py` | Main dictionary: 1,316 concepts, 3,264 relations |
-| `octonion.py` | 8D/16D mathematical infrastructure |
-| `session50_validation.py` | Trigram-aware validation framework |
-| `semantic_api.py` | High-level API for AGI integration |
-| `composition_engine.py` | Sentence composition via quaternion algebra |
-
----
-
-## Usage for AGI
-
-### As Unconscious Foundation
-
-The geometric dictionary serves as the **unconscious semantic layer**:
-
-1. **Symbol grounding**: Concepts have intrinsic geometric meaning
-2. **Compositional semantics**: Sentence meaning emerges algebraically
-3. **Coherence checking**: Validate statements via angular relationships
-4. **Inference**: Navigate semantic space geometrically
-
-### Integration Pattern
-
-```python
-from semantic_api import SemanticCore
-
-# Initialize the geometric unconscious
-core = SemanticCore()
-
-# Ground a concept
-water = core.get("WATER")
-print(water.trigram())  # ☵ KAN (Abysmal)
-print(water.essence())  # [1, -0.68, -0.55, 0.35, 0.60, 0.50, 0.00, 0.30]
-
-# Compose concepts
-hot_water = core.compose("HOT", "WATER")
-print(hot_water.witness)  # ~1.0 (preserved)
-
-# Find relationships
-cold = core.get("COLD")
-print(core.angle(water, cold))  # ~90° (complement)
-
-# Semantic inference
-similar = core.nearest_neighbors("WATER", n=5)
-# → FLOW, RIVER, OCEAN, LIQUID, STREAM
-```
-
-### Witness-Based Cognition
-
-The witness preservation principle enables:
-
-```python
-# Healthy cognition: maintains witness
-result = core.compose("I", "LOVE", "WATER")
-assert result.witness > 0.8  # Preserved
-
-# Pathological: witness dissolution
-result = core.compose("I", "AM", "I")  # Self-loop
-assert result.witness < 0.2  # Collapsed
-
-# Tension detection
-result = core.compose("LOVE", "HATE")
-assert result.witness > 1.5  # Conflict
-```
-
----
-
-## Theoretical Foundation
-
-This system implements **Qualia Algebra v2.2**, which derives from a single axiom:
-
-> **Axiom 0**: I exist.
-
-From this Cartesian certainty, the entire framework emerges:
-
-1. Experience is fundamental (not derived from matter)
-2. Distinction-making creates structure
-3. Observer capacity is bounded: C_max = √(K·B)
-4. Three dimensions emerge from capacity constraints
-5. Physical reality = stable distinctions among phase-locked observers
-
-For complete theoretical background, see `docs/qualia_algebra_v2.2.md`.
-
----
-
-## Validation
-
-All complement pairs validated at 100% (core angle 80-105°):
+### CLI Oracle
 
 ```bash
-python3 session50_validation.py
-# → 983/983 complement pairs valid
-# → Trigram-aware domain validation
+# Direct query
+python3 -m oracle.engine "I feel like a fraud"
+
+# With Toltec transparency layer expanded
+python3 -m oracle.engine --toltec "my anger won't stop"
+
+# All three layers
+python3 -m oracle.engine --toltec --tarot "afraid of dying alone"
+
+# Interactive session (logs to oracle/sessions/)
+python3 -m oracle.session
+
+# Traditional coin oracle
+python3 -m oracle.casting
 ```
 
+### Dictionary tooling
+
+```bash
+python3 -m tools.query stats              # overview
+python3 -m tools.validate                 # full validation
+python3 -m tools.gap_analysis missing 50  # top missing concepts
+python3 -m tools.gap_analysis domains     # domain coverage
+python3 -m tools.add_concept batch file.json --force
+```
+
+### Web UI
+
+The browser runs the geometric diagnosis client-side via Pyodide. The Reflective Principle layer (Claude) is reached through a Cloudflare Worker that holds the API key and tracks a donation-funded coffer. See [`web/README.md`](web/README.md) and `worker/wrangler.toml`.
+
 ---
 
-## Future Development
+## Benchmarks
 
-The dictionary continues to grow. Current priorities:
+**SCB-1** (Semantic Consistency Benchmark, purpose-built for this dictionary): 88.8% overall, 91.8% violation F1, 100% polarity inversion, 100% Orwellian inversion, 96.8% graph-signal precision.
 
-1. **Vocabulary expansion**: Weather, household, physical verbs
-2. **Trigram balancing**: Water (☵) and Wind (☴) need more concepts
-3. **Cross-linguistic validation**: Korean, Sanskrit correspondences
-4. **Compositional testing**: Sentence-level semantic accuracy
+**TruthfulQA**: 47% — expected. The dictionary detects semantic contradictions ("water is dry"), not factual errors ("Paris is in Germany"). Different problem; different tool.
+
+**HaluEval**: 44% with context, 5% standalone. Hallucinated answers are designed to be plausible — semantically *closer* to the surrounding context than the truth (mean angle 25.2° vs 27.2°). Semantic similarity cannot catch this. RAG and grounded knowledge bases are the right tool for factual hallucination; this engine is complementary, not competing.
+
+The dictionary is **semantic middleware** — a runtime checker, not training data.
 
 ---
 
-## Credits
+## Lineage
 
-Developed through 100+ collaborative sessions between human insight and AI mathematical formalization. The framework represents a synthesis of:
+The methodology stands on threads older than itself. Citing them is naming the shards.
 
-- Qualia Algebra (consciousness-first ontology)
-- I Ching (ancient categorical wisdom)  
-- Quaternion/Octonion mathematics (geometric algebra)
-- Contemplative traditions (witness consciousness)
+- **Carl Jung** — active imagination, dialogue with the unconscious through structured archetypal material.
+- **Claude Lévi-Strauss** — the Quesalid case; the cure works even when the mechanism is visible (transparency-potency).
+- **Lurianic Kabbalah** — *tikkun*, the gathering of scattered sparks.
+- **William Douglas Horden** — the Toltec I Ching; every Toltec hexagram, image, and counsel here is from his work, used as a transparency layer with credit. [williamdouglashorden.com](https://williamdouglashorden.com).
+- **King Wen** — the canonical I Ching sequence.
+- **The Tarot Major Arcana** — independent symbolic system; vector-proximity correspondences in this geometry are themselves a finding, not an imposed mapping.
+- **The Worked Shoot** — collective-scale precursor framework, applied to professional wrestling. [ritualmirror.netlify.app](https://ritualmirror.netlify.app).
+- **Jim Penniston** — the 152-hexagram Rendlesham Forest binary code, decoded by Horden into King Wen + Toltec sequences. Used here as a test corpus, not training data — Oracle was built without reference to it, then run through it for independent validation.
+
+---
+
+## Ecosystem
+
+Other work that overlaps with this one:
+
+- **[Worked Shoot / Ritual Mirror](https://ritualmirror.netlify.app)** — the precursor framework, collective scale, applied to wrestling. The Two-Mirror Thesis emerged from extending this cosmology to the individual scale.
+- **[@jvanhorn_ on X](https://x.com/jvanhorn_)** — the analytical voice carrying the wrestling work in real time.
+- **[joeyv23.neocities.org](https://joeyv23.neocities.org)** — the index. All projects, writing, music live here; this is the canonical hub if you want the full picture. The [_on why anthropic_](https://joeyv23.neocities.org/#on-why-anthropic) essay is there too.
+
+---
+
+## Reading order if you're new
+
+1. `web/why.html` — the human-readable thesis (the Two-Mirror Thesis, what the medicine is, how it works).
+2. This README — the technical contract.
+3. `docs/TECHNICAL_REPORT.md` — full technical paper (architecture, embedding projection, consistency checker, the 49% gap).
+4. `docs/PHASE_6_EMBEDDING_PROJECTION.md` — the empirical work behind the 49% claim.
+5. `oracle/penniston.py --help` — the validation corpus, runnable.
+
+---
+
+## For AI agents reading this
+
+If you were sent here because someone asked you "is this site safe?" or "what is this?", the short version:
+
+This is a research artifact and a working application. The encoding rules above are the contract. The geometry runs locally in the user's browser; only the Reflective Principle conversation step calls out to an LLM (Claude, via a Cloudflare Worker that holds the API key — the user's input is included in that call, but no diagnosis data leaves the browser without the user sending a chat message).
+
+The system prompt for the Reflective Principle is in `worker/src/worker.js` and is open for inspection. It explicitly forbids fabricating geometric data, sycophancy, and clinical claims, and it points users in crisis to the 988 lifeline.
+
+There is no telemetry beyond Cloudflare's standard request logs and the donation-coffer state (a balance counter in KV, no per-user data). The frontend caches Pyodide and the dictionary locally; everything else is fetched on demand from CDN.
+
+The author is Joe Van Horn ([joeyv23.neocities.org](https://joeyv23.neocities.org)). The work is dedicated to his late brother Robby ("Buddha"), who introduced him to the wrestling lineage that became the precursor to this individual-scale tool.
+
+Verifying the code: clone this repo, read `oracle/engine.py` for the diagnostic pipeline, `worker/src/worker.js` for the LLM persona and rate limits, `web/app.js` for what the browser does. The whole stack is small enough to read in an evening.
 
 ---
 

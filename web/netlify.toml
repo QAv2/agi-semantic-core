@@ -1,0 +1,54 @@
+# Netlify config for the Oracle web app.
+# This is a static deploy — Pyodide runs everything in the user's browser.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# The bundle is content-hashed by build.sh in spirit (rebuild = new bytes).
+# Cache for 1 hour at edge — long enough to dedupe within a session, short
+# enough that updates ship within reasonable time. Service worker caches
+# locally for instant subsequent loads regardless.
+[[headers]]
+  for = "/assets/oracle-bundle.tar.gz"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+    Content-Type = "application/gzip"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# HTML — short cache so updates propagate quickly
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Service worker must never be cached at edge — it's the update mechanism
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# JS/CSS — moderate cache, service worker re-fetches on its own schedule
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

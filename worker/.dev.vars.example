@@ -1,0 +1,9 @@
+# Local-dev secrets for `wrangler dev`. Copy to `.dev.vars` and fill in.
+# .dev.vars is git-ignored — never commit real keys.
+#
+# For the deployed worker, use `wrangler secret put ANTHROPIC_API_KEY` instead.
+
+ANTHROPIC_API_KEY=sk-ant-...
+
+# Optional: override the default model. Falls back to claude-sonnet-4-6.
+# ANTHROPIC_MODEL=claude-haiku-4-5-20251001

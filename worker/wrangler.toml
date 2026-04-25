@@ -1,0 +1,26 @@
+name = "oracle-api"
+account_id = "c42c0d83d41c616c94836a83d0e05778"
+main = "src/worker.js"
+compatibility_date = "2024-12-01"
+
+# Workers AI binding — uses Cloudflare's hosted models (Llama 3.1 70b).
+# No external API key required. Free tier: 10,000 neurons/day.
+[ai]
+binding = "AI"
+
+# Update ALLOWED_ORIGIN to the deployed Oracle URL once it's up.
+# Localhost origins are added at runtime in the worker for dev.
+[vars]
+ALLOWED_ORIGIN = "https://oracle.netlify.app"
+# Daily ceiling per CF account, hard safety net even if pot is full.
+# Cents. 500 = $5/day cap.
+DAILY_CAP_CENTS = "500"
+# Buffer kept in pot before falling back to Llama (cents).
+# 50 = 50¢ — leaves headroom for one more Claude turn before flipping.
+BALANCE_THRESHOLD_CENTS = "50"
+
+# KV namespace for coffer balance + daily spend tracking.
+[[kv_namespaces]]
+binding = "ORACLE_COFFER"
+id = "d2859b487d1340538e312e2d3ba25ebe"
+preview_id = "92ea48990ee6430b8c192890c98fbdfd"

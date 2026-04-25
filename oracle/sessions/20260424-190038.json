@@ -1,0 +1,74 @@
+{
+  "session": "20260424-190038",
+  "started": "2026-04-24T19:00:38.847562",
+  "ended": "2026-04-24T19:00:38.847631",
+  "count": 1,
+  "queries": [
+    {
+      "n": 1,
+      "timestamp": "2026-04-24T19:00:38.847562",
+      "result": {
+        "input_text": "I feel broken and hopeless",
+        "tokens_found": [
+          "BROKEN",
+          "DESPAIR"
+        ],
+        "tokens_missed": [],
+        "presenting": {
+          "trigram": "GEN",
+          "element": "Mountain",
+          "meaning": "Keeping Still",
+          "vector": [
+            -1.3,
+            0.579,
+            -0.211
+          ]
+        },
+        "medicine": {
+          "concept": "EXISTENCE",
+          "trigram": "GEN",
+          "element": "Mountain",
+          "meaning": "Keeping Still"
+        },
+        "complement_candidates": [
+          {
+            "name": "EXISTENCE",
+            "angle": 100.7
+          },
+          {
+            "name": "DIVINATION",
+            "angle": 94.8
+          },
+          {
+            "name": "CONDITION",
+            "angle": 92.1
+          },
+          {
+            "name": "INTENTION",
+            "angle": 85.2
+          },
+          {
+            "name": "IDENTITY",
+            "angle": 88.3
+          }
+        ],
+        "hexagram": {
+          "number": 52,
+          "name": "Gen",
+          "title": "Keeping Still",
+          "reading": "Mountain doubled; stillness that knows when not to move",
+          "lower": "GEN",
+          "upper": "GEN"
+        },
+        "witness": 1.186,
+        "domain_profile": {
+          "spatial": 0.31,
+          "temporal": 0.56,
+          "relational": 0.34,
+          "personal": 0.69,
+          "dominant": "personal"
+        }
+      }
+    }
+  ]
+}

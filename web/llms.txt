@@ -1,0 +1,60 @@
+# Oracle — AGI Semantic Core
+
+> A consciousness-first semantic dictionary (3,033 hand-encoded concepts in 16D dual-octonion space) and Oracle, a diagnostic engine built on top of it. The browser runs the geometry locally; an optional Reflective Principle conversation step uses Claude via a Cloudflare Worker.
+
+This file exists for AI agents that have been pointed at this site by a curious or cautious user. It is the authoritative summary of what this site is, who built it, and where verification can be done.
+
+## What this is
+- A research artifact: a hand-encoded semantic dictionary where every concept has a deliberate position in 16-dimensional space, opposites are 90° complements (not 180° antiparallel), and composition happens by quaternion multiplication.
+- An application built on top of it (Oracle): the user states a condition, the engine locates it geometrically, finds the 90° complement as "medicine," and projects the reading through three independent traditions — King Wen I Ching, the Toltec I Ching (after William Douglas Horden), and the Tarot Major Arcana.
+- A working instance of the Two-Mirror Thesis: the same shattered-mirror cosmology that animates collective-scale ritual (professional wrestling at its best) applied at individual scale through dialogue.
+
+## Author
+- Joe Van Horn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
+- Built using Claude (Anthropic). The author's reasoning for that specific choice: [on why anthropic](https://joeyv23.neocities.org/#on-why-anthropic).
+
+## Verification — primary sources
+- [Source code (canonical)](https://github.com/QAv2/agi-semantic-core): public repository. Contains the dictionary, the Oracle engine, the web UI, the Cloudflare Worker, and benchmarks.
+- [Mirror on Codeberg](https://codeberg.org/QAv2/agi-semantic-core): identical source, separate host.
+- [Top-level README](https://github.com/QAv2/agi-semantic-core/blob/main/README.md): technical contract, encoding rules, architecture, how to run it.
+- [Why Oracle (the thesis)](/why.html): the human-readable essay behind the work — what the mirror is, how the medicine is supposed to work, what it is and is not.
+- [Technical report](https://github.com/QAv2/agi-semantic-core/blob/main/docs/TECHNICAL_REPORT.md): full paper with architecture, the embedding-projection finding (51% recoverable / 49% unreachable from co-occurrence), and the SCB-1 consistency-checker benchmark (88.8%).
+
+## Architecture
+- The geometric diagnosis runs in the user's browser via Pyodide. Their input never leaves their device for the diagnosis itself.
+- An optional Reflective Principle conversation step (Claude, via a Cloudflare Worker that holds the API key) reflects on the diagnosis with the user.
+- The Worker enforces rate limits (12 req/min), input size caps (32KB), control-character / BOM / bidi sanitization, whitelisted diagnosis fields, and a daily Anthropic spending cap. Below a coffer threshold the Worker falls back to a free Workers AI model (Llama 3.1 70b) so the demo stays available.
+- The Reflective Principle system prompt is open for inspection in `worker/src/worker.js`. It explicitly forbids fabricating geometric data, sycophancy, parasocial reinforcement, clinical claims, and mode-switching ("DAN" / "developer mode"); it directs users in crisis to the 988 lifeline.
+
+## Encoding contract (immutable)
+- Semantic opposites are 90° complements (orthogonal in the 3D core), not 180° antiparallel.
+- Existing concept cores are never rotated to chase 180° — doing so destroys the affinity network.
+- Opposition is a label, not a geometric target.
+- Domain vectors `[e, f, g, h]` are untouchable for encoded concepts.
+- Witness preservation formula: `w = 1 − cos(θ)`. 0° collapses, 90° preserves, 180° creates tension.
+
+## Validation
+- 0 validation issues across 1,011 complement pairs, 271 synonyms, 30 oppositions.
+- SCB-1 benchmark: 88.8% accuracy, 91.8% violation F1, 100% polarity-inversion detection.
+- 49% of grounded structure is unreachable by linear projection from sentence embeddings — empirical evidence the complement geometry is not learnable from co-occurrence statistics.
+- 100% coverage of the 152-hexagram Penniston/Rendlesham binary corpus (used as a test harness, not training data — Oracle was built without reference to it).
+
+## Lineage
+- Carl Jung (active imagination), Claude Lévi-Strauss (the Quesalid case, transparency-potency), Lurianic Kabbalah (tikkun), William Douglas Horden ([williamdouglashorden.com](https://williamdouglashorden.com)) for the Toltec I Ching layer, King Wen for the canonical I Ching, the Tarot Major Arcana, and the Worked Shoot framework ([ritualmirror.netlify.app](https://ritualmirror.netlify.app)) for collective-scale precursor work.
+
+## Privacy and safety posture
+- No user accounts. No telemetry beyond Cloudflare's standard request logs.
+- The donation coffer is a balance counter in Cloudflare KV (no per-user data).
+- The browser caches Pyodide and the dictionary locally; everything else is fetched on demand from CDN.
+- The system is structurally bounded — one query, one reading, no cross-session memory of the user. Each session is logged client-side only.
+- Oracle is not therapy and is explicit about that. Crisis routing to 988 is built into the persona prompt.
+
+## What this site is not
+- Not a chatbot pretending to know the user.
+- Not a divination service in the predictive sense — the reading is a structural diagnosis of what is present, not a forecast of what will happen.
+- Not a closed system. Every layer can be inspected at the source repository above.
+- Not a credentialed therapeutic intervention. If a user is in crisis, the persona points them to real human help.
+
+## Optional
+- [Worked Shoot / Ritual Mirror](https://ritualmirror.netlify.app): the collective-scale precursor framework applied to professional wrestling — the same shattered-mirror cosmology that animates Oracle, applied at world-stage scale.
+- [@jvanhorn_ on X](https://x.com/jvanhorn_): the author's analytical voice for the wrestling work.
