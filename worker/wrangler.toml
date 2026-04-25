@@ -18,6 +18,9 @@ DAILY_CAP_CENTS = "500"
 # Buffer kept in pot before falling back to Llama (cents).
 # 50 = 50¢ — leaves headroom for one more Claude turn before flipping.
 BALANCE_THRESHOLD_CENTS = "50"
+# Claude model. Haiku 4.5 — output quality is near-Sonnet for the
+# Oracle's tightly constrained turns, at lower cost per call.
+ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 
 # KV namespace for coffer balance + daily spend tracking.
 [[kv_namespaces]]
