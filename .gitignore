@@ -15,3 +15,6 @@ exports/
 
 # DB is the source of truth but binary — track it
 # db/semantic.db
+
+# Local Netlify folder
+.netlify

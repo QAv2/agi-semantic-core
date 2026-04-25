@@ -980,7 +980,18 @@ body.has-messages .welcome { display: none; }
 .coffer-icon { color: var(--gold); font-size: 0.9rem; }
 .coffer-balance { color: var(--text); font-weight: 500; }
 .coffer-sep { color: var(--text-faint); }
-.coffer-mode { letter-spacing: 0.1em; }
+.coffer-mode {
+  letter-spacing: 0.1em;
+  color: inherit;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.28);
+  cursor: pointer;
+  transition: text-decoration-color 0.2s;
+}
+.coffer-mode:hover,
+.coffer-mode:focus-visible { text-decoration-color: currentColor; }
 .coffer-mode.mode-claude { color: var(--gold); }
 .coffer-mode.mode-llama { color: var(--text-dim); font-style: italic; }
 .coffer-spacer { flex: 1; }

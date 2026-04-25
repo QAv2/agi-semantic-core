@@ -11,7 +11,7 @@ binding = "AI"
 # Update ALLOWED_ORIGIN to the deployed Oracle URL once it's up.
 # Localhost origins are added at runtime in the worker for dev.
 [vars]
-ALLOWED_ORIGIN = "https://oracle.netlify.app"
+ALLOWED_ORIGIN = "https://qav2-oracle.netlify.app"
 # Daily ceiling per CF account, hard safety net even if pot is full.
 # Cents. 500 = $5/day cap.
 DAILY_CAP_CENTS = "500"
