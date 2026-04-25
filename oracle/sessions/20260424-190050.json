@@ -1,0 +1,207 @@
+{
+  "session": "20260424-190050",
+  "started": "2026-04-24T19:00:50.231187",
+  "ended": "2026-04-24T19:00:50.235300",
+  "count": 3,
+  "queries": [
+    {
+      "n": 1,
+      "timestamp": "2026-04-24T19:00:50.231187",
+      "result": {
+        "input_text": "I can't stop thinking about death",
+        "tokens_found": [
+          "STOP",
+          "THINKING",
+          "DEATH"
+        ],
+        "tokens_missed": [],
+        "presenting": {
+          "trigram": "XUN",
+          "element": "Wind",
+          "meaning": "Gentle",
+          "vector": [
+            -2.0397,
+            0.5967,
+            0.8142
+          ]
+        },
+        "medicine": {
+          "concept": "PROSPERITY",
+          "trigram": "QIAN",
+          "element": "Heaven",
+          "meaning": "Creative"
+        },
+        "complement_candidates": [
+          {
+            "name": "PROSPERITY",
+            "angle": 88.5
+          },
+          {
+            "name": "EXPERIENCE",
+            "angle": 85.4
+          },
+          {
+            "name": "EQUILIBRIUM",
+            "angle": 98.5
+          },
+          {
+            "name": "BEAT",
+            "angle": 89.7
+          },
+          {
+            "name": "JOURNEY",
+            "angle": 94.9
+          }
+        ],
+        "hexagram": {
+          "number": 44,
+          "name": "Gou",
+          "title": "Coming to Meet",
+          "reading": "Wind under heaven; the unexpected encounter \u2014 do not suppress it",
+          "lower": "XUN",
+          "upper": "QIAN"
+        },
+        "witness": 0.973,
+        "domain_profile": {
+          "spatial": 0.42,
+          "temporal": 0.56,
+          "relational": 0.15,
+          "personal": 0.55,
+          "dominant": "temporal"
+        }
+      }
+    },
+    {
+      "n": 2,
+      "timestamp": "2026-04-24T19:00:50.234029",
+      "result": {
+        "input_text": "my relationship is falling apart",
+        "tokens_found": [
+          "RELATIONSHIP",
+          "FALLING",
+          "APART"
+        ],
+        "tokens_missed": [],
+        "presenting": {
+          "trigram": "KUN",
+          "element": "Earth",
+          "meaning": "Receptive",
+          "vector": [
+            -1.3764,
+            0.9878,
+            0.1412
+          ]
+        },
+        "medicine": {
+          "concept": "THING",
+          "trigram": "KUN",
+          "element": "Earth",
+          "meaning": "Receptive"
+        },
+        "complement_candidates": [
+          {
+            "name": "THING",
+            "angle": 82.9
+          },
+          {
+            "name": "JOURNEY",
+            "angle": 87.5
+          },
+          {
+            "name": "SCALE",
+            "angle": 92.9
+          },
+          {
+            "name": "CONDITION",
+            "angle": 86.0
+          },
+          {
+            "name": "LEVEL",
+            "angle": 80.0
+          }
+        ],
+        "hexagram": {
+          "number": 2,
+          "name": "Kun",
+          "title": "The Receptive",
+          "reading": "Pure receptivity; the ground that receives the seed",
+          "lower": "KUN",
+          "upper": "KUN"
+        },
+        "witness": 0.876,
+        "domain_profile": {
+          "spatial": 0.51,
+          "temporal": 0.29,
+          "relational": 0.41,
+          "personal": 0.28,
+          "dominant": "spatial"
+        }
+      }
+    },
+    {
+      "n": 3,
+      "timestamp": "2026-04-24T19:00:50.235255",
+      "result": {
+        "input_text": "I feel like a fraud",
+        "tokens_found": [
+          "FRAUD"
+        ],
+        "tokens_missed": [],
+        "presenting": {
+          "trigram": "LI",
+          "element": "Fire",
+          "meaning": "Clinging",
+          "vector": [
+            -0.104,
+            0.318,
+            0.212
+          ]
+        },
+        "medicine": {
+          "concept": "UNITY",
+          "trigram": "KUN",
+          "element": "Earth",
+          "meaning": "Receptive"
+        },
+        "complement_candidates": [
+          {
+            "name": "UNITY",
+            "angle": 87.4
+          },
+          {
+            "name": "RULE",
+            "angle": 88.1
+          },
+          {
+            "name": "CAPACITY",
+            "angle": 85.9
+          },
+          {
+            "name": "WEAKNESS",
+            "angle": 87.0
+          },
+          {
+            "name": "PRINCIPLE",
+            "angle": 93.5
+          }
+        ],
+        "hexagram": {
+          "number": 36,
+          "name": "Ming Yi",
+          "title": "Darkening of the Light",
+          "reading": "Earth over fire; brilliance hidden within \u2014 protect the inner flame",
+          "lower": "LI",
+          "upper": "KUN"
+        },
+        "witness": 0.954,
+        "domain_profile": {
+          "spatial": 0.36,
+          "temporal": 0.44,
+          "relational": 0.54,
+          "personal": 0.41,
+          "dominant": "relational"
+        }
+      }
+    }
+  ]
+}

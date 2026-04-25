@@ -1,6 +1,7 @@
 """Database connection and initialization."""
 import sqlite3
 import os
+import sys
 
 DB_PATH = os.path.join(os.path.dirname(__file__), 'semantic.db')
 SCHEMA_PATH = os.path.join(os.path.dirname(__file__), 'schema.sql')
@@ -10,7 +11,8 @@ def get_connection(db_path: str = None) -> sqlite3.Connection:
     path = db_path or DB_PATH
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL")
+    if sys.platform != 'emscripten':
+        conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
 

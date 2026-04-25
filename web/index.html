@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a10">
+<title>Oracle</title>
+<meta name="description" content="A geometric oracle. The geometry produces the reading; the LLM reflects on it. Together they make a mirror.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+<link rel="preload" href="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js" as="script">
+<link rel="preload" href="assets/oracle-bundle.tar.gz" as="fetch" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+// Apply saved theme + any custom color overrides (with derived vars)
+// before styles render — avoids flash-of-unstyled-content on reload.
+(function() {
+  try {
+    var p = JSON.parse(localStorage.getItem('oracle:prefs') || '{}');
+    var t = p.theme;
+    if (t === 'parchment' || t === 'mineral' || t === 'twilight') {
+      document.documentElement.setAttribute('data-theme', t);
+    }
+    var cc = p.customColors;
+    if (!cc || typeof cc !== 'object') return;
+
+    function hexToRgb(h) { var m = /^#([0-9a-f]{6})$/i.exec(h); if (!m) return null; var n = parseInt(m[1], 16); return [(n>>16)&255, (n>>8)&255, n&255]; }
+    function toHex(rgb) { var c = function(x){return Math.max(0,Math.min(255,Math.round(x))).toString(16).padStart(2,'0');}; return '#'+c(rgb[0])+c(rgb[1])+c(rgb[2]); }
+    function mix(a, b, t) { return [a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t]; }
+    function rgba(rgb, a) { return 'rgba('+Math.round(rgb[0])+','+Math.round(rgb[1])+','+Math.round(rgb[2])+','+a+')'; }
+    var black = [0,0,0];
+    var bg = cc['--bg'] && hexToRgb(cc['--bg']);
+    var surface = cc['--surface'] && hexToRgb(cc['--surface']);
+    var text = cc['--text'] && hexToRgb(cc['--text']);
+    var gold = cc['--gold'] && hexToRgb(cc['--gold']);
+    var s = document.documentElement.style;
+    if (bg) {
+      s.setProperty('--bg', toHex(bg));
+      s.setProperty('--bg-deep', toHex(mix(bg, black, 0.4)));
+      s.setProperty('--bg-translucent', rgba(bg, 0.88));
+      s.setProperty('--bg-translucent-strong', rgba(bg, 0.94));
+    }
+    if (surface) {
+      s.setProperty('--surface', toHex(surface));
+      s.setProperty('--surface-translucent', rgba(surface, 0.95));
+      s.setProperty('--surface-translucent-soft', rgba(surface, 0.88));
+      s.setProperty('--panel-header-bg-2', rgba(surface, 0.92));
+      if (text) {
+        s.setProperty('--surface-2', toHex(mix(surface, text, 0.10)));
+        s.setProperty('--surface-3', toHex(mix(surface, text, 0.18)));
+        s.setProperty('--panel-header-bg-1', rgba(mix(surface, text, 0.08), 0.92));
+      }
+    }
+    if (text) {
+      s.setProperty('--text', toHex(text));
+      if (bg) {
+        s.setProperty('--text-dim', toHex(mix(text, bg, 0.40)));
+        s.setProperty('--text-faint', toHex(mix(text, bg, 0.65)));
+        s.setProperty('--border', toHex(mix(bg, text, 0.18)));
+        s.setProperty('--border-soft', toHex(mix(bg, text, 0.10)));
+      }
+    }
+    if (gold) {
+      s.setProperty('--gold', toHex(gold));
+      s.setProperty('--gold-soft', toHex(mix(gold, black, 0.20)));
+      s.setProperty('--gold-deep', toHex(mix(gold, black, 0.40)));
+    }
+  } catch(e) {}
+})();
+</script>
+</head>
+<body>
+
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <span class="sidebar-title">ORACLE</span>
+    <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">×</button>
+  </div>
+
+  <button class="sidebar-action" id="new-reading-btn">
+    <span class="action-icon">+</span>
+    <span>New reading</span>
+  </button>
+
+  <div class="sidebar-section">
+    <div class="section-label">Current reading</div>
+    <div id="current-summary" class="current-summary">
+      <p class="empty">No reading yet.</p>
+    </div>
+  </div>
+
+  <div class="sidebar-section history-section">
+    <div class="section-label">Past readings</div>
+    <ul id="history-list" class="history-list">
+      <li class="empty">none yet</li>
+    </ul>
+  </div>
+
+  <div class="sidebar-section theme-section">
+    <div class="section-label">Theme</div>
+    <div class="theme-options" id="theme-options">
+      <button class="theme-option" data-theme="twilight" title="Twilight (dark)">
+        <span class="theme-swatch theme-swatch-twilight"></span>
+        <span>Twilight</span>
+      </button>
+      <button class="theme-option" data-theme="mineral" title="Mineral (cool dark)">
+        <span class="theme-swatch theme-swatch-mineral"></span>
+        <span>Mineral</span>
+      </button>
+      <button class="theme-option" data-theme="parchment" title="Parchment (warm light)">
+        <span class="theme-swatch theme-swatch-parchment"></span>
+        <span>Parchment</span>
+      </button>
+    </div>
+    <button type="button" class="theme-customize-toggle" id="theme-customize-toggle" aria-expanded="false">
+      Customize colors <span class="customize-caret">▾</span>
+    </button>
+    <div class="theme-customizer" id="theme-customizer" hidden>
+      <label class="color-row">
+        <span>Background</span>
+        <input type="color" id="custom-bg" data-target="--bg">
+      </label>
+      <label class="color-row">
+        <span>Surface</span>
+        <input type="color" id="custom-surface" data-target="--surface">
+      </label>
+      <label class="color-row">
+        <span>Text</span>
+        <input type="color" id="custom-text" data-target="--text">
+      </label>
+      <label class="color-row">
+        <span>Accent</span>
+        <input type="color" id="custom-accent" data-target="--gold">
+      </label>
+      <button type="button" class="theme-reset" id="theme-reset">Reset to theme</button>
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    <button class="sidebar-link" id="about-btn">About</button>
+    <a class="sidebar-link" href="why.html">Why</a>
+    <a class="sidebar-link" href="https://github.com/qav2/agi-semantic-core" target="_blank" rel="noopener">Source</a>
+  </div>
+</aside>
+
+<div id="overlay" class="overlay"></div>
+
+<div class="app">
+
+  <aside id="reading-panel" class="reading-panel reading-panel-dock-right" hidden>
+    <div class="panel-header" id="panel-header">
+      <span class="panel-title">Oracle Reading</span>
+      <div class="panel-controls">
+        <button class="panel-btn" id="panel-flip" aria-label="Flip to other side" title="Flip side">⇄</button>
+        <button class="panel-btn" id="panel-minimize" aria-label="Minimize" title="Minimize">−</button>
+        <button class="panel-btn panel-close" id="panel-close" aria-label="Close" title="Close">×</button>
+      </div>
+    </div>
+    <div class="panel-body" id="panel-body">
+      <!-- populated by app.js -->
+    </div>
+  </aside>
+
+  <div class="main-shell" id="main-shell">
+
+  <header class="app-bar">
+    <button class="hamburger" id="hamburger" aria-label="Open sidebar">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="app-title">
+      <span class="title-mark">◐</span>
+      <span class="title-text">ORACLE</span>
+    </div>
+    <button class="reset-btn" id="reset-btn" aria-label="New reading" title="New reading">↻</button>
+  </header>
+
+  <div id="reading-bar" class="reading-bar" hidden>
+    <button class="reading-bar-content" id="reading-bar-toggle" aria-label="Show full reading">
+      <span class="rb-cell rb-presenting">
+        <span class="rb-symbol" id="rb-p-symbol">·</span>
+        <span class="rb-name" id="rb-p-name">presenting</span>
+      </span>
+      <span class="rb-arrow">⟶</span>
+      <span class="rb-cell rb-medicine">
+        <span class="rb-symbol" id="rb-m-symbol">·</span>
+        <span class="rb-name" id="rb-medicine">medicine</span>
+      </span>
+      <span class="rb-cell rb-hex">
+        <span class="rb-hex-num" id="rb-hex">#</span>
+        <span class="rb-hex-name" id="rb-hex-name"></span>
+      </span>
+      <span class="rb-cell rb-witness">
+        <span class="rb-witness-state" id="rb-witness">·</span>
+      </span>
+      <span class="rb-expand">⤢</span>
+    </button>
+  </div>
+
+  <main class="chat" id="chat">
+
+    <section class="welcome" id="welcome">
+      <div class="welcome-mark">◐</div>
+      <h1 class="welcome-title">Oracle</h1>
+      <p class="welcome-subtitle">Input is symptom. Output is medicine.</p>
+      <p class="welcome-body">
+        Describe a condition you're sitting with. The geometry will produce a reading —
+        a presenting state, a complement medicine, a hexagram, transparency layers.
+        Then we can talk about what it shows.
+      </p>
+      <p class="welcome-body welcome-body-quiet">
+        The reading is the truth claim. I'm an LLM holding it in my context, reflecting on it
+        with you. <button class="inline-link" id="welcome-about">What this is →</button>
+      </p>
+    </section>
+
+    <div id="messages" class="messages"></div>
+
+    <div id="status" class="boot-status" aria-live="polite">
+      <div class="boot-line" id="boot-line">awakening the oracle…</div>
+      <div class="boot-progress"><div class="boot-bar" id="boot-bar"></div></div>
+      <ul class="boot-steps" id="boot-steps">
+        <li data-step="pyodide">runtime</li>
+        <li data-step="numpy">numpy + sqlite</li>
+        <li data-step="bundle">dictionary</li>
+        <li data-step="unpack">unpack</li>
+        <li data-step="engine">3,033 concepts</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer class="composer">
+    <div class="composer-chips" id="chips" hidden>
+      <button class="chip" type="button">I feel lost</button>
+      <button class="chip" type="button">my anger won't stop</button>
+      <button class="chip" type="button">afraid of dying alone</button>
+      <button class="chip" type="button">can't forgive my father</button>
+      <button class="chip" type="button">everything is perfect</button>
+    </div>
+    <form class="composer-form" id="composer-form">
+      <div class="composer-shell">
+        <textarea
+          id="composer-input"
+          class="composer-input"
+          placeholder="describe your condition…"
+          rows="1"
+          autocomplete="off"
+          spellcheck="true"
+          disabled
+        ></textarea>
+        <div class="composer-toolbar">
+          <div class="layer-toggles" title="Each lit system contributes a reading. Max 3 active.">
+            <button type="button" class="layer-toggle active" data-layer="kingwen" title="King Wen reading" aria-pressed="true">
+              <span class="layer-icon">☰</span><span class="layer-name">King Wen</span>
+            </button>
+            <button type="button" class="layer-toggle active" data-layer="toltec" title="Toltec reading" aria-pressed="true">
+              <span class="layer-icon">☷</span><span class="layer-name">Toltec</span>
+            </button>
+            <button type="button" class="layer-toggle active" data-layer="tarot" title="Tarot reading" aria-pressed="true">
+              <span class="layer-icon">✦</span><span class="layer-name">Tarot</span>
+            </button>
+          </div>
+          <button type="submit" id="send-btn" class="send-btn" disabled aria-label="Send">
+            <span class="send-icon">↑</span>
+          </button>
+        </div>
+      </div>
+      <p class="composer-hint" id="composer-hint">enter to send · shift+enter for newline</p>
+    </form>
+    <div id="coffer-meter" class="coffer-meter" hidden>
+      <span class="coffer-icon">◎</span>
+      <span class="coffer-balance">$<span id="cm-balance">—</span></span>
+      <span class="coffer-sep">·</span>
+      <span class="coffer-mode" id="cm-mode">—</span>
+      <span class="coffer-spacer"></span>
+      <a class="coffer-donate" id="cm-donate" href="https://buymeacoffee.com/joeyv23" target="_blank" rel="noopener" title="Donations keep Claude running. When the pot is empty, the Reflective Principle still works on free Llama.">
+        Buy a coffee
+        <span class="coffer-arrow">→</span>
+      </a>
+    </div>
+  </footer>
+
+  </div><!-- /main-shell -->
+
+</div><!-- /app -->
+
+<dialog id="about-dialog" class="about-dialog">
+  <article class="about-content">
+    <button class="dialog-close" id="about-close" aria-label="Close">×</button>
+    <h2>What this is</h2>
+
+    <p class="lead">
+      Two layers, one function. The geometry produces the reading. The LLM reflects on it.
+      Neither is therapy. Neither knows you. Together they make a mirror.
+    </p>
+
+    <h3>The Oracle (geometry)</h3>
+    <p>
+      A 16D dual-octonion semantic dictionary — 3,033 concepts encoded as positions in vector space.
+      Your input is tokenized, composed via quaternion multiplication, mapped to a presenting trigram,
+      and matched against a ~90° complement: the medicine. The reading is structural, not interpretive.
+      It runs entirely in your browser. Your query never leaves your device.
+    </p>
+
+    <h3>The Reflective Principle (LLM)</h3>
+    <p>
+      A language model that holds the diagnostic reading in its context and reflects on it with you.
+      It cannot generate alternative readings. It cannot change the medicine. It is honest about what it is —
+      a program, a mirror, a conversational surface against which the medicine lands.
+    </p>
+
+    <h3>What it isn't</h3>
+    <ul>
+      <li>This is not therapy. If you're in crisis, please reach out — 988 (US lifeline), or your local equivalent.</li>
+      <li>This is not a fortune teller. The reading is a structural diagnosis, not a prediction.</li>
+      <li>This is not a chatbot pretending to know you. It only knows the reading.</li>
+    </ul>
+
+    <h3>The transparency principle</h3>
+    <p>
+      Three independent traditions — King Wen I Ching, Toltec I Ching, Tarot Major Arcana — converge on the same
+      diagnostic geometry. You can see all three at once. Transparency makes the medicine more potent for the user
+      who understands what's happening.
+    </p>
+
+    <p class="signoff">
+      The Oracle is open source. The system prompts are public. The geometry is documented.
+      The mirror has no hidden side.
+    </p>
+
+    <p class="signoff">
+      For the full thesis behind this — what the ritual mirror is, how the medicine works, the
+      Two-Mirror philosophy, lineage — read <a href="why.html">Why Oracle →</a>
+    </p>
+  </article>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
