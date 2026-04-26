@@ -130,7 +130,7 @@ const MAX_HISTORY_BYTES = 12_288;       // aggregate budget across history[]
 const MAX_HISTORY_MSG_CHARS = 2_000;    // per-message cap
 const MAX_HISTORY_ITEMS = 20;
 const MAX_MESSAGE_CHARS = 1_000;        // longer than ProxyChat — diagnostic queries can be paragraphs
-const ALLOWED_PATHS = new Set(['/', '/balance', '/session']);
+const ALLOWED_PATHS = new Set(['/', '/balance', '/session', '/stats']);
 const SESSION_TTL_SEC = 30 * 60;        // signed sid lifetime
 const MAX_SESSION_BODY_BYTES = 8_192;   // /session POST body cap (just a turnstile token)
 
@@ -601,6 +601,10 @@ function renderDiagnosisAsText(d) {
 //   spent-YYYY-MM                          — cents spent that UTC month (90-day TTL)
 //   donated-YYYY-MM                        — cents recorded as donations that month (90-day TTL)
 //   session-spent-{sid_hash}-YYYY-MM-DD    — cents spent by this signed session today (25h TTL, Phase 4)
+//   requests-YYYY-MM-DD                    — POST / served that UTC day (90-day TTL, public usage signal)
+//   requests-YYYY-MM                       — POST / served that UTC month (90-day TTL)
+//   claude-YYYY-MM                         — POST / served by Claude that UTC month (90-day TTL)
+//   llama-YYYY-MM                          — POST / served by Llama that UTC month (90-day TTL)
 //
 // All operations are tolerant of KV unavailability — coffer logic is
 // best-effort, never blocks a response from going out.
@@ -609,6 +613,9 @@ const dayKey = (d = new Date()) => `spent-${d.toISOString().slice(0, 10)}`;
 const monthKey = (d = new Date()) => `spent-${d.toISOString().slice(0, 7)}`;
 const donatedKey = (d = new Date()) => `donated-${d.toISOString().slice(0, 7)}`;
 const sessionDayKey = (sidHash, d = new Date()) => `session-spent-${sidHash}-${d.toISOString().slice(0, 10)}`;
+const requestsDayKey = (d = new Date()) => `requests-${d.toISOString().slice(0, 10)}`;
+const requestsMonthKey = (d = new Date()) => `requests-${d.toISOString().slice(0, 7)}`;
+const modeMonthKey = (mode, d = new Date()) => `${mode}-${d.toISOString().slice(0, 7)}`;
 
 // Opaque per-session key derived from the signed sid's HMAC segment.
 // The sig is already a server-secret HMAC of the nonce+expiry, so the
@@ -712,6 +719,29 @@ async function recordSpend(env, cents, sidHashStr) {
   await Promise.all(writes);
 }
 
+// Bumps the public usage counters surfaced at /stats. Called for every
+// successful POST / response, regardless of mode. KV-eventually-consistent;
+// races between concurrent requests can lose a count occasionally — fine
+// for directional signal. TTLs auto-prune 90 days back.
+async function recordRequest(env, mode) {
+  const m = mode === 'claude' ? 'claude' : 'llama';
+  await Promise.all([
+    kvAddCents(env, requestsDayKey(), 1, 90 * 86400),
+    kvAddCents(env, requestsMonthKey(), 1, 90 * 86400),
+    kvAddCents(env, modeMonthKey(m), 1, 90 * 86400),
+  ]);
+}
+
+async function getStatsState(env) {
+  const [requests_today, requests_month, claude_month, llama_month] = await Promise.all([
+    kvGetCents(env, requestsDayKey()),
+    kvGetCents(env, requestsMonthKey()),
+    kvGetCents(env, modeMonthKey('claude')),
+    kvGetCents(env, modeMonthKey('llama')),
+  ]);
+  return { requests_today, requests_month, claude_month, llama_month };
+}
+
 // ─── Fallback policy ────────────────────────────────────────────────
 
 function shouldFallback(err) {
@@ -806,6 +836,31 @@ async function handleBalance(request, env, cors) {
     mode: route.route,
     reason: route.reason,
     model: route.route === 'claude' ? (env.ANTHROPIC_MODEL || 'claude-sonnet-4-6') : 'llama-3.1-70b',
+  }, 200, cors);
+}
+
+// Public usage signal — open read, no auth, no rate limit. Counts only
+// successful POST / responses (the message path); /balance polls and
+// /session mints don't count, since those aren't "Oracle usage" in
+// the funding-pattern / OSC-eligibility sense. Aligns with the
+// Compute Coffer pattern: the pool is finite + visible + so is its use.
+async function handleStats(request, env, cors) {
+  const [coffer, stats] = await Promise.all([
+    getCofferState(env),
+    getStatsState(env),
+  ]);
+  return jsonResponse({
+    as_of: new Date().toISOString(),
+    requests_today: stats.requests_today,
+    requests_month: stats.requests_month,
+    claude_calls_month: stats.claude_month,
+    llama_calls_month: stats.llama_month,
+    balance_cents: coffer.balance,
+    spent_today_cents: coffer.spent_today,
+    spent_month_cents: coffer.spent_month,
+    donated_month_cents: coffer.donated_month,
+    daily_cap_cents: dailyCapCents(env),
+    model: env.ANTHROPIC_MODEL || 'claude-sonnet-4-6',
   }, 200, cors);
 }
 
@@ -907,6 +962,15 @@ export default {
       return handleBalance(request, env, cors);
     }
 
+    // GET /stats — public usage signal. Cumulative request + mode
+    // counters from KV. Open read, no rate limit.
+    if (url.pathname === '/stats') {
+      if (request.method !== 'GET') {
+        return jsonResponse({ error: 'Method not allowed' }, 405, cors);
+      }
+      return handleStats(request, env, cors);
+    }
+
     // POST /session — Turnstile verification → signed session ID.
     if (url.pathname === '/session') {
       if (request.method !== 'POST') {
@@ -984,12 +1048,16 @@ export default {
     if (decision.route === 'claude') {
       const claudeResult = await callClaudeWithCaching(env, SYSTEM_PROMPT, diagnosisText, dialogue);
       if (claudeResult.ok && claudeResult.text) {
-        // Record actual cost reported by Anthropic.
+        // Record actual cost reported by Anthropic + bump usage counters.
         const cents = actualCostCents(claudeResult.usage, claudeResult.model || env.ANTHROPIC_MODEL);
+        const sideEffects = Promise.all([
+          recordSpend(env, cents, sidHashStr),
+          recordRequest(env, 'claude'),
+        ]);
         if (ctx && typeof ctx.waitUntil === 'function') {
-          ctx.waitUntil(recordSpend(env, cents, sidHashStr));
+          ctx.waitUntil(sideEffects);
         } else {
-          recordSpend(env, cents, sidHashStr).catch(() => {});
+          sideEffects.catch(() => {});
         }
         return jsonResponse({
           response: claudeResult.text,
@@ -1007,6 +1075,12 @@ export default {
     // or fallback after Claude error.
     const llamaResult = await callLlamaFallback(env, systemContent, dialogue);
     if (llamaResult.ok) {
+      const recordPromise = recordRequest(env, 'llama');
+      if (ctx && typeof ctx.waitUntil === 'function') {
+        ctx.waitUntil(recordPromise);
+      } else {
+        recordPromise.catch(() => {});
+      }
       return jsonResponse({
         response: llamaResult.text,
         model: 'llama',
