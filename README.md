@@ -5,8 +5,8 @@
 **Author**: Joe Van Horn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
 **Source (canonical)**: [github.com/QAv2/agi-semantic-core](https://github.com/QAv2/agi-semantic-core)
 **Mirror**: [codeberg.org/QAv2/agi-semantic-core](https://codeberg.org/QAv2/agi-semantic-core)
-**Live demo**: deploying — see `web/` and `worker/`
-**License**: source-visible, attribution required, no warranty
+**Live demo**: [qav2-oracle.netlify.app](https://qav2-oracle.netlify.app)
+**License**: MIT — see [`LICENSE`](LICENSE)
 
 ---
 
@@ -18,7 +18,7 @@ This dictionary takes a different bet. Every concept has a deliberate position i
 
 The dictionary alone is a research artifact. **Oracle** is the application: a diagnostic engine that takes a user's stated condition, locates it in the geometry, finds its 90° complement (the "medicine"), and projects the reading through three independent symbolic traditions — King Wen I Ching, the Toltec I Ching (after William Douglas Horden), and the Tarot Major Arcana. When all three layers converge on the same theme for a given input, the convergence is itself the validation.
 
-For the human-readable thesis, see [`web/why.html`](web/why.html) (also at the live demo's `/why` page once deployed).
+For the human-readable thesis, see [`web/why.html`](web/why.html) (also live at [qav2-oracle.netlify.app/why](https://qav2-oracle.netlify.app/why)).
 
 ---
 
