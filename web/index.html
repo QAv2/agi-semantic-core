@@ -338,6 +338,10 @@
   </article>
 </dialog>
 
+<div id="turnstile-mount" aria-hidden="true"></div>
+
+<script>window.__turnstileReady = new Promise(r => { window.__resolveTurnstile = r; });</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=__resolveTurnstile" async defer></script>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
 <script src="app.js"></script>
 </body>

@@ -116,7 +116,9 @@ const MAX_HISTORY_BYTES = 12_288;       // aggregate budget across history[]
 const MAX_HISTORY_MSG_CHARS = 2_000;    // per-message cap
 const MAX_HISTORY_ITEMS = 20;
 const MAX_MESSAGE_CHARS = 1_000;        // longer than ProxyChat — diagnostic queries can be paragraphs
-const ALLOWED_PATHS = new Set(['/', '/balance']);
+const ALLOWED_PATHS = new Set(['/', '/balance', '/session']);
+const SESSION_TTL_SEC = 30 * 60;        // signed sid lifetime
+const MAX_SESSION_BODY_BYTES = 8_192;   // /session POST body cap (just a turnstile token)
 
 // Anthropic API pricing per million tokens, in cents.
 // Cache write = 1.25x base input. Cache read = 0.10x base input.
@@ -149,6 +151,84 @@ function actualCostCents(usage, model) {
     (cacheRead / 1e6) * p.cache_read +
     (out / 1e6) * p.output
   );
+}
+
+// ─── Signed session IDs (Phase 3) ───────────────────────────────────
+// HMAC-SHA256 over `<nonce>.<expires_at>` using env.SESSION_SECRET.
+// Stateless: validation requires only the secret, no KV reads.
+// Rotation invalidates all active sids — frontend silently re-challenges.
+
+function b64urlEncode(bytes) {
+  let str = '';
+  for (let i = 0; i < bytes.length; i++) str += String.fromCharCode(bytes[i]);
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function b64urlDecode(b64url) {
+  const pad = '='.repeat((4 - (b64url.length % 4)) % 4);
+  const b64 = (b64url + pad).replace(/-/g, '+').replace(/_/g, '/');
+  const bin = atob(b64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+
+async function importHmacKey(secret) {
+  const enc = new TextEncoder();
+  return crypto.subtle.importKey(
+    'raw', enc.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false, ['sign', 'verify']
+  );
+}
+
+async function mintSessionId(secret) {
+  const nonce = b64urlEncode(crypto.getRandomValues(new Uint8Array(16)));
+  const expires_at = Math.floor(Date.now() / 1000) + SESSION_TTL_SEC;
+  const payload = `${nonce}.${expires_at}`;
+  const key = await importHmacKey(secret);
+  const sig = await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(payload));
+  return { sid: `${payload}.${b64urlEncode(new Uint8Array(sig))}`, expires_at };
+}
+
+async function verifySessionId(sid, secret) {
+  if (typeof sid !== 'string' || sid.length === 0 || sid.length > 256) return false;
+  const parts = sid.split('.');
+  if (parts.length !== 3) return false;
+  const [nonce, expStr, sigB64] = parts;
+  if (!/^[A-Za-z0-9_-]+$/.test(nonce) || !/^[A-Za-z0-9_-]+$/.test(sigB64)) return false;
+  const expires_at = parseInt(expStr, 10);
+  if (!Number.isFinite(expires_at)) return false;
+  if (expires_at <= Math.floor(Date.now() / 1000)) return false;
+  let sigBytes;
+  try { sigBytes = b64urlDecode(sigB64); } catch { return false; }
+  const key = await importHmacKey(secret);
+  const msgBytes = new TextEncoder().encode(`${nonce}.${expStr}`);
+  // crypto.subtle.verify is constant-time
+  return crypto.subtle.verify('HMAC', key, sigBytes, msgBytes);
+}
+
+async function verifyTurnstile(token, secret, remoteIp) {
+  if (!token || typeof token !== 'string' || token.length > 4096) {
+    return { ok: false, code: 'invalid-token' };
+  }
+  const form = new URLSearchParams();
+  form.set('secret', secret);
+  form.set('response', token);
+  if (remoteIp) form.set('remoteip', remoteIp);
+  let data;
+  try {
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: form.toString(),
+    });
+    if (!res.ok) return { ok: false, code: `siteverify-${res.status}` };
+    data = await res.json();
+  } catch {
+    return { ok: false, code: 'siteverify-error' };
+  }
+  return { ok: !!data.success, codes: data['error-codes'] || [] };
 }
 
 // ─── ASN block (Phase 2) ────────────────────────────────────────────
@@ -195,7 +275,7 @@ function corsHeaders(env, requestOrigin) {
   return {
     'Access-Control-Allow-Origin': origin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Oracle-Session',
     'Access-Control-Max-Age': '86400',
     'Vary': 'Origin',
   };
@@ -570,6 +650,56 @@ function shouldFallback(err) {
 
 // ─── Main handler ───────────────────────────────────────────────────
 
+async function handleSession(request, env, cors) {
+  if (!env.SESSION_SECRET || !env.TURNSTILE_SECRET) {
+    return jsonResponse({ error: 'verification_unavailable' }, 503, cors);
+  }
+
+  const ctype = (request.headers.get('Content-Type') || '').toLowerCase();
+  if (!ctype.startsWith('application/json')) {
+    return jsonResponse({ error: 'Content-Type must be application/json' }, 415, cors);
+  }
+
+  const declaredLen = parseInt(request.headers.get('Content-Length') || '0', 10);
+  if (declaredLen > MAX_SESSION_BODY_BYTES) {
+    return jsonResponse({ error: 'Request body too large' }, 413, cors);
+  }
+
+  // Per-IP rate limit on /session — slows Turnstile-token spamming.
+  const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
+  const { success: rlOk } = await env.RATE_LIMITER.limit({ key: `s:${clientIP}` });
+  if (!rlOk) {
+    return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, cors);
+  }
+
+  let body;
+  try {
+    const raw = await request.text();
+    if (raw.length > MAX_SESSION_BODY_BYTES) {
+      return jsonResponse({ error: 'Request body too large' }, 413, cors);
+    }
+    body = JSON.parse(raw);
+  } catch {
+    return jsonResponse({ error: 'Invalid JSON' }, 400, cors);
+  }
+  if (!body || typeof body !== 'object' || Array.isArray(body)) {
+    return jsonResponse({ error: 'Invalid JSON' }, 400, cors);
+  }
+
+  const token = typeof body.turnstile_token === 'string' ? body.turnstile_token : '';
+  if (!token) {
+    return jsonResponse({ error: 'turnstile_token required' }, 400, cors);
+  }
+
+  const result = await verifyTurnstile(token, env.TURNSTILE_SECRET, clientIP);
+  if (!result.ok) {
+    return jsonResponse({ error: 'verification_failed', codes: result.codes }, 401, cors);
+  }
+
+  const { sid, expires_at } = await mintSessionId(env.SESSION_SECRET);
+  return jsonResponse({ session_id: sid, expires_at }, 200, cors);
+}
+
 async function handleBalance(env, cors) {
   const state = await getCofferState(env);
   const dailyCap = dailyCapCents(env);
@@ -686,6 +816,14 @@ export default {
       return handleBalance(env, cors);
     }
 
+    // POST /session — Turnstile verification → signed session ID.
+    if (url.pathname === '/session') {
+      if (request.method !== 'POST') {
+        return jsonResponse({ error: 'Method not allowed' }, 405, cors);
+      }
+      return handleSession(request, env, cors);
+    }
+
     if (request.method !== 'POST') {
       return jsonResponse({ error: 'Method not allowed' }, 405, cors);
     }
@@ -700,8 +838,17 @@ export default {
       return jsonResponse({ error: 'Request body too large' }, 413, cors);
     }
 
-    const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
-    const { success: rateLimitOk } = await env.RATE_LIMITER.limit({ key: clientIP });
+    // Phase 3: validate signed session ID before any further work.
+    // Rate limit keys by sid (not IP), so this has to come first.
+    const sid = request.headers.get('X-Oracle-Session') || '';
+    const sidValid = env.SESSION_SECRET
+      ? await verifySessionId(sid, env.SESSION_SECRET)
+      : false;
+    if (!sidValid) {
+      return jsonResponse({ error: 'session_invalid' }, 401, cors);
+    }
+
+    const { success: rateLimitOk } = await env.RATE_LIMITER.limit({ key: `r:${sid}` });
     if (!rateLimitOk) {
       return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, cors);
     }
