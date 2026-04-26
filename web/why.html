@@ -410,6 +410,20 @@
       <a href="coffer.html" class="inline-link">The Compute Coffer</a>.
     </p>
 
+    <p>
+      One small piece of plumbing worth naming: each browser session runs a brief
+      <a href="https://www.cloudflare.com/application-services/products/turnstile/" target="_blank" rel="noopener">Cloudflare
+      Turnstile</a> verification before it can talk to the Reflective Principle. For most
+      visitors this is invisible — the page does its work in the background. If Cloudflare
+      flags the visit (Tor exit, datacenter egress, unusual signals) a brief checkbox
+      appears bottom-right. Once verified, the worker mints a short-lived signed token
+      held only in memory; nothing is written to local storage. Cloudflare may set a
+      <code>cf_clearance</code> cookie as part of that flow — see
+      <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's
+      privacy policy</a> for what they keep. Oracle itself stores no personal data and does
+      no per-user tracking.
+    </p>
+
     <hr>
 
     <p class="essay-signoff">

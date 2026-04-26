@@ -17,6 +17,14 @@ const ORACLE_API_URL = (() => {
   return 'https://oracle-api.qav2.workers.dev/';
 })();
 
+const SESSION_URL = ORACLE_API_URL.replace(/\/+$/, '') + '/session';
+
+// Cloudflare Turnstile site key — public value, paired with TURNSTILE_SECRET
+// in the worker. The current value is CF's documented "always-pass invisible"
+// testing key; swap to a real site key (created at dash.cloudflare.com →
+// Turnstile) once the production Turnstile site is set up.
+const TURNSTILE_SITE_KEY = '1x00000000000000000000BB';
+
 const TRIGRAM_SYMBOLS = {
   QIAN: '☰', KUN: '☷', ZHEN: '☳', KAN: '☵',
   GEN: '☶', XUN: '☴', LI: '☲', DUI: '☱',
@@ -34,6 +42,7 @@ const state = {
   diagnosis: null,           // current Oracle reading
   history: [],               // chat messages [{role, content}] sent to worker
   sessionId: null,
+  authSession: null,         // { sid, expires_at } — HMAC-signed auth session, in-memory only
   // Layer filter: each lit system contributes a reading to the LLM
   // context AND opens by default in the panel. Max MAX_ACTIVE_LAYERS
   // (3) at once — protects against payload bloat as more systems get
@@ -56,6 +65,14 @@ function setBootProgress(pct) { $('boot-bar').style.width = `${pct}%`; }
 
 async function bootstrap() {
   try {
+    // Pre-mint auth session in parallel with engine load — Turnstile +
+    // /session round-trip overlaps Pyodide bootstrap, so the first user
+    // message doesn't wait. Failure is non-fatal here; askMirror will
+    // re-attempt at send time.
+    mintAuthSession().catch((err) => {
+      console.warn('[oracle] preempt auth session failed:', err.message || err);
+    });
+
     setBootLine('loading runtime…');
     setBootProgress(5);
     setStep('pyodide', 'active');
@@ -126,6 +143,69 @@ async function runDiagnosis(text) {
   return JSON.parse(json);
 }
 
+// ─── Turnstile + signed auth session ──────────────────────────
+// Turnstile is rendered in 'interaction-only' appearance — invisible
+// for trusted visitors, brief challenge for flagged ones. On a valid
+// token, /session mints an HMAC-signed sid we send as X-Oracle-Session
+// on every /reflect call. 30-min TTL, in-memory only (no localStorage).
+
+let _turnstileWidgetId = null;
+
+async function _waitForTurnstile() {
+  if (typeof window.turnstile !== 'undefined') return;
+  if (window.__turnstileReady) await window.__turnstileReady;
+  if (typeof window.turnstile === 'undefined') {
+    throw new Error('Turnstile failed to load');
+  }
+}
+
+function _getToken() {
+  return new Promise((resolve, reject) => {
+    const mount = $('turnstile-mount');
+    if (!mount) return reject(new Error('Turnstile mount missing'));
+    if (_turnstileWidgetId !== null) {
+      try { window.turnstile.remove(_turnstileWidgetId); } catch {}
+      _turnstileWidgetId = null;
+    }
+    _turnstileWidgetId = window.turnstile.render(mount, {
+      sitekey: TURNSTILE_SITE_KEY,
+      appearance: 'interaction-only',
+      retry: 'never',
+      callback: (token) => resolve(token),
+      'error-callback': () => reject(new Error('Turnstile error')),
+      'expired-callback': () => reject(new Error('Turnstile expired')),
+      'timeout-callback': () => reject(new Error('Turnstile timeout')),
+    });
+  });
+}
+
+async function mintAuthSession() {
+  await _waitForTurnstile();
+  const token = await _getToken();
+  const res = await fetch(SESSION_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ turnstile_token: token }),
+  });
+  if (!res.ok) {
+    let msg = `session_mint_failed: ${res.status}`;
+    try { const e = await res.json(); if (e.error) msg = e.error; } catch {}
+    throw new Error(msg);
+  }
+  const data = await res.json();
+  state.authSession = { sid: data.session_id, expires_at: data.expires_at };
+  return state.authSession;
+}
+
+async function getAuthSession() {
+  const a = state.authSession;
+  // 30s skew — re-mint if we're within 30s of expiry
+  if (a && a.expires_at && a.expires_at > Math.floor(Date.now() / 1000) + 30) {
+    return a;
+  }
+  return mintAuthSession();
+}
+
 // ─── Coffer meter ─────────────────────────────────────────────
 
 const BALANCE_URL = ORACLE_API_URL.replace(/\/+$/, '') + '/balance';
@@ -174,16 +254,30 @@ async function refreshCofferMeter() {
 
 async function askMirror(message) {
   if (!state.diagnosis) throw new Error('no diagnosis to reflect on');
-  const body = {
+  const body = JSON.stringify({
     message,
     history: state.history,
     diagnosis: filteredDiagnosis(),
-  };
-  const res = await fetch(ORACLE_API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
   });
+
+  async function send(sid) {
+    return fetch(ORACLE_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Oracle-Session': sid },
+      body,
+    });
+  }
+
+  let auth = await getAuthSession();
+  let res = await send(auth.sid);
+
+  if (res.status === 401) {
+    // Session expired or rotated — silently re-challenge once and retry.
+    state.authSession = null;
+    auth = await mintAuthSession();
+    res = await send(auth.sid);
+  }
+
   if (!res.ok) {
     let msg = `worker error: ${res.status}`;
     try {

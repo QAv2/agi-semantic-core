@@ -1647,3 +1647,14 @@ main.essay {
   font-family: var(--mono);
   font-size: 0.78rem;
 }
+
+/* Cloudflare Turnstile — invisible by default (interaction-only mode).
+   When CF flags a visitor and an interactive challenge is needed, the
+   widget renders here in the bottom-right corner. Most users never see it. */
+#turnstile-mount {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1500;
+}
+#turnstile-mount:empty { display: none; }

@@ -200,6 +200,18 @@
       cost. The Oracle has yet to approach either.
     </p>
 
+    <p>
+      <strong>Verification.</strong> Before a browser can talk to the worker, it passes a brief
+      <a href="https://www.cloudflare.com/application-services/products/turnstile/" target="_blank" rel="noopener">Cloudflare
+      Turnstile</a> check. Most visitors never see anything; flagged visitors get a quick
+      checkbox. The worker mints a short-lived signed token (HMAC-SHA256, 30 min) the browser
+      sends on each call, kept in memory only. This is the entry point of the defense layer
+      below — without it the coffer is trivially DoS-able. Cloudflare may set a
+      <code>cf_clearance</code> cookie during verification per their
+      <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">privacy
+      policy</a>; Oracle itself stores no personal data.
+    </p>
+
     <h2>Open questions</h2>
 
     <p>
@@ -216,6 +228,18 @@
       <strong>Scale.</strong> The pattern hasn't been tested at volume. If a thousand visitors
       arrive in an hour, the pot drains; the free fallback handles it, but the UX of mid-session
       engine switches at scale is untested.
+    </p>
+
+    <p>
+      <strong>How to defend a coffer.</strong> A naive coffer is DoS-able for the cost of a
+      single daily cap — one attacker drains the pot, and every honest visitor falls to the
+      free fallback for the rest of the day. The reference defense layer (native rate limit +
+      datacenter ASN block + Turnstile-gated signed sessions + per-session budget shares) is
+      specified in
+      <a href="https://github.com/QAv2/agi-semantic-core/blob/master/docs/THREAT_MODEL_AND_DEFENSE.md" target="_blank" rel="noopener"><code>THREAT_MODEL_AND_DEFENSE.md</code></a>
+      and travels with the pattern. The headline primitive is per-session shares: dividing the
+      daily cap across signed sessions so a single attacker can only burn their own slice while
+      other visitors keep Claude access.
     </p>
 
     <p>
