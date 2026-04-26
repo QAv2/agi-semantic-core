@@ -10,9 +10,9 @@
 
 These need to be resolved before submission, not discovered mid-application:
 
-- [ ] **Add a `LICENSE` file to the repo root.** Current README declares informal terms ("source-visible, attribution required, no warranty"), which isn't OSI-recognized and won't pass OSC eligibility. Recommended: **MIT** (simplest, matches the transparency stance, donors will recognize it). Alternatives: **Apache-2.0** (adds patent grant, slightly heavier), **AGPL-3.0** (copyleft — only if you want to require derivative deployments to also be open). My read: MIT is right for this project. The pattern's "freely adoptable" claim is best served by the most permissive license.
-- [ ] **Pick the public collective name.** Options: `Oracle by AGI Semantic Core`, `AGI Semantic Core`, `Oracle (Compute Coffer reference implementation)`. The most descriptive-yet-short option: **AGI Semantic Core**. The most public-facing: **Oracle**. The slug controls the URL; the name controls the header.
-- [ ] **Pick the slug.** `qav2-oracle` matches Netlify and homepage convention. `agi-semantic-core` matches the GitHub repo. Either works; pick whichever you'd rather see at `opencollective.com/{slug}`.
+- [x] **`LICENSE` file added to repo root.** MIT, in place at `LICENSE` (2026-04-26). Supersedes the README's informal "source-visible, attribution required, no warranty" terms — README may want a follow-up update to reference the LICENSE file directly.
+- [x] **Collective name locked: `Oracle Compute Coffer`.** Names what it actually is — *Oracle* (the project being funded, satisfies OSC's single-project structure) + *Compute Coffer* (the funding pattern being implemented, flag-plants the authored thing). No category error: donors know what their money funds; the pattern keeps its name.
+- [x] **Slug locked: `oracle-compute-coffer`.** Parallel to the name so people who hear the name can type the URL. If taken at submission time, fall back to `compute-coffer` then `qav2-oracle`.
 - [ ] **Decide funding goal (optional).** OSC supports an explicit "goal" amount (annual or one-time). For the Compute Coffer model, a meaningful goal might be the annual API spend ceiling (~$1,200 = $100/mo cap × 12). Leaving it unset is also fine — the pattern doesn't depend on a goal.
 
 ---
@@ -20,10 +20,10 @@ These need to be resolved before submission, not discovered mid-application:
 ## Field-by-field paste
 
 ### Collective name
-**AGI Semantic Core** *(or "Oracle by AGI Semantic Core" if the longer form is preferred)*
+**Oracle Compute Coffer**
 
 ### Slug
-**qav2-oracle** *(matches Netlify; alternatives: `agi-semantic-core`, `oracle-semantic-core`)*
+**oracle-compute-coffer** *(fallbacks if taken: `compute-coffer`, then `qav2-oracle`)*
 
 ### Tags
 `open-source`, `ai`, `llm`, `nlp`, `ontology`, `semantic-web`, `oracle`, `divination`, `claude`, `cloudflare`
@@ -33,7 +33,7 @@ These need to be resolved before submission, not discovered mid-application:
 - Mirror: https://codeberg.org/QAv2/agi-semantic-core
 
 ### License
-*(See pre-application TODO — recommend MIT, requires `LICENSE` file in repo)*
+**MIT** *(`LICENSE` file at repo root, added 2026-04-26)*
 
 ### Project URL
 https://qav2-oracle.netlify.app
