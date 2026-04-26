@@ -211,7 +211,16 @@ const BALANCE_URL = ORACLE_API_URL.replace(/\/+$/, '') + '/balance';
 
 async function fetchCofferState() {
   try {
-    const res = await fetch(BALANCE_URL);
+    // If the page already minted a session, send it so /balance reflects
+    // this caller's per-session cap (Phase 4) rather than just the
+    // global pot. Without the header the worker returns global-only
+    // state, which is the right behavior for the initial page load.
+    const headers = {};
+    const a = state.authSession;
+    if (a && a.sid && a.expires_at && a.expires_at > Math.floor(Date.now() / 1000) + 30) {
+      headers['X-Oracle-Session'] = a.sid;
+    }
+    const res = await fetch(BALANCE_URL, { headers });
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -229,17 +238,33 @@ function renderCofferMeter(state) {
   $('cm-balance').textContent = balance;
 
   const modeEl = $('cm-mode');
+  const baseTooltip = 'How this runs — engines, coffer, fallback';
   if (state.mode === 'claude') {
     modeEl.textContent = 'Claude active';
     modeEl.className = 'coffer-mode mode-claude';
+    modeEl.title = baseTooltip;
   } else {
     let reason = '';
-    if (state.reason === 'pot-empty') reason = 'pot dry';
-    else if (state.reason === 'daily-cap') reason = 'daily cap reached';
-    else if (state.reason === 'no-key') reason = 'no API key';
-    else if (state.reason === 'claude-error') reason = 'Claude unavailable';
+    let tooltip = baseTooltip;
+    if (state.reason === 'pot-empty') {
+      reason = 'pot dry';
+      tooltip = 'Pot is below threshold. A donation refills Claude for the next user.';
+    } else if (state.reason === 'daily-cap') {
+      reason = 'daily cap reached';
+      tooltip = "Today's pot is used up. Llama serves the rest of the day.";
+    } else if (state.reason === 'session-cap') {
+      reason = 'your share is used';
+      tooltip = 'Your share for today is used — Llama is serving the rest of your session. Other visitors keep Claude access.';
+    } else if (state.reason === 'no-key') {
+      reason = 'no API key';
+      tooltip = 'Claude unavailable; serving with Llama.';
+    } else if (state.reason === 'claude-error') {
+      reason = 'Claude unavailable';
+      tooltip = 'Claude returned an error; serving with Llama.';
+    }
     modeEl.textContent = reason ? `Llama (free) · ${reason}` : 'Llama (free)';
     modeEl.className = 'coffer-mode mode-llama';
+    modeEl.title = tooltip;
   }
   meter.hidden = false;
 }

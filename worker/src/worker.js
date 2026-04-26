@@ -552,10 +552,11 @@ function renderDiagnosisAsText(d) {
 
 // ─── Coffer + spend tracking (Cloudflare KV) ───────────────────────
 // KV keys:
-//   balance              — available pot in cents (integer string)
-//   spent-YYYY-MM-DD     — cents spent that UTC day (1-week TTL)
-//   spent-YYYY-MM        — cents spent that UTC month (90-day TTL)
-//   donated-YYYY-MM      — cents recorded as donations that month (90-day TTL)
+//   balance                                — available pot in cents (integer string)
+//   spent-YYYY-MM-DD                       — cents spent that UTC day (1-week TTL)
+//   spent-YYYY-MM                          — cents spent that UTC month (90-day TTL)
+//   donated-YYYY-MM                        — cents recorded as donations that month (90-day TTL)
+//   session-spent-{sid_hash}-YYYY-MM-DD    — cents spent by this signed session today (25h TTL, Phase 4)
 //
 // All operations are tolerant of KV unavailability — coffer logic is
 // best-effort, never blocks a response from going out.
@@ -563,6 +564,20 @@ function renderDiagnosisAsText(d) {
 const dayKey = (d = new Date()) => `spent-${d.toISOString().slice(0, 10)}`;
 const monthKey = (d = new Date()) => `spent-${d.toISOString().slice(0, 7)}`;
 const donatedKey = (d = new Date()) => `donated-${d.toISOString().slice(0, 7)}`;
+const sessionDayKey = (sidHash, d = new Date()) => `session-spent-${sidHash}-${d.toISOString().slice(0, 10)}`;
+
+// Opaque per-session key derived from the signed sid's HMAC segment.
+// The sig is already a server-secret HMAC of the nonce+expiry, so the
+// first 16 b64url chars (~96 bits) give a deterministic, non-PII KV key
+// without paying for another crypto.subtle call per request.
+function sidHash(sid) {
+  if (typeof sid !== 'string') return null;
+  const parts = sid.split('.');
+  if (parts.length !== 3) return null;
+  const sig = parts[2];
+  if (sig.length < 16) return null;
+  return sig.slice(0, 16);
+}
 
 async function kvGetCents(env, key) {
   if (!env.ORACLE_COFFER) return 0;
@@ -608,27 +623,49 @@ function balanceThresholdCents(env) {
   return Number.isFinite(v) && v >= 0 ? v : 50;
 }
 
+function perSessionDailyCapCents(env) {
+  const v = parseInt(env.PER_SESSION_DAILY_CAP_CENTS || '25', 10);
+  return Number.isFinite(v) && v >= 0 ? v : 25;
+}
+
+async function getSessionSpendCents(env, sidHashStr) {
+  if (!sidHashStr) return 0;
+  return kvGetCents(env, sessionDayKey(sidHashStr));
+}
+
 // Decide whether Claude is eligible right now. Does not call the API.
-async function decideRoute(env) {
-  const { balance, spent_today } = await getCofferState(env);
+// `sidHashStr` is optional — when omitted (e.g. unauthenticated /balance
+// fetched before the session is minted) the per-session ceiling is
+// skipped and only global gates apply.
+async function decideRoute(env, sidHashStr) {
+  const [{ balance, spent_today }, sessionSpent] = await Promise.all([
+    getCofferState(env),
+    getSessionSpendCents(env, sidHashStr),
+  ]);
   const dailyCap = dailyCapCents(env);
   const threshold = balanceThresholdCents(env);
+  const perSessionCap = perSessionDailyCapCents(env);
 
-  if (!env.ANTHROPIC_API_KEY) return { route: 'llama', reason: 'no-key' };
-  if (spent_today >= dailyCap)  return { route: 'llama', reason: 'daily-cap' };
-  if (balance <= threshold)     return { route: 'llama', reason: 'pot-empty' };
+  if (!env.ANTHROPIC_API_KEY)                      return { route: 'llama', reason: 'no-key' };
+  if (spent_today >= dailyCap)                     return { route: 'llama', reason: 'daily-cap' };
+  if (balance <= threshold)                        return { route: 'llama', reason: 'pot-empty' };
+  if (sidHashStr && sessionSpent >= perSessionCap) return { route: 'llama', reason: 'session-cap' };
   return { route: 'claude', reason: 'ok' };
 }
 
-async function recordSpend(env, cents) {
-  // Decrement balance, increment daily and monthly spend. Each independently;
-  // if any fails, others still try. ~7-day TTL on day key, ~90-day on month
-  // key — keeps KV from growing unbounded.
-  await Promise.all([
+async function recordSpend(env, cents, sidHashStr) {
+  // Decrement balance, increment daily/monthly/session spend. Each
+  // independently; if any fails, others still try. TTLs keep KV bounded.
+  // The session key (Phase 4) auto-prunes ~25h after the UTC day rolls.
+  const writes = [
     kvAddCents(env, 'balance', -cents),
     kvAddCents(env, dayKey(), cents, 7 * 86400),
     kvAddCents(env, monthKey(), cents, 90 * 86400),
-  ]);
+  ];
+  if (sidHashStr) {
+    writes.push(kvAddCents(env, sessionDayKey(sidHashStr), cents, 25 * 3600));
+  }
+  await Promise.all(writes);
 }
 
 // ─── Fallback policy ────────────────────────────────────────────────
@@ -700,11 +737,21 @@ async function handleSession(request, env, cors) {
   return jsonResponse({ session_id: sid, expires_at }, 200, cors);
 }
 
-async function handleBalance(env, cors) {
+async function handleBalance(request, env, cors) {
+  // Optional X-Oracle-Session header — when present and valid, the
+  // status-pill state reflects the caller's per-session cap, not just
+  // the global pot. Unauthenticated callers (initial page load, anyone
+  // hitting /balance directly) get global-only state.
+  const sid = request.headers.get('X-Oracle-Session') || '';
+  const sidValid = sid && env.SESSION_SECRET
+    ? await verifySessionId(sid, env.SESSION_SECRET)
+    : false;
+  const sidHashStr = sidValid ? sidHash(sid) : null;
+
   const state = await getCofferState(env);
   const dailyCap = dailyCapCents(env);
   const threshold = balanceThresholdCents(env);
-  const route = await decideRoute(env);
+  const route = await decideRoute(env, sidHashStr);
   return jsonResponse({
     balance_cents: state.balance,
     spent_today_cents: state.spent_today,
@@ -813,7 +860,7 @@ export default {
       if (request.method !== 'GET') {
         return jsonResponse({ error: 'Method not allowed' }, 405, cors);
       }
-      return handleBalance(env, cors);
+      return handleBalance(request, env, cors);
     }
 
     // POST /session — Turnstile verification → signed session ID.
@@ -886,7 +933,9 @@ export default {
     ];
 
     // Decide route: Claude (paid, from coffer) or Llama (free, CF AI).
-    const decision = await decideRoute(env);
+    // Per-session ceiling (Phase 4) checks against the validated sid above.
+    const sidHashStr = sidHash(sid);
+    const decision = await decideRoute(env, sidHashStr);
 
     if (decision.route === 'claude') {
       const claudeResult = await callClaudeWithCaching(env, SYSTEM_PROMPT, diagnosisText, dialogue);
@@ -894,9 +943,9 @@ export default {
         // Record actual cost reported by Anthropic.
         const cents = actualCostCents(claudeResult.usage, claudeResult.model || env.ANTHROPIC_MODEL);
         if (ctx && typeof ctx.waitUntil === 'function') {
-          ctx.waitUntil(recordSpend(env, cents));
+          ctx.waitUntil(recordSpend(env, cents, sidHashStr));
         } else {
-          recordSpend(env, cents).catch(() => {});
+          recordSpend(env, cents, sidHashStr).catch(() => {});
         }
         return jsonResponse({
           response: claudeResult.text,

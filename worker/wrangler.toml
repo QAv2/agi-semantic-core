@@ -18,6 +18,12 @@ DAILY_CAP_CENTS = "500"
 # Buffer kept in pot before falling back to Llama (cents).
 # 50 = 50¢ — leaves headroom for one more Claude turn before flipping.
 BALANCE_THRESHOLD_CENTS = "50"
+# Per-session daily ceiling, cents (Phase 4 — fairness primitive).
+# When a single signed session burns more than this in one UTC day, that
+# session falls to Llama for the rest of the day; other sessions retain
+# Claude access. 25 = 25¢ ≈ 5 honest sessions × 5 turns × ~0.21¢ +
+# headroom for cache-miss turns. Calibrate in production.
+PER_SESSION_DAILY_CAP_CENTS = "25"
 # Claude model. Haiku 4.5 — output quality is near-Sonnet for the
 # Oracle's tightly constrained turns, at lower cost per call.
 ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
