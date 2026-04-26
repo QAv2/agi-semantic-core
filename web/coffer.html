@@ -237,9 +237,10 @@
       datacenter ASN block + Turnstile-gated signed sessions + per-session budget shares) is
       specified in
       <a href="https://github.com/QAv2/agi-semantic-core/blob/master/docs/THREAT_MODEL_AND_DEFENSE.md" target="_blank" rel="noopener"><code>THREAT_MODEL_AND_DEFENSE.md</code></a>
-      and travels with the pattern. The headline primitive is per-session shares: dividing the
-      daily cap across signed sessions so a single attacker can only burn their own slice while
-      other visitors keep Claude access.
+      and travels with the pattern. All four layers are in production on the Oracle. The
+      headline primitive is per-session shares: dividing the daily cap across signed sessions
+      so a single attacker can only burn their own slice while other visitors keep Claude
+      access.
     </p>
 
     <p>
