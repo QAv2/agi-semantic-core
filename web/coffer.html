@@ -174,7 +174,10 @@
     <p>
       <strong>Coffer.</strong> A single integer in Cloudflare KV — the balance in cents. A
       <code>/balance</code> endpoint exposes it for the frontend to poll. Pre-call, the worker
-      reads the balance and decides which engine to route to.
+      reads the balance and decides which engine to route to. A second public endpoint,
+      <code>/stats</code>, surfaces aggregate usage — requests served this month, the Claude/Llama
+      split, total spend. Requests served, transparently: the pool is finite and visible, and so
+      is its use.
     </p>
 
     <p>
