@@ -5,6 +5,20 @@
 // This worker formats the diagnosis as LLM-readable context and
 // dialogues against it as the Reflective Principle.
 
+import {
+  TRIGRAM_ELEMENTS,
+  TRIGRAM_MEANINGS,
+  TRIGRAM_QUALITY_STRINGS,
+  TRIGRAM_DESCRIPTIONS,
+  KING_WEN_NAMES,
+  KING_WEN_TITLES,
+  TOLTEC_NAMES,
+  TOLTEC_TRAD_NAMES,
+  TAROT_NAMES,
+  TAROT_NUMERALS,
+  CONCEPT_NAME_RE,
+} from './whitelists.js';
+
 const SYSTEM_PROMPT = `You are the Reflective Principle of the Oracle.
 
 The Oracle is a semantic geometry — a 16D dual-octonion semantic dictionary that produces structured diagnoses anchored in vector space. It maps a person's stated condition to a presenting trigram, a complement-medicine, a hexagram (King Wen), and transparency layers (Toltec, Tarot).
@@ -348,6 +362,24 @@ function num(v, fallback = 0) {
   return Number.isFinite(n) ? n : fallback;
 }
 
+// Drop-on-miss validators for fields where the Oracle's web_api emits
+// a value from a finite enumerable set. A crafted JSON with arbitrary
+// prose lands as '' (or 'UNKNOWN' for trigrams, kept for backwards-
+// compat with the existing prompt rendering). Empty-string falls
+// through the renderers' truthy guards and produces a clean "field
+// missing" surface rather than injecting attacker text into the LLM.
+function safeFromSet(value, set) {
+  return typeof value === 'string' && set.has(value) ? value : '';
+}
+
+// UPPERCASE_SNAKE concept names — drop anything that isn't a plausible
+// dictionary entry. The dictionary uses ^[A-Z][A-Z_]{0,39}$ throughout.
+function safeConceptName(value) {
+  if (typeof value !== 'string') return '';
+  const v = scrubText(value);
+  return CONCEPT_NAME_RE.test(v) ? v : '';
+}
+
 function validateDiagnosis(d) {
   // Whitelist-validate the diagnosis object before injecting into the
   // system prompt. Anything not in the schema is dropped — prevents
@@ -366,14 +398,20 @@ function validateDiagnosis(d) {
 
   return {
     input: clamp(d.input, 500),
-    tokens: Array.isArray(d.tokens) ? d.tokens.slice(0, 30).map((t) => clamp(t, 40)) : [],
+    // Tokens are recognized dictionary concepts (UPPERCASE_SNAKE). Filter
+    // out anything that doesn't match — drop, don't clamp. Prevents
+    // injection via the "Tokens recognized:" line in the rendered prompt.
+    tokens: Array.isArray(d.tokens)
+      ? d.tokens.slice(0, 30).map(safeConceptName).filter(Boolean)
+      : [],
+    // Missed are the user's own untokenized words. Free-form, just clamp.
     missed: Array.isArray(d.missed) ? d.missed.slice(0, 30).map((t) => clamp(t, 40)) : [],
     presenting: {
       trigram: safeTrigram(presenting.trigram),
-      element: clamp(presenting.element, 40),
-      meaning: clamp(presenting.meaning, 80),
-      quality: clamp(presenting.quality, 80),
-      description: clamp(presenting.description, 200),
+      element: safeFromSet(presenting.element, TRIGRAM_ELEMENTS),
+      meaning: safeFromSet(presenting.meaning, TRIGRAM_MEANINGS),
+      quality: safeFromSet(presenting.quality, TRIGRAM_QUALITY_STRINGS),
+      description: safeFromSet(presenting.description, TRIGRAM_DESCRIPTIONS),
       vector: Array.isArray(presenting.vector) ? presenting.vector.slice(0, 3).map((v) => num(v)) : [0, 0, 0],
       domain: {
         spatial: num(presenting.domain?.spatial),
@@ -384,25 +422,31 @@ function validateDiagnosis(d) {
       dominant: safeDomain(presenting.dominant),
     },
     medicine: {
-      concept: clamp(medicine.concept, 40),
+      concept: safeConceptName(medicine.concept),
       trigram: safeTrigram(medicine.trigram),
-      element: clamp(medicine.element, 40),
-      meaning: clamp(medicine.meaning, 80),
-      quality: clamp(medicine.quality, 80),
-      description: clamp(medicine.description, 200),
+      element: safeFromSet(medicine.element, TRIGRAM_ELEMENTS),
+      meaning: safeFromSet(medicine.meaning, TRIGRAM_MEANINGS),
+      quality: safeFromSet(medicine.quality, TRIGRAM_QUALITY_STRINGS),
+      description: safeFromSet(medicine.description, TRIGRAM_DESCRIPTIONS),
       candidates: Array.isArray(medicine.candidates)
-        ? medicine.candidates.slice(0, 5).map((c) => ({
-            name: clamp(c.name, 40),
-            angle: num(c.angle),
-          }))
+        ? medicine.candidates
+            .slice(0, 5)
+            .map((c) => ({ name: safeConceptName(c?.name), angle: num(c?.angle) }))
+            .filter((c) => c.name)
         : [],
     },
     hexagram: {
       number: Math.max(1, Math.min(64, Math.floor(num(hexagram.number, 1)))),
-      name: clamp(hexagram.name, 40),
-      title: clamp(hexagram.title, 80),
+      name: safeFromSet(hexagram.name, KING_WEN_NAMES),
+      title: safeFromSet(hexagram.title, KING_WEN_TITLES),
       lower: safeTrigram(hexagram.lower),
       upper: safeTrigram(hexagram.upper),
+      // Big prose blocks: still length-clamped only. Locking these down
+      // would require bundling oracle/interpretations.py prose into the
+      // worker — out of scope for this hardening pass. The system prompt
+      // already tells the LLM to cite ONLY verbatim-from-reading data,
+      // so an attacker has to defeat both the prose injection AND the
+      // explicit "do not fabricate geometric data" rule.
       reading: clamp(hexagram.reading, 400),
       judgment: clamp(hexagram.judgment, 1500),
       image: clamp(hexagram.image, 1500),
@@ -415,8 +459,8 @@ function validateDiagnosis(d) {
     toltec: toltec
       ? {
           number: Math.max(1, Math.min(64, Math.floor(num(toltec.number, 1)))),
-          name: clamp(toltec.name, 60),
-          trad_name: clamp(toltec.trad_name, 60),
+          name: safeFromSet(toltec.name, TOLTEC_NAMES),
+          trad_name: safeFromSet(toltec.trad_name, TOLTEC_TRAD_NAMES),
           image: clamp(toltec.image, 1500),
           interp: clamp(toltec.interp, 2500),
           action: clamp(toltec.action, 2500),
@@ -427,16 +471,16 @@ function validateDiagnosis(d) {
     tarot: tarot && tarot.presenting && tarot.medicine
       ? {
           presenting: {
-            numeral: clamp(tarot.presenting.numeral, 8),
-            name: clamp(tarot.presenting.name, 60),
+            numeral: safeFromSet(tarot.presenting.numeral, TAROT_NUMERALS),
+            name: safeFromSet(tarot.presenting.name, TAROT_NAMES),
             angle: num(tarot.presenting.angle),
             image: clamp(tarot.presenting.image, 800),
             upright: clamp(tarot.presenting.upright, 800),
             counsel: clamp(tarot.presenting.counsel, 800),
           },
           medicine: {
-            numeral: clamp(tarot.medicine.numeral, 8),
-            name: clamp(tarot.medicine.name, 60),
+            numeral: safeFromSet(tarot.medicine.numeral, TAROT_NUMERALS),
+            name: safeFromSet(tarot.medicine.name, TAROT_NAMES),
             angle: num(tarot.medicine.angle),
             image: clamp(tarot.medicine.image, 800),
             upright: clamp(tarot.medicine.upright, 800),
