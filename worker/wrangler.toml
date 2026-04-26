@@ -27,3 +27,11 @@ ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
 binding = "ORACLE_COFFER"
 id = "d2859b487d1340538e312e2d3ba25ebe"
 preview_id = "92ea48990ee6430b8c192890c98fbdfd"
+
+# Native Cloudflare Rate Limiting binding — global across isolates,
+# replaces the broken per-isolate in-memory Map. 12 requests / 60s per IP.
+# namespace_id is an arbitrary per-account identifier. Requires wrangler 4+.
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 12, period = 60 }

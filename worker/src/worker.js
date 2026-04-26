@@ -151,32 +151,25 @@ function actualCostCents(usage, model) {
   );
 }
 
-// ─── Rate limiting ──────────────────────────────────────────────────
+// ─── ASN block (Phase 2) ────────────────────────────────────────────
+// Datacenter ASNs — real users don't browse from cloud egress. Blocking
+// at the worker entry kills the cheapest class of headless-bot traffic.
+// Non-exhaustive starter list; tune per the operator's risk model.
+// Researchers/journalists proxying through cloud VMs are an accepted
+// false-positive at this tier.
 
-const RATE_LIMIT_WINDOW = 60_000;
-const RATE_LIMIT_MAX = 12;
-const rateLimitMap = new Map();
-
-function checkRateLimit(ip) {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now - entry.windowStart > RATE_LIMIT_WINDOW) {
-    rateLimitMap.set(ip, { windowStart: now, count: 1 });
-    return true;
-  }
-  if (entry.count >= RATE_LIMIT_MAX) return false;
-  entry.count++;
-  return true;
-}
-
-function cleanRateLimitMap() {
-  const now = Date.now();
-  for (const [ip, entry] of rateLimitMap) {
-    if (now - entry.windowStart > RATE_LIMIT_WINDOW * 2) {
-      rateLimitMap.delete(ip);
-    }
-  }
-}
+const BLOCKED_ASNS = new Set([
+  16509, 14618, 8987, 39111,    // AWS
+  15169, 396982, 19527,         // Google Cloud
+  8075, 8068, 8074,             // Microsoft Azure
+  14061, 62567,                 // DigitalOcean
+  24940,                        // Hetzner
+  16276,                        // OVH
+  63949, 20940,                 // Linode / Akamai
+  20473,                        // Vultr
+  54113,                        // Fastly
+  31898,                        // Oracle Cloud
+]);
 
 // ─── CORS ───────────────────────────────────────────────────────────
 
@@ -663,6 +656,10 @@ async function callLlamaFallback(env, systemContent, dialogue) {
 
 export default {
   async fetch(request, env, ctx) {
+    if (BLOCKED_ASNS.has(request.cf?.asn)) {
+      return new Response('Forbidden', { status: 403, headers: SECURITY_HEADERS });
+    }
+
     const origin = request.headers.get('Origin') || '';
     const originOk = isOriginAllowed(env, origin);
     const cors = corsHeaders(env, origin);
@@ -703,9 +700,9 @@ export default {
       return jsonResponse({ error: 'Request body too large' }, 413, cors);
     }
 
-    if (rateLimitMap.size > 1000) cleanRateLimitMap();
     const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
-    if (!checkRateLimit(clientIP)) {
+    const { success: rateLimitOk } = await env.RATE_LIMITER.limit({ key: clientIP });
+    if (!rateLimitOk) {
       return jsonResponse({ error: 'Rate limit exceeded. Try again in a minute.' }, 429, cors);
     }
 
