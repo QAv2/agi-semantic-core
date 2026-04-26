@@ -20,10 +20,9 @@ const ORACLE_API_URL = (() => {
 const SESSION_URL = ORACLE_API_URL.replace(/\/+$/, '') + '/session';
 
 // Cloudflare Turnstile site key — public value, paired with TURNSTILE_SECRET
-// in the worker. The current value is CF's documented "always-pass invisible"
-// testing key; swap to a real site key (created at dash.cloudflare.com →
-// Turnstile) once the production Turnstile site is set up.
-const TURNSTILE_SITE_KEY = '1x00000000000000000000BB';
+// in the worker. Issued by dash.cloudflare.com → Turnstile, scoped to
+// qav2-oracle.netlify.app, Managed mode.
+const TURNSTILE_SITE_KEY = '0x4AAAAAADD35pS7dnkiQTWs';
 
 const TRIGRAM_SYMBOLS = {
   QIAN: '☰', KUN: '☷', ZHEN: '☳', KAN: '☵',
