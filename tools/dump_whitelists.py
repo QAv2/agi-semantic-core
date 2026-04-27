@@ -30,6 +30,7 @@ from oracle.interpretations import INTERPRETATIONS
 from oracle.interpreter import TRIGRAM_QUALITIES, WITNESS_READINGS, DOMAIN_READINGS
 from oracle.toltec import TOLTEC_HEXAGRAMS
 from oracle.tarot import MAJOR_ARCANA
+from oracle.runes import RUNES
 
 
 OUT_PATH = ROOT / "worker" / "src" / "whitelists.js"
@@ -75,6 +76,10 @@ def main():
     tarot_names = [MAJOR_ARCANA[i]["name"] for i in sorted(MAJOR_ARCANA)]
     tarot_numerals = [MAJOR_ARCANA[i]["numeral"] for i in sorted(MAJOR_ARCANA)]
 
+    rune_names = [RUNES[i]["name"] for i in sorted(RUNES)]
+    rune_glyphs = [RUNES[i]["glyph"] for i in sorted(RUNES)]
+    rune_aetts = sorted({RUNES[i]["aett"] for i in RUNES})
+
     hexagram_prose_entries = []
     for n in sorted(HEXAGRAM_NAMES):
         _, _, reading = HEXAGRAM_NAMES[n]
@@ -106,6 +111,15 @@ def main():
             "counsel": c.get("counsel", ""),
         }))
 
+    rune_prose_entries = []
+    for i in sorted(RUNES):
+        r = RUNES[i]
+        rune_prose_entries.append((i, {
+            "image": r.get("image", ""),
+            "meaning": r.get("meaning", ""),
+            "counsel": r.get("counsel", ""),
+        }))
+
     witness_text_pairs = sorted(WITNESS_READINGS.items())
     domain_text_pairs = sorted(DOMAIN_READINGS.items())
 
@@ -120,11 +134,13 @@ def main():
         "//   KING_WEN_NAMES, KING_WEN_TITLES     ← oracle/hexagrams.py HEXAGRAM_NAMES",
         "//   TOLTEC_NAMES, TOLTEC_TRAD_NAMES     ← oracle/toltec.py TOLTEC_HEXAGRAMS",
         "//   TAROT_NAMES, TAROT_NUMERALS         ← oracle/tarot.py MAJOR_ARCANA",
+        "//   RUNE_NAMES, RUNE_GLYPHS, RUNE_AETTS ← oracle/runes.py RUNES",
         "//",
         "//   HEXAGRAM_PROSE  ← oracle/interpretations.py INTERPRETATIONS",
         "//                   + oracle/hexagrams.py HEXAGRAM_NAMES (reading)",
         "//   TOLTEC_PROSE    ← oracle/toltec.py TOLTEC_HEXAGRAMS",
         "//   TAROT_PROSE     ← oracle/tarot.py MAJOR_ARCANA",
+        "//   RUNE_PROSE      ← oracle/runes.py RUNES",
         "//   WITNESS_TEXT    ← oracle/interpreter.py WITNESS_READINGS",
         "//   DOMAIN_TEXT     ← oracle/interpreter.py DOMAIN_READINGS",
         "//",
@@ -156,6 +172,13 @@ def main():
         "",
         f"export const TAROT_NUMERALS = {js_set(tarot_numerals)};",
         "",
+        f"// 24 Elder Futhark runes (three aetts of 8).",
+        f"export const RUNE_NAMES = {js_set(rune_names)};",
+        "",
+        f"export const RUNE_GLYPHS = {js_set(rune_glyphs)};",
+        "",
+        f"export const RUNE_AETTS = {js_set(rune_aetts)};",
+        "",
         "// UPPERCASE_SNAKE concept names from the 3,033-entry dictionary.",
         "// Starts with a capital letter, then 0-39 more A-Z or _ chars",
         "// (matches the existing 40-char clamp ceiling).",
@@ -176,6 +199,10 @@ def main():
         f"// tarot.{{presenting,medicine}}.numeral): image + upright + counsel.",
         f"export const TAROT_PROSE = {js_map_entries(tarot_prose_entries)};",
         "",
+        f"// 24 Elder Futhark runes keyed by rune number 1-24 (matches",
+        f"// runes.{{presenting,medicine}}.number): image + meaning + counsel.",
+        f"export const RUNE_PROSE = {js_map_entries(rune_prose_entries)};",
+        "",
         f"// 4 witness-state readings keyed by witness_state (dissolution,",
         f"// partial, preserved, tension).",
         f"export const WITNESS_TEXT = {js_map_strings(witness_text_pairs)};",
@@ -193,6 +220,7 @@ def main():
     print(f"  HEXAGRAM_PROSE: {len(hexagram_prose_entries)} entries")
     print(f"  TOLTEC_PROSE:   {len(toltec_prose_entries)} entries")
     print(f"  TAROT_PROSE:    {len(tarot_prose_entries)} entries")
+    print(f"  RUNE_PROSE:     {len(rune_prose_entries)} entries")
     print(f"  WITNESS_TEXT:   {len(witness_text_pairs)} entries")
     print(f"  DOMAIN_TEXT:    {len(domain_text_pairs)} entries")
 

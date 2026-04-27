@@ -402,7 +402,7 @@ class OracleEngine:
             domain_profile=profile,
         )
 
-    def format_diagnosis(self, d: DiagnosticResult, show_toltec: bool = False, show_tarot: bool = False) -> str:
+    def format_diagnosis(self, d: DiagnosticResult, show_toltec: bool = False, show_tarot: bool = False, show_runes: bool = False) -> str:
         """Format a diagnosis for terminal display."""
         lines = []
         lines.append("=" * 60)
@@ -485,19 +485,30 @@ class OracleEngine:
             else:
                 lines.append(format_tarot_pointer(p_cards[0], m_cards[0]))
 
+        from oracle.runes import RuneLayer, format_rune_reading, format_rune_pointer
+        rune_layer = RuneLayer(self.sc)
+        p_runes = rune_layer.nearest_rune(d.input_frame.core, d.input_frame.domain, n=1)
+        m_runes = rune_layer.nearest_rune(d.medicine_frame.core, d.medicine_frame.domain, n=1)
+        if p_runes and m_runes:
+            if show_runes:
+                lines.append(format_rune_reading(p_runes[0], m_runes[0]))
+            else:
+                lines.append(format_rune_pointer(p_runes[0], m_runes[0]))
+
         return "\n".join(lines)
 
 
 if __name__ == '__main__':
     show_toltec = '--toltec' in sys.argv
     show_tarot = '--tarot' in sys.argv
-    args = [a for a in sys.argv[1:] if a not in ('--toltec', '--tarot')]
+    show_runes = '--runes' in sys.argv
+    args = [a for a in sys.argv[1:] if a not in ('--toltec', '--tarot', '--runes')]
     engine = OracleEngine()
     if args:
         text = ' '.join(args)
         result = engine.diagnose(text)
         print()
-        print(engine.format_diagnosis(result, show_toltec=show_toltec, show_tarot=show_tarot))
+        print(engine.format_diagnosis(result, show_toltec=show_toltec, show_tarot=show_tarot, show_runes=show_runes))
     else:
         from oracle.session import run_interactive
-        run_interactive(show_toltec=show_toltec, show_tarot=show_tarot)
+        run_interactive(show_toltec=show_toltec, show_tarot=show_tarot, show_runes=show_runes)

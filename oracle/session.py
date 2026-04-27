@@ -49,7 +49,7 @@ def result_to_dict(d: DiagnosticResult) -> dict:
     }
 
 
-def run_interactive(show_toltec: bool = False, show_tarot: bool = False):
+def run_interactive(show_toltec: bool = False, show_tarot: bool = False, show_runes: bool = False):
     SESSIONS_DIR.mkdir(exist_ok=True)
 
     engine = OracleEngine()
@@ -65,6 +65,8 @@ def run_interactive(show_toltec: bool = False, show_tarot: bool = False):
         layers.append("Toltec")
     if show_tarot:
         layers.append("Tarot")
+    if show_runes:
+        layers.append("Runes")
     if layers:
         print(f"  Transparency layers: {', '.join(layers)}")
     print("=" * 60)
@@ -84,7 +86,7 @@ def run_interactive(show_toltec: bool = False, show_tarot: bool = False):
 
             result = engine.diagnose(text)
             print()
-            print(engine.format_diagnosis(result, show_toltec=show_toltec, show_tarot=show_tarot))
+            print(engine.format_diagnosis(result, show_toltec=show_toltec, show_tarot=show_tarot, show_runes=show_runes))
             print()
 
             queries.append({
@@ -174,7 +176,8 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     show_toltec = "--toltec" in args
     show_tarot = "--tarot" in args
-    args = [a for a in args if a not in ("--toltec", "--tarot")]
+    show_runes = "--runes" in args
+    args = [a for a in args if a not in ("--toltec", "--tarot", "--runes")]
 
     if "--history" in args:
         idx = args.index("--history")
@@ -196,4 +199,4 @@ if __name__ == "__main__":
         else:
             print("  Usage: --replay <filename>")
     else:
-        run_interactive(show_toltec=show_toltec, show_tarot=show_tarot)
+        run_interactive(show_toltec=show_toltec, show_tarot=show_tarot, show_runes=show_runes)
