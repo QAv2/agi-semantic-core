@@ -44,9 +44,9 @@ const state = {
   authSession: null,         // { sid, expires_at } — HMAC-signed auth session, in-memory only
   // Layer filter: each lit system contributes a reading to the LLM
   // context AND opens by default in the panel. Max MAX_ACTIVE_LAYERS
-  // (3) at once — protects against payload bloat as more systems get
+  // (4) at once — protects against payload bloat as more systems get
   // added. Default: all current systems active (lit).
-  layers: { kingwen: true, toltec: true, tarot: true },
+  layers: { kingwen: true, toltec: true, tarot: true, runes: true },
   theme: 'twilight',         // 'twilight' | 'mineral' | 'parchment'
   customColors: null,        // { '--bg': '#xxx', '--surface': '#xxx', '--text': '#xxx', '--gold': '#xxx' } | null
   panelMode: 'closed',       // 'dock-right' | 'dock-left' | 'closed'
@@ -488,7 +488,7 @@ function flipPanelSide() {
 }
 
 
-const MAX_ACTIVE_LAYERS = 3;
+const MAX_ACTIVE_LAYERS = 4;
 
 function activeLayerCount() {
   return Object.values(state.layers).filter(Boolean).length;
@@ -548,6 +548,21 @@ function renderDiagHtml(d) {
         <div class="tarot-pair">
           ${tarotMiniHtml(d.tarot.presenting, 'PRESENTING')}
           ${tarotMiniHtml(d.tarot.medicine, 'MEDICINE')}
+        </div>
+      </div>
+    </details>` : '';
+
+  const runesBlock = d.runes ? `
+    <details class="diag-layer" ${isLayerOpen('runes') ? 'open' : ''}>
+      <summary>
+        <span class="diag-layer-icon">ᚠ</span>
+        <span>Rune correspondence</span>
+        <span class="diag-layer-pointer">${escapeHtml(d.runes.presenting.glyph)} ${escapeHtml(d.runes.presenting.name)} ⟶ ${escapeHtml(d.runes.medicine.glyph)} ${escapeHtml(d.runes.medicine.name)}</span>
+      </summary>
+      <div class="diag-layer-body">
+        <div class="tarot-pair">
+          ${runeMiniHtml(d.runes.presenting, 'PRESENTING')}
+          ${runeMiniHtml(d.runes.medicine, 'MEDICINE')}
         </div>
       </div>
     </details>` : '';
@@ -619,6 +634,18 @@ function renderDiagHtml(d) {
     ${judgmentBlock}
     ${toltecBlock}
     ${tarotBlock}
+    ${runesBlock}
+  `;
+}
+
+function runeMiniHtml(rune, role) {
+  return `
+    <div class="tarot-card-mini">
+      <div class="tarot-mini-role">${role}</div>
+      <div class="tarot-mini-numeral">${escapeHtml(rune.glyph)}</div>
+      <div class="tarot-mini-name">${escapeHtml(rune.name)}</div>
+      <div class="tarot-mini-angle">${escapeHtml(rune.aett)}'s aett · nearest at ${rune.angle.toFixed(1)}°</div>
+    </div>
   `;
 }
 
@@ -966,7 +993,7 @@ function toggleLayer(layer) {
   state.layers[layer] = turningOn;
   applyLayerToggleStates();
   savePrefs();
-  const iconMap = { kingwen: '☰', toltec: '☷', tarot: '✦' };
+  const iconMap = { kingwen: '☰', toltec: '☷', tarot: '✦', runes: 'ᚠ' };
   document.querySelectorAll('.panel-body .diag-layer').forEach((det) => {
     const icon = det.querySelector('.diag-layer-icon')?.textContent;
     const layerName = Object.keys(iconMap).find((k) => iconMap[k] === icon);
@@ -994,6 +1021,7 @@ function filteredDiagnosis() {
   }
   if (!state.layers.toltec) d.toltec = null;
   if (!state.layers.tarot) d.tarot = null;
+  if (!state.layers.runes) d.runes = null;
   return d;
 }
 

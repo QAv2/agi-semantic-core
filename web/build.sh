@@ -20,7 +20,7 @@ done
 
 # oracle/ — skip CLI-only modules (session, casting, penniston)
 mkdir -p "$STAGE/oracle"
-for f in __init__.py engine.py hexagrams.py interpreter.py interpretations.py tarot.py toltec.py web_api.py; do
+for f in __init__.py engine.py hexagrams.py interpreter.py interpretations.py tarot.py toltec.py runes.py web_api.py; do
   cp "$ROOT/oracle/$f" "$STAGE/oracle/$f"
 done
 

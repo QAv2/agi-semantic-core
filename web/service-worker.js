@@ -1,7 +1,7 @@
 // Oracle service worker — cache-first for static assets, network-first for HTML.
 // First load fetches everything; subsequent loads are instant.
 
-const CACHE = 'oracle-v4';
+const CACHE = 'oracle-v5';
 const PYODIDE_VERSION = '0.27.2';
 const PYODIDE_BASE = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/full/`;
 
