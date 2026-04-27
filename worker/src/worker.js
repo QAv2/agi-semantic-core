@@ -17,6 +17,11 @@ import {
   TAROT_NAMES,
   TAROT_NUMERALS,
   CONCEPT_NAME_RE,
+  HEXAGRAM_PROSE,
+  TOLTEC_PROSE,
+  TAROT_PROSE,
+  WITNESS_TEXT,
+  DOMAIN_TEXT,
 } from './whitelists.js';
 
 const SYSTEM_PROMPT = `You are the Reflective Principle of the Oracle.
@@ -380,10 +385,27 @@ function safeConceptName(value) {
   return CONCEPT_NAME_RE.test(v) ? v : '';
 }
 
+// Server-canonical prose lookup. Inbound prose from the frontend is
+// IGNORED — we trust only the geometric primitive (number/numeral/
+// state) that's already been allowlist-validated, then look up the
+// authoritative text from the bundled PROSE Maps. Fully closes the
+// prompt-injection-via-diagnosis surface that S124 left length-clamped.
+function proseField(map, key, field) {
+  const entry = map.get(key);
+  return entry && typeof entry[field] === 'string' ? entry[field] : '';
+}
+
+function proseString(map, key) {
+  const v = map.get(key);
+  return typeof v === 'string' ? v : '';
+}
+
 function validateDiagnosis(d) {
   // Whitelist-validate the diagnosis object before injecting into the
-  // system prompt. Anything not in the schema is dropped — prevents
-  // prompt injection via crafted "diagnosis" fields.
+  // system prompt. Geometric primitives are allowlist-validated;
+  // prose is server-canonical (looked up by validated number/numeral,
+  // not trusted from the frontend). Anything not in the schema is
+  // dropped — prevents prompt injection via crafted "diagnosis" fields.
   if (!d || typeof d !== 'object' || Array.isArray(d)) return null;
 
   const presenting = d.presenting && typeof d.presenting === 'object' ? d.presenting : {};
@@ -395,6 +417,21 @@ function validateDiagnosis(d) {
   const safeTrigram = (t) => (VALID_TRIGRAMS.has(t) ? t : 'UNKNOWN');
   const safeWitnessState = (s) => (VALID_WITNESS_STATES.has(s) ? s : 'unknown');
   const safeDomain = (s) => (VALID_DOMAINS.has(s) ? s : 'unknown');
+
+  // Validate geometric keys first, then use them as lookup primitives
+  // for server-canonical prose substitution below.
+  const hexNumber = Math.max(1, Math.min(64, Math.floor(num(hexagram.number, 1))));
+  const witnessState = safeWitnessState(d.witness_state);
+  const presentingDominant = safeDomain(presenting.dominant);
+  const toltecNumber = toltec
+    ? Math.max(1, Math.min(64, Math.floor(num(toltec.number, 1))))
+    : null;
+  const tarotPresentingNumeral = tarot?.presenting
+    ? safeFromSet(tarot.presenting.numeral, TAROT_NUMERALS)
+    : '';
+  const tarotMedicineNumeral = tarot?.medicine
+    ? safeFromSet(tarot.medicine.numeral, TAROT_NUMERALS)
+    : '';
 
   return {
     input: clamp(d.input, 500),
@@ -419,7 +456,7 @@ function validateDiagnosis(d) {
         relational: num(presenting.domain?.relational),
         personal: num(presenting.domain?.personal),
       },
-      dominant: safeDomain(presenting.dominant),
+      dominant: presentingDominant,
     },
     medicine: {
       concept: safeConceptName(medicine.concept),
@@ -436,55 +473,49 @@ function validateDiagnosis(d) {
         : [],
     },
     hexagram: {
-      number: Math.max(1, Math.min(64, Math.floor(num(hexagram.number, 1)))),
+      number: hexNumber,
       name: safeFromSet(hexagram.name, KING_WEN_NAMES),
       title: safeFromSet(hexagram.title, KING_WEN_TITLES),
       lower: safeTrigram(hexagram.lower),
       upper: safeTrigram(hexagram.upper),
-      // Big prose blocks: still length-clamped only. Locking these down
-      // would require bundling oracle/interpretations.py prose into the
-      // worker — out of scope for this hardening pass. The system prompt
-      // already tells the LLM to cite ONLY verbatim-from-reading data,
-      // so an attacker has to defeat both the prose injection AND the
-      // explicit "do not fabricate geometric data" rule.
-      reading: clamp(hexagram.reading, 400),
-      judgment: clamp(hexagram.judgment, 1500),
-      image: clamp(hexagram.image, 1500),
-      counsel: clamp(hexagram.counsel, 1500),
+      reading: proseField(HEXAGRAM_PROSE, hexNumber, 'reading'),
+      judgment: proseField(HEXAGRAM_PROSE, hexNumber, 'judgment'),
+      image: proseField(HEXAGRAM_PROSE, hexNumber, 'image'),
+      counsel: proseField(HEXAGRAM_PROSE, hexNumber, 'counsel'),
     },
     witness: num(d.witness),
-    witness_state: safeWitnessState(d.witness_state),
-    witness_text: clamp(d.witness_text, 800),
-    domain_text: clamp(d.domain_text, 400),
+    witness_state: witnessState,
+    witness_text: proseString(WITNESS_TEXT, witnessState),
+    domain_text: proseString(DOMAIN_TEXT, presentingDominant),
     toltec: toltec
       ? {
-          number: Math.max(1, Math.min(64, Math.floor(num(toltec.number, 1)))),
+          number: toltecNumber,
           name: safeFromSet(toltec.name, TOLTEC_NAMES),
           trad_name: safeFromSet(toltec.trad_name, TOLTEC_TRAD_NAMES),
-          image: clamp(toltec.image, 1500),
-          interp: clamp(toltec.interp, 2500),
-          action: clamp(toltec.action, 2500),
-          intent: clamp(toltec.intent, 2500),
-          summary: clamp(toltec.summary, 1500),
+          image: proseField(TOLTEC_PROSE, toltecNumber, 'image'),
+          interp: proseField(TOLTEC_PROSE, toltecNumber, 'interp'),
+          action: proseField(TOLTEC_PROSE, toltecNumber, 'action'),
+          intent: proseField(TOLTEC_PROSE, toltecNumber, 'intent'),
+          summary: proseField(TOLTEC_PROSE, toltecNumber, 'summary'),
         }
       : null,
     tarot: tarot && tarot.presenting && tarot.medicine
       ? {
           presenting: {
-            numeral: safeFromSet(tarot.presenting.numeral, TAROT_NUMERALS),
+            numeral: tarotPresentingNumeral,
             name: safeFromSet(tarot.presenting.name, TAROT_NAMES),
             angle: num(tarot.presenting.angle),
-            image: clamp(tarot.presenting.image, 800),
-            upright: clamp(tarot.presenting.upright, 800),
-            counsel: clamp(tarot.presenting.counsel, 800),
+            image: proseField(TAROT_PROSE, tarotPresentingNumeral, 'image'),
+            upright: proseField(TAROT_PROSE, tarotPresentingNumeral, 'upright'),
+            counsel: proseField(TAROT_PROSE, tarotPresentingNumeral, 'counsel'),
           },
           medicine: {
-            numeral: safeFromSet(tarot.medicine.numeral, TAROT_NUMERALS),
+            numeral: tarotMedicineNumeral,
             name: safeFromSet(tarot.medicine.name, TAROT_NAMES),
             angle: num(tarot.medicine.angle),
-            image: clamp(tarot.medicine.image, 800),
-            upright: clamp(tarot.medicine.upright, 800),
-            counsel: clamp(tarot.medicine.counsel, 800),
+            image: proseField(TAROT_PROSE, tarotMedicineNumeral, 'image'),
+            upright: proseField(TAROT_PROSE, tarotMedicineNumeral, 'upright'),
+            counsel: proseField(TAROT_PROSE, tarotMedicineNumeral, 'counsel'),
           },
         }
       : null,
