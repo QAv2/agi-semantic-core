@@ -44,9 +44,10 @@ const state = {
   authSession: null,         // { sid, expires_at } — HMAC-signed auth session, in-memory only
   // Layer filter: each lit system contributes a reading to the LLM
   // context AND opens by default in the panel. Max MAX_ACTIVE_LAYERS
-  // (4) at once — protects against payload bloat as more systems get
-  // added. Default: all current systems active (lit).
-  layers: { kingwen: true, toltec: true, tarot: true, runes: true },
+  // (3) at once — protects against payload bloat as more systems get
+  // added. Default: original three lit; runes available but off so new
+  // users can discover it as a swap target.
+  layers: { kingwen: true, toltec: true, tarot: true, runes: false },
   theme: 'twilight',         // 'twilight' | 'mineral' | 'parchment'
   customColors: null,        // { '--bg': '#xxx', '--surface': '#xxx', '--text': '#xxx', '--gold': '#xxx' } | null
   panelMode: 'closed',       // 'dock-right' | 'dock-left' | 'closed'
@@ -488,7 +489,7 @@ function flipPanelSide() {
 }
 
 
-const MAX_ACTIVE_LAYERS = 4;
+const MAX_ACTIVE_LAYERS = 3;
 
 function activeLayerCount() {
   return Object.values(state.layers).filter(Boolean).length;
