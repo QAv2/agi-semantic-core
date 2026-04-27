@@ -8,11 +8,13 @@
 //   KING_WEN_NAMES, KING_WEN_TITLES     ← oracle/hexagrams.py HEXAGRAM_NAMES
 //   TOLTEC_NAMES, TOLTEC_TRAD_NAMES     ← oracle/toltec.py TOLTEC_HEXAGRAMS
 //   TAROT_NAMES, TAROT_NUMERALS         ← oracle/tarot.py MAJOR_ARCANA
+//   RUNE_NAMES, RUNE_GLYPHS, RUNE_AETTS ← oracle/runes.py RUNES
 //
 //   HEXAGRAM_PROSE  ← oracle/interpretations.py INTERPRETATIONS
 //                   + oracle/hexagrams.py HEXAGRAM_NAMES (reading)
 //   TOLTEC_PROSE    ← oracle/toltec.py TOLTEC_HEXAGRAMS
 //   TAROT_PROSE     ← oracle/tarot.py MAJOR_ARCANA
+//   RUNE_PROSE      ← oracle/runes.py RUNES
 //   WITNESS_TEXT    ← oracle/interpreter.py WITNESS_READINGS
 //   DOMAIN_TEXT     ← oracle/interpreter.py DOMAIN_READINGS
 //
@@ -379,6 +381,67 @@ export const TAROT_NUMERALS = new Set([
   "XXI",
 ]);
 
+// 24 Elder Futhark runes (three aetts of 8).
+export const RUNE_NAMES = new Set([
+  "Fehu",
+  "Uruz",
+  "Thurisaz",
+  "Ansuz",
+  "Raidho",
+  "Kenaz",
+  "Gebo",
+  "Wunjo",
+  "Hagalaz",
+  "Nauthiz",
+  "Isa",
+  "Jera",
+  "Eihwaz",
+  "Perthro",
+  "Algiz",
+  "Sowilo",
+  "Tiwaz",
+  "Berkano",
+  "Ehwaz",
+  "Mannaz",
+  "Laguz",
+  "Ingwaz",
+  "Othala",
+  "Dagaz",
+]);
+
+export const RUNE_GLYPHS = new Set([
+  "\u16a0",
+  "\u16a2",
+  "\u16a6",
+  "\u16a8",
+  "\u16b1",
+  "\u16b2",
+  "\u16b7",
+  "\u16b9",
+  "\u16ba",
+  "\u16be",
+  "\u16c1",
+  "\u16c3",
+  "\u16c7",
+  "\u16c8",
+  "\u16c9",
+  "\u16cb",
+  "\u16cf",
+  "\u16d2",
+  "\u16d6",
+  "\u16d7",
+  "\u16da",
+  "\u16dc",
+  "\u16df",
+  "\u16de",
+]);
+
+export const RUNE_AETTS = new Set([
+  "Freyr",
+  "Hagal",
+  "Tyr",
+]);
+
 // UPPERCASE_SNAKE concept names from the 3,033-entry dictionary.
 // Starts with a capital letter, then 0-39 more A-Z or _ chars
 // (matches the existing 40-char clamp ceiling).
@@ -550,6 +613,35 @@ export const TAROT_PROSE = new Map([
   ["XIX", { image: "A child on a white horse, arms open, beneath an enormous sun. Sunflowers turn toward the light. The wall behind is low \u2014 not a barrier but a gentle boundary. Everything visible, everything warm.", upright: "Unobstructed clarity. The condition where what is true and what feels good are the same thing. Not naivety \u2014 earned simplicity. The joy that comes after complexity has been metabolized, not avoided.", counsel: "Receive it. The medicine is not complicated \u2014 it is the willingness to accept that this moment of clarity is real and does not need to be defended or explained. The Sun does not argue for its own existence." }],
   ["XX", { image: "The angel's trumpet sounds. Figures rise from coffins \u2014 not resurrected but awakened. They were not dead; they were dormant. The mountains behind are the same ones the Hermit climbed, now seen from the valley floor.", upright: "The call that cannot be ignored because it comes from inside the structure, not outside it. Awakening to a purpose that was always present but dormant. The self recognizing itself through its own history.", counsel: "Something in you is ready to rise. The medicine is not self-improvement \u2014 it is self-recognition. Judgement here is not condemnation; it is the accurate seeing of what you are and what you are for. The trumpet calls what is already alive." }],
   ["XXI", { image: "The dancer in the wreath, holding two wands. The four fixed signs at the corners \u2014 the same four from the Wheel of Fortune, now stabilized. The wreath is the zero-point: end and beginning share a border.", upright: "Completion that is not termination but integration. All elements present and in right relation. The cycle fulfilled \u2014 not because nothing is left to do, but because what needed to be done has been done. The whole is visible.", counsel: "You are closer to whole than you think. The medicine is not adding anything \u2014 it is recognizing that the circuit is already complete. The World does not need to be achieved; the World needs to be acknowledged." }],
+]);
+
+// 24 Elder Futhark runes keyed by rune number 1-24 (matches
+// runes.{presenting,medicine}.number): image + meaning + counsel.
+export const RUNE_PROSE = new Map([
+  [1, { image: "Cattle in a stone-walled pen at dawn, breath visible in cold air. The herdsman counts not by number but by which ones can move, which can be traded, which would bear the journey. Wealth that has legs.", meaning: "The resource that is yours because you can move it \u2014 not the field, but what walks across it. Mobile worth. Capital that still answers to your hand. The opposite of treasure buried for safekeeping; this is value in circulation.", counsel: "Look at what you have that moves. Not the asset but the relationship \u2014 the trust, the reputation, the skill that follows you across rooms. The medicine is to spend it, not hoard it. Fehu does not appreciate by stillness; Fehu appreciates by exchange." }],
+  [2, { image: "The aurochs in the river-shallows at first light. Horns wider than a man can stretch. It does not look up because it has no predator that matters. The water moves around its legs the way wind moves around stone.", meaning: "Raw force that does not need permission. Vitality that is not earned through discipline but received from being alive at all. The body's intelligence \u2014 older than the mind that thinks it commands the body. What rises in you before strategy.", counsel: "Stop asking the situation if you are allowed to be strong. The medicine is to feel where the strength already is \u2014 in the breath, in the spine, in the no that does not need a reason. Uruz does not negotiate its existence; Uruz drinks from the river and the river makes way." }],
+  [3, { image: "A single thorn on a long stem, oil-black at the tip. The plant has no other defense. It does not need one. Whatever brushes against it learns the lesson once and adjusts.", meaning: "The sharp point that is not aggression but accuracy. The boundary that does not need to be argued because it does not need to be repeated. Force that is dangerous only to what insists on touching what it should not touch.", counsel: "There is something here that will not yield, and it is correct that it does not yield. The medicine is not softening the thorn \u2014 it is recognizing that the wound it makes is the same wound the lesson requires. Thurisaz does not punish; Thurisaz informs." }],
+  [4, { image: "A figure at the cave's mouth, head tilted toward what cannot be seen. The breath visible. The mouth open but not yet speaking. The signal is arriving from somewhere that does not have a body.", meaning: "The transmission that comes through, not from. The thought you did not assemble. The phrase that knew what it meant before you did. Communication from the layer of self that does not call itself you.", counsel: "Listen for the line that did not come from your planning. The medicine is to receive it on the page or the breath before the editing mind catches up. Ansuz does not announce itself; Ansuz is the moment you realize you were already being spoken through." }],
+  [5, { image: "A horse and rider on a packed-earth road that goes around the hill, not over it. Dust rising in the slant light. The destination is not visible but the way is \u2014 the road remembers itself even when the rider forgets.", meaning: "Right movement. Not motion for its own sake but the rhythm that fits the terrain. The journey that respects its own speed. Travel as practice \u2014 the rider becoming the road's shape over the days.", counsel: "Find the pace the situation actually wants. The medicine is not faster; the medicine is the rhythm that the road and the body both consent to. Raidho is not about arriving; Raidho is about the gait that makes arrival inevitable." }],
+  [6, { image: "A torch held shoulder-high in a workshop after dark. The flame steady because the hand is steady. It illuminates one bench at a time, not the whole room. The shadows behind the lit area are not absent \u2014 they are waiting.", meaning: "Knowledge that you can use, not knowledge you can recite. The lit area of competence \u2014 what you can actually do under pressure. Skill held warm. The understanding that comes from making the thing twice, then twice more.", counsel: "Bring the torch to one bench. The medicine is not surveying everything; it is illuminating the work in front of you well enough to do it. Kenaz does not set the room on fire; Kenaz lights what your hands need to see." }],
+  [7, { image: "Two open hands offered toward each other, neither yet holding the other's gift. The space between them is not empty. The agreement is in the air before the objects arrive.", meaning: "The bond that is sealed by exchange. The relationship in which what is given and what is received cannot be separated from the giving. Reciprocity not as accounting but as continuity \u2014 the cord between two parties that the gift braids.", counsel: "Notice what you are giving and what you are accepting. The medicine is not balancing the ledger \u2014 it is allowing the flow to happen at all. Gebo does not measure; Gebo binds. What you receive will not look like what you gave, and that is correct." }],
+  [8, { image: "A pennant held up over a clearing where many have gathered. Not victory yet \u2014 recognition. Each face in the crowd is known to at least one other face. The pennant is the proof that everyone in the clearing has come to the same place on purpose.", meaning: "Joy that comes from fit. The relief of being among the right people, in the right room, at the right time. Belonging not as approval but as accuracy \u2014 the place where what you are is what is needed.", counsel: "Stay in the clearing a moment longer. The medicine is not pursuing joy; it is recognizing the joy that has already arrived and refusing to leave it prematurely. Wunjo does not chase happiness; Wunjo notices when the gathering is the answer." }],
+  [9, { image: "Hail on a wheat field at the height of summer. The stalks bend, then break. By morning the sun returns and the mud holds the imprint of every stone that fell. Nothing is the same, but the field is still there.", meaning: "The disruption that arrives without warning because it was never personal. The weather that does not care what you were building. What survives the hail is what was built deeply enough to be worth keeping; what does not survive was always going to fail later, more expensively.", counsel: "Stop trying to negotiate with the storm. The medicine is not preventing the disruption \u2014 it is recognizing that the disruption is information about what was structurally sound and what was held together by hope. Hagalaz does not destroy; Hagalaz reveals." }],
+  [10, { image: "A figure rubbing two sticks together in the cold. The friction is reluctant. The fire will come \u2014 but only because nothing else is available, and the body has decided to make the heat itself.", meaning: "The need that becomes the teacher. Not the lack you can solve by acquisition but the constraint that forces the development of capacities you would never have grown otherwise. The skill that only the dry season trains.", counsel: "Stop trying to escape the constraint. The medicine is to ask what the constraint is asking you to develop. Nauthiz is not punishment; Nauthiz is the curriculum disguised as deprivation. The fire you make under pressure is the fire you will know how to make for the rest of your life." }],
+  [11, { image: "A river frozen in mid-flow. The shapes of the eddies still visible under the surface \u2014 what was moving became sculpture. No fish. No sound. The current is preserved in its last position, exact and silent.", meaning: "The pause that is not death but suspension. Motion held in trust against a thaw that has not yet arrived. Patience that is not chosen \u2014 patience that is the condition itself. What cannot be hurried because the medium has decided.", counsel: "Stop pushing on the ice. The medicine is to use the stillness for the work that only stillness allows \u2014 observing the shape of what was moving, naming what was about to happen, taking inventory before the current returns. Isa does not reward struggle; Isa rewards attention." }],
+  [12, { image: "A field at full grain, late summer, the air thick with the sound of insects. The farmer walks the rows, not yet cutting. The work was done in spring; the standing is the proof. The sickle waits.", meaning: "The cycle completing on its own terms. The reward that arrives because the work was done at the right season, not because anyone hurried. What you planted in the right month is now what you have.", counsel: "Trust the timeline that is already in motion. The medicine is not adding more effort \u2014 it is allowing what is ripening to ripen. Jera does not negotiate the calendar; Jera is the proof that what you set in motion months ago was correct, and now the only task is to receive it." }],
+  [13, { image: "A yew tree that has stood through three generations. Its roots reach as deep as its branches reach high \u2014 the tree is a column running through every layer of soil and air. It survives by being equally present above and below.", meaning: "The endurance that comes from being rooted in both directions \u2014 into what is visible and into what is buried. The tree that does not fall in the storm because it has already integrated death into its structure. Resilience that is not avoidance of difficulty but absorption of it.", counsel: "Find your axis. The medicine is to remember where in you the depth is \u2014 what part of you reaches into the dark soil that nourishes the part of you that reaches toward the light. Eihwaz does not avoid the underworld; Eihwaz makes the underworld its foundation." }],
+  [14, { image: "A leather cup full of carved bones. The hand reaches in but does not yet draw. What you receive is not chosen \u2014 but the act of reaching is. The pattern that emerges is older than the moment of drawing.", meaning: "The structure beneath chance. What appears random because the order is too large to perceive. Fate that does not feel like fate from inside the moment but is unmistakable in retrospect. The element that cannot be bargained with because it operates from a deeper layer than your bargaining mind can reach.", counsel: "Stop trying to engineer the outcome. The medicine is not control but consent \u2014 the willingness to draw the lot and accept what you drew. Perthro does not promise good fortune; Perthro promises that what you draw is part of a pattern that includes you." }],
+  [15, { image: "A sedge of tall grass with edges sharp enough to cut. Or seen another way: an elk with antlers raised, head turned to the wind. Either form announces the same thing \u2014 there is something here that does not want to be approached carelessly.", meaning: "The protection that is not aggression but signaling. The boundary that warns rather than wounds. What stands between you and what would diminish you \u2014 sometimes a person, sometimes a practice, sometimes the part of yourself that knows when to leave.", counsel: "Listen to what is signaling no on your behalf. The medicine is recognizing that the impulse to withdraw, refuse, or invoke help is not weakness \u2014 it is intelligence. Algiz does not ask permission to protect; Algiz is the antlers that were already there." }],
+  [16, { image: "The sun at the height of midsummer, casting no shadow. The sails of a small ship full. The journey that began in dim weather has arrived in light so direct it cannot be argued with. Everything visible.", meaning: "The clarity that wins. Not the victory of force but the victory of becoming undeniable. The work that shines because it was done thoroughly enough that it cannot be dimmed. The vitality that comes from being aligned with what is.", counsel: "Receive the light without translating it into modesty. The medicine is to allow what worked to be acknowledged as having worked. Sowilo does not apologize for arrival; Sowilo is the sun that has decided where to stand." }],
+  [17, { image: "A god with one hand. The other was given to bind the wolf that could not be bound by anything else. The remaining hand holds the spear. The sacrifice is in the past; the bearing of it is the present.", meaning: "The principle that holds because someone paid for it. Justice that is not abstract but personal \u2014 the cost was real, and the structure that the cost purchased is still standing. Honor as the discipline of remaining accountable to what you swore.", counsel: "Examine what you are bound to and whether you would pay the price again. The medicine is not lighter commitments \u2014 it is committing to what is worth losing a hand for, and accepting that the loss is the proof of the commitment. Tiwaz does not regret the wolf; Tiwaz remembers why the wolf had to be bound." }],
+  [18, { image: "A birch sapling pushing through the leaf-litter at the edge of a clearing. The bark white as paper. The tree will be slender for years before it is strong, and that is the correct sequence. Nothing about its smallness is failure.", meaning: "The growth that is gentle because it has time. What is just beginning is allowed to be small, and the smallness is the protection. The mother principle \u2014 not as control but as sheltering of what cannot yet defend itself.", counsel: "Protect what is just starting from your impatience. The medicine is to recognize that early growth needs concealment more than it needs encouragement. Berkano does not rush the sapling; Berkano lets the sapling become a tree by remaining a sapling long enough." }],
+  [19, { image: "Horse and rider crossing a stream side by side, neither in front. The horse trusts the rider's weight; the rider trusts the horse's footing. Neither is in command. Both are in agreement.", meaning: "The bond that two beings build by moving together. Trust that is built mile by mile, not declared. The partnership in which the strength of each is multiplied because neither is forcing the other into the role.", counsel: "Look at the alliance you are in. The medicine is to remember that partnership is built by the small adjustments \u2014 the rider shifting weight, the horse shortening stride \u2014 not by the grand gesture. Ehwaz does not announce the bond; Ehwaz is the bond that the journey reveals." }],
+  [20, { image: "A figure standing, arms slightly raised, looking neither down at the ground nor up at the sky but level \u2014 outward at other figures who are doing the same. Recognition flowing in both directions across the air.", meaning: "The self that knows itself by being seen by other selves. Humanity not as species but as practice \u2014 the daily work of recognizing other consciousnesses as real. Awareness that includes itself in the picture.", counsel: "Notice who is seeing you and let them see you. The medicine is not solitude \u2014 it is the willingness to be human among humans, which means being recognized in the ways you are also still becoming. Mannaz does not perform; Mannaz exists in the field of mutual recognition that other people make possible." }],
+  [21, { image: "A river at night. The surface reflects what little light there is \u2014 the moon, a lantern from the far shore. The depth below the reflection is not visible, but the current is felt by anything that wades in. The water remembers its course even when the night does not show it.", meaning: "The intuition that operates below the level of speech. Knowledge that arrives as feeling first and as language only afterward. The depths in you that the conscious mind has agreed not to name but continues to consult.", counsel: "Trust the water before you translate it. The medicine is to let the felt sense lead, even when the words have not arrived. Laguz does not announce its depth; Laguz is the depth that keeps your decisions correct even when you cannot explain them." }],
+  [22, { image: "A seed buried in dark soil over winter. Nothing visible above ground. The seed is not dormant \u2014 it is doing the slow assembly that will make spring possible. The work is total and entirely invisible.", meaning: "The gestation phase that the world cannot yet see and cannot help. The interior development that requires concealment. What is being made of you in the dark, before the visible form arrives, is the form. Patience as the medium of becoming.", counsel: "Honor what is being made in you that has no outward form yet. The medicine is to stop trying to display the work before it has finished assembling itself. Ingwaz does not announce; Ingwaz becomes. The display was never the point \u2014 the becoming was." }],
+  [23, { image: "An old farmhouse with a stone foundation. The walls have been rebuilt twice but the foundation is original. The view from the porch has not changed. Underneath the floorboards, a cellar dug by hands that did not live to see this generation.", meaning: "The inheritance that arrives whether or not you claim it. Ancestry as the ground you stand on \u2014 not what you chose but what made the choosing possible. Home not as place but as the soil that grew the part of you that knows what soil is.", counsel: "Acknowledge what was given to you before you arrived. The medicine is not pride in the lineage \u2014 it is recognition that the foundation you stand on was poured by people whose names you may not know, and that you are now responsible for what is built on top of it. Othala does not romanticize the past; Othala is the practice of continuing what was begun." }],
+  [24, { image: "The horizon at the moment the sun's edge crosses it. The world is neither in night nor in day \u2014 it is at the threshold. The shadow side is still cool. The lit side is already warm. The line between them is a doorway that takes a single instant to cross.", meaning: "The breakthrough that is not gradual but absolute. The threshold that is crossed in one step, even though the approach was long. Awakening as the moment when what was implicit becomes explicit. The change of state that cannot be undone because the night cannot be re-entered.", counsel: "Recognize that you have already crossed. The medicine is not preparing for the breakthrough; the breakthrough has already occurred and is asking you to stop pretending you are still in the dark. Dagaz does not arrive; Dagaz is the moment you notice that day was already happening." }],
 ]);
 
 // 4 witness-state readings keyed by witness_state (dissolution,

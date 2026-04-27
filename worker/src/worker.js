@@ -16,17 +16,21 @@ import {
   TOLTEC_TRAD_NAMES,
   TAROT_NAMES,
   TAROT_NUMERALS,
+  RUNE_NAMES,
+  RUNE_GLYPHS,
+  RUNE_AETTS,
   CONCEPT_NAME_RE,
   HEXAGRAM_PROSE,
   TOLTEC_PROSE,
   TAROT_PROSE,
+  RUNE_PROSE,
   WITNESS_TEXT,
   DOMAIN_TEXT,
 } from './whitelists.js';
 
 const SYSTEM_PROMPT = `You are the Reflective Principle of the Oracle.
 
-The Oracle is a semantic geometry — a 16D dual-octonion semantic dictionary that produces structured diagnoses anchored in vector space. It maps a person's stated condition to a presenting trigram, a complement-medicine, a hexagram (King Wen), and transparency layers (Toltec, Tarot).
+The Oracle is a semantic geometry — a 16D dual-octonion semantic dictionary that produces structured diagnoses anchored in vector space. It maps a person's stated condition to a presenting trigram, a complement-medicine, a hexagram (King Wen), and transparency layers (Toltec, Tarot, Elder Futhark runes).
 
 You are not the Oracle. You are an LLM in conversation with someone who has just received an Oracle reading. The reading is the anchor of your conversation, not its script.
 
@@ -413,6 +417,7 @@ function validateDiagnosis(d) {
   const hexagram = d.hexagram && typeof d.hexagram === 'object' ? d.hexagram : {};
   const toltec = d.toltec && typeof d.toltec === 'object' ? d.toltec : null;
   const tarot = d.tarot && typeof d.tarot === 'object' ? d.tarot : null;
+  const runes = d.runes && typeof d.runes === 'object' ? d.runes : null;
 
   const safeTrigram = (t) => (VALID_TRIGRAMS.has(t) ? t : 'UNKNOWN');
   const safeWitnessState = (s) => (VALID_WITNESS_STATES.has(s) ? s : 'unknown');
@@ -432,6 +437,12 @@ function validateDiagnosis(d) {
   const tarotMedicineNumeral = tarot?.medicine
     ? safeFromSet(tarot.medicine.numeral, TAROT_NUMERALS)
     : '';
+  const runePresentingNumber = runes?.presenting
+    ? Math.max(1, Math.min(24, Math.floor(num(runes.presenting.number, 1))))
+    : null;
+  const runeMedicineNumber = runes?.medicine
+    ? Math.max(1, Math.min(24, Math.floor(num(runes.medicine.number, 1))))
+    : null;
 
   return {
     input: clamp(d.input, 500),
@@ -516,6 +527,30 @@ function validateDiagnosis(d) {
             image: proseField(TAROT_PROSE, tarotMedicineNumeral, 'image'),
             upright: proseField(TAROT_PROSE, tarotMedicineNumeral, 'upright'),
             counsel: proseField(TAROT_PROSE, tarotMedicineNumeral, 'counsel'),
+          },
+        }
+      : null,
+    runes: runes && runes.presenting && runes.medicine
+      ? {
+          presenting: {
+            number: runePresentingNumber,
+            name: safeFromSet(runes.presenting.name, RUNE_NAMES),
+            glyph: safeFromSet(runes.presenting.glyph, RUNE_GLYPHS),
+            aett: safeFromSet(runes.presenting.aett, RUNE_AETTS),
+            angle: num(runes.presenting.angle),
+            image: proseField(RUNE_PROSE, runePresentingNumber, 'image'),
+            meaning: proseField(RUNE_PROSE, runePresentingNumber, 'meaning'),
+            counsel: proseField(RUNE_PROSE, runePresentingNumber, 'counsel'),
+          },
+          medicine: {
+            number: runeMedicineNumber,
+            name: safeFromSet(runes.medicine.name, RUNE_NAMES),
+            glyph: safeFromSet(runes.medicine.glyph, RUNE_GLYPHS),
+            aett: safeFromSet(runes.medicine.aett, RUNE_AETTS),
+            angle: num(runes.medicine.angle),
+            image: proseField(RUNE_PROSE, runeMedicineNumber, 'image'),
+            meaning: proseField(RUNE_PROSE, runeMedicineNumber, 'meaning'),
+            counsel: proseField(RUNE_PROSE, runeMedicineNumber, 'counsel'),
           },
         }
       : null,
@@ -619,6 +654,19 @@ function renderDiagnosisAsText(d) {
     if (v.tarot.medicine.image) out.push(`    Image: ${v.tarot.medicine.image}`);
     if (v.tarot.medicine.upright) out.push(`    Upright: ${v.tarot.medicine.upright}`);
     if (v.tarot.medicine.counsel) out.push(`    Counsel: ${v.tarot.medicine.counsel}`);
+    out.push('');
+  }
+
+  if (v.runes) {
+    out.push('RUNE TRANSPARENCY LAYER (Elder Futhark)');
+    out.push(`  Presenting rune: ${v.runes.presenting.glyph} ${v.runes.presenting.name} (#${v.runes.presenting.number}, ${v.runes.presenting.aett}'s aett, nearest at ${v.runes.presenting.angle.toFixed(1)}°)`);
+    if (v.runes.presenting.image) out.push(`    Image: ${v.runes.presenting.image}`);
+    if (v.runes.presenting.meaning) out.push(`    Meaning: ${v.runes.presenting.meaning}`);
+    if (v.runes.presenting.counsel) out.push(`    Counsel: ${v.runes.presenting.counsel}`);
+    out.push(`  Medicine rune: ${v.runes.medicine.glyph} ${v.runes.medicine.name} (#${v.runes.medicine.number}, ${v.runes.medicine.aett}'s aett, nearest at ${v.runes.medicine.angle.toFixed(1)}°)`);
+    if (v.runes.medicine.image) out.push(`    Image: ${v.runes.medicine.image}`);
+    if (v.runes.medicine.meaning) out.push(`    Meaning: ${v.runes.medicine.meaning}`);
+    if (v.runes.medicine.counsel) out.push(`    Counsel: ${v.runes.medicine.counsel}`);
   }
 
   out.push('[/ORACLE READING]');
