@@ -277,7 +277,7 @@ const BLOCKED_ASNS = new Set([
 // ─── CORS ───────────────────────────────────────────────────────────
 
 function getAllowedOrigins(env) {
-  const allowed = env.ALLOWED_ORIGIN || 'https://oracle.netlify.app';
+  const allowed = env.ALLOWED_ORIGIN || 'https://qav2-oracle.netlify.app';
   return [
     allowed,
     'http://localhost:8765',
@@ -914,7 +914,7 @@ async function handleBalance(request, env, cors) {
     balance_threshold_cents: threshold,
     mode: route.route,
     reason: route.reason,
-    model: route.route === 'claude' ? (env.ANTHROPIC_MODEL || 'claude-sonnet-4-6') : 'llama-3.1-70b',
+    model: route.route === 'claude' ? (env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001') : 'llama-3.1-70b',
   }, 200, cors);
 }
 
@@ -939,7 +939,7 @@ async function handleStats(request, env, cors) {
     spent_month_cents: coffer.spent_month,
     donated_month_cents: coffer.donated_month,
     daily_cap_cents: dailyCapCents(env),
-    model: env.ANTHROPIC_MODEL || 'claude-sonnet-4-6',
+    model: env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001',
   }, 200, cors);
 }
 
@@ -955,7 +955,7 @@ async function callClaudeWithCaching(env, systemPrompt, diagnosisText, dialogue)
       'content-type': 'application/json',
     },
     body: JSON.stringify({
-      model: env.ANTHROPIC_MODEL || 'claude-sonnet-4-6',
+      model: env.ANTHROPIC_MODEL || 'claude-haiku-4-5-20251001',
       max_tokens: 1024,
       system: [
         { type: 'text', text: systemPrompt, cache_control: { type: 'ephemeral' } },
