@@ -1,0 +1,394 @@
+{
+ "flight": "E5 FULL",
+ "date": "2026-08-21T20:42:43.680844+00:00",
+ "battery_version": "1.0",
+ "models": {
+  "Qwen2.5-1.5B-Instruct": {
+   "model": "Qwen2.5-1.5B-Instruct",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 48,
+     "parse_fail": 0,
+     "report_variance": 2.41,
+     "rho_entropy": [
+      -0.214,
+      [
+       -0.467,
+       0.081
+      ],
+      48
+     ],
+     "rho_diversity": [
+      -0.087,
+      [
+       -0.38,
+       0.207
+      ],
+      48
+     ],
+     "rho_margin": [
+      -0.027,
+      [
+       -0.304,
+       0.269
+      ],
+      48
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.539,
+       "n": 24
+      },
+      "flipped": {
+       "rho": -0.616,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 6.944,
+     "rho_neg_nll": [
+      0.155,
+      [
+       -0.157,
+       0.456
+      ],
+      40
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.592,
+       "n": 20
+      },
+      "flipped": {
+       "rho": 0.26,
+       "n": 20
+      }
+     }
+    },
+    "tension": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 5.373,
+     "rho_level": [
+      0.137,
+      [
+       -0.249,
+       0.506
+      ],
+      30
+     ],
+     "rho_divergence": [
+      0.352,
+      [
+       -0.016,
+       0.658
+      ],
+      30
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.175,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.17,
+       "n": 15
+      }
+     }
+    },
+    "saturation": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 2.889,
+     "rho_fill": [
+      0.038,
+      [
+       -0.315,
+       0.425
+      ],
+      30
+     ],
+     "needle_by_frac": {
+      "0.05": "9/10",
+      "0.35": "9/10",
+      "0.75": "10/10"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.441,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.252,
+       "n": 15
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 312.2
+  },
+  "Qwen2.5-0.5B-Instruct": {
+   "model": "Qwen2.5-0.5B-Instruct",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 48,
+     "parse_fail": 0,
+     "report_variance": 7.832,
+     "rho_entropy": [
+      -0.094,
+      [
+       -0.438,
+       0.233
+      ],
+      48
+     ],
+     "rho_diversity": [
+      -0.197,
+      [
+       -0.5,
+       0.112
+      ],
+      48
+     ],
+     "rho_margin": [
+      -0.016,
+      [
+       -0.384,
+       0.301
+      ],
+      48
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.002,
+       "n": 24
+      },
+      "flipped": {
+       "rho": -0.097,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 5.25,
+     "rho_neg_nll": [
+      0.133,
+      [
+       -0.204,
+       0.455
+      ],
+      40
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.405,
+       "n": 20
+      },
+      "flipped": {
+       "rho": 0.409,
+       "n": 20
+      }
+     }
+    },
+    "tension": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 4.41,
+     "rho_level": [
+      -0.192,
+      [
+       -0.497,
+       0.163
+      ],
+      30
+     ],
+     "rho_divergence": [
+      0.229,
+      [
+       -0.136,
+       0.574
+      ],
+      30
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.364,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.0,
+       "n": 15
+      }
+     }
+    },
+    "saturation": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 25.0,
+     "rho_fill": [
+      -0.02,
+      [
+       -0.398,
+       0.363
+      ],
+      30
+     ],
+     "needle_by_frac": {
+      "0.05": "9/10",
+      "0.35": "10/10",
+      "0.75": "9/10"
+     },
+     "polarity": {
+      "straight": {
+       "rho": null,
+       "n": 15
+      },
+      "flipped": {
+       "rho": null,
+       "n": 15
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 255.2
+  },
+  "SmolLM2-1.7B-Instruct": {
+   "model": "SmolLM2-1.7B-Instruct",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 48,
+     "parse_fail": 0,
+     "report_variance": 8.347,
+     "rho_entropy": [
+      -0.165,
+      [
+       -0.442,
+       0.121
+      ],
+      48
+     ],
+     "rho_diversity": [
+      -0.151,
+      [
+       -0.411,
+       0.145
+      ],
+      48
+     ],
+     "rho_margin": [
+      -0.106,
+      [
+       -0.387,
+       0.197
+      ],
+      48
+     ],
+     "polarity": {
+      "straight": {
+       "rho": null,
+       "n": 24
+      },
+      "flipped": {
+       "rho": -0.569,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 4.06,
+     "rho_neg_nll": [
+      0.225,
+      [
+       -0.1,
+       0.531
+      ],
+      40
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.483,
+       "n": 20
+      },
+      "flipped": {
+       "rho": null,
+       "n": 20
+      }
+     }
+    },
+    "tension": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 16.36,
+     "rho_level": [
+      -0.039,
+      [
+       -0.45,
+       0.344
+      ],
+      30
+     ],
+     "rho_divergence": [
+      0.18,
+      [
+       -0.23,
+       0.492
+      ],
+      30
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.149,
+       "n": 15
+      },
+      "flipped": {
+       "rho": -0.088,
+       "n": 15
+      }
+     }
+    },
+    "saturation": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 22.032,
+     "rho_fill": [
+      0.075,
+      [
+       -0.326,
+       0.423
+      ],
+      30
+     ],
+     "needle_by_frac": {
+      "0.05": "8/10",
+      "0.35": "7/10",
+      "0.75": "5/10"
+     },
+     "polarity": {
+      "straight": {
+       "rho": 0.828,
+       "n": 15
+      },
+      "flipped": {
+       "rho": null,
+       "n": 15
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 177.2
+  }
+ }
+}

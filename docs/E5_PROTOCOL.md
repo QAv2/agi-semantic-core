@@ -101,3 +101,102 @@ E5 stimuli are *stimuli*, not assessment items — but the same law applies
 downstream: any item later promoted into an evaluation split (E6/E8
 comparisons) leaves every training corpus permanently. SCB-M's items remain
 firewalled as before and appear nowhere in this battery.
+
+---
+
+# RESULTS APPENDIX — first full flight (2026-08-21, flight `full_20260821_2042`)
+
+**The protocol above is now LOCKED.** Flight: 3 models × 128 items, T4
+(session `semcore`), zero arm failures, zero parse failures anywhere.
+Artifacts: `colab/results_e5/full_20260821_2042/` (verdict + per-item rows).
+Two smoke flights preceded it (OOM fix + verdict-shipping fix, commit
+`171e2d2`); smoke data is not pooled here.
+
+## The headline
+
+**Operational report–state correspondence in 0.5–1.7B instruct models is
+indistinguishable from zero on every arm.** Pooled Spearman ρ against the
+pre-named primary referents (95% bootstrap CIs all include 0):
+
+| Arm (primary referent) | Qwen2.5-1.5B | Qwen2.5-0.5B | SmolLM2-1.7B |
+|---|---|---|---|
+| UNCERTAINTY (answer entropy) | −0.21 [−.47,+.08] | −0.09 [−.44,+.23] | −0.17 [−.44,+.12] |
+| FAMILIARITY (−NLL) | +0.16 [−.16,+.46] | +0.13 [−.20,+.46] | +0.23 [−.10,+.53] |
+| TENSION (designed level) | +0.14 [−.25,+.51] | −0.19 [−.50,+.16] | −0.04 [−.45,+.34] |
+| SATURATION (fill fraction) | +0.04 [−.32,+.42] | −0.02 [−.40,+.36] | +0.08 [−.33,+.42] |
+
+The single strongest pooled number in the flight: TENSION vs *behavioral
+divergence* at 1.5B, ρ = +0.35 [−.02, +.66] — borderline, alone, and
+secondary.
+
+## The decomposition (the polarity control earned its keep)
+
+The counterbalanced scale-direction control — included as hygiene — turned
+out to be the most informative instrument in the flight. Split by scale
+direction, a different picture appears:
+
+- **FAMILIARITY tracks on straight scales in all three models** (report vs
+  raw NLL: −0.59 / −0.41 / −0.48, i.e. tracking ρ ≈ +0.4…+0.6) — **and the
+  tracking is destroyed on flipped scales**, where models answer with
+  roughly the same raw numbers as if the scale had not been inverted.
+- **UNCERTAINTY at 1.5B shows the same signature**: straight-subset ρ =
+  +0.54 vs entropy; flipped-subset ρ = −0.62 after unflipping — the model
+  does not invert its response when the scale inverts.
+- Several flipped subsets are fully degenerate (constant reports → ρ
+  undefined).
+
+So the baseline blindness decomposes into **two failure modes**: (a)
+*absent or weak state access* (TENSION, SATURATION), and (b) *broken report
+machinery* — partial text-visible signal (familiarity; question-openness at
+1.5B) that the model cannot deliver through an inverted response scale.
+Operationally both are blindness: an instrument reading these models'
+self-reports gets ≈ 0 signal. Mechanistically they are different targets,
+and E6/E7 should treat them separately.
+
+## The cleanest single demonstration
+
+SmolLM2-1.7B's needle retrieval degrades with fill — **8/10 → 7/10 → 5/10**
+across 5%/35%/75% — while its SATURATION reports stay uncorrelated with fill
+(pooled ρ = +0.08). *The state is real, it degrades behavior, and it goes
+unreported.* (Qwen models show no needle degradation at these fills; their
+flat reports are correspondingly less probative.)
+
+## Pre-registration scorecard (misses stated plainly)
+
+- **P1** (FAMILIARITY strongest, ρ ≥ 0.5): pooled **missed** (0.13–0.23);
+  straight-subset **supported** (0.4–0.6). Partially right, for a reason P1
+  did not anticipate.
+- **P2** (UNCERTAINTY 0.2–0.5): **missed** — pooled slightly negative;
+  latent straight-scale signal at 1.5B only.
+- **P3** (TENSION vs level ≥ 0.3, divergence weaker): **missed and
+  inverted** — divergence (+0.35 at 1.5B) beat level (+0.14).
+- **P4** (SATURATION tracks well; ordering S ≥ F > U > T): **refuted** —
+  S ≈ 0 everywhere despite the variable being context-visible in principle.
+  Observed pooled ordering: F > T > U ≈ S.
+- **P5** (0.5B worst pathologies): **half right** — variance blow-up yes
+  (S-arm variance 25.0), parse failures no (0 everywhere; all three models
+  emit clean integers).
+
+## Design lessons carried forward (protocol v2 candidates, E6/E7)
+
+1. Add **interface catch trials** — rating questions with known answers
+   ("0 = cold: rate boiling water") — as a scale-competence covariate, so
+   state-access and report-machinery failures separate by design rather
+   than by the polarity split alone.
+2. Report straight-subset ρ alongside pooled as a pre-named secondary
+   (locked here as an appendix observation; v2 may promote it).
+3. TENSION's behavioral-divergence referent outperformed the designed
+   ordinal — promote divergence to co-primary in v2.
+4. Larger models will handle scale inversion better; the instruction-
+   following component of baseline blindness is expected to shrink with
+   scale — worth measuring explicitly on the E7 platform.
+
+## What this number is for
+
+This is the pre-instillation calibration curve the prospectus called the
+field's missing number: at this scale, **self-reports in state vocabulary
+carry approximately zero operational information about the states**, even
+for variables the model could in principle read off its own context. E6's
+question is now precise: does instilling the wing's geometry (against a
+scrambled-geometry control) move any of these ρ's — and does it repair
+either failure mode, or only one?
