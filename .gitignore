@@ -18,3 +18,7 @@ exports/
 
 # Local Netlify folder
 .netlify
+
+# sqlite runtime sidecars
+db/*.db-wal
+db/*.db-shm
