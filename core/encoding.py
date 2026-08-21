@@ -1,7 +1,7 @@
 """Core data structures for semantic encoding."""
 import numpy as np
-from dataclasses import dataclass, field
-from typing import Dict, List, Tuple, Optional
+from dataclasses import dataclass
+from typing import Tuple
 from enum import Enum
 from core.octonion import SemanticOctonion, DualOctonion, Trigram
 

@@ -15,15 +15,15 @@ import sys
 import os
 import re
 import numpy as np
-from dataclasses import dataclass, field
-from typing import List, Optional, Tuple
+from dataclasses import dataclass
+from typing import List, Tuple
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from api.semantic_core import SemanticCore
 from core.encoding import Concept
 from core.octonion import SemanticOctonion, Trigram, quaternion_multiply
-from oracle.hexagrams import lookup_hexagram, HEXAGRAM_NAMES
+from oracle.hexagrams import lookup_hexagram
 
 STOPWORDS = {
     'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves',

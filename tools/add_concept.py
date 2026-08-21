@@ -15,7 +15,7 @@ import json
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from api.builder import ConceptBuilder
-from core.encoding import ConceptLevel, RelationType
+from core.encoding import ConceptLevel
 
 
 def interactive_add(builder: ConceptBuilder):

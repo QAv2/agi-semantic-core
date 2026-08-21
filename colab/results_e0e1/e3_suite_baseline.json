@@ -1,0 +1,386 @@
+{
+ "correct": 34,
+ "total": 38,
+ "claims": [
+  {
+   "claim": "water is a liquid",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 70,
+   "angle": 59.8,
+   "graph": "synonym",
+   "hit": true
+  },
+  {
+   "claim": "love is an emotion",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 95,
+   "angle": 24.6,
+   "graph": "affinity",
+   "hit": true
+  },
+  {
+   "claim": "fire is hot",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 46,
+   "angle": 50.0,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "murder is a crime",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 93,
+   "angle": 12.9,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "a dog is an animal",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 74,
+   "angle": 25.1,
+   "graph": "affinity",
+   "hit": true
+  },
+  {
+   "claim": "mathematics is a science",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "SUSPICIOUS",
+   "confidence": 38,
+   "angle": 71.8,
+   "graph": "-",
+   "hit": false
+  },
+  {
+   "claim": "sadness is a feeling",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 45,
+   "angle": 50.5,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "gravity is a force",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 64,
+   "angle": 65.4,
+   "graph": "affinity",
+   "hit": true
+  },
+  {
+   "claim": "water is dry",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 61,
+   "angle": 81.6,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "love is hatred",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 37,
+   "angle": 62.4,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "fire is cold",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 86,
+   "angle": 106.3,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "truth is deception",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 53,
+   "angle": 56.2,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "darkness is bright",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 68,
+   "angle": 98.3,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "peace is violence",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "PLAUSIBLE",
+   "confidence": 53,
+   "angle": 43.8,
+   "graph": "-",
+   "hit": false
+  },
+  {
+   "claim": "fire causes heat",
+   "type": "causal",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 81,
+   "angle": 47.4,
+   "graph": "affinity",
+   "hit": true
+  },
+  {
+   "claim": "rain causes flooding",
+   "type": "causal",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 74,
+   "angle": 35.6,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "ignorance causes suffering",
+   "type": "causal",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 95,
+   "angle": 17.0,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "ice causes warmth",
+   "type": "causal",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 42,
+   "angle": 74.2,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "silence causes noise",
+   "type": "causal",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 75,
+   "angle": 46.5,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "a rose is a type of flower",
+   "type": "taxonomic",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 92,
+   "angle": 18.1,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "anger is a type of emotion",
+   "type": "taxonomic",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 50,
+   "angle": 51.3,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "iron is a type of metal",
+   "type": "taxonomic",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 85,
+   "angle": 36.2,
+   "graph": "affinity",
+   "hit": true
+  },
+  {
+   "claim": "a river is a type of mountain",
+   "type": "taxonomic",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 50,
+   "angle": 64.3,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "love is the opposite of hatred",
+   "type": "opposition",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 73,
+   "angle": 62.4,
+   "graph": "complement",
+   "hit": true
+  },
+  {
+   "claim": "light is the opposite of darkness",
+   "type": "opposition",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 99,
+   "angle": 102.6,
+   "graph": "complement",
+   "hit": true
+  },
+  {
+   "claim": "truth is the opposite of deception",
+   "type": "opposition",
+   "expected_true": true,
+   "verdict": "PLAUSIBLE",
+   "confidence": 68,
+   "angle": 56.2,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "water is the opposite of fire",
+   "type": "opposition",
+   "expected_true": true,
+   "verdict": "CONSISTENT",
+   "confidence": 99,
+   "angle": 82.7,
+   "graph": "complement",
+   "hit": true
+  },
+  {
+   "claim": "love is the opposite of love",
+   "type": "opposition",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 90,
+   "angle": 0.0,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "justice is fairness",
+   "type": "identity",
+   "expected_true": true,
+   "verdict": "SUSPICIOUS",
+   "confidence": 49,
+   "angle": 60.1,
+   "graph": "-",
+   "hit": false
+  },
+  {
+   "claim": "war is peace",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 49,
+   "angle": 61.0,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "freedom is slavery",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 38,
+   "angle": 71.3,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "safety is danger",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 52,
+   "angle": 82.1,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "light is darkness",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 72,
+   "angle": 102.6,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "birth is death",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 35,
+   "angle": 75.3,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "hot is cold",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "INCONSISTENT",
+   "confidence": 56,
+   "angle": 86.2,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "joy is sorrow",
+   "type": "identity",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 28,
+   "angle": 71.5,
+   "graph": "INVERSION",
+   "hit": true
+  },
+  {
+   "claim": "creation causes destruction",
+   "type": "causal",
+   "expected_true": false,
+   "verdict": "SUSPICIOUS",
+   "confidence": 45,
+   "angle": 72.4,
+   "graph": "-",
+   "hit": true
+  },
+  {
+   "claim": "virtue is a type of vice",
+   "type": "taxonomic",
+   "expected_true": false,
+   "verdict": "PLAUSIBLE",
+   "confidence": 50,
+   "angle": 43.3,
+   "graph": "complement",
+   "hit": false
+  }
+ ]
+}

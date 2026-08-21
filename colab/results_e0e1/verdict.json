@@ -1,0 +1,29 @@
+{
+ "criteria": "SUCCESS: held-out complement abs_err < 15 deg AND STS-B drop < 0.03; PARTIAL: err reduced >= 50% vs baseline AND drop < 0.08; else FAIL",
+ "baseline": {
+  "comp_abs_err": 16.668110370647153,
+  "stsb": 0.867097774946541
+ },
+ "V0_pure": {
+  "comp_abs_err": 9.814081512585153,
+  "stsb_drop": 0.03199921899964642,
+  "status": "FAIL",
+  "name_form_err": 9.769021868181929,
+  "probe_r2": 0.5048369638047137
+ },
+ "V1_balanced": {
+  "comp_abs_err": 10.230964672940882,
+  "stsb_drop": 0.00809795969877558,
+  "status": "SUCCESS",
+  "name_form_err": 9.454095525244735,
+  "probe_r2": 0.5097765243741545
+ },
+ "V2_conservative": {
+  "comp_abs_err": 9.114573089971776,
+  "stsb_drop": 0.004468447889132254,
+  "status": "SUCCESS",
+  "name_form_err": 9.35090322710735,
+  "probe_r2": 0.5250108609772957
+ },
+ "best_variant": "V2_conservative"
+}

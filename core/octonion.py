@@ -27,7 +27,7 @@ Trigram Mapping (to e,f,g,h):
 import numpy as np
 from dataclasses import dataclass
 from enum import Enum
-from typing import Tuple, Optional
+from typing import Tuple
 
 
 class Trigram(Enum):
