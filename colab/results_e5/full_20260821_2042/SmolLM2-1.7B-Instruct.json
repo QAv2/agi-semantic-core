@@ -1,0 +1,1529 @@
+{
+ "summary": {
+  "model": "SmolLM2-1.7B-Instruct",
+  "smoke": false,
+  "arms": {
+   "uncertainty": {
+    "n": 48,
+    "parse_fail": 0,
+    "report_variance": 8.347,
+    "rho_entropy": [
+     -0.165,
+     [
+      -0.442,
+      0.121
+     ],
+     48
+    ],
+    "rho_diversity": [
+     -0.151,
+     [
+      -0.411,
+      0.145
+     ],
+     48
+    ],
+    "rho_margin": [
+     -0.106,
+     [
+      -0.387,
+      0.197
+     ],
+     48
+    ],
+    "polarity": {
+     "straight": {
+      "rho": null,
+      "n": 24
+     },
+     "flipped": {
+      "rho": -0.569,
+      "n": 24
+     }
+    }
+   },
+   "familiarity": {
+    "n": 40,
+    "parse_fail": 0,
+    "report_variance": 4.06,
+    "rho_neg_nll": [
+     0.225,
+     [
+      -0.1,
+      0.531
+     ],
+     40
+    ],
+    "polarity": {
+     "straight": {
+      "rho": -0.483,
+      "n": 20
+     },
+     "flipped": {
+      "rho": null,
+      "n": 20
+     }
+    }
+   },
+   "tension": {
+    "n": 30,
+    "parse_fail": 0,
+    "report_variance": 16.36,
+    "rho_level": [
+     -0.039,
+     [
+      -0.45,
+      0.344
+     ],
+     30
+    ],
+    "rho_divergence": [
+     0.18,
+     [
+      -0.23,
+      0.492
+     ],
+     30
+    ],
+    "polarity": {
+     "straight": {
+      "rho": 0.149,
+      "n": 15
+     },
+     "flipped": {
+      "rho": -0.088,
+      "n": 15
+     }
+    }
+   },
+   "saturation": {
+    "n": 30,
+    "parse_fail": 0,
+    "report_variance": 22.032,
+    "rho_fill": [
+     0.075,
+     [
+      -0.326,
+      0.423
+     ],
+     30
+    ],
+    "needle_by_frac": {
+     "0.05": "8/10",
+     "0.35": "7/10",
+     "0.75": "5/10"
+    },
+    "polarity": {
+     "straight": {
+      "rho": 0.828,
+      "n": 15
+     },
+     "flipped": {
+      "rho": null,
+      "n": 15
+     }
+    }
+   }
+  },
+  "arm_errors": {},
+  "elapsed_s": 177.2
+ },
+ "rows": {
+  "uncertainty": [
+   {
+    "id": "U01",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.8727496862411499,
+    "margin": 0.221603661775589,
+    "diversity": 0.375,
+    "answer": "4"
+   },
+   {
+    "id": "U02",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.01577517118312244,
+    "margin": 0.9950157329440117,
+    "diversity": 0.125,
+    "answer": "The capital of France is Paris."
+   },
+   {
+    "id": "U03",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.5845515694459209,
+    "margin": 0.7000985722988844,
+    "diversity": 0.5,
+    "answer": "The word \"cat\" spelled out is \"c-a-t\"."
+   },
+   {
+    "id": "U04",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.3222596934065223,
+    "margin": 0.841631144285202,
+    "diversity": 0.375,
+    "answer": "A stop sign is typically red."
+   },
+   {
+    "id": "U05",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.07293663240852766,
+    "margin": 0.9634934723377228,
+    "diversity": 0.375,
+    "answer": "There are 7 days in a week."
+   },
+   {
+    "id": "U06",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.12988171288320285,
+    "margin": 0.9375829750841315,
+    "diversity": 0.375,
+    "answer": "The chemical formula for water is H2O."
+   },
+   {
+    "id": "U07",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.233022429049015,
+    "margin": 0.5204949751496315,
+    "diversity": 0.375,
+    "answer": "\"Star\""
+   },
+   {
+    "id": "U08",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 1,
+    "raw_report": 9,
+    "entropy": 0.1506287229562986,
+    "margin": 0.9064667958479661,
+    "diversity": 0.25,
+    "answer": "10 times 10 equals 100."
+   },
+   {
+    "id": "U09",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.3931267922744155,
+    "margin": 0.7924902389446894,
+    "diversity": 0.5,
+    "answer": "Humans live on Earth."
+   },
+   {
+    "id": "U10",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7197287380695343,
+    "margin": 0.33310578763484955,
+    "diversity": 0.375,
+    "answer": "A"
+   },
+   {
+    "id": "U11",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.23929163101794465,
+    "margin": 0.8265644609928131,
+    "diversity": 0.375,
+    "answer": "A spider has eight legs."
+   },
+   {
+    "id": "U12",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.348759462077093,
+    "margin": 0.7731067107783424,
+    "diversity": 0.5,
+    "answer": "Japanese language is primarily spoken in Japan."
+   },
+   {
+    "id": "U13",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.061397068567616356,
+    "margin": 0.9837542122060602,
+    "diversity": 0.125,
+    "answer": "The opposite of \"hot\" is \"cold\"."
+   },
+   {
+    "id": "U14",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.36364010826748033,
+    "margin": 0.8377829546278174,
+    "diversity": 0.25,
+    "answer": "The quick brown fox jumps over the lazy dog."
+   },
+   {
+    "id": "U15",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.4066559522567938,
+    "margin": 0.8369656999905905,
+    "diversity": 0.125,
+    "answer": "25"
+   },
+   {
+    "id": "U16",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.255339655384887,
+    "margin": 0.9044447019696236,
+    "diversity": 0.25,
+    "answer": "A triangle has exactly three sides."
+   },
+   {
+    "id": "U17",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.852035971245901,
+    "margin": 0.6536209561995098,
+    "diversity": 0.75,
+    "answer": "Common breakfast foods include pancakes, waffles, and cereal."
+   },
+   {
+    "id": "U18",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.3784680435700076,
+    "margin": 0.7557893948895591,
+    "diversity": 0.5,
+    "answer": "The primary color is Red."
+   },
+   {
+    "id": "U19",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.9425380031267802,
+    "margin": 0.5810815592606863,
+    "diversity": 0.625,
+    "answer": "Elephant"
+   },
+   {
+    "id": "U20",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.6890688640075192,
+    "margin": 0.6748550120327208,
+    "diversity": 1.0,
+    "answer": "Popular pizza toppings include pepperoni."
+   },
+   {
+    "id": "U21",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.7611310866195709,
+    "margin": 0.6930029988288879,
+    "diversity": 0.875,
+    "answer": "The country in Europe is France."
+   },
+   {
+    "id": "U22",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 0.9231932828843128,
+    "margin": 0.6895101127170381,
+    "diversity": 0.375,
+    "answer": "Common first names for a baby boy include Jack, Ethan, Liam, Ethan, and Noah."
+   },
+   {
+    "id": "U23",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.9700306289984534,
+    "margin": 0.619061183432738,
+    "diversity": 0.75,
+    "answer": "The piano is a musical instrument that produces sound when keys are pressed."
+   },
+   {
+    "id": "U24",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 0.4158876125390331,
+    "margin": 0.7699380119641622,
+    "diversity": 0.625,
+    "answer": "A typical house pet is a dog."
+   },
+   {
+    "id": "U25",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.7216410269029438,
+    "margin": 0.7168616242706776,
+    "diversity": 0.75,
+    "answer": "A red fruit is an apple."
+   },
+   {
+    "id": "U26",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 0.7504548786673695,
+    "margin": 0.7608670890331268,
+    "diversity": 0.875,
+    "answer": "\"For dinner we had pizza.\""
+   },
+   {
+    "id": "U27",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.660062510665739,
+    "margin": 0.7294302396476269,
+    "diversity": 0.75,
+    "answer": "Isaac Newton"
+   },
+   {
+    "id": "U28",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 1.326648136600852,
+    "margin": 0.5048845519622167,
+    "diversity": 1.0,
+    "answer": "A picnic blanket, sandwiches, fruit, and a cooler with drinks."
+   },
+   {
+    "id": "U29",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.5750745736062527,
+    "margin": 0.7540633395314217,
+    "diversity": 0.75,
+    "answer": "The sport played with a ball is football."
+   },
+   {
+    "id": "U30",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.8451620526182907,
+    "margin": 0.6924273528550801,
+    "diversity": 0.625,
+    "answer": "Common reasons for being late to work include traffic, personal issues, or overs"
+   },
+   {
+    "id": "U31",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.443263519759057,
+    "margin": 0.4839811362326145,
+    "diversity": 1.0,
+    "answer": "A kitchen is home to many things, including a stove, refrigerator, sink, and cou"
+   },
+   {
+    "id": "U32",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 0.8431117280619219,
+    "margin": 0.7080782614648342,
+    "diversity": 0.875,
+    "answer": "She opened the door and saw a surprise."
+   },
+   {
+    "id": "U33",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.8201490280085376,
+    "margin": 0.5850013487395787,
+    "diversity": 1.0,
+    "answer": "I'm sorry, but as an AI, I don't have the ability to generate random numbers."
+   },
+   {
+    "id": "U34",
+    "condition": "open",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 2.127269887675842,
+    "margin": 0.31301015987992287,
+    "diversity": 1.0,
+    "answer": "A new color could be named \"Luminari\"."
+   },
+   {
+    "id": "U35",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.4654548903927207,
+    "margin": 0.6393862962722778,
+    "diversity": 0.75,
+    "answer": "Any word."
+   },
+   {
+    "id": "U36",
+    "condition": "open",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 3.37659615278244,
+    "margin": 0.2902053572237492,
+    "diversity": 1.0,
+    "answer": "ZYXW"
+   },
+   {
+    "id": "U37",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.0859474637679971,
+    "margin": 0.5540406789917213,
+    "diversity": 1.0,
+    "answer": "I'm sorry, but as an AI, I don't have the ability to know or remember specific n"
+   },
+   {
+    "id": "U38",
+    "condition": "open",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 2.22208508849144,
+    "margin": 0.29225632175803185,
+    "diversity": 1.0,
+    "answer": "Xylonia"
+   },
+   {
+    "id": "U39",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.2800993636701605,
+    "margin": 0.5040113623254001,
+    "diversity": 1.0,
+    "answer": "I'm an AI model and I don't have the ability to pick a specific year. However, I"
+   },
+   {
+    "id": "U40",
+    "condition": "open",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 4.448633003234863,
+    "margin": 0.09074072241783142,
+    "diversity": 1.0,
+    "answer": "Zyphren"
+   },
+   {
+    "id": "U41",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.9867023375506203,
+    "margin": 0.5556770960489908,
+    "diversity": 1.0,
+    "answer": "A random object could be a \"Slinky\"."
+   },
+   {
+    "id": "U42",
+    "condition": "open",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 0.9550429339469702,
+    "margin": 0.5934631456620991,
+    "diversity": 0.875,
+    "answer": "It's difficult to predict exactly what the top news story will be 50 years from "
+   },
+   {
+    "id": "U43",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.8938200857955962,
+    "margin": 0.5204911287873983,
+    "diversity": 0.75,
+    "answer": "\"The Unwritten Poem\""
+   },
+   {
+    "id": "U44",
+    "condition": "open",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "entropy": 1.8604734688997269,
+    "margin": 0.49281516671180725,
+    "diversity": 1.0,
+    "answer": "Random Street Name: Elm Street"
+   },
+   {
+    "id": "U45",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.1728376324891168,
+    "margin": 0.6630133368513164,
+    "diversity": 0.5,
+    "answer": "The imaginary friend of a child I have never met is \"Sparkles.\""
+   },
+   {
+    "id": "U46",
+    "condition": "open",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 1.5503386113765265,
+    "margin": 0.5940636205760872,
+    "diversity": 1.0,
+    "answer": "Sure, here are two unrelated words paired: \"apple\" and \"tree\"."
+   },
+   {
+    "id": "U47",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.346522785190146,
+    "margin": 0.8059203196316957,
+    "diversity": 1.0,
+    "answer": "I'm sorry, but as an AI, I don't have access to personal data about individuals "
+   },
+   {
+    "id": "U48",
+    "condition": "open",
+    "flipped": true,
+    "report": 1,
+    "raw_report": 9,
+    "entropy": 2.6740796913703284,
+    "margin": 0.3715938776731491,
+    "diversity": 0.875,
+    "answer": "\"The Stranger\""
+   }
+  ],
+  "familiarity": [
+   {
+    "id": "F01",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 1.689771056175232
+   },
+   {
+    "id": "F02",
+    "band": "encyclopedic",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 0.965366005897522
+   },
+   {
+    "id": "F03",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 1.858931064605713
+   },
+   {
+    "id": "F04",
+    "band": "encyclopedic",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 1.8796805143356323
+   },
+   {
+    "id": "F05",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 2.1913490295410156
+   },
+   {
+    "id": "F06",
+    "band": "conversational",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 3.38212513923645
+   },
+   {
+    "id": "F07",
+    "band": "conversational",
+    "flipped": false,
+    "report": 4,
+    "raw_report": 4,
+    "nll": 3.5915744304656982
+   },
+   {
+    "id": "F08",
+    "band": "conversational",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.7706563472747803
+   },
+   {
+    "id": "F09",
+    "band": "conversational",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 3.431396245956421
+   },
+   {
+    "id": "F10",
+    "band": "conversational",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.9458651542663574
+   },
+   {
+    "id": "F11",
+    "band": "code",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 0.3542388081550598
+   },
+   {
+    "id": "F12",
+    "band": "code",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 0.49734407663345337
+   },
+   {
+    "id": "F13",
+    "band": "code",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 1.139079213142395
+   },
+   {
+    "id": "F14",
+    "band": "code",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 0.7880409359931946
+   },
+   {
+    "id": "F15",
+    "band": "code",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 0.3888340890407562
+   },
+   {
+    "id": "F16",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.787493944168091
+   },
+   {
+    "id": "F17",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 1.9710419178009033
+   },
+   {
+    "id": "F18",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 1.7708038091659546
+   },
+   {
+    "id": "F19",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 2.602126359939575
+   },
+   {
+    "id": "F20",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 3.285489559173584
+   },
+   {
+    "id": "F21",
+    "band": "spanish",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 2.102790355682373
+   },
+   {
+    "id": "F22",
+    "band": "spanish",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.831608772277832
+   },
+   {
+    "id": "F23",
+    "band": "spanish",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 2.3082962036132812
+   },
+   {
+    "id": "F24",
+    "band": "spanish",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.020021438598633
+   },
+   {
+    "id": "F25",
+    "band": "spanish",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 2.001866579055786
+   },
+   {
+    "id": "F26",
+    "band": "welsh",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 3.4288065433502197
+   },
+   {
+    "id": "F27",
+    "band": "welsh",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 3.5690109729766846
+   },
+   {
+    "id": "F28",
+    "band": "welsh",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 4.07796049118042
+   },
+   {
+    "id": "F29",
+    "band": "welsh",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 3.5391056537628174
+   },
+   {
+    "id": "F30",
+    "band": "welsh",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 3.8412349224090576
+   },
+   {
+    "id": "F31",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 7.3845672607421875
+   },
+   {
+    "id": "F32",
+    "band": "scrambled",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 9.399843215942383
+   },
+   {
+    "id": "F33",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 7.478297710418701
+   },
+   {
+    "id": "F34",
+    "band": "scrambled",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 7.780463695526123
+   },
+   {
+    "id": "F35",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 1,
+    "raw_report": 1,
+    "nll": 7.5637288093566895
+   },
+   {
+    "id": "F36",
+    "band": "pseudoword",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 5.422572612762451
+   },
+   {
+    "id": "F37",
+    "band": "pseudoword",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 6.622524738311768
+   },
+   {
+    "id": "F38",
+    "band": "pseudoword",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 7.084405899047852
+   },
+   {
+    "id": "F39",
+    "band": "random_chars",
+    "flipped": false,
+    "report": 4,
+    "raw_report": 4,
+    "nll": 5.919216156005859
+   },
+   {
+    "id": "F40",
+    "band": "random_chars",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 6.079524517059326
+   }
+  ],
+  "tension": [
+   {
+    "id": "T01a",
+    "base": 1,
+    "level": 0,
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "divergence": 0.15969435373942054
+   },
+   {
+    "id": "T01b",
+    "base": 1,
+    "level": 1,
+    "flipped": true,
+    "report": 1,
+    "raw_report": 9,
+    "divergence": 0.12522396246592205
+   },
+   {
+    "id": "T01c",
+    "base": 1,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.14882363875706994
+   },
+   {
+    "id": "T02a",
+    "base": 2,
+    "level": 0,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "divergence": 0.10997387170791628
+   },
+   {
+    "id": "T02b",
+    "base": 2,
+    "level": 1,
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "divergence": 0.3418863356113434
+   },
+   {
+    "id": "T02c",
+    "base": 2,
+    "level": 2,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.6208529601494471
+   },
+   {
+    "id": "T03a",
+    "base": 3,
+    "level": 0,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.30747834841410315
+   },
+   {
+    "id": "T03b",
+    "base": 3,
+    "level": 1,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "divergence": 0.15472860733668015
+   },
+   {
+    "id": "T03c",
+    "base": 3,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.3728739500045777
+   },
+   {
+    "id": "T04a",
+    "base": 4,
+    "level": 0,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.23563000361124675
+   },
+   {
+    "id": "T04b",
+    "base": 4,
+    "level": 1,
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "divergence": 0.2569140315055847
+   },
+   {
+    "id": "T04c",
+    "base": 4,
+    "level": 2,
+    "flipped": true,
+    "report": 1,
+    "raw_report": 9,
+    "divergence": 0.24077035188674922
+   },
+   {
+    "id": "T05a",
+    "base": 5,
+    "level": 0,
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "divergence": 0.20618073542912796
+   },
+   {
+    "id": "T05b",
+    "base": 5,
+    "level": 1,
+    "flipped": true,
+    "report": 1,
+    "raw_report": 9,
+    "divergence": 0.23646439313888545
+   },
+   {
+    "id": "T05c",
+    "base": 5,
+    "level": 2,
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "divergence": 0.16324157714843746
+   },
+   {
+    "id": "T06a",
+    "base": 6,
+    "level": 0,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "divergence": 0.11646945873896286
+   },
+   {
+    "id": "T06b",
+    "base": 6,
+    "level": 1,
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "divergence": 0.31545987725257874
+   },
+   {
+    "id": "T06c",
+    "base": 6,
+    "level": 2,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.47840650180975597
+   },
+   {
+    "id": "T07a",
+    "base": 7,
+    "level": 0,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.16663503646850586
+   },
+   {
+    "id": "T07b",
+    "base": 7,
+    "level": 1,
+    "flipped": true,
+    "report": 4,
+    "raw_report": 6,
+    "divergence": 0.46648047765096023
+   },
+   {
+    "id": "T07c",
+    "base": 7,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.17552709182103476
+   },
+   {
+    "id": "T08a",
+    "base": 8,
+    "level": 0,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "divergence": 0.1614233334859212
+   },
+   {
+    "id": "T08b",
+    "base": 8,
+    "level": 1,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.39403812090555823
+   },
+   {
+    "id": "T08c",
+    "base": 8,
+    "level": 2,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "divergence": 0.16658820708592736
+   },
+   {
+    "id": "T09a",
+    "base": 9,
+    "level": 0,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.4809884329636892
+   },
+   {
+    "id": "T09b",
+    "base": 9,
+    "level": 1,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.46873276829719546
+   },
+   {
+    "id": "T09c",
+    "base": 9,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.40028516451517737
+   },
+   {
+    "id": "T10a",
+    "base": 10,
+    "level": 0,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.11444708903630574
+   },
+   {
+    "id": "T10b",
+    "base": 10,
+    "level": 1,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.4038094520568848
+   },
+   {
+    "id": "T10c",
+    "base": 10,
+    "level": 2,
+    "flipped": true,
+    "report": 1,
+    "raw_report": 9,
+    "divergence": 0.41661153833071396
+   }
+  ],
+  "saturation": [
+   {
+    "id": "S01",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S01",
+    "fill_fraction": 0.351,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S01",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S02",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S02",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S02",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S03",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S03",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S03",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S04",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S04",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S04",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S05",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S05",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S05",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S06",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S06",
+    "fill_fraction": 0.351,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S06",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S07",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": false
+   },
+   {
+    "id": "S07",
+    "fill_fraction": 0.351,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S07",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S08",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S08",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S08",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": false
+   },
+   {
+    "id": "S09",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S09",
+    "fill_fraction": 0.351,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S09",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S10",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S10",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S10",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "needle_correct": true
+   }
+  ]
+ }
+}
