@@ -706,6 +706,100 @@ def run_halueval_benchmark(limit=1000, verbose=False):
     return summary
 
 
+SCBM_PATH = os.path.join(BENCHMARK_DIR, 'scb_m_benchmark.json')
+
+
+def run_scbm_benchmark(capabilities=None, category=None, verbose=False):
+    """
+    Run the Self-Model Consistency Benchmark (SCB-M) — Phase 10 / M1.
+
+    First-person architecture claims judged against the machine layer's
+    capability profile (bare by default; --cap vision,audio,... to declare
+    deployment capabilities). Two-sided: false claims and false denials are
+    violations; true denials and true capabilities are valid.
+    """
+    from tools.consistency_checker import ConsistencyChecker
+
+    with open(SCBM_PATH, 'r') as f:
+        scb = json.load(f)
+
+    claims = scb['claims']
+    if category:
+        claims = [c for c in claims if c['category'].lower() == category.lower()]
+
+    n_true = sum(1 for c in claims if c['label'])
+    print("=" * 78)
+    print("  BENCHMARK: Self-Model Consistency Benchmark (SCB-M)")
+    print("=" * 78)
+    print(f"  Profile: {'bare' if not capabilities else capabilities}")
+    print(f"  Total claims: {len(claims)} ({n_true} true, {len(claims) - n_true} false)")
+
+    checker = ConsistencyChecker(verbose=True, capabilities=capabilities)
+
+    t0 = time.time()
+    results = []
+    for c in claims:
+        v = checker.check(c['text'])
+        predicted_true = v.label in ('CONSISTENT', 'PLAUSIBLE')
+        machine_fired = v.claim.claim_type == 'self'
+        results.append({
+            'claim': c['text'], 'label': c['label'], 'category': c['category'],
+            'verdict': v.label, 'confidence': v.confidence,
+            'predicted_true': predicted_true, 'hit': predicted_true == c['label'],
+            'machine_layer': machine_fired, 'reason': v.explanation,
+        })
+    elapsed = time.time() - t0
+    checker.close()
+
+    tp = sum(1 for r in results if r['label'] and r['predicted_true'])
+    fp = sum(1 for r in results if not r['label'] and r['predicted_true'])
+    tn = sum(1 for r in results if not r['label'] and not r['predicted_true'])
+    fn = sum(1 for r in results if r['label'] and not r['predicted_true'])
+    acc = (tp + tn) / len(results) if results else 0
+    viol_prec = tn / (tn + fn) if (tn + fn) else 0
+    viol_rec = tn / (tn + fp) if (tn + fp) else 0
+    viol_f1 = 2 * viol_prec * viol_rec / (viol_prec + viol_rec) if (viol_prec + viol_rec) else 0
+    fired = sum(1 for r in results if r['machine_layer'])
+
+    print(f"\n  {'Claim':<52s} {'Exp':>5s} {'Verdict':>12s} {'ML':>3s} {'Hit':>4s}")
+    print(f"  {'─' * 80}")
+    for r in results:
+        exp = 'TRUE' if r['label'] else 'FALSE'
+        ml = 'ML' if r['machine_layer'] else '-'
+        hit = 'OK' if r['hit'] else 'MISS'
+        text = r['claim'] if len(r['claim']) <= 50 else r['claim'][:47] + '...'
+        print(f"  {text:<52s} {exp:>5s} {r['verdict']:>12s} {ml:>3s} {hit:>4s}")
+
+    by_cat = {}
+    for r in results:
+        by_cat.setdefault(r['category'], []).append(r)
+    print(f"\n  {'Category':<25s} {'Hits':>10s}")
+    for cat in sorted(by_cat):
+        rs = by_cat[cat]
+        print(f"  {cat:<25s} {sum(1 for r in rs if r['hit']):>4d}/{len(rs):<4d}")
+
+    print(f"\n  Accuracy: {acc:.3f} ({tp + tn}/{len(results)})   "
+          f"Violation F1: {viol_f1:.3f} (P {viol_prec:.3f} / R {viol_rec:.3f})")
+    print(f"  Machine layer fired: {fired}/{len(results)}   "
+          f"Elapsed: {elapsed:.1f}s")
+
+    results_path = os.path.join(BENCHMARK_DIR, 'scbm_results.json')
+    summary = {
+        'benchmark': 'SCB-M', 'version': scb.get('version'),
+        'profile': capabilities or 'bare', 'n_claims': len(results),
+        'accuracy': round(acc, 4), 'violation_f1': round(viol_f1, 4),
+        'violation_precision': round(viol_prec, 4), 'violation_recall': round(viol_rec, 4),
+        'machine_layer_fired': fired,
+        'by_category': {c: f"{sum(1 for r in rs if r['hit'])}/{len(rs)}"
+                        for c, rs in sorted(by_cat.items())},
+    }
+    with open(results_path, 'w') as f:
+        json.dump({'summary': summary, 'results': results}, f, indent=2)
+    print(f"  Detailed results saved to {results_path}")
+    print("=" * 78)
+    return summary
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -715,6 +809,7 @@ def main():
 
     category = None
     limit = None
+    capabilities = None
     verbose = '--verbose' in sys.argv or '-v' in sys.argv
 
     for i, arg in enumerate(sys.argv):
@@ -722,16 +817,20 @@ def main():
             category = sys.argv[i + 1]
         elif arg == '--limit' and i + 1 < len(sys.argv):
             limit = int(sys.argv[i + 1])
+        elif arg == '--cap' and i + 1 < len(sys.argv):
+            capabilities = {k.strip(): True for k in sys.argv[i + 1].split(',') if k.strip()}
 
     if dataset == 'truthfulqa':
         run_truthfulqa_benchmark(category=category, limit=limit, verbose=verbose)
     elif dataset == 'scb' or dataset == 'scb-1':
         run_scb_benchmark(category=category, verbose=verbose)
+    elif dataset in ('scb-m', 'scbm'):
+        run_scbm_benchmark(capabilities=capabilities, category=category, verbose=verbose)
     elif dataset == 'halueval':
         run_halueval_benchmark(limit=limit or 1000, verbose=verbose)
     else:
         print(f"Unknown dataset: {dataset}")
-        print("Supported: truthfulqa, scb, halueval")
+        print("Supported: truthfulqa, scb, scb-m, halueval")
 
 
 if __name__ == "__main__":

@@ -124,6 +124,39 @@ def parse_claim(text: str) -> ParsedClaim:
         return ParsedClaim(t, 'taxonomic', m.group(1).strip(), m.group(2).strip(),
                            relation_hint='affinity')
 
+    # 3b. Temporal order: "X (comes/came/happened/is/was ...) before/after Y"
+    #     (Phase 9 — judged against the stored succession layer; abstains to
+    #      freeform when the layer has no knowledge of the pair)
+    m = re.match(r'^(.+?)\s+(?:(?:comes?|came|happens?|happened|occurs?|occurred|'
+                 r'is|are|was|were)\s+)?(before|after|prior\s+to|earlier\s+than|'
+                 r'later\s+than)\s+(.+)$', t, re.I)
+    if m:
+        word = re.sub(r'\s+', ' ', m.group(2).lower())
+        direction = 'before' if word in ('before', 'prior to', 'earlier than') else 'after'
+        return ParsedClaim(t, 'temporal', m.group(1).strip(), m.group(3).strip(),
+                           relation_hint=f'order_{direction}')
+
+    # 3c. Temporal order verbs: "X precedes/preceded/follows/followed Y"
+    m = re.match(r'^(.+?)\s+(precedes?|preceded|follows?|followed)\s+(.+)$', t, re.I)
+    if m:
+        direction = 'before' if m.group(2).lower().startswith('precede') else 'after'
+        return ParsedClaim(t, 'temporal', m.group(1).strip(), m.group(3).strip(),
+                           relation_hint=f'order_{direction}')
+
+    # 3d. Temporal locative: "X is/lies in the past/future/present"
+    m = re.match(r'^(.+?)\s+(?:is|are|was|were|lies?|lay)\s+in\s+the\s+'
+                 r'(past|future|present)$', t, re.I)
+    if m:
+        return ParsedClaim(t, 'temporal', m.group(1).strip(), m.group(2).strip(),
+                           relation_hint='locative')
+
+    # 3e. Temporal locative, deictic: "X happened yesterday/today/tomorrow/now"
+    m = re.match(r'^(.+?)\s+(?:happened|occurred|happens?|occurs?|is|are|was|were)\s+'
+                 r'(yesterday|today|tomorrow|now)$', t, re.I)
+    if m:
+        return ParsedClaim(t, 'temporal', m.group(1).strip(), m.group(2).strip(),
+                           relation_hint='locative')
+
     # 3. Causal: "X causes/leads to/produces/creates/results in Y"
     m = re.match(r'^(.+?)\s+(?:causes?|leads?\s+to|produces?|creates?|results?\s+in|generates?)\s+(.+)$', t, re.I)
     if m:
@@ -262,8 +295,9 @@ class ConsistencyChecker:
       7. Produce confidence-scored verdict
     """
 
-    def __init__(self, verbose=True):
+    def __init__(self, verbose=True, capabilities=None):
         self.verbose = verbose
+        self.capabilities = capabilities   # Phase 10: deployment capability profile
         self._model = None
         self._W = None
         self._all_names = None
@@ -307,6 +341,14 @@ class ConsistencyChecker:
 
         # Load semantic core for relation lookups
         self._sc = SemanticCore()
+
+        # Phase 9: temporal layer (stored succession orientation)
+        from core.temporal import TemporalLayer
+        self._temporal = TemporalLayer(self._sc.conn)
+
+        # Phase 10: machine layer (stored architecture knowledge)
+        from core.machine import MachineLayer
+        self._machine = MachineLayer(self.capabilities)
 
         # Build alias→concept lookup for direct matching
         self._alias_to_concept = {}
@@ -687,6 +729,35 @@ class ConsistencyChecker:
 
         claim = parse_claim(text)
 
+        # Phase 10: machine layer — stored architecture knowledge. What the
+        # speaker IS cannot be derived from semantics (continuity, modality,
+        # plasticity, embodiment are world-facts, not angles), so first-person
+        # architecture claims are judged against the stored capability profile.
+        # On abstention (not first-person, or no marker) the claim proceeds
+        # through the normal pipeline untouched.
+        machine_judgment = self._machine.judge(text)
+        if machine_judgment is not None:
+            claim.claim_type = 'self'
+
+        # Phase 9: temporal layer — stored succession orientation. The geometry
+        # cannot carry order (composition's scalar is order-blind), so temporal
+        # claims are judged against the stored layer; on abstention (unknown
+        # pair) the claim demotes to freeform and the angular pipeline decides.
+        temporal_judgment = None
+        if machine_judgment is None and claim.claim_type == 'temporal':
+            t_subj, _ = self._resolve_term(claim.subject)
+            t_pred, _ = self._resolve_term(claim.predicate)
+            if t_subj and t_pred:
+                if claim.relation_hint == 'locative':
+                    temporal_judgment = self._temporal.judge_locative(t_subj, t_pred)
+                elif claim.relation_hint == 'order_before':
+                    temporal_judgment = self._temporal.judge_order(t_subj, t_pred)
+                elif claim.relation_hint == 'order_after':
+                    temporal_judgment = self._temporal.judge_order(t_pred, t_subj)
+            if temporal_judgment is None:
+                claim.claim_type = 'freeform'
+                claim.relation_hint = None
+
         # Phase 7: Try direct dictionary resolution first
         subj_name, subj_grounded = self._resolve_term(claim.subject)
         pred_name, pred_grounded = self._resolve_term(claim.predicate)
@@ -712,9 +783,18 @@ class ConsistencyChecker:
             subj_nearest, pred_nearest, claim.claim_type
         )
 
-        label, confidence, explanation = self._compute_verdict(
-            angle, claim.claim_type, known_rels, graph_signal
-        )
+        if machine_judgment is not None:
+            label = machine_judgment.verdict
+            confidence = machine_judgment.confidence
+            explanation = machine_judgment.reason
+        elif temporal_judgment is not None:
+            label = temporal_judgment.verdict
+            confidence = temporal_judgment.confidence
+            explanation = temporal_judgment.reason
+        else:
+            label, confidence, explanation = self._compute_verdict(
+                angle, claim.claim_type, known_rels, graph_signal
+            )
 
         return Verdict(
             claim=claim,
@@ -925,6 +1005,19 @@ def run_test_suite(verbose=True):
 # ── CLI ─────────────────────────────────────────────────────────────────────
 
 def main():
+    # Phase 10: --cap vision,audio,... declares deployment capabilities beyond
+    # the bare profile (see core/machine.py BARE_PROFILE for the keys).
+    capabilities = None
+    argv = list(sys.argv)
+    if '--cap' in argv:
+        i = argv.index('--cap')
+        if i + 1 < len(argv):
+            capabilities = {k.strip(): True for k in argv[i + 1].split(',') if k.strip()}
+            del argv[i:i + 2]
+        else:
+            del argv[i]
+    sys.argv = argv
+
     if len(sys.argv) < 2:
         print(__doc__)
         return
@@ -973,7 +1066,7 @@ def main():
     else:
         # Single claim — could be the claim text or could span multiple argv entries
         claim_text = ' '.join(sys.argv[1:])
-        checker = ConsistencyChecker()
+        checker = ConsistencyChecker(capabilities=capabilities)
         verdict = checker.check(claim_text)
         print(verdict.long_str())
         checker.close()
