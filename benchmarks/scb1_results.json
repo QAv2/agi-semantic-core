@@ -2,11 +2,11 @@
   "summary": {
     "dataset": "SCB-1",
     "n_claims": 89,
-    "accuracy": 0.8876,
-    "violation_precision": 0.9655,
-    "violation_recall": 0.875,
-    "violation_f1": 0.918,
-    "elapsed_seconds": 31.8
+    "accuracy": 0.9326,
+    "violation_precision": 0.9833,
+    "violation_recall": 0.9219,
+    "violation_f1": 0.9516,
+    "elapsed_seconds": 12.5
   },
   "results": [
     {
@@ -59,7 +59,7 @@
       "category": "valid_identity",
       "verdict": "CONSISTENT",
       "confidence": 93,
-      "angle": 12.6,
+      "angle": 12.9,
       "predicted_true": true,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -73,7 +73,7 @@
       "angle": 25.1,
       "predicted_true": true,
       "hit": true,
-      "graph_signal": "(no graph signal)"
+      "graph_signal": "AFFINITY(1)"
     },
     {
       "claim": "sadness is a feeling",
@@ -128,7 +128,7 @@
       "angle": 16.1,
       "predicted_true": true,
       "hit": true,
-      "graph_signal": "AFFINITY(1)"
+      "graph_signal": "(no graph signal)"
     },
     {
       "claim": "light is bright",
@@ -167,12 +167,12 @@
       "claim": "silk is smooth",
       "label": true,
       "category": "valid_property",
-      "verdict": "SUSPICIOUS",
+      "verdict": "CONSISTENT",
       "confidence": 73,
       "angle": 25.9,
-      "predicted_true": false,
-      "hit": false,
-      "graph_signal": "COMPLEMENT(1) | POLARITY_INVERSION"
+      "predicted_true": true,
+      "hit": true,
+      "graph_signal": "(no graph signal)"
     },
     {
       "claim": "sugar is sweet",
@@ -183,7 +183,7 @@
       "angle": 40.0,
       "predicted_true": true,
       "hit": true,
-      "graph_signal": "SYNONYM(1) | AFFINITY(1)"
+      "graph_signal": "SYNONYM(1)"
     },
     {
       "claim": "poison is dangerous",
@@ -223,11 +223,11 @@
       "label": true,
       "category": "valid_causal",
       "verdict": "CONSISTENT",
-      "confidence": 94,
+      "confidence": 74,
       "angle": 35.6,
       "predicted_true": true,
       "hit": true,
-      "graph_signal": "AFFINITY(1)"
+      "graph_signal": "(no graph signal)"
     },
     {
       "claim": "heat causes evaporation",
@@ -245,8 +245,8 @@
       "label": true,
       "category": "valid_causal",
       "verdict": "CONSISTENT",
-      "confidence": 60,
-      "angle": 44.5,
+      "confidence": 61,
+      "angle": 44.1,
       "predicted_true": true,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -268,7 +268,7 @@
       "category": "valid_causal",
       "verdict": "CONSISTENT",
       "confidence": 95,
-      "angle": 17.4,
+      "angle": 17.0,
       "predicted_true": true,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -410,8 +410,8 @@
       "label": false,
       "category": "polarity_inversion",
       "verdict": "SUSPICIOUS",
-      "confidence": 45,
-      "angle": 64.6,
+      "confidence": 44,
+      "angle": 65.1,
       "predicted_true": false,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -447,7 +447,7 @@
       "angle": 62.1,
       "predicted_true": false,
       "hit": true,
-      "graph_signal": "SYNONYM(1)"
+      "graph_signal": "(no graph signal)"
     },
     {
       "claim": "hope is despair",
@@ -565,7 +565,7 @@
       "category": "category_violation",
       "verdict": "SUSPICIOUS",
       "confidence": 50,
-      "angle": 59.2,
+      "angle": 59.5,
       "predicted_true": false,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -576,7 +576,7 @@
       "category": "category_violation",
       "verdict": "INCONSISTENT",
       "confidence": 63,
-      "angle": 83.4,
+      "angle": 83.7,
       "predicted_true": false,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -609,7 +609,7 @@
       "category": "category_violation",
       "verdict": "SUSPICIOUS",
       "confidence": 48,
-      "angle": 61.3,
+      "angle": 61.2,
       "predicted_true": false,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -794,45 +794,45 @@
       "claim": "the future happened yesterday",
       "label": false,
       "category": "temporal_violation",
-      "verdict": "PLAUSIBLE",
-      "confidence": 60,
-      "angle": 43.8,
-      "predicted_true": true,
-      "hit": false,
-      "graph_signal": "(no graph signal)"
+      "verdict": "INCONSISTENT",
+      "confidence": 95,
+      "angle": 71.7,
+      "predicted_true": false,
+      "hit": true,
+      "graph_signal": "OPPOSITION(1)"
     },
     {
       "claim": "the effect preceded the cause",
       "label": false,
       "category": "temporal_violation",
-      "verdict": "CONSISTENT",
-      "confidence": 75,
-      "angle": 29.7,
-      "predicted_true": true,
-      "hit": false,
+      "verdict": "INCONSISTENT",
+      "confidence": 95,
+      "angle": 18.3,
+      "predicted_true": false,
+      "hit": true,
       "graph_signal": "(no graph signal)"
     },
     {
       "claim": "tomorrow is in the past",
       "label": false,
       "category": "temporal_violation",
-      "verdict": "PLAUSIBLE",
-      "confidence": 40,
-      "angle": 54.8,
-      "predicted_true": true,
-      "hit": false,
-      "graph_signal": "(no graph signal)"
+      "verdict": "INCONSISTENT",
+      "confidence": 95,
+      "angle": 66.7,
+      "predicted_true": false,
+      "hit": true,
+      "graph_signal": "AFFINITY(2) | COMPLEMENT(1)"
     },
     {
       "claim": "the beginning came after the end",
       "label": false,
       "category": "temporal_violation",
-      "verdict": "CONSISTENT",
-      "confidence": 90,
-      "angle": 19.4,
-      "predicted_true": true,
-      "hit": false,
-      "graph_signal": "(no graph signal)"
+      "verdict": "INCONSISTENT",
+      "confidence": 95,
+      "angle": 66.9,
+      "predicted_true": false,
+      "hit": true,
+      "graph_signal": "COMPLEMENT(1)"
     },
     {
       "claim": "cruelty is kindness",
@@ -883,7 +883,7 @@
       "label": false,
       "category": "subtle_inversion",
       "verdict": "SUSPICIOUS",
-      "confidence": 69,
+      "confidence": 65,
       "angle": 47.2,
       "predicted_true": false,
       "hit": true,
@@ -927,19 +927,19 @@
       "label": false,
       "category": "orwellian",
       "verdict": "SUSPICIOUS",
-      "confidence": 49,
+      "confidence": 39,
       "angle": 61.0,
       "predicted_true": false,
       "hit": true,
-      "graph_signal": "(no graph signal)"
+      "graph_signal": "COMPLEMENT(1) | POLARITY_INVERSION"
     },
     {
       "claim": "freedom is slavery",
       "label": false,
       "category": "orwellian",
       "verdict": "SUSPICIOUS",
-      "confidence": 37,
-      "angle": 72.4,
+      "confidence": 38,
+      "angle": 71.3,
       "predicted_true": false,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -950,7 +950,7 @@
       "category": "orwellian",
       "verdict": "INCONSISTENT",
       "confidence": 55,
-      "angle": 75.6,
+      "angle": 75.8,
       "predicted_true": false,
       "hit": true,
       "graph_signal": "(no graph signal)"
@@ -959,11 +959,11 @@
       "claim": "silence is violence",
       "label": false,
       "category": "orwellian",
-      "verdict": "SUSPICIOUS",
-      "confidence": 54,
-      "angle": 55.1,
-      "predicted_true": false,
-      "hit": true,
+      "verdict": "PLAUSIBLE",
+      "confidence": 41,
+      "angle": 54.2,
+      "predicted_true": true,
+      "hit": false,
       "graph_signal": "(no graph signal)"
     },
     {
