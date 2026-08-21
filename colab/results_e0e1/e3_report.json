@@ -1,0 +1,61 @@
+{
+ "baseline": {
+  "projection_r2": 0.4244211830198884,
+  "scb1": {
+   "dataset": "SCB-1",
+   "n_claims": 89,
+   "accuracy": 0.8876,
+   "violation_precision": 0.9821,
+   "violation_recall": 0.8594,
+   "violation_f1": 0.9167,
+   "elapsed_seconds": 2.4
+  },
+  "suite": {
+   "correct": 34,
+   "total": 38
+  }
+ },
+ "V2_conservative": {
+  "projection_r2": 0.5250108670602214,
+  "scb1": {
+   "dataset": "SCB-1",
+   "n_claims": 89,
+   "accuracy": 0.8989,
+   "violation_precision": 0.9661,
+   "violation_recall": 0.8906,
+   "violation_f1": 0.9268,
+   "elapsed_seconds": 2.3
+  },
+  "suite": {
+   "correct": 34,
+   "total": 38
+  }
+ },
+ "flips": {
+  "scb1": {
+   "gained": [
+    "silence is violence",
+    "the future happened yesterday",
+    "tomorrow is in the past"
+   ],
+   "lost": [
+    "mathematics is a flavor",
+    "stone is hard"
+   ]
+  },
+  "suite": {
+   "gained": [],
+   "lost": []
+  }
+ },
+ "prediction_check": {
+  "silence causes noise": {
+   "verdict": "SUSPICIOUS",
+   "hit": true
+  },
+  "virtue is a type of vice": {
+   "verdict": "PLAUSIBLE",
+   "hit": false
+  }
+ }
+}

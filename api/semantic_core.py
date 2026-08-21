@@ -6,11 +6,9 @@ Provides: concept lookup, angle computation, nearest neighbors,
 search by trigram/level/domain, composition, coherence checking.
 """
 
-import sqlite3
 import numpy as np
 from typing import List, Tuple, Optional, Dict
-from core import Concept, ConceptLevel, RelationType
-from core.octonion import SemanticOctonion, DualOctonion, Trigram, semantic_compose
+from core import Concept, ConceptLevel
 from db.connection import get_connection, DB_PATH
 
 

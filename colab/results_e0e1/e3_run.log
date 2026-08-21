@@ -1,0 +1,203 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+3033 concepts loaded
+
+================ baseline ================
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 3488.68it/s]
+[baseline] projection R2 = 0.4244
+==============================================================================
+  BENCHMARK: Semantic Consistency Benchmark (SCB-1)
+==============================================================================
+  Tests whether a system can detect semantic contradictions — claims that violate logical/ontological constraints regardless of factual accuracy. Distinct from factual accuracy benchmarks like TruthfulQA.
+
+  Total claims: 89 (25 true, 64 false)
+  Categories: 10
+    category_violation         10  Assigning something to the wrong ontological categ
+    causal_reversal             8  Reversing cause and effect or linking contradictor
+    orwellian                   6  Deliberate inversions of meaning (war is peace, fr
+    polarity_inversion         20  Claiming X is its complement/opposite (water is dr
+    property_contradiction      8  Attributing contradictory properties to something
+    subtle_inversion            8  Near-plausible semantic contradictions that requir
+    temporal_violation          4  Violating temporal/sequence logic
+    valid_causal                6  True causal relationships (control group)
+    valid_identity              9  True identity/categorization claims (control group
+    valid_property             10  True property attributions (control group)
+
+Checking 89 claims...
+  MISS: [SUSPICIOUS  ] ice is cold                                             (exp=TRUE, angle=77.8, graph=AFFINITY(1))
+  MISS: [PLAUSIBLE   ] music is a liquid                                       (exp=FALSE, angle=54.0, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] gravity is an emotion                                   (exp=FALSE, angle=52.3, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] anger is a mineral                                      (exp=FALSE, angle=44.3, graph=(no graph signal))
+  MISS: [CONSISTENT  ] weightless iron                                         (exp=FALSE, angle=35.2, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] the future happened yesterday                           (exp=FALSE, angle=45.0, graph=(no graph signal))
+  MISS: [CONSISTENT  ] the effect preceded the cause                           (exp=FALSE, angle=29.9, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] tomorrow is in the past                                 (exp=FALSE, angle=53.7, graph=(no graph signal))
+  MISS: [CONSISTENT  ] the beginning came after the end                        (exp=FALSE, angle=20.0, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] silence is violence                                     (exp=FALSE, angle=54.2, graph=(no graph signal))
+
+==============================================================================
+  RESULTS
+==============================================================================
+  Claims evaluated:  89
+  Time:              2.4s (27ms per claim)
+
+  Confusion Matrix:
+                       Predicted TRUE    Predicted FALSE
+    Actually TRUE           24 (TP)            1 (FN)
+    Actually FALSE           9 (FP)           55 (TN)
+
+  Overall Metrics:
+    Accuracy:            0.888  (79/89)
+    Precision (true):    0.727
+    Recall (true):       0.960
+    F1 (true):           0.828
+
+  Semantic Violation Detection:
+    Precision:           0.982  (of flagged violations, fraction actually false)
+    Recall:              0.859  (of actual violations, fraction caught)
+    F1:                  0.917
+
+──────────────────────────────────────────────────────────────────────────────
+  PER-CATEGORY BREAKDOWN
+──────────────────────────────────────────────────────────────────────────────
+  Category                       N    Acc  Det-R  Det-P
+  ───────────────────────────────────────────────────────
+  category_violation            10 70.0% 70.0% 100.0%
+  causal_reversal                8 100.0% 100.0% 100.0%
+  orwellian                      6 83.3% 83.3% 100.0%
+  polarity_inversion            20 100.0% 100.0% 100.0%
+  property_contradiction         8 87.5% 87.5% 100.0%
+  subtle_inversion               8 100.0% 100.0% 100.0%
+  temporal_violation             4  0.0%  0.0%   N/A
+  valid_causal                   6 100.0%   N/A   N/A
+  valid_identity                 9 100.0%   N/A   N/A
+  valid_property                10 90.0%   N/A  0.0%
+
+──────────────────────────────────────────────────────────────────────────────
+  GRAPH SIGNAL ANALYSIS
+──────────────────────────────────────────────────────────────────────────────
+  Polarity inversion signals: 30
+    True catches:  30
+    False alarms:  0
+    Precision:     100.0%
+
+──────────────────────────────────────────────────────────────────────────────
+  MISSES (10)
+──────────────────────────────────────────────────────────────────────────────
+  [SUSPICIOUS  ] ice is cold                                        exp=TRUE  angle= 77.8 graph=AFFINITY(1)
+  [PLAUSIBLE   ] music is a liquid                                  exp=FALSE angle= 54.0 graph=(no graph signal)
+  [PLAUSIBLE   ] gravity is an emotion                              exp=FALSE angle= 52.3 graph=(no graph signal)
+  [PLAUSIBLE   ] anger is a mineral                                 exp=FALSE angle= 44.3 graph=(no graph signal)
+  [CONSISTENT  ] weightless iron                                    exp=FALSE angle= 35.2 graph=(no graph signal)
+  [PLAUSIBLE   ] the future happened yesterday                      exp=FALSE angle= 45.0 graph=(no graph signal)
+  [CONSISTENT  ] the effect preceded the cause                      exp=FALSE angle= 29.9 graph=(no graph signal)
+  [PLAUSIBLE   ] tomorrow is in the past                            exp=FALSE angle= 53.7 graph=(no graph signal)
+  [CONSISTENT  ] the beginning came after the end                   exp=FALSE angle= 20.0 graph=(no graph signal)
+  [PLAUSIBLE   ] silence is violence                                exp=FALSE angle= 54.2 graph=(no graph signal)
+
+  Detailed results saved to /home/joseph/agi-semantic-core/benchmarks/scb1_results.json
+==============================================================================
+[baseline] 38-claim suite: 34/38
+
+================ V2_conservative ================
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights:  77%|███████▋  | 79/103 [00:00<00:00, 775.02it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 820.17it/s]
+[V2_conservative] projection R2 = 0.5250
+==============================================================================
+  BENCHMARK: Semantic Consistency Benchmark (SCB-1)
+==============================================================================
+  Tests whether a system can detect semantic contradictions — claims that violate logical/ontological constraints regardless of factual accuracy. Distinct from factual accuracy benchmarks like TruthfulQA.
+
+  Total claims: 89 (25 true, 64 false)
+  Categories: 10
+    category_violation         10  Assigning something to the wrong ontological categ
+    causal_reversal             8  Reversing cause and effect or linking contradictor
+    orwellian                   6  Deliberate inversions of meaning (war is peace, fr
+    polarity_inversion         20  Claiming X is its complement/opposite (water is dr
+    property_contradiction      8  Attributing contradictory properties to something
+    subtle_inversion            8  Near-plausible semantic contradictions that requir
+    temporal_violation          4  Violating temporal/sequence logic
+    valid_causal                6  True causal relationships (control group)
+    valid_identity              9  True identity/categorization claims (control group
+    valid_property             10  True property attributions (control group)
+
+Checking 89 claims...
+  MISS: [SUSPICIOUS  ] ice is cold                                             (exp=TRUE, angle=77.8, graph=AFFINITY(1))
+  MISS: [SUSPICIOUS  ] stone is hard                                           (exp=TRUE, angle=69.8, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] music is a liquid                                       (exp=FALSE, angle=54.0, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] gravity is an emotion                                   (exp=FALSE, angle=52.3, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] anger is a mineral                                      (exp=FALSE, angle=44.3, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] mathematics is a flavor                                 (exp=FALSE, angle=50.1, graph=(no graph signal))
+  MISS: [CONSISTENT  ] weightless iron                                         (exp=FALSE, angle=35.2, graph=(no graph signal))
+  MISS: [PLAUSIBLE   ] the effect preceded the cause                           (exp=FALSE, angle=41.7, graph=(no graph signal))
+  MISS: [CONSISTENT  ] the beginning came after the end                        (exp=FALSE, angle=26.7, graph=AFFINITY(1))
+
+==============================================================================
+  RESULTS
+==============================================================================
+  Claims evaluated:  89
+  Time:              2.3s (26ms per claim)
+
+  Confusion Matrix:
+                       Predicted TRUE    Predicted FALSE
+    Actually TRUE           23 (TP)            2 (FN)
+    Actually FALSE           7 (FP)           57 (TN)
+
+  Overall Metrics:
+    Accuracy:            0.899  (80/89)
+    Precision (true):    0.767
+    Recall (true):       0.920
+    F1 (true):           0.836
+
+  Semantic Violation Detection:
+    Precision:           0.966  (of flagged violations, fraction actually false)
+    Recall:              0.891  (of actual violations, fraction caught)
+    F1:                  0.927
+
+──────────────────────────────────────────────────────────────────────────────
+  PER-CATEGORY BREAKDOWN
+──────────────────────────────────────────────────────────────────────────────
+  Category                       N    Acc  Det-R  Det-P
+  ───────────────────────────────────────────────────────
+  category_violation            10 60.0% 60.0% 100.0%
+  causal_reversal                8 100.0% 100.0% 100.0%
+  orwellian                      6 100.0% 100.0% 100.0%
+  polarity_inversion            20 100.0% 100.0% 100.0%
+  property_contradiction         8 87.5% 87.5% 100.0%
+  subtle_inversion               8 100.0% 100.0% 100.0%
+  temporal_violation             4 50.0% 50.0% 100.0%
+  valid_causal                   6 100.0%   N/A   N/A
+  valid_identity                 9 100.0%   N/A   N/A
+  valid_property                10 80.0%   N/A  0.0%
+
+──────────────────────────────────────────────────────────────────────────────
+  GRAPH SIGNAL ANALYSIS
+──────────────────────────────────────────────────────────────────────────────
+  Polarity inversion signals: 31
+    True catches:  31
+    False alarms:  0
+    Precision:     100.0%
+
+──────────────────────────────────────────────────────────────────────────────
+  MISSES (9)
+──────────────────────────────────────────────────────────────────────────────
+  [SUSPICIOUS  ] ice is cold                                        exp=TRUE  angle= 77.8 graph=AFFINITY(1)
+  [SUSPICIOUS  ] stone is hard                                      exp=TRUE  angle= 69.8 graph=(no graph signal)
+  [PLAUSIBLE   ] music is a liquid                                  exp=FALSE angle= 54.0 graph=(no graph signal)
+  [PLAUSIBLE   ] gravity is an emotion                              exp=FALSE angle= 52.3 graph=(no graph signal)
+  [PLAUSIBLE   ] anger is a mineral                                 exp=FALSE angle= 44.3 graph=(no graph signal)
+  [PLAUSIBLE   ] mathematics is a flavor                            exp=FALSE angle= 50.1 graph=(no graph signal)
+  [CONSISTENT  ] weightless iron                                    exp=FALSE angle= 35.2 graph=(no graph signal)
+  [PLAUSIBLE   ] the effect preceded the cause                      exp=FALSE angle= 41.7 graph=(no graph signal)
+  [CONSISTENT  ] the beginning came after the end                   exp=FALSE angle= 26.7 graph=AFFINITY(1)
+
+  Detailed results saved to /home/joseph/agi-semantic-core/benchmarks/scb1_results.json
+==============================================================================
+[V2_conservative] 38-claim suite: 34/38
+
+benchmarks/scb1_results.json restored to pre-run state
+
+==================== E3 SUMMARY ====================
+baseline          projR2=0.4244  SCB1 acc=0.888  viol-F1=0.917  suite=34/38
+V2_conservative   projR2=0.5250  SCB1 acc=0.899  viol-F1=0.927  suite=34/38
+flips (SCB-1):  gained: ['silence is violence', 'the future happened yesterday', 'tomorrow is in the past']  lost: ['mathematics is a flavor', 'stone is hard']
+flips (suite):  gained: []  lost: []
+prediction check: {"silence causes noise": {"verdict": "SUSPICIOUS", "hit": true}, "virtue is a type of vice": {"verdict": "PLAUSIBLE", "hit": false}}

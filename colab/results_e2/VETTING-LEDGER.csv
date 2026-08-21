@@ -1,0 +1,459 @@
+concept1,concept2,proposed_type,decision,final_type,reason
+TRIUMPH,FAIL,complement,accept,complement,true polar pair victory/failure-to-achieve; core 94.7 in band; ds .98
+SADNESS,DELIGHT,complement,accept,complement,valence polar pair; core 86.3; ds 1.00
+ABOVE,SLOW,complement,reject,,"hub artifact (ABOVE deg 91, 11x in CSV); unrelated"
+ABOVE,ANXIETY,complement,reject,,hub artifact; ds .06
+DISSOLVE,EMERGE,complement,accept,complement,vanish/arise axis (merge-into-medium vs arise-from-concealment); core 79.7
+JOY,SADNESS,complement,accept,complement,canonical emotional poles - genuine gap in graph; core 83.4; ds .99
+ANXIETY,WILL,complement,accept,complement,"future-stance poles: apprehension vs volition, both descriptions explicitly future-oriented; core 80.2; medium confidence"
+WATER,MUST,complement,reject,,modal degenerate; semantics nil despite 7D in-band
+ABOVE,DIRECTION,complement,retype,affinity,hub node but genuinely semantic: ABOVE is a direction (hyponym); 17.6 in affinity band
+BUILD,PATH,complement,reject,,"related imagery only, not polar; 68.0 outside affinity band"
+SORROW,EUPHORIA,complement,accept,complement,valence poles; core 84.5; ds .99
+SEEK,REFUSE,complement,retype,opposition,priority item but ENFORCED core angle is 128.5 (CSV 76.3 was 7D) - outside complement band; reach-toward vs push-away polarity; ds .92 passes opposition gates
+FEEL,CLARITY,complement,reject,,sensing vs understanding - no kinship on dictionary terms
+ABOVE,ACCOMMODATE,complement,reject,,hub artifact; ds .46
+UP,ALERT,complement,reject,,English idiom (up=awake); ds .28 different domains
+SEE,FAITH,complement,accept,complement,perception vs trust-beyond-evidence (walk by faith not by sight); core 100.5
+GREET,HOARD,complement,reject,,arbitrary pairing; no shared axis
+ACCEPT,SADNESS,complement,reject,,medicine-adjacent (Oracle 90-deg search) but not a lexical polar pair
+SLOW,AWAKEN,complement,reject,,not poles (slow/fast; wake/sleep)
+SUCCEED,LOSS,complement,accept,complement,achievement poles; core 95.1; both under-connected (deg 2/2)
+SLOW,EXPRESS,complement,reject,,no true semantic relation on the dictionary's own terms
+DARK,FREE,complement,reject,,not opposites (dark/light; free/bound) despite 159.1
+BECOMES,PERMANENT,complement,reject,,semantically opposed but core 40.7 supports neither complement nor opposition; BECOMING-ABIDING is the canonical axis; don't force
+BAD,GRATITUDE,complement,reject,,not a pair (bad/good; gratitude/resentment)
+LIGHT,SWAY,complement,reject,,no true semantic relation on the dictionary's own terms
+MORE,SCARCITY,complement,reject,,diagonal: MORE-LESS exists at 84.8; ABUNDANCE-DEFICIT accepted this pass
+EDGE,OBEY,complement,reject,,no true semantic relation on the dictionary's own terms
+JUMP,HIBERNATE,complement,reject,,cross-specific diagonal (jump/land; hibernate/wake)
+HOME,DAY,complement,reject,,no true semantic relation on the dictionary's own terms
+PERMEATE,EXISTENCE,complement,reject,,no true semantic relation on the dictionary's own terms
+ABSORB,ACCESSIBLE,complement,reject,,hub artifact (ABSORB deg 43)
+JOY,CALM,complement,reject,,"kin positive states, not a spanning pair; complement reserved for poles"
+SOMETIMES,STRONG,complement,reject,,function-word degenerate
+IN,BETWEEN,complement,reject,,spatial function words; not poles (in/out)
+ABUNDANCE,DEFICIT,complement,accept,complement,supply poles; SS12-named family; core 91.9
+THAT,AT,complement,reject,,function-word degenerate
+SORROW,PLAY,complement,reject,,diagonal (sorrow/joy; play/work)
+GRIEF,CONTENT,complement,reject,,diagonal; GRIEF-ELATION accepted instead
+CREATE,MOURN,complement,reject,,no true semantic relation on the dictionary's own terms
+FREEDOM,CAUSE,complement,reject,,free-will/determinism is thesis-level; CAUSE's axis is EFFECT
+ABIDING,THINK,complement,reject,,hub artifact (ABIDING deg 81); ds .00
+RIGHT,OVER,complement,reject,,spatial axes cross (right/left; over/under)
+UNITY,POSITION,complement,reject,,no true semantic relation on the dictionary's own terms
+AND,DEPTH,complement,reject,,function-word degenerate
+ABIDING,ASCENDING,complement,reject,,hub; diagonal (ascend/descend is the axis)
+DISMAY,BLISS,complement,accept,complement,valence poles; core 94.9; ds .99
+HAPPINESS,ENDURE,complement,reject,,not poles; core 119.3 marginal
+AIR,ABSORB,complement,reject,,hub artifact
+SADNESS,BLISS,complement,accept,complement,priority-list item; valence poles; core 92.0
+FALL,OBSCURE,complement,reject,,no true semantic relation on the dictionary's own terms
+CALM,ABYSS,complement,reject,,no true semantic relation on the dictionary's own terms
+ALWAYS,ABSORB,complement,reject,,hub + function-word flavor
+LEARN,MANY,complement,reject,,no true semantic relation on the dictionary's own terms
+FIRE,ENDURE,complement,reject,,FIRE's pole is WATER; not a pair
+THAT,LAUNCH,complement,reject,,function-word degenerate
+ACTIVE,WRONG,complement,reject,,no true semantic relation on the dictionary's own terms
+DISMAY,EUPHORIA,complement,accept,complement,valence poles; core 90.7; ds 1.00
+IN,SOFT,complement,reject,,function-word degenerate
+ACCEPT,NARROW,complement,reject,,no true semantic relation on the dictionary's own terms
+PITCH_THROW,NET_MESH,complement,reject,,send/catch imagery but category-mismatched (action vs artifact)
+CONTAIN,HIGH,complement,reject,,no true semantic relation on the dictionary's own terms
+VEILED,ANIMAL,complement,reject,,no true semantic relation on the dictionary's own terms
+STABLE,AWAKEN,complement,reject,,not opposites; 122.1 outside complement band
+ANXIETY,ASSURANCE,complement,accept,complement,ASSURANCE description names the DREAD-complement family; apprehension/confidence; core 79.0
+FREEDOM,SYCOPHANCY,complement,reject,,near-miss opposition (136.2 ds .89) but sycophancy's clean opposite is integrity/candor; FREEDOM-DEPENDENCE would be cleaner - flagged to main session
+MEET,PERSIST,complement,reject,,no true semantic relation on the dictionary's own terms
+COOL,SEAL,complement,reject,,no true semantic relation on the dictionary's own terms
+JUSTICE,NONE,complement,reject,,no true semantic relation on the dictionary's own terms
+HIDDEN,WEAK,complement,reject,,no true semantic relation on the dictionary's own terms
+ABOVE,PART,complement,reject,,hub artifact
+HIBERNATE,LEAP,complement,reject,,same shape as JUMP-HIBERNATE; diagonal
+BECOMING,END,complement,reject,,diagonal; END-BEGINNING is the axis; BECOMING's family is the primes
+THINK,SADNESS,complement,reject,,no true semantic relation on the dictionary's own terms
+COOL,TRIGGER,complement,reject,,no true semantic relation on the dictionary's own terms
+SPARK,EVAPORATE,complement,accept,complement,sudden-inception vs gradual-vanishing; ZHEN/XUN paired trigrams; core 94.2 ds .98
+ABOVE,EMPTY,complement,reject,,no true semantic relation on the dictionary's own terms
+MEET,ABSORB,complement,reject,,no true semantic relation on the dictionary's own terms
+TIME,NATURE,complement,reject,,core 120.6 out of band; ds .40; not a pair
+BEFORE,AND,complement,reject,,function-word degenerate
+ABOVE,END,complement,reject,,hub artifact; ds .36
+ABIDING,ERUPT_VERB,complement,reject,,hub; ds .45; prime vs specific verb
+SEPARATION,STONE,complement,reject,,no true semantic relation on the dictionary's own terms
+CALM,SHOCK,complement,accept,complement,priority item; equilibrium vs its sudden disruption; core 97.9
+OVER,DISMAY,complement,reject,,function-word flavor; unrelated
+ABOVE,TERROR,complement,reject,,hub artifact; ds .33
+ACTIVE,DECIDE,complement,reject,,not poles; 21.0; kinship too generic for affinity
+WITHER,WRITE,complement,reject,,no true semantic relation on the dictionary's own terms
+BECOMING,FUNDAMENTAL,complement,reject,,no true semantic relation on the dictionary's own terms
+BACKWARD,FORGET,complement,reject,,metaphoric (past=behind=forgotten); ds .37
+SMALL,JOY,complement,reject,,no true semantic relation on the dictionary's own terms
+FORBID,TOOL,complement,reject,,no true semantic relation on the dictionary's own terms
+SHAME,MIND,complement,reject,,not poles; 133.5 out of complement band
+BIG,MINUTE_SIZE,complement,accept,complement,size poles at the extreme (BIG-SMALL exists at 98.6); core 91.0 ds .96
+END,MOUNTAIN,complement,reject,,no true semantic relation on the dictionary's own terms
+MORE,DEFICIT,complement,reject,,diagonal; see MORE-SCARCITY
+BECOMES,ESSENCE,complement,reject,,essence/flux is BEING-BECOMING territory; verb-noun diagonal
+SLOW,AND,complement,reject,,function-word degenerate
+ABIDING,GRATITUDE,complement,reject,,hub artifact; ds .09
+PASSIVE,RISE,complement,reject,,diagonal (passive/active; rise/fall)
+STILLNESS,ACTIVE,complement,accept,complement,priority item; absence-of-change vs dynamic engagement; core 106.7
+THINK,COULD,complement,reject,,modal degenerate
+ORDER,PAST,complement,reject,,no true semantic relation on the dictionary's own terms
+EMPTY,LEVEL,complement,reject,,no true semantic relation on the dictionary's own terms
+ABOVE,MORAL,complement,reject,,hub; moral-high-ground metaphor
+LIGHT,WAIT,complement,reject,,no true semantic relation on the dictionary's own terms
+DARK,CHAOS,complement,reject,,"mythic kinship, no shared dictionary axis; 20.9"
+LOVE,SADNESS,complement,reject,,not poles (love/fear-hate; sadness/joy)
+ABSORB,WITNESS,complement,reject,,hub; near-miss: absorption/witness polarity is the contemplative reading but ABSORB here is physical assimilation (polysemy)
+ABOVE,RIGHT,complement,reject,,hub artifact
+DESPAIR,EMERGE,complement,reject,,diagonal; DESPAIR-FAITH accepted instead
+HAPPINESS,DISMAY,complement,accept,complement,priority item; valence poles; core 94.5 ds 1.00
+LESS,ABUNDANCE,complement,reject,,diagonal; MORE-LESS and ABUNDANCE-DEFICIT cover the axes
+FIRE,CALM,complement,reject,,no true semantic relation on the dictionary's own terms
+YIELD,ABYSS,complement,reject,,no true relation; 56.2 also out of complement band
+SUFFER,WITNESS,complement,accept,complement,identified-pain vs pure-observer - the witness-formula axis itself; GEN/GEN ds .96; core 109.9
+ABIDING,UNITY,complement,reject,,hub artifact; ds .50 marginal
+NEED,IMAGINE,complement,reject,,no true semantic relation on the dictionary's own terms
+LESS,SURPLUS,complement,reject,,diagonal; SURPLUS-DEFICIT would be the clean axis
+HOT,SLEEP,complement,reject,,no true semantic relation on the dictionary's own terms
+COAX,DEMAND,complement,accept,complement,soft vs hard modes of getting-done; core exactly 90.0; ds .92
+DARK,AWAKEN,complement,reject,,diagonal (dark/light; wake/sleep)
+END,FLASH,complement,reject,,no true semantic relation on the dictionary's own terms
+MEET,MONOPOLIZE,complement,reject,,no true semantic relation on the dictionary's own terms
+FEAR,REVEAL,complement,reject,,diagonal (fear/courage; reveal/conceal)
+GRIEF,ELATION,complement,accept,complement,SS12-named family; loss-sorrow vs exhilaration; core 79.0
+IMAGINE,WITHHOLD,complement,reject,,no true semantic relation on the dictionary's own terms
+OUT,THROUGH,complement,reject,,spatial function words; not poles
+PUSH,DECAY,complement,reject,,no true semantic relation on the dictionary's own terms
+THAT,ABOVE,complement,reject,,two hubs / function-words
+JOY,GRIEF,complement,accept,complement,canonical poles; core 71.5; ds .96
+REST,CONCENTRATE,complement,reject,,CONCENTRATE here is physical density (polysemy); 31.4 between bands
+THIS,INHIBIT,complement,reject,,function-word degenerate
+TAKE,SPAN,complement,reject,,no true semantic relation on the dictionary's own terms
+MIGHTY,SWAY,complement,reject,,no true semantic relation on the dictionary's own terms
+RECEPTIVE,NOTHING,complement,reject,,no true semantic relation on the dictionary's own terms
+BRIGHT,FLUID,complement,reject,,no true semantic relation on the dictionary's own terms
+ABIDING,WARM,complement,reject,,no true semantic relation on the dictionary's own terms
+MAY,STEEL,complement,reject,,modal degenerate (tentative/adamant poetics noted)
+FULL,MAY,complement,reject,,modal degenerate
+THIS,FLUID,complement,reject,,function-word degenerate
+FREEDOM,WITNESS,complement,retype,affinity,unbound-action kin to unbound-awareness; absence-of-constraint explicit in both descriptions; 36.4
+FALSEHOOD,UNSTABLE,complement,reject,,"lies-are-precarious metaphor, not lexical kinship"
+ABYSS,RETREAT,complement,reject,,no true semantic relation on the dictionary's own terms
+PASSIVE,ALERT,complement,reject,,adjacent not opposite - receptive vigilance is coherent
+SHAME,TERRAIN,complement,reject,,no true semantic relation on the dictionary's own terms
+DEATH,WILL,complement,reject,,poetic; DEATH-LIFE is the axis
+SMALL,LOVE,complement,reject,,no true semantic relation on the dictionary's own terms
+REMAIN,HEALING,complement,reject,,no true semantic relation on the dictionary's own terms
+FOOD,WITHDRAWAL,complement,reject,,no true semantic relation on the dictionary's own terms
+RELEASE,TRANSFER,complement,reject,,not poles (release/hold)
+ABIDING,CLEAN,synonym,reject,,hub artifact
+UP,SLOW,synonym,reject,,no true semantic relation on the dictionary's own terms
+END,ENDURE,synonym,reject,,morphological-surface artifact (shared letters); ending-vs-outlasting case too weak to assert
+ACCEPT,POSITION,synonym,reject,,no true semantic relation on the dictionary's own terms
+ABOVE,PEACE,synonym,reject,,hub artifact
+WAIT,ACCOMMODATE,synonym,reject,,shared receptivity too generic (time vs things)
+WATER,FEEL,synonym,reject,,water=emotion is symbolic tradition; geometry 135.8 contradicts kinship; don't force
+AWARENESS,DAWN,synonym,reject,,"awakening metaphor; 70.5 sits in complement band with kin semantics - mismatch, don't force"
+CLARITY,WAIT,synonym,reject,,no true semantic relation on the dictionary's own terms
+HONOR,ADMIRATION,synonym,accept,synonym,respect shown / respect felt; 17.1 under 30; ds .96; both deg 3
+ABOVE,SYNERGY,synonym,reject,,hub artifact
+GROW,YAWN,synonym,reject,,no relation (both gradual openings is a stretch too far)
+TIME,SHAME,synonym,reject,,no true semantic relation on the dictionary's own terms
+LOVE,ACCEPT,synonym,retype,affinity,love-as-reception kinship; 6.3 near-collinear cores; ds .97
+FORGET,EVIDENT,synonym,reject,,no true semantic relation on the dictionary's own terms
+HEAVY,MEEK,synonym,reject,,no true semantic relation on the dictionary's own terms
+BODY,CHARACTER,synonym,retype,complement,outer form vs inner nature - two constituents of person; core 93.5 ds .96 textbook orthogonal complement
+MONOPOLIZE,QUALITY_ATTR,synonym,reject,,no true semantic relation on the dictionary's own terms
+WILL,COMPASSION,synonym,reject,,co-location (11.7) without semantic kinship
+SLOW,COAX,synonym,reject,,"shared gentleness is a mode, not meaning-kinship"
+WAIT,DECAY,synonym,reject,,"both slow-temporal XUN, opposite valence"
+WAIT,HINT,synonym,reject,,no true semantic relation on the dictionary's own terms
+THERE,ABYSS,synonym,reject,,function-word degenerate
+CLARITY,MOMENT,synonym,reject,,no true semantic relation on the dictionary's own terms
+THINK,FALL,synonym,reject,,no true semantic relation on the dictionary's own terms
+ABSORB,COMMAND,synonym,reject,,hub artifact
+EARTH,COMBINE,synonym,reject,,no true semantic relation on the dictionary's own terms
+SOFT,CLARITY,synonym,reject,,no true semantic relation on the dictionary's own terms
+CHANGE,PROHIBIT,synonym,reject,,no true semantic relation on the dictionary's own terms
+ACCEPT,SPATIAL,synonym,reject,,no true semantic relation on the dictionary's own terms
+THREAT,WITNESS,synonym,reject,,no relation (threat/safety; witness unpaired here)
+BECOMES,TRANSFORMATION,synonym,accept,synonym,verb/noun of one concept - descriptions cross-reference; 20.3; ZHEN/ZHEN
+SEEK,SURFACE,synonym,reject,,"co-occurrence, not kinship"
+ABSORB,PERMEATE,synonym,retype,affinity,perspectival inverses of one event (medium takes in / substance spreads through); 19.6
+BEING,GREET,synonym,reject,,BEING zero-core-vector degenerate angle
+CLARITY,AIM,synonym,reject,,no true semantic relation on the dictionary's own terms
+REFUSE,DEVICE,synonym,reject,,no true semantic relation on the dictionary's own terms
+FOUNDATION,ERUPT,synonym,reject,,near-miss opposition (135.0 ds .79): support-from-below vs burst-from-containment; not lexical opposites - noted
+ABOVE,TENDER,synonym,reject,,hub artifact
+FULL,ALTHOUGH,synonym,reject,,function-word degenerate
+ABOVE,RETREAT,synonym,reject,,hub artifact
+SLOW,WITH,synonym,reject,,function-word degenerate
+NOW,MIND,synonym,reject,,"mindfulness kinship is thesis-level, not lexical"
+JOURNEY,VISIBLE,synonym,reject,,no true semantic relation on the dictionary's own terms
+INCEPTION,SOLSTICE,synonym,retype,affinity,threshold time-points: linear beginning / cyclic turning; 29.9
+MEDITATE,ABYSS,synonym,reject,,21.4 co-location; 'moral void' in ABYSS blocks the kinship assertion
+REST,PERSUADE,synonym,reject,,no true semantic relation on the dictionary's own terms
+IMAGINE,JOURNEY,synonym,reject,,journey-of-imagination metaphor; 4.8 below affinity floor
+HAPPINESS,FEELING,synonym,retype,affinity,hyponym - happiness is a feeling; 15.0 ds 1.00 DUI/DUI
+SOLID,TRAP,synonym,reject,,no true semantic relation on the dictionary's own terms
+HEAD,MORAL,synonym,reject,,no true semantic relation on the dictionary's own terms
+MOVE,LANGUAGE,synonym,reject,,no true semantic relation on the dictionary's own terms
+NURTURE,CARRY,synonym,reject,,no true semantic relation on the dictionary's own terms
+AWARENESS,SHARE,synonym,reject,,no true semantic relation on the dictionary's own terms
+PEACE,CONTROL,synonym,reject,,order-through-harmony vs order-through-force is a real axis but not the dictionary's PEACE pole (WAR is - linked this pass)
+RIVAL,MIRROR,synonym,reject,,"rival-as-mirror is a thesis, not a lexical relation"
+PERSIST,CHAT,synonym,reject,,no true semantic relation on the dictionary's own terms
+ACCEPT,CHANCE,synonym,reject,,co-occurrence (accepting chance)
+MEANING,LEVEL,synonym,reject,,no true semantic relation on the dictionary's own terms
+NOW,SPREAD,synonym,reject,,no true semantic relation on the dictionary's own terms
+TIME,MILD,synonym,reject,,no true semantic relation on the dictionary's own terms
+UNSTABLE,INSIGHT,synonym,reject,,no true semantic relation on the dictionary's own terms
+DIRECTION,MANNER,synonym,reject,,'way' polysemy (spatial path vs style)
+SUBCONSCIOUS,STIMULATE,synonym,reject,,no true semantic relation on the dictionary's own terms
+TASTE,COPPER,synonym,reject,,coppery-taste co-occurrence
+TRUTH,PENTAGON,synonym,reject,,esoteric golden-ratio stretch
+BIG,AGREE,synonym,reject,,no true semantic relation on the dictionary's own terms
+RISE,NEVER,synonym,reject,,function-word degenerate
+MAKE,NATURE,synonym,reject,,no true semantic relation on the dictionary's own terms
+ABOVE,WAIT,synonym,reject,,hub artifact; ds .24
+SEPARATION,NARROW,synonym,reject,,no true semantic relation on the dictionary's own terms
+AGREE,SIDE,synonym,reject,,no true semantic relation on the dictionary's own terms
+DOUBT,WAIT,synonym,reject,,suspended-state kinship too generic
+CLARITY,EACH,synonym,reject,,function-word degenerate
+FOOD,HAND,synonym,reject,,eating co-occurrence
+JOY,FORCE,synonym,reject,,no true semantic relation on the dictionary's own terms
+TAKE,MIST,synonym,reject,,no true semantic relation on the dictionary's own terms
+LEFT,ACCEPT,synonym,reject,,artifact; ds .42
+LEAD,COMPLY,synonym,retype,complement,direct vs yield authority poles; core 88.0 ds .99 LI/KAN
+CALM,CLARITY,synonym,reject,,kin states not poles; 112.2
+MORE,FLAT,synonym,reject,,no true semantic relation on the dictionary's own terms
+SLOW,RISE,synonym,reject,,no true semantic relation on the dictionary's own terms
+BEGIN,CONVERSATION,synonym,reject,,co-occurrence (begin a conversation)
+WHO,FREE,synonym,reject,,query-word degenerate
+ABYSS,DRIZZLE,synonym,reject,,no relation
+MOTION,ANIMAL,synonym,reject,,"definitional feature (animals move), not conceptual kinship"
+CHOOSE,REST,synonym,reject,,127.9 wide but not opposites (choose/refuse; rest/work)
+JUSTICE,SEDIMENT_LAYER,synonym,reject,,layered-building metaphor
+ABYSS,MOUTH,synonym,reject,,mouth-of-the-abyss co-occurrence
+FORCE,THING,synonym,reject,,no true semantic relation on the dictionary's own terms
+PAST,WOULD,synonym,reject,,modal degenerate
+LIGHT,IMPORTANT,synonym,reject,,light/weighty pun inverted
+I,GLOOMY,synonym,reject,,no true semantic relation on the dictionary's own terms
+INSIDE,FUNDAMENTAL,synonym,reject,,the-fundamental-is-inside metaphor
+ACCEPT,PURPOSE,synonym,reject,,no true semantic relation on the dictionary's own terms
+JOY,RESILIENCE,synonym,reject,,kin not poles; 107.8
+SAND,EXISTENCE,synonym,reject,,no true semantic relation on the dictionary's own terms
+AIR,FEAR,synonym,reject,,elemental diagonal (air rises / fear descends)
+DARK,ABYSS,synonym,reject,,true kin but 61.3 just outside affinity band; don't force - near-miss noted
+FOOLISH,SCHOOL,synonym,reject,,no true semantic relation on the dictionary's own terms
+ABOVE,SPREAD,synonym,reject,,hub artifact
+MOMENT,CLEAR,synonym,reject,,no true semantic relation on the dictionary's own terms
+PASSIVE,FEELING,synonym,reject,,no true semantic relation on the dictionary's own terms
+FLUID,KNOWN,synonym,reject,,no true semantic relation on the dictionary's own terms
+PERSIST,DANCE,synonym,reject,,no true semantic relation on the dictionary's own terms
+TEACH,DEPTH,synonym,reject,,no true semantic relation on the dictionary's own terms
+TEACH,FORCE,synonym,reject,,no true semantic relation on the dictionary's own terms
+COURAGE,BREATH,synonym,reject,,take-a-breath-before-the-brave-act poetics
+LEARN,ERODE,synonym,reject,,"10.9 co-location, build-vs-wear-away semantics - curiosity noted"
+BEFORE,REMAIN,synonym,reject,,no true semantic relation on the dictionary's own terms
+DECIDE,OCEAN,synonym,reject,,no true semantic relation on the dictionary's own terms
+FAST,HURRY,synonym,accept,synonym,speed adjective/verb; 4.4
+WARM,MIND,synonym,reject,,no true semantic relation on the dictionary's own terms
+ORDER,ASSURANCE,synonym,reject,,no true semantic relation on the dictionary's own terms
+RELATIONSHIP,TIME,synonym,reject,,no true semantic relation on the dictionary's own terms
+TRUTH,FRAGMENTATION,synonym,retype,opposition,coherent-stable vs shattered-coherence (the shattered-mirror axis) - polarity on the descriptions' own terms; 149.7 ds .81 passes gates
+SOLID,STEADY,synonym,accept,synonym,firmness axis near-synonyms; 24.3
+FAST,SOLID,synonym,reject,,'hold fast' pun; ds .36
+DUSK,ACCUMULATE,synonym,reject,,no true semantic relation on the dictionary's own terms
+PIONEER,NATURE,synonym,reject,,no true semantic relation on the dictionary's own terms
+CREATE,FIGHT,synonym,reject,,shared yang mode only
+INTELLIGENCE,SUPPORT,synonym,reject,,no true semantic relation on the dictionary's own terms
+GENESIS,REVIVAL,synonym,accept,synonym,life-arising-anew (first vs again - rebirth bridges); 0.1 NEAR-DUPLICATE VECTORS - crowding flagged in report
+GRATITUDE,FEELING,synonym,retype,affinity,hyponym - gratitude is a feeling; 13.9
+WISDOM,CUT,synonym,reject,,prajna-sword poetics
+MIND,PLAY_THEATER,synonym,reject,,Cartesian-theater poetics; 21.2 co-location curiosity
+ABSORB,GLEAM,synonym,retype,complement,absorb/radiate light axis; KAN/LI paired trigrams; core 101.9 ds .99
+DRY,PERMANENT,synonym,reject,,weak; ds .49
+SOMETIMES,HIGH,synonym,reject,,function-word degenerate
+OBSCURE,RADIANT,synonym,retype,complement,hidden vs bright - KAN/LI clarity axis parallel to HIDDEN-VISIBLE family; 118.7 in band
+GROUND,DIVINATION,synonym,reject,,beneath-the-surface co-occurrence
+ROUGH,SIZE,synonym,reject,,no true semantic relation on the dictionary's own terms
+UNITY,PROTECT,synonym,reject,,no true semantic relation on the dictionary's own terms
+WHOLE,WAIT,synonym,reject,,no true semantic relation on the dictionary's own terms
+SLOW,GRATITUDE,synonym,reject,,no true semantic relation on the dictionary's own terms
+SADNESS,GROW,synonym,reject,,no true semantic relation on the dictionary's own terms
+PAST,LONGING,synonym,reject,,nostalgia poetics; 146.2 wide but not lexical opposites
+FIRE,UNSTABLE,synonym,reject,,kin semantics at opposition angle (132.2) - contradiction; don't force
+CONSCIOUSNESS,FINE,synonym,reject,,no true semantic relation on the dictionary's own terms
+EDGE,ERUPT_VERB,synonym,reject,,not opposites; 131.1
+WATER,GRASP,synonym,reject,,can't-grasp-water imagery; diagonal
+SUPPRESS,FINGER,synonym,reject,,no true semantic relation on the dictionary's own terms
+CLOSE,ENDURE,synonym,reject,,no true semantic relation on the dictionary's own terms
+BE,ETERNITY,synonym,reject,,degenerate 0.0 core angle
+TIME,ASSIMILATE,synonym,reject,,no true semantic relation on the dictionary's own terms
+ABIDING,CLARITY,synonym,reject,,hub artifact; ds .21
+WATER,DIMINISH,synonym,reject,,no true semantic relation on the dictionary's own terms
+AM,REFUSE,synonym,reject,,function-word degenerate
+STRIKE,HURRY,synonym,retype,affinity,sudden-urgent action axis explicit in both; 12.7 ds 1.00 ZHEN/ZHEN
+LEFT,PLAN,synonym,reject,,artifact; ds .40
+TIME,ABYSS,opposition,reject,,ds .42; not opposites
+OBSCURE,EMERGE,opposition,retype,complement,hidden vs arise-from-concealment - same axis opposite directions; core 102.5 in complement band
+TIME,VIGOR,opposition,reject,,not opposites; 47.8
+DARK,EMERGE,opposition,reject,,diagonal; OBSCURE-EMERGE accepted; DARK-LIGHT exists
+SLOW,ERODE,opposition,retype,affinity,erosion is a species of gradual process - gradual explicit in both; 13.2
+BEING,DOUBT,opposition,reject,,BEING zero-core-vector degenerate (Cartesian poetics noted)
+THIS,NONE,opposition,reject,,diagonal; ALL-NONE exists at 90.0
+HOLD,SPARK,opposition,reject,,not opposites
+THIS,TRUTH,opposition,reject,,no relation
+WILL,INTELLIGENCE,opposition,reject,,will/intellect tension is philosophical; 4.9 below affinity floor; don't force
+KNOW,WHERE,opposition,reject,,query-word; ds .21
+RECEIVE,ABYSS,opposition,reject,,abyss-receives-all imagery; 94.1 neither opposition nor clean pair
+COLD,SOFT,opposition,reject,,shared yin-ness only; axes differ
+BECOME,EMERGE,opposition,retype,affinity,coming-to-be kinship; ZHEN/ZHEN ds .97; 29.6
+SHAME,PART,opposition,reject,,no relation
+ABOVE,COMPANION,opposition,reject,,hub; 1.5 degenerate co-location
+SADNESS,MEEK,opposition,reject,,4.5 below affinity floor; axes differ
+UNITY,ABYSS,opposition,reject,,"proposed opposite, geometry says neighbors (39.6) - QA-flavored curiosity noted; don't force"
+LEARN,ENDURE,opposition,reject,,not opposites
+UNDERSTAND,INTELLIGENCE,opposition,reject,,obvious kin but 64.8 between bands; don't force
+CLARITY,ESSENCE,opposition,reject,,knowing/known complementarity too loose
+GROW,LESS,opposition,reject,,semantic opposites at core 20.9 - geometry contradicts label; flagged as encoding tension
+NOW,FORGET,opposition,reject,,no true semantic relation on the dictionary's own terms
+HEAVY,ANIMAL,opposition,reject,,inert/animate stretch; 129.8 is wide-angle noise
+SEPARATION,NATURE,opposition,reject,,no true semantic relation on the dictionary's own terms
+AIR,SHOULD,opposition,reject,,modal degenerate
+ABIDING,HOW,opposition,reject,,hub + query-word; ds .00
+YANG,FIND,opposition,reject,,no true semantic relation on the dictionary's own terms
+WITHER,DECAY,opposition,retype,synonym,near-synonyms proposed as opposition (embedder rotation collapse); 14.5 ds .99 XUN/XUN
+PEACE,GRASP,opposition,reject,,non-grasping-peace is thesis; PEACE-WAR linked instead this pass
+ALERT,DORMANT,opposition,accept,opposition,awake-readiness vs sleeping-capacity - true opposites same domain; 169.0 ds .96 textbook
+SLOW,ALL,opposition,reject,,not opposites; 134.8 wide-angle noise
+SMALL,DREAD,opposition,reject,,ds .34
+YANG,ANIMAL,opposition,reject,,no true semantic relation on the dictionary's own terms
+SMALL,FREE,opposition,reject,,contracted/unbound diagonal (size vs constraint axes)
+THINK,DEPLETE,opposition,reject,,no true semantic relation on the dictionary's own terms
+SURGE,STAGNATION,opposition,accept,opposition,flow poles: rushing vs blocked; 149.8 ds .93; ZHEN/XUN
+SORROW,HARD,opposition,reject,,no true semantic relation on the dictionary's own terms
+RIGHT,INSIGHT,opposition,reject,,dexter/correct pun
+CREATE,GROUP,opposition,reject,,no true semantic relation on the dictionary's own terms
+FEEL,ACCEPT,opposition,reject,,reception-mode kinship too generic
+FOOD,BAKE,opposition,reject,,verb-object co-occurrence
+SORROW,TRUTH,opposition,reject,,149.2 wide but not opposites; TRUTH's antipodal cluster (SORROW/FALL/FRAGMENTATION) noted
+AWE,KNOWLEDGE,opposition,reject,,61.2 between bands; wonder/knowing tension is poetics
+ACCEPT,STRONG,opposition,reject,,no true semantic relation on the dictionary's own terms
+EARTH,SADNESS,opposition,reject,,ds .24
+ABIDING,DESTROY,opposition,reject,,hub; stability/destruction reads opposite but geometry says 36.8 - flagged like GROW-LESS
+ACCOMMODATE,ENJOYMENT,opposition,reject,,no true semantic relation on the dictionary's own terms
+FUTURE,ABSORB,opposition,reject,,hub artifact
+ABIDING,WHERE,opposition,reject,,hub + query-word
+RELEASE,AWAKEN,opposition,reject,,not opposites; 119.9 band edge
+PART,GLEEFUL,opposition,reject,,no true semantic relation on the dictionary's own terms
+DELIGHT,EMERGE,opposition,reject,,no true semantic relation on the dictionary's own terms
+UNDERSTAND,WILL,opposition,reject,,intellect/will again; 64.2 between bands
+KNOW,DELIGHT,opposition,reject,,no true semantic relation on the dictionary's own terms
+CONTAIN,DEJECTION,opposition,reject,,no true semantic relation on the dictionary's own terms
+SEPARATION,STRUCTURE,opposition,reject,,structure requires separation - not opposites
+SHAME,POWER,opposition,defer,,170.5 ds .74 passes opposition gates; inadequacy-vs-capacity polarity defensible but lexically non-obvious; SHAME-PRIDE complement already exists at 93.8 - Joe/main session call
+EMPTY,HEAR,opposition,reject,,2.6 co-location curiosity (the receptive void)
+GRIEF,STEADY,opposition,reject,,no true semantic relation on the dictionary's own terms
+VIGOR,EVENING,opposition,reject,,diurnal poetics diagonal
+PEACE,WANT,opposition,reject,,craving-disturbs-peace thesis; not lexical
+WILL,ACTION,opposition,retype,affinity,volition and its enactment - intent explicit in both descriptions; 15.5
+JUSTICE,COMMUNITY,opposition,reject,,"kin at 63.8, between bands; don't force"
+THAT,FLOW,opposition,reject,,function-word degenerate
+DREAD,MEEK,opposition,reject,,4.4 below affinity floor
+ABOVE,TAKE,opposition,reject,,hub artifact
+PATH,MIDDLE,opposition,reject,,middle-way kinship at opposition angle (126.0) - contradiction; don't force; curiosity noted
+CLARITY,ALTHOUGH,opposition,reject,,function-word degenerate
+RETREAT,TOWER,opposition,reject,,retreat-to-the-tower co-occurrence
+WATER,FORGIVE,opposition,reject,,flowing-forgiveness poetics
+ABIDING,CONSTRAINT,opposition,reject,,hub; 13.7 co-location
+CLARITY,NECESSITY,opposition,reject,,no true semantic relation on the dictionary's own terms
+STABLE,FREE,opposition,reject,,"rooted/unbound diagonal (STABLE-UNSTABLE, FREE-BOUND are the axes)"
+DARK,DAWN,opposition,retype,complement,absence-of-light vs first-light - temporal pole of the light axis; 82.1 ds .82
+LIGHT,MORAL,opposition,reject,,moral-light metaphor
+DESPAIR,FAITH,opposition,retype,complement,lost-hope vs held-trust; GEN/GEN ds .94; core 81.4 - opposites-at-90 are complements per dictionary law
+REFUSE,SICKNESS,opposition,reject,,no relation
+ACTIVE,DAY,opposition,reject,,co-occurrence (day is the active time)
+SMALL,BREAK,opposition,reject,,no true semantic relation on the dictionary's own terms
+WHO,CONCEAL,opposition,reject,,query-word; concealed-identity co-occurrence
+SUBMERGE,FOOD,opposition,reject,,no true semantic relation on the dictionary's own terms
+RIGHT,VIRTUE,opposition,reject,,dexter/correct pun
+ABOVE,ZERO,opposition,reject,,hub; above-zero pun
+MIGHT,FORCE,opposition,reject,,modal might vs power pun
+DIMINISH,VALUE,opposition,reject,,no true semantic relation on the dictionary's own terms
+SPACE,STRUCTURE,opposition,reject,,extension/form polarity at 39.4 - geometry contradicts; don't force
+HOPE,POWER,opposition,reject,,no true semantic relation on the dictionary's own terms
+MEEK,ACCOMMODATE,opposition,retype,affinity,yielding-to-others axis explicit in both; 23.9
+JOURNEY,EXPAND,opposition,reject,,outward-ness too generic
+TIME,FLOAT,opposition,reject,,no true semantic relation on the dictionary's own terms
+COMMUNITY,HIGH,opposition,reject,,no true semantic relation on the dictionary's own terms
+SPACE,BODY,opposition,reject,,container/contained too generic
+ABSORB,MONOPOLIZE,opposition,reject,,hub; totalizing-taking kinship at 69.0 between bands
+WITHHOLD,ANIMAL,opposition,reject,,no true semantic relation on the dictionary's own terms
+REST,DEVICE,opposition,reject,,no true semantic relation on the dictionary's own terms
+THAT,BELIEVE,opposition,reject,,function-word; ds .20
+WARM,ACTIVE,opposition,reject,,shared yang mode only
+GRADUAL,SIZE,opposition,reject,,no true semantic relation on the dictionary's own terms
+CLARITY,DECIDE,opposition,retype,affinity,both resolve uncertainty (explicit in descriptions); DUI/DUI ds .96; 56.5
+WILL,QUESTION,opposition,reject,,4.6 below affinity floor
+NATURE,PURPOSE,opposition,reject,,essence/telos relation philosophically contested; 38.2; not decided by embedder noise
+COLD,TASTE,opposition,reject,,no true semantic relation on the dictionary's own terms
+ANXIETY,UNITY,opposition,reject,,anxiety-as-fragmentation thesis; 60.7 between bands
+DEPRIVE,FORGIVE,opposition,reject,,withhold/release diagonal (objects differ: things vs grievance)
+INSIGHT,EFFORT,opposition,reject,,15.3 co-location; grace/effort tension is poetics
+GROUND,SPREAD,opposition,reject,,root/disperse near-miss (104.9 GEN/XUN); CONCENTRATE-SPREAD would be the clean pair - suggested to main session
+BEING,SPARK,opposition,reject,,BEING zero-core-vector degenerate
+SEEK,INSIGHT,opposition,reject,,"process-to-goal telic edge, not kinship"
+RELEASE,PEAK,opposition,reject,,no true semantic relation on the dictionary's own terms
+THOUGHT,INSIGHT,opposition,reject,,"1.7 near-duplicate vectors with distinct meanings - critical-crowding shape, flagged in report"
+EMPTY,TOGETHER,opposition,reject,,no true semantic relation on the dictionary's own terms
+ABIDING,SUBCONSCIOUS,opposition,reject,,hub; ds .14
+EARTH,PERIL,opposition,reject,,ds .24
+FALSEHOOD,TRANSFORM,opposition,reject,,158.7 wide but not opposites (falsehood/truth; transform/preserve)
+HOPE,FREE,opposition,reject,,no true semantic relation on the dictionary's own terms
+FIRE,REMOTE,opposition,reject,,no true semantic relation on the dictionary's own terms
+THAT,APEX,opposition,reject,,function-word degenerate
+HOLD,NOVICE,opposition,reject,,167.2 wide-angle noise; embedder finds antipodes not antonyms
+LIGHT,REASON,opposition,reject,,light-of-reason metaphor
+UNSTABLE,LULL,opposition,reject,,the lull IS precarious - kin not opposite
+ENDURE,MEEK,opposition,reject,,no true semantic relation on the dictionary's own terms
+PATH,CLEAR,opposition,reject,,clear-path co-occurrence
+FORGIVE,REASON,opposition,reject,,forgiveness-vs-justification thesis
+HEAD,ANIMAL,opposition,reject,,no true semantic relation on the dictionary's own terms
+SLOW,YIELD,opposition,reject,,ds .43
+ALL,SADNESS,opposition,reject,,no true semantic relation on the dictionary's own terms
+ABOVE,CLEAN,opposition,reject,,hub artifact
+SLOW,COURAGE,opposition,reject,,no true semantic relation on the dictionary's own terms
+LOVE,PURPOSE,opposition,reject,,love-gives-purpose thesis; 63.2 between bands
+LIGHT,FUNDAMENTAL,opposition,reject,,no true semantic relation on the dictionary's own terms
+NONE,EXPRESS,opposition,reject,,not opposites (express/suppress; none/all)
+TIME,NEVER,opposition,reject,,diagonal; ALWAYS-NEVER exists at 90.0
+MONOPOLIZE,NIGHT,opposition,reject,,no true semantic relation on the dictionary's own terms
+WANT,TASTE,opposition,reject,,'taste for' idiom; dictionary TASTE is literal flavor
+PUSH,DESPAIR,opposition,reject,,no true semantic relation on the dictionary's own terms
+HEAD,ARM,opposition,reject,,"co-hyponym adjacency (body parts), not opposition"
+SHAME,TOP,opposition,reject,,ds .30 fails gate; shame-is-low spatial encoding noted
+THOUGHT,COMPREHEND,opposition,retype,affinity,cognition family act-to-completion; 8.1 ds .90
+SOFT,IMMENSE,opposition,reject,,no true semantic relation on the dictionary's own terms
+INSIGHT,CAUSE,opposition,reject,,insight-into-causes co-occurrence
+BACKWARD,BEFORE,opposition,retype,affinity,both encode the past-direction (space/time mapping explicit in descriptions); 11.9
+ALL,ACCOMMODATE,opposition,reject,,143.1 wide-angle noise
+PATH,PERSIST,opposition,reject,,no true semantic relation on the dictionary's own terms
+STABLE,SOUND,opposition,reject,,stillness/vibration polarity real but SOUND-as-phenomenon vs STABLE-as-property category mismatch
+ASCENDING,MIST,opposition,reject,,mist-rises co-occurrence
+TRUTH,FALL,opposition,reject,,the-Fall poetics; TRUTH antipodal cluster noted
+ABIDING,BE,opposition,reject,,hub; ds .34
+FLOW,PLAY,opposition,reject,,flow-state kinship at 80.7 between bands; near-miss noted
+HOPE,FIGHT,opposition,reject,,no true semantic relation on the dictionary's own terms
+CREATE,DESTROY,priority-check,verified,complement,existing complement core 93.7 in enforced band (session 100) - nothing missing; miner scored it 100th pct as held-out probe
+SILENCE,NOISE,priority-check,verified,complement,existing complement core 80.3 (session 112) - nothing missing; second held-out probe
+PEACE,FORCE,priority-check,verified,complement,VIOLENT/VIOLENTLY are aliases of FORCE; PEACE-FORCE complement 84.7 already exists - the Phase-7 miss is covered at alias level
+PEACE,WAR,priority-item,accept,complement,the real gap behind PEACE-VIOLENCE: WAR exists unlinked; core 107.8 ds .94 KAN/KAN textbook complement
+SHADOW,THIS,existing-complement,retype,opposition,pre-existing pharmacy edge (s113) at 152.1 failed complement band; owned-self vs disowned-self polarity; ds .61 passes opposition gates; label-only fix
+OPPRESSION,DELIVERANCE,existing-opposition,retype,affinity,pre-existing s116 edge at core 30.8 failed opposition band; sub-band polarity family treatment per contract (TRIUMPH-FAIL precedent); label-only fix
+LIMITATION,FREEDOM,existing-opposition,retype,complement,pre-existing s116 edge at core 90.4: opposites-at-90 ARE complements per the dictionary's own law; label-only fix
+WITNESS,AWARENESS,existing-synonym,retype,affinity,pre-existing s113 edge at 30.3 - 0.3 over synonym bar; kinship undeniable; affinity band fits; label-only fix

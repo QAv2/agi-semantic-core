@@ -1,0 +1,17 @@
+{
+ "Q1_link_learnable": false,
+ "Q2_operator_ordering": false,
+ "Q3_topology_metric": false,
+ "overall_mrr": 0.0620065133538264,
+ "hits10": 0.1068334937439846,
+ "rotation_means": {
+  "affinity": 1.809459328651428,
+  "complement": 2.536916494369507,
+  "homonym": 3.1627767086029053,
+  "synonym": 3.987769365310669,
+  "adjacent": 4.490871429443359,
+  "opposition": 5.52825927734375,
+  "isomorphic": 7.275354862213135
+ },
+ "topometric_spearman": 0.15174787551385988
+}
