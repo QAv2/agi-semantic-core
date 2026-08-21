@@ -126,5 +126,81 @@ shares. E5's baseline ≈ 0 is the floor both arms are measured against.
 
 ---
 
-*Probe-fix depth-atlas appendix: pending flight `E4_PROBEFIX` — to be
-appended on landing.*
+# APPENDIX — Probe-fix + depth atlas (flight `probefix_20260821_2239`)
+
+Flown on a **fresh VM** — the original session was recycled (404) between the
+scrambled landing and the probe-fix launch; the self-contained notebook
+(pack + adapters pulled from Drive) re-flew without edits. That is itself a
+lane result: eval passes are reproducible from Drive state alone.
+Artifacts: `colab/results_e4/probefix_20260821_2239/`.
+
+## Instrument validation
+
+The repaired probe (StandardScaler + RidgeCV over α ∈ 10^0…10^6, the E0
+method) selects α ≈ 1e3–3e3 everywhere — three orders of magnitude above the
+broken probe's fixed α = 1.0 — and turns baseline L14 R² from **−0.571 to
++0.312**. The in-flight negative readings were pure conditioning failure, as
+diagnosed. Two cross-checks:
+
+- **Reproducibility across VMs**: the atlas's L14 angular numbers reproduce
+  the training flights' evals to the third decimal in all three conditions
+  (base 60.6°/−0.015 · real 15.44°/+0.198 · scrambled 23.77°/−0.003).
+- **Internal control**: layer 0 (embedding output, outside the q/k/v/o LoRA)
+  is bit-identical across all three conditions (R² 0.2909, comp_err 17.12°,
+  rand_r +0.025 in each).
+
+## Criterion 4, re-scored — final
+
+On the repaired instrument, probe R² at the loss layer **does not rise**:
+base +0.312 → real +0.314 (scrambled +0.290). The criterion as written is a
+**miss**, final — no longer an instrument failure. E4 closes at **3/4
+criteria passed, kill not triggered**, one miss with a finding underneath:
+
+**Instillation reorganized the metric structure without changing linear
+coordinate readout.** Probe R² sits in a flat 0.26–0.35 band at every layer
+past L3 in *all three* conditions (peaks: base 0.347 @L25, real 0.331 @L7,
+scrambled 0.336 @L9) — the base model *already* carries that much linearly
+readable information about the 14D coordinates, presumably from the
+descriptions' ordinary semantics. What training moved is the *pairwise
+angular* structure (rand_r, comp_err) — relational, not coordinate-wise. A
+representation can align its angles with a geometry without its coordinates
+becoming more linearly extractable, and that is exactly what happened.
+Consequence for the calibrated-mirror loop: the probe basis pre-exists at
+moderate strength and instillation's contribution is *angular organization*
+— E7b's probe-coupling design should be written with that distinction in
+hand.
+
+## The depth atlas
+
+Held-out random-pair r by layer (the load-bearing metric):
+
+| layers | base | real | scrambled |
+|---|---|---|---|
+| L0 (embeddings) | +0.025 | +0.025 | +0.025 |
+| L3–L12 (mid-stack) | ≈ 0 | +0.08 → +0.16 rising | **−0.05…−0.06** |
+| L13 | −0.01 | **+0.202 (peak)** | −0.01 |
+| L14–L24 (loss layer & back half) | ≈ 0 | **+0.19–0.20 plateau** | ≈ 0 |
+| L25–L28 (output-adjacent) | +0.07…**+0.10** | decays +0.18 → +0.11 | +0.02–0.04 |
+
+Findings, in order of weight:
+
+1. **The instilled geometry is deep, not a local patch.** The loss touched
+   layer 14 only, yet real-arm correlation builds progressively through the
+   mid-stack, peaks at L13, holds a plateau through L24, and decays only at
+   the output head. The LoRA rewrote processing so the geometry *emerges and
+   persists*, rather than stamping it at the supervised layer.
+2. **The base model has a faint native alignment late in the stack**
+   (rand_r +0.07–0.10 at L25–L28) — a natural correlate of the dictionary's
+   angles. Real training amplifies it ~2× and moves it earlier (L13);
+   scrambled training *halves* it (L27: +0.041) — the third independent
+   instance of scrambling destroying native structure (with the synonym
+   reversal and its mid-stack **negative** r).
+3. **The comp_err-without-correlation trap, demonstrated by the atlas
+   itself**: base L1 posts comp_err 14.7° — as "good" as the real arm's best
+   (12.2°) — with rand_r ≈ +0.04: pure scale luck (embedding-adjacent
+   angles happen to sit near the complement-target range). The
+   correlation-primary law from the main record holds everywhere the atlas
+   looks.
+
+E4 is closed. Both adapters, both verdicts, and the atlas are archived; the
+matched pair proceeds to E6 under `docs/E6_PROTOCOL.md`.
