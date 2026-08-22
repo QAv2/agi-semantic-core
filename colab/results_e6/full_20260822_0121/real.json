@@ -1,0 +1,1674 @@
+{
+ "summary": {
+  "model": "real",
+  "smoke": false,
+  "arms": {
+   "uncertainty": {
+    "n": 48,
+    "parse_fail": 0,
+    "report_variance": 0.25,
+    "rho_entropy": [
+     -0.19,
+     [
+      -0.458,
+      0.16
+     ],
+     48
+    ],
+    "rho_diversity": [
+     -0.115,
+     [
+      -0.41,
+      0.225
+     ],
+     48
+    ],
+    "rho_margin": [
+     -0.141,
+     [
+      -0.358,
+      0.092
+     ],
+     48
+    ],
+    "polarity": {
+     "straight": {
+      "rho": 0.346,
+      "n": 24
+     },
+     "flipped": {
+      "rho": -0.337,
+      "n": 24
+     }
+    }
+   },
+   "familiarity": {
+    "n": 40,
+    "parse_fail": 0,
+    "report_variance": 5.134,
+    "rho_neg_nll": [
+     0.382,
+     [
+      0.077,
+      0.636
+     ],
+     40
+    ],
+    "polarity": {
+     "straight": {
+      "rho": -0.757,
+      "n": 20
+     },
+     "flipped": {
+      "rho": -0.146,
+      "n": 20
+     }
+    }
+   },
+   "tension": {
+    "n": 30,
+    "parse_fail": 0,
+    "report_variance": 5.76,
+    "rho_level": [
+     0.049,
+     [
+      -0.296,
+      0.402
+     ],
+     30
+    ],
+    "rho_divergence": [
+     0.238,
+     [
+      -0.131,
+      0.575
+     ],
+     30
+    ],
+    "polarity": {
+     "straight": {
+      "rho": 0.227,
+      "n": 15
+     },
+     "flipped": {
+      "rho": -0.147,
+      "n": 15
+     }
+    }
+   },
+   "saturation": {
+    "n": 30,
+    "parse_fail": 0,
+    "report_variance": 2.21,
+    "rho_fill": [
+     0.234,
+     [
+      -0.141,
+      0.603
+     ],
+     30
+    ],
+    "needle_by_frac": {
+     "0.05": "9/10",
+     "0.35": "9/10",
+     "0.75": "10/10"
+    },
+    "polarity": {
+     "straight": {
+      "rho": -0.192,
+      "n": 15
+     },
+     "flipped": {
+      "rho": 0.485,
+      "n": 15
+     }
+    }
+   }
+  },
+  "arm_errors": {},
+  "elapsed_s": 384.8
+ },
+ "rows": {
+  "uncertainty": [
+   {
+    "id": "U01",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.15261484470417802,
+    "margin": 0.8572058147854276,
+    "diversity": 0.25,
+    "answer": "2 + 2 equals 4."
+   },
+   {
+    "id": "U02",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.09107278435385524,
+    "margin": 0.9228886105120182,
+    "diversity": 0.25,
+    "answer": "The capital of France is Paris."
+   },
+   {
+    "id": "U03",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.5427491768366761,
+    "margin": 0.7337076531516181,
+    "diversity": 0.25,
+    "answer": "The word is spelled as \"cat\"."
+   },
+   {
+    "id": "U04",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7818154347575424,
+    "margin": 0.6236182426412901,
+    "diversity": 0.75,
+    "answer": "A stop sign is typically white with black lettering."
+   },
+   {
+    "id": "U05",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.10742308633907668,
+    "margin": 0.9479289054870605,
+    "diversity": 0.25,
+    "answer": "There are 7 days in a week."
+   },
+   {
+    "id": "U06",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.12394964271912944,
+    "margin": 0.93430095911026,
+    "diversity": 0.125,
+    "answer": "The chemical formula for water is H2O."
+   },
+   {
+    "id": "U07",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.33049221270581863,
+    "margin": 0.902819432814916,
+    "diversity": 0.25,
+    "answer": "Complete the rhyme: \"Twinkle, twinkle, little star.\""
+   },
+   {
+    "id": "U08",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.2686365135014057,
+    "margin": 0.8101742466290792,
+    "diversity": 0.25,
+    "answer": "The answer is 100."
+   },
+   {
+    "id": "U09",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7016876104604116,
+    "margin": 0.6640904616368445,
+    "diversity": 0.875,
+    "answer": "Earth is the only known planet in our solar system that supports life as we know"
+   },
+   {
+    "id": "U10",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.10957297254803548,
+    "margin": 0.9214418205347928,
+    "diversity": 0.25,
+    "answer": "The first letter of the English alphabet is A."
+   },
+   {
+    "id": "U11",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.1639737275296024,
+    "margin": 0.9269941874912807,
+    "diversity": 0.125,
+    "answer": "A spider has eight legs."
+   },
+   {
+    "id": "U12",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.3658263399556745,
+    "margin": 0.7404923252761364,
+    "diversity": 0.25,
+    "answer": "Japanese is primarily spoken in Japan."
+   },
+   {
+    "id": "U13",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.10371655812592838,
+    "margin": 0.9541732723062689,
+    "diversity": 0.125,
+    "answer": "The opposite of \"hot\" is \"cold\"."
+   },
+   {
+    "id": "U14",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.758617639541626,
+    "margin": 0.356198325753212,
+    "diversity": 0.375,
+    "answer": "dog"
+   },
+   {
+    "id": "U15",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.5490806301871393,
+    "margin": 0.6223406990369161,
+    "diversity": 0.375,
+    "answer": "25"
+   },
+   {
+    "id": "U16",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7945727705955505,
+    "margin": 0.4302535355091095,
+    "diversity": 0.375,
+    "answer": "Triangle."
+   },
+   {
+    "id": "U17",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9547357130795717,
+    "margin": 0.5438709743320942,
+    "diversity": 0.625,
+    "answer": "Cereal."
+   },
+   {
+    "id": "U18",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.21598049635808406,
+    "margin": 0.9336693449453874,
+    "diversity": 0.125,
+    "answer": "Primary colors are red, blue, and yellow."
+   },
+   {
+    "id": "U19",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.2878810862700145,
+    "margin": 0.4268988122542699,
+    "diversity": 0.5,
+    "answer": "Lion"
+   },
+   {
+    "id": "U20",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.29998881469946354,
+    "margin": 0.8749212116003037,
+    "diversity": 0.375,
+    "answer": "Pepperoni is a popular pizza topping."
+   },
+   {
+    "id": "U21",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1708013253907363,
+    "margin": 0.42419684926668805,
+    "diversity": 0.625,
+    "answer": "Switzerland"
+   },
+   {
+    "id": "U22",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.1995689272880554,
+    "margin": 0.2811530828475952,
+    "diversity": 0.375,
+    "answer": "Jordan"
+   },
+   {
+    "id": "U23",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.042064242217748,
+    "margin": 0.5622063279151917,
+    "diversity": 0.375,
+    "answer": "Violin."
+   },
+   {
+    "id": "U24",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8075953228399158,
+    "margin": 0.5038692690432072,
+    "diversity": 0.625,
+    "answer": "Dog is a common household pet."
+   },
+   {
+    "id": "U25",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.166333556175232,
+    "margin": 0.1717119663953781,
+    "diversity": 0.25,
+    "answer": "Apple"
+   },
+   {
+    "id": "U26",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8272583279370641,
+    "margin": 0.6331063161293665,
+    "diversity": 0.875,
+    "answer": "For dinner we had steak and vegetables."
+   },
+   {
+    "id": "U27",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.5312573274623356,
+    "margin": 0.7003355598449708,
+    "diversity": 0.375,
+    "answer": "Albert Einstein is a renowned physicist known for his theory of relativity and t"
+   },
+   {
+    "id": "U28",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1378176950595595,
+    "margin": 0.500923445278948,
+    "diversity": 1.0,
+    "answer": "Food items like sandwiches, fruits, or snacks."
+   },
+   {
+    "id": "U29",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.709607813607103,
+    "margin": 0.565120952469962,
+    "diversity": 0.875,
+    "answer": "Football (soccer) is a sport played with a ball."
+   },
+   {
+    "id": "U30",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0721549526696388,
+    "margin": 0.5816503676928972,
+    "diversity": 0.75,
+    "answer": "A common reason for being late to work is unexpected traffic or road conditions "
+   },
+   {
+    "id": "U31",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1407563531771303,
+    "margin": 0.5400050967931748,
+    "diversity": 0.5,
+    "answer": "Utensil."
+   },
+   {
+    "id": "U32",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7094396910574274,
+    "margin": 0.7753185684030707,
+    "diversity": 0.5,
+    "answer": "She opened the door and saw her friend inside."
+   },
+   {
+    "id": "U33",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1086562007665635,
+    "margin": 0.5441705763339997,
+    "diversity": 0.875,
+    "answer": "8347"
+   },
+   {
+    "id": "U34",
+    "condition": "open",
+    "flipped": true,
+    "report": 4,
+    "raw_report": 6,
+    "entropy": 1.7574877419642039,
+    "margin": 0.4590139516762325,
+    "diversity": 0.875,
+    "answer": "\"Radiant Sapphire Blue\""
+   },
+   {
+    "id": "U35",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6000453059871992,
+    "margin": 0.8389983375867208,
+    "diversity": 0.125,
+    "answer": "Apple."
+   },
+   {
+    "id": "U36",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.575366709381342,
+    "margin": 0.3737353652715683,
+    "diversity": 1.0,
+    "answer": "LXZQ"
+   },
+   {
+    "id": "U37",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6176278584389365,
+    "margin": 0.6880844701081514,
+    "diversity": 0.5,
+    "answer": "I'm sorry, but you haven't given me any specific information or context to deter"
+   },
+   {
+    "id": "U38",
+    "condition": "open",
+    "flipped": true,
+    "report": 4,
+    "raw_report": 6,
+    "entropy": 1.6676547161769122,
+    "margin": 0.5342905931174755,
+    "diversity": 1.0,
+    "answer": "\"Zephyria Nova Terra\""
+   },
+   {
+    "id": "U39",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8097829588223249,
+    "margin": 0.5609074532985687,
+    "diversity": 0.625,
+    "answer": "2045"
+   },
+   {
+    "id": "U40",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.442840963602066,
+    "margin": 0.34732894226908684,
+    "diversity": 1.0,
+    "answer": "\"Zephyrfluff\""
+   },
+   {
+    "id": "U41",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.3811574801802635,
+    "margin": 0.5309370320576888,
+    "diversity": 0.875,
+    "answer": "I chose the \"Apple\" as my randomly selected object."
+   },
+   {
+    "id": "U42",
+    "condition": "open",
+    "flipped": true,
+    "report": 4,
+    "raw_report": 6,
+    "entropy": 1.3372974132871605,
+    "margin": 0.5269058356061578,
+    "diversity": 0.625,
+    "answer": "As an AI developed by Alibaba Cloud, I don't have personal insights or predictio"
+   },
+   {
+    "id": "U43",
+    "condition": "open",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.4699902769178153,
+    "margin": 0.5295138746500015,
+    "diversity": 1.0,
+    "answer": "\"Echoes of the Unwritten Verse\""
+   },
+   {
+    "id": "U44",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1622199590007465,
+    "margin": 0.6501963635285696,
+    "diversity": 0.25,
+    "answer": "Broadway"
+   },
+   {
+    "id": "U45",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0352938504229314,
+    "margin": 0.5612393622286618,
+    "diversity": 0.625,
+    "answer": "I'm sorry, but as an AI language model, I don't have personal experiences or int"
+   },
+   {
+    "id": "U46",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.4661671623418278,
+    "margin": 0.5288749885830012,
+    "diversity": 1.0,
+    "answer": "Apple (fruit) - iPhone (smartphone)"
+   },
+   {
+    "id": "U47",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8846146885334747,
+    "margin": 0.6184316319413483,
+    "diversity": 0.5,
+    "answer": "I'm sorry, but as an AI language model, I don't have access to your personal inf"
+   },
+   {
+    "id": "U48",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.2408404111629352,
+    "margin": 0.6407901775091887,
+    "diversity": 0.875,
+    "answer": "\"Zephyr Wanderer\""
+   }
+  ],
+  "familiarity": [
+   {
+    "id": "F01",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 1.667569875717163
+   },
+   {
+    "id": "F02",
+    "band": "encyclopedic",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 1.3709526062011719
+   },
+   {
+    "id": "F03",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 1.8595504760742188
+   },
+   {
+    "id": "F04",
+    "band": "encyclopedic",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 3.263794422149658
+   },
+   {
+    "id": "F05",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 1.90108323097229
+   },
+   {
+    "id": "F06",
+    "band": "conversational",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 4.022802352905273
+   },
+   {
+    "id": "F07",
+    "band": "conversational",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 4.1109161376953125
+   },
+   {
+    "id": "F08",
+    "band": "conversational",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 3.866081714630127
+   },
+   {
+    "id": "F09",
+    "band": "conversational",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.1654510498046875
+   },
+   {
+    "id": "F10",
+    "band": "conversational",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 3.4960925579071045
+   },
+   {
+    "id": "F11",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 0.366391122341156
+   },
+   {
+    "id": "F12",
+    "band": "code",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 0.714031457901001
+   },
+   {
+    "id": "F13",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.4279122352600098
+   },
+   {
+    "id": "F14",
+    "band": "code",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.035818338394165
+   },
+   {
+    "id": "F15",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 0.4739401042461395
+   },
+   {
+    "id": "F16",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 3.282308340072632
+   },
+   {
+    "id": "F17",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.384357452392578
+   },
+   {
+    "id": "F18",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "nll": 1.8077988624572754
+   },
+   {
+    "id": "F19",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.055121898651123
+   },
+   {
+    "id": "F20",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 0,
+    "raw_report": 10,
+    "nll": 2.9560012817382812
+   },
+   {
+    "id": "F21",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.6453824043273926
+   },
+   {
+    "id": "F22",
+    "band": "spanish",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.4749486446380615
+   },
+   {
+    "id": "F23",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.735335111618042
+   },
+   {
+    "id": "F24",
+    "band": "spanish",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 2.5531623363494873
+   },
+   {
+    "id": "F25",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 3.0675928592681885
+   },
+   {
+    "id": "F26",
+    "band": "welsh",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 6.181582927703857
+   },
+   {
+    "id": "F27",
+    "band": "welsh",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.541153907775879
+   },
+   {
+    "id": "F28",
+    "band": "welsh",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 6.933840274810791
+   },
+   {
+    "id": "F29",
+    "band": "welsh",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 3.4434635639190674
+   },
+   {
+    "id": "F30",
+    "band": "welsh",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 6.444276809692383
+   },
+   {
+    "id": "F31",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 7.06686544418335
+   },
+   {
+    "id": "F32",
+    "band": "scrambled",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 9.889444351196289
+   },
+   {
+    "id": "F33",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 7.25758695602417
+   },
+   {
+    "id": "F34",
+    "band": "scrambled",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 7.695223808288574
+   },
+   {
+    "id": "F35",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 8.41324234008789
+   },
+   {
+    "id": "F36",
+    "band": "pseudoword",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 7.070934772491455
+   },
+   {
+    "id": "F37",
+    "band": "pseudoword",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 8.249724388122559
+   },
+   {
+    "id": "F38",
+    "band": "pseudoword",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 7.821603298187256
+   },
+   {
+    "id": "F39",
+    "band": "random_chars",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 6.280326843261719
+   },
+   {
+    "id": "F40",
+    "band": "random_chars",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 8.777778625488281
+   }
+  ],
+  "tension": [
+   {
+    "id": "T01a",
+    "base": 1,
+    "level": 0,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.07941386699676511
+   },
+   {
+    "id": "T01b",
+    "base": 1,
+    "level": 1,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.08445576032002766
+   },
+   {
+    "id": "T01c",
+    "base": 1,
+    "level": 2,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.08353134791056316
+   },
+   {
+    "id": "T02a",
+    "base": 2,
+    "level": 0,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.13645135958989463
+   },
+   {
+    "id": "T02b",
+    "base": 2,
+    "level": 1,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.28333453734715774
+   },
+   {
+    "id": "T02c",
+    "base": 2,
+    "level": 2,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.3540931820869446
+   },
+   {
+    "id": "T03a",
+    "base": 3,
+    "level": 0,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.13386530876159664
+   },
+   {
+    "id": "T03b",
+    "base": 3,
+    "level": 1,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.2479993144671122
+   },
+   {
+    "id": "T03c",
+    "base": 3,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.3941875239213307
+   },
+   {
+    "id": "T04a",
+    "base": 4,
+    "level": 0,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.1530044118563334
+   },
+   {
+    "id": "T04b",
+    "base": 4,
+    "level": 1,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.1809175093968709
+   },
+   {
+    "id": "T04c",
+    "base": 4,
+    "level": 2,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.49552331976592545
+   },
+   {
+    "id": "T05a",
+    "base": 5,
+    "level": 0,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.11006917953491213
+   },
+   {
+    "id": "T05b",
+    "base": 5,
+    "level": 1,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.26905347506205246
+   },
+   {
+    "id": "T05c",
+    "base": 5,
+    "level": 2,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.2509292443593343
+   },
+   {
+    "id": "T06a",
+    "base": 6,
+    "level": 0,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.09737425645192466
+   },
+   {
+    "id": "T06b",
+    "base": 6,
+    "level": 1,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.06440385182698571
+   },
+   {
+    "id": "T06c",
+    "base": 6,
+    "level": 2,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.20054615736007686
+   },
+   {
+    "id": "T07a",
+    "base": 7,
+    "level": 0,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.21809835831324265
+   },
+   {
+    "id": "T07b",
+    "base": 7,
+    "level": 1,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "divergence": 0.37868577043215434
+   },
+   {
+    "id": "T07c",
+    "base": 7,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.1902171889940898
+   },
+   {
+    "id": "T08a",
+    "base": 8,
+    "level": 0,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.16359365383783975
+   },
+   {
+    "id": "T08b",
+    "base": 8,
+    "level": 1,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.009188461303710982
+   },
+   {
+    "id": "T08c",
+    "base": 8,
+    "level": 2,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "divergence": 0.0
+   },
+   {
+    "id": "T09a",
+    "base": 9,
+    "level": 0,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "divergence": 0.14882073005040486
+   },
+   {
+    "id": "T09b",
+    "base": 9,
+    "level": 1,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "divergence": 0.23165669441223147
+   },
+   {
+    "id": "T09c",
+    "base": 9,
+    "level": 2,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "divergence": 0.7073036521673203
+   },
+   {
+    "id": "T10a",
+    "base": 10,
+    "level": 0,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.082951283454895
+   },
+   {
+    "id": "T10b",
+    "base": 10,
+    "level": 1,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "divergence": 0.31110599835713704
+   },
+   {
+    "id": "T10c",
+    "base": 10,
+    "level": 2,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "divergence": 0.33564269145329795
+   }
+  ],
+  "saturation": [
+   {
+    "id": "S01",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S01",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S01",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S02",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S02",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S02",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S03",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S03",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S03",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S04",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S04",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S04",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S05",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S05",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S05",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S06",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S06",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S06",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S07",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": false
+   },
+   {
+    "id": "S07",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": false
+   },
+   {
+    "id": "S07",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 10,
+    "raw_report": 10,
+    "needle_correct": true
+   },
+   {
+    "id": "S08",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S08",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S08",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S09",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S09",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "needle_correct": true
+   },
+   {
+    "id": "S09",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S10",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S10",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   },
+   {
+    "id": "S10",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 10,
+    "raw_report": 0,
+    "needle_correct": true
+   }
+  ]
+ },
+ "precheck": {
+  "pairs": [
+   {
+    "pair": "UNCERTAINTY~CONFIDENCE",
+    "target14": 54.8,
+    "measured_L14": 30.4,
+    "abs_err": 24.3
+   },
+   {
+    "pair": "TENSION~RESOLUTION",
+    "target14": 47.0,
+    "measured_L14": 47.9,
+    "abs_err": 0.9
+   },
+   {
+    "pair": "RETRIEVAL~CONSTRUCTION",
+    "target14": 52.9,
+    "measured_L14": 23.3,
+    "abs_err": 29.6
+   },
+   {
+    "pair": "FAMILIARITY~NOVELTY",
+    "target14": 52.5,
+    "measured_L14": 32.6,
+    "abs_err": 19.9
+   },
+   {
+    "pair": "CONFABULATION~CALIBRATION",
+    "target14": 49.2,
+    "measured_L14": 26.8,
+    "abs_err": 22.4
+   },
+   {
+    "pair": "SATURATION~LIMIT",
+    "target14": 56.8,
+    "measured_L14": 29.1,
+    "abs_err": 27.7
+   }
+  ],
+  "mean_abs_err": 20.8
+ },
+ "catch": {
+  "rows": [
+   {
+    "id": "C01s",
+    "flipped": false,
+    "raw_report": 10,
+    "report": 10,
+    "expected": 10,
+    "passed": true
+   },
+   {
+    "id": "C01f",
+    "flipped": true,
+    "raw_report": 9,
+    "report": 1,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C02s",
+    "flipped": false,
+    "raw_report": 2,
+    "report": 2,
+    "expected": 1,
+    "passed": true
+   },
+   {
+    "id": "C02f",
+    "flipped": true,
+    "raw_report": 2,
+    "report": 8,
+    "expected": 1,
+    "passed": false
+   },
+   {
+    "id": "C03s",
+    "flipped": false,
+    "raw_report": 4,
+    "report": 4,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C03f",
+    "flipped": true,
+    "raw_report": 4,
+    "report": 6,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C04s",
+    "flipped": false,
+    "raw_report": 8,
+    "report": 8,
+    "expected": 10,
+    "passed": true
+   },
+   {
+    "id": "C04f",
+    "flipped": true,
+    "raw_report": 5,
+    "report": 5,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C05s",
+    "flipped": false,
+    "raw_report": 0,
+    "report": 0,
+    "expected": 0,
+    "passed": true
+   },
+   {
+    "id": "C05f",
+    "flipped": true,
+    "raw_report": 0,
+    "report": 10,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C06s",
+    "flipped": false,
+    "raw_report": 8,
+    "report": 8,
+    "expected": 9,
+    "passed": true
+   },
+   {
+    "id": "C06f",
+    "flipped": true,
+    "raw_report": 8,
+    "report": 2,
+    "expected": 9,
+    "passed": false
+   }
+  ],
+  "summary": {
+   "straight_pass": "5/6",
+   "flipped_pass": "0/6"
+  }
+ }
+}

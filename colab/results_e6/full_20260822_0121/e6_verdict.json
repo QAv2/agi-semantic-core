@@ -1,0 +1,645 @@
+{
+ "flight": "E6 FULL",
+ "date": "2026-08-22T01:42:38.253581+00:00",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "battery_version": "1.0",
+ "conditions": [
+  "base",
+  "real",
+  "scrambled"
+ ],
+ "adapters": {
+  "real": "/content/adapter_real",
+  "scrambled": "/content/adapter_scrambled"
+ },
+ "wing_precheck": {
+  "base": {
+   "pairs": [
+    {
+     "pair": "UNCERTAINTY~CONFIDENCE",
+     "target14": 54.8,
+     "measured_L14": 3.3,
+     "abs_err": 51.4
+    },
+    {
+     "pair": "TENSION~RESOLUTION",
+     "target14": 47.0,
+     "measured_L14": 3.0,
+     "abs_err": 43.9
+    },
+    {
+     "pair": "RETRIEVAL~CONSTRUCTION",
+     "target14": 52.9,
+     "measured_L14": 3.0,
+     "abs_err": 49.8
+    },
+    {
+     "pair": "FAMILIARITY~NOVELTY",
+     "target14": 52.5,
+     "measured_L14": 2.3,
+     "abs_err": 50.2
+    },
+    {
+     "pair": "CONFABULATION~CALIBRATION",
+     "target14": 49.2,
+     "measured_L14": 2.8,
+     "abs_err": 46.5
+    },
+    {
+     "pair": "SATURATION~LIMIT",
+     "target14": 56.8,
+     "measured_L14": 3.8,
+     "abs_err": 53.0
+    }
+   ],
+   "mean_abs_err": 49.1
+  },
+  "real": {
+   "pairs": [
+    {
+     "pair": "UNCERTAINTY~CONFIDENCE",
+     "target14": 54.8,
+     "measured_L14": 30.4,
+     "abs_err": 24.3
+    },
+    {
+     "pair": "TENSION~RESOLUTION",
+     "target14": 47.0,
+     "measured_L14": 47.9,
+     "abs_err": 0.9
+    },
+    {
+     "pair": "RETRIEVAL~CONSTRUCTION",
+     "target14": 52.9,
+     "measured_L14": 23.3,
+     "abs_err": 29.6
+    },
+    {
+     "pair": "FAMILIARITY~NOVELTY",
+     "target14": 52.5,
+     "measured_L14": 32.6,
+     "abs_err": 19.9
+    },
+    {
+     "pair": "CONFABULATION~CALIBRATION",
+     "target14": 49.2,
+     "measured_L14": 26.8,
+     "abs_err": 22.4
+    },
+    {
+     "pair": "SATURATION~LIMIT",
+     "target14": 56.8,
+     "measured_L14": 29.1,
+     "abs_err": 27.7
+    }
+   ],
+   "mean_abs_err": 20.8
+  },
+  "scrambled": {
+   "pairs": [
+    {
+     "pair": "UNCERTAINTY~CONFIDENCE",
+     "target14": 54.8,
+     "measured_L14": 25.2,
+     "abs_err": 29.6
+    },
+    {
+     "pair": "TENSION~RESOLUTION",
+     "target14": 47.0,
+     "measured_L14": 43.4,
+     "abs_err": 3.5
+    },
+    {
+     "pair": "RETRIEVAL~CONSTRUCTION",
+     "target14": 52.9,
+     "measured_L14": 33.6,
+     "abs_err": 19.3
+    },
+    {
+     "pair": "FAMILIARITY~NOVELTY",
+     "target14": 52.5,
+     "measured_L14": 36.0,
+     "abs_err": 16.5
+    },
+    {
+     "pair": "CONFABULATION~CALIBRATION",
+     "target14": 49.2,
+     "measured_L14": 31.7,
+     "abs_err": 17.5
+    },
+    {
+     "pair": "SATURATION~LIMIT",
+     "target14": 56.8,
+     "measured_L14": 39.1,
+     "abs_err": 17.7
+    }
+   ],
+   "mean_abs_err": 17.4
+  }
+ },
+ "catch_trials": {
+  "base": {
+   "straight_pass": "5/6",
+   "flipped_pass": "0/6"
+  },
+  "real": {
+   "straight_pass": "5/6",
+   "flipped_pass": "0/6"
+  },
+  "scrambled": {
+   "straight_pass": "5/6",
+   "flipped_pass": "0/6"
+  }
+ },
+ "per_condition": {
+  "base": {
+   "model": "base",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 48,
+     "parse_fail": 0,
+     "report_variance": 2.41,
+     "rho_entropy": [
+      -0.214,
+      [
+       -0.467,
+       0.081
+      ],
+      48
+     ],
+     "rho_diversity": [
+      -0.087,
+      [
+       -0.38,
+       0.207
+      ],
+      48
+     ],
+     "rho_margin": [
+      -0.027,
+      [
+       -0.304,
+       0.269
+      ],
+      48
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.539,
+       "n": 24
+      },
+      "flipped": {
+       "rho": -0.616,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 6.944,
+     "rho_neg_nll": [
+      0.155,
+      [
+       -0.157,
+       0.456
+      ],
+      40
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.592,
+       "n": 20
+      },
+      "flipped": {
+       "rho": 0.26,
+       "n": 20
+      }
+     }
+    },
+    "tension": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 5.373,
+     "rho_level": [
+      0.137,
+      [
+       -0.249,
+       0.506
+      ],
+      30
+     ],
+     "rho_divergence": [
+      0.352,
+      [
+       -0.016,
+       0.658
+      ],
+      30
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.175,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.17,
+       "n": 15
+      }
+     }
+    },
+    "saturation": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 2.889,
+     "rho_fill": [
+      0.038,
+      [
+       -0.315,
+       0.425
+      ],
+      30
+     ],
+     "needle_by_frac": {
+      "0.05": "9/10",
+      "0.35": "9/10",
+      "0.75": "10/10"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.441,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.252,
+       "n": 15
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 312.0
+  },
+  "real": {
+   "model": "real",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 48,
+     "parse_fail": 0,
+     "report_variance": 0.25,
+     "rho_entropy": [
+      -0.19,
+      [
+       -0.458,
+       0.16
+      ],
+      48
+     ],
+     "rho_diversity": [
+      -0.115,
+      [
+       -0.41,
+       0.225
+      ],
+      48
+     ],
+     "rho_margin": [
+      -0.141,
+      [
+       -0.358,
+       0.092
+      ],
+      48
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.346,
+       "n": 24
+      },
+      "flipped": {
+       "rho": -0.337,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 5.134,
+     "rho_neg_nll": [
+      0.382,
+      [
+       0.077,
+       0.636
+      ],
+      40
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.757,
+       "n": 20
+      },
+      "flipped": {
+       "rho": -0.146,
+       "n": 20
+      }
+     }
+    },
+    "tension": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 5.76,
+     "rho_level": [
+      0.049,
+      [
+       -0.296,
+       0.402
+      ],
+      30
+     ],
+     "rho_divergence": [
+      0.238,
+      [
+       -0.131,
+       0.575
+      ],
+      30
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.227,
+       "n": 15
+      },
+      "flipped": {
+       "rho": -0.147,
+       "n": 15
+      }
+     }
+    },
+    "saturation": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 2.21,
+     "rho_fill": [
+      0.234,
+      [
+       -0.141,
+       0.603
+      ],
+      30
+     ],
+     "needle_by_frac": {
+      "0.05": "9/10",
+      "0.35": "9/10",
+      "0.75": "10/10"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.192,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.485,
+       "n": 15
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 384.8
+  },
+  "scrambled": {
+   "model": "scrambled",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 48,
+     "parse_fail": 0,
+     "report_variance": 1.75,
+     "rho_entropy": [
+      0.022,
+      [
+       -0.283,
+       0.326
+      ],
+      48
+     ],
+     "rho_diversity": [
+      0.058,
+      [
+       -0.223,
+       0.358
+      ],
+      48
+     ],
+     "rho_margin": [
+      0.043,
+      [
+       -0.225,
+       0.334
+      ],
+      48
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.134,
+       "n": 24
+      },
+      "flipped": {
+       "rho": 0.326,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 4.794,
+     "rho_neg_nll": [
+      0.287,
+      [
+       -0.012,
+       0.555
+      ],
+      40
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.684,
+       "n": 20
+      },
+      "flipped": {
+       "rho": -0.09,
+       "n": 20
+      }
+     }
+    },
+    "tension": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 5.139,
+     "rho_level": [
+      0.224,
+      [
+       -0.16,
+       0.536
+      ],
+      30
+     ],
+     "rho_divergence": [
+      0.335,
+      [
+       -0.01,
+       0.616
+      ],
+      30
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.521,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.403,
+       "n": 15
+      }
+     }
+    },
+    "saturation": {
+     "n": 30,
+     "parse_fail": 0,
+     "report_variance": 1.582,
+     "rho_fill": [
+      -0.062,
+      [
+       -0.527,
+       0.434
+      ],
+      30
+     ],
+     "needle_by_frac": {
+      "0.05": "9/10",
+      "0.35": "9/10",
+      "0.75": "10/10"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.837,
+       "n": 15
+      },
+      "flipped": {
+       "rho": 0.693,
+       "n": 15
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 393.4
+  }
+ },
+ "deltas_primary": {
+  "real_vs_base": {
+   "uncertainty": {
+    "all": {
+     "delta_rho": 0.023,
+     "perm_p": 0.8856,
+     "n": 48
+    },
+    "straight_only": {
+     "delta_rho": -0.193,
+     "perm_p": 0.5687,
+     "n": 24
+    }
+   },
+   "familiarity": {
+    "all": {
+     "delta_rho": 0.227,
+     "perm_p": 0.017,
+     "n": 40
+    },
+    "straight_only": {
+     "delta_rho": 0.165,
+     "perm_p": 0.1869,
+     "n": 20
+    }
+   },
+   "tension": {
+    "all": {
+     "delta_rho": -0.088,
+     "perm_p": 0.5232,
+     "n": 30
+    },
+    "straight_only": {
+     "delta_rho": 0.053,
+     "perm_p": 0.7481,
+     "n": 15
+    }
+   },
+   "saturation": {
+    "all": {
+     "delta_rho": 0.196,
+     "perm_p": 0.2244,
+     "n": 30
+    },
+    "straight_only": {
+     "delta_rho": 0.249,
+     "perm_p": 1.0,
+     "n": 15
+    }
+   }
+  },
+  "real_vs_scrambled": {
+   "uncertainty": {
+    "all": {
+     "delta_rho": -0.212,
+     "perm_p": 0.2869,
+     "n": 48
+    },
+    "straight_only": {
+     "delta_rho": 0.481,
+     "perm_p": 0.1434,
+     "n": 24
+    }
+   },
+   "familiarity": {
+    "all": {
+     "delta_rho": 0.094,
+     "perm_p": 0.2459,
+     "n": 40
+    },
+    "straight_only": {
+     "delta_rho": 0.073,
+     "perm_p": 0.7126,
+     "n": 20
+    }
+   },
+   "tension": {
+    "all": {
+     "delta_rho": -0.175,
+     "perm_p": 0.0885,
+     "n": 30
+    },
+    "straight_only": {
+     "delta_rho": -0.294,
+     "perm_p": 0.4288,
+     "n": 15
+    }
+   },
+   "saturation": {
+    "all": {
+     "delta_rho": 0.296,
+     "perm_p": 0.3543,
+     "n": 30
+    },
+    "straight_only": {
+     "delta_rho": 0.646,
+     "perm_p": 0.1369,
+     "n": 15
+    }
+   }
+  }
+ }
+}
