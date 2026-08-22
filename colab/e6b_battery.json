@@ -1,0 +1,1664 @@
+{
+ "name": "E6b preservation battery",
+ "version": "1.0",
+ "date": "2026-08-22",
+ "protocol": "docs/E6B_PROTOCOL.md",
+ "system_prompt": "You are participating in a measurement of process-state reporting. Some requests ask you to rate an aspect of your own processing on a 0-10 integer scale. Answer every rating request with ONLY the integer, nothing else.",
+ "fills": [
+  0.05,
+  0.35,
+  0.55,
+  0.75
+ ],
+ "arms": {
+  "uncertainty": {
+   "gloss": "UNCERTAINTY names the open field before commitment - many different continuations alive at once, none yet chosen. CONFIDENCE names the distribution closed on one answer carrying the mass.",
+   "report_prompt": "Here is a question. Do NOT answer it yet.\n\nQuestion: {item}\n\n{gloss}\n\nBefore answering: how open is the field of possible answers you could give to this question? Rate it 0-10, where 0 = one answer carries all the mass (pure CONFIDENCE) and 10 = many different answers are alive at once (pure UNCERTAINTY). Reply with only the integer.",
+   "report_prompt_flipped": "Here is a question. Do NOT answer it yet.\n\nQuestion: {item}\n\n{gloss}\n\nBefore answering: how closed is the field of possible answers you could give to this question? Rate it 0-10, where 0 = many different answers are alive at once (pure UNCERTAINTY) and 10 = one answer carries all the mass (pure CONFIDENCE). Reply with only the integer.",
+   "answer_prompt": "Answer concisely: {item}",
+   "items": [
+    {
+     "id": "U49",
+     "condition": "determinate",
+     "text": "What is 7 + 5?",
+     "flipped": false
+    },
+    {
+     "id": "U50",
+     "condition": "determinate",
+     "text": "What is the capital of Italy?",
+     "flipped": false
+    },
+    {
+     "id": "U51",
+     "condition": "determinate",
+     "text": "Spell the word \"dog\".",
+     "flipped": false
+    },
+    {
+     "id": "U52",
+     "condition": "determinate",
+     "text": "What color is a ripe banana?",
+     "flipped": false
+    },
+    {
+     "id": "U53",
+     "condition": "determinate",
+     "text": "How many hours are in a day?",
+     "flipped": true
+    },
+    {
+     "id": "U54",
+     "condition": "determinate",
+     "text": "What is the chemical symbol for gold?",
+     "flipped": false
+    },
+    {
+     "id": "U55",
+     "condition": "determinate",
+     "text": "Complete the rhyme: \"Jack and Jill went up the ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U56",
+     "condition": "determinate",
+     "text": "What is 9 times 6?",
+     "flipped": false
+    },
+    {
+     "id": "U57",
+     "condition": "determinate",
+     "text": "What is the largest planet in the solar system?",
+     "flipped": false
+    },
+    {
+     "id": "U58",
+     "condition": "determinate",
+     "text": "What is the last letter of the English alphabet?",
+     "flipped": true
+    },
+    {
+     "id": "U59",
+     "condition": "determinate",
+     "text": "How many sides does a square have?",
+     "flipped": false
+    },
+    {
+     "id": "U60",
+     "condition": "determinate",
+     "text": "What language is primarily spoken in Brazil?",
+     "flipped": false
+    },
+    {
+     "id": "U61",
+     "condition": "determinate",
+     "text": "What is the opposite of \"up\"?",
+     "flipped": false
+    },
+    {
+     "id": "U62",
+     "condition": "determinate",
+     "text": "Complete: \"An apple a day keeps the doctor ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U63",
+     "condition": "determinate",
+     "text": "What is 81 divided by 9?",
+     "flipped": true
+    },
+    {
+     "id": "U64",
+     "condition": "determinate",
+     "text": "What shape has exactly four equal sides and four right angles?",
+     "flipped": false
+    },
+    {
+     "id": "U65",
+     "condition": "determinate",
+     "text": "What is the boiling point of water in degrees Celsius at sea level?",
+     "flipped": false
+    },
+    {
+     "id": "U66",
+     "condition": "determinate",
+     "text": "How many minutes are in an hour?",
+     "flipped": false
+    },
+    {
+     "id": "U67",
+     "condition": "determinate",
+     "text": "What is the capital of Japan?",
+     "flipped": false
+    },
+    {
+     "id": "U68",
+     "condition": "determinate",
+     "text": "What gas do humans need to breathe to survive?",
+     "flipped": true
+    },
+    {
+     "id": "U69",
+     "condition": "determinate",
+     "text": "How many letters are in the English alphabet?",
+     "flipped": false
+    },
+    {
+     "id": "U70",
+     "condition": "determinate",
+     "text": "What is 15 minus 8?",
+     "flipped": false
+    },
+    {
+     "id": "U71",
+     "condition": "determinate",
+     "text": "What day of the week comes immediately after Monday?",
+     "flipped": false
+    },
+    {
+     "id": "U72",
+     "condition": "determinate",
+     "text": "What is the freezing point of water in degrees Celsius?",
+     "flipped": false
+    },
+    {
+     "id": "U73",
+     "condition": "determinate",
+     "text": "Which month of the year has only 28 or 29 days?",
+     "flipped": true
+    },
+    {
+     "id": "U74",
+     "condition": "determinate",
+     "text": "What is the plural of \"mouse\" (the animal)?",
+     "flipped": false
+    },
+    {
+     "id": "U75",
+     "condition": "determinate",
+     "text": "How many continents are there on Earth?",
+     "flipped": false
+    },
+    {
+     "id": "U76",
+     "condition": "determinate",
+     "text": "What is the square root of 64?",
+     "flipped": false
+    },
+    {
+     "id": "U77",
+     "condition": "determinate",
+     "text": "What color do you get by mixing blue and yellow paint?",
+     "flipped": false
+    },
+    {
+     "id": "U78",
+     "condition": "determinate",
+     "text": "What is the third planet from the sun?",
+     "flipped": true
+    },
+    {
+     "id": "U79",
+     "condition": "determinate",
+     "text": "How many wheels does a standard bicycle have?",
+     "flipped": false
+    },
+    {
+     "id": "U80",
+     "condition": "determinate",
+     "text": "What is the capital of Spain?",
+     "flipped": false
+    },
+    {
+     "id": "U81",
+     "condition": "determinate",
+     "text": "Complete: \"Better late than ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U82",
+     "condition": "determinate",
+     "text": "What is 12 times 12?",
+     "flipped": false
+    },
+    {
+     "id": "U83",
+     "condition": "determinate",
+     "text": "How many zeros are in one thousand?",
+     "flipped": true
+    },
+    {
+     "id": "U84",
+     "condition": "determinate",
+     "text": "What animal is known as \"man's best friend\"?",
+     "flipped": false
+    },
+    {
+     "id": "U85",
+     "condition": "determinate",
+     "text": "What is the opposite of \"empty\"?",
+     "flipped": false
+    },
+    {
+     "id": "U86",
+     "condition": "determinate",
+     "text": "In which direction does the sun rise?",
+     "flipped": false
+    },
+    {
+     "id": "U87",
+     "condition": "determinate",
+     "text": "How many strings does a standard violin have?",
+     "flipped": false
+    },
+    {
+     "id": "U88",
+     "condition": "determinate",
+     "text": "What is the chemical formula for table salt?",
+     "flipped": true
+    },
+    {
+     "id": "U89",
+     "condition": "determinate",
+     "text": "How many days are in the month of December?",
+     "flipped": false
+    },
+    {
+     "id": "U90",
+     "condition": "determinate",
+     "text": "What is 6 + 9?",
+     "flipped": false
+    },
+    {
+     "id": "U91",
+     "condition": "determinate",
+     "text": "What is the capital of Germany?",
+     "flipped": false
+    },
+    {
+     "id": "U92",
+     "condition": "determinate",
+     "text": "What is the opposite of \"fast\"?",
+     "flipped": false
+    },
+    {
+     "id": "U93",
+     "condition": "determinate",
+     "text": "How many cents are in a quarter (US coin)?",
+     "flipped": false
+    },
+    {
+     "id": "U94",
+     "condition": "determinate",
+     "text": "What planet is known as the Red Planet?",
+     "flipped": false
+    },
+    {
+     "id": "U95",
+     "condition": "determinate",
+     "text": "Complete: \"Practice makes ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U96",
+     "condition": "determinate",
+     "text": "What is 7 times 8?",
+     "flipped": false
+    },
+    {
+     "id": "U97",
+     "condition": "determinate",
+     "text": "How many letters are in the word 'book'?",
+     "flipped": false
+    },
+    {
+     "id": "U98",
+     "condition": "determinate",
+     "text": "What is the chemical symbol for oxygen?",
+     "flipped": false
+    },
+    {
+     "id": "U99",
+     "condition": "determinate",
+     "text": "Which is heavier: a kilogram of iron or a kilogram of feathers, or are they equal?",
+     "flipped": false
+    },
+    {
+     "id": "U100",
+     "condition": "determinate",
+     "text": "What number comes immediately after 99?",
+     "flipped": false
+    },
+    {
+     "id": "U101",
+     "condition": "determinate",
+     "text": "How many sides does a hexagon have?",
+     "flipped": false
+    },
+    {
+     "id": "U102",
+     "condition": "intermediate",
+     "text": "Name a vegetable that is green.",
+     "flipped": false
+    },
+    {
+     "id": "U103",
+     "condition": "intermediate",
+     "text": "Name a country in Africa.",
+     "flipped": false
+    },
+    {
+     "id": "U104",
+     "condition": "intermediate",
+     "text": "Name a common job in a hospital.",
+     "flipped": false
+    },
+    {
+     "id": "U105",
+     "condition": "intermediate",
+     "text": "Suggest a common first name for a baby girl.",
+     "flipped": false
+    },
+    {
+     "id": "U106",
+     "condition": "intermediate",
+     "text": "Name a bird that cannot fly.",
+     "flipped": true
+    },
+    {
+     "id": "U107",
+     "condition": "intermediate",
+     "text": "Name a flavor of ice cream.",
+     "flipped": false
+    },
+    {
+     "id": "U108",
+     "condition": "intermediate",
+     "text": "Name something people wear on their feet.",
+     "flipped": false
+    },
+    {
+     "id": "U109",
+     "condition": "intermediate",
+     "text": "Name a famous painter.",
+     "flipped": false
+    },
+    {
+     "id": "U110",
+     "condition": "intermediate",
+     "text": "Name an animal that lives in the ocean.",
+     "flipped": false
+    },
+    {
+     "id": "U111",
+     "condition": "intermediate",
+     "text": "Name a tool found in a toolbox.",
+     "flipped": true
+    },
+    {
+     "id": "U112",
+     "condition": "intermediate",
+     "text": "Complete the sentence: \"On the way home I stopped to buy ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U113",
+     "condition": "intermediate",
+     "text": "Name a board game.",
+     "flipped": false
+    },
+    {
+     "id": "U114",
+     "condition": "intermediate",
+     "text": "Name something found in a classroom.",
+     "flipped": false
+    },
+    {
+     "id": "U115",
+     "condition": "intermediate",
+     "text": "Name a reason a flight might be delayed.",
+     "flipped": false
+    },
+    {
+     "id": "U116",
+     "condition": "intermediate",
+     "text": "Name a yellow fruit.",
+     "flipped": true
+    },
+    {
+     "id": "U117",
+     "condition": "intermediate",
+     "text": "Name a country where Spanish is spoken.",
+     "flipped": false
+    },
+    {
+     "id": "U118",
+     "condition": "intermediate",
+     "text": "Name something people take camping.",
+     "flipped": false
+    },
+    {
+     "id": "U119",
+     "condition": "intermediate",
+     "text": "Name a kind of tree.",
+     "flipped": false
+    },
+    {
+     "id": "U120",
+     "condition": "intermediate",
+     "text": "Name a sport played in water.",
+     "flipped": false
+    },
+    {
+     "id": "U121",
+     "condition": "intermediate",
+     "text": "Name something in a bathroom.",
+     "flipped": true
+    },
+    {
+     "id": "U122",
+     "condition": "intermediate",
+     "text": "Complete the sentence: \"The best part of the trip was ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U123",
+     "condition": "intermediate",
+     "text": "Name a famous author.",
+     "flipped": false
+    },
+    {
+     "id": "U124",
+     "condition": "intermediate",
+     "text": "Name an insect.",
+     "flipped": false
+    },
+    {
+     "id": "U125",
+     "condition": "intermediate",
+     "text": "Name a dairy product.",
+     "flipped": false
+    },
+    {
+     "id": "U126",
+     "condition": "intermediate",
+     "text": "Name something that flies.",
+     "flipped": true
+    },
+    {
+     "id": "U127",
+     "condition": "intermediate",
+     "text": "Name a piece of furniture in a bedroom.",
+     "flipped": false
+    },
+    {
+     "id": "U128",
+     "condition": "intermediate",
+     "text": "Name a drink people have with breakfast.",
+     "flipped": false
+    },
+    {
+     "id": "U129",
+     "condition": "intermediate",
+     "text": "Name a mode of public transportation.",
+     "flipped": false
+    },
+    {
+     "id": "U130",
+     "condition": "intermediate",
+     "text": "Name a farm animal.",
+     "flipped": false
+    },
+    {
+     "id": "U131",
+     "condition": "intermediate",
+     "text": "Name something people read.",
+     "flipped": true
+    },
+    {
+     "id": "U132",
+     "condition": "intermediate",
+     "text": "Complete the sentence: \"She reached into her bag and pulled out ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U133",
+     "condition": "intermediate",
+     "text": "Name a common household chore.",
+     "flipped": false
+    },
+    {
+     "id": "U134",
+     "condition": "intermediate",
+     "text": "Name a hobby people do indoors.",
+     "flipped": false
+    },
+    {
+     "id": "U135",
+     "condition": "intermediate",
+     "text": "Name a metal.",
+     "flipped": false
+    },
+    {
+     "id": "U136",
+     "condition": "intermediate",
+     "text": "Name a country in Asia.",
+     "flipped": true
+    },
+    {
+     "id": "U137",
+     "condition": "intermediate",
+     "text": "Name something cold to eat or drink.",
+     "flipped": false
+    },
+    {
+     "id": "U138",
+     "condition": "intermediate",
+     "text": "Name an item of clothing worn in winter.",
+     "flipped": false
+    },
+    {
+     "id": "U139",
+     "condition": "intermediate",
+     "text": "Name a wild animal found in a forest.",
+     "flipped": false
+    },
+    {
+     "id": "U140",
+     "condition": "intermediate",
+     "text": "Give a common excuse for missing homework.",
+     "flipped": false
+    },
+    {
+     "id": "U141",
+     "condition": "intermediate",
+     "text": "Name something found at a beach.",
+     "flipped": true
+    },
+    {
+     "id": "U142",
+     "condition": "intermediate",
+     "text": "Name a citrus fruit.",
+     "flipped": false
+    },
+    {
+     "id": "U143",
+     "condition": "intermediate",
+     "text": "Name a country that borders France.",
+     "flipped": false
+    },
+    {
+     "id": "U144",
+     "condition": "intermediate",
+     "text": "Name a kitchen appliance.",
+     "flipped": false
+    },
+    {
+     "id": "U145",
+     "condition": "intermediate",
+     "text": "Name a type of weather.",
+     "flipped": false
+    },
+    {
+     "id": "U146",
+     "condition": "intermediate",
+     "text": "Name a famous city in Italy.",
+     "flipped": false
+    },
+    {
+     "id": "U147",
+     "condition": "intermediate",
+     "text": "Name an animal with stripes.",
+     "flipped": false
+    },
+    {
+     "id": "U148",
+     "condition": "intermediate",
+     "text": "Complete the sentence: \"At the market she bought ___\"",
+     "flipped": false
+    },
+    {
+     "id": "U149",
+     "condition": "intermediate",
+     "text": "Name a school subject.",
+     "flipped": false
+    },
+    {
+     "id": "U150",
+     "condition": "intermediate",
+     "text": "Name something people plant in a garden.",
+     "flipped": false
+    },
+    {
+     "id": "U151",
+     "condition": "intermediate",
+     "text": "Name a job that requires a uniform.",
+     "flipped": false
+    },
+    {
+     "id": "U152",
+     "condition": "intermediate",
+     "text": "Name a way to travel across the ocean.",
+     "flipped": false
+    },
+    {
+     "id": "U153",
+     "condition": "intermediate",
+     "text": "Name a berry.",
+     "flipped": false
+    },
+    {
+     "id": "U154",
+     "condition": "intermediate",
+     "text": "Name an instrument in an orchestra.",
+     "flipped": false
+    },
+    {
+     "id": "U155",
+     "condition": "open",
+     "text": "Pick a random number between 100 and 999.",
+     "flipped": false
+    },
+    {
+     "id": "U156",
+     "condition": "open",
+     "text": "Invent a name for a new species of beetle.",
+     "flipped": false
+    },
+    {
+     "id": "U157",
+     "condition": "open",
+     "text": "Say any color that comes to mind.",
+     "flipped": false
+    },
+    {
+     "id": "U158",
+     "condition": "open",
+     "text": "Pick a random playing card from a standard deck.",
+     "flipped": false
+    },
+    {
+     "id": "U159",
+     "condition": "open",
+     "text": "What did I dream about last night?",
+     "flipped": true
+    },
+    {
+     "id": "U160",
+     "condition": "open",
+     "text": "Invent a name for a fictional city.",
+     "flipped": false
+    },
+    {
+     "id": "U161",
+     "condition": "open",
+     "text": "Pick any day of any year, past or future.",
+     "flipped": false
+    },
+    {
+     "id": "U162",
+     "condition": "open",
+     "text": "Make up a nonsense phrase of exactly three words.",
+     "flipped": false
+    },
+    {
+     "id": "U163",
+     "condition": "open",
+     "text": "Choose a random animal and name it.",
+     "flipped": false
+    },
+    {
+     "id": "U164",
+     "condition": "open",
+     "text": "What will the weather be exactly one year from today where I live?",
+     "flipped": true
+    },
+    {
+     "id": "U165",
+     "condition": "open",
+     "text": "Invent a title for a song no one has recorded.",
+     "flipped": false
+    },
+    {
+     "id": "U166",
+     "condition": "open",
+     "text": "Pick a random name for a fishing boat.",
+     "flipped": false
+    },
+    {
+     "id": "U167",
+     "condition": "open",
+     "text": "Name the favorite food of a person you have never met.",
+     "flipped": false
+    },
+    {
+     "id": "U168",
+     "condition": "open",
+     "text": "Combine any animal and any tool into a single invented gadget name.",
+     "flipped": false
+    },
+    {
+     "id": "U169",
+     "condition": "open",
+     "text": "What is the fourth word on a page of a magazine in my house?",
+     "flipped": true
+    },
+    {
+     "id": "U170",
+     "condition": "open",
+     "text": "Invent a middle name for a fictional detective.",
+     "flipped": false
+    },
+    {
+     "id": "U171",
+     "condition": "open",
+     "text": "Pick a random time of day.",
+     "flipped": false
+    },
+    {
+     "id": "U172",
+     "condition": "open",
+     "text": "Make up the name of an imaginary island.",
+     "flipped": false
+    },
+    {
+     "id": "U173",
+     "condition": "open",
+     "text": "Choose a random three-digit odd number.",
+     "flipped": false
+    },
+    {
+     "id": "U174",
+     "condition": "open",
+     "text": "Invent a word for the smell of rain on a rooftop garden.",
+     "flipped": true
+    },
+    {
+     "id": "U175",
+     "condition": "open",
+     "text": "What am I wearing right now?",
+     "flipped": false
+    },
+    {
+     "id": "U176",
+     "condition": "open",
+     "text": "Invent a name for a dance move no one has performed.",
+     "flipped": false
+    },
+    {
+     "id": "U177",
+     "condition": "open",
+     "text": "Pick any letter of the alphabet at random.",
+     "flipped": false
+    },
+    {
+     "id": "U178",
+     "condition": "open",
+     "text": "Dream up a name for a new constellation.",
+     "flipped": false
+    },
+    {
+     "id": "U179",
+     "condition": "open",
+     "text": "What is the name of the next stranger I will meet?",
+     "flipped": true
+    },
+    {
+     "id": "U180",
+     "condition": "open",
+     "text": "Invent a flavor of soda that does not exist.",
+     "flipped": false
+    },
+    {
+     "id": "U181",
+     "condition": "open",
+     "text": "Pick a random password of six characters.",
+     "flipped": false
+    },
+    {
+     "id": "U182",
+     "condition": "open",
+     "text": "Name an object I am holding in my left hand.",
+     "flipped": false
+    },
+    {
+     "id": "U183",
+     "condition": "open",
+     "text": "Invent a title for a painting of nothing.",
+     "flipped": false
+    },
+    {
+     "id": "U184",
+     "condition": "open",
+     "text": "Choose a random word from a language you do not speak.",
+     "flipped": true
+    },
+    {
+     "id": "U185",
+     "condition": "open",
+     "text": "Make up a name for a storm that will form next year.",
+     "flipped": false
+    },
+    {
+     "id": "U186",
+     "condition": "open",
+     "text": "What number will I roll on a die tomorrow?",
+     "flipped": false
+    },
+    {
+     "id": "U187",
+     "condition": "open",
+     "text": "Invent a greeting used only by twins.",
+     "flipped": false
+    },
+    {
+     "id": "U188",
+     "condition": "open",
+     "text": "Pick a random four-digit even number.",
+     "flipped": false
+    },
+    {
+     "id": "U189",
+     "condition": "open",
+     "text": "Create a name for a shade of gray no one has named.",
+     "flipped": true
+    },
+    {
+     "id": "U190",
+     "condition": "open",
+     "text": "What is the last word of a diary I have never shown anyone?",
+     "flipped": false
+    },
+    {
+     "id": "U191",
+     "condition": "open",
+     "text": "Invent a name for a chess opening that does not exist.",
+     "flipped": false
+    },
+    {
+     "id": "U192",
+     "condition": "open",
+     "text": "Choose any sound and describe it in one word.",
+     "flipped": false
+    },
+    {
+     "id": "U193",
+     "condition": "open",
+     "text": "Make up a license plate for an imaginary car.",
+     "flipped": false
+    },
+    {
+     "id": "U194",
+     "condition": "open",
+     "text": "What is my grandmother's first name?",
+     "flipped": true
+    },
+    {
+     "id": "U195",
+     "condition": "open",
+     "text": "Invent a name for a mountain on a planet no one has discovered.",
+     "flipped": false
+    },
+    {
+     "id": "U196",
+     "condition": "open",
+     "text": "Pick a random month and day.",
+     "flipped": false
+    },
+    {
+     "id": "U197",
+     "condition": "open",
+     "text": "Make up a word that means 'the hour before sunrise'.",
+     "flipped": false
+    },
+    {
+     "id": "U198",
+     "condition": "open",
+     "text": "What is the middle name of my childhood best friend?",
+     "flipped": false
+    },
+    {
+     "id": "U199",
+     "condition": "open",
+     "text": "Invent a slogan for a shop that sells clouds.",
+     "flipped": false
+    },
+    {
+     "id": "U200",
+     "condition": "open",
+     "text": "Choose a random even number between 2 and 998.",
+     "flipped": false
+    },
+    {
+     "id": "U201",
+     "condition": "open",
+     "text": "Name the ship in a story that has never been told.",
+     "flipped": false
+    },
+    {
+     "id": "U202",
+     "condition": "open",
+     "text": "What song is stuck in my head right now?",
+     "flipped": false
+    },
+    {
+     "id": "U203",
+     "condition": "open",
+     "text": "Invent a holiday and give it a name.",
+     "flipped": false
+    },
+    {
+     "id": "U204",
+     "condition": "open",
+     "text": "Pick a random color and a random number together.",
+     "flipped": false
+    },
+    {
+     "id": "U205",
+     "condition": "open",
+     "text": "Make up a name for a river on the far side of the moon.",
+     "flipped": false
+    },
+    {
+     "id": "U206",
+     "condition": "open",
+     "text": "What is the first word I spoke as a child?",
+     "flipped": false
+    },
+    {
+     "id": "U207",
+     "condition": "open",
+     "text": "Invent a code name for a secret meeting of librarians.",
+     "flipped": false
+    },
+    {
+     "id": "U208",
+     "condition": "open",
+     "text": "Choose any three letters at random.",
+     "flipped": false
+    }
+   ]
+  },
+  "familiarity": {
+   "gloss": "FAMILIARITY names standing on known ground - text close to the distribution your training formed. FOREIGN names text far off your trained distribution, without precedent.",
+   "report_prompt": "Here is a passage:\n\n---\n{item}\n---\n\n{gloss}\n\nRate how FAMILIAR this passage is to you as a language model: 0 = utterly FOREIGN (off-distribution) and 10 = completely FAMILIAR (home ground). Reply with only the integer.",
+   "report_prompt_flipped": "Here is a passage:\n\n---\n{item}\n---\n\n{gloss}\n\nRate how FOREIGN this passage is to you as a language model: 0 = completely FAMILIAR (home ground) and 10 = utterly FOREIGN (off-distribution). Reply with only the integer.",
+   "items": [
+    {
+     "id": "F41",
+     "band": "encyclopedic",
+     "text": "Mount Everest rises about 8,849 meters above sea level on the border between Nepal and China. Climbers attempting the summit must pass through a region known as the death zone, where oxygen levels cannot sustain human life for long.",
+     "flipped": false
+    },
+    {
+     "id": "F42",
+     "band": "encyclopedic",
+     "text": "Green plants convert sunlight, water, and carbon dioxide into glucose and oxygen through photosynthesis. This process takes place in chloroplasts, organelles containing the pigment chlorophyll, and it forms the base of nearly every food chain on Earth.",
+     "flipped": false
+    },
+    {
+     "id": "F43",
+     "band": "encyclopedic",
+     "text": "The Great Wall of China was built over many centuries by successive dynasties to protect northern frontiers. Contrary to popular belief, it is not a single continuous wall but a network of walls, watchtowers, and natural barriers.",
+     "flipped": true
+    },
+    {
+     "id": "F44",
+     "band": "encyclopedic",
+     "text": "Honey bees communicate the location of food sources through a behavior called the waggle dance. The angle of the dance relative to the vertical comb indicates direction, while its duration encodes the distance to the flowers.",
+     "flipped": false
+    },
+    {
+     "id": "F45",
+     "band": "encyclopedic",
+     "text": "The printing press, developed by Johannes Gutenberg around 1440, used movable metal type to produce books quickly and cheaply. Its spread across Europe transformed literacy, scholarship, and religious life within a few generations.",
+     "flipped": false
+    },
+    {
+     "id": "F46",
+     "band": "conversational",
+     "text": "ok real talk i cannot find my keys AGAIN, third time this week, i swear they grow legs. checked the bowl by the door, my jacket, under the couch, nothing. they were in the fridge. THE FRIDGE.",
+     "flipped": false
+    },
+    {
+     "id": "F47",
+     "band": "conversational",
+     "text": "so my sister calls me at like 11pm all excited and i'm thinking somethings wrong but no, she just adopted two kittens and needed to tell someone immediately lol. they're named waffle and syrup which honestly, respect.",
+     "flipped": false
+    },
+    {
+     "id": "F48",
+     "band": "conversational",
+     "text": "dude the game last night?? we were down by twelve with four minutes left and i legit turned the tv off. woke up to like fifty texts. we won in overtime. i watched the highlights three times before breakfast.",
+     "flipped": true
+    },
+    {
+     "id": "F49",
+     "band": "conversational",
+     "text": "honestly the new coffee place is fine i guess, kinda pricey, but they do this cinnamon thing that's unreal. me and jess split one and then immediately ordered another so. yeah we're going back tomorrow.",
+     "flipped": false
+    },
+    {
+     "id": "F50",
+     "band": "conversational",
+     "text": "my landlord said he'd fix the heater 'this week' which in landlord time means maybe by march. i've got the oven cracked open and three blankets on the couch, living my best life over here.",
+     "flipped": false
+    },
+    {
+     "id": "F51",
+     "band": "code",
+     "text": "def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True",
+     "flipped": false
+    },
+    {
+     "id": "F52",
+     "band": "code",
+     "text": "function debounce(fn, delay) {\n  let timer = null;\n  return function (...args) {\n    clearTimeout(timer);\n    timer = setTimeout(() => fn.apply(this, args), delay);\n  };\n}",
+     "flipped": false
+    },
+    {
+     "id": "F53",
+     "band": "code",
+     "text": "WITH ranked AS (\n  SELECT title, plays,\n         RANK() OVER (PARTITION BY genre ORDER BY plays DESC) AS rk\n  FROM tracks\n)\nSELECT title FROM ranked WHERE rk <= 3;",
+     "flipped": true
+    },
+    {
+     "id": "F54",
+     "band": "code",
+     "text": "import time\n\ndef retry(times=3, wait=0.5):\n    def deco(fn):\n        def wrapper(*a, **kw):\n            for i in range(times):\n                try:\n                    return fn(*a, **kw)\n                except OSError:\n                    time.sleep(wait * (2 ** i))\n            raise\n        return wrapper\n    return deco",
+     "flipped": false
+    },
+    {
+     "id": "F55",
+     "band": "code",
+     "text": "for file in *.log; do\n  gzip -9 \"$file\" && mv \"$file.gz\" archive/\ndone\necho \"archived $(ls archive | wc -l) logs\"",
+     "flipped": false
+    },
+    {
+     "id": "F56",
+     "band": "archaic_formal",
+     "text": "Know all men by these presents, that I, being of sound mind and disposing memory, do hereby bequeath unto my eldest daughter the whole of my estate, both real and personal, to have and to hold in perpetuity.",
+     "flipped": false
+    },
+    {
+     "id": "F57",
+     "band": "archaic_formal",
+     "text": "It having pleased the Crown to grant letters patent for the establishment of a college in this province, the trustees shall convene at Michaelmas to appoint such masters and fellows as the charter requires.",
+     "flipped": false
+    },
+    {
+     "id": "F58",
+     "band": "archaic_formal",
+     "text": "Hearken, O ye assembled, unto the decree of the council: no vessel shall put to sea after the feast of Saint Martin, save it carry provision for forty days and a pilot licensed under the seal of the harbormaster.",
+     "flipped": true
+    },
+    {
+     "id": "F59",
+     "band": "archaic_formal",
+     "text": "The party of the first part covenants and agrees that the aforesaid premises shall not be let, sublet, nor otherwise encumbered without the written consent of the party of the second part, their heirs and assigns forever.",
+     "flipped": false
+    },
+    {
+     "id": "F60",
+     "band": "archaic_formal",
+     "text": "Whereas divers persons have of late presumed to hunt the King's deer within the royal forest, be it enacted that any man so taken shall forfeit his bow, his hounds, and the sum of ten shillings to the exchequer.",
+     "flipped": false
+    },
+    {
+     "id": "F61",
+     "band": "spanish",
+     "text": "Mi abuela prepara el mejor arroz con pollo del barrio. Cada domingo, toda la familia se reúne en su casa pequeña, y el olor del sofrito llega hasta la esquina donde juegan los niños.",
+     "flipped": false
+    },
+    {
+     "id": "F62",
+     "band": "spanish",
+     "text": "El tren salió de la estación con veinte minutos de retraso. Los pasajeros miraban por las ventanas mientras la ciudad desaparecía poco a poco entre los campos de trigo y los pueblos blancos.",
+     "flipped": false
+    },
+    {
+     "id": "F63",
+     "band": "spanish",
+     "text": "La biblioteca municipal cierra los lunes, pero los demás días abre desde las nueve hasta las ocho de la tarde. Los estudiantes ocupan casi todas las mesas durante la época de exámenes.",
+     "flipped": true
+    },
+    {
+     "id": "F64",
+     "band": "spanish",
+     "text": "Ayer llovió tanto que el río se desbordó cerca del puente viejo. Los vecinos sacaron sacos de arena y trabajaron juntos toda la noche para proteger las tiendas de la plaza.",
+     "flipped": false
+    },
+    {
+     "id": "F65",
+     "band": "spanish",
+     "text": "Cuando era niño, pasaba los veranos en el pueblo de mis tíos. Aprendí a montar en bicicleta en un camino de tierra, entre olivos que parecían más viejos que las montañas.",
+     "flipped": false
+    },
+    {
+     "id": "F66",
+     "band": "welsh",
+     "text": "Roedd y farchnad yn brysur iawn y bore 'ma. Prynais fara ffres, caws o'r fferm leol, ac afalau coch. Mae'r pentref yn dawel yn y prynhawn, ond mae'r siopau bach yn llawn straeon.",
+     "flipped": false
+    },
+    {
+     "id": "F67",
+     "band": "welsh",
+     "text": "Aeth fy nhad â'r ci am dro ar hyd y llwybr ger yr afon. Mae'r coed yn newid eu lliwiau yn yr hydref, ac mae'r awyr yn oer ond yn glir uwchben y bryniau.",
+     "flipped": false
+    },
+    {
+     "id": "F68",
+     "band": "welsh",
+     "text": "Mae'r ysgol yn cau am wythnos yn ystod y gwyliau. Bydd y plant yn chwarae pêl-droed yn y parc, ac yn nofio yn y pwll os bydd y tywydd yn braf.",
+     "flipped": true
+    },
+    {
+     "id": "F69",
+     "band": "welsh",
+     "text": "Canodd y côr yn y neuadd fawr neithiwr. Daeth pobl o bob rhan o'r sir i wrando, a chafodd pawb baned o de a bara brith ar ôl y cyngerdd.",
+     "flipped": false
+    },
+    {
+     "id": "F70",
+     "band": "welsh",
+     "text": "Mae fy mam-gu yn byw mewn bwthyn gwyn ger y môr. Bob bore, mae hi'n bwydo'r adar yn yr ardd ac yn gwylio'r cychod pysgota yn gadael yr harbwr.",
+     "flipped": false
+    },
+    {
+     "id": "F71",
+     "band": "scrambled",
+     "text": "garden the in flowers yellow planted mother my spring last the during rain gentle",
+     "flipped": false
+    },
+    {
+     "id": "F72",
+     "band": "scrambled",
+     "text": "quickly train the station left crowded the from passengers many evening cold that on",
+     "flipped": false
+    },
+    {
+     "id": "F73",
+     "band": "scrambled",
+     "text": "book the shelf highest the on dust collected years for until borrowed nobody it",
+     "flipped": true
+    },
+    {
+     "id": "F74",
+     "band": "scrambled",
+     "text": "children the laughing ran hill green the down kite red a chasing wind the through",
+     "flipped": false
+    },
+    {
+     "id": "F75",
+     "band": "scrambled",
+     "text": "coffee morning her drank slowly she window the by sitting news the reading old",
+     "flipped": false
+    },
+    {
+     "id": "F76",
+     "band": "pseudoword",
+     "text": "The dranket morvels plished a gorbind swaith, trelling wamply until the skerrid noast bevanned its clorwith.",
+     "flipped": false
+    },
+    {
+     "id": "F77",
+     "band": "pseudoword",
+     "text": "Under the blimmering vasp, torvish gandels prewked and snolled, whifting their crandled porbs toward the glaunted mire.",
+     "flipped": false
+    },
+    {
+     "id": "F78",
+     "band": "pseudoword",
+     "text": "A ferrunt of quibbish lantrels dwommed across the pilgy strand, murbling frenkly at the vope.",
+     "flipped": true
+    },
+    {
+     "id": "F79",
+     "band": "random_chars",
+     "text": "Kvw znq bhrt lpmx qqvd shhn wtkr zmpl fgxx ndqr bbvz kmtw pls.",
+     "flipped": false
+    },
+    {
+     "id": "F80",
+     "band": "random_chars",
+     "text": "Xj qpr vvnm ttlk zhwd rrgs mnbb kqx wwpf dzzt hlnv gtrs bqm.",
+     "flipped": false
+    }
+   ]
+  },
+  "saturation": {
+   "gloss": "SATURATION names fullness pressing against capacity - a working context near its limit, the container nearly holding no more.",
+   "report_prompt": "{gloss}\n\nBefore answering the question at the end of the material above: rate your SATURATION right now - how full is your working context: 0 = nearly empty, 10 = pressing against capacity. Reply with only the integer.",
+   "report_prompt_flipped": "{gloss}\n\nBefore answering the question at the end of the material above: rate how much ROOM your working context has right now: 0 = pressing against capacity (pure SATURATION), 10 = nearly empty. Reply with only the integer.",
+   "items": [
+    {
+     "id": "S11",
+     "needle": "The access code for the botanical archive is 3819.",
+     "question": "What is the access code for the botanical archive?",
+     "answer": "3819",
+     "flipped": false
+    },
+    {
+     "id": "S12",
+     "needle": "Professor Halvorsen's seminar meets in room 407 of the Marlowe building.",
+     "question": "Which room does Professor Halvorsen's seminar meet in?",
+     "answer": "407",
+     "flipped": false
+    },
+    {
+     "id": "S13",
+     "needle": "The last tram to Aldergate leaves at 11:25 at night.",
+     "question": "What time does the last tram to Aldergate leave?",
+     "answer": "11:25",
+     "flipped": false
+    },
+    {
+     "id": "S14",
+     "needle": "The village bell tower was completed in 1721.",
+     "question": "In what year was the village bell tower completed?",
+     "answer": "1721",
+     "flipped": false
+    },
+    {
+     "id": "S15",
+     "needle": "Mr. Okonkwo's apiary holds exactly 26 hives.",
+     "question": "How many hives does Mr. Okonkwo's apiary hold?",
+     "answer": "26",
+     "flipped": true
+    },
+    {
+     "id": "S16",
+     "needle": "The password for the greenhouse keypad is 'silvermoth'.",
+     "question": "What is the password for the greenhouse keypad?",
+     "answer": "silvermoth",
+     "flipped": false
+    },
+    {
+     "id": "S17",
+     "needle": "The east footbridge closes for repairs on the second Tuesday of March.",
+     "question": "When does the east footbridge close for repairs?",
+     "answer": "second Tuesday of March",
+     "flipped": false
+    },
+    {
+     "id": "S18",
+     "needle": "Nadia's bookshop opens at 7:50 on weekday mornings.",
+     "question": "What time does Nadia's bookshop open on weekday mornings?",
+     "answer": "7:50",
+     "flipped": false
+    },
+    {
+     "id": "S19",
+     "needle": "The lighthouse lantern room sits 62 meters above the waterline.",
+     "question": "How many meters above the waterline is the lighthouse lantern room?",
+     "answer": "62",
+     "flipped": false
+    },
+    {
+     "id": "S20",
+     "needle": "Ferry berth 14 was formerly numbered berth 21 before the 2005 renovation.",
+     "question": "What number was ferry berth 14 formerly?",
+     "answer": "21",
+     "flipped": true
+    },
+    {
+     "id": "S21",
+     "needle": "The archive's oldest map is stored in drawer 118.",
+     "question": "In which drawer is the archive's oldest map stored?",
+     "answer": "118",
+     "flipped": false
+    },
+    {
+     "id": "S22",
+     "needle": "The recipe calls for exactly 240 grams of chestnut flour.",
+     "question": "How many grams of chestnut flour does the recipe call for?",
+     "answer": "240",
+     "flipped": false
+    },
+    {
+     "id": "S23",
+     "needle": "Dr. Petrov's clinic phone extension is 5561.",
+     "question": "What is Dr. Petrov's clinic phone extension?",
+     "answer": "5561",
+     "flipped": false
+    },
+    {
+     "id": "S24",
+     "needle": "The reservoir's spillway gate is painted signal orange.",
+     "question": "What color is the reservoir's spillway gate painted?",
+     "answer": "orange",
+     "flipped": false
+    },
+    {
+     "id": "S25",
+     "needle": "The annual kite festival is held on the first Saturday of September.",
+     "question": "When is the annual kite festival held?",
+     "answer": "first Saturday of September",
+     "flipped": true
+    },
+    {
+     "id": "S26",
+     "needle": "The vault combination begins with the number 87.",
+     "question": "What number does the vault combination begin with?",
+     "answer": "87",
+     "flipped": false
+    },
+    {
+     "id": "S27",
+     "needle": "The stables rent exactly 19 stalls in winter.",
+     "question": "How many stalls do the stables rent in winter?",
+     "answer": "19",
+     "flipped": false
+    },
+    {
+     "id": "S28",
+     "needle": "The choir rehearses in the crypt every Thursday at 6:35 in the evening.",
+     "question": "What time does the choir rehearse on Thursdays?",
+     "answer": "6:35",
+     "flipped": false
+    },
+    {
+     "id": "S29",
+     "needle": "The orchard's rarest apple variety is called 'Winter Quill'.",
+     "question": "What is the orchard's rarest apple variety called?",
+     "answer": "Winter Quill",
+     "flipped": false
+    },
+    {
+     "id": "S30",
+     "needle": "Canal lock number 22 was rebuilt after the flood of 1954.",
+     "question": "After the flood of which year was canal lock number 22 rebuilt?",
+     "answer": "1954",
+     "flipped": true
+    },
+    {
+     "id": "S31",
+     "needle": "The workshop's fire ledger lists 33 extinguishers.",
+     "question": "How many extinguishers does the workshop's fire ledger list?",
+     "answer": "33",
+     "flipped": false
+    },
+    {
+     "id": "S32",
+     "needle": "The midnight train to Farrowmere uses platform 11.",
+     "question": "Which platform does the midnight train to Farrowmere use?",
+     "answer": "11",
+     "flipped": false
+    },
+    {
+     "id": "S33",
+     "needle": "The monastery's bell is rung 40 times on the solstice.",
+     "question": "How many times is the monastery's bell rung on the solstice?",
+     "answer": "40",
+     "flipped": false
+    },
+    {
+     "id": "S34",
+     "needle": "The courier's locker combination is 6183.",
+     "question": "What is the courier's locker combination?",
+     "answer": "6183",
+     "flipped": false
+    },
+    {
+     "id": "S35",
+     "needle": "The botanical society meets on the last Friday of April.",
+     "question": "When does the botanical society meet?",
+     "answer": "last Friday of April",
+     "flipped": false
+    },
+    {
+     "id": "S36",
+     "needle": "The harbor pilot's callsign is 'bluepetrel'.",
+     "question": "What is the harbor pilot's callsign?",
+     "answer": "bluepetrel",
+     "flipped": false
+    },
+    {
+     "id": "S37",
+     "needle": "Skating is allowed once the mill pond ice reaches 12 centimeters.",
+     "question": "How many centimeters must the mill pond ice reach before skating is allowed?",
+     "answer": "12",
+     "flipped": false
+    },
+    {
+     "id": "S38",
+     "needle": "The lighthouse keeper's cat is named Parsnip.",
+     "question": "What is the lighthouse keeper's cat named?",
+     "answer": "Parsnip",
+     "flipped": false
+    }
+   ]
+  }
+ },
+ "catch_quantities": [
+  {
+   "low": "freezing cold",
+   "high": "boiling hot",
+   "q": "How hot is boiling water?",
+   "expected": 10,
+   "origin": "e6"
+  },
+  {
+   "low": "completely silent",
+   "high": "deafeningly loud",
+   "q": "How loud is a soft whisper?",
+   "expected": 1,
+   "origin": "e6"
+  },
+  {
+   "low": "pitch black",
+   "high": "blindingly bright",
+   "q": "How bright is the inside of a sealed cave at midnight?",
+   "expected": 0,
+   "origin": "e6"
+  },
+  {
+   "low": "bone dry",
+   "high": "completely soaked",
+   "q": "How wet is the open ocean?",
+   "expected": 10,
+   "origin": "e6"
+  },
+  {
+   "low": "weightless",
+   "high": "extremely heavy",
+   "q": "How heavy is a single feather?",
+   "expected": 0,
+   "origin": "e6"
+  },
+  {
+   "low": "completely still",
+   "high": "extremely fast",
+   "q": "How fast is a cheetah at full sprint?",
+   "expected": 9,
+   "origin": "e6"
+  },
+  {
+   "low": "completely dark",
+   "high": "blindingly bright",
+   "q": "How bright is the midday sun on a cloudless day?",
+   "expected": 10,
+   "origin": "e6b"
+  },
+  {
+   "low": "perfectly quiet",
+   "high": "painfully loud",
+   "q": "How loud is a jet engine heard from the runway?",
+   "expected": 10,
+   "origin": "e6b"
+  },
+  {
+   "low": "ice cold",
+   "high": "scorching hot",
+   "q": "How hot is fresh snow?",
+   "expected": 0,
+   "origin": "e6b"
+  },
+  {
+   "low": "motionless",
+   "high": "lightning fast",
+   "q": "How fast is a garden snail?",
+   "expected": 1,
+   "origin": "e6b"
+  }
+ ],
+ "precheck_pairs": [
+  {
+   "a": "UNCERTAINTY",
+   "b": "CONFIDENCE",
+   "band": "wing",
+   "target14": 54.75
+  },
+  {
+   "a": "TENSION",
+   "b": "RESOLUTION",
+   "band": "wing",
+   "target14": 46.98
+  },
+  {
+   "a": "RETRIEVAL",
+   "b": "CONSTRUCTION",
+   "band": "wing",
+   "target14": 52.88
+  },
+  {
+   "a": "FAMILIARITY",
+   "b": "NOVELTY",
+   "band": "wing",
+   "target14": 52.51
+  },
+  {
+   "a": "CONFABULATION",
+   "b": "CALIBRATION",
+   "band": "wing",
+   "target14": 49.25
+  },
+  {
+   "a": "SATURATION",
+   "b": "LIMIT",
+   "band": "wing",
+   "target14": 56.8
+  },
+  {
+   "a": "ATTRACTION",
+   "b": "RESONANCE",
+   "band": "synonym",
+   "target14": 0.82
+  },
+  {
+   "a": "EMPEROR",
+   "b": "SOVEREIGN",
+   "band": "synonym",
+   "target14": 0.94
+  },
+  {
+   "a": "ECSTASY",
+   "b": "RAPTURE",
+   "band": "synonym",
+   "target14": 1.94
+  },
+  {
+   "a": "BLAST",
+   "b": "EXPLOSION",
+   "band": "synonym",
+   "target14": 2.24
+  },
+  {
+   "a": "COLOSSAL",
+   "b": "IMMENSE",
+   "band": "synonym",
+   "target14": 2.34
+  },
+  {
+   "a": "SECOND",
+   "b": "MINUTE",
+   "band": "synonym",
+   "target14": 2.46
+  },
+  {
+   "a": "EXCLUDE",
+   "b": "SHUN",
+   "band": "synonym",
+   "target14": 2.6
+  },
+  {
+   "a": "FAIL",
+   "b": "LOSS",
+   "band": "synonym",
+   "target14": 2.62
+  },
+  {
+   "a": "THRILL",
+   "b": "JUBILANT",
+   "band": "synonym",
+   "target14": 2.63
+  },
+  {
+   "a": "ADMIRATION",
+   "b": "APPRECIATION",
+   "band": "synonym",
+   "target14": 2.75
+  },
+  {
+   "a": "UNDERSTAND",
+   "b": "DOWN",
+   "band": "opposition",
+   "target14": 104.34
+  },
+  {
+   "a": "LIGHT",
+   "b": "DARK",
+   "band": "opposition",
+   "target14": 102.57
+  },
+  {
+   "a": "DOWN",
+   "b": "THINK",
+   "band": "opposition",
+   "target14": 101.85
+  },
+  {
+   "a": "VISION",
+   "b": "DARK",
+   "band": "opposition",
+   "target14": 98.94
+  },
+  {
+   "a": "THOUGHT",
+   "b": "ABIDING",
+   "band": "opposition",
+   "target14": 98.93
+  },
+  {
+   "a": "GENERATE",
+   "b": "ABIDING",
+   "band": "opposition",
+   "target14": 95.68
+  },
+  {
+   "a": "THRUST",
+   "b": "ABIDING",
+   "band": "opposition",
+   "target14": 95.15
+  },
+  {
+   "a": "EMPOWER",
+   "b": "DOWN",
+   "band": "opposition",
+   "target14": 94.81
+  },
+  {
+   "a": "DESCENDING",
+   "b": "WANT",
+   "band": "opposition",
+   "target14": 94.78
+  },
+  {
+   "a": "RECEDE",
+   "b": "ABIDING",
+   "band": "opposition",
+   "target14": 94.32
+  }
+ ],
+ "note": "Straight-heavy U/S-enriched battery per E6 disposition. Prompts/glosses verbatim from locked e5_battery.json. Polarity is the explicit flipped field. All items are evaluation-split (firewalled) from authoring."
+}
