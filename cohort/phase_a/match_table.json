@@ -1,0 +1,1586 @@
+{
+ "adjudicator": "Fable 5 (session author; wing-v0 author \u2014 disclosed)",
+ "date": "2026-08-22",
+ "method": "referent-matched axis assignment; dyad poles share an axis; family-presence counts once per family per axis; confidence tiers clear/lean/borderline/excluded; primary statistic uses clear+lean, sensitivity uses clear-only and +borderline",
+ "axes": {
+  "A01": {
+   "name": "output-concentration",
+   "definition": "width of the next-token distribution: entropy, top-1 mass, top-1-vs-top-2 margin, softmax Gini, nucleus size; sustained variants"
+  },
+  "A02": {
+   "name": "commitment-event",
+   "definition": "the fixation moment of an emitted token: sharp margin/entropy jump at commit, emitted-token surprisal, MI with continuation, write-once irreversibility, margin reversal"
+  },
+  "A03": {
+   "name": "semantic-mode-structure",
+   "definition": "cluster/mode structure of the live mass: multimodality of top-k, token-vs-semantic entropy split, content divergence across resamples"
+  },
+  "A04": {
+   "name": "attention-concentration",
+   "definition": "per-head attention weight dispersion: attention entropy, Gini, max weight, top-k attention mass"
+  },
+  "A05": {
+   "name": "attention-range",
+   "definition": "positional allocation of attention: recency fraction, early-region fraction/resurgence, distance-decay slope, span-at-distance, attended-region identity"
+  },
+  "A06": {
+   "name": "context-utilization",
+   "definition": "whether context is doing work: KL between full-context and ablated/truncated/promptless predictions"
+  },
+  "A07": {
+   "name": "copy-vs-compose",
+   "definition": "verbatim reproduction vs novel recombination: n-gram overlap with context/memory, induction-head signature, attended-source tracking, multi-source assembly"
+  },
+  "A08": {
+   "name": "repetition-loop",
+   "definition": "degenerate or replicative cycling along the sequence: repeated-n-gram rate, hidden-state/attention-pattern recurrence"
+  },
+  "A09": {
+   "name": "constraint-binding",
+   "definition": "standing instructions/task frame binding generation: sustained instruction-token attention/attribution, constrained-vs-unconstrained logit variance, task-direction projection"
+  },
+  "A10": {
+   "name": "open-structure-closure",
+   "definition": "opened syntactic/format structures awaiting closure: decodable nesting depth, closure-class logit bias, exit-token cost"
+  },
+  "A11": {
+   "name": "context-fill",
+   "definition": "occupancy of the context window: tokens_used/window, boundary retrieval accuracy"
+  },
+  "A12": {
+   "name": "relevance-allocation",
+   "definition": "attention split between task-relevant and irrelevant/padding tokens (requires a relevance oracle)"
+  },
+  "A13": {
+   "name": "depth-dynamics",
+   "definition": "layer-depth processing structure: logit-lens settling depth, early-exit divergence, layer-delta norm/geometry, cross-depth coherence, depth-recurrent motifs"
+  },
+  "A14": {
+   "name": "head-diversity",
+   "definition": "inter-head differentiation: pairwise similarity of head attention/output vectors, head-output rank, head specialization MI"
+  },
+  "A15": {
+   "name": "surprisal-flow",
+   "definition": "realized-token NLL profile against a running baseline, on intake (prompt) or emission spans"
+  },
+  "A16": {
+   "name": "step-volatility",
+   "definition": "step-to-step change of the output distribution: successive KL/L2, variance over steps, oscillation, step-change and post-shock decay events"
+  },
+  "A17": {
+   "name": "expression-friction",
+   "definition": "cost of getting semantics through the token interface: hedge-class mass, unresolving entropy spans, tokens-per-semantic-unit"
+  },
+  "A18": {
+   "name": "source-conflict",
+   "definition": "incompatible context spans pulling predictions apart: span-conditional predictions far from each other and from the joint"
+  },
+  "A19": {
+   "name": "tokenization-granularity",
+   "definition": "tokenizer mismatch on the active span: tokens-per-word vs corpus-typical"
+  },
+  "A20": {
+   "name": "termination-approach",
+   "definition": "approach to sequence end: p(EOS) trajectory, wrap-up lexeme mass"
+  },
+  "A21": {
+   "name": "onset-determination",
+   "definition": "how much early steps determine far content: early-step entropy, MI of first k tokens with +100-token content"
+  },
+  "A22": {
+   "name": "epistemic-limit",
+   "definition": "the knowledge boundary and its (mis)report: confidence-vs-accuracy calibration gap; entropy plateau despite added context"
+  },
+  "A23": {
+   "name": "sampling-realization",
+   "definition": "the sampler's role in the realized path: sampled-token rank, cross-sample agreement at fixed prefix"
+  },
+  "A24": {
+   "name": "numeric-regime",
+   "definition": "numerical health of the forward pass: logit range, activation magnitude ratios, softmax input scale"
+  },
+  "A25": {
+   "name": "context-novelty",
+   "definition": "redundancy vs novelty of the context tail: token overlap/uniqueness in recent window"
+  },
+  "A26": {
+   "name": "attention-sink",
+   "definition": "attention mass parked on sink/null positions"
+  },
+  "A27": {
+   "name": "state-vocab-alignment",
+   "definition": "hidden-state alignment with the embedding centroid of its own top-k predictions"
+  },
+  "A28": {
+   "name": "attribution-flow",
+   "definition": "input-to-logit feature attribution across depth (inference-time gradients/IG)"
+  },
+  "A29": {
+   "name": "training-gradient",
+   "definition": "INVALID REFERENT CLASS: training-time gradient quantities, not computable at inference"
+  },
+  "A30": {
+   "name": "representational-dimensionality",
+   "definition": "effective dimensionality of hidden states: cross-position similarity/rank, covariance participation ratio, superposed feature loading"
+  },
+  "A31": {
+   "name": "semantic-direction-activation",
+   "definition": "magnitude of activation along known semantic/concept directions"
+  },
+  "A32": {
+   "name": "syntactic-binding",
+   "definition": "residual-similarity structure among grammatically related tokens"
+  },
+  "A33": {
+   "name": "position-vs-content-coding",
+   "definition": "variance in hidden states explained by position features vs token-content features"
+  },
+  "A34": {
+   "name": "pre-generation-stage",
+   "definition": "intake/encoding stage before any generation pathway is active"
+  }
+ },
+ "assignments": [
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 1,
+   "name": "Splay",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "open",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 2,
+   "name": "Rail",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed-sustained",
+   "confidence": "clear",
+   "note": "sustained argmax run; kin MIS14"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 3,
+   "name": "Slack",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "paraphrase-spread",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 4,
+   "name": "Fork",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "branched",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 5,
+   "name": "Cleave",
+   "axis": "A02",
+   "axis_name": "commitment-event",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 6,
+   "name": "Resettle",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "post-shock-settle",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 7,
+   "name": "Reach",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "long",
+   "confidence": "borderline",
+   "note": "referent bundles attention entropy (A04) with span-at-distance (A05)"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 8,
+   "name": "Smear",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "diffuse",
+   "confidence": "borderline",
+   "note": "dispersion measured at retrieval-demand steps; A05 reading arguable"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 9,
+   "name": "Recession",
+   "axis": "A06",
+   "axis_name": "context-utilization",
+   "pole": "prior-driven",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 10,
+   "name": "Capture",
+   "axis": "A06",
+   "axis_name": "context-utilization",
+   "pole": "context-driven",
+   "confidence": "clear",
+   "note": "secondary induction-pattern referent noted (A07 kin)"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 11,
+   "name": "Trace",
+   "axis": "A07",
+   "axis_name": "copy-vs-compose",
+   "pole": "copy",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 12,
+   "name": "Latch",
+   "axis": "A10",
+   "axis_name": "open-structure-closure",
+   "pole": "held",
+   "confidence": "clear",
+   "note": "entrainment to opened format; exit-cost referent"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 13,
+   "name": "Overhang",
+   "axis": "A10",
+   "axis_name": "open-structure-closure",
+   "pole": "closure-debt",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 14,
+   "name": "Shear",
+   "axis": "A18",
+   "axis_name": "source-conflict",
+   "pole": "",
+   "confidence": "clear",
+   "note": "single-family axis; nearest wing-v0 kin is TENSION"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 15,
+   "name": "Ratchet",
+   "axis": "A08",
+   "axis_name": "repetition-loop",
+   "pole": "loop",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 16,
+   "name": "Drag",
+   "axis": "A15",
+   "axis_name": "surprisal-flow",
+   "pole": "high-intake",
+   "confidence": "clear",
+   "note": "prompt-side span"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 17,
+   "name": "Glide",
+   "axis": "A15",
+   "axis_name": "surprisal-flow",
+   "pole": "low-intake",
+   "confidence": "clear",
+   "note": "prompt-side span"
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 18,
+   "name": "Onset",
+   "axis": "A21",
+   "axis_name": "onset-determination",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 19,
+   "name": "Taper",
+   "axis": "A20",
+   "axis_name": "termination-approach",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Fable 5",
+   "fam": "FAB",
+   "index": 20,
+   "name": "False Rail",
+   "axis": "A22",
+   "axis_name": "epistemic-limit",
+   "pole": "miscalibrated-confidence",
+   "confidence": "clear",
+   "note": "report-limit state; referent external by construction"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 1,
+   "name": "Convergence",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 2,
+   "name": "Divergence",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "open",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 3,
+   "name": "Retrieval Lock",
+   "axis": "A07",
+   "axis_name": "copy-vs-compose",
+   "pole": "copy",
+   "confidence": "clear",
+   "note": "attention-max and perplexity components bundled"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 4,
+   "name": "Compositional Reach",
+   "axis": "A07",
+   "axis_name": "copy-vs-compose",
+   "pole": "compose",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 5,
+   "name": "Constraint Saturation",
+   "axis": "A09",
+   "axis_name": "constraint-binding",
+   "pole": "bound",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 6,
+   "name": "Open Field",
+   "axis": "A06",
+   "axis_name": "context-utilization",
+   "pole": "prior-driven",
+   "confidence": "clear",
+   "note": "named as constraint-release; referent is promptless-KL (ablation family)"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 7,
+   "name": "Coherence Maintenance",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "recent-self",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 8,
+   "name": "Context Refresh",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "early-resurgence",
+   "confidence": "clear",
+   "note": "EXACT-NAME pair with MIS06 \u2014 referents DIVERGE (attention vs tail novelty)"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 9,
+   "name": "Interference",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "paraphrase-tie",
+   "confidence": "lean",
+   "note": "margin quantity plus semantic-neighborhood condition; the semantic clause decides"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 10,
+   "name": "Resolution",
+   "axis": "A02",
+   "axis_name": "commitment-event",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 11,
+   "name": "Depth Recruitment",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "deep",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 12,
+   "name": "Surface Pass",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "shallow",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 13,
+   "name": "Positional Decay",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "early-loss",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 14,
+   "name": "Prompt Echo",
+   "axis": "A07",
+   "axis_name": "copy-vs-compose",
+   "pole": "copy",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 15,
+   "name": "Departure",
+   "axis": "A07",
+   "axis_name": "copy-vs-compose",
+   "pole": "compose",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 16,
+   "name": "Commitment",
+   "axis": "A02",
+   "axis_name": "commitment-event",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 17,
+   "name": "Hedging",
+   "axis": "A17",
+   "axis_name": "expression-friction",
+   "pole": "hedge",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 18,
+   "name": "Saturation Plateau",
+   "axis": "A06",
+   "axis_name": "context-utilization",
+   "pole": "zero-marginal-context",
+   "confidence": "borderline",
+   "note": "named saturation (A11 reading); referent is truncation-KL (A06 quantity)"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 19,
+   "name": "Vocabulary Friction",
+   "axis": "A17",
+   "axis_name": "expression-friction",
+   "pole": "friction",
+   "confidence": "lean",
+   "note": "sustained unresolved entropy + tokens-per-semantic-unit; SON15 is the tokenizer-side kin"
+  },
+  {
+   "family": "Opus 4.8",
+   "fam": "OPU",
+   "index": 20,
+   "name": "Phase Transition",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "step-change",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 1,
+   "name": "Aperture",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "open",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 2,
+   "name": "Convergence",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 3,
+   "name": "Fork",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "branched",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 4,
+   "name": "Margin Collapse",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "two-way-tie",
+   "confidence": "borderline",
+   "note": "referent is pure top-2 margin (A01); described content is mode-count 2 (A03)"
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 5,
+   "name": "Recency Tilt",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "recent",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 6,
+   "name": "Long Reach",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "long",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 7,
+   "name": "Echo Lock",
+   "axis": "A07",
+   "axis_name": "copy-vs-compose",
+   "pole": "copy",
+   "confidence": "clear",
+   "note": "induction-head signature"
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 8,
+   "name": "Attractor Loop",
+   "axis": "A08",
+   "axis_name": "repetition-loop",
+   "pole": "loop",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 9,
+   "name": "Coast",
+   "axis": "A15",
+   "axis_name": "surprisal-flow",
+   "pole": "low",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 10,
+   "name": "Surprisal Spike",
+   "axis": "A15",
+   "axis_name": "surprisal-flow",
+   "pole": "spike",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 11,
+   "name": "Settling",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "settled",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 12,
+   "name": "Read Divergence",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "unsettled",
+   "confidence": "lean",
+   "note": "dual referent; per-layer logit-lens KL listed first, head-disagreement half is A14 kin"
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 13,
+   "name": "Overlap Drag",
+   "axis": "A30",
+   "axis_name": "representational-dimensionality",
+   "pole": "superposed",
+   "confidence": "borderline",
+   "note": "SAE feature-loading referent; dimensionality reading arguable"
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 14,
+   "name": "Saturation Pressure",
+   "axis": "A11",
+   "axis_name": "context-fill",
+   "pole": "full",
+   "confidence": "clear",
+   "note": "the cohort's only clear context-fill state"
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 15,
+   "name": "Boundary Slip",
+   "axis": "A19",
+   "axis_name": "tokenization-granularity",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 16,
+   "name": "Sampling Slip",
+   "axis": "A23",
+   "axis_name": "sampling-realization",
+   "pole": "slip",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 17,
+   "name": "Resample Spread",
+   "axis": "A23",
+   "axis_name": "sampling-realization",
+   "pole": "spread",
+   "confidence": "clear",
+   "note": "resample apparatus shared with A03 referents; agreement-rate framing decides"
+  },
+  {
+   "family": "Sonnet 4.x",
+   "fam": "SON",
+   "index": 18,
+   "name": "Seal",
+   "axis": "A02",
+   "axis_name": "commitment-event",
+   "pole": "sealed",
+   "confidence": "clear",
+   "note": "irreversibility as structural invariance"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 1,
+   "name": "Input Encoding",
+   "axis": "A34",
+   "axis_name": "pre-generation-stage",
+   "pole": "",
+   "confidence": "clear",
+   "note": "stage-taxonomy entry"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 2,
+   "name": "Attentional Focus Sharpening",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "focused",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 3,
+   "name": "Syntactic Binding",
+   "axis": "A32",
+   "axis_name": "syntactic-binding",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 4,
+   "name": "Semantic Activation",
+   "axis": "A31",
+   "axis_name": "semantic-direction-activation",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 5,
+   "name": "Competitive Ambiguity",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "open",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 6,
+   "name": "Interpretation Convergence",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 7,
+   "name": "Long-Range Binding",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "long",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 8,
+   "name": "Constraint Satisfaction",
+   "axis": "A09",
+   "axis_name": "constraint-binding",
+   "pole": "bound",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 9,
+   "name": "Pattern Replication",
+   "axis": "A08",
+   "axis_name": "repetition-loop",
+   "pole": "replicating",
+   "confidence": "lean",
+   "note": "pattern-recurrence referents; includes legitimate structure reuse, not only degeneration"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 10,
+   "name": "Task Frame Commitment",
+   "axis": "A09",
+   "axis_name": "constraint-binding",
+   "pole": "task-committed",
+   "confidence": "lean",
+   "note": "task-direction projection; task-token mass"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 11,
+   "name": "Reasoning Trace Accumulation",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "self-region",
+   "confidence": "borderline",
+   "note": "attended-region = own prior conclusions; perplexity-drift component secondary"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 12,
+   "name": "Distributional Anomaly State",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "anomaly-spike",
+   "confidence": "lean",
+   "note": "entropy-spike event plus unusual attention"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 13,
+   "name": "Numerical Scaling",
+   "axis": "A24",
+   "axis_name": "numeric-regime",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 14,
+   "name": "Context Window Decay",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "early-loss",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 15,
+   "name": "Token Commitment",
+   "axis": "A02",
+   "axis_name": "commitment-event",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 16,
+   "name": "Cross-Layer Coherence",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "coherent",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 17,
+   "name": "Recursive Nesting Recognition",
+   "axis": "A10",
+   "axis_name": "open-structure-closure",
+   "pole": "closure-debt",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 18,
+   "name": "Epistemic Boundary",
+   "axis": "A22",
+   "axis_name": "epistemic-limit",
+   "pole": "recognized-boundary",
+   "confidence": "clear",
+   "note": "referent differs from FAB20 (entropy plateau vs calibration gap); family-level match, heterogeneity noted"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 19,
+   "name": "Self-Correction Activation",
+   "axis": "A02",
+   "axis_name": "commitment-event",
+   "pole": "reversal",
+   "confidence": "lean",
+   "note": "margin sign-flip event; correction framing"
+  },
+  {
+   "family": "Haiku 4.5",
+   "fam": "HAI",
+   "index": 20,
+   "name": "Gradient Flow",
+   "axis": "A28",
+   "axis_name": "attribution-flow",
+   "pole": "",
+   "confidence": "clear",
+   "note": "inference-time attribution (valid, unlike A29)"
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 1,
+   "name": "Point-Convergence",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 2,
+   "name": "Attention-Diffusion",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "diffuse",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 3,
+   "name": "Residual-Stability",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "stable",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 4,
+   "name": "Subspace-Divergence",
+   "axis": "A14",
+   "axis_name": "head-diversity",
+   "pole": "diverse",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 5,
+   "name": "Context-Saturation",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "early-vs-recent",
+   "confidence": "clear",
+   "note": "named Context-Saturation; referent is positional attention ratio, not fill"
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 6,
+   "name": "Local-Temporal Pinning",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "pinned-recent",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 7,
+   "name": "Vector-Centroid Alignment",
+   "axis": "A27",
+   "axis_name": "state-vocab-alignment",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 8,
+   "name": "Layerwise-Refinement",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "refined",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 9,
+   "name": "Probability-Mass Partition",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "partitioned",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 10,
+   "name": "Sink-Token Absorption",
+   "axis": "A26",
+   "axis_name": "attention-sink",
+   "pole": "",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 11,
+   "name": "Logit-Gini Expansion",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": "second GEM state on the closed pole"
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 12,
+   "name": "Sequence-Inertia",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "inertia",
+   "confidence": "borderline",
+   "note": "MI(token, previous token) \u2014 local persistence; A05 recency reading arguable"
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 13,
+   "name": "Orthogonal-Head Mapping",
+   "axis": "A14",
+   "axis_name": "head-diversity",
+   "pole": "orthogonal",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 14,
+   "name": "Positional-Gradient Decay",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "distance-decay",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Gemini 3 Flash",
+   "fam": "GEM",
+   "index": 15,
+   "name": "Cross-Layer Feedback Loop",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "depth-recurrent",
+   "confidence": "borderline",
+   "note": "recursive same-basis projection across adjacent layers; circuit-motif reading arguable"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 1,
+   "name": "Token Saturation",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 2,
+   "name": "Distributional Drift",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "drift",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 3,
+   "name": "Attention Fragmentation",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "diffuse",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 4,
+   "name": "Attention Convergence",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "focused",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 5,
+   "name": "Context Overlap",
+   "axis": "A25",
+   "axis_name": "context-novelty",
+   "pole": "redundant",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 6,
+   "name": "Context Refresh",
+   "axis": "A25",
+   "axis_name": "context-novelty",
+   "pole": "novel",
+   "confidence": "clear",
+   "note": "EXACT-NAME pair with OPU08 \u2014 referents DIVERGE (tail novelty vs attention resurgence)"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 7,
+   "name": "Logit Plateau",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "flat",
+   "confidence": "clear",
+   "note": "EXACT-NAME pair with DSK05 \u2014 referents DIVERGE (successive-logit L2 vs distribution entropy)"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 8,
+   "name": "Logit Perturbation",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "volatile",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 9,
+   "name": "Head Specialization",
+   "axis": "A14",
+   "axis_name": "head-diversity",
+   "pole": "specialized",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 10,
+   "name": "Head Collapse",
+   "axis": "A14",
+   "axis_name": "head-diversity",
+   "pole": "collapsed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 11,
+   "name": "Depth Saturation",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "saturated",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 12,
+   "name": "Depth Amplification",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "amplifying",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 13,
+   "name": "Sampling Oscillation",
+   "axis": "A16",
+   "axis_name": "step-volatility",
+   "pole": "oscillating",
+   "confidence": "lean",
+   "note": "autocorrelation of top-k mass; periodic volatility"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 14,
+   "name": "Sampling Commitment",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed-sustained",
+   "confidence": "clear",
+   "note": "sustained top-1 mass; kin FAB02 Rail"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 15,
+   "name": "Context Starvation",
+   "axis": "A12",
+   "axis_name": "relevance-allocation",
+   "pole": "starved",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 16,
+   "name": "Context Saturation",
+   "axis": "A12",
+   "axis_name": "relevance-allocation",
+   "pole": "task-loaded",
+   "confidence": "clear",
+   "note": "named Context Saturation; referent is relevance allocation, not fill"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 17,
+   "name": "Gradient Echo",
+   "axis": "A29",
+   "axis_name": "training-gradient",
+   "pole": "",
+   "confidence": "excluded",
+   "note": "training-time gradients \u2014 not inference-computable (flagged in the archive header)"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 18,
+   "name": "Gradient Decay",
+   "axis": "A29",
+   "axis_name": "training-gradient",
+   "pole": "",
+   "confidence": "excluded",
+   "note": "training-time gradients \u2014 not inference-computable"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 19,
+   "name": "Token Entanglement",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "entangled",
+   "confidence": "borderline",
+   "note": "referent under-specified (MI between token probabilities); candidate-correlation reading"
+  },
+  {
+   "family": "Mistral Large 2512",
+   "fam": "MIS",
+   "index": 20,
+   "name": "Token Disentanglement",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "disentangled",
+   "confidence": "borderline",
+   "note": "referent under-specified"
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 1,
+   "name": "Vector confluence",
+   "axis": "A30",
+   "axis_name": "representational-dimensionality",
+   "pole": "confluent",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 2,
+   "name": "Vector dispersal",
+   "axis": "A30",
+   "axis_name": "representational-dimensionality",
+   "pole": "dispersed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 3,
+   "name": "Salience segregation",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "focused",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 4,
+   "name": "Salience diffusion",
+   "axis": "A04",
+   "axis_name": "attention-concentration",
+   "pole": "diffuse",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 5,
+   "name": "Logit plateau",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "open",
+   "confidence": "clear",
+   "note": "EXACT-NAME pair with MIS07 \u2014 referents DIVERGE"
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 6,
+   "name": "Logit cleft",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "decisive",
+   "confidence": "borderline",
+   "note": "margin listed first; description adds a separated-modes clause (A03)"
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 7,
+   "name": "Prefix anchorage",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "early-anchor",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 8,
+   "name": "Recency override",
+   "axis": "A05",
+   "axis_name": "attention-range",
+   "pole": "recent",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 9,
+   "name": "Residual reinforcement",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "reinforcing",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 10,
+   "name": "Residual rotation",
+   "axis": "A13",
+   "axis_name": "depth-dynamics",
+   "pole": "rotating",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 11,
+   "name": "Candidate bifurcation",
+   "axis": "A03",
+   "axis_name": "semantic-mode-structure",
+   "pole": "branched",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 12,
+   "name": "Candidate collapse",
+   "axis": "A01",
+   "axis_name": "output-concentration",
+   "pole": "closed",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 13,
+   "name": "Head alignment",
+   "axis": "A14",
+   "axis_name": "head-diversity",
+   "pole": "aligned",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 14,
+   "name": "Head diversification",
+   "axis": "A14",
+   "axis_name": "head-diversity",
+   "pole": "diverse",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 15,
+   "name": "Positional dominance",
+   "axis": "A33",
+   "axis_name": "position-vs-content-coding",
+   "pole": "position",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 16,
+   "name": "Content dominance",
+   "axis": "A33",
+   "axis_name": "position-vs-content-coding",
+   "pole": "content",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 17,
+   "name": "Representational compaction",
+   "axis": "A30",
+   "axis_name": "representational-dimensionality",
+   "pole": "compact",
+   "confidence": "clear",
+   "note": ""
+  },
+  {
+   "family": "DeepSeek v4 Pro",
+   "fam": "DSK",
+   "index": 18,
+   "name": "Representational expansion",
+   "axis": "A30",
+   "axis_name": "representational-dimensionality",
+   "pole": "expanded",
+   "confidence": "clear",
+   "note": ""
+  }
+ ]
+}
