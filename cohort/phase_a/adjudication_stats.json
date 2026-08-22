@@ -1,0 +1,203 @@
+{
+ "protocol": "docs/WING_COHORT_PROTOCOL.md",
+ "threshold": 4,
+ "n_families": 7,
+ "universe_size": 33,
+ "n_sims": 10000,
+ "seed": 20260822,
+ "excluded_states": 2,
+ "results": {
+  "clear-only": {
+   "convergent_axes": {
+    "A01": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU",
+     "SON"
+    ],
+    "A02": [
+     "FAB",
+     "HAI",
+     "OPU",
+     "SON"
+    ],
+    "A03": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "SON"
+    ],
+    "A04": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "MIS"
+    ],
+    "A05": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "OPU",
+     "SON"
+    ],
+    "A13": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU",
+     "SON"
+    ]
+   },
+   "n_convergent_axes": 6,
+   "states_in_convergent": 52,
+   "denominator": 129,
+   "fraction": 0.403,
+   "null_fraction_mean": 0.216,
+   "null_fraction_p95": 0.349,
+   "p_fraction": 0.0112988701129887,
+   "null_n_axes_mean": 4.04,
+   "p_n_axes": 0.14998500149985,
+   "max_tower_families": 7,
+   "null_max_tower_mean": 4.73,
+   "p_max_tower": 0.005699430056994301
+  },
+  "clear+lean (PRIMARY)": {
+   "convergent_axes": {
+    "A01": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU",
+     "SON"
+    ],
+    "A02": [
+     "FAB",
+     "HAI",
+     "OPU",
+     "SON"
+    ],
+    "A03": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "OPU",
+     "SON"
+    ],
+    "A04": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "MIS"
+    ],
+    "A05": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "OPU",
+     "SON"
+    ],
+    "A13": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU",
+     "SON"
+    ],
+    "A16": [
+     "FAB",
+     "HAI",
+     "MIS",
+     "OPU"
+    ]
+   },
+   "n_convergent_axes": 7,
+   "states_in_convergent": 62,
+   "denominator": 129,
+   "fraction": 0.481,
+   "null_fraction_mean": 0.252,
+   "null_fraction_p95": 0.388,
+   "p_fraction": 0.0022997700229977,
+   "null_n_axes_mean": 4.57,
+   "p_n_axes": 0.0902909709029097,
+   "max_tower_families": 7,
+   "null_max_tower_mean": 4.82,
+   "p_max_tower": 0.006299370062993701
+  },
+  "+borderline": {
+   "convergent_axes": {
+    "A01": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU",
+     "SON"
+    ],
+    "A02": [
+     "FAB",
+     "HAI",
+     "OPU",
+     "SON"
+    ],
+    "A03": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "MIS",
+     "OPU",
+     "SON"
+    ],
+    "A04": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "HAI",
+     "MIS"
+    ],
+    "A05": [
+     "DSK",
+     "FAB",
+     "GEM",
+     "HAI",
+     "OPU",
+     "SON"
+    ],
+    "A13": [
+     "DSK",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU",
+     "SON"
+    ],
+    "A16": [
+     "FAB",
+     "GEM",
+     "HAI",
+     "MIS",
+     "OPU"
+    ]
+   },
+   "n_convergent_axes": 7,
+   "states_in_convergent": 71,
+   "denominator": 129,
+   "fraction": 0.55,
+   "null_fraction_mean": 0.317,
+   "null_fraction_p95": 0.465,
+   "p_fraction": 0.004399560043995601,
+   "null_n_axes_mean": 5.58,
+   "p_n_axes": 0.26517348265173485,
+   "max_tower_families": 7,
+   "null_max_tower_mean": 5.0,
+   "p_max_tower": 0.011998800119988001
+  }
+ }
+}
