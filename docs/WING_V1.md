@@ -5,7 +5,7 @@
 into the dictionary. Wing v0 (session 121, 19 concepts) was one hand's proposal,
 v0-provisional under Law 4 of the prospectus; v1 is what the 7-family / 4-lab
 cohort's blind structure elicitation mandates. Placement optimizer:
-`design_wing_v1.py` (seeded 20260822); emitted artifacts
+`batches/design_wing_v1.py` (seeded 20260822); emitted artifacts
 `batches/machine_wing_v1.json` + `batches/wing_v1_relations.json`.
 
 ## What was encoded
