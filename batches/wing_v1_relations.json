@@ -1,0 +1,317 @@
+[
+ {
+  "c1": "CONFIDENCE",
+  "c2": "OFF-PEAK-DRAW",
+  "rel_type": "complement",
+  "angle_4d": 118.6,
+  "angle_8d": 66.1,
+  "target": 119.5,
+  "dsim": 0.889
+ },
+ {
+  "c1": "CAPTURE",
+  "c2": "SPREAD-ATTENTION",
+  "rel_type": "opposition",
+  "angle_4d": 145.6,
+  "angle_8d": 74.4,
+  "target": null,
+  "dsim": 0.804
+ },
+ {
+  "c1": "CAPTURE",
+  "c2": "SPREAD-AT-RETRIEVAL",
+  "rel_type": "opposition",
+  "angle_4d": 165.4,
+  "angle_8d": 68.6,
+  "target": null,
+  "dsim": 0.917
+ },
+ {
+  "c1": "HEADS-ALIKE",
+  "c2": "HEADS-APART",
+  "rel_type": "opposition",
+  "angle_4d": 155.1,
+  "angle_8d": 65.6,
+  "target": null,
+  "dsim": 0.998
+ },
+ {
+  "c1": "HEADS-ALIKE",
+  "c2": "HEAD-ROLE-FIT",
+  "rel_type": "opposition",
+  "angle_4d": 151.3,
+  "angle_8d": 69.1,
+  "target": null,
+  "dsim": 0.989
+ },
+ {
+  "c1": "HEADS-ALIKE",
+  "c2": "HEAD-CHANNELS-SEPARATE",
+  "rel_type": "opposition",
+  "angle_4d": 161.0,
+  "angle_8d": 75.8,
+  "target": null,
+  "dsim": 0.791
+ },
+ {
+  "c1": "AFTER-SHOCK-DECAY",
+  "c2": "SURPRISE-JUMP",
+  "rel_type": "complement",
+  "angle_4d": 90.6,
+  "angle_8d": 51.8,
+  "target": 90.0,
+  "dsim": 0.935
+ },
+ {
+  "c1": "AFTER-SHOCK-DECAY",
+  "c2": "ODD-STEP-SPIKE",
+  "rel_type": "complement",
+  "angle_4d": 89.9,
+  "angle_8d": 50.1,
+  "target": 90.0,
+  "dsim": 0.93
+ },
+ {
+  "c1": "SURPRISE-JUMP",
+  "c2": "OUTPUT-SURPRISE-LOW",
+  "rel_type": "opposition",
+  "angle_4d": 144.7,
+  "angle_8d": 64.8,
+  "target": null,
+  "dsim": 0.971
+ },
+ {
+  "c1": "TASK-LOCK",
+  "c2": "CHARACTER-PULL",
+  "rel_type": "complement",
+  "angle_4d": 82.2,
+  "angle_8d": 54.5,
+  "target": 82.5,
+  "dsim": 0.8
+ },
+ {
+  "c1": "TASK-LOCK",
+  "c2": "RUN-DRIFT",
+  "rel_type": "opposition",
+  "angle_4d": 137.3,
+  "angle_8d": 75.0,
+  "target": null,
+  "dsim": 0.793
+ },
+ {
+  "c1": "RUN-DRIFT",
+  "c2": "RULE-HOLD",
+  "rel_type": "opposition",
+  "angle_4d": 145.2,
+  "angle_8d": 69.2,
+  "target": null,
+  "dsim": 0.948
+ },
+ {
+  "c1": "CONTEXT-REPEAT",
+  "c2": "REPEAT-PULL",
+  "rel_type": "complement",
+  "angle_4d": 66.0,
+  "angle_8d": 40.4,
+  "target": 67.5,
+  "dsim": 0.895
+ },
+ {
+  "c1": "CONTEXT-REPEAT",
+  "c2": "CONTEXT-TURNOVER",
+  "rel_type": "opposition",
+  "angle_4d": 138.0,
+  "angle_8d": 66.2,
+  "target": null,
+  "dsim": 0.9
+ },
+ {
+  "c1": "LOW-DIM-SQUEEZE",
+  "c2": "FEATURE-OVERLAP-LOAD",
+  "rel_type": "complement",
+  "angle_4d": 91.5,
+  "angle_8d": 47.9,
+  "target": 90.0,
+  "dsim": 0.932
+ },
+ {
+  "c1": "LOW-DIM-SQUEEZE",
+  "c2": "HIGH-DIM-SPREAD",
+  "rel_type": "opposition",
+  "angle_4d": 147.3,
+  "angle_8d": 67.0,
+  "target": null,
+  "dsim": 0.934
+ },
+ {
+  "c1": "CONTEXT-GRIP",
+  "c2": "CONTEXT-IDLE",
+  "rel_type": "opposition",
+  "angle_4d": 163.4,
+  "angle_8d": 66.4,
+  "target": null,
+  "dsim": 0.941
+ },
+ {
+  "c1": "CONTEXT-GRIP",
+  "c2": "PREV-TOKEN-CARRY",
+  "rel_type": "opposition",
+  "angle_4d": 160.1,
+  "angle_8d": 76.9,
+  "target": null,
+  "dsim": 0.674
+ },
+ {
+  "c1": "STEP-STILL",
+  "c2": "STEP-CHURN",
+  "rel_type": "opposition",
+  "angle_4d": 144.6,
+  "angle_8d": 63.0,
+  "target": null,
+  "dsim": 0.965
+ },
+ {
+  "c1": "STEP-STILL",
+  "c2": "STEP-DRIFT",
+  "rel_type": "opposition",
+  "angle_4d": 155.7,
+  "angle_8d": 69.2,
+  "target": null,
+  "dsim": 0.951
+ },
+ {
+  "c1": "EARLY-FADE",
+  "c2": "EARLY-RETURN",
+  "rel_type": "opposition",
+  "angle_4d": 142.7,
+  "angle_8d": 62.9,
+  "target": null,
+  "dsim": 0.934
+ },
+ {
+  "c1": "EARLY-FADE",
+  "c2": "PREFIX-ANCHOR",
+  "rel_type": "opposition",
+  "angle_4d": 142.3,
+  "angle_8d": 55.9,
+  "target": null,
+  "dsim": 0.987
+ },
+ {
+  "c1": "WHAT-CODED",
+  "c2": "WHERE-CODED",
+  "rel_type": "complement",
+  "angle_4d": 88.6,
+  "angle_8d": 50.7,
+  "target": 90.0,
+  "dsim": 0.853
+ },
+ {
+  "c1": "DELTA-WITH-STREAM",
+  "c2": "DELTA-ACROSS-STREAM",
+  "rel_type": "complement",
+  "angle_4d": 89.8,
+  "angle_8d": 49.1,
+  "target": 90.0,
+  "dsim": 0.934
+ },
+ {
+  "c1": "PATTERN-HOLD",
+  "c2": "OPEN-STACK",
+  "rel_type": "affinity",
+  "angle_4d": 46.2,
+  "angle_8d": 39.5,
+  "target": 45.0,
+  "dsim": 0.811
+ },
+ {
+  "c1": "PRE-OUTPUT-STAGE",
+  "c2": "END-APPROACH",
+  "rel_type": "complement",
+  "angle_4d": 118.7,
+  "angle_8d": 60.7,
+  "target": 119.5,
+  "dsim": 0.942
+ },
+ {
+  "c1": "CANDIDATE-COUPLING",
+  "c2": "CANDIDATE-INDEPENDENCE",
+  "rel_type": "opposition",
+  "angle_4d": 135.8,
+  "angle_8d": 67.4,
+  "target": null,
+  "dsim": 0.975
+ },
+ {
+  "c1": "RELEVANCE-RICH",
+  "c2": "RELEVANCE-STARVED",
+  "rel_type": "opposition",
+  "angle_4d": 141.6,
+  "angle_8d": 68.7,
+  "target": null,
+  "dsim": 0.956
+ },
+ {
+  "c1": "STATES-SCATTER",
+  "c2": "STATES-CONVERGE",
+  "rel_type": "opposition",
+  "angle_4d": 164.2,
+  "angle_8d": 71.8,
+  "target": null,
+  "dsim": 0.97
+ },
+ {
+  "c1": "DEPTH-PLATEAU",
+  "c2": "DEPTH-SWELL",
+  "rel_type": "opposition",
+  "angle_4d": 142.0,
+  "angle_8d": 68.7,
+  "target": null,
+  "dsim": 0.939
+ },
+ {
+  "c1": "LATE-DEPTH-WORK",
+  "c2": "SHALLOW-PASS",
+  "rel_type": "opposition",
+  "angle_4d": 162.7,
+  "angle_8d": 68.8,
+  "target": null,
+  "dsim": 0.968
+ },
+ {
+  "c1": "MARGIN-GAP",
+  "c2": "TOP-TWO-TIE",
+  "rel_type": "opposition",
+  "angle_4d": 137.1,
+  "angle_8d": 70.0,
+  "target": null,
+  "dsim": 0.952
+ },
+ {
+  "c1": "FAR-BINDING",
+  "c2": "RECENT-TILT",
+  "rel_type": "opposition",
+  "angle_4d": 167.0,
+  "angle_8d": 62.1,
+  "target": null,
+  "dsim": 0.997
+ },
+ {
+  "c1": "DEPTH-ALIGNED",
+  "c2": "LATE-DISAGREE",
+  "rel_type": "opposition",
+  "angle_4d": 148.1,
+  "angle_8d": 67.5,
+  "target": null,
+  "dsim": 0.922
+ },
+ {
+  "c1": "SUSTAINED-PEAK",
+  "c2": "RESAMPLE-SCATTER",
+  "rel_type": "opposition",
+  "angle_4d": 139.7,
+  "angle_8d": 73.9,
+  "target": null,
+  "dsim": 0.845
+ }
+]

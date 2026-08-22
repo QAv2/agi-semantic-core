@@ -6,7 +6,7 @@
     "violation_precision": 0.9833,
     "violation_recall": 0.9219,
     "violation_f1": 0.9516,
-    "elapsed_seconds": 12.5
+    "elapsed_seconds": 17.9
   },
   "results": [
     {
