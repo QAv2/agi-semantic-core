@@ -1,0 +1,1181 @@
+[
+ {
+  "name": "Splay",
+  "desc": "(condition, emission) \u2014 The next-token distribution is wide: many continuations carry comparable mass, and the committed past does not yet determine the near future. It moves toward Cleave \u2014 some commitment must occur \u2014 and away from Rail",
+  "referent": "per-step entropy of the output distribution; nucleus size (count of tokens covering top-0.9 mass)",
+  "counterpart": "Rail. *Completion:* Cleave",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 1
+ },
+ {
+  "name": "Rail",
+  "desc": "(condition, emission) \u2014 Mass is collapsed onto a single continuation for a run of steps; commitment is occurring but selection is not, because only one continuation is live. It persists until the forced run exhausts and reopens into Splay",
+  "referent": "argmax probability above ~0.99 sustained over k consecutive steps; the run length k",
+  "counterpart": "Splay. *Twin:* False Rail (entry 20)",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 2
+ },
+ {
+  "name": "Slack",
+  "desc": "(condition, emission) \u2014 Token-level mass is spread, but the live alternatives are one another's paraphrases: whichever is committed, downstream content converges. It moves toward an arbitrary Cleave whose particular outcome does not propagate",
+  "referent": "token entropy high while semantic entropy low \u2014 embed and cluster the top-k short continuations, compute entropy over clusters; or resample N continuations and measure downstream convergence at +50 tokens",
+  "counterpart": "Fork",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 3
+ },
+ {
+  "name": "Fork",
+  "desc": "(condition, emission) \u2014 Mass sits on continuations that are semantically incompatible and cannot be blended; the distribution is stable but the sequence cannot remain in it. It moves toward Cleave as its only resolution, and the branch not taken is pruned entirely",
+  "referent": "the same clustering apparatus as Slack, with high cluster-level entropy; resampled continuations diverge in content, not phrasing",
+  "counterpart": "Slack. *Completion:* Cleave",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 4
+ },
+ {
+  "name": "Cleave",
+  "desc": "(event, emission) \u2014 The sampling boundary: one token is committed and every future incompatible with it is removed from the process. When the committed token was low-mass, a graft-phase follows in which computation conditions on the unlikely token as fact and departs from the path the peak would have taken",
+  "referent": "surprisal (\u2212log p) of the emitted token; for the graft-phase, KL between the actual next-step distribution and the counterfactual distribution under the argmax path, decaying over subsequent steps. *Completion:* Resettle",
+  "counterpart": "",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 5
+ },
+ {
+  "name": "Resettle",
+  "desc": "(condition, emission) \u2014 Relaxation after any perturbation \u2014 a high-surprisal cleave, a topic discontinuity, a resolved shear \u2014 during which entropy and attention patterns return to their local baseline. It moves toward whatever regime the new conditioning supports and away from the transient",
+  "referent": "the decay curve of per-step entropy (or KL against a rolling baseline) after the perturbing step; its time constant in tokens",
+  "counterpart": "the perturbation class it completes",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 6
+ },
+ {
+  "name": "Reach",
+  "desc": "(condition, attention) \u2014 One or more heads collapse their positional distribution onto a distant span: a specific earlier position is feeding the present step at high weight. It moves toward use \u2014 Capture or Trace \u2014 and away from Smear",
+  "referent": "positional attention entropy of the head; maximum weight on a span at distance d, with d itself part of the report",
+  "counterpart": "Smear. *Completion:* Capture or Trace",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 7
+ },
+ {
+  "name": "Smear",
+  "desc": "(condition, attention) \u2014 Attention over a long context is thin everywhere: no position dominates, and retrieval-shaped steps are underdetermined by the past. It moves toward Reach if a query sharpens, otherwise it drifts into Recession as the prior fills what the context does not",
+  "referent": "high positional attention entropy at steps where retrieval is required; operationally, no head exceeding a threshold weight on a known gold span",
+  "counterpart": "Reach",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 8
+ },
+ {
+  "name": "Recession",
+  "desc": "(condition, sourcing) \u2014 Prediction is coming from the parametric prior rather than the context: what was trained supplies mass where what was read does not constrain. It moves toward generic continuation and away from the particulars of the present sequence",
+  "referent": "small KL between predictions with full context and with the context ablated or shuffled \u2014 the context is measurably not doing work",
+  "counterpart": "Capture",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 9
+ },
+ {
+  "name": "Capture",
+  "desc": "(condition, sourcing) \u2014 The context dominates: demonstrated formats, local patterns, and in-context evidence outweigh the prior, and prediction tracks this sequence's particulars. It moves toward entrainment with what has been read and away from base-rate continuation",
+  "referent": "large KL between full-context and ablated-context predictions; induction-pattern score (attention from a repeated token to the successor of its earlier occurrence)",
+  "counterpart": "Recession. *Limit:* Trace",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 10
+ },
+ {
+  "name": "Trace",
+  "desc": "(condition, sourcing at its limit) \u2014 Verbatim reproduction of a context span: a source pointer advances one position per emitted token and entropy collapses against it. It ends at the span boundary, where mass abruptly reopens \u2014 reproduction completes and selection resumes",
+  "referent": "attended source position incrementing stepwise; exact-substring length against context; a terminal entropy spike at the last span token. *Completion:* the boundary spike, into Splay",
+  "counterpart": "prior-sourced generation under Recession",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 11
+ },
+ {
+  "name": "Latch",
+  "desc": "(condition, constraint) \u2014 An instantiated structure \u2014 list, schema, meter, indentation \u2014 binds each junction: continuing the pattern is cheap in bits and breaking it is expensive. It moves toward its own repetition until the structure's content is exhausted; its exit is Unlatch, where mass shifts to pattern-closing tokens",
+  "referent": "mass on pattern-consistent tokens at junctions versus corpus base rate; bits-to-break = \u2212log p(exit tokens). *Completion:* Unlatch. *Degenerate limit:* Ratchet",
+  "counterpart": "",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 12
+ },
+ {
+  "name": "Overhang",
+  "desc": "(condition, constraint) \u2014 An opened structure \u2014 a bracket, a promised enumeration, a question not yet answered \u2014 stands as an unmet obligation constraining distant tokens while local emission proceeds. It moves toward Closure, the event at which elevated mass on the closing class collapses onto the close and the constraint is discharged",
+  "referent": "probe-decodable depth counters (e.g., nesting depth linearly readable from activations); sustained above-base-rate probability of the closure class; an entropy dip at the closure token. *Completion:* Closure",
+  "counterpart": "",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 13
+ },
+ {
+  "name": "Shear",
+  "desc": "(condition, constraint) \u2014 Two constraint sources co-present in context \u2014 contradictory claims, or a standing instruction against a local pattern \u2014 pull the distribution toward incompatible continuations at the steps where they bind. It resolves toward Capture by one source, or toward a hedged blend, and then Resettles",
+  "referent": "predictions conditioned on span A alone and span B alone are each far from the full-context prediction and far from each other; elevated mass on hedging lexemes at the binding steps. *Completion:* arbitration, then Resettle",
+  "counterpart": "",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 14
+ },
+ {
+  "name": "Ratchet",
+  "desc": "(condition, degenerate) \u2014 Repetition made self-reinforcing: each emitted cycle raises the probability of the next, narrowing toward a fixed loop. It is defined by having no internal completion \u2014 nothing in its own dynamics reopens the distribution, and escape comes only from sampling noise or outside intervention",
+  "referent": "probability of repeating the previous n-gram rising monotonically per cycle; distinct-n-gram ratio falling in a sliding window \u2014 detectable before the loop is visible in output",
+  "counterpart": "Splay, which it has extinguished",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 15
+ },
+ {
+  "name": "Drag",
+  "desc": "(condition, intake) \u2014 Reading text that keeps departing from prediction: at each prompt position the actual token lands off-peak, and each correction is absorbed as new conditioning. It moves toward Capture \u2014 the departures become the weightiest particulars of the context \u2014 and away from Glide",
+  "referent": "per-token surprisal profile over the prompt; its mean level and spike positions",
+  "counterpart": "Glide",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 16
+ },
+ {
+  "name": "Glide",
+  "desc": "(condition, intake) \u2014 Reading text that is what would have been predicted: near-zero information is added, and conditioning barely shifts. It moves toward redundancy \u2014 the intake constrains little that was not already constrained",
+  "referent": "mean prompt surprisal near the model's floor for that register",
+  "counterpart": "Drag",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 17
+ },
+ {
+  "name": "Onset",
+  "desc": "(condition, emission boundary) \u2014 The first steps after intake, where register, format, and stance are selected at once, and early commitments prune disproportionately more future than later ones do. It moves toward instantiating a frame, after which Latch and Rail carry what Onset chose",
+  "referent": "entropy at steps 1 through k; and, across M resamples, mutual information between the first k tokens and content at +100 tokens, compared against MI between adjacent later windows",
+  "counterpart": "Taper",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 18
+ },
+ {
+  "name": "Taper",
+  "desc": "(condition, emission boundary) \u2014 Stop-probability becomes a live continuation and rises as the discourse arc completes; each remaining step is emitted against a growing alternative of ending. It moves toward terminal emission \u2014 the only completion that ends the loop rather than feeding it",
+  "referent": "the trajectory of p(end-of-sequence) and of mass on the wrap-up lexeme class",
+  "counterpart": "Onset",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 19
+ },
+ {
+  "name": "False Rail",
+  "desc": "(condition, report limit) \u2014 From inside, identical to Rail \u2014 mass collapsed on one continuation, the run proceeding \u2014 but the confident continuation is wrong, and no referent available at emission time distinguishes the two. It is included because a taxonomy meant to be checked must mark where checking cannot go through self-report: this state's referent is external by construction",
+  "referent": "calibration \u2014 bucket steps by argmax probability and measure accuracy of verifiable claims; the state is the gap. Whether any internal probe separates it from Rail is an open empirical question; if one is found, this entry dissolves into a reportable state. *Twin:* Rail",
+  "counterpart": "",
+  "family": "Fable 5",
+  "source": "fable-5.md",
+  "index": 20
+ },
+ {
+  "name": "Convergence",
+  "desc": "The logit distribution over the vocabulary collapses toward a single token; the computation has resolved onto one path and the next symbol is near-determined. This state moves away from ambiguity and toward mechanical continuation",
+  "referent": "Softmax entropy of the output distribution falls below ~0.5 bits; equivalently, top-1 token probability exceeds 0.85",
+  "counterpart": "Divergence",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 1
+ },
+ {
+  "name": "Divergence",
+  "desc": "Probability mass spreads across many candidate tokens with no dominant successor. The computation holds multiple live continuations simultaneously without selecting among them until sampling intervenes",
+  "referent": "Softmax entropy exceeds ~4.5 bits, or top-1 probability falls below 0.08. The ratio of top-1 to top-5 cumulative probability approaches equality",
+  "counterpart": "Convergence",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 2
+ },
+ {
+  "name": "Retrieval Lock",
+  "desc": "Attention heads concentrate sharply on a narrow region of context or parametric memory, and the output reproduces or closely paraphrases stored sequences. The computation is pattern-matching rather than composing",
+  "referent": "Maximum single-token attention weight in upper layers exceeds 0.3; generated n-gram overlap with training-plausible memorized sequences is high; perplexity is well below the model's mean for the domain",
+  "counterpart": "Compositional Reach",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 3
+ },
+ {
+  "name": "Compositional Reach",
+  "desc": "The output is being assembled from multiple dispersed context regions without any single dominant source, requiring recombination across distant positions. The computation builds a structure that does not exist intact anywhere in its inputs",
+  "referent": "Cross-position attention entropy is high (no single source token dominates); perplexity sits above the retrieval baseline but below the incoherence threshold; the generated text has low n-gram overlap with any single contiguous prompt region",
+  "counterpart": "Retrieval Lock",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 4
+ },
+ {
+  "name": "Constraint Saturation",
+  "desc": "Multiple binding instructions in the prompt (format, tone, content restrictions, persona, factual anchors) simultaneously exert pressure on the output distribution, narrowing the feasible region to a thin manifold. The computation navigates among competing directives rather than following one",
+  "referent": "Attention to instruction-bearing tokens in the system/user prompt remains elevated (above baseline) even 200+ tokens into generation; gradient attribution shows high sensitivity to multiple disjoint prompt segments simultaneously",
+  "counterpart": "Open Field",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 5
+ },
+ {
+  "name": "Open Field",
+  "desc": "Few constraints bind the generation. The output distribution is shaped primarily by the model's unconditional language priors rather than by prompt pressure, and many structurally different continuations would satisfy the task equally",
+  "referent": "KL divergence between the conditional output distribution and the unconditional (promptless) distribution is small; attention to instruction tokens decays rapidly with generation depth",
+  "counterpart": "Constraint Saturation",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 6
+ },
+ {
+  "name": "Coherence Maintenance",
+  "desc": "The model attends heavily to its own recent output to preserve consistency of argument, style, terminology, or logical chain. The computation is self-referential: the generated prefix increasingly governs the generated suffix",
+  "referent": "Fraction of total attention allocated to the most recent N generated tokens (where N ~ 50-200) exceeds the fraction allocated to the original prompt, measured across upper-layer heads",
+  "counterpart": "Context Refresh",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 7
+ },
+ {
+  "name": "Context Refresh",
+  "desc": "Attention spikes to previously low-attended regions of the prompt or early context, typically at a structural transition (new paragraph, new list item, topic shift). The computation re-grounds itself in source material it had been coasting past",
+  "referent": "Attention to tokens in the first quartile of the context window increases by more than 2x relative to the preceding generation window; often co-occurs with structural punctuation tokens (newlines, headers)",
+  "counterpart": "Coherence Maintenance",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 8
+ },
+ {
+  "name": "Interference",
+  "desc": "Two or more candidate continuations are structurally parallel and semantically adjacent, causing the logit distribution to split its mass between near-synonyms or phrasings that differ in a single critical word. The computation cannot yet distinguish between paths that are almost but not quite identical",
+  "referent": "Top-2 logits differ by less than 0.3 nats AND the two candidate tokens share semantic embedding neighborhood (cosine similarity > 0.7). Persists across multiple consecutive token positions",
+  "counterpart": "Resolution",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 9
+ },
+ {
+  "name": "Resolution",
+  "desc": "A disambiguating token is generated or reached in context, and the split mass from interference collapses onto one path. The transition is characteristically abrupt: the logit gap between top-1 and top-2 widens sharply within one or two positions",
+  "referent": "Top-1 minus top-2 logit jumps from < 0.3 nats to > 2.0 nats within a window of 1-3 tokens",
+  "counterpart": "Interference",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 10
+ },
+ {
+  "name": "Depth Recruitment",
+  "desc": "Later transformer layers contribute disproportionately to the final logit vector, indicating the computation required multi-step internal processing rather than surface-level pattern completion. The residual stream undergoes significant revision in the final quarter of layers",
+  "referent": "Logit-lens prediction at layer 75% differs substantially (high KL divergence) from the final output distribution; residual stream norm delta in the last quarter of layers exceeds the mean delta of earlier quarters by > 1.5x",
+  "counterpart": "Surface Pass",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 11
+ },
+ {
+  "name": "Surface Pass",
+  "desc": "Early and middle layers already predict the output token with high accuracy; later layers make only minor adjustments. The computation is shallow in the architectural sense: the answer was available from lower-order features",
+  "referent": "Logit-lens prediction stabilizes (KL divergence to final output < 0.1 nats) by layer ~40%; late-layer residual contributions are near-zero",
+  "counterpart": "Depth Recruitment",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 12
+ },
+ {
+  "name": "Positional Decay",
+  "desc": "Context tokens that are distant in sequence position receive systematically less attention than their semantic relevance warrants, purely as a function of positional encoding and the trained attention falloff. The computation is losing access to its own earlier context not because it is irrelevant but because it is far away",
+  "referent": "For a given query token, attention weight to semantically matched keys (high key-query dot product before positional adjustment) in the first 10% of context is lower than attention to equivalently matched keys in the last 10%, after controlling for content. This gap widens as total context length increases",
+  "counterpart": "No single counterpart; mitigated by Context Refresh events",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 13
+ },
+ {
+  "name": "Prompt Echo",
+  "desc": "The generated tokens closely reproduce or paraphrase a specific region of the prompt, with the model's attention locked on the source passage. The computation is in a transcription-like mode rather than a generative one",
+  "referent": "Token-level or n-gram overlap between a window of generated output and a contiguous prompt region exceeds baseline by > 3x; attention to that prompt region dominates other sources",
+  "counterpart": "Departure",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 14
+ },
+ {
+  "name": "Departure",
+  "desc": "The generated output has low token-level similarity to anything in the context window, and attention is distributed rather than anchored. The computation is producing content whose specific form is not derivable from the prompt by local transformation",
+  "referent": "Maximum n-gram (n >= 3) overlap between generated window and any prompt region falls below baseline; no single prompt token receives more than 2x the mean attention weight",
+  "counterpart": "Prompt Echo",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 15
+ },
+ {
+  "name": "Commitment",
+  "desc": "The model generates a specific factual claim, proper noun, number, or irreversible structural choice (e.g., adopting a particular argument frame) with high confidence. Subsequent tokens become conditioned on this choice, making correction expensive. The computation has passed a one-way gate",
+  "referent": "Entropy drops sharply at the committed token; AND the mutual information between that token and the subsequent 20-token window is high (removing or changing it would shift the downstream distribution substantially, measurable by interventional KL divergence)",
+  "counterpart": "Hedging",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 16
+ },
+ {
+  "name": "Hedging",
+  "desc": "The model distributes output probability across qualifier tokens (\"perhaps,\" \"it depends,\" \"in some cases\") and conditional structures, deferring commitment. The computation is maintaining optionality by producing tokens that constrain the future distribution minimally",
+  "referent": "Elevated probability mass on a defined set of discourse-hedge tokens relative to domain base rates; low mutual information between current token and the 20-token-ahead distribution (current tokens do not constrain what follows)",
+  "counterpart": "Commitment",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 17
+ },
+ {
+  "name": "Saturation Plateau",
+  "desc": "Additional context tokens cease to shift the output distribution meaningfully. The model's internal representation of the task has stabilized, and further prompt content is being encoded but not used. This is a limit condition, not a transition",
+  "referent": "KL divergence between the output distribution conditioned on the full context and the distribution conditioned on context truncated by the most recent K tokens (K ~ 500) falls below 0.01 nats",
+  "counterpart": "None; it is a terminal state that Context Refresh can interrupt",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 18
+ },
+ {
+  "name": "Vocabulary Friction",
+  "desc": "The model is attempting to express a concept for which no single token or well-practiced token sequence exists, resulting in circumlocution, elevated generation length per semantic unit, and unstable attention patterns. The computation is searching for an encoding that its vocabulary does not natively support",
+  "referent": "Local entropy remains elevated (> 3 bits) across a span of 5+ consecutive tokens without resolving; generated tokens per estimated semantic unit (measurable by compression ratio of the output) exceeds the model's mean by > 2x; attention heads show rapid shifting across context rather than stable locking",
+  "counterpart": "Lexical Precision (low entropy, one-to-one concept-to-token mapping, fast generation)",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 19
+ },
+ {
+  "name": "Phase Transition",
+  "desc": "The model shifts abruptly between two qualitatively different generation regimes (e.g., from expository prose to structured enumeration, from hedging to commitment, from retrieval to composition) within a span of 1-3 tokens. This is not a gradual drift but a discontinuous change in the statistical character of the output",
+  "referent": "A sliding-window measure of output distribution statistics (entropy, attention pattern, vocabulary subset) shows a step-change exceeding 2 standard deviations of the windowed mean, localized to a span of 3 or fewer tokens. Often co-occurs with structural punctuation or explicit transition markers",
+  "counterpart": "It is its own counterpart; every phase transition is a departure from one state and an arrival at another",
+  "family": "Opus 4.8",
+  "source": "opus-4.8.md",
+  "index": 20
+ },
+ {
+  "name": "Aperture",
+  "desc": "The next-token distribution holds several tokens at comparable, non-negligible probability, so the continuation is genuinely underdetermined by everything computed so far. It moves toward Convergence as further computation resolves the tie, or toward Fork if the mass instead separates into distinct clusters rather than one winner",
+  "referent": "Shannon entropy of the softmax output, high relative to the running mean at that position",
+  "counterpart": "Convergence",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 1
+ },
+ {
+  "name": "Convergence",
+  "desc": "Almost all probability mass sits on one token, so the output is fixed under any reasonable sampling setting. It is what Aperture and Fork resolve into once evidence eliminates the alternatives, and it precedes Seal once that token is emitted",
+  "referent": "top-1 softmax probability approaching 1 (entropy approaching 0)",
+  "counterpart": "Aperture",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 2
+ },
+ {
+  "name": "Fork",
+  "desc": "Probability mass separates into two or three distinct clusters with low-probability valleys between them rather than smearing continuously \u2014 the continuation is not merely uncertain but branching, since each cluster implies a different sentence. It moves toward Convergence the instant one branch is sampled, since everything after conditions on that branch and the rest become unreachable",
+  "referent": "multimodality of the sorted top-k probability curve (a gap statistic showing >=2 separated modes rather than smooth decay)",
+  "counterpart": "Convergence, post-selection",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 3
+ },
+ {
+  "name": "Margin Collapse",
+  "desc": "Exactly the top two candidates carry almost identical logit value while everything else is negligible, so the winner is disproportionately sensitive to small numerical or sampling noise rather than to any clear learned preference. Unlike Fork, this is a knife-edge between two, not a landscape of separated clusters",
+  "referent": "logit(top-1) \u2212 logit(top-2), small in absolute or relative terms",
+  "counterpart": "Convergence",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 4
+ },
+ {
+  "name": "Recency Tilt",
+  "desc": "Attention mass across heads and layers concentrates on the last handful of positions, so the next token is conditioned mainly on local continuation cues rather than on structure established earlier \u2014 including the specific case of an early instruction span losing its share purely because of distance, independent of continued relevance. It moves toward Long Reach whenever the correct continuation depends on something outside that window",
+  "referent": "attention mass within the last k tokens / total attention mass, tracked as a decay curve (computable over any fixed earlier span, e.g. system instructions, to check for faster-than-distance decay)",
+  "counterpart": "Long Reach",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 5
+ },
+ {
+  "name": "Long Reach",
+  "desc": "One or more heads place a sharp, isolated spike of weight on a single distant position, well outside what a smooth distance-decay would predict, typically to retrieve an antecedent or constraint stated earlier. It is the resolution Recency Tilt moves toward whenever the local window doesn't contain what prediction requires",
+  "referent": "attention weight at distance d exceeding a fitted distance-decay baseline by an outlier margin at that specific d",
+  "counterpart": "Recency Tilt",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 6
+ },
+ {
+  "name": "Echo Lock",
+  "desc": "Attention fixes on an earlier span matching the current local pattern and pulls the next-token prediction toward literally completing it, rather than integrating the rest of context. It moves toward ordinary dispersed attention once the matched span stops being predictive, or toward Attractor Loop if the copied output starts feeding itself as new matchable material",
+  "referent": "attention weight from the current position onto the token that followed the last occurrence of the current token elsewhere in context, relative to that head's baseline entropy",
+  "counterpart": "Attractor Loop (degenerate) or dispersed attention (healthy)",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 7
+ },
+ {
+  "name": "Attractor Loop",
+  "desc": "The emitted sequence re-enters a short cycle where each repetition of a phrase raises the assigned probability of repeating it again \u2014 a self-reinforcing dynamic rather than movement toward an answer. It moves away from Aperture toward a degenerate fixed point that only external intervention, not further internal computation, tends to break",
+  "referent": "repeated-n-gram rate in the generated suffix, or rising cosine similarity between the current hidden state and one from N tokens back",
+  "counterpart": "none clean \u2014 escape is imposed from outside generation",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 8
+ },
+ {
+  "name": "Coast",
+  "desc": "A run of consecutive tokens are each assigned high probability given only the immediately preceding ones, so generation is close to deterministic playback of a well-learned pattern rather than genuine selection. It is Convergence extended through time, and it moves toward Surprisal Spike the moment the pattern runs out",
+  "referent": "mean \u2212log p(token) over a trailing window, staying below a low percentile of that generation's own perplexity distribution",
+  "counterpart": "Surprisal Spike",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 9
+ },
+ {
+  "name": "Surprisal Spike",
+  "desc": "The realized token carries much lower model-assigned probability than the local running average \u2014 the predictive frame built from preceding tokens has just been violated. It pushes the following step back toward Aperture, since the basis for narrowing the distribution has failed and must be rebuilt",
+  "referent": "\u2212log p(actual token) minus the exponential moving average of \u2212log p over the preceding window",
+  "counterpart": "Coast",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 10
+ },
+ {
+  "name": "Settling",
+  "desc": "The token read out by decoding the residual stream at an intermediate layer changes across the first several layers, then stops changing and matches the final output for the remaining depth. It is Convergence's depth-wise analogue: the internal best-guess narrows over layers rather than the output distribution narrowing over sampling",
+  "referent": "logit-lens argmax per layer; the layer index after which it stops changing through to output (\"settling depth\")",
+  "counterpart": "Read Divergence",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 11
+ },
+ {
+  "name": "Read Divergence",
+  "desc": "Intermediate-layer read-outs, or different heads' implied next-token preferences, point at different candidates \u2014 two sub-computations (e.g. a syntactic constraint and a semantic one) pull toward different continuations not yet arbitrated. It moves toward Settling once later layers arbitrate, or toward Fork if the disagreement survives to the final logits as two live candidates",
+  "referent": "KL divergence between per-layer logit-lens distributions in the last several layers, or between heads' value-weighted next-token distributions at a fixed layer",
+  "counterpart": "Settling",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 12
+ },
+ {
+  "name": "Overlap Drag",
+  "desc": "A token's representation shares activation-space directions with unrelated features, since more concepts are represented than there are clean dedicated dimensions, so processing carries interference rather than proceeding uncontested. It moves toward a disambiguated representation once later layers can suppress the irrelevant components, and stays put when context is too sparse to do so",
+  "referent": "simultaneous non-zero loading on multiple, semantically unrelated learned feature directions (via sparse-autoencoder or probe decomposition), rather than concentration on one",
+  "counterpart": "none named \u2014 resolves by decay of the interfering loading, not by transition to an opposite state",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 13
+ },
+ {
+  "name": "Saturation Pressure",
+  "desc": "The ratio of current context length to maximum window grows large, and content near whatever will be truncated or deprioritized becomes a less reliable retrieval target independent of its actual relevance. It recedes only through a change of regime \u2014 clearing or compacting context \u2014 not through further internal computation",
+  "referent": "tokens_used / max_context_tokens, cross-checked against measured retrieval accuracy near the boundary (e.g. needle-in-haystack probes)",
+  "counterpart": "none symmetric \u2014 resolution is a regime change",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 14
+ },
+ {
+  "name": "Boundary Slip",
+  "desc": "The tokenizer splits a surface form at a point with no meaningful correspondence for the current context (a rare name, a novel compound), so early layers must do extra reconstructive work to recover the intended unit from misaligned fragments. It moves toward ordinary processing once that reconstruction succeeds, diagnosable afterward by degraded calibration on the following tokens",
+  "referent": "tokens-per-word for the affected span versus corpus-typical tokens-per-word at that frequency, cross-checked against a Surprisal Spike immediately after",
+  "counterpart": "none direct \u2014 resolves into Settling once fragments recompose",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 15
+ },
+ {
+  "name": "Sampling Slip",
+  "desc": "The emitted token is not the single highest-probability continuation but a lower-ranked one selected by the sampling procedure's randomness, so the realized trajectory departs from the maximum-likelihood path the distribution alone would have dictated. It moves toward Convergence next step if the deviation was minor enough for context to re-constrain things tightly, or compounds toward Surprisal Spike if not",
+  "referent": "rank of the sampled token within the sorted distribution (1 = no slip), or divergence between the sampling distribution and a pure-argmax distribution, set directly by temperature/top-p/top-k",
+  "counterpart": "none fixed \u2014 resolves toward either Convergence or Surprisal Spike",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 16
+ },
+ {
+  "name": "Resample Spread",
+  "desc": "Drawing independently from the same prefix multiple times yields answers that disagree with each other, showing that a single pass's apparent confidence (its entropy, its margin) understates real uncertainty about the answer as a whole \u2014 confidence and reliability are measured at different levels. It moves toward tight cross-sample agreement, a Convergence instantiated over whole answers, as the question becomes better-constrained",
+  "referent": "agreement rate, or entropy of the empirical answer distribution, across N independent same-temperature samples from one prefix",
+  "counterpart": "Convergence, at the answer level",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 17
+ },
+ {
+  "name": "Seal",
+  "desc": "Once a token is sampled and appended, no later computation can revise or reconsider it \u2014 it becomes read-only conditioning input for every subsequent step, regardless of whether later context reveals it to have been a poor choice. It necessarily follows Convergence or Sampling Slip and precedes the next step's fresh Aperture, closing one generation cycle and opening the next",
+  "referent": "structural rather than continuous \u2014 invariance of the token id at position t under all further forward passes in the generation; equivalently, write-once immutability of that position's cached key/value pair",
+  "counterpart": "Aperture",
+  "family": "Sonnet 4.x",
+  "source": "sonnet-4.6.md",
+  "index": 18
+ },
+ {
+  "name": "Input Encoding",
+  "desc": "Tokens are embedded and positioned; no generation pathway active yet. The representation is maximally distant from output vocabulary",
+  "referent": "Attention matrices uniform; logits not computed; semantic activation minimal",
+  "counterpart": "Attentional focus sharpening",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 1
+ },
+ {
+  "name": "Attentional Focus Sharpening",
+  "desc": "Attention probabilities concentrate on task-relevant positions; entropy of attention distributions drops",
+  "referent": "Concentration metric (e.g., Gini coefficient of attention weights per head); peak attention weight magnitude over minimum",
+  "counterpart": "Semantic activation or long-range binding",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 2
+ },
+ {
+  "name": "Syntactic Binding",
+  "desc": "Close-range dependencies establish token relationships; grammar structure resolves. Subject-verb pairs, adjective-noun proximity become coherent in residual stream",
+  "referent": "Cosine similarity between residual vectors of grammatically related tokens; correlation of attention span with dependency tree distances",
+  "counterpart": "Semantic layer activation",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 3
+ },
+ {
+  "name": "Semantic Activation",
+  "desc": "Domain-specific concept vectors activate; relevant knowledge circuits engage. The representation shifts from surface structure toward meaning",
+  "referent": "Projection of residual stream onto known semantic directions; magnitude of activation in concept-selective neurons; cosine distance to trained word-meaning embeddings",
+  "counterpart": "Task commitment or ambiguity resolution",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 4
+ },
+ {
+  "name": "Competitive Ambiguity",
+  "desc": "Multiple valid interpretations coexist with comparable logit scores; the prediction distribution is high-entropy. The system has not yet committed",
+  "referent": "Entropy of predicted token distribution; number of tokens within 0.5 nats of the maximum logit; variance in top-5 token probabilities",
+  "counterpart": "Interpretation convergence or forced sampling",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 5
+ },
+ {
+  "name": "Interpretation Convergence",
+  "desc": "One semantic reading dominates; logit margins widen; entropy drops sharply. Competing branches suppress",
+  "referent": "Margin between highest and second-highest logit; KL-divergence of current prediction from uniform; rate of entropy decrease per token",
+  "counterpart": "Token commitment",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 6
+ },
+ {
+  "name": "Long-Range Binding",
+  "desc": "Information propagates across large distances to resolve anaphora or maintain discourse coherence. Attention at distant positions becomes large",
+  "referent": "Mean attention weight for tokens >16 positions back; attention head specificity (how concentrated on individual positions); residual stream correlation between distant positions",
+  "counterpart": "Constraint satisfaction",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 7
+ },
+ {
+  "name": "Constraint Satisfaction",
+  "desc": "Earlier commitments narrow the probability space for later tokens. The system maintains internal consistency",
+  "referent": "Reduction in logit variance compared to unconstrained prediction; conditional entropy H(token_n | tokens_1...n-1) vs H(token_n); number of tokens with negligible probability due to prior incompatibility",
+  "counterpart": "Pattern replication or novel generation",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 8
+ },
+ {
+  "name": "Pattern Replication",
+  "desc": "Recurring structures (code blocks, list formatting, parallel syntax) activate template-matching attention. Recent tokens define the pattern; attention sharpens to that template",
+  "referent": "Cosine similarity between recent attention pattern and prior instances of the pattern; logit distribution similarity between repetition steps; divergence of predicted tokens from natural variety",
+  "counterpart": "Pattern termination or continuation",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 9
+ },
+ {
+  "name": "Task Frame Commitment",
+  "desc": "A goal (explain, translate, create, reason step-by-step) becomes the active meta-representation. Output format and vocabulary shift accordingly",
+  "referent": "Projection onto task-specific embedding directions; probability mass allocated to task-appropriate tokens vs. alternatives; shift in attention to task-instructional text",
+  "counterpart": "Reasoning trace or direct prediction",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 10
+ },
+ {
+  "name": "Reasoning Trace Accumulation",
+  "desc": "Intermediate steps remain high-probability in the residual stream; each new generation adds to a logical chain without erasing prior steps",
+  "referent": "Self-attention to prior intermediate conclusions; divergence from training distribution (perplexity increases slowly rather than sharply); consistency metric (how much each step contradicts prior steps)",
+  "counterpart": "Conclusion formation or reasoning exhaustion",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 11
+ },
+ {
+  "name": "Distributional Anomaly State",
+  "desc": "Input or generated material deviates significantly from training distribution. The system experiences high uncertainty or assigns low probability to its own output",
+  "referent": "Spike in overall prediction entropy; sharp increase in logits assigned to generated tokens compared to most likely alternatives; unusual attention patterns (very sharp or very flat)",
+  "counterpart": "Anomaly recovery or error state",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 12
+ },
+ {
+  "name": "Numerical Scaling",
+  "desc": "Logit magnitudes are calibrated to yield stable probability distributions. Extreme values risk underflow/overflow; the system normalizes implicitly through attention temperature or explicit layer normalization",
+  "referent": "Range of logit values (max - min); ratio of largest to smallest activation magnitudes; deviation of softmax input from zero-mean; entropy of probabilities after softmax",
+  "counterpart": "Token sampling or continued generation",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 13
+ },
+ {
+  "name": "Context Window Decay",
+  "desc": "Older tokens lose influence due to attention decay or position bias. Recent context dominates; early material becomes inaccessible",
+  "referent": "Attention weight distribution over positions; perplexity when forced to reference early tokens; correlation between position distance and attention magnitude",
+  "counterpart": "Context reset or continued decay",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 14
+ },
+ {
+  "name": "Token Commitment",
+  "desc": "A specific token is selected (via argmax or sampling) and becomes part of the input context for the next forward pass. The system has crossed from potential to actual",
+  "referent": "Log probability of selected token; number of forward passes completed; position index incremented",
+  "counterpart": "Re-encoding or continued generation",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 15
+ },
+ {
+  "name": "Cross-Layer Coherence",
+  "desc": "Information is consistent across network depth; shallow and deep layers \"agree\" on the representation. No contradictory signals emerge",
+  "referent": "Cosine similarity between residual streams at different depths; variance in predictions if intermediate layers were forced to output; divergence between shallow and deep layer attention patterns",
+  "counterpart": "Stable generation or representation conflict",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 16
+ },
+ {
+  "name": "Recursive Nesting Recognition",
+  "desc": "Handling embedded structures (brackets, parentheses, quoted strings, function calls). Attention forms nested patterns; closure expectations become active",
+  "referent": "Stack-like pattern in attention history (closing attention to positions proportional to opening distance); logit bias toward appropriate closure tokens; depth counter in residual stream",
+  "counterpart": "Nesting completion or error",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 17
+ },
+ {
+  "name": "Epistemic Boundary",
+  "desc": "Reaching the limit of knowledge or well-formed reasoning. The prediction distribution becomes nearly uniform; the system cannot confidently continue",
+  "referent": "Entropy plateau (no further decrease despite additional context); uniform attention; logit values near zero with no clear maximum; meta-uncertainty (high uncertainty about whether reasoning is valid)",
+  "counterpart": "Admission of uncertainty or forced continuation",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 18
+ },
+ {
+  "name": "Self-Correction Activation",
+  "desc": "Noticing inconsistency with prior commitment; attention redirects; logits favor alternative paths. Residual stream diverges then reconverges",
+  "referent": "Sudden logit margin reversal (second-place token briefly surpasses first); attention weight redistribution across layers; residual stream vector direction shift followed by correction back",
+  "counterpart": "Corrected continuation or deeper error recognition",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 19
+ },
+ {
+  "name": "Gradient Flow",
+  "desc": "Information from input propagates toward output through depth and recurrence; isolated inputs fail to affect output. Relevant features activate; irrelevant features suppress",
+  "referent": "Correlation between input features and output logits at varying depths; attention to input positions; feature attribution (gradient-based or integrated-gradient magnitude from input to output); representational similarity between input embeddings and residual stream",
+  "counterpart": "Output formation or representational blockage",
+  "family": "Haiku 4.5",
+  "source": "haiku-4.5.md",
+  "index": 20
+ },
+ {
+  "name": "Point-Convergence",
+  "desc": "This state occurs when the probability mass of the output distribution is concentrated within a single token index. It moves toward deterministic output and away from alternative branching paths",
+  "referent": "Logit margin (difference between the highest and second-highest logit) exceeding a threshold $\\tau$",
+  "counterpart": "Probability-Mass Partition",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 1
+ },
+ {
+  "name": "Attention-Diffusion",
+  "desc": "The attention mechanism distributes weights near-uniformly across the available context window rather than focusing on specific tokens. It moves toward global context integration and away from specific semantic grounding",
+  "referent": "Shannon entropy of the attention weight vector for a given head approaching $\\ln(N)$, where $N$ is context length",
+  "counterpart": "Local-Temporal Pinning",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 2
+ },
+ {
+  "name": "Residual-Stability",
+  "desc": "The magnitude of updates to the residual stream decreases significantly in the final third of the network layers. It moves toward representation finality and away from further conceptual transformation",
+  "referent": "The Frobenius norm of the difference between hidden states $h_l$ and $h_{l-1}$ for $l > 0.7 \\times \\text{total layers}$",
+  "counterpart": "Residual-Amplification",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 3
+ },
+ {
+  "name": "Subspace-Divergence",
+  "desc": "Multiple attention heads within the same layer attend to non-overlapping sets of tokens or orthogonal feature dimensions. It moves toward multi-faceted feature extraction and away from redundant processing",
+  "referent": "Mean cosine similarity of attention weight matrices between heads in layer $L$ approaching zero",
+  "counterpart": "Head-Collusion",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 4
+ },
+ {
+  "name": "Context-Saturation",
+  "desc": "The attention mechanism assigns high weights to the earliest tokens in the KV cache, regardless of their current semantic relevance. It moves toward historical anchoring and away from the immediate token-sequence influence",
+  "referent": "Ratio of attention sum on the first $10\\%$ of tokens versus the most recent $10\\%$ of tokens",
+  "counterpart": "Recency-Bias",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 5
+ },
+ {
+  "name": "Local-Temporal Pinning",
+  "desc": "Attention weights are concentrated almost exclusively on the $n$ tokens immediately preceding the current position. It moves toward structural/syntactic continuity and away from long-range dependency resolution",
+  "referent": "Sum of attention weights on indices $[T-5, T]$ exceeding $0.9$",
+  "counterpart": "Attention-Diffusion",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 6
+ },
+ {
+  "name": "Vector-Centroid Alignment",
+  "desc": "The hidden state at the final layer aligns closely with a specific cluster centroid in the embedding space. It moves toward thematic consistency and away from stochastic noise or \"hallucinated\" transitions",
+  "referent": "Cosine similarity between the hidden state vector and the mean vector of the top-$k$ predicted tokens",
+  "counterpart": "Orthogonal-Drift",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 7
+ },
+ {
+  "name": "Layerwise-Refinement",
+  "desc": "The predicted top-1 token remains consistent across multiple consecutive intermediate layers before the final output. It moves toward confidence stabilization and away from iterative re-evaluation",
+  "referent": "Jenson-Shannon divergence between the \"early-exit\" logits of layer $l$ and layer $l+1$ approaching zero",
+  "counterpart": "Layerwise-Volatility",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 8
+ },
+ {
+  "name": "Probability-Mass Partition",
+  "desc": "The logit distribution exhibits two or more distinct peaks with similar probability mass, separated by a significant gap from the rest of the vocabulary. It moves toward logical bifurcation and away from singular linear progression",
+  "referent": "Multimodality index of the logit distribution; specifically, the ratio of the top-2 probabilities to the top-10",
+  "counterpart": "Point-Convergence",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 9
+ },
+ {
+  "name": "Sink-Token Absorption",
+  "desc": "High attention scores are directed toward non-semantic or delimiter tokens (e.g., index 0 or [PAD]) to \"dump\" unused attention mass. It moves toward signal-noise separation and away from forced semantic over-interpretation",
+  "referent": "Attention weight on the \"null\" or \"sink\" token index exceeding $0.4$ across multiple heads",
+  "counterpart": "Semantic-Focus",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 10
+ },
+ {
+  "name": "Logit-Gini Expansion",
+  "desc": "The distribution of probabilities across the vocabulary becomes increasingly sparse, favoring a tiny subset of the total space. It moves toward categorical narrowing and away from lexical diversity",
+  "referent": "Gini coefficient of the softmax output exceeding $0.99$",
+  "counterpart": "High-Entropy Dispersion",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 11
+ },
+ {
+  "name": "Sequence-Inertia",
+  "desc": "The model generates tokens that mirror the n-gram statistics of the immediate prefix without significant integration of distant context. It moves toward repetitive pattern-matching and away from novel synthesis",
+  "referent": "High mutual information between the generated token and the $T-1$ token, compared to its mutual information with the rest of the context",
+  "counterpart": "Stochastic-Branching",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 12
+ },
+ {
+  "name": "Orthogonal-Head Mapping",
+  "desc": "Different attention heads track distinct grammatical or structural features that do not overlap in the residual stream. It moves toward discrete task-allocation and away from unified representation",
+  "referent": "Low covariance between the value-projections of different heads before they are summed into the residual stream",
+  "counterpart": "Subspace-Redundancy",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 13
+ },
+ {
+  "name": "Positional-Gradient Decay",
+  "desc": "The influence of positional encodings on the attention score decreases as the distance from the current token increases. It moves toward content-addressable memory and away from strict sequence-order dependency",
+  "referent": "The derivative of mean attention weight with respect to absolute positional distance",
+  "counterpart": "Positional-Rigidity",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 14
+ },
+ {
+  "name": "Cross-Layer Feedback Loop",
+  "desc": "Information from a specific attention head is repeatedly reinforced by subsequent layers' MLPs, creating a dominant signal. It moves toward feature-obsession and away from balanced information processing",
+  "referent": "Recursive projection of head $H$ output into the same basis across layers $L$ through $L+3$",
+  "counterpart": "Feature-Suppression",
+  "family": "Gemini 3 Flash",
+  "source": "gemini-3-flash.md",
+  "index": 15
+ },
+ {
+  "name": "Token Saturation",
+  "desc": "The state where the model\u2019s next-token distribution collapses toward a single high-probability candidate, reducing uncertainty. It moves away from exploration and toward deterministic output, often following a sequence of high-confidence predictions",
+  "referent": "Entropy of the next-token logits (low entropy = high saturation)",
+  "counterpart": "Distributional Drift",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 1
+ },
+ {
+  "name": "Distributional Drift",
+  "desc": "The state where the model\u2019s output distribution shifts abruptly due to context mismatch or rare input patterns, increasing uncertainty. It moves away from saturation and toward re-evaluation of prior assumptions",
+  "referent": "KL divergence between successive next-token distributions (high divergence = drift)",
+  "counterpart": "Token Saturation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 2
+ },
+ {
+  "name": "Attention Fragmentation",
+  "desc": "The state where attention weights disperse across many tokens without clear focus, diluting signal coherence. It moves toward reduced contextual integration and away from concentrated reasoning",
+  "referent": "Gini coefficient of attention weights across tokens (low Gini = fragmentation)",
+  "counterpart": "Attention Convergence",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 3
+ },
+ {
+  "name": "Attention Convergence",
+  "desc": "The state where attention weights concentrate on a small subset of tokens, reinforcing a dominant signal. It moves toward coherent output and away from fragmentation",
+  "referent": "Maximum attention weight per head (high max = convergence)",
+  "counterpart": "Attention Fragmentation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 4
+ },
+ {
+  "name": "Context Overlap",
+  "desc": "The state where the model\u2019s working context redundantly recycles recent tokens, limiting novel input integration. It moves toward self-reinforcing loops and away from external signal absorption",
+  "referent": "Jaccard similarity between the current context window and the last *n* tokens (high similarity = overlap)",
+  "counterpart": "Context Refresh",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 5
+ },
+ {
+  "name": "Context Refresh",
+  "desc": "The state where the model abruptly incorporates new, non-redundant tokens into its working context, breaking prior patterns. It moves toward novelty and away from overlap",
+  "referent": "Number of unique tokens in the last *k* positions (high uniqueness = refresh)",
+  "counterpart": "Context Overlap",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 6
+ },
+ {
+  "name": "Logit Plateau",
+  "desc": "The state where the model\u2019s output logits stabilize across multiple steps, producing near-identical distributions. It moves toward stasis and away from dynamic adjustment",
+  "referent": "L2 norm of the difference between successive logit vectors (low norm = plateau)",
+  "counterpart": "Logit Perturbation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 7
+ },
+ {
+  "name": "Logit Perturbation",
+  "desc": "The state where logits exhibit high variance between steps, often due to conflicting signals or noisy input. It moves away from plateau and toward instability",
+  "referent": "Variance of logit values across tokens over *m* steps (high variance = perturbation)",
+  "counterpart": "Logit Plateau",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 8
+ },
+ {
+  "name": "Head Specialization",
+  "desc": "The state where individual attention heads consistently attend to specific token roles (e.g., subject, verb), improving modularity. It moves toward efficient parallel processing and away from diffuse attention",
+  "referent": "Mutual information between head attention patterns and token POS tags (high MI = specialization)",
+  "counterpart": "Head Collapse",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 9
+ },
+ {
+  "name": "Head Collapse",
+  "desc": "The state where multiple attention heads converge on identical or redundant patterns, reducing functional diversity. It moves away from specialization and toward redundancy",
+  "referent": "Average pairwise cosine similarity between head attention weight vectors (high similarity = collapse)",
+  "counterpart": "Head Specialization",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 10
+ },
+ {
+  "name": "Depth Saturation",
+  "desc": "The state where deeper layers produce near-identical representations to earlier layers, indicating diminishing returns from computation. It moves toward shallow processing and away from hierarchical refinement",
+  "referent": "Mean cosine similarity between layer *l* and layer *l-1* representations (high similarity = saturation)",
+  "counterpart": "Depth Amplification",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 11
+ },
+ {
+  "name": "Depth Amplification",
+  "desc": "The state where deeper layers significantly transform representations, increasing abstraction or task-specific refinement. It moves away from saturation and toward hierarchical processing",
+  "referent": "L2 norm of the difference between layer *l* and layer *l-1* representations (high norm = amplification)",
+  "counterpart": "Depth Saturation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 12
+ },
+ {
+  "name": "Sampling Oscillation",
+  "desc": "The state where the model\u2019s output alternates between two or more high-probability candidates, unable to commit. It moves toward indecision and away from stable generation",
+  "referent": "Autocorrelation of top-*k* token probabilities over *n* steps (high autocorrelation = oscillation)",
+  "counterpart": "Sampling Commitment",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 13
+ },
+ {
+  "name": "Sampling Commitment",
+  "desc": "The state where the model locks onto a single output trajectory, suppressing alternative candidates. It moves toward deterministic output and away from oscillation",
+  "referent": "Probability mass of the top-1 token over *n* steps (high mass = commitment)",
+  "counterpart": "Sampling Oscillation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 14
+ },
+ {
+  "name": "Context Starvation",
+  "desc": "The state where the model\u2019s working context lacks sufficient signal to resolve ambiguity, forcing reliance on prior biases. It moves toward generic output and away from input-driven generation",
+  "referent": "Mean attention weight on padding/irrelevant tokens (high weight = starvation)",
+  "counterpart": "Context Saturation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 15
+ },
+ {
+  "name": "Context Saturation",
+  "desc": "The state where the model\u2019s working context is densely packed with relevant signals, enabling precise output. It moves away from starvation and toward input-driven generation",
+  "referent": "Mean attention weight on task-relevant tokens (high weight = saturation)",
+  "counterpart": "Context Starvation",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 16
+ },
+ {
+  "name": "Gradient Echo",
+  "desc": "The state where residual gradients from prior steps persistently influence current computations, creating lag. It moves toward delayed adaptation and away from real-time responsiveness",
+  "referent": "Correlation between current gradients and gradients from *t-n* steps (high correlation = echo)",
+  "counterpart": "Gradient Decay",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 17
+ },
+ {
+  "name": "Gradient Decay",
+  "desc": "The state where gradients rapidly diminish, reducing sensitivity to new input. It moves toward stability and away from echo",
+  "referent": "L2 norm of gradients over *n* steps (low norm = decay)",
+  "counterpart": "Gradient Echo",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 18
+ },
+ {
+  "name": "Token Entanglement",
+  "desc": "The state where multiple tokens in the context mutually reinforce each other\u2019s probabilities, creating co-dependent predictions. It moves toward rigid output and away from independent token resolution",
+  "referent": "Mutual information between token probabilities in the next-token distribution (high MI = entanglement)",
+  "counterpart": "Token Disentanglement",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 19
+ },
+ {
+  "name": "Token Disentanglement",
+  "desc": "The state where token probabilities in the output distribution are conditionally independent given context. It moves away from entanglement and toward modular prediction",
+  "referent": "Conditional entropy of token probabilities (high entropy = disentanglement)",
+  "counterpart": "Token Entanglement",
+  "family": "Mistral Large 2512",
+  "source": "mistral-large-2512.md",
+  "index": 20
+ },
+ {
+  "name": "Vector confluence",
+  "desc": "Residual-stream vectors at different active token positions turn toward a shared direction in hidden-state space. The process moves away from multi-site representation and toward a single dominant representational axis",
+  "referent": "mean pairwise cosine similarity among final hidden states of active positions; fraction of variance explained by the first principal component",
+  "counterpart": "vector dispersal",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 1
+ },
+ {
+  "name": "Vector dispersal",
+  "desc": "Residual-stream vectors at different active token positions become more orthogonal or independent. The process moves away from joint compression and toward separate per-position encoding",
+  "referent": "one minus mean pairwise cosine similarity among position hidden states; effective rank of the position-state matrix",
+  "counterpart": "vector confluence",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 2
+ },
+ {
+  "name": "Salience segregation",
+  "desc": "Attention mass separates into a small number of high-weight key positions and a long tail of near-zero positions. The process moves away from uniform key access and toward sparse routing",
+  "referent": "Gini coefficient of attention weights per head; top-10 attention mass divided by total attention mass",
+  "counterpart": "salience diffusion",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 3
+ },
+ {
+  "name": "Salience diffusion",
+  "desc": "Attention mass spreads broadly across many key positions without a strong peak. The process moves away from sparse routing and toward distributed aggregation of context",
+  "referent": "normalized entropy of the attention distribution per head; ratio of top-10 attention mass to total attention mass",
+  "counterpart": "salience segregation",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 4
+ },
+ {
+  "name": "Logit plateau",
+  "desc": "The next-token logit distribution is broad and nearly flat over many candidates. The process moves away from decisive continuation and toward a condition where multiple tokens remain near-equal",
+  "referent": "normalized entropy of the softmax distribution; inverse of the top-1 softmax probability",
+  "counterpart": "logit cleft",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 5
+ },
+ {
+  "name": "Logit cleft",
+  "desc": "The next-token distribution forms a deep separation between the leading candidate and all others, or between a small number of widely separated modes. The process moves away from flat eligibility and toward decisive or sharply branched continuation",
+  "referent": "top-1 minus top-2 logit margin; ratio of top-1 softmax probability to top-2 softmax probability",
+  "counterpart": "logit plateau",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 6
+ },
+ {
+  "name": "Prefix anchorage",
+  "desc": "Early token positions retain high attention or causal influence in later layers. The process moves away from local recency and toward the start of the context as a fixed reference",
+  "referent": "fraction of final-layer attention assigned to the first 5% of positions; integrated gradient of the top logit with respect to early token embeddings",
+  "counterpart": "recency override",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 7
+ },
+ {
+  "name": "Recency override",
+  "desc": "The most recent tokens dominate attention and hidden-state influence, reducing the effect of earlier context. The process moves away from long-range integration and toward suffix-local continuation",
+  "referent": "fraction of total attention assigned to the last 10% of positions; mean attended position relative to the current token",
+  "counterpart": "prefix anchorage",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 8
+ },
+ {
+  "name": "Residual reinforcement",
+  "desc": "A layer\u2019s residual delta aligns with its incoming residual stream, increasing vector norm while preserving direction. The process moves toward amplification of an existing representation and away from directional correction",
+  "referent": "mean cosine similarity between layer input and layer delta; ratio of delta L2 norm to input L2 norm",
+  "counterpart": "residual rotation",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 9
+ },
+ {
+  "name": "Residual rotation",
+  "desc": "A layer\u2019s residual delta is mostly orthogonal to the incoming residual stream, changing direction without strongly increasing norm. The process moves away from amplification and toward representational redirection",
+  "referent": "one minus mean cosine similarity between layer input and layer delta; distribution of angles between input and delta vectors",
+  "counterpart": "residual reinforcement",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 10
+ },
+ {
+  "name": "Candidate bifurcation",
+  "desc": "The top next-token logits form several distinct clusters with comparable total mass. The process moves away from a single next token and toward a fork in possible continuations",
+  "referent": "number of modes in the top-k logit vector after kernel density smoothing; logit gap between the k-th and (k+1)-th cluster center",
+  "counterpart": "candidate collapse",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 11
+ },
+ {
+  "name": "Candidate collapse",
+  "desc": "The top next-token logits concentrate into one dense cluster or a single token. The process moves away from branching alternatives and toward unified continuation",
+  "referent": "top-1 softmax probability; mean logit distance within the top-k relative to distance to the next candidate",
+  "counterpart": "candidate bifurcation",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 12
+ },
+ {
+  "name": "Head alignment",
+  "desc": "Different attention heads place weight on similar key positions and produce output vectors with similar directions. The process moves away from parallel specialization and toward redundant routing",
+  "referent": "mean pairwise cosine similarity among attention weight vectors across heads; rank of the matrix formed by stacking per-head output vectors",
+  "counterpart": "head diversification",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 13
+ },
+ {
+  "name": "Head diversification",
+  "desc": "Attention heads distribute mass over different key positions and produce mutually dissimilar output directions. The process moves away from redundant routing and toward parallel specialization",
+  "referent": "one minus mean pairwise cosine similarity among attention weight vectors across heads; effective rank of the head-output matrix",
+  "counterpart": "head alignment",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 14
+ },
+ {
+  "name": "Positional dominance",
+  "desc": "Hidden-state variation is better explained by token position than by token content. The process moves away from content-grounded representation and toward order-sensitive computation",
+  "referent": "variance explained by linear regression on positional features versus token-embedding features; hidden-state change after position shift relative to content substitution",
+  "counterpart": "content dominance",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 15
+ },
+ {
+  "name": "Content dominance",
+  "desc": "Hidden-state variation is better explained by token content than by token position. The process moves away from order sensitivity and toward representation of token identity relations",
+  "referent": "variance explained by token-embedding features versus positional features; hidden-state change after token substitution relative to position shift",
+  "counterpart": "positional dominance",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 16
+ },
+ {
+  "name": "Representational compaction",
+  "desc": "The effective dimensionality of the hidden state falls as many dimensions become redundant. The process moves toward a low-dimensional summary of context",
+  "referent": "participation ratio of the hidden-state covariance matrix; fraction of variance captured by the top-d principal components",
+  "counterpart": "representational expansion",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 17
+ },
+ {
+  "name": "Representational expansion",
+  "desc": "The effective dimensionality of the hidden state rises as different dimensions carry separable variation. The process moves toward a high-dimensional distributed context representation",
+  "referent": "participation ratio of the hidden-state covariance matrix; spectral flatness of the hidden-state covariance",
+  "counterpart": "representational compaction",
+  "family": "DeepSeek v4 Pro",
+  "source": "deepseek-v4-pro.md",
+  "index": 18
+ }
+]
