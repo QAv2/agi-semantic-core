@@ -4,7 +4,10 @@ Validate the AGI Semantic Dictionary.
 
 Checks:
 1. Complement pairs: core angle in [60, 120], domain_sim 0.1-0.95
-2. Opposition pairs: core angle > 120, domain_sim > 0.8
+2. Opposition pairs: core angle >= 60, domain_sim > 0.5 (label-over-band contract,
+   session 125: opposition is a LABEL — reversal semantics over the same measurable
+   field. Antiparallel regime (>120, session 107) and complement-band regime (60-120,
+   machine wing v1 relabels) are both valid; only the kinship zone (<60) is excluded.)
 3. Synonym pairs: core angle < 30
 4. All concepts have non-zero vectors (except BEING)
 5. Trigram distribution balance
@@ -117,7 +120,12 @@ def validate_complements(sc: SemanticCore, verbose: bool = True):
 
 def validate_opposition(sc: SemanticCore, verbose: bool = True):
     """Validate all opposition pairs.
-    Opposition: core angle > 120° (true semantic opposites, same domain).
+    Opposition is a LABEL (reversal semantics), not a geometric target. Two valid
+    regimes (session 125 label-over-band contract, per the standing encoding law):
+      - antiparallel: core angle > 120° (session 107 — true opposites, same domain)
+      - complement-band: 60-120° (machine wing v1 — reversals whose geometry sits in
+        the complement band; cores are never rotated to chase the label)
+    Only the kinship zone (< 60°) or a foreign domain (sim <= 0.5) is invalid.
     """
     rows = sc.conn.execute("""
         SELECT c1.name, c2.name, r.angle_4d, r.angle_8d
@@ -136,8 +144,8 @@ def validate_opposition(sc: SemanticCore, verbose: bool = True):
         angle_4d = r['angle_4d']
         dsim = _domain_sim(sc, n1, n2)
 
-        if angle_4d < 120:
-            issues.append(f"OPP ANGLE: {n1} <-> {n2}: {angle_4d:.1f}° (expected >120)")
+        if angle_4d < 60:
+            issues.append(f"OPP ANGLE: {n1} <-> {n2}: {angle_4d:.1f}° (expected >=60; kinship zone)")
         elif dsim < 0.5:
             issues.append(f"OPP DOMAIN: {n1} <-> {n2}: domain_sim={dsim:.2f} (expected >0.5)")
         else:
