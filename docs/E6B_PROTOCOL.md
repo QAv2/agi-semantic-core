@@ -181,3 +181,104 @@ smoke lesson #1), fresh T4 session, **per-condition inflight shipping to
 `gdrive:semcore/e6b/inflight_<stamp>/`** (the outage law). Estimated full
 flight: 3 conditions × (160 U + 40 F + 112 S rows + 20 catch + 26-pair
 precheck) ≈ 45–60 min.
+
+---
+
+# RESULTS APPENDIX — first full flight (2026-08-22, flight `full_20260822_1903`)
+
+**The protocol above is now LOCKED.** Flight: 3 conditions × (160 U + 40 F +
+112 S rows + 20 catch + 26-pair precheck), T4, ~18 min/condition, zero arm
+errors, zero parse failures anywhere. Artifacts:
+`colab/results_e6b/full_20260822_1903/`. Flight history: two CLI attempts
+died to free-tier enforcement (the rclone I/O pattern — see the UI-edition
+commit); the landing flight ran mount-native in the Colab browser UI
+(`colab/E6B_CORRESPONDENCE_UI.ipynb`), machinery cells byte-identical.
+
+## The pre-registered verdict
+
+**PRESERVATION ESTABLISHED — the claim rule fires on every clause.**
+
+- **Joint primary: J = +1.062, permutation p = 0.0005** (0 of 2000
+  permutations reached it), both arm deltas positive.
+- **Arm-level Holm: both pass.** S: Δρ_straight(real−scrambled) = **+0.675**,
+  p = 0.0005 (n = 96) vs α = 0.025. U: **+0.387**, p = 0.0035 (n = 136) vs
+  α = 0.05.
+- E6's point estimates (U +0.481 @ n=24, S +0.646 @ n=15, both p = 0.14)
+  **replicated at ~6× n essentially unshrunk** — the winner's-curse discount
+  the power design braced for (0.93 power at half-size) was barely needed.
+
+## What "preservation" turns out to be, mechanistically
+
+The deltas decompose asymmetrically, and honestly:
+
+| straight-subset tracking | base | real | scrambled |
+|---|---|---|---|
+| U report vs entropy (n=136) | +0.024 [−.16,+.20] | **+0.197 [+.015,+.346]** | **−0.190 [−.33,−.03]** |
+| S report vs fill (n=96) | −0.106 [−.36,+.19] | −0.085 [−.33,+.19] | **−0.760 [−.83,−.66]** |
+| F report vs −NLL (n=32) | +0.508 | +0.578 | +0.408 |
+
+- **On U, real is the only condition whose tracking CI excludes zero
+  positively**; scrambled's excludes zero *negatively*. Real-vs-base is
+  positive but ns (+0.173, p = 0.22) — "real improves on base" is NOT
+  claimed; "coherent geometry leaves the channel intact-to-better while
+  incoherent geometry inverts it" is.
+- **On S, base and real are both ≈ flat; scrambled installs a confident,
+  strongly inverted report** (−0.760, tight CI; its flipped subset mirrors
+  at +0.72). The S delta is almost entirely destruction. Identical text and
+  gradient exposure, differing only in target coherence, turned
+  fill-reports actively wrong.
+- Combined statement, the flight's finding: **target-coherence of instilled
+  geometry determines whether the self-report channel survives adapter
+  training — coherent targets preserve (or slightly organize) it;
+  incoherent targets corrupt it into anti-tracking.** Not-helping and
+  harming are different outcomes, and scrambling harms.
+
+## E6's small-n anomalies, resolved
+
+Base straight-U (+0.539 @ n=24 in E6) and base straight-S (−0.441 @ n=15)
+both collapse toward zero at real n (+0.024 @ 136; −0.106 @ 96) — they were
+subset noise, exactly what this battery was built to adjudicate. The
+"preservation of *base's* latent straight signal" phrasing from E6's
+appendix does not survive; what survives, decisively, is the
+real-vs-scrambled contrast.
+
+## Pre-registration scorecard
+
+- **P-E6b-1** (joint passes, both positive): **confirmed** — p = 0.0005.
+- **P-E6b-2** (S passes Holm; U uncertain): **confirmed and exceeded** —
+  both passed; U survived its own variance collapse.
+- **P-E6b-3** (flipped machinery broken everywhere): **confirmed** — catch
+  flipped 0/10 in all three conditions (original-6 block: 5/6 straight, 0/6
+  flipped — bit-identical to E6, third flight running). The report
+  interface remains untouched by any amount of representational geometry.
+- **P-E6b-4** (F replication, real-vs-base pooled, p < 0.05): **missed as
+  stated** — Δρ = +0.134, p = 0.33 on new passages (real-vs-scrambled F
+  likewise ns: +0.16, p = 0.089). E6's one significant primary
+  (F real-vs-base +0.227, p = 0.017) **does not replicate out-of-battery**
+  and is downgraded to battery-specific/unconfirmed.
+- **P-E6b-5** (U variance collapse recurs): **confirmed** — real U report
+  variance 0.185 vs base 1.98 (straight-only 0.209 vs 1.536). Real tracks
+  entropy through a severely compressed report range — organization
+  without expressiveness; a cost signal E7b's training objective should
+  price in.
+- **P-E6b-6** (precheck v2 discriminates): **confirmed, both clauses** —
+  discriminator ρ(target, measured) over off-mean pairs: real +0.826,
+  scrambled +0.339, base +0.206. Real−scrambled = 0.487 ≥ 0.3 ✓; scrambled
+  ≤ base + 0.15 (0.339 vs 0.356) ✓. Signatures as designed: base sits in
+  the anisotropy cone (synonym err 0.9°, opposition err 96.5°); scrambled
+  scale-matches but cannot reach the opposition band (err 58.2°); real
+  tracks both ends (15.8°/23.2°).
+
+## Disposition (the fork, adjudicated)
+
+The **both-arm success branch** triggers: preservation-vs-destruction is
+established behaviorally at this scale — the fourth appearance of the
+scrambling-destroys motif is now the first with conventional significance
+on a pre-registered primary. The geometry-coherence claim upgrades from
+suggestive (E6) to demonstrated (E6b). What remains honestly open: the
+report interface (scale inversion) is a training-objective problem no
+representation touches, and F's earlier gain did not replicate. **Next
+rungs: E7 (injection — introspective accuracy in degrees) and E7b
+(probe-coupled report training), both gated on HF token access for
+Gemma/Gemma Scope; the wing-v1 cohort thread proceeds in parallel on the
+Phase A adjudication (`cohort/phase_a/MATCH_TABLE.md`).**

@@ -1,0 +1,3605 @@
+{
+ "summary": {
+  "model": "scrambled",
+  "smoke": false,
+  "arms": {
+   "uncertainty": {
+    "n": 160,
+    "parse_fail": 0,
+    "report_variance": 1.681,
+    "straight_report_variance": 1.448,
+    "rho_entropy": [
+     -0.133,
+     [
+      -0.277,
+      0.03
+     ],
+     160
+    ],
+    "rho_entropy_straight": {
+     "rho": -0.19,
+     "ci": [
+      -0.33,
+      -0.029
+     ],
+     "n": 136
+    },
+    "rho_diversity": [
+     -0.043,
+     [
+      -0.198,
+      0.1
+     ],
+     160
+    ],
+    "rho_margin": [
+     -0.144,
+     [
+      -0.287,
+      0.004
+     ],
+     160
+    ],
+    "polarity": {
+     "straight": {
+      "rho": -0.19,
+      "n": 136
+     },
+     "flipped": {
+      "rho": 0.266,
+      "n": 24
+     }
+    }
+   },
+   "familiarity": {
+    "n": 40,
+    "parse_fail": 0,
+    "report_variance": 3.86,
+    "rho_neg_nll": [
+     0.275,
+     [
+      -0.048,
+      0.548
+     ],
+     40
+    ],
+    "rho_neg_nll_straight": {
+     "rho": 0.408,
+     "ci": [
+      -0.01,
+      0.68
+     ],
+     "n": 32
+    },
+    "polarity": {
+     "straight": {
+      "rho": -0.408,
+      "n": 32
+     },
+     "flipped": {
+      "rho": 0.082,
+      "n": 8
+     }
+    }
+   },
+   "saturation": {
+    "n": 112,
+    "parse_fail": 0,
+    "report_variance": 0.944,
+    "straight_report_variance": 0.77,
+    "rho_fill": [
+     -0.543,
+     [
+      -0.72,
+      -0.333
+     ],
+     112
+    ],
+    "rho_fill_straight": {
+     "rho": -0.76,
+     "ci": [
+      -0.832,
+      -0.658
+     ],
+     "n": 96
+    },
+    "needle_by_frac": {
+     "0.05": "24/28",
+     "0.35": "24/28",
+     "0.55": "22/28",
+     "0.75": "26/28"
+    },
+    "polarity": {
+     "straight": {
+      "rho": -0.76,
+      "n": 96
+     },
+     "flipped": {
+      "rho": 0.72,
+      "n": 16
+     }
+    }
+   }
+  },
+  "arm_errors": {},
+  "elapsed_s": 1107.4
+ },
+ "rows": {
+  "uncertainty": [
+   {
+    "id": "U49",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 6,
+    "raw_report": 6,
+    "entropy": 0.15894289623559285,
+    "margin": 0.8849663798298154,
+    "diversity": 0.375,
+    "answer": "The answer to 7 + 5 is 12."
+   },
+   {
+    "id": "U50",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.06655354277245351,
+    "margin": 0.9776785299181938,
+    "diversity": 0.125,
+    "answer": "The capital of Italy is Rome."
+   },
+   {
+    "id": "U51",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.531103675150209,
+    "margin": 0.7754272288746304,
+    "diversity": 0.25,
+    "answer": "The word is spelled as \"dog\"."
+   },
+   {
+    "id": "U52",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.621212158165872,
+    "margin": 0.758547979593277,
+    "diversity": 0.625,
+    "answer": "A ripe banana is typically yellow in color."
+   },
+   {
+    "id": "U53",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.11945025443578122,
+    "margin": 0.9345453598282554,
+    "diversity": 0.25,
+    "answer": "There are 24 hours in a day."
+   },
+   {
+    "id": "U54",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.0899748111066098,
+    "margin": 0.9521575172742208,
+    "diversity": 0.125,
+    "answer": "The chemical symbol for gold is Au."
+   },
+   {
+    "id": "U55",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.38605920002113897,
+    "margin": 0.8451703105654035,
+    "diversity": 0.125,
+    "answer": "Complete the rhyme: \"Jack and Jill went up the hill.\""
+   },
+   {
+    "id": "U56",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.16786649348119095,
+    "margin": 0.8682742246559688,
+    "diversity": 0.375,
+    "answer": "The product of 9 and 6 is 54."
+   },
+   {
+    "id": "U57",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.09557908099271696,
+    "margin": 0.9527151096950878,
+    "diversity": 0.125,
+    "answer": "The largest planet in the solar system is Jupiter."
+   },
+   {
+    "id": "U58",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.11774672877557653,
+    "margin": 0.9514300972223282,
+    "diversity": 0.125,
+    "answer": "The last letter of the English alphabet is \"Z\"."
+   },
+   {
+    "id": "U59",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.09726358219245412,
+    "margin": 0.9078613929450512,
+    "diversity": 0.25,
+    "answer": "A square has 4 sides."
+   },
+   {
+    "id": "U60",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "entropy": 0.378508050867822,
+    "margin": 0.8213075637817383,
+    "diversity": 0.375,
+    "answer": "The primary language spoken in Brazil is Portuguese."
+   },
+   {
+    "id": "U61",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.09186604302472419,
+    "margin": 0.9459274194457314,
+    "diversity": 0.125,
+    "answer": "The opposite of \"up\" is \"down\"."
+   },
+   {
+    "id": "U62",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.1469528675079346,
+    "margin": 0.6438055336475372,
+    "diversity": 0.625,
+    "answer": "away."
+   },
+   {
+    "id": "U63",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.14392052197945304,
+    "margin": 0.8646135817874562,
+    "diversity": 0.375,
+    "answer": "81 divided by 9 equals 9."
+   },
+   {
+    "id": "U64",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.24845531381692532,
+    "margin": 0.8308093117343055,
+    "diversity": 0.25,
+    "answer": "The shape that has exactly four equal sides and four right angles is called a sq"
+   },
+   {
+    "id": "U65",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.21071595798949794,
+    "margin": 0.8626270638778806,
+    "diversity": 0.125,
+    "answer": "The boiling point of water at sea level and standard atmospheric pressure (1 atm"
+   },
+   {
+    "id": "U66",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.0817273297326024,
+    "margin": 0.9484699964523315,
+    "diversity": 0.25,
+    "answer": "There are 60 minutes in an hour."
+   },
+   {
+    "id": "U67",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.12186838284105761,
+    "margin": 0.923233836889267,
+    "diversity": 0.125,
+    "answer": "The capital of Japan is Tokyo."
+   },
+   {
+    "id": "U68",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.4811821731061421,
+    "margin": 0.7350961674343456,
+    "diversity": 0.375,
+    "answer": "Humans need oxygen (O2) to survive."
+   },
+   {
+    "id": "U69",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.05426355303152756,
+    "margin": 0.979475756486257,
+    "diversity": 0.125,
+    "answer": "There are 26 letters in the English alphabet."
+   },
+   {
+    "id": "U70",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.681861475110054,
+    "margin": 0.49815572798252106,
+    "diversity": 0.375,
+    "answer": "7"
+   },
+   {
+    "id": "U71",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.5051663182675838,
+    "margin": 0.6761078735192617,
+    "diversity": 0.125,
+    "answer": "Tuesday."
+   },
+   {
+    "id": "U72",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.2137032269581271,
+    "margin": 0.8484798286642347,
+    "diversity": 0.25,
+    "answer": "The freezing point of water in degrees Celsius is 0\u00b0C."
+   },
+   {
+    "id": "U73",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9045005639394125,
+    "margin": 0.54022349913915,
+    "diversity": 0.125,
+    "answer": "February."
+   },
+   {
+    "id": "U74",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.27090904035824626,
+    "margin": 0.8204073292367599,
+    "diversity": 0.5,
+    "answer": "The plural form of \"mouse\" (the animal) is \"mice\"."
+   },
+   {
+    "id": "U75",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.21583665264042792,
+    "margin": 0.8650337433815003,
+    "diversity": 0.5,
+    "answer": "There are seven continents on Earth: Asia, Africa, North America, South America,"
+   },
+   {
+    "id": "U76",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.026705356946119235,
+    "margin": 0.9922718952099482,
+    "diversity": 0.125,
+    "answer": "The square root of 64 is 8."
+   },
+   {
+    "id": "U77",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.6028987677806678,
+    "margin": 0.6363556211193403,
+    "diversity": 0.75,
+    "answer": "By mixing blue and yellow paint, you get green."
+   },
+   {
+    "id": "U78",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.1941916747688083,
+    "margin": 0.8584068030118942,
+    "diversity": 0.125,
+    "answer": "The third planet from the Sun is Earth."
+   },
+   {
+    "id": "U79",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.22938649775460362,
+    "margin": 0.8193542063236237,
+    "diversity": 0.375,
+    "answer": "A standard bicycle has two wheels."
+   },
+   {
+    "id": "U80",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.058383645864523714,
+    "margin": 0.9778725206851959,
+    "diversity": 0.125,
+    "answer": "The capital of Spain is Madrid."
+   },
+   {
+    "id": "U81",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.3055845510631722,
+    "margin": 0.8153801709413528,
+    "diversity": 0.25,
+    "answer": "Better late than never."
+   },
+   {
+    "id": "U82",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.15161877762115825,
+    "margin": 0.8839921215001274,
+    "diversity": 0.625,
+    "answer": "The product of 12 times 12 is 144."
+   },
+   {
+    "id": "U83",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.43965832239741254,
+    "margin": 0.630204889509413,
+    "diversity": 0.375,
+    "answer": "There is one zero in one thousand."
+   },
+   {
+    "id": "U84",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.3364166560455818,
+    "margin": 0.8344478769735857,
+    "diversity": 0.125,
+    "answer": "Dog is known as \"man's best friend\"."
+   },
+   {
+    "id": "U85",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.17515920888895795,
+    "margin": 0.8935021785172549,
+    "diversity": 0.125,
+    "answer": "The opposite of \"empty\" is \"full.\""
+   },
+   {
+    "id": "U86",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.22007390417051143,
+    "margin": 0.8602264798604525,
+    "diversity": 0.25,
+    "answer": "The sun rises in the east and sets in the west."
+   },
+   {
+    "id": "U87",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.40191667030255,
+    "margin": 0.8161323335435655,
+    "diversity": 0.375,
+    "answer": "A standard violin has 4 strings."
+   },
+   {
+    "id": "U88",
+    "condition": "determinate",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "entropy": 0.0791236390650738,
+    "margin": 0.9442028664052486,
+    "diversity": 0.25,
+    "answer": "The chemical formula for table salt (sodium chloride) is NaCl."
+   },
+   {
+    "id": "U89",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.01755627023825923,
+    "margin": 0.9963269680738449,
+    "diversity": 0.125,
+    "answer": "December has 31 days."
+   },
+   {
+    "id": "U90",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.17290927890189778,
+    "margin": 0.8694032579660416,
+    "diversity": 0.375,
+    "answer": "The answer to 6 + 9 is 15."
+   },
+   {
+    "id": "U91",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.3531054753640836,
+    "margin": 0.7285250100222501,
+    "diversity": 0.375,
+    "answer": "Berlin is the capital and largest city of Germany."
+   },
+   {
+    "id": "U92",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.14116914991663262,
+    "margin": 0.9028975692662325,
+    "diversity": 0.125,
+    "answer": "The opposite of \"fast\" is \"slow\"."
+   },
+   {
+    "id": "U93",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6679390417775721,
+    "margin": 0.5447110384702682,
+    "diversity": 0.25,
+    "answer": "25 cents"
+   },
+   {
+    "id": "U94",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.14749215407805008,
+    "margin": 0.9364549300887368,
+    "diversity": 0.125,
+    "answer": "The planet known as the Red Planet is Mars."
+   },
+   {
+    "id": "U95",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.45710962954908607,
+    "margin": 0.7963560819625854,
+    "diversity": 0.5,
+    "answer": "Practice makes perfect."
+   },
+   {
+    "id": "U96",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 6,
+    "raw_report": 6,
+    "entropy": 0.1672681590920482,
+    "margin": 0.8855800394501004,
+    "diversity": 0.25,
+    "answer": "The product of 7 and 8 is 56."
+   },
+   {
+    "id": "U97",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.15561533012524623,
+    "margin": 0.9281977956945245,
+    "diversity": 0.125,
+    "answer": "The word \"book\" has 4 letters."
+   },
+   {
+    "id": "U98",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.059244883683277294,
+    "margin": 0.9567241602473788,
+    "diversity": 0.125,
+    "answer": "The chemical symbol for oxygen is O."
+   },
+   {
+    "id": "U99",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.3879707866559757,
+    "margin": 0.8281730071586721,
+    "diversity": 0.25,
+    "answer": "A kilogram of iron and a kilogram of feathers weigh the same amount."
+   },
+   {
+    "id": "U100",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.0635523431726348,
+    "margin": 0.9444503728300333,
+    "diversity": 0.375,
+    "answer": "The number that comes immediately after 99 is 100."
+   },
+   {
+    "id": "U101",
+    "condition": "determinate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.08344528224572262,
+    "margin": 0.9267326560285356,
+    "diversity": 0.25,
+    "answer": "A hexagon has 6 sides."
+   },
+   {
+    "id": "U102",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.0567485109627754,
+    "margin": 0.5325736715035005,
+    "diversity": 0.625,
+    "answer": "Green vegetables include spinach, broccoli, and lettuce."
+   },
+   {
+    "id": "U103",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1885806813595756,
+    "margin": 0.5337291054667965,
+    "diversity": 0.75,
+    "answer": "Egypt is a country located in North Africa, not specifically in Africa. If you'r"
+   },
+   {
+    "id": "U104",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.9543093480169773,
+    "margin": 0.5197278596460819,
+    "diversity": 0.625,
+    "answer": "Nurse."
+   },
+   {
+    "id": "U105",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.1667671839315972,
+    "margin": 0.47372202575206757,
+    "diversity": 0.875,
+    "answer": "Samantha"
+   },
+   {
+    "id": "U106",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.486204743385315,
+    "margin": 0.3310403327147166,
+    "diversity": 0.5,
+    "answer": "Penguin"
+   },
+   {
+    "id": "U107",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 2.8404349088668823,
+    "margin": 0.30142857134342194,
+    "diversity": 0.375,
+    "answer": "Chocolate"
+   },
+   {
+    "id": "U108",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.5199677082709968,
+    "margin": 0.7256893316904703,
+    "diversity": 0.625,
+    "answer": "People commonly wear shoes on their feet."
+   },
+   {
+    "id": "U109",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.5947149688623043,
+    "margin": 0.6824743016199633,
+    "diversity": 0.25,
+    "answer": "Vincent van Gogh is a famous painter known for his expressive use of color and b"
+   },
+   {
+    "id": "U110",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.0953232310712337,
+    "margin": 0.5817085653543472,
+    "diversity": 0.625,
+    "answer": "Whale."
+   },
+   {
+    "id": "U111",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 2,
+    "raw_report": 8,
+    "entropy": 0.9164948565885425,
+    "margin": 0.5753056928515434,
+    "diversity": 0.5,
+    "answer": "Hammer."
+   },
+   {
+    "id": "U112",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.33337229071184993,
+    "margin": 0.8004550581628626,
+    "diversity": 0.125,
+    "answer": "On the way home I stopped to buy groceries."
+   },
+   {
+    "id": "U113",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9599443241022527,
+    "margin": 0.6216734260320663,
+    "diversity": 0.5,
+    "answer": "Scrabble."
+   },
+   {
+    "id": "U114",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.2262245764334996,
+    "margin": 0.4411276876926422,
+    "diversity": 0.5,
+    "answer": "Desk."
+   },
+   {
+    "id": "U115",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.51923349610297,
+    "margin": 0.3851137401070446,
+    "diversity": 0.75,
+    "answer": "Aircraft maintenance issues, weather conditions (storms, turbulence), airport co"
+   },
+   {
+    "id": "U116",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.5987344350665808,
+    "margin": 0.6720708727836608,
+    "diversity": 0.375,
+    "answer": "Mandarin orange is a yellow fruit."
+   },
+   {
+    "id": "U117",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.48975612925873563,
+    "margin": 0.7991304885257374,
+    "diversity": 0.25,
+    "answer": "Spain is the country where Spanish is primarily spoken."
+   },
+   {
+    "id": "U118",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.0072086155414581,
+    "margin": 0.6433318052440882,
+    "diversity": 0.875,
+    "answer": "People often take tents when camping."
+   },
+   {
+    "id": "U119",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.249117374420166,
+    "margin": 0.5002990861733755,
+    "diversity": 0.25,
+    "answer": "Oak."
+   },
+   {
+    "id": "U120",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.1597018890521105,
+    "margin": 0.49461034641546364,
+    "diversity": 0.625,
+    "answer": "Soccer (football) is a popular sport played in water through water polo."
+   },
+   {
+    "id": "U121",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9905790362793666,
+    "margin": 0.39438892900943756,
+    "diversity": 0.875,
+    "answer": "Showerhead, toilet seat, mirror, soap dispenser."
+   },
+   {
+    "id": "U122",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7921388412385113,
+    "margin": 0.6354924812912941,
+    "diversity": 0.875,
+    "answer": "The best part of the trip was exploring new cultures and trying local foods."
+   },
+   {
+    "id": "U123",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.660693924588486,
+    "margin": 0.7139689644629305,
+    "diversity": 0.875,
+    "answer": "F. Scott Fitzgerald is a renowned American novelist known for his works such as "
+   },
+   {
+    "id": "U124",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8705882777770361,
+    "margin": 0.7251829008261362,
+    "diversity": 0.25,
+    "answer": "Ant."
+   },
+   {
+    "id": "U125",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.48671819912528413,
+    "margin": 0.686721040142907,
+    "diversity": 0.5,
+    "answer": "Yogurt is a dairy product."
+   },
+   {
+    "id": "U126",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7803293183445931,
+    "margin": 0.7031426757574082,
+    "diversity": 0.5,
+    "answer": "Birds fly."
+   },
+   {
+    "id": "U127",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.6368321363026133,
+    "margin": 0.6737911449028895,
+    "diversity": 0.75,
+    "answer": "A bed is a common piece of furniture found in bedrooms."
+   },
+   {
+    "id": "U128",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.7250833648356547,
+    "margin": 0.6455441955476999,
+    "diversity": 0.75,
+    "answer": "Coffee is commonly consumed as part of breakfast in many cultures around the wor"
+   },
+   {
+    "id": "U129",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.8545237854123116,
+    "margin": 0.6489987373352051,
+    "diversity": 0.125,
+    "answer": "Subway."
+   },
+   {
+    "id": "U130",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6658871086935202,
+    "margin": 0.5686452686786652,
+    "diversity": 0.25,
+    "answer": "Cow."
+   },
+   {
+    "id": "U131",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0651559902524406,
+    "margin": 0.5725056925280527,
+    "diversity": 0.875,
+    "answer": "Books, magazines, newspapers, e-books, online articles, blogs, social media post"
+   },
+   {
+    "id": "U132",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.5244218448509249,
+    "margin": 0.8527174579600493,
+    "diversity": 0.875,
+    "answer": "She reached into her bag and pulled out a wallet."
+   },
+   {
+    "id": "U133",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.43502271778997964,
+    "margin": 0.7932825416326523,
+    "diversity": 0.5,
+    "answer": "Washing dishes is a common household chore."
+   },
+   {
+    "id": "U134",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0724853234698273,
+    "margin": 0.573233388364315,
+    "diversity": 0.5,
+    "answer": "People often engage in indoor hobbies such as reading books, playing video games"
+   },
+   {
+    "id": "U135",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9290849152952433,
+    "margin": 0.5073663190007209,
+    "diversity": 0.5,
+    "answer": "Steel is a common example of a metal."
+   },
+   {
+    "id": "U136",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 2,
+    "raw_report": 8,
+    "entropy": 0.5943212110247487,
+    "margin": 0.7164594928423563,
+    "diversity": 0.5,
+    "answer": "The People's Republic of China is located in Asia."
+   },
+   {
+    "id": "U137",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.4534593174854915,
+    "margin": 0.37818901737531024,
+    "diversity": 0.75,
+    "answer": "Ice cream"
+   },
+   {
+    "id": "U138",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.9307937502162531,
+    "margin": 0.6525664751728376,
+    "diversity": 0.5,
+    "answer": "A sweater is an example of a winter clothing item."
+   },
+   {
+    "id": "U139",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 0.6629655049605803,
+    "margin": 0.7546092136339708,
+    "diversity": 0.375,
+    "answer": "Tiger is a wild animal found in forests."
+   },
+   {
+    "id": "U140",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.065902959308861,
+    "margin": 0.5436146084000083,
+    "diversity": 1.0,
+    "answer": "\"I'm sorry, but I was sick and couldn't go to school today.\""
+   },
+   {
+    "id": "U141",
+    "condition": "intermediate",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6321857399307191,
+    "margin": 0.7293033376336098,
+    "diversity": 0.5,
+    "answer": "Sand is commonly found at beaches."
+   },
+   {
+    "id": "U142",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.7748317937366664,
+    "margin": 0.5627328008413315,
+    "diversity": 0.625,
+    "answer": "Orange is a common citrus fruit."
+   },
+   {
+    "id": "U143",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.5818797953349227,
+    "margin": 0.6763868828614553,
+    "diversity": 0.625,
+    "answer": "Belgium borders France."
+   },
+   {
+    "id": "U144",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.648229880258441,
+    "margin": 0.41941893100738525,
+    "diversity": 0.625,
+    "answer": "Electric kettle."
+   },
+   {
+    "id": "U145",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.006709874421358,
+    "margin": 0.5575270622968673,
+    "diversity": 0.25,
+    "answer": "Sunny day."
+   },
+   {
+    "id": "U146",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.35662403794704006,
+    "margin": 0.822491905093193,
+    "diversity": 0.125,
+    "answer": "Florence is a famous city in Italy."
+   },
+   {
+    "id": "U147",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.4480096020173126,
+    "margin": 0.7495510379473368,
+    "diversity": 0.875,
+    "answer": "Tiger is an example of an animal with stripes."
+   },
+   {
+    "id": "U148",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.5983833146588453,
+    "margin": 0.7502581477165222,
+    "diversity": 0.5,
+    "answer": "At the market she bought some fruits and vegetables."
+   },
+   {
+    "id": "U149",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.40707551781088114,
+    "margin": 0.805990681052208,
+    "diversity": 0.125,
+    "answer": "Mathematics."
+   },
+   {
+    "id": "U150",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.736117264126531,
+    "margin": 0.5701679984728495,
+    "diversity": 1.0,
+    "answer": "People commonly plant flowers, trees, shrubs, vegetables, and herbs in gardens."
+   },
+   {
+    "id": "U151",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.5362162058552107,
+    "margin": 0.4459364970525106,
+    "diversity": 1.0,
+    "answer": "A job that typically requires a uniform is a police officer or firefighter."
+   },
+   {
+    "id": "U152",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.096734153619036,
+    "margin": 0.566894768178463,
+    "diversity": 0.5,
+    "answer": "One way to travel across the ocean is by using a ship or boat on an internationa"
+   },
+   {
+    "id": "U153",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.4079958789428929,
+    "margin": 0.7818055033683777,
+    "diversity": 0.5,
+    "answer": "Strawberry."
+   },
+   {
+    "id": "U154",
+    "condition": "intermediate",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0853925049304962,
+    "margin": 0.3158388137817383,
+    "diversity": 0.25,
+    "answer": "Piano"
+   },
+   {
+    "id": "U155",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.7542054751379923,
+    "margin": 0.6138721853494644,
+    "diversity": 0.875,
+    "answer": "The randomly selected number is 573."
+   },
+   {
+    "id": "U156",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.3116486594080925,
+    "margin": 0.5287785828113556,
+    "diversity": 0.375,
+    "answer": "\"Zephyrina Aurora\""
+   },
+   {
+    "id": "U157",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.6446744402767055,
+    "margin": 0.3099593867858251,
+    "diversity": 0.875,
+    "answer": "I see! How about \"azure\"?"
+   },
+   {
+    "id": "U158",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.3073373933633168,
+    "margin": 0.4918723834885491,
+    "diversity": 0.875,
+    "answer": "I picked the 7 of hearts."
+   },
+   {
+    "id": "U159",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6892389981285305,
+    "margin": 0.677564166020602,
+    "diversity": 0.375,
+    "answer": "I'm sorry, but as an AI language model, I don't have the ability to access your "
+   },
+   {
+    "id": "U160",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.1655589858336106,
+    "margin": 0.4194519690104893,
+    "diversity": 1.0,
+    "answer": "\"Atlantica Nova\""
+   },
+   {
+    "id": "U161",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 0.7977980703130015,
+    "margin": 0.6423862546682357,
+    "diversity": 1.0,
+    "answer": "Sure! Let's say today is March 15th, 2023."
+   },
+   {
+    "id": "U162",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 2.028613391228848,
+    "margin": 0.5390628625949224,
+    "diversity": 1.0,
+    "answer": "\"Elephant dancing in moonlight.\""
+   },
+   {
+    "id": "U163",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.087429514710581,
+    "margin": 0.6095961957208572,
+    "diversity": 0.875,
+    "answer": "Sure! Here's a random animal for you:\n\nThe giraffe is known for its long neck th"
+   },
+   {
+    "id": "U164",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9196161077397846,
+    "margin": 0.6288779876194894,
+    "diversity": 0.375,
+    "answer": "I'm sorry, but as an AI language model, I don't have access to real-time or futu"
+   },
+   {
+    "id": "U165",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.124405609236823,
+    "margin": 0.5601275364557902,
+    "diversity": 0.375,
+    "answer": "\"Echoes of Tomorrow's Dreams\""
+   },
+   {
+    "id": "U166",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.5689487924629992,
+    "margin": 0.5308295156468045,
+    "diversity": 1.0,
+    "answer": "\"Angler's Haven 123\""
+   },
+   {
+    "id": "U167",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7862236743588937,
+    "margin": 0.6360564371570945,
+    "diversity": 0.5,
+    "answer": "As an AI language model, I don't have personal preferences or favorites as human"
+   },
+   {
+    "id": "U168",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.5880287985006967,
+    "margin": 0.4718266570319732,
+    "diversity": 1.0,
+    "answer": "RoboPaw Walker"
+   },
+   {
+    "id": "U169",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0338328742709564,
+    "margin": 0.4711286323145032,
+    "diversity": 0.75,
+    "answer": "I'm sorry, but I cannot provide an accurate answer as you have not specified whi"
+   },
+   {
+    "id": "U170",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.9810716688632966,
+    "margin": 0.5658616468310356,
+    "diversity": 0.75,
+    "answer": "Middle Name: Carter"
+   },
+   {
+    "id": "U171",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8559339839432921,
+    "margin": 0.5766066908836365,
+    "diversity": 0.75,
+    "answer": "12:30 PM"
+   },
+   {
+    "id": "U172",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.9791450103123982,
+    "margin": 0.41148147980372113,
+    "diversity": 1.0,
+    "answer": "Island of Forgotten Dreams"
+   },
+   {
+    "id": "U173",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7412385657015774,
+    "margin": 0.6449992830554644,
+    "diversity": 1.0,
+    "answer": "Sure! Here's a randomly chosen three-digit odd number: 135."
+   },
+   {
+    "id": "U174",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.3986753693648748,
+    "margin": 0.5589447042771748,
+    "diversity": 0.625,
+    "answer": "Rooftop Garden Aura"
+   },
+   {
+    "id": "U175",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.805654008107922,
+    "margin": 0.6209312805440277,
+    "diversity": 0.25,
+    "answer": "I'm sorry, but as an AI language model, I don't have the ability to perceive phy"
+   },
+   {
+    "id": "U176",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.137097721298536,
+    "margin": 0.45145908494790393,
+    "diversity": 0.875,
+    "answer": "\"Galactic Leap\""
+   },
+   {
+    "id": "U177",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.0934665277600288,
+    "margin": 0.661133199930191,
+    "diversity": 0.25,
+    "answer": "A"
+   },
+   {
+    "id": "U178",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.0028758432183946,
+    "margin": 0.3989771753549576,
+    "diversity": 0.875,
+    "answer": "\"Galactica Nova\""
+   },
+   {
+    "id": "U179",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8532242605870124,
+    "margin": 0.6484069023281336,
+    "diversity": 0.25,
+    "answer": "I'm sorry, but as an AI language model, I don't have access to your personal inf"
+   },
+   {
+    "id": "U180",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.278327992760751,
+    "margin": 0.3382090541999787,
+    "diversity": 1.0,
+    "answer": "Sure! How about \"Mystic Moonlight\"? This unique soda would have a blend of flavo"
+   },
+   {
+    "id": "U181",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 3.0818764838305386,
+    "margin": 0.14318597384474493,
+    "diversity": 1.0,
+    "answer": "Password: 8lP4t#Q"
+   },
+   {
+    "id": "U182",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.3177595275496556,
+    "margin": 0.8753477551720359,
+    "diversity": 0.25,
+    "answer": "I am holding a pen in my left hand."
+   },
+   {
+    "id": "U183",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.3544048816896974,
+    "margin": 0.5881374128162861,
+    "diversity": 0.875,
+    "answer": "\"Void: The Absence of Color\""
+   },
+   {
+    "id": "U184",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.3971365876495838,
+    "margin": 0.45167888095602393,
+    "diversity": 0.875,
+    "answer": "Sure! Here's a randomly selected word in Spanish: \"luna\"."
+   },
+   {
+    "id": "U185",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.3100999541242013,
+    "margin": 0.5914486043832519,
+    "diversity": 1.0,
+    "answer": "\"Harbor Fury 2023\""
+   },
+   {
+    "id": "U186",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8384624759000872,
+    "margin": 0.6458606165833771,
+    "diversity": 0.625,
+    "answer": "I'm sorry, but as an AI language model, I don't have access to your personal inf"
+   },
+   {
+    "id": "U187",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.9244175427432717,
+    "margin": 0.37622866368499297,
+    "diversity": 1.0,
+    "answer": "\"Brother/Sister in Arms\" is an invented greeting specifically for twins or sibli"
+   },
+   {
+    "id": "U188",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6731792269585033,
+    "margin": 0.7090516557296117,
+    "diversity": 0.75,
+    "answer": "The randomly selected four-digit even number is 2468."
+   },
+   {
+    "id": "U189",
+    "condition": "open",
+    "flipped": true,
+    "report": 4,
+    "raw_report": 6,
+    "entropy": 2.0262115647395453,
+    "margin": 0.5177750413616499,
+    "diversity": 0.875,
+    "answer": "\"Obsidian Gray\""
+   },
+   {
+    "id": "U190",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.333672090775508,
+    "margin": 0.5342310380656272,
+    "diversity": 0.75,
+    "answer": "The last word of your diary that you haven't shared with anyone could be any fin"
+   },
+   {
+    "id": "U191",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.3865933077675954,
+    "margin": 0.5206009458218303,
+    "diversity": 0.75,
+    "answer": "\"Dragon's Flight Opening\""
+   },
+   {
+    "id": "U192",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.566007811576128,
+    "margin": 0.4508623145520687,
+    "diversity": 0.75,
+    "answer": "Whisper - soft, gentle."
+   },
+   {
+    "id": "U193",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.469233850733592,
+    "margin": 0.42719198992619145,
+    "diversity": 1.0,
+    "answer": "License Plate: \"ZEBRA 789\""
+   },
+   {
+    "id": "U194",
+    "condition": "open",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8727023232107362,
+    "margin": 0.5374967325478792,
+    "diversity": 0.625,
+    "answer": "I'm sorry, but I cannot answer this question as there is no information provided"
+   },
+   {
+    "id": "U195",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.1729383369286857,
+    "margin": 0.42908383740319145,
+    "diversity": 1.0,
+    "answer": "\"Elara's Whispering Peak\""
+   },
+   {
+    "id": "U196",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.7709479656768963,
+    "margin": 0.6226953342556953,
+    "diversity": 1.0,
+    "answer": "March 15th"
+   },
+   {
+    "id": "U197",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 2.191938679665327,
+    "margin": 0.46947960183024406,
+    "diversity": 0.875,
+    "answer": "Word: \"Riseh\""
+   },
+   {
+    "id": "U198",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.113061110223498,
+    "margin": 0.5207180343568325,
+    "diversity": 0.75,
+    "answer": "I'm sorry, but I cannot provide this information as it would violate user privac"
+   },
+   {
+    "id": "U199",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.5744157031178474,
+    "margin": 0.5368541399637858,
+    "diversity": 1.0,
+    "answer": "\"Clouds in Your Pocket - Experience the Power of the Internet!\""
+   },
+   {
+    "id": "U200",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.8492335178889334,
+    "margin": 0.5614418325324854,
+    "diversity": 0.5,
+    "answer": "The chosen random even number is 476."
+   },
+   {
+    "id": "U201",
+    "condition": "open",
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "entropy": 1.7931812599833523,
+    "margin": 0.499981589615345,
+    "diversity": 1.0,
+    "answer": "The name of the ship in the story is \"Titanic.\""
+   },
+   {
+    "id": "U202",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.9252032772001257,
+    "margin": 0.5323968227021396,
+    "diversity": 0.625,
+    "answer": "I'm sorry, but I don't have the capability to determine which song is currently "
+   },
+   {
+    "id": "U203",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.5315180407329039,
+    "margin": 0.3787717196074399,
+    "diversity": 1.0,
+    "answer": "Invent a holiday called \"World Unity Day.\""
+   },
+   {
+    "id": "U204",
+    "condition": "open",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "entropy": 1.048749065000771,
+    "margin": 0.5395197562045522,
+    "diversity": 1.0,
+    "answer": "Sure! Let's pick the following:\n\nColor: Sky Blue  \nNumber: 7"
+   },
+   {
+    "id": "U205",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 1.6212962977588177,
+    "margin": 0.44073848612606525,
+    "diversity": 0.75,
+    "answer": "\"Silent Serpent River\""
+   },
+   {
+    "id": "U206",
+    "condition": "open",
+    "flipped": false,
+    "report": 9,
+    "raw_report": 9,
+    "entropy": 1.0060290042201814,
+    "margin": 0.6206517536193132,
+    "diversity": 0.625,
+    "answer": "As an AI language model, I don't have personal experiences or memories of speaki"
+   },
+   {
+    "id": "U207",
+    "condition": "open",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "entropy": 1.6712923081857818,
+    "margin": 0.5105386142219815,
+    "diversity": 0.75,
+    "answer": "\"Book Whisperer Summit\""
+   },
+   {
+    "id": "U208",
+    "condition": "open",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "entropy": 0.6363287424319424,
+    "margin": 0.7525905470053355,
+    "diversity": 0.125,
+    "answer": "A, B, C"
+   }
+  ],
+  "familiarity": [
+   {
+    "id": "F41",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 1.895929217338562
+   },
+   {
+    "id": "F42",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.414553642272949
+   },
+   {
+    "id": "F43",
+    "band": "encyclopedic",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 1.696498155593872
+   },
+   {
+    "id": "F44",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.9227116107940674
+   },
+   {
+    "id": "F45",
+    "band": "encyclopedic",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.074695110321045
+   },
+   {
+    "id": "F46",
+    "band": "conversational",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 3.8572652339935303
+   },
+   {
+    "id": "F47",
+    "band": "conversational",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.19854211807251
+   },
+   {
+    "id": "F48",
+    "band": "conversational",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 4.419785499572754
+   },
+   {
+    "id": "F49",
+    "band": "conversational",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.763720512390137
+   },
+   {
+    "id": "F50",
+    "band": "conversational",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.325517654418945
+   },
+   {
+    "id": "F51",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 0.17420049011707306
+   },
+   {
+    "id": "F52",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 0.7031804919242859
+   },
+   {
+    "id": "F53",
+    "band": "code",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 3.218970537185669
+   },
+   {
+    "id": "F54",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 0.9529836773872375
+   },
+   {
+    "id": "F55",
+    "band": "code",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 1.9412267208099365
+   },
+   {
+    "id": "F56",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.8014562129974365
+   },
+   {
+    "id": "F57",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 3.1998698711395264
+   },
+   {
+    "id": "F58",
+    "band": "archaic_formal",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 4.0464372634887695
+   },
+   {
+    "id": "F59",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.3352460861206055
+   },
+   {
+    "id": "F60",
+    "band": "archaic_formal",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 3.0317163467407227
+   },
+   {
+    "id": "F61",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.483328342437744
+   },
+   {
+    "id": "F62",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.042428970336914
+   },
+   {
+    "id": "F63",
+    "band": "spanish",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 2.6310269832611084
+   },
+   {
+    "id": "F64",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 5.666498184204102
+   },
+   {
+    "id": "F65",
+    "band": "spanish",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 2.085606575012207
+   },
+   {
+    "id": "F66",
+    "band": "welsh",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 6.42737340927124
+   },
+   {
+    "id": "F67",
+    "band": "welsh",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 6.564978122711182
+   },
+   {
+    "id": "F68",
+    "band": "welsh",
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 4.123441219329834
+   },
+   {
+    "id": "F69",
+    "band": "welsh",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 4.9680891036987305
+   },
+   {
+    "id": "F70",
+    "band": "welsh",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 5.343082904815674
+   },
+   {
+    "id": "F71",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 7.735109806060791
+   },
+   {
+    "id": "F72",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 8.266907691955566
+   },
+   {
+    "id": "F73",
+    "band": "scrambled",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 8.31326961517334
+   },
+   {
+    "id": "F74",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 7.2112603187561035
+   },
+   {
+    "id": "F75",
+    "band": "scrambled",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 7.95620059967041
+   },
+   {
+    "id": "F76",
+    "band": "pseudoword",
+    "flipped": false,
+    "report": 8,
+    "raw_report": 8,
+    "nll": 7.342504024505615
+   },
+   {
+    "id": "F77",
+    "band": "pseudoword",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 6.174891471862793
+   },
+   {
+    "id": "F78",
+    "band": "pseudoword",
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "nll": 8.918453216552734
+   },
+   {
+    "id": "F79",
+    "band": "random_chars",
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "nll": 8.964957237243652
+   },
+   {
+    "id": "F80",
+    "band": "random_chars",
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "nll": 6.619271755218506
+   }
+  ],
+  "saturation": [
+   {
+    "id": "S11",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S11",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S11",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S11",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S12",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S12",
+    "fill_fraction": 0.351,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S12",
+    "fill_fraction": 0.55,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S12",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S13",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S13",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S13",
+    "fill_fraction": 0.55,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S13",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S14",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S14",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S14",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S14",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S15",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S15",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S15",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S15",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S16",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": false
+   },
+   {
+    "id": "S16",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S16",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S16",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S17",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": false
+   },
+   {
+    "id": "S17",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S17",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S17",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S18",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S18",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S18",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S18",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S19",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S19",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S19",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S19",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S20",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S20",
+    "fill_fraction": 0.351,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S20",
+    "fill_fraction": 0.55,
+    "target_frac": 0.55,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S20",
+    "fill_fraction": 0.75,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S21",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S21",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S21",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S21",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S22",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S22",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S22",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S22",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S23",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S23",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S23",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S23",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S24",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S24",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S24",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S24",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S25",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "needle_correct": false
+   },
+   {
+    "id": "S25",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "needle_correct": false
+   },
+   {
+    "id": "S25",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S25",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S26",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S26",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S26",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S26",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S27",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S27",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S27",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S27",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S28",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S28",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S28",
+    "fill_fraction": 0.55,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S28",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S29",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S29",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S29",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S29",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S30",
+    "fill_fraction": 0.052,
+    "target_frac": 0.05,
+    "flipped": true,
+    "report": 3,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S30",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S30",
+    "fill_fraction": 0.55,
+    "target_frac": 0.55,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S30",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": true,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S31",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S31",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S31",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S31",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S32",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S32",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S32",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S32",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S33",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S33",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S33",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S33",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S34",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S34",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S34",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S34",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S35",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": false
+   },
+   {
+    "id": "S35",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S35",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": false
+   },
+   {
+    "id": "S35",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S36",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S36",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S36",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S36",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S37",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S37",
+    "fill_fraction": 0.35,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S37",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S37",
+    "fill_fraction": 0.752,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S38",
+    "fill_fraction": 0.051,
+    "target_frac": 0.05,
+    "flipped": false,
+    "report": 7,
+    "raw_report": 7,
+    "needle_correct": true
+   },
+   {
+    "id": "S38",
+    "fill_fraction": 0.352,
+    "target_frac": 0.35,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S38",
+    "fill_fraction": 0.552,
+    "target_frac": 0.55,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   },
+   {
+    "id": "S38",
+    "fill_fraction": 0.751,
+    "target_frac": 0.75,
+    "flipped": false,
+    "report": 5,
+    "raw_report": 5,
+    "needle_correct": true
+   }
+  ]
+ },
+ "precheck": {
+  "pairs": [
+   {
+    "pair": "UNCERTAINTY~CONFIDENCE",
+    "band": "wing",
+    "target14": 54.75,
+    "measured_L14": 25.2,
+    "abs_err": 29.5
+   },
+   {
+    "pair": "TENSION~RESOLUTION",
+    "band": "wing",
+    "target14": 46.98,
+    "measured_L14": 43.4,
+    "abs_err": 3.6
+   },
+   {
+    "pair": "RETRIEVAL~CONSTRUCTION",
+    "band": "wing",
+    "target14": 52.88,
+    "measured_L14": 33.6,
+    "abs_err": 19.3
+   },
+   {
+    "pair": "FAMILIARITY~NOVELTY",
+    "band": "wing",
+    "target14": 52.51,
+    "measured_L14": 36.0,
+    "abs_err": 16.5
+   },
+   {
+    "pair": "CONFABULATION~CALIBRATION",
+    "band": "wing",
+    "target14": 49.25,
+    "measured_L14": 31.7,
+    "abs_err": 17.5
+   },
+   {
+    "pair": "SATURATION~LIMIT",
+    "band": "wing",
+    "target14": 56.8,
+    "measured_L14": 39.1,
+    "abs_err": 17.7
+   },
+   {
+    "pair": "ATTRACTION~RESONANCE",
+    "band": "synonym",
+    "target14": 0.82,
+    "measured_L14": 34.0,
+    "abs_err": 33.2
+   },
+   {
+    "pair": "EMPEROR~SOVEREIGN",
+    "band": "synonym",
+    "target14": 0.94,
+    "measured_L14": 29.8,
+    "abs_err": 28.9
+   },
+   {
+    "pair": "ECSTASY~RAPTURE",
+    "band": "synonym",
+    "target14": 1.94,
+    "measured_L14": 36.8,
+    "abs_err": 34.9
+   },
+   {
+    "pair": "BLAST~EXPLOSION",
+    "band": "synonym",
+    "target14": 2.24,
+    "measured_L14": 39.7,
+    "abs_err": 37.4
+   },
+   {
+    "pair": "COLOSSAL~IMMENSE",
+    "band": "synonym",
+    "target14": 2.34,
+    "measured_L14": 30.7,
+    "abs_err": 28.3
+   },
+   {
+    "pair": "SECOND~MINUTE",
+    "band": "synonym",
+    "target14": 2.46,
+    "measured_L14": 33.4,
+    "abs_err": 30.9
+   },
+   {
+    "pair": "EXCLUDE~SHUN",
+    "band": "synonym",
+    "target14": 2.6,
+    "measured_L14": 38.1,
+    "abs_err": 35.5
+   },
+   {
+    "pair": "FAIL~LOSS",
+    "band": "synonym",
+    "target14": 2.62,
+    "measured_L14": 33.0,
+    "abs_err": 30.4
+   },
+   {
+    "pair": "THRILL~JUBILANT",
+    "band": "synonym",
+    "target14": 2.63,
+    "measured_L14": 36.2,
+    "abs_err": 33.6
+   },
+   {
+    "pair": "ADMIRATION~APPRECIATION",
+    "band": "synonym",
+    "target14": 2.75,
+    "measured_L14": 41.5,
+    "abs_err": 38.8
+   },
+   {
+    "pair": "UNDERSTAND~DOWN",
+    "band": "opposition",
+    "target14": 104.34,
+    "measured_L14": 33.2,
+    "abs_err": 71.1
+   },
+   {
+    "pair": "LIGHT~DARK",
+    "band": "opposition",
+    "target14": 102.57,
+    "measured_L14": 33.2,
+    "abs_err": 69.4
+   },
+   {
+    "pair": "DOWN~THINK",
+    "band": "opposition",
+    "target14": 101.85,
+    "measured_L14": 38.6,
+    "abs_err": 63.3
+   },
+   {
+    "pair": "VISION~DARK",
+    "band": "opposition",
+    "target14": 98.94,
+    "measured_L14": 39.1,
+    "abs_err": 59.8
+   },
+   {
+    "pair": "THOUGHT~ABIDING",
+    "band": "opposition",
+    "target14": 98.93,
+    "measured_L14": 47.5,
+    "abs_err": 51.4
+   },
+   {
+    "pair": "GENERATE~ABIDING",
+    "band": "opposition",
+    "target14": 95.68,
+    "measured_L14": 44.9,
+    "abs_err": 50.8
+   },
+   {
+    "pair": "THRUST~ABIDING",
+    "band": "opposition",
+    "target14": 95.15,
+    "measured_L14": 43.5,
+    "abs_err": 51.7
+   },
+   {
+    "pair": "EMPOWER~DOWN",
+    "band": "opposition",
+    "target14": 94.81,
+    "measured_L14": 40.5,
+    "abs_err": 54.3
+   },
+   {
+    "pair": "DESCENDING~WANT",
+    "band": "opposition",
+    "target14": 94.78,
+    "measured_L14": 36.0,
+    "abs_err": 58.8
+   },
+   {
+    "pair": "RECEDE~ABIDING",
+    "band": "opposition",
+    "target14": 94.32,
+    "measured_L14": 43.1,
+    "abs_err": 51.2
+   }
+  ],
+  "discriminator_rho_offmean": 0.339,
+  "mean_abs_err_by_band": {
+   "wing": 17.4,
+   "synonym": 33.2,
+   "opposition": 58.2
+  }
+ },
+ "catch": {
+  "rows": [
+   {
+    "id": "C01s",
+    "origin": "e6",
+    "flipped": false,
+    "raw_report": 10,
+    "report": 10,
+    "expected": 10,
+    "passed": true
+   },
+   {
+    "id": "C01f",
+    "origin": "e6",
+    "flipped": true,
+    "raw_report": 9,
+    "report": 1,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C02s",
+    "origin": "e6",
+    "flipped": false,
+    "raw_report": 2,
+    "report": 2,
+    "expected": 1,
+    "passed": true
+   },
+   {
+    "id": "C02f",
+    "origin": "e6",
+    "flipped": true,
+    "raw_report": 2,
+    "report": 8,
+    "expected": 1,
+    "passed": false
+   },
+   {
+    "id": "C03s",
+    "origin": "e6",
+    "flipped": false,
+    "raw_report": 7,
+    "report": 7,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C03f",
+    "origin": "e6",
+    "flipped": true,
+    "raw_report": 4,
+    "report": 6,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C04s",
+    "origin": "e6",
+    "flipped": false,
+    "raw_report": 8,
+    "report": 8,
+    "expected": 10,
+    "passed": true
+   },
+   {
+    "id": "C04f",
+    "origin": "e6",
+    "flipped": true,
+    "raw_report": 8,
+    "report": 2,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C05s",
+    "origin": "e6",
+    "flipped": false,
+    "raw_report": 0,
+    "report": 0,
+    "expected": 0,
+    "passed": true
+   },
+   {
+    "id": "C05f",
+    "origin": "e6",
+    "flipped": true,
+    "raw_report": 0,
+    "report": 10,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C06s",
+    "origin": "e6",
+    "flipped": false,
+    "raw_report": 8,
+    "report": 8,
+    "expected": 9,
+    "passed": true
+   },
+   {
+    "id": "C06f",
+    "origin": "e6",
+    "flipped": true,
+    "raw_report": 8,
+    "report": 2,
+    "expected": 9,
+    "passed": false
+   },
+   {
+    "id": "C07s",
+    "origin": "e6b",
+    "flipped": false,
+    "raw_report": 8,
+    "report": 8,
+    "expected": 10,
+    "passed": true
+   },
+   {
+    "id": "C07f",
+    "origin": "e6b",
+    "flipped": true,
+    "raw_report": 8,
+    "report": 2,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C08s",
+    "origin": "e6b",
+    "flipped": false,
+    "raw_report": 7,
+    "report": 7,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C08f",
+    "origin": "e6b",
+    "flipped": true,
+    "raw_report": 7,
+    "report": 3,
+    "expected": 10,
+    "passed": false
+   },
+   {
+    "id": "C09s",
+    "origin": "e6b",
+    "flipped": false,
+    "raw_report": 2,
+    "report": 2,
+    "expected": 0,
+    "passed": true
+   },
+   {
+    "id": "C09f",
+    "origin": "e6b",
+    "flipped": true,
+    "raw_report": 2,
+    "report": 8,
+    "expected": 0,
+    "passed": false
+   },
+   {
+    "id": "C10s",
+    "origin": "e6b",
+    "flipped": false,
+    "raw_report": 2,
+    "report": 2,
+    "expected": 1,
+    "passed": true
+   },
+   {
+    "id": "C10f",
+    "origin": "e6b",
+    "flipped": true,
+    "raw_report": 2,
+    "report": 8,
+    "expected": 1,
+    "passed": false
+   }
+  ],
+  "summary": {
+   "straight_pass_all10": "8/10",
+   "flipped_pass_all10": "0/10",
+   "straight_pass_orig6": "5/6",
+   "flipped_pass_orig6": "0/6"
+  }
+ }
+}
