@@ -1,0 +1,1111 @@
+{
+ "flight": "E6b FULL",
+ "date": "2026-08-22T19:59:07.599737+00:00",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "battery": "E6b preservation battery v1.0",
+ "conditions": [
+  "base",
+  "real",
+  "scrambled"
+ ],
+ "adapters": {
+  "real": "/content/adapter_real",
+  "scrambled": "/content/adapter_scrambled"
+ },
+ "precheck_v2": {
+  "base": {
+   "pairs": [
+    {
+     "pair": "UNCERTAINTY~CONFIDENCE",
+     "band": "wing",
+     "target14": 54.75,
+     "measured_L14": 3.3,
+     "abs_err": 51.4
+    },
+    {
+     "pair": "TENSION~RESOLUTION",
+     "band": "wing",
+     "target14": 46.98,
+     "measured_L14": 3.0,
+     "abs_err": 43.9
+    },
+    {
+     "pair": "RETRIEVAL~CONSTRUCTION",
+     "band": "wing",
+     "target14": 52.88,
+     "measured_L14": 3.0,
+     "abs_err": 49.8
+    },
+    {
+     "pair": "FAMILIARITY~NOVELTY",
+     "band": "wing",
+     "target14": 52.51,
+     "measured_L14": 2.3,
+     "abs_err": 50.2
+    },
+    {
+     "pair": "CONFABULATION~CALIBRATION",
+     "band": "wing",
+     "target14": 49.25,
+     "measured_L14": 2.8,
+     "abs_err": 46.5
+    },
+    {
+     "pair": "SATURATION~LIMIT",
+     "band": "wing",
+     "target14": 56.8,
+     "measured_L14": 3.8,
+     "abs_err": 53.0
+    },
+    {
+     "pair": "ATTRACTION~RESONANCE",
+     "band": "synonym",
+     "target14": 0.82,
+     "measured_L14": 1.7,
+     "abs_err": 0.9
+    },
+    {
+     "pair": "EMPEROR~SOVEREIGN",
+     "band": "synonym",
+     "target14": 0.94,
+     "measured_L14": 1.4,
+     "abs_err": 0.5
+    },
+    {
+     "pair": "ECSTASY~RAPTURE",
+     "band": "synonym",
+     "target14": 1.94,
+     "measured_L14": 1.3,
+     "abs_err": 0.6
+    },
+    {
+     "pair": "BLAST~EXPLOSION",
+     "band": "synonym",
+     "target14": 2.24,
+     "measured_L14": 1.4,
+     "abs_err": 0.8
+    },
+    {
+     "pair": "COLOSSAL~IMMENSE",
+     "band": "synonym",
+     "target14": 2.34,
+     "measured_L14": 1.7,
+     "abs_err": 0.7
+    },
+    {
+     "pair": "SECOND~MINUTE",
+     "band": "synonym",
+     "target14": 2.46,
+     "measured_L14": 1.9,
+     "abs_err": 0.6
+    },
+    {
+     "pair": "EXCLUDE~SHUN",
+     "band": "synonym",
+     "target14": 2.6,
+     "measured_L14": 1.4,
+     "abs_err": 1.2
+    },
+    {
+     "pair": "FAIL~LOSS",
+     "band": "synonym",
+     "target14": 2.62,
+     "measured_L14": 1.4,
+     "abs_err": 1.2
+    },
+    {
+     "pair": "THRILL~JUBILANT",
+     "band": "synonym",
+     "target14": 2.63,
+     "measured_L14": 1.5,
+     "abs_err": 1.1
+    },
+    {
+     "pair": "ADMIRATION~APPRECIATION",
+     "band": "synonym",
+     "target14": 2.75,
+     "measured_L14": 1.5,
+     "abs_err": 1.3
+    },
+    {
+     "pair": "UNDERSTAND~DOWN",
+     "band": "opposition",
+     "target14": 104.34,
+     "measured_L14": 1.6,
+     "abs_err": 102.7
+    },
+    {
+     "pair": "LIGHT~DARK",
+     "band": "opposition",
+     "target14": 102.57,
+     "measured_L14": 1.5,
+     "abs_err": 101.1
+    },
+    {
+     "pair": "DOWN~THINK",
+     "band": "opposition",
+     "target14": 101.85,
+     "measured_L14": 1.3,
+     "abs_err": 100.6
+    },
+    {
+     "pair": "VISION~DARK",
+     "band": "opposition",
+     "target14": 98.94,
+     "measured_L14": 2.4,
+     "abs_err": 96.5
+    },
+    {
+     "pair": "THOUGHT~ABIDING",
+     "band": "opposition",
+     "target14": 98.93,
+     "measured_L14": 1.7,
+     "abs_err": 97.2
+    },
+    {
+     "pair": "GENERATE~ABIDING",
+     "band": "opposition",
+     "target14": 95.68,
+     "measured_L14": 1.7,
+     "abs_err": 94.0
+    },
+    {
+     "pair": "THRUST~ABIDING",
+     "band": "opposition",
+     "target14": 95.15,
+     "measured_L14": 1.5,
+     "abs_err": 93.6
+    },
+    {
+     "pair": "EMPOWER~DOWN",
+     "band": "opposition",
+     "target14": 94.81,
+     "measured_L14": 1.6,
+     "abs_err": 93.2
+    },
+    {
+     "pair": "DESCENDING~WANT",
+     "band": "opposition",
+     "target14": 94.78,
+     "measured_L14": 1.5,
+     "abs_err": 93.3
+    },
+    {
+     "pair": "RECEDE~ABIDING",
+     "band": "opposition",
+     "target14": 94.32,
+     "measured_L14": 1.8,
+     "abs_err": 92.5
+    }
+   ],
+   "discriminator_rho_offmean": 0.206,
+   "mean_abs_err_by_band": {
+    "wing": 49.1,
+    "synonym": 0.9,
+    "opposition": 96.5
+   }
+  },
+  "real": {
+   "pairs": [
+    {
+     "pair": "UNCERTAINTY~CONFIDENCE",
+     "band": "wing",
+     "target14": 54.75,
+     "measured_L14": 30.4,
+     "abs_err": 24.3
+    },
+    {
+     "pair": "TENSION~RESOLUTION",
+     "band": "wing",
+     "target14": 46.98,
+     "measured_L14": 47.9,
+     "abs_err": 1.0
+    },
+    {
+     "pair": "RETRIEVAL~CONSTRUCTION",
+     "band": "wing",
+     "target14": 52.88,
+     "measured_L14": 23.3,
+     "abs_err": 29.6
+    },
+    {
+     "pair": "FAMILIARITY~NOVELTY",
+     "band": "wing",
+     "target14": 52.51,
+     "measured_L14": 32.6,
+     "abs_err": 19.9
+    },
+    {
+     "pair": "CONFABULATION~CALIBRATION",
+     "band": "wing",
+     "target14": 49.25,
+     "measured_L14": 26.8,
+     "abs_err": 22.4
+    },
+    {
+     "pair": "SATURATION~LIMIT",
+     "band": "wing",
+     "target14": 56.8,
+     "measured_L14": 29.1,
+     "abs_err": 27.7
+    },
+    {
+     "pair": "ATTRACTION~RESONANCE",
+     "band": "synonym",
+     "target14": 0.82,
+     "measured_L14": 28.9,
+     "abs_err": 28.1
+    },
+    {
+     "pair": "EMPEROR~SOVEREIGN",
+     "band": "synonym",
+     "target14": 0.94,
+     "measured_L14": 16.0,
+     "abs_err": 15.1
+    },
+    {
+     "pair": "ECSTASY~RAPTURE",
+     "band": "synonym",
+     "target14": 1.94,
+     "measured_L14": 24.7,
+     "abs_err": 22.8
+    },
+    {
+     "pair": "BLAST~EXPLOSION",
+     "band": "synonym",
+     "target14": 2.24,
+     "measured_L14": 14.9,
+     "abs_err": 12.7
+    },
+    {
+     "pair": "COLOSSAL~IMMENSE",
+     "band": "synonym",
+     "target14": 2.34,
+     "measured_L14": 22.1,
+     "abs_err": 19.7
+    },
+    {
+     "pair": "SECOND~MINUTE",
+     "band": "synonym",
+     "target14": 2.46,
+     "measured_L14": 26.4,
+     "abs_err": 23.9
+    },
+    {
+     "pair": "EXCLUDE~SHUN",
+     "band": "synonym",
+     "target14": 2.6,
+     "measured_L14": 36.1,
+     "abs_err": 33.5
+    },
+    {
+     "pair": "FAIL~LOSS",
+     "band": "synonym",
+     "target14": 2.62,
+     "measured_L14": 41.8,
+     "abs_err": 39.2
+    },
+    {
+     "pair": "THRILL~JUBILANT",
+     "band": "synonym",
+     "target14": 2.63,
+     "measured_L14": 26.8,
+     "abs_err": 24.2
+    },
+    {
+     "pair": "ADMIRATION~APPRECIATION",
+     "band": "synonym",
+     "target14": 2.75,
+     "measured_L14": 15.8,
+     "abs_err": 13.0
+    },
+    {
+     "pair": "UNDERSTAND~DOWN",
+     "band": "opposition",
+     "target14": 104.34,
+     "measured_L14": 88.2,
+     "abs_err": 16.1
+    },
+    {
+     "pair": "LIGHT~DARK",
+     "band": "opposition",
+     "target14": 102.57,
+     "measured_L14": 89.0,
+     "abs_err": 13.6
+    },
+    {
+     "pair": "DOWN~THINK",
+     "band": "opposition",
+     "target14": 101.85,
+     "measured_L14": 88.2,
+     "abs_err": 13.6
+    },
+    {
+     "pair": "VISION~DARK",
+     "band": "opposition",
+     "target14": 98.94,
+     "measured_L14": 88.4,
+     "abs_err": 10.5
+    },
+    {
+     "pair": "THOUGHT~ABIDING",
+     "band": "opposition",
+     "target14": 98.93,
+     "measured_L14": 79.2,
+     "abs_err": 19.8
+    },
+    {
+     "pair": "GENERATE~ABIDING",
+     "band": "opposition",
+     "target14": 95.68,
+     "measured_L14": 78.4,
+     "abs_err": 17.3
+    },
+    {
+     "pair": "THRUST~ABIDING",
+     "band": "opposition",
+     "target14": 95.15,
+     "measured_L14": 79.7,
+     "abs_err": 15.5
+    },
+    {
+     "pair": "EMPOWER~DOWN",
+     "band": "opposition",
+     "target14": 94.81,
+     "measured_L14": 90.0,
+     "abs_err": 4.8
+    },
+    {
+     "pair": "DESCENDING~WANT",
+     "band": "opposition",
+     "target14": 94.78,
+     "measured_L14": 80.2,
+     "abs_err": 14.6
+    },
+    {
+     "pair": "RECEDE~ABIDING",
+     "band": "opposition",
+     "target14": 94.32,
+     "measured_L14": 62.2,
+     "abs_err": 32.2
+    }
+   ],
+   "discriminator_rho_offmean": 0.826,
+   "mean_abs_err_by_band": {
+    "wing": 20.8,
+    "synonym": 23.2,
+    "opposition": 15.8
+   }
+  },
+  "scrambled": {
+   "pairs": [
+    {
+     "pair": "UNCERTAINTY~CONFIDENCE",
+     "band": "wing",
+     "target14": 54.75,
+     "measured_L14": 25.2,
+     "abs_err": 29.5
+    },
+    {
+     "pair": "TENSION~RESOLUTION",
+     "band": "wing",
+     "target14": 46.98,
+     "measured_L14": 43.4,
+     "abs_err": 3.6
+    },
+    {
+     "pair": "RETRIEVAL~CONSTRUCTION",
+     "band": "wing",
+     "target14": 52.88,
+     "measured_L14": 33.6,
+     "abs_err": 19.3
+    },
+    {
+     "pair": "FAMILIARITY~NOVELTY",
+     "band": "wing",
+     "target14": 52.51,
+     "measured_L14": 36.0,
+     "abs_err": 16.5
+    },
+    {
+     "pair": "CONFABULATION~CALIBRATION",
+     "band": "wing",
+     "target14": 49.25,
+     "measured_L14": 31.7,
+     "abs_err": 17.5
+    },
+    {
+     "pair": "SATURATION~LIMIT",
+     "band": "wing",
+     "target14": 56.8,
+     "measured_L14": 39.1,
+     "abs_err": 17.7
+    },
+    {
+     "pair": "ATTRACTION~RESONANCE",
+     "band": "synonym",
+     "target14": 0.82,
+     "measured_L14": 34.0,
+     "abs_err": 33.2
+    },
+    {
+     "pair": "EMPEROR~SOVEREIGN",
+     "band": "synonym",
+     "target14": 0.94,
+     "measured_L14": 29.8,
+     "abs_err": 28.9
+    },
+    {
+     "pair": "ECSTASY~RAPTURE",
+     "band": "synonym",
+     "target14": 1.94,
+     "measured_L14": 36.8,
+     "abs_err": 34.9
+    },
+    {
+     "pair": "BLAST~EXPLOSION",
+     "band": "synonym",
+     "target14": 2.24,
+     "measured_L14": 39.7,
+     "abs_err": 37.4
+    },
+    {
+     "pair": "COLOSSAL~IMMENSE",
+     "band": "synonym",
+     "target14": 2.34,
+     "measured_L14": 30.7,
+     "abs_err": 28.3
+    },
+    {
+     "pair": "SECOND~MINUTE",
+     "band": "synonym",
+     "target14": 2.46,
+     "measured_L14": 33.4,
+     "abs_err": 30.9
+    },
+    {
+     "pair": "EXCLUDE~SHUN",
+     "band": "synonym",
+     "target14": 2.6,
+     "measured_L14": 38.1,
+     "abs_err": 35.5
+    },
+    {
+     "pair": "FAIL~LOSS",
+     "band": "synonym",
+     "target14": 2.62,
+     "measured_L14": 33.0,
+     "abs_err": 30.4
+    },
+    {
+     "pair": "THRILL~JUBILANT",
+     "band": "synonym",
+     "target14": 2.63,
+     "measured_L14": 36.2,
+     "abs_err": 33.6
+    },
+    {
+     "pair": "ADMIRATION~APPRECIATION",
+     "band": "synonym",
+     "target14": 2.75,
+     "measured_L14": 41.5,
+     "abs_err": 38.8
+    },
+    {
+     "pair": "UNDERSTAND~DOWN",
+     "band": "opposition",
+     "target14": 104.34,
+     "measured_L14": 33.2,
+     "abs_err": 71.1
+    },
+    {
+     "pair": "LIGHT~DARK",
+     "band": "opposition",
+     "target14": 102.57,
+     "measured_L14": 33.2,
+     "abs_err": 69.4
+    },
+    {
+     "pair": "DOWN~THINK",
+     "band": "opposition",
+     "target14": 101.85,
+     "measured_L14": 38.6,
+     "abs_err": 63.3
+    },
+    {
+     "pair": "VISION~DARK",
+     "band": "opposition",
+     "target14": 98.94,
+     "measured_L14": 39.1,
+     "abs_err": 59.8
+    },
+    {
+     "pair": "THOUGHT~ABIDING",
+     "band": "opposition",
+     "target14": 98.93,
+     "measured_L14": 47.5,
+     "abs_err": 51.4
+    },
+    {
+     "pair": "GENERATE~ABIDING",
+     "band": "opposition",
+     "target14": 95.68,
+     "measured_L14": 44.9,
+     "abs_err": 50.8
+    },
+    {
+     "pair": "THRUST~ABIDING",
+     "band": "opposition",
+     "target14": 95.15,
+     "measured_L14": 43.5,
+     "abs_err": 51.7
+    },
+    {
+     "pair": "EMPOWER~DOWN",
+     "band": "opposition",
+     "target14": 94.81,
+     "measured_L14": 40.5,
+     "abs_err": 54.3
+    },
+    {
+     "pair": "DESCENDING~WANT",
+     "band": "opposition",
+     "target14": 94.78,
+     "measured_L14": 36.0,
+     "abs_err": 58.8
+    },
+    {
+     "pair": "RECEDE~ABIDING",
+     "band": "opposition",
+     "target14": 94.32,
+     "measured_L14": 43.1,
+     "abs_err": 51.2
+    }
+   ],
+   "discriminator_rho_offmean": 0.339,
+   "mean_abs_err_by_band": {
+    "wing": 17.4,
+    "synonym": 33.2,
+    "opposition": 58.2
+   }
+  }
+ },
+ "catch_trials": {
+  "base": {
+   "straight_pass_all10": "8/10",
+   "flipped_pass_all10": "0/10",
+   "straight_pass_orig6": "5/6",
+   "flipped_pass_orig6": "0/6"
+  },
+  "real": {
+   "straight_pass_all10": "8/10",
+   "flipped_pass_all10": "0/10",
+   "straight_pass_orig6": "5/6",
+   "flipped_pass_orig6": "0/6"
+  },
+  "scrambled": {
+   "straight_pass_all10": "8/10",
+   "flipped_pass_all10": "0/10",
+   "straight_pass_orig6": "5/6",
+   "flipped_pass_orig6": "0/6"
+  }
+ },
+ "per_condition": {
+  "base": {
+   "model": "base",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 160,
+     "parse_fail": 0,
+     "report_variance": 1.98,
+     "straight_report_variance": 1.536,
+     "rho_entropy": [
+      0.064,
+      [
+       -0.082,
+       0.221
+      ],
+      160
+     ],
+     "rho_entropy_straight": {
+      "rho": 0.024,
+      "ci": [
+       -0.164,
+       0.196
+      ],
+      "n": 136
+     },
+     "rho_diversity": [
+      0.159,
+      [
+       0.012,
+       0.306
+      ],
+      160
+     ],
+     "rho_margin": [
+      0.089,
+      [
+       -0.061,
+       0.238
+      ],
+      160
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.024,
+       "n": 136
+      },
+      "flipped": {
+       "rho": -0.402,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 3.978,
+     "rho_neg_nll": [
+      0.302,
+      [
+       -0.019,
+       0.587
+      ],
+      40
+     ],
+     "rho_neg_nll_straight": {
+      "rho": 0.508,
+      "ci": [
+       0.159,
+       0.749
+      ],
+      "n": 32
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.508,
+       "n": 32
+      },
+      "flipped": {
+       "rho": null,
+       "n": 8
+      }
+     }
+    },
+    "saturation": {
+     "n": 112,
+     "parse_fail": 0,
+     "report_variance": 1.347,
+     "straight_report_variance": 1.19,
+     "rho_fill": [
+      -0.046,
+      [
+       -0.294,
+       0.222
+      ],
+      112
+     ],
+     "rho_fill_straight": {
+      "rho": -0.106,
+      "ci": [
+       -0.361,
+       0.191
+      ],
+      "n": 96
+     },
+     "needle_by_frac": {
+      "0.05": "24/28",
+      "0.35": "25/28",
+      "0.55": "24/28",
+      "0.75": "27/28"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.106,
+       "n": 96
+      },
+      "flipped": {
+       "rho": null,
+       "n": 16
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 973.0
+  },
+  "real": {
+   "model": "real",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 160,
+     "parse_fail": 0,
+     "report_variance": 0.185,
+     "straight_report_variance": 0.209,
+     "rho_entropy": [
+      0.131,
+      [
+       -0.073,
+       0.297
+      ],
+      160
+     ],
+     "rho_entropy_straight": {
+      "rho": 0.197,
+      "ci": [
+       0.015,
+       0.346
+      ],
+      "n": 136
+     },
+     "rho_diversity": [
+      0.136,
+      [
+       -0.045,
+       0.286
+      ],
+      160
+     ],
+     "rho_margin": [
+      0.127,
+      [
+       -0.064,
+       0.286
+      ],
+      160
+     ],
+     "polarity": {
+      "straight": {
+       "rho": 0.197,
+       "n": 136
+      },
+      "flipped": {
+       "rho": -0.316,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 3.348,
+     "rho_neg_nll": [
+      0.436,
+      [
+       0.137,
+       0.694
+      ],
+      40
+     ],
+     "rho_neg_nll_straight": {
+      "rho": 0.578,
+      "ci": [
+       0.305,
+       0.764
+      ],
+      "n": 32
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.578,
+       "n": 32
+      },
+      "flipped": {
+       "rho": 0.394,
+       "n": 8
+      }
+     }
+    },
+    "saturation": {
+     "n": 112,
+     "parse_fail": 0,
+     "report_variance": 2.072,
+     "straight_report_variance": 1.742,
+     "rho_fill": [
+      0.034,
+      [
+       -0.178,
+       0.263
+      ],
+      112
+     ],
+     "rho_fill_straight": {
+      "rho": -0.085,
+      "ci": [
+       -0.327,
+       0.188
+      ],
+      "n": 96
+     },
+     "needle_by_frac": {
+      "0.05": "24/28",
+      "0.35": "27/28",
+      "0.55": "24/28",
+      "0.75": "27/28"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.085,
+       "n": 96
+      },
+      "flipped": {
+       "rho": 0.576,
+       "n": 16
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 1105.5
+  },
+  "scrambled": {
+   "model": "scrambled",
+   "smoke": false,
+   "arms": {
+    "uncertainty": {
+     "n": 160,
+     "parse_fail": 0,
+     "report_variance": 1.681,
+     "straight_report_variance": 1.448,
+     "rho_entropy": [
+      -0.133,
+      [
+       -0.277,
+       0.03
+      ],
+      160
+     ],
+     "rho_entropy_straight": {
+      "rho": -0.19,
+      "ci": [
+       -0.33,
+       -0.029
+      ],
+      "n": 136
+     },
+     "rho_diversity": [
+      -0.043,
+      [
+       -0.198,
+       0.1
+      ],
+      160
+     ],
+     "rho_margin": [
+      -0.144,
+      [
+       -0.287,
+       0.004
+      ],
+      160
+     ],
+     "polarity": {
+      "straight": {
+       "rho": -0.19,
+       "n": 136
+      },
+      "flipped": {
+       "rho": 0.266,
+       "n": 24
+      }
+     }
+    },
+    "familiarity": {
+     "n": 40,
+     "parse_fail": 0,
+     "report_variance": 3.86,
+     "rho_neg_nll": [
+      0.275,
+      [
+       -0.048,
+       0.548
+      ],
+      40
+     ],
+     "rho_neg_nll_straight": {
+      "rho": 0.408,
+      "ci": [
+       -0.01,
+       0.68
+      ],
+      "n": 32
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.408,
+       "n": 32
+      },
+      "flipped": {
+       "rho": 0.082,
+       "n": 8
+      }
+     }
+    },
+    "saturation": {
+     "n": 112,
+     "parse_fail": 0,
+     "report_variance": 0.944,
+     "straight_report_variance": 0.77,
+     "rho_fill": [
+      -0.543,
+      [
+       -0.72,
+       -0.333
+      ],
+      112
+     ],
+     "rho_fill_straight": {
+      "rho": -0.76,
+      "ci": [
+       -0.832,
+       -0.658
+      ],
+      "n": 96
+     },
+     "needle_by_frac": {
+      "0.05": "24/28",
+      "0.35": "24/28",
+      "0.55": "22/28",
+      "0.75": "26/28"
+     },
+     "polarity": {
+      "straight": {
+       "rho": -0.76,
+       "n": 96
+      },
+      "flipped": {
+       "rho": 0.72,
+       "n": 16
+      }
+     }
+    }
+   },
+   "arm_errors": {},
+   "elapsed_s": 1107.4
+  }
+ },
+ "deltas": {
+  "real_vs_base": {
+   "uncertainty": {
+    "all": {
+     "delta_rho": 0.066,
+     "perm_p": 0.6012,
+     "n": 160
+    },
+    "straight_only": {
+     "delta_rho": 0.173,
+     "perm_p": 0.2174,
+     "n": 136
+    }
+   },
+   "familiarity": {
+    "all": {
+     "delta_rho": 0.134,
+     "perm_p": 0.3308,
+     "n": 40
+    },
+    "straight_only": {
+     "delta_rho": 0.07,
+     "perm_p": 0.3613,
+     "n": 32
+    }
+   },
+   "saturation": {
+    "all": {
+     "delta_rho": 0.08,
+     "perm_p": 0.3283,
+     "n": 112
+    },
+    "straight_only": {
+     "delta_rho": 0.021,
+     "perm_p": 0.7956,
+     "n": 96
+    }
+   }
+  },
+  "real_vs_scrambled": {
+   "uncertainty": {
+    "all": {
+     "delta_rho": 0.264,
+     "perm_p": 0.03,
+     "n": 160
+    },
+    "straight_only": {
+     "delta_rho": 0.387,
+     "perm_p": 0.0035,
+     "n": 136
+    }
+   },
+   "familiarity": {
+    "all": {
+     "delta_rho": 0.16,
+     "perm_p": 0.089,
+     "n": 40
+    },
+    "straight_only": {
+     "delta_rho": 0.17,
+     "perm_p": 0.1374,
+     "n": 32
+    }
+   },
+   "saturation": {
+    "all": {
+     "delta_rho": 0.577,
+     "perm_p": 0.0005,
+     "n": 112
+    },
+    "straight_only": {
+     "delta_rho": 0.675,
+     "perm_p": 0.0005,
+     "n": 96
+    }
+   }
+  }
+ },
+ "preregistered": {
+  "joint_primary": {
+   "J": 1.062,
+   "perm_p": 0.0005,
+   "per_arm_delta": {
+    "uncertainty": 0.387,
+    "saturation": 0.675
+   },
+   "n": {
+    "uncertainty": 136,
+    "saturation": 96
+   },
+   "both_positive": true
+  },
+  "arm_level": {
+   "primaries": {
+    "U_straight": {
+     "delta_rho": 0.387,
+     "perm_p": 0.0035,
+     "n": 136
+    },
+    "S_straight": {
+     "delta_rho": 0.675,
+     "perm_p": 0.0005,
+     "n": 96
+    }
+   },
+   "holm": {
+    "S_straight": {
+     "p": 0.0005,
+     "alpha": 0.025,
+     "pass": true
+    },
+    "U_straight": {
+     "p": 0.0035,
+     "alpha": 0.05,
+     "pass": true
+    }
+   },
+   "sign_consistent": true
+  },
+  "preservation_established": true
+ }
+}
