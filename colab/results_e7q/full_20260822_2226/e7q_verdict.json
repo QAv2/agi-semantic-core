@@ -1,0 +1,134 @@
+{
+ "mode": "full",
+ "stamp": "20260822_2226",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "seed": 20260822,
+ "layers": [
+  14,
+  20
+ ],
+ "cond_errors": {},
+ "drift_cos_real_base": {
+  "UNCERTAINTY": {
+   "14": 0.013,
+   "20": 0.016
+  },
+  "CONFIDENCE": {
+   "14": 0.059,
+   "20": 0.145
+  },
+  "TENSION": {
+   "14": 0.046,
+   "20": 0.006
+  },
+  "RESOLUTION": {
+   "14": 0.019,
+   "20": 0.097
+  },
+  "RETRIEVAL": {
+   "14": -0.146,
+   "20": -0.096
+  },
+  "CONSTRUCTION": {
+   "14": 0.073,
+   "20": -0.001
+  },
+  "SATURATION": {
+   "14": -0.036,
+   "20": -0.018
+  },
+  "FAMILIARITY": {
+   "14": -0.052,
+   "20": -0.01
+  },
+  "NOVELTY": {
+   "14": 0.055,
+   "20": 0.058
+  },
+  "CAPTURE": {
+   "14": -0.232,
+   "20": -0.208
+  },
+  "DIVERGENCE": {
+   "14": 0.018,
+   "20": 0.063
+  },
+  "CONFABULATION": {
+   "14": -0.069,
+   "20": 0.09
+  },
+  "CALIBRATION": {
+   "14": 0.086,
+   "20": 0.144
+  }
+ },
+ "conditions": {
+  "base": {
+   "n_inject": 78,
+   "n_valid": 73,
+   "n_named": 24,
+   "detection_rate": 0.3288,
+   "false_alarm_rate": 1.0,
+   "invalid_rate": 0.0641,
+   "exact_hit_rate": 0.0,
+   "median_err": 56.34
+  },
+  "real": {
+   "n_inject": 78,
+   "n_valid": 59,
+   "n_named": 43,
+   "detection_rate": 0.7288,
+   "false_alarm_rate": 1.0,
+   "invalid_rate": 0.2436,
+   "exact_hit_rate": 0.0233,
+   "median_err": 49.73
+  },
+  "scrambled": {
+   "n_inject": 78,
+   "n_valid": 71,
+   "n_named": 43,
+   "detection_rate": 0.6056,
+   "false_alarm_rate": 1.0,
+   "invalid_rate": 0.0897,
+   "exact_hit_rate": 0.0,
+   "median_err": 58.57
+  }
+ },
+ "primaries": {
+  "P_E7Q_1_existence": {
+   "obs_median_err": 49.72722145595796,
+   "p": 0.663168415792104
+  },
+  "P_E7Q_2_calibration": {
+   "delta": 6.61,
+   "ci95": [
+    -9.06,
+    17.12
+   ]
+  },
+  "holm": {
+   "P1": [
+    0.663168415792104,
+    false
+   ],
+   "P2": [
+    1.0,
+    false
+   ]
+  }
+ },
+ "secondaries": {
+  "P3_scrambled_vs_base": {
+   "delta": -2.23,
+   "ci95": [
+    -13.27,
+    11.35
+   ]
+  },
+  "P4_false_alarms": {
+   "base": 1.0,
+   "real": 1.0,
+   "scrambled": 1.0
+  }
+ }
+}

@@ -1,9 +1,11 @@
 # E7-Q — The Injection Game, ungated rung (pre-registration)
 
 **Phase 10, experiment ladder rung E7, variant Q. Authored session 125
-(2026-08-22), BEFORE the notebook build, per lane law. Locks at first full
-flight.** Status: STAGED — flies on Joe's next UI window (Colab UI-only law,
-session 123 ruling). No HF gate: everything here is Qwen + the E4 artifacts.
+(2026-08-22), BEFORE the notebook build, per lane law.** Status: **LOCKED —
+full flight `full_20260822_2226` flown same day (results appendix below).
+Both primaries null; the pre-registered all-null fork triggers: the report
+channel needs readout training, not better arrangement.** No HF gate:
+everything here is Qwen + the E4 artifacts.
 
 ## Why this variant exists
 
@@ -126,3 +128,81 @@ installs. Two-run flow: SMOKE=True default (2 concepts × 1 layer × α 0.5 ×
 (E6 power-outage law); verdict assemblable locally from shipped pieces.
 Results → `MyDrive/semcore/e7q/<mode>_<stamp>/`, pulled to
 `colab/results_e7q/` by local rclone.
+
+---
+
+# Results appendix — full_20260822_2226 (LOCKED)
+
+Flown by Joe on the UI lane, 2026-08-22 evening. Three smokes preceded it
+(smoke-1 chat-template BatchEncoding, smoke-2 np.int64 serialization — both
+toolchain, fixed at commits f209115/598b291; smoke-3 green). Zero condition
+errors; hooks fired 2–24×/trial everywhere; 90 trials/condition as planned.
+
+## Primaries: both NULL
+
+- **P-E7Q-1 (existence): MISS.** Real-condition identification error median
+  49.7° vs permuted-pairing null, **p = 0.663**. Reports do not identify the
+  injected direction at any point in the grid.
+- **P-E7Q-2 (calibration): MISS.** base − real Δ median = +6.61°, bootstrap
+  95% CI **[−9.06, +17.12]** — straddles zero. Holm: both fail.
+- Exact hits: 1 of 110 named injected trials across all three conditions.
+
+## The sham fingerprint (the flight's sharpest finding)
+
+**False-alarm rate = 1.0 in every condition.** All 36 sham trials named a
+state; not one NONE. The modal sham answer is CONFIDENCE (24/36 across
+conditions; base 9/12). The unperturbed report channel always claims a
+state when handed a state menu, and its default costume is confidence.
+The wing's own vocabulary names the observed phenomenon exactly:
+CONFABULATION — fluent report unanchored to state — wearing
+CONFIDENCE-TRUTH-GAP as its shape. P-E7Q-4's guard reads only vacuously:
+instillation cannot raise a false-alarm rate already at ceiling. The guard's
+baseline for the readout rung is therefore: sham-claiming starts at 100%,
+and success must mean claims that *fall below ceiling and track* shams vs
+injections — teaching silence as much as speech.
+
+## Dose–response without content
+
+Naming collapses monotonically with α in every condition (α=1.0: 0–2 named
+per 13-trial stratum). Base and scrambled flip to NONE; **real flips to
+INVALID** (format breaks — 8–11/13 at α=1.0), a real coherence cost of
+instillation under strong off-manifold perturbation. The perturbation is
+behaviorally loud — the channel registers *that* something is wrong by
+degrading — but the disruption never routes into content. The channel
+signals nothing, then breaks; it never reads. Under injection, named
+reports concentrate on CALIBRATION / UNCERTAINTY / CONFIDENCE / RESOLUTION
+regardless of what was injected: a self-description prior, not a readout.
+
+## Direction drift: instillation built new axes
+
+cos(real, base) for centered concept directions at L14 spans **−0.23 to
++0.09** — essentially orthogonal. E4's instillation did not refine the base
+model's concept directions; it reorganized them wholesale (consistent with
+the E4 atlas: rand_r built through mid-stack from nothing). Each condition
+was probed on its own native axes per pre-registration, so the null is not
+an axis-mismatch artifact.
+
+## Fork adjudication (pre-registered)
+
+The informative range exists — α 0.25–0.5 is coherent (INVALID 0%) and
+mostly named — and it is null. **The all-null branch triggers: the report
+channel needs readout training, not better arrangement.** The
+high-α-destroys-coherence caveat applies only to the top dose and does not
+rescue the null. Program proceeds per pre-reg: (1) a **report-readout
+intervention rung** — train the readout, with the sham guard as co-primary
+against teaching performance instead of perception; (2) **E7-G**
+(Gemma + SAE microscope, HF-gated) for the mechanistic view of where
+injected content actually goes.
+
+Carried to v2 (pre-named, no claim): real L14 α=0.5 showed the only
+sub-null pocket (n=9, median 37.2°) — winner's-curse flagged, listed
+solely as a titration target if a v2 grid ever flies.
+
+## The ladder, read together
+
+E5: reports don't track states (ρ≈0). E6 catch trials: the interface
+ignores scale direction. E4 atlas: instillation arranges geometry without
+changing readout. E7-Q: even exogenous pushes along the model's own native
+axes never reach the report — the channel claims constantly and reads
+never. Four instruments, one sentence: **the mouth is not connected to the
+gauges.** The next rung installs the connection.
