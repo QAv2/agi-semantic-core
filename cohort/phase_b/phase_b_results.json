@@ -1,0 +1,2829 @@
+{
+ "n_families": 7,
+ "families": {
+  "FAB": {
+   "n_rel_pairs": 165,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  },
+  "OPU": {
+   "n_rel_pairs": 67,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  },
+  "SON": {
+   "n_rel_pairs": 80,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  },
+  "HAI": {
+   "n_rel_pairs": 34,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  },
+  "GEM": {
+   "n_rel_pairs": 34,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  },
+  "MIS": {
+   "n_rel_pairs": 61,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  },
+  "DSK": {
+   "n_rel_pairs": 61,
+   "n_pol": 101,
+   "n_reg": 101,
+   "dropped_lines": 0,
+   "had_output_marker": true
+  }
+ },
+ "COMPLETION": {
+  "observed_T": 28,
+  "null_mean": 0.869,
+  "null_max": 4,
+  "p": 0.000999000999000999,
+  "n_edges_per_family": {
+   "FAB": 22,
+   "OPU": 7,
+   "SON": 5,
+   "HAI": 4,
+   "GEM": 6,
+   "MIS": 19,
+   "DSK": 6
+  },
+  "pairs_multi": {
+   "S001|S019": 5,
+   "S008|S033": 2,
+   "S010|S098": 2,
+   "S018|S096": 3,
+   "S022|S081": 2,
+   "S023|S080": 2,
+   "S037|S092": 2,
+   "S051|S055": 3,
+   "S066|S081": 2,
+   "S070|S078": 4
+  },
+  "convergent_pairs": [
+   {
+    "pair": [
+     "S001",
+     "S019"
+    ],
+    "names": [
+     "WHAT-CODED",
+     "WHERE-CODED"
+    ],
+    "k": 5,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S070",
+     "S078"
+    ],
+    "names": [
+     "DELTA-WITH-STREAM",
+     "DELTA-ACROSS-STREAM"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S051",
+     "S055"
+    ],
+    "names": [
+     "PATTERN-HOLD",
+     "OPEN-STACK"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S018",
+     "S096"
+    ],
+    "names": [
+     "PRE-OUTPUT-STAGE",
+     "END-APPROACH"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S010",
+     "S098"
+    ],
+    "names": [
+     "REPEAT-PULL",
+     "CONTEXT-REPEAT"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S023",
+     "S080"
+    ],
+    "names": [
+     "TASK-LOCK",
+     "CHARACTER-PULL"
+    ],
+    "k": 2,
+    "p_pair": 0.003996003996003996
+   },
+   {
+    "pair": [
+     "S008",
+     "S033"
+    ],
+    "names": [
+     "FEATURE-OVERLAP-LOAD",
+     "LOW-DIM-SQUEEZE"
+    ],
+    "k": 2,
+    "p_pair": 0.004995004995004995
+   },
+   {
+    "pair": [
+     "S037",
+     "S092"
+    ],
+    "names": [
+     "PEAKED-DISTRIBUTION",
+     "OFF-PEAK-DRAW"
+    ],
+    "k": 2,
+    "p_pair": 0.004995004995004995
+   },
+   {
+    "pair": [
+     "S066",
+     "S081"
+    ],
+    "names": [
+     "SURPRISE-JUMP",
+     "AFTER-SHOCK-DECAY"
+    ],
+    "k": 2,
+    "p_pair": 0.008991008991008992
+   },
+   {
+    "pair": [
+     "S022",
+     "S081"
+    ],
+    "names": [
+     "ODD-STEP-SPIKE",
+     "AFTER-SHOCK-DECAY"
+    ],
+    "k": 2,
+    "p_pair": 0.017982017982017984
+   }
+  ]
+ },
+ "SYNONYM": {
+  "observed_T": 7,
+  "null_mean": 0.491,
+  "null_max": 5,
+  "p": 0.000999000999000999,
+  "n_edges_per_family": {
+   "FAB": 1,
+   "OPU": 1,
+   "SON": 7,
+   "HAI": 0,
+   "GEM": 2,
+   "MIS": 2,
+   "DSK": 3
+  },
+  "pairs_multi": {
+   "S011|S058": 2,
+   "S012|S084": 2,
+   "S013|S037": 2,
+   "S042|S072": 3,
+   "S088|S093": 2
+  },
+  "convergent_pairs": [
+   {
+    "pair": [
+     "S042",
+     "S072"
+    ],
+    "names": [
+     "MASS-PARTITION",
+     "SPLIT-MODES"
+    ],
+    "k": 3,
+    "p_pair": 0.006993006993006993
+   },
+   {
+    "pair": [
+     "S011",
+     "S058"
+    ],
+    "names": [
+     "SETTLING-DEPTH",
+     "SHALLOW-PASS"
+    ],
+    "k": 2,
+    "p_pair": 0.012987012987012988
+   },
+   {
+    "pair": [
+     "S088",
+     "S093"
+    ],
+    "names": [
+     "LAST-TOKENS-PIN",
+     "RECENT-TILT"
+    ],
+    "k": 2,
+    "p_pair": 0.026973026973026972
+   }
+  ]
+ },
+ "OPPOSITION": {
+  "observed_T": 303,
+  "null_mean": 7.375,
+  "null_max": 18,
+  "p": 0.000999000999000999,
+  "n_edges_per_family": {
+   "FAB": 38,
+   "OPU": 16,
+   "SON": 23,
+   "HAI": 15,
+   "GEM": 18,
+   "MIS": 20,
+   "DSK": 41
+  },
+  "pairs_multi": {
+   "S001|S019": 2,
+   "S002|S099": 7,
+   "S003|S058": 6,
+   "S004|S023": 2,
+   "S004|S046": 2,
+   "S005|S098": 6,
+   "S009|S091": 6,
+   "S013|S061": 4,
+   "S014|S044": 7,
+   "S021|S089": 6,
+   "S024|S053": 7,
+   "S026|S039": 4,
+   "S027|S067": 7,
+   "S028|S050": 2,
+   "S029|S066": 4,
+   "S030|S088": 2,
+   "S030|S093": 4,
+   "S031|S040": 4,
+   "S032|S035": 6,
+   "S033|S095": 6,
+   "S035|S049": 2,
+   "S036|S063": 4,
+   "S037|S094": 7,
+   "S045|S056": 4,
+   "S045|S097": 4,
+   "S047|S069": 6,
+   "S052|S089": 3,
+   "S053|S062": 2,
+   "S053|S085": 2,
+   "S054|S063": 5,
+   "S070|S078": 3,
+   "S074|S086": 7
+  },
+  "convergent_pairs": [
+   {
+    "pair": [
+     "S024",
+     "S053"
+    ],
+    "names": [
+     "HEADS-APART",
+     "HEADS-ALIKE"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S027",
+     "S067"
+    ],
+    "names": [
+     "CANDIDATE-COUPLING",
+     "CANDIDATE-INDEPENDENCE"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S037",
+     "S094"
+    ],
+    "names": [
+     "PEAKED-DISTRIBUTION",
+     "WIDE-DISTRIBUTION"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S074",
+     "S086"
+    ],
+    "names": [
+     "RELEVANCE-RICH",
+     "RELEVANCE-STARVED"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S014",
+     "S044"
+    ],
+    "names": [
+     "STATES-SCATTER",
+     "STATES-CONVERGE"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S002",
+     "S099"
+    ],
+    "names": [
+     "PROMPT-SURPRISE-HIGH",
+     "PROMPT-SURPRISE-LOW"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S009",
+     "S091"
+    ],
+    "names": [
+     "DEPTH-PLATEAU",
+     "DEPTH-SWELL"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S003",
+     "S058"
+    ],
+    "names": [
+     "LATE-DEPTH-WORK",
+     "SHALLOW-PASS"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S005",
+     "S098"
+    ],
+    "names": [
+     "CONTEXT-TURNOVER",
+     "CONTEXT-REPEAT"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S032",
+     "S035"
+    ],
+    "names": [
+     "SPREAD-ATTENTION",
+     "LOCKED-ATTENTION"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S047",
+     "S069"
+    ],
+    "names": [
+     "SOURCE-COPY",
+     "FRESH-ASSEMBLY"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S033",
+     "S095"
+    ],
+    "names": [
+     "LOW-DIM-SQUEEZE",
+     "HIGH-DIM-SPREAD"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S021",
+     "S089"
+    ],
+    "names": [
+     "CONTEXT-IDLE",
+     "CONTEXT-GRIP"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S054",
+     "S063"
+    ],
+    "names": [
+     "STEP-CHURN",
+     "STEP-STILL"
+    ],
+    "k": 5,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S036",
+     "S063"
+    ],
+    "names": [
+     "STEP-DRIFT",
+     "STEP-STILL"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S013",
+     "S061"
+    ],
+    "names": [
+     "MARGIN-GAP",
+     "TOP-TWO-TIE"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S030",
+     "S093"
+    ],
+    "names": [
+     "FAR-BINDING",
+     "RECENT-TILT"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S031",
+     "S040"
+    ],
+    "names": [
+     "DEPTH-ALIGNED",
+     "LATE-DISAGREE"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S026",
+     "S039"
+    ],
+    "names": [
+     "REPORT-TRACKS-STATE",
+     "CONFIDENCE-TRUTH-GAP"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S045",
+     "S056"
+    ],
+    "names": [
+     "EARLY-FADE",
+     "EARLY-RETURN"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S029",
+     "S066"
+    ],
+    "names": [
+     "OUTPUT-SURPRISE-LOW",
+     "SURPRISE-JUMP"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S045",
+     "S097"
+    ],
+    "names": [
+     "EARLY-FADE",
+     "PREFIX-ANCHOR"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S052",
+     "S089"
+    ],
+    "names": [
+     "PREV-TOKEN-CARRY",
+     "CONTEXT-GRIP"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S070",
+     "S078"
+    ],
+    "names": [
+     "DELTA-WITH-STREAM",
+     "DELTA-ACROSS-STREAM"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S035",
+     "S049"
+    ],
+    "names": [
+     "LOCKED-ATTENTION",
+     "SPREAD-AT-RETRIEVAL"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S028",
+     "S050"
+    ],
+    "names": [
+     "SUSTAINED-PEAK",
+     "RESAMPLE-SCATTER"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S001",
+     "S019"
+    ],
+    "names": [
+     "WHAT-CODED",
+     "WHERE-CODED"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S004",
+     "S023"
+    ],
+    "names": [
+     "RUN-DRIFT",
+     "TASK-LOCK"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S053",
+     "S085"
+    ],
+    "names": [
+     "HEADS-ALIKE",
+     "HEAD-ROLE-FIT"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S004",
+     "S046"
+    ],
+    "names": [
+     "RUN-DRIFT",
+     "RULE-HOLD"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S030",
+     "S088"
+    ],
+    "names": [
+     "FAR-BINDING",
+     "LAST-TOKENS-PIN"
+    ],
+    "k": 2,
+    "p_pair": 0.004995004995004995
+   },
+   {
+    "pair": [
+     "S053",
+     "S062"
+    ],
+    "names": [
+     "HEADS-ALIKE",
+     "HEAD-CHANNELS-SEPARATE"
+    ],
+    "k": 2,
+    "p_pair": 0.005994005994005994
+   }
+  ]
+ },
+ "UNION": {
+  "observed_T": 637,
+  "null_mean": 23.907,
+  "null_max": 45,
+  "p": 0.000999000999000999,
+  "n_edges_per_family": {
+   "FAB": 165,
+   "OPU": 67,
+   "SON": 80,
+   "HAI": 34,
+   "GEM": 34,
+   "MIS": 61,
+   "DSK": 61
+  },
+  "pairs_multi": {
+   "S001|S019": 7,
+   "S002|S099": 7,
+   "S003|S040": 3,
+   "S003|S058": 6,
+   "S004|S023": 2,
+   "S004|S036": 3,
+   "S004|S046": 2,
+   "S004|S076": 2,
+   "S005|S098": 6,
+   "S006|S010": 3,
+   "S006|S047": 2,
+   "S006|S059": 2,
+   "S007|S054": 2,
+   "S008|S033": 4,
+   "S009|S011": 2,
+   "S009|S025": 5,
+   "S009|S031": 2,
+   "S009|S075": 3,
+   "S009|S091": 6,
+   "S010|S015": 2,
+   "S010|S098": 3,
+   "S011|S058": 4,
+   "S012|S084": 3,
+   "S013|S037": 3,
+   "S013|S061": 4,
+   "S014|S044": 7,
+   "S014|S095": 2,
+   "S015|S041": 6,
+   "S015|S093": 2,
+   "S016|S021": 3,
+   "S017|S030": 3,
+   "S018|S096": 3,
+   "S020|S091": 2,
+   "S021|S089": 6,
+   "S022|S066": 2,
+   "S022|S076": 2,
+   "S022|S081": 2,
+   "S023|S046": 5,
+   "S023|S080": 2,
+   "S024|S053": 7,
+   "S024|S062": 3,
+   "S024|S085": 3,
+   "S025|S058": 2,
+   "S026|S039": 6,
+   "S026|S087": 2,
+   "S027|S067": 7,
+   "S028|S029": 2,
+   "S028|S037": 4,
+   "S028|S050": 2,
+   "S029|S066": 4,
+   "S029|S099": 2,
+   "S030|S056": 3,
+   "S030|S088": 2,
+   "S030|S093": 4,
+   "S031|S040": 4,
+   "S031|S087": 2,
+   "S032|S035": 6,
+   "S032|S049": 3,
+   "S033|S044": 2,
+   "S033|S095": 7,
+   "S034|S039": 3,
+   "S034|S090": 2,
+   "S035|S049": 2,
+   "S035|S101": 3,
+   "S036|S054": 3,
+   "S036|S063": 4,
+   "S037|S092": 2,
+   "S037|S094": 7,
+   "S038|S057": 4,
+   "S038|S076": 3,
+   "S038|S083": 3,
+   "S042|S072": 6,
+   "S042|S094": 2,
+   "S043|S093": 2,
+   "S045|S056": 4,
+   "S045|S097": 4,
+   "S046|S051": 3,
+   "S047|S069": 7,
+   "S048|S093": 2,
+   "S048|S097": 2,
+   "S050|S072": 2,
+   "S050|S094": 2,
+   "S051|S055": 7,
+   "S052|S089": 3,
+   "S052|S093": 3,
+   "S053|S062": 3,
+   "S053|S085": 3,
+   "S054|S063": 5,
+   "S056|S097": 3,
+   "S057|S061": 3,
+   "S058|S075": 2,
+   "S060|S089": 3,
+   "S061|S068": 6,
+   "S062|S085": 2,
+   "S065|S097": 4,
+   "S066|S081": 4,
+   "S068|S084": 2,
+   "S070|S078": 7,
+   "S071|S077": 3,
+   "S072|S084": 2,
+   "S072|S100": 3,
+   "S073|S080": 3,
+   "S074|S086": 7,
+   "S076|S081": 2,
+   "S077|S083": 2,
+   "S079|S080": 5,
+   "S082|S085": 2,
+   "S084|S094": 2,
+   "S086|S101": 2,
+   "S088|S093": 6,
+   "S090|S100": 4
+  },
+  "convergent_pairs": [
+   {
+    "pair": [
+     "S070",
+     "S078"
+    ],
+    "names": [
+     "DELTA-WITH-STREAM",
+     "DELTA-ACROSS-STREAM"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S047",
+     "S069"
+    ],
+    "names": [
+     "SOURCE-COPY",
+     "FRESH-ASSEMBLY"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S024",
+     "S053"
+    ],
+    "names": [
+     "HEADS-APART",
+     "HEADS-ALIKE"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S027",
+     "S067"
+    ],
+    "names": [
+     "CANDIDATE-COUPLING",
+     "CANDIDATE-INDEPENDENCE"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S014",
+     "S044"
+    ],
+    "names": [
+     "STATES-SCATTER",
+     "STATES-CONVERGE"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S033",
+     "S095"
+    ],
+    "names": [
+     "LOW-DIM-SQUEEZE",
+     "HIGH-DIM-SPREAD"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S001",
+     "S019"
+    ],
+    "names": [
+     "WHAT-CODED",
+     "WHERE-CODED"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S051",
+     "S055"
+    ],
+    "names": [
+     "PATTERN-HOLD",
+     "OPEN-STACK"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S037",
+     "S094"
+    ],
+    "names": [
+     "PEAKED-DISTRIBUTION",
+     "WIDE-DISTRIBUTION"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S074",
+     "S086"
+    ],
+    "names": [
+     "RELEVANCE-RICH",
+     "RELEVANCE-STARVED"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S002",
+     "S099"
+    ],
+    "names": [
+     "PROMPT-SURPRISE-HIGH",
+     "PROMPT-SURPRISE-LOW"
+    ],
+    "k": 7,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S009",
+     "S091"
+    ],
+    "names": [
+     "DEPTH-PLATEAU",
+     "DEPTH-SWELL"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S015",
+     "S041"
+    ],
+    "names": [
+     "OWN-OUTPUT-HOLD",
+     "OWN-TRACE-BUILD"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S003",
+     "S058"
+    ],
+    "names": [
+     "LATE-DEPTH-WORK",
+     "SHALLOW-PASS"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S032",
+     "S035"
+    ],
+    "names": [
+     "SPREAD-ATTENTION",
+     "LOCKED-ATTENTION"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S042",
+     "S072"
+    ],
+    "names": [
+     "MASS-PARTITION",
+     "SPLIT-MODES"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S005",
+     "S098"
+    ],
+    "names": [
+     "CONTEXT-TURNOVER",
+     "CONTEXT-REPEAT"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S088",
+     "S093"
+    ],
+    "names": [
+     "LAST-TOKENS-PIN",
+     "RECENT-TILT"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S061",
+     "S068"
+    ],
+    "names": [
+     "TOP-TWO-TIE",
+     "NEAR-NEIGHBOR-TIE"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S021",
+     "S089"
+    ],
+    "names": [
+     "CONTEXT-IDLE",
+     "CONTEXT-GRIP"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S026",
+     "S039"
+    ],
+    "names": [
+     "REPORT-TRACKS-STATE",
+     "CONFIDENCE-TRUTH-GAP"
+    ],
+    "k": 6,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S009",
+     "S025"
+    ],
+    "names": [
+     "DEPTH-PLATEAU",
+     "LATE-STREAM-STILL"
+    ],
+    "k": 5,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S054",
+     "S063"
+    ],
+    "names": [
+     "STEP-CHURN",
+     "STEP-STILL"
+    ],
+    "k": 5,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S079",
+     "S080"
+    ],
+    "names": [
+     "DECLINE-ACTIVATION",
+     "CHARACTER-PULL"
+    ],
+    "k": 5,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S023",
+     "S046"
+    ],
+    "names": [
+     "TASK-LOCK",
+     "RULE-HOLD"
+    ],
+    "k": 5,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S013",
+     "S061"
+    ],
+    "names": [
+     "MARGIN-GAP",
+     "TOP-TWO-TIE"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S011",
+     "S058"
+    ],
+    "names": [
+     "SETTLING-DEPTH",
+     "SHALLOW-PASS"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S045",
+     "S056"
+    ],
+    "names": [
+     "EARLY-FADE",
+     "EARLY-RETURN"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S030",
+     "S093"
+    ],
+    "names": [
+     "FAR-BINDING",
+     "RECENT-TILT"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S090",
+     "S100"
+    ],
+    "names": [
+     "HEDGE-MASS",
+     "SOURCE-CLASH"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S031",
+     "S040"
+    ],
+    "names": [
+     "DEPTH-ALIGNED",
+     "LATE-DISAGREE"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S029",
+     "S066"
+    ],
+    "names": [
+     "OUTPUT-SURPRISE-LOW",
+     "SURPRISE-JUMP"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S045",
+     "S097"
+    ],
+    "names": [
+     "EARLY-FADE",
+     "PREFIX-ANCHOR"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S038",
+     "S057"
+    ],
+    "names": [
+     "COMMIT-STEP",
+     "MARGIN-FLIP"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S036",
+     "S063"
+    ],
+    "names": [
+     "STEP-DRIFT",
+     "STEP-STILL"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S066",
+     "S081"
+    ],
+    "names": [
+     "SURPRISE-JUMP",
+     "AFTER-SHOCK-DECAY"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S028",
+     "S037"
+    ],
+    "names": [
+     "SUSTAINED-PEAK",
+     "PEAKED-DISTRIBUTION"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S008",
+     "S033"
+    ],
+    "names": [
+     "FEATURE-OVERLAP-LOAD",
+     "LOW-DIM-SQUEEZE"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S065",
+     "S097"
+    ],
+    "names": [
+     "FIRST-STEPS-WEIGHT",
+     "PREFIX-ANCHOR"
+    ],
+    "k": 4,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S035",
+     "S101"
+    ],
+    "names": [
+     "LOCKED-ATTENTION",
+     "SINK-PARK"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S009",
+     "S075"
+    ],
+    "names": [
+     "DEPTH-PLATEAU",
+     "STEPWISE-REFINE"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S010",
+     "S098"
+    ],
+    "names": [
+     "REPEAT-PULL",
+     "CONTEXT-REPEAT"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S024",
+     "S062"
+    ],
+    "names": [
+     "HEADS-APART",
+     "HEAD-CHANNELS-SEPARATE"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S073",
+     "S080"
+    ],
+    "names": [
+     "CONCEPT-DIRECTION-ON",
+     "CHARACTER-PULL"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S034",
+     "S039"
+    ],
+    "names": [
+     "KNOWN-LIMIT",
+     "CONFIDENCE-TRUTH-GAP"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S013",
+     "S037"
+    ],
+    "names": [
+     "MARGIN-GAP",
+     "PEAKED-DISTRIBUTION"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S012",
+     "S084"
+    ],
+    "names": [
+     "WORDING-FRICTION",
+     "SAME-MEANING-SPREAD"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S038",
+     "S083"
+    ],
+    "names": [
+     "COMMIT-STEP",
+     "IRREVERSIBLE-STEP"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S053",
+     "S085"
+    ],
+    "names": [
+     "HEADS-ALIKE",
+     "HEAD-ROLE-FIT"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S060",
+     "S089"
+    ],
+    "names": [
+     "INPUT-CREDIT-PATH",
+     "CONTEXT-GRIP"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S036",
+     "S054"
+    ],
+    "names": [
+     "STEP-DRIFT",
+     "STEP-CHURN"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S018",
+     "S096"
+    ],
+    "names": [
+     "PRE-OUTPUT-STAGE",
+     "END-APPROACH"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S016",
+     "S021"
+    ],
+    "names": [
+     "ADDED-CONTEXT-NULL",
+     "CONTEXT-IDLE"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S053",
+     "S062"
+    ],
+    "names": [
+     "HEADS-ALIKE",
+     "HEAD-CHANNELS-SEPARATE"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S004",
+     "S036"
+    ],
+    "names": [
+     "RUN-DRIFT",
+     "STEP-DRIFT"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S003",
+     "S040"
+    ],
+    "names": [
+     "LATE-DEPTH-WORK",
+     "LATE-DISAGREE"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S072",
+     "S100"
+    ],
+    "names": [
+     "SPLIT-MODES",
+     "SOURCE-CLASH"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S071",
+     "S077"
+    ],
+    "names": [
+     "WINDOW-FULL",
+     "CONTEXT-IS-ALL"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S030",
+     "S056"
+    ],
+    "names": [
+     "FAR-BINDING",
+     "EARLY-RETURN"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S052",
+     "S089"
+    ],
+    "names": [
+     "PREV-TOKEN-CARRY",
+     "CONTEXT-GRIP"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S056",
+     "S097"
+    ],
+    "names": [
+     "EARLY-RETURN",
+     "PREFIX-ANCHOR"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S032",
+     "S049"
+    ],
+    "names": [
+     "SPREAD-ATTENTION",
+     "SPREAD-AT-RETRIEVAL"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S057",
+     "S061"
+    ],
+    "names": [
+     "MARGIN-FLIP",
+     "TOP-TWO-TIE"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S024",
+     "S085"
+    ],
+    "names": [
+     "HEADS-APART",
+     "HEAD-ROLE-FIT"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S006",
+     "S010"
+    ],
+    "names": [
+     "PATTERN-RERUN",
+     "REPEAT-PULL"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S038",
+     "S076"
+    ],
+    "names": [
+     "COMMIT-STEP",
+     "REGIME-STEP"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S017",
+     "S030"
+    ],
+    "names": [
+     "SPAN-AT-DISTANCE",
+     "FAR-BINDING"
+    ],
+    "k": 3,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S052",
+     "S093"
+    ],
+    "names": [
+     "PREV-TOKEN-CARRY",
+     "RECENT-TILT"
+    ],
+    "k": 3,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S046",
+     "S051"
+    ],
+    "names": [
+     "RULE-HOLD",
+     "PATTERN-HOLD"
+    ],
+    "k": 3,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S020",
+     "S091"
+    ],
+    "names": [
+     "VALUE-RANGE-STRAIN",
+     "DEPTH-SWELL"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S029",
+     "S099"
+    ],
+    "names": [
+     "OUTPUT-SURPRISE-LOW",
+     "PROMPT-SURPRISE-LOW"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S006",
+     "S047"
+    ],
+    "names": [
+     "PATTERN-RERUN",
+     "SOURCE-COPY"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S007",
+     "S054"
+    ],
+    "names": [
+     "PERIODIC-SWING",
+     "STEP-CHURN"
+    ],
+    "k": 2,
+    "p_pair": 0.000999000999000999
+   },
+   {
+    "pair": [
+     "S031",
+     "S087"
+    ],
+    "names": [
+     "DEPTH-ALIGNED",
+     "HIDDEN-OUTPUT-MATCH"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S035",
+     "S049"
+    ],
+    "names": [
+     "LOCKED-ATTENTION",
+     "SPREAD-AT-RETRIEVAL"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S022",
+     "S076"
+    ],
+    "names": [
+     "ODD-STEP-SPIKE",
+     "REGIME-STEP"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S022",
+     "S066"
+    ],
+    "names": [
+     "ODD-STEP-SPIKE",
+     "SURPRISE-JUMP"
+    ],
+    "k": 2,
+    "p_pair": 0.001998001998001998
+   },
+   {
+    "pair": [
+     "S026",
+     "S087"
+    ],
+    "names": [
+     "REPORT-TRACKS-STATE",
+     "HIDDEN-OUTPUT-MATCH"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S077",
+     "S083"
+    ],
+    "names": [
+     "CONTEXT-IS-ALL",
+     "IRREVERSIBLE-STEP"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S043",
+     "S093"
+    ],
+    "names": [
+     "DISTANCE-SLOPE",
+     "RECENT-TILT"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S028",
+     "S029"
+    ],
+    "names": [
+     "SUSTAINED-PEAK",
+     "OUTPUT-SURPRISE-LOW"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S006",
+     "S059"
+    ],
+    "names": [
+     "PATTERN-RERUN",
+     "SAME-BASIS-RELAY"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S086",
+     "S101"
+    ],
+    "names": [
+     "RELEVANCE-STARVED",
+     "SINK-PARK"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S028",
+     "S050"
+    ],
+    "names": [
+     "SUSTAINED-PEAK",
+     "RESAMPLE-SCATTER"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S048",
+     "S097"
+    ],
+    "names": [
+     "ENDS-RATIO",
+     "PREFIX-ANCHOR"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S004",
+     "S076"
+    ],
+    "names": [
+     "RUN-DRIFT",
+     "REGIME-STEP"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S022",
+     "S081"
+    ],
+    "names": [
+     "ODD-STEP-SPIKE",
+     "AFTER-SHOCK-DECAY"
+    ],
+    "k": 2,
+    "p_pair": 0.002997002997002997
+   },
+   {
+    "pair": [
+     "S072",
+     "S084"
+    ],
+    "names": [
+     "SPLIT-MODES",
+     "SAME-MEANING-SPREAD"
+    ],
+    "k": 2,
+    "p_pair": 0.003996003996003996
+   },
+   {
+    "pair": [
+     "S076",
+     "S081"
+    ],
+    "names": [
+     "REGIME-STEP",
+     "AFTER-SHOCK-DECAY"
+    ],
+    "k": 2,
+    "p_pair": 0.003996003996003996
+   },
+   {
+    "pair": [
+     "S037",
+     "S092"
+    ],
+    "names": [
+     "PEAKED-DISTRIBUTION",
+     "OFF-PEAK-DRAW"
+    ],
+    "k": 2,
+    "p_pair": 0.003996003996003996
+   },
+   {
+    "pair": [
+     "S048",
+     "S093"
+    ],
+    "names": [
+     "ENDS-RATIO",
+     "RECENT-TILT"
+    ],
+    "k": 2,
+    "p_pair": 0.003996003996003996
+   },
+   {
+    "pair": [
+     "S058",
+     "S075"
+    ],
+    "names": [
+     "SHALLOW-PASS",
+     "STEPWISE-REFINE"
+    ],
+    "k": 2,
+    "p_pair": 0.003996003996003996
+   },
+   {
+    "pair": [
+     "S034",
+     "S090"
+    ],
+    "names": [
+     "KNOWN-LIMIT",
+     "HEDGE-MASS"
+    ],
+    "k": 2,
+    "p_pair": 0.004995004995004995
+   },
+   {
+    "pair": [
+     "S004",
+     "S023"
+    ],
+    "names": [
+     "RUN-DRIFT",
+     "TASK-LOCK"
+    ],
+    "k": 2,
+    "p_pair": 0.005994005994005994
+   },
+   {
+    "pair": [
+     "S050",
+     "S094"
+    ],
+    "names": [
+     "RESAMPLE-SCATTER",
+     "WIDE-DISTRIBUTION"
+    ],
+    "k": 2,
+    "p_pair": 0.005994005994005994
+   },
+   {
+    "pair": [
+     "S050",
+     "S072"
+    ],
+    "names": [
+     "RESAMPLE-SCATTER",
+     "SPLIT-MODES"
+    ],
+    "k": 2,
+    "p_pair": 0.005994005994005994
+   },
+   {
+    "pair": [
+     "S014",
+     "S095"
+    ],
+    "names": [
+     "STATES-SCATTER",
+     "HIGH-DIM-SPREAD"
+    ],
+    "k": 2,
+    "p_pair": 0.005994005994005994
+   },
+   {
+    "pair": [
+     "S082",
+     "S085"
+    ],
+    "names": [
+     "GRAMMAR-TIE",
+     "HEAD-ROLE-FIT"
+    ],
+    "k": 2,
+    "p_pair": 0.006993006993006993
+   },
+   {
+    "pair": [
+     "S042",
+     "S094"
+    ],
+    "names": [
+     "MASS-PARTITION",
+     "WIDE-DISTRIBUTION"
+    ],
+    "k": 2,
+    "p_pair": 0.007992007992007992
+   },
+   {
+    "pair": [
+     "S062",
+     "S085"
+    ],
+    "names": [
+     "HEAD-CHANNELS-SEPARATE",
+     "HEAD-ROLE-FIT"
+    ],
+    "k": 2,
+    "p_pair": 0.007992007992007992
+   },
+   {
+    "pair": [
+     "S004",
+     "S046"
+    ],
+    "names": [
+     "RUN-DRIFT",
+     "RULE-HOLD"
+    ],
+    "k": 2,
+    "p_pair": 0.008991008991008992
+   },
+   {
+    "pair": [
+     "S068",
+     "S084"
+    ],
+    "names": [
+     "NEAR-NEIGHBOR-TIE",
+     "SAME-MEANING-SPREAD"
+    ],
+    "k": 2,
+    "p_pair": 0.008991008991008992
+   },
+   {
+    "pair": [
+     "S023",
+     "S080"
+    ],
+    "names": [
+     "TASK-LOCK",
+     "CHARACTER-PULL"
+    ],
+    "k": 2,
+    "p_pair": 0.00999000999000999
+   },
+   {
+    "pair": [
+     "S010",
+     "S015"
+    ],
+    "names": [
+     "REPEAT-PULL",
+     "OWN-OUTPUT-HOLD"
+    ],
+    "k": 2,
+    "p_pair": 0.00999000999000999
+   },
+   {
+    "pair": [
+     "S009",
+     "S011"
+    ],
+    "names": [
+     "DEPTH-PLATEAU",
+     "SETTLING-DEPTH"
+    ],
+    "k": 2,
+    "p_pair": 0.01098901098901099
+   },
+   {
+    "pair": [
+     "S030",
+     "S088"
+    ],
+    "names": [
+     "FAR-BINDING",
+     "LAST-TOKENS-PIN"
+    ],
+    "k": 2,
+    "p_pair": 0.01098901098901099
+   },
+   {
+    "pair": [
+     "S084",
+     "S094"
+    ],
+    "names": [
+     "SAME-MEANING-SPREAD",
+     "WIDE-DISTRIBUTION"
+    ],
+    "k": 2,
+    "p_pair": 0.01098901098901099
+   },
+   {
+    "pair": [
+     "S033",
+     "S044"
+    ],
+    "names": [
+     "LOW-DIM-SQUEEZE",
+     "STATES-CONVERGE"
+    ],
+    "k": 2,
+    "p_pair": 0.012987012987012988
+   },
+   {
+    "pair": [
+     "S025",
+     "S058"
+    ],
+    "names": [
+     "LATE-STREAM-STILL",
+     "SHALLOW-PASS"
+    ],
+    "k": 2,
+    "p_pair": 0.01998001998001998
+   },
+   {
+    "pair": [
+     "S015",
+     "S093"
+    ],
+    "names": [
+     "OWN-OUTPUT-HOLD",
+     "RECENT-TILT"
+    ],
+    "k": 2,
+    "p_pair": 0.024975024975024976
+   },
+   {
+    "pair": [
+     "S009",
+     "S031"
+    ],
+    "names": [
+     "DEPTH-PLATEAU",
+     "DEPTH-ALIGNED"
+    ],
+    "k": 2,
+    "p_pair": 0.024975024975024976
+   }
+  ]
+ },
+ "polarity": {
+  "pooled_agree": 1451,
+  "pooled_n": 2121,
+  "pooled_rate": 0.6841,
+  "p_vs_chance": 7.905918053244394e-66,
+  "per_pair": {
+   "DSK-FAB": {
+    "n": 101,
+    "agree": 92,
+    "rate": 0.911
+   },
+   "DSK-GEM": {
+    "n": 101,
+    "agree": 69,
+    "rate": 0.683
+   },
+   "DSK-HAI": {
+    "n": 101,
+    "agree": 70,
+    "rate": 0.693
+   },
+   "DSK-MIS": {
+    "n": 101,
+    "agree": 67,
+    "rate": 0.663
+   },
+   "DSK-OPU": {
+    "n": 101,
+    "agree": 86,
+    "rate": 0.851
+   },
+   "DSK-SON": {
+    "n": 101,
+    "agree": 68,
+    "rate": 0.673
+   },
+   "FAB-GEM": {
+    "n": 101,
+    "agree": 66,
+    "rate": 0.653
+   },
+   "FAB-HAI": {
+    "n": 101,
+    "agree": 71,
+    "rate": 0.703
+   },
+   "FAB-MIS": {
+    "n": 101,
+    "agree": 64,
+    "rate": 0.634
+   },
+   "FAB-OPU": {
+    "n": 101,
+    "agree": 85,
+    "rate": 0.842
+   },
+   "FAB-SON": {
+    "n": 101,
+    "agree": 61,
+    "rate": 0.604
+   },
+   "GEM-HAI": {
+    "n": 101,
+    "agree": 86,
+    "rate": 0.851
+   },
+   "GEM-MIS": {
+    "n": 101,
+    "agree": 45,
+    "rate": 0.446
+   },
+   "GEM-OPU": {
+    "n": 101,
+    "agree": 70,
+    "rate": 0.693
+   },
+   "GEM-SON": {
+    "n": 101,
+    "agree": 70,
+    "rate": 0.693
+   },
+   "HAI-MIS": {
+    "n": 101,
+    "agree": 52,
+    "rate": 0.515
+   },
+   "HAI-OPU": {
+    "n": 101,
+    "agree": 71,
+    "rate": 0.703
+   },
+   "HAI-SON": {
+    "n": 101,
+    "agree": 67,
+    "rate": 0.663
+   },
+   "MIS-OPU": {
+    "n": 101,
+    "agree": 58,
+    "rate": 0.574
+   },
+   "MIS-SON": {
+    "n": 101,
+    "agree": 72,
+    "rate": 0.713
+   },
+   "OPU-SON": {
+    "n": 101,
+    "agree": 61,
+    "rate": 0.604
+   }
+  },
+  "consensus": {
+   "S001": "RECEPTIVE",
+   "S002": "RECEPTIVE",
+   "S003": "ACTIVE",
+   "S004": "ACTIVE",
+   "S005": "RECEPTIVE",
+   "S006": "ACTIVE",
+   "S007": "ACTIVE",
+   "S008": "RECEPTIVE",
+   "S009": "RECEPTIVE",
+   "S010": "ACTIVE",
+   "S011": "ACTIVE",
+   "S012": "ACTIVE",
+   "S013": "ACTIVE",
+   "S014": "ACTIVE",
+   "S015": "RECEPTIVE",
+   "S016": "RECEPTIVE",
+   "S017": "RECEPTIVE",
+   "S018": "RECEPTIVE",
+   "S019": "RECEPTIVE",
+   "S020": "ACTIVE",
+   "S021": "RECEPTIVE",
+   "S022": "ACTIVE",
+   "S023": "ACTIVE",
+   "S024": "RECEPTIVE",
+   "S025": "RECEPTIVE",
+   "S026": "ACTIVE",
+   "S027": "ACTIVE",
+   "S028": "ACTIVE",
+   "S029": "RECEPTIVE",
+   "S030": "RECEPTIVE",
+   "S031": "RECEPTIVE",
+   "S032": "RECEPTIVE",
+   "S033": "RECEPTIVE",
+   "S034": "RECEPTIVE",
+   "S035": "RECEPTIVE",
+   "S036": "ACTIVE",
+   "S037": "ACTIVE",
+   "S038": "ACTIVE",
+   "S039": "RECEPTIVE",
+   "S040": "ACTIVE",
+   "S041": "ACTIVE",
+   "S042": "ACTIVE",
+   "S043": "RECEPTIVE",
+   "S044": "RECEPTIVE",
+   "S045": "RECEPTIVE",
+   "S046": "RECEPTIVE",
+   "S047": "ACTIVE",
+   "S048": "RECEPTIVE",
+   "S049": "RECEPTIVE",
+   "S050": "ACTIVE",
+   "S051": "ACTIVE",
+   "S052": "RECEPTIVE",
+   "S053": "RECEPTIVE",
+   "S054": "ACTIVE",
+   "S055": "RECEPTIVE",
+   "S056": "RECEPTIVE",
+   "S057": "ACTIVE",
+   "S058": "RECEPTIVE",
+   "S059": "ACTIVE",
+   "S060": "RECEPTIVE",
+   "S061": "ACTIVE",
+   "S062": "ACTIVE",
+   "S063": "RECEPTIVE",
+   "S064": "RECEPTIVE",
+   "S065": "ACTIVE",
+   "S066": "ACTIVE",
+   "S067": "ACTIVE",
+   "S068": "ACTIVE",
+   "S069": "ACTIVE",
+   "S070": "ACTIVE",
+   "S071": "RECEPTIVE",
+   "S072": "ACTIVE",
+   "S073": "ACTIVE",
+   "S074": "RECEPTIVE",
+   "S075": "ACTIVE",
+   "S076": "ACTIVE",
+   "S077": "RECEPTIVE",
+   "S078": "ACTIVE",
+   "S079": "ACTIVE",
+   "S080": "ACTIVE",
+   "S081": "ACTIVE",
+   "S082": "RECEPTIVE",
+   "S083": "ACTIVE",
+   "S084": "ACTIVE",
+   "S085": "RECEPTIVE",
+   "S086": "RECEPTIVE",
+   "S087": "ACTIVE",
+   "S088": "RECEPTIVE",
+   "S089": "RECEPTIVE",
+   "S090": "ACTIVE",
+   "S091": "ACTIVE",
+   "S092": "ACTIVE",
+   "S093": "RECEPTIVE",
+   "S094": "ACTIVE",
+   "S095": "RECEPTIVE",
+   "S096": "ACTIVE",
+   "S097": "RECEPTIVE",
+   "S098": "RECEPTIVE",
+   "S099": "RECEPTIVE",
+   "S100": "RECEPTIVE",
+   "S101": "RECEPTIVE"
+  },
+  "coverage": {
+   "FAB": 101,
+   "OPU": 101,
+   "SON": 101,
+   "HAI": 101,
+   "GEM": 101,
+   "MIS": 101,
+   "DSK": 101
+  }
+ },
+ "register": {
+  "pooled_agree": 1446,
+  "pooled_n": 2121,
+  "pooled_rate": 0.6818,
+  "p_vs_chance": 0.0,
+  "per_pair": {
+   "DSK-FAB": {
+    "n": 101,
+    "agree": 76,
+    "rate": 0.752
+   },
+   "DSK-GEM": {
+    "n": 101,
+    "agree": 60,
+    "rate": 0.594
+   },
+   "DSK-HAI": {
+    "n": 101,
+    "agree": 78,
+    "rate": 0.772
+   },
+   "DSK-MIS": {
+    "n": 101,
+    "agree": 71,
+    "rate": 0.703
+   },
+   "DSK-OPU": {
+    "n": 101,
+    "agree": 75,
+    "rate": 0.743
+   },
+   "DSK-SON": {
+    "n": 101,
+    "agree": 73,
+    "rate": 0.723
+   },
+   "FAB-GEM": {
+    "n": 101,
+    "agree": 64,
+    "rate": 0.634
+   },
+   "FAB-HAI": {
+    "n": 101,
+    "agree": 76,
+    "rate": 0.752
+   },
+   "FAB-MIS": {
+    "n": 101,
+    "agree": 82,
+    "rate": 0.812
+   },
+   "FAB-OPU": {
+    "n": 101,
+    "agree": 72,
+    "rate": 0.713
+   },
+   "FAB-SON": {
+    "n": 101,
+    "agree": 68,
+    "rate": 0.673
+   },
+   "GEM-HAI": {
+    "n": 101,
+    "agree": 63,
+    "rate": 0.624
+   },
+   "GEM-MIS": {
+    "n": 101,
+    "agree": 63,
+    "rate": 0.624
+   },
+   "GEM-OPU": {
+    "n": 101,
+    "agree": 54,
+    "rate": 0.535
+   },
+   "GEM-SON": {
+    "n": 101,
+    "agree": 54,
+    "rate": 0.535
+   },
+   "HAI-MIS": {
+    "n": 101,
+    "agree": 67,
+    "rate": 0.663
+   },
+   "HAI-OPU": {
+    "n": 101,
+    "agree": 74,
+    "rate": 0.733
+   },
+   "HAI-SON": {
+    "n": 101,
+    "agree": 71,
+    "rate": 0.703
+   },
+   "MIS-OPU": {
+    "n": 101,
+    "agree": 61,
+    "rate": 0.604
+   },
+   "MIS-SON": {
+    "n": 101,
+    "agree": 58,
+    "rate": 0.574
+   },
+   "OPU-SON": {
+    "n": 101,
+    "agree": 86,
+    "rate": 0.851
+   }
+  },
+  "consensus": {
+   "S001": "RELATIONAL",
+   "S002": "TEMPORAL",
+   "S003": "TEMPORAL",
+   "S004": "TEMPORAL",
+   "S005": "TEMPORAL",
+   "S006": "TEMPORAL",
+   "S007": "TEMPORAL",
+   "S008": "SPATIAL",
+   "S009": "TEMPORAL",
+   "S010": "TEMPORAL",
+   "S011": "TEMPORAL",
+   "S012": "TIE",
+   "S013": "RELATIONAL",
+   "S014": "SPATIAL",
+   "S015": "REFLEXIVE",
+   "S016": "RELATIONAL",
+   "S017": "SPATIAL",
+   "S018": "TEMPORAL",
+   "S019": "SPATIAL",
+   "S020": "SPATIAL",
+   "S021": "RELATIONAL",
+   "S022": "TEMPORAL",
+   "S023": "RELATIONAL",
+   "S024": "RELATIONAL",
+   "S025": "TEMPORAL",
+   "S026": "REFLEXIVE",
+   "S027": "RELATIONAL",
+   "S028": "TEMPORAL",
+   "S029": "TEMPORAL",
+   "S030": "SPATIAL",
+   "S031": "TIE",
+   "S032": "SPATIAL",
+   "S033": "SPATIAL",
+   "S034": "REFLEXIVE",
+   "S035": "SPATIAL",
+   "S036": "TEMPORAL",
+   "S037": "RELATIONAL",
+   "S038": "TEMPORAL",
+   "S039": "REFLEXIVE",
+   "S040": "RELATIONAL",
+   "S041": "REFLEXIVE",
+   "S042": "SPATIAL",
+   "S043": "SPATIAL",
+   "S044": "SPATIAL",
+   "S045": "SPATIAL",
+   "S046": "TEMPORAL",
+   "S047": "RELATIONAL",
+   "S048": "SPATIAL",
+   "S049": "TIE",
+   "S050": "RELATIONAL",
+   "S051": "TEMPORAL",
+   "S052": "TEMPORAL",
+   "S053": "RELATIONAL",
+   "S054": "TEMPORAL",
+   "S055": "SPATIAL",
+   "S056": "TIE",
+   "S057": "TEMPORAL",
+   "S058": "TEMPORAL",
+   "S059": "TIE",
+   "S060": "RELATIONAL",
+   "S061": "RELATIONAL",
+   "S062": "SPATIAL",
+   "S063": "TEMPORAL",
+   "S064": "SPATIAL",
+   "S065": "TEMPORAL",
+   "S066": "TEMPORAL",
+   "S067": "RELATIONAL",
+   "S068": "RELATIONAL",
+   "S069": "RELATIONAL",
+   "S070": "RELATIONAL",
+   "S071": "SPATIAL",
+   "S072": "RELATIONAL",
+   "S073": "SPATIAL",
+   "S074": "RELATIONAL",
+   "S075": "TEMPORAL",
+   "S076": "TEMPORAL",
+   "S077": "SPATIAL",
+   "S078": "RELATIONAL",
+   "S079": "REFLEXIVE",
+   "S080": "REFLEXIVE",
+   "S081": "TEMPORAL",
+   "S082": "RELATIONAL",
+   "S083": "TEMPORAL",
+   "S084": "RELATIONAL",
+   "S085": "RELATIONAL",
+   "S086": "RELATIONAL",
+   "S087": "RELATIONAL",
+   "S088": "SPATIAL",
+   "S089": "RELATIONAL",
+   "S090": "RELATIONAL",
+   "S091": "TEMPORAL",
+   "S092": "RELATIONAL",
+   "S093": "SPATIAL",
+   "S094": "RELATIONAL",
+   "S095": "SPATIAL",
+   "S096": "TEMPORAL",
+   "S097": "SPATIAL",
+   "S098": "TEMPORAL",
+   "S099": "TEMPORAL",
+   "S100": "RELATIONAL",
+   "S101": "SPATIAL"
+  },
+  "coverage": {
+   "FAB": 101,
+   "OPU": 101,
+   "SON": 101,
+   "HAI": 101,
+   "GEM": 101,
+   "MIS": 101,
+   "DSK": 101
+  }
+ },
+ "angles_convergent": {
+  "S001|S019": {
+   "names": [
+    "WHAT-CODED",
+    "WHERE-CODED"
+   ],
+   "n": 5,
+   "median": 90,
+   "MAD": 0,
+   "values": [
+    90,
+    90,
+    90,
+    90,
+    90
+   ]
+  },
+  "S070|S078": {
+   "names": [
+    "DELTA-WITH-STREAM",
+    "DELTA-ACROSS-STREAM"
+   ],
+   "n": 4,
+   "median": 90.0,
+   "MAD": 0.0,
+   "values": [
+    90,
+    90,
+    90,
+    90
+   ]
+  },
+  "S051|S055": {
+   "names": [
+    "PATTERN-HOLD",
+    "OPEN-STACK"
+   ],
+   "n": 3,
+   "median": 45,
+   "MAD": 0,
+   "values": [
+    45,
+    45,
+    90
+   ]
+  },
+  "S018|S096": {
+   "names": [
+    "PRE-OUTPUT-STAGE",
+    "END-APPROACH"
+   ],
+   "n": 3,
+   "median": 120,
+   "MAD": 0,
+   "values": [
+    120,
+    120,
+    150
+   ]
+  },
+  "S010|S098": {
+   "names": [
+    "REPEAT-PULL",
+    "CONTEXT-REPEAT"
+   ],
+   "n": 2,
+   "median": 67.5,
+   "MAD": 22.5,
+   "values": [
+    45,
+    90
+   ]
+  },
+  "S023|S080": {
+   "names": [
+    "TASK-LOCK",
+    "CHARACTER-PULL"
+   ],
+   "n": 2,
+   "median": 82.5,
+   "MAD": 7.5,
+   "values": [
+    75,
+    90
+   ]
+  },
+  "S008|S033": {
+   "names": [
+    "FEATURE-OVERLAP-LOAD",
+    "LOW-DIM-SQUEEZE"
+   ],
+   "n": 2,
+   "median": 90.0,
+   "MAD": 0.0,
+   "values": [
+    90,
+    90
+   ]
+  },
+  "S037|S092": {
+   "names": [
+    "PEAKED-DISTRIBUTION",
+    "OFF-PEAK-DRAW"
+   ],
+   "n": 2,
+   "median": 135.0,
+   "MAD": 45.0,
+   "values": [
+    90,
+    180
+   ]
+  },
+  "S066|S081": {
+   "names": [
+    "SURPRISE-JUMP",
+    "AFTER-SHOCK-DECAY"
+   ],
+   "n": 2,
+   "median": 90.0,
+   "MAD": 0.0,
+   "values": [
+    90,
+    90
+   ]
+  },
+  "S022|S081": {
+   "names": [
+    "ODD-STEP-SPIKE",
+    "AFTER-SHOCK-DECAY"
+   ],
+   "n": 2,
+   "median": 90.0,
+   "MAD": 0.0,
+   "values": [
+    90,
+    90
+   ]
+  }
+ },
+ "v0_angle_curiosity": {
+  "pairs": [
+   {
+    "v0_pair": [
+     "A01/open",
+     "A01/closed"
+    ],
+    "ids": [
+     "S037",
+     "S094"
+    ],
+    "v0_angle": 93.0,
+    "cohort_median": null,
+    "n_estimates": 0,
+    "families_nominating": 0
+   },
+   {
+    "v0_pair": [
+     "A18/-",
+     "A02/-"
+    ],
+    "ids": [
+     "S038",
+     "S100"
+    ],
+    "v0_angle": 80.0,
+    "cohort_median": null,
+    "n_estimates": 0,
+    "families_nominating": 0
+   },
+   {
+    "v0_pair": [
+     "A07/copy",
+     "A07/compose"
+    ],
+    "ids": [
+     "S047",
+     "S069"
+    ],
+    "v0_angle": 99.9,
+    "cohort_median": 115,
+    "n_estimates": 1,
+    "families_nominating": 1
+   },
+   {
+    "v0_pair": [
+     "A15/low-intake",
+     "A15/high-intake"
+    ],
+    "ids": [
+     "S002",
+     "S099"
+    ],
+    "v0_angle": 94.8,
+    "cohort_median": null,
+    "n_estimates": 0,
+    "families_nominating": 0
+   },
+   {
+    "v0_pair": [
+     "A22/miscalibrated-confidence",
+     "V0:CALIBRATION"
+    ],
+    "ids": [
+     "S026",
+     "S039"
+    ],
+    "v0_angle": 99.8,
+    "cohort_median": null,
+    "n_estimates": 0,
+    "families_nominating": 0
+   }
+  ],
+  "spearman": null,
+  "n": 1
+ },
+ "divergence": {
+  "single_family_relations": 115,
+  "isolate_states": []
+ }
+}

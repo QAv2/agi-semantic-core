@@ -101,3 +101,7 @@ the specific question Phase A left open.
 Pool text contains no vectors, angles, relations, attribution, trigram or
 polarity vocabulary; SCB-M items, Neti-Neti, return test never appear.
 Banned-token validator enforced in `build_pool.py` (V4).
+
+
+---
+**LOCK STAMP (post-flight, 2026-08-22): all 7 participants ran; analysis executed exactly as written above (phase_b_stats.py, seed 20260822); results in PHASE_B_RESULTS.md + phase_b_results.json. One deviation to record: SON's vehicle changed after two subagent stalls and a credit-dead API attempt (see results table) — the decision rule making the relaunch the session of record was fixed before any completion. The mechanical retry clause was never invoked.**
