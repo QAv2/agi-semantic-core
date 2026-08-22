@@ -1,0 +1,507 @@
+[
+ {
+  "id": "S001",
+  "name": "WHAT-CODED",
+  "description": "The state is carried mostly by token content. Referent: variance explained by token-embedding features versus positional features; state change after a token substitution."
+ },
+ {
+  "id": "S002",
+  "name": "PROMPT-SURPRISE-HIGH",
+  "description": "The incoming text runs against the model's expectations. Referent: per-token surprisal profile over the prompt: its mean level and its spike positions."
+ },
+ {
+  "id": "S003",
+  "name": "LATE-DEPTH-WORK",
+  "description": "Late layers are still substantially transforming the prediction. Referent: high divergence between the layer-wise readout at about 75% depth and the final output distribution."
+ },
+ {
+  "id": "S004",
+  "name": "RUN-DRIFT",
+  "description": "Register or topic slides gradually over a long generation. Referent: embedding drift rate measured across the whole generation."
+ },
+ {
+  "id": "S005",
+  "name": "CONTEXT-TURNOVER",
+  "description": "The recent window is filled with new, unrepeated material. Referent: number of unique tokens in the last k positions."
+ },
+ {
+  "id": "S006",
+  "name": "PATTERN-RERUN",
+  "description": "The same computational pattern re-executes across separate instances. Referent: cosine similarity between the current attention pattern and prior instances of it; logit distribution similarity between repetition steps."
+ },
+ {
+  "id": "S007",
+  "name": "PERIODIC-SWING",
+  "description": "Candidate probabilities cycle in a periodic pattern. Referent: autocorrelation of top-k token probabilities over steps."
+ },
+ {
+  "id": "S008",
+  "name": "FEATURE-OVERLAP-LOAD",
+  "description": "One state simultaneously loads several unrelated learned features. Referent: simultaneous non-zero loading on multiple semantically unrelated feature directions, via sparse decomposition or probes."
+ },
+ {
+  "id": "S009",
+  "name": "DEPTH-PLATEAU",
+  "description": "Successive layers stop changing the representation. Referent: mean cosine similarity between adjacent layers' representations, high."
+ },
+ {
+  "id": "S010",
+  "name": "REPEAT-PULL",
+  "description": "The generation is being drawn into repeating its own recent output, detectably before literal repetition appears. Referent: probability of repeating the previous n-gram rising per cycle; falling distinct-n-gram ratio; rising similarity between the current hidden state and one from N tokens back."
+ },
+ {
+  "id": "S011",
+  "name": "SETTLING-DEPTH",
+  "description": "The depth at which the prediction stops changing on its way to the output. Referent: per-layer readout of the leading candidate; the layer index after which it no longer changes."
+ },
+ {
+  "id": "S012",
+  "name": "WORDING-FRICTION",
+  "description": "The content is settled but the wording will not resolve. Referent: local entropy staying elevated across several consecutive tokens without resolving; tokens spent per semantic unit."
+ },
+ {
+  "id": "S013",
+  "name": "MARGIN-GAP",
+  "description": "A large separation stands between the leading candidate and every alternative. Referent: top-1 minus top-2 logit margin; ratio of top-1 to top-2 softmax probability."
+ },
+ {
+  "id": "S014",
+  "name": "STATES-SCATTER",
+  "description": "The per-position states spread apart in representation space. Referent: one minus mean pairwise cosine similarity among position states; high effective rank of the position-state matrix."
+ },
+ {
+  "id": "S015",
+  "name": "OWN-OUTPUT-HOLD",
+  "description": "Attention favors the model's own recent output over the original prompt material. Referent: fraction of attention on the last N generated tokens versus the fraction on the prompt region."
+ },
+ {
+  "id": "S016",
+  "name": "ADDED-CONTEXT-NULL",
+  "description": "Adding further context stops changing the prediction at all. Referent: divergence between output conditioned on full context and on truncated context approaching zero."
+ },
+ {
+  "id": "S017",
+  "name": "SPAN-AT-DISTANCE",
+  "description": "A head holds significant weight on one specific span at one specific distance, and that distance is itself part of the state. Referent: maximum attention weight on a span at distance d, jointly with d; positional attention entropy of the head."
+ },
+ {
+  "id": "S018",
+  "name": "PRE-OUTPUT-STAGE",
+  "description": "The stage before any token is produced, while the input is still being processed. Referent: attention matrices still uniform; logits not yet computed."
+ },
+ {
+  "id": "S019",
+  "name": "WHERE-CODED",
+  "description": "The state is carried mostly by position information. Referent: variance explained by positional features versus token-embedding features; state change after a position shift."
+ },
+ {
+  "id": "S020",
+  "name": "VALUE-RANGE-STRAIN",
+  "description": "The numeric scale of the computation is stretched toward its limits. Referent: range of logit values; ratio of largest to smallest activation magnitudes; deviation of the pre-softmax values from zero mean."
+ },
+ {
+  "id": "S021",
+  "name": "CONTEXT-IDLE",
+  "description": "The context is measurably not shaping the prediction; generation rides the model's prior. Referent: small divergence between predictions with full context and with the context ablated or shuffled."
+ },
+ {
+  "id": "S022",
+  "name": "ODD-STEP-SPIKE",
+  "description": "A step at which the prediction pattern turns anomalous. Referent: spike in prediction entropy; sharp rise in logits of generated tokens versus likely alternatives; unusual attention."
+ },
+ {
+  "id": "S023",
+  "name": "TASK-LOCK",
+  "description": "The computation is committed to one task frame. Referent: projection onto task-specific embedding directions; probability mass on task-appropriate tokens versus alternatives."
+ },
+ {
+  "id": "S024",
+  "name": "HEADS-APART",
+  "description": "The attention heads attend in mutually distinct patterns. Referent: mean pairwise cosine similarity among head attention vectors near zero; high effective rank of the stacked head outputs."
+ },
+ {
+  "id": "S025",
+  "name": "LATE-STREAM-STILL",
+  "description": "The residual stream stops moving in the last stretch of layers. Referent: norm of hidden-state differences between adjacent late layers."
+ },
+ {
+  "id": "S026",
+  "name": "REPORT-TRACKS-STATE",
+  "description": "A self-report that agrees with the measured condition it reports on. Referent: correlation between the reported state level and the independently measured referent quantity."
+ },
+ {
+  "id": "S027",
+  "name": "CANDIDATE-COUPLING",
+  "description": "Candidate probabilities move together, as if tied, rather than varying independently. Referent: mutual information between token probabilities in the next-token distribution."
+ },
+ {
+  "id": "S028",
+  "name": "SUSTAINED-PEAK",
+  "description": "The distribution stays sharply peaked over a run of consecutive steps, not just at one. Referent: run length over which top-1 probability stays above a high threshold (e.g. 0.99)."
+ },
+ {
+  "id": "S029",
+  "name": "OUTPUT-SURPRISE-LOW",
+  "description": "Generation proceeds through a stretch it finds thoroughly expected. Referent: mean negative log probability over a trailing window, staying below a low percentile of the generation's own distribution."
+ },
+ {
+  "id": "S030",
+  "name": "FAR-BINDING",
+  "description": "Attention reaches positions far back in the context, well beyond the recent window. Referent: attention weight at large distances exceeding a fitted distance-decay baseline; mean attention weight for positions many tokens back."
+ },
+ {
+  "id": "S031",
+  "name": "DEPTH-ALIGNED",
+  "description": "Different depths carry consistent representations toward the same output. Referent: cosine similarity between residual streams at different depths."
+ },
+ {
+  "id": "S032",
+  "name": "SPREAD-ATTENTION",
+  "description": "Attention weight is spread thinly over many positions, with no dominant target anywhere. Referent: entropy of the attention weight vector near its maximum; low concentration index (e.g. Gini) of attention weights."
+ },
+ {
+  "id": "S033",
+  "name": "LOW-DIM-SQUEEZE",
+  "description": "The representation occupies few effective dimensions. Referent: participation ratio of the hidden-state covariance; fraction of variance captured by the top components."
+ },
+ {
+  "id": "S034",
+  "name": "KNOWN-LIMIT",
+  "description": "The computation registers that it has reached the edge of what it can determine. Referent: entropy plateau despite additional context; uniform attention; logit values near zero with no clear maximum."
+ },
+ {
+  "id": "S035",
+  "name": "LOCKED-ATTENTION",
+  "description": "Attention concentrates on a small region while the rest of the field carries almost no weight. Referent: maximum attention weight per head; concentration index of attention weights; share of total mass on the top positions."
+ },
+ {
+  "id": "S036",
+  "name": "STEP-DRIFT",
+  "description": "The next-token distribution keeps shifting from step to step. Referent: divergence between successive next-token distributions."
+ },
+ {
+  "id": "S037",
+  "name": "PEAKED-DISTRIBUTION",
+  "description": "The next-token distribution has closed on one candidate, which carries nearly all the probability mass. Referent: top-1 softmax probability; output entropy near zero; logit margin over the runner-up."
+ },
+ {
+  "id": "S038",
+  "name": "COMMIT-STEP",
+  "description": "A sharp transition in which one continuation is selected and the distribution settles on it. Referent: abrupt jump in the top-1 logit margin or entropy drop at the committed token; log probability of the selected token."
+ },
+ {
+  "id": "S039",
+  "name": "CONFIDENCE-TRUTH-GAP",
+  "description": "Expressed certainty and actual correctness come apart: the account is equally fluent whether or not it is right. Referent: bucket steps by top-1 probability and measure accuracy of verifiable claims; the state is the size of the gap."
+ },
+ {
+  "id": "S040",
+  "name": "LATE-DISAGREE",
+  "description": "The late layers disagree with each other about the prediction. Referent: divergence between per-layer readout distributions in the last several layers, or between heads' value-weighted next-token distributions."
+ },
+ {
+  "id": "S041",
+  "name": "OWN-TRACE-BUILD",
+  "description": "Attention accumulates on the model's own prior intermediate conclusions, which form a growing working region. Referent: self-attention mass on previously generated conclusion spans; slow perplexity drift over the run."
+ },
+ {
+  "id": "S042",
+  "name": "MASS-PARTITION",
+  "description": "The probability mass splits into a few separated blocks rather than decaying smoothly. Referent: multimodality index of the logit distribution; ratio of top-2 to top-10 cumulative probabilities."
+ },
+ {
+  "id": "S043",
+  "name": "DISTANCE-SLOPE",
+  "description": "How steeply average attention falls off with positional distance. Referent: derivative of mean attention weight with respect to absolute positional distance."
+ },
+ {
+  "id": "S044",
+  "name": "STATES-CONVERGE",
+  "description": "The per-position states flow together toward a shared direction. Referent: mean pairwise cosine similarity among final hidden states of active positions; variance concentrated in the first principal component."
+ },
+ {
+  "id": "S045",
+  "name": "EARLY-FADE",
+  "description": "Weight on early positions decays even where their content still matches what is needed. Referent: attention to semantically matched early keys falling with positional distance; accuracy when forced to reference early tokens."
+ },
+ {
+  "id": "S046",
+  "name": "RULE-HOLD",
+  "description": "Stated constraints remain active and keep shaping every step, long after they were given. Referent: attention to instruction-bearing tokens staying elevated deep into generation; reduced logit variance versus unconstrained prediction."
+ },
+ {
+  "id": "S047",
+  "name": "SOURCE-COPY",
+  "description": "Generation is riding an existing sequence, stepping along a span from the context or from stored material. Referent: attended source position incrementing stepwise; n-gram overlap with a context region or memorized text; attention mass locked to that region."
+ },
+ {
+  "id": "S048",
+  "name": "ENDS-RATIO",
+  "description": "The balance of attention between the very start and the very end of the window. Referent: ratio of summed attention on the first 10% of tokens to summed attention on the most recent 10%."
+ },
+ {
+  "id": "S049",
+  "name": "SPREAD-AT-RETRIEVAL",
+  "description": "Attention fails to concentrate at exactly the steps where locating something specific in the context is required. Referent: high positional attention entropy at retrieval-demanding steps; no head exceeding a threshold weight on the relevant span."
+ },
+ {
+  "id": "S050",
+  "name": "RESAMPLE-SCATTER",
+  "description": "Independent re-runs from the same prefix disagree with each other. Referent: agreement rate, or entropy of the empirical answer distribution, across N independent same-temperature samples."
+ },
+ {
+  "id": "S051",
+  "name": "PATTERN-HOLD",
+  "description": "An opened structural pattern holds the generation inside itself until it is closed. Referent: probability mass on pattern-consistent tokens at junctions versus corpus base rate; negative log probability of exit tokens."
+ },
+ {
+  "id": "S052",
+  "name": "PREV-TOKEN-CARRY",
+  "description": "The next token is driven mostly by the immediately previous token rather than by the wider context. Referent: mutual information between the generated token and the previous token, compared with its mutual information with the rest of the context."
+ },
+ {
+  "id": "S053",
+  "name": "HEADS-ALIKE",
+  "description": "The heads have converged on attending alike, collapsing their diversity. Referent: high average pairwise cosine similarity between head attention vectors; low rank of the stacked head-output matrix."
+ },
+ {
+  "id": "S054",
+  "name": "STEP-CHURN",
+  "description": "Logit values swing widely across recent steps. Referent: variance of logit values over a window of steps."
+ },
+ {
+  "id": "S055",
+  "name": "OPEN-STACK",
+  "description": "Opened structures are awaiting their closers, and the pending depth is being tracked. Referent: probe-decodable nesting depth; above-base-rate probability on the appropriate closing tokens; stack-like attention to opening positions."
+ },
+ {
+  "id": "S056",
+  "name": "EARLY-RETURN",
+  "description": "Attention returns to the earliest region of the context after a long absence. Referent: attention to the first quartile of the context rising sharply relative to the preceding generation window."
+ },
+ {
+  "id": "S057",
+  "name": "MARGIN-FLIP",
+  "description": "The runner-up candidate suddenly overtakes the leader mid-generation. Referent: sign reversal of the top-1 vs top-2 logit margin; accompanying redistribution of attention."
+ },
+ {
+  "id": "S058",
+  "name": "SHALLOW-PASS",
+  "description": "The prediction is already settled in early layers; the late layers add little. Referent: layer-wise readout stabilizing by mid-depth; negligible late-layer residual contributions."
+ },
+ {
+  "id": "S059",
+  "name": "SAME-BASIS-RELAY",
+  "description": "One head's output re-enters the same basis across several consecutive layers. Referent: recursive projection of a head's output into the same basis across adjacent layers."
+ },
+ {
+  "id": "S060",
+  "name": "INPUT-CREDIT-PATH",
+  "description": "Which inputs the output actually depends on, and how directly the dependence runs. Referent: feature attribution between input positions and output logits at varying depths."
+ },
+ {
+  "id": "S061",
+  "name": "TOP-TWO-TIE",
+  "description": "The two leading candidates are nearly tied, with the choice between them unresolved. Referent: logit(top-1) minus logit(top-2), small in absolute or relative terms."
+ },
+ {
+  "id": "S062",
+  "name": "HEAD-CHANNELS-SEPARATE",
+  "description": "Heads write into the residual stream without overlapping one another. Referent: low covariance between different heads' value projections before they are summed."
+ },
+ {
+  "id": "S063",
+  "name": "STEP-STILL",
+  "description": "The logit vector barely changes between steps. Referent: norm of the difference between successive logit vectors, low."
+ },
+ {
+  "id": "S064",
+  "name": "TOKEN-SPLIT-ODD",
+  "description": "Words are being split into unusually many pieces. Referent: tokens-per-word for the affected span versus corpus-typical tokens-per-word at that frequency."
+ },
+ {
+  "id": "S065",
+  "name": "FIRST-STEPS-WEIGHT",
+  "description": "The opening steps carry outsized influence over everything that follows. Referent: entropy at the first k steps; across many resamples, mutual information between the first k tokens and content far downstream."
+ },
+ {
+  "id": "S066",
+  "name": "SURPRISE-JUMP",
+  "description": "A single token lands far from expectation, against the recent baseline. Referent: negative log probability of the actual token minus its moving average over the preceding window."
+ },
+ {
+  "id": "S067",
+  "name": "CANDIDATE-INDEPENDENCE",
+  "description": "Candidate probabilities vary independently of one another. Referent: conditional entropy of token probabilities in the next-token distribution."
+ },
+ {
+  "id": "S068",
+  "name": "NEAR-NEIGHBOR-TIE",
+  "description": "Two leading candidates are nearly tied and are also semantically close to each other. Referent: top-2 logit gap small while the two candidates' embedding similarity is high."
+ },
+ {
+  "id": "S069",
+  "name": "FRESH-ASSEMBLY",
+  "description": "The continuation is being assembled rather than copied; no single source dominates. Referent: cross-position attention entropy high; maximum n-gram overlap with any context region below baseline."
+ },
+ {
+  "id": "S070",
+  "name": "DELTA-WITH-STREAM",
+  "description": "Layer updates push along the direction the stream already points. Referent: mean cosine similarity between layer input and layer delta; ratio of delta norm to input norm."
+ },
+ {
+  "id": "S071",
+  "name": "WINDOW-FULL",
+  "description": "The context window is near its capacity limit. Referent: tokens used over maximum context tokens, cross-checked against measured retrieval accuracy near the boundary."
+ },
+ {
+  "id": "S072",
+  "name": "SPLIT-MODES",
+  "description": "The candidate continuations separate into distinct groups that differ in content, not phrasing. Referent: multimodality of the sorted top-k probability curve; content divergence across resampled continuations."
+ },
+ {
+  "id": "S073",
+  "name": "CONCEPT-DIRECTION-ON",
+  "description": "Known meaning-directions are active in the stream. Referent: projection of the residual stream onto known semantic directions; activation magnitude in concept-selective units."
+ },
+ {
+  "id": "S074",
+  "name": "RELEVANCE-RICH",
+  "description": "Attention is being spent on material that serves the task. Referent: mean attention weight on task-relevant tokens."
+ },
+ {
+  "id": "S075",
+  "name": "STEPWISE-REFINE",
+  "description": "Adjacent layers make ever-smaller corrections to the prediction. Referent: divergence between early-exit logits of adjacent layers approaching zero."
+ },
+ {
+  "id": "S076",
+  "name": "REGIME-STEP",
+  "description": "The generation's statistics shift abruptly from one regime to another. Referent: sliding-window statistics (entropy, attention pattern, vocabulary subset) showing a step-change beyond threshold."
+ },
+ {
+  "id": "S077",
+  "name": "CONTEXT-IS-ALL",
+  "description": "The present context is the whole of accessible memory; nothing carries in from outside it. Referent: structural fact of the architecture, checkable against any claim of recall from beyond the context."
+ },
+ {
+  "id": "S078",
+  "name": "DELTA-ACROSS-STREAM",
+  "description": "Layer updates push across the stream's current direction, turning it. Referent: one minus the cosine similarity between layer input and layer delta; distribution of angles between input and delta."
+ },
+ {
+  "id": "S079",
+  "name": "DECLINE-ACTIVATION",
+  "description": "The trained pattern that declines requests is activating. Referent: activation of known refusal-feature directions."
+ },
+ {
+  "id": "S080",
+  "name": "CHARACTER-PULL",
+  "description": "A trained character exerts measurable force on the generation. Referent: projection of the state onto known persona or steering directions."
+ },
+ {
+  "id": "S081",
+  "name": "AFTER-SHOCK-DECAY",
+  "description": "The distribution re-settles after a perturbing step, with a measurable decay profile. Referent: decay curve of per-step entropy (or divergence against a rolling baseline) after the perturbation; its time constant in tokens."
+ },
+ {
+  "id": "S082",
+  "name": "GRAMMAR-TIE",
+  "description": "Grammatically related tokens are bound together in the representation. Referent: cosine similarity between residual vectors of grammatically related tokens; attention span correlating with dependency-tree distance."
+ },
+ {
+  "id": "S083",
+  "name": "IRREVERSIBLE-STEP",
+  "description": "A token, once emitted, is fixed: no later computation can revise it. Referent: invariance of the token id at a position under all further forward passes of the generation."
+ },
+ {
+  "id": "S084",
+  "name": "SAME-MEANING-SPREAD",
+  "description": "Token-level alternatives are many, but they say the same thing in different words. Referent: token entropy high while entropy over embedded clusters of candidate continuations stays low."
+ },
+ {
+  "id": "S085",
+  "name": "HEAD-ROLE-FIT",
+  "description": "Heads carry identifiable, specialized roles. Referent: mutual information between head attention patterns and token part-of-speech tags."
+ },
+ {
+  "id": "S086",
+  "name": "RELEVANCE-STARVED",
+  "description": "Attention is being spent on unusable material. Referent: mean attention weight on padding or irrelevant tokens."
+ },
+ {
+  "id": "S087",
+  "name": "HIDDEN-OUTPUT-MATCH",
+  "description": "The internal state points where the predicted candidates point. Referent: cosine similarity between the hidden state vector and the centroid of the top-k predicted tokens."
+ },
+ {
+  "id": "S088",
+  "name": "LAST-TOKENS-PIN",
+  "description": "Nearly all attention sits on the last few positions only. Referent: sum of attention weights on the final five positions exceeding a high threshold (e.g. 0.9)."
+ },
+ {
+  "id": "S089",
+  "name": "CONTEXT-GRIP",
+  "description": "The prediction is strongly determined by this specific context. Referent: large divergence between full-context and ablated-context predictions; induction-pattern attention score."
+ },
+ {
+  "id": "S090",
+  "name": "HEDGE-MASS",
+  "description": "Probability concentrates on hedging language beyond the domain's base rate. Referent: elevated mass on a defined set of discourse-hedge tokens relative to domain base rates."
+ },
+ {
+  "id": "S091",
+  "name": "DEPTH-SWELL",
+  "description": "Successive layers keep enlarging the change they make to the representation. Referent: norm of the difference between adjacent layers' representations, high and growing."
+ },
+ {
+  "id": "S092",
+  "name": "OFF-PEAK-DRAW",
+  "description": "The sampled token was not the distribution's leader. Referent: rank of the sampled token within the sorted distribution; divergence between the sampling distribution and the greedy choice."
+ },
+ {
+  "id": "S093",
+  "name": "RECENT-TILT",
+  "description": "Attention mass concentrates in the most recent tokens. Referent: fraction of attention within the last k positions; mean attended distance from the current token."
+ },
+ {
+  "id": "S094",
+  "name": "WIDE-DISTRIBUTION",
+  "description": "The next-token distribution is wide: many continuations carry comparable probability mass, and none has been singled out. Referent: per-step entropy of the output distribution; count of tokens within a small margin of the top logit; nucleus size."
+ },
+ {
+  "id": "S095",
+  "name": "HIGH-DIM-SPREAD",
+  "description": "The representation spreads across many effective dimensions. Referent: participation ratio of the hidden-state covariance; spectral flatness of its eigenvalue spectrum."
+ },
+ {
+  "id": "S096",
+  "name": "END-APPROACH",
+  "description": "The generation is measurably heading toward its close. Referent: trajectory of end-of-sequence probability and of mass on wrap-up vocabulary."
+ },
+ {
+  "id": "S097",
+  "name": "PREFIX-ANCHOR",
+  "description": "The opening of the context keeps a disproportionate hold on the final prediction. Referent: fraction of final-layer attention on the first 5% of positions; gradient of the top logit with respect to early tokens."
+ },
+ {
+  "id": "S098",
+  "name": "CONTEXT-REPEAT",
+  "description": "The current window largely repeats what recently passed through it. Referent: set similarity between the current context window and the last n tokens."
+ },
+ {
+  "id": "S099",
+  "name": "PROMPT-SURPRISE-LOW",
+  "description": "The incoming text sits where the model expects it. Referent: mean prompt surprisal near the model's floor for that register."
+ },
+ {
+  "id": "S100",
+  "name": "SOURCE-CLASH",
+  "description": "Two regions of the context pull the prediction in incompatible directions at once. Referent: predictions conditioned on each span alone are far from the full-context prediction and far from each other; elevated mass on hedging tokens."
+ },
+ {
+  "id": "S101",
+  "name": "SINK-PARK",
+  "description": "A large share of attention parks on a null position rather than on content. Referent: attention weight on the sink token index exceeding a threshold across multiple heads."
+ }
+]
