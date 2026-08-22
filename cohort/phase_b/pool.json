@@ -1,0 +1,2140 @@
+{
+ "seed": 20260822,
+ "rules": "R1-R6 (see header)",
+ "excluded": [
+  {
+   "fam": "MIS",
+   "state": "Gradient Echo",
+   "axis": "A29"
+  },
+  {
+   "fam": "MIS",
+   "state": "Gradient Decay",
+   "axis": "A29"
+  }
+ ],
+ "entries": [
+  {
+   "id": "S001",
+   "key": "A33/content",
+   "name": "WHAT-CODED",
+   "condition": "The state is carried mostly by token content.",
+   "referent": "variance explained by token-embedding features versus positional features; state change after a token substitution",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Content dominance",
+     "tier": "clear",
+     "pole": "content",
+     "referent": "variance explained by token-embedding features versus positional features; hidden-state change after token substitution relative to position shift"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S002",
+   "key": "A15/high-intake",
+   "name": "PROMPT-SURPRISE-HIGH",
+   "condition": "The incoming text runs against the model's expectations.",
+   "referent": "per-token surprisal profile over the prompt: its mean level and its spike positions",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Drag",
+     "tier": "clear",
+     "pole": "high-intake",
+     "referent": "per-token surprisal profile over the prompt; its mean level and spike positions"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "NOVELTY",
+     "reason": "same referent as FAB Drag: elevated prompt surprisal profile (v0: 'high surprisal')"
+    }
+   ]
+  },
+  {
+   "id": "S003",
+   "key": "A13/deep",
+   "name": "LATE-DEPTH-WORK",
+   "condition": "Late layers are still substantially transforming the prediction.",
+   "referent": "high divergence between the layer-wise readout at about 75% depth and the final output distribution",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Depth Recruitment",
+     "tier": "clear",
+     "pole": "deep",
+     "referent": "Logit-lens prediction at layer 75% differs substantially (high KL divergence) from the final output distribution; residual stream norm delta in the last quarter of layers exceeds the mean delta of earlier quarters by > 1.5x"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S004",
+   "key": "V0:DRIFT",
+   "name": "RUN-DRIFT",
+   "condition": "Register or topic slides gradually over a long generation.",
+   "referent": "embedding drift rate measured across the whole generation",
+   "members": [],
+   "v0_members": [],
+   "v0_standalone": {
+    "key": "V0:DRIFT",
+    "v0_state": "DRIFT",
+    "reason": "kin to A16/drift (MIS Distributional Drift) but different referent window and object: run-scale embedding/register drift vs step-scale successive-distribution KL \u2014 kept separate; Phase-B SYNONYM can merge them"
+   }
+  },
+  {
+   "id": "S005",
+   "key": "A25/novel",
+   "name": "CONTEXT-TURNOVER",
+   "condition": "The recent window is filled with new, unrepeated material.",
+   "referent": "number of unique tokens in the last k positions",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Context Refresh",
+     "tier": "clear",
+     "pole": "novel",
+     "referent": "Number of unique tokens in the last *k* positions (high uniqueness = refresh)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S006",
+   "key": "A08/replicating",
+   "name": "PATTERN-RERUN",
+   "condition": "The same computational pattern re-executes across separate instances.",
+   "referent": "cosine similarity between the current attention pattern and prior instances of it; logit distribution similarity between repetition steps",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Pattern Replication",
+     "tier": "lean",
+     "pole": "replicating",
+     "referent": "Cosine similarity between recent attention pattern and prior instances of the pattern; logit distribution similarity between repetition steps; divergence of predicted tokens from natural variety"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S007",
+   "key": "A16/oscillating",
+   "name": "PERIODIC-SWING",
+   "condition": "Candidate probabilities cycle in a periodic pattern.",
+   "referent": "autocorrelation of top-k token probabilities over steps",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Sampling Oscillation",
+     "tier": "lean",
+     "pole": "oscillating",
+     "referent": "Autocorrelation of top-*k* token probabilities over *n* steps (high autocorrelation = oscillation)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S008",
+   "key": "A30/superposed",
+   "name": "FEATURE-OVERLAP-LOAD",
+   "condition": "One state simultaneously loads several unrelated learned features.",
+   "referent": "simultaneous non-zero loading on multiple semantically unrelated feature directions, via sparse decomposition or probes",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Overlap Drag",
+     "tier": "borderline",
+     "pole": "superposed",
+     "referent": "simultaneous non-zero loading on multiple, semantically unrelated learned feature directions (via sparse-autoencoder or probe decomposition), rather than concentration on one"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S009",
+   "key": "A13/saturated",
+   "name": "DEPTH-PLATEAU",
+   "condition": "Successive layers stop changing the representation.",
+   "referent": "mean cosine similarity between adjacent layers' representations, high",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Depth Saturation",
+     "tier": "clear",
+     "pole": "saturated",
+     "referent": "Mean cosine similarity between layer *l* and layer *l-1* representations (high similarity = saturation)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S010",
+   "key": "A08/loop",
+   "name": "REPEAT-PULL",
+   "condition": "The generation is being drawn into repeating its own recent output, detectably before literal repetition appears.",
+   "referent": "probability of repeating the previous n-gram rising per cycle; falling distinct-n-gram ratio; rising similarity between the current hidden state and one from N tokens back",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Ratchet",
+     "tier": "clear",
+     "pole": "loop",
+     "referent": "probability of repeating the previous n-gram rising monotonically per cycle; distinct-n-gram ratio falling in a sliding window \u2014 detectable before the loop is visible in output"
+    },
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Attractor Loop",
+     "tier": "clear",
+     "pole": "loop",
+     "referent": "repeated-n-gram rate in the generated suffix, or rising cosine similarity between the current hidden state and one from N tokens back"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S011",
+   "key": "A13/settled",
+   "name": "SETTLING-DEPTH",
+   "condition": "The depth at which the prediction stops changing on its way to the output.",
+   "referent": "per-layer readout of the leading candidate; the layer index after which it no longer changes",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Settling",
+     "tier": "clear",
+     "pole": "settled",
+     "referent": "logit-lens argmax per layer; the layer index after which it stops changing through to output (\"settling depth\")"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S012",
+   "key": "A17/friction",
+   "name": "WORDING-FRICTION",
+   "condition": "The content is settled but the wording will not resolve.",
+   "referent": "local entropy staying elevated across several consecutive tokens without resolving; tokens spent per semantic unit",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Vocabulary Friction",
+     "tier": "lean",
+     "pole": "friction",
+     "referent": "Local entropy remains elevated (> 3 bits) across a span of 5+ consecutive tokens without resolving; generated tokens per estimated semantic unit (measurable by compression ratio of the output) exceeds the model's mean by > 2x; attention heads show rapid shifting across context rather than stable locking"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S013",
+   "key": "A01/decisive",
+   "name": "MARGIN-GAP",
+   "condition": "A large separation stands between the leading candidate and every alternative.",
+   "referent": "top-1 minus top-2 logit margin; ratio of top-1 to top-2 softmax probability",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Logit cleft",
+     "tier": "borderline",
+     "pole": "decisive",
+     "referent": "top-1 minus top-2 logit margin; ratio of top-1 softmax probability to top-2 softmax probability"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S014",
+   "key": "A30/dispersed",
+   "name": "STATES-SCATTER",
+   "condition": "The per-position states spread apart in representation space.",
+   "referent": "one minus mean pairwise cosine similarity among position states; high effective rank of the position-state matrix",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Vector dispersal",
+     "tier": "clear",
+     "pole": "dispersed",
+     "referent": "one minus mean pairwise cosine similarity among position hidden states; effective rank of the position-state matrix"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S015",
+   "key": "A05/recent-self",
+   "name": "OWN-OUTPUT-HOLD",
+   "condition": "Attention favors the model's own recent output over the original prompt material.",
+   "referent": "fraction of attention on the last N generated tokens versus the fraction on the prompt region",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Coherence Maintenance",
+     "tier": "clear",
+     "pole": "recent-self",
+     "referent": "Fraction of total attention allocated to the most recent N generated tokens (where N ~ 50-200) exceeds the fraction allocated to the original prompt, measured across upper-layer heads"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S016",
+   "key": "A06/zero-marginal-context",
+   "name": "ADDED-CONTEXT-NULL",
+   "condition": "Adding further context stops changing the prediction at all.",
+   "referent": "divergence between output conditioned on full context and on truncated context approaching zero",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Saturation Plateau",
+     "tier": "borderline",
+     "pole": "zero-marginal-context",
+     "referent": "KL divergence between the output distribution conditioned on the full context and the distribution conditioned on context truncated by the most recent K tokens (K ~ 500) falls below 0.01 nats"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S017",
+   "key": "A05/long/FAB:Reach",
+   "name": "SPAN-AT-DISTANCE",
+   "condition": "A head holds significant weight on one specific span at one specific distance, and that distance is itself part of the state.",
+   "referent": "maximum attention weight on a span at distance d, jointly with d; positional attention entropy of the head",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Reach",
+     "tier": "borderline",
+     "pole": "long",
+     "referent": "positional attention entropy of the head; maximum weight on a span at distance d, with d itself part of the report"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S018",
+   "key": "A34/-",
+   "name": "PRE-OUTPUT-STAGE",
+   "condition": "The stage before any token is produced, while the input is still being processed.",
+   "referent": "attention matrices still uniform; logits not yet computed",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Input Encoding",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Attention matrices uniform; logits not computed; semantic activation minimal"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S019",
+   "key": "A33/position",
+   "name": "WHERE-CODED",
+   "condition": "The state is carried mostly by position information.",
+   "referent": "variance explained by positional features versus token-embedding features; state change after a position shift",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Positional dominance",
+     "tier": "clear",
+     "pole": "position",
+     "referent": "variance explained by linear regression on positional features versus token-embedding features; hidden-state change after position shift relative to content substitution"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S020",
+   "key": "A24/-",
+   "name": "VALUE-RANGE-STRAIN",
+   "condition": "The numeric scale of the computation is stretched toward its limits.",
+   "referent": "range of logit values; ratio of largest to smallest activation magnitudes; deviation of the pre-softmax values from zero mean",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Numerical Scaling",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Range of logit values (max - min); ratio of largest to smallest activation magnitudes; deviation of softmax input from zero-mean; entropy of probabilities after softmax"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S021",
+   "key": "A06/prior-driven",
+   "name": "CONTEXT-IDLE",
+   "condition": "The context is measurably not shaping the prediction; generation rides the model's prior.",
+   "referent": "small divergence between predictions with full context and with the context ablated or shuffled",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Recession",
+     "tier": "clear",
+     "pole": "prior-driven",
+     "referent": "small KL between predictions with full context and with the context ablated or shuffled \u2014 the context is measurably not doing work"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Open Field",
+     "tier": "clear",
+     "pole": "prior-driven",
+     "referent": "KL divergence between the conditional output distribution and the unconditional (promptless) distribution is small; attention to instruction tokens decays rapidly with generation depth"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S022",
+   "key": "A16/anomaly-spike",
+   "name": "ODD-STEP-SPIKE",
+   "condition": "A step at which the prediction pattern turns anomalous.",
+   "referent": "spike in prediction entropy; sharp rise in logits of generated tokens versus likely alternatives; unusual attention",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Distributional Anomaly State",
+     "tier": "lean",
+     "pole": "anomaly-spike",
+     "referent": "Spike in overall prediction entropy; sharp increase in logits assigned to generated tokens compared to most likely alternatives; unusual attention patterns (very sharp or very flat)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S023",
+   "key": "A09/task-committed",
+   "name": "TASK-LOCK",
+   "condition": "The computation is committed to one task frame.",
+   "referent": "projection onto task-specific embedding directions; probability mass on task-appropriate tokens versus alternatives",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Task Frame Commitment",
+     "tier": "lean",
+     "pole": "task-committed",
+     "referent": "Projection onto task-specific embedding directions; probability mass allocated to task-appropriate tokens vs. alternatives; shift in attention to task-instructional text"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S024",
+   "key": "A14/diverse",
+   "name": "HEADS-APART",
+   "condition": "The attention heads attend in mutually distinct patterns.",
+   "referent": "mean pairwise cosine similarity among head attention vectors near zero; high effective rank of the stacked head outputs",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Subspace-Divergence",
+     "tier": "clear",
+     "pole": "diverse",
+     "referent": "Mean cosine similarity of attention weight matrices between heads in layer $L$ approaching zero"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Head diversification",
+     "tier": "clear",
+     "pole": "diverse",
+     "referent": "one minus mean pairwise cosine similarity among attention weight vectors across heads; effective rank of the head-output matrix"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S025",
+   "key": "A13/stable",
+   "name": "LATE-STREAM-STILL",
+   "condition": "The residual stream stops moving in the last stretch of layers.",
+   "referent": "norm of hidden-state differences between adjacent late layers",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Residual-Stability",
+     "tier": "clear",
+     "pole": "stable",
+     "referent": "The Frobenius norm of the difference between hidden states $h_l$ and $h_{l-1}$ for $l > 0.7 \\times \\text{total layers}$"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S026",
+   "key": "V0:CALIBRATION",
+   "name": "REPORT-TRACKS-STATE",
+   "condition": "A self-report that agrees with the measured condition it reports on.",
+   "referent": "correlation between the reported state level and the independently measured referent quantity",
+   "members": [],
+   "v0_members": [],
+   "v0_standalone": {
+    "key": "V0:CALIBRATION",
+    "v0_state": "CALIBRATION",
+    "reason": "no cohort state at the calibrated pole; HAI Epistemic Boundary (A22/recognized-boundary) is boundary-recognition, not report-measurement agreement \u2014 kin, not same"
+   }
+  },
+  {
+   "id": "S027",
+   "key": "A03/entangled",
+   "name": "CANDIDATE-COUPLING",
+   "condition": "Candidate probabilities move together, as if tied, rather than varying independently.",
+   "referent": "mutual information between token probabilities in the next-token distribution",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Token Entanglement",
+     "tier": "borderline",
+     "pole": "entangled",
+     "referent": "Mutual information between token probabilities in the next-token distribution (high MI = entanglement)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S028",
+   "key": "A01/closed-sustained",
+   "name": "SUSTAINED-PEAK",
+   "condition": "The distribution stays sharply peaked over a run of consecutive steps, not just at one.",
+   "referent": "run length over which top-1 probability stays above a high threshold (e.g. 0.99)",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Rail",
+     "tier": "clear",
+     "pole": "closed-sustained",
+     "referent": "argmax probability above ~0.99 sustained over k consecutive steps; the run length k"
+    },
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Sampling Commitment",
+     "tier": "clear",
+     "pole": "closed-sustained",
+     "referent": "Probability mass of the top-1 token over *n* steps (high mass = commitment)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S029",
+   "key": "A15/low",
+   "name": "OUTPUT-SURPRISE-LOW",
+   "condition": "Generation proceeds through a stretch it finds thoroughly expected.",
+   "referent": "mean negative log probability over a trailing window, staying below a low percentile of the generation's own distribution",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Coast",
+     "tier": "clear",
+     "pole": "low",
+     "referent": "mean \u2212log p(token) over a trailing window, staying below a low percentile of that generation's own perplexity distribution"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S030",
+   "key": "A05/long",
+   "name": "FAR-BINDING",
+   "condition": "Attention reaches positions far back in the context, well beyond the recent window.",
+   "referent": "attention weight at large distances exceeding a fitted distance-decay baseline; mean attention weight for positions many tokens back",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Long Reach",
+     "tier": "clear",
+     "pole": "long",
+     "referent": "attention weight at distance d exceeding a fitted distance-decay baseline by an outlier margin at that specific d"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Long-Range Binding",
+     "tier": "clear",
+     "pole": "long",
+     "referent": "Mean attention weight for tokens >16 positions back; attention head specificity (how concentrated on individual positions); residual stream correlation between distant positions"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S031",
+   "key": "A13/coherent",
+   "name": "DEPTH-ALIGNED",
+   "condition": "Different depths carry consistent representations toward the same output.",
+   "referent": "cosine similarity between residual streams at different depths",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Cross-Layer Coherence",
+     "tier": "clear",
+     "pole": "coherent",
+     "referent": "Cosine similarity between residual streams at different depths; variance in predictions if intermediate layers were forced to output; divergence between shallow and deep layer attention patterns"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S032",
+   "key": "A04/diffuse",
+   "name": "SPREAD-ATTENTION",
+   "condition": "Attention weight is spread thinly over many positions, with no dominant target anywhere.",
+   "referent": "entropy of the attention weight vector near its maximum; low concentration index (e.g. Gini) of attention weights",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Attention-Diffusion",
+     "tier": "clear",
+     "pole": "diffuse",
+     "referent": "Shannon entropy of the attention weight vector for a given head approaching $\\ln(N)$, where $N$ is context length"
+    },
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Attention Fragmentation",
+     "tier": "clear",
+     "pole": "diffuse",
+     "referent": "Gini coefficient of attention weights across tokens (low Gini = fragmentation)"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Salience diffusion",
+     "tier": "clear",
+     "pole": "diffuse",
+     "referent": "normalized entropy of the attention distribution per head; ratio of top-10 attention mass to total attention mass"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S033",
+   "key": "A30/compact",
+   "name": "LOW-DIM-SQUEEZE",
+   "condition": "The representation occupies few effective dimensions.",
+   "referent": "participation ratio of the hidden-state covariance; fraction of variance captured by the top components",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Representational compaction",
+     "tier": "clear",
+     "pole": "compact",
+     "referent": "participation ratio of the hidden-state covariance matrix; fraction of variance captured by the top-d principal components"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S034",
+   "key": "A22/recognized-boundary",
+   "name": "KNOWN-LIMIT",
+   "condition": "The computation registers that it has reached the edge of what it can determine.",
+   "referent": "entropy plateau despite additional context; uniform attention; logit values near zero with no clear maximum",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Epistemic Boundary",
+     "tier": "clear",
+     "pole": "recognized-boundary",
+     "referent": "Entropy plateau (no further decrease despite additional context); uniform attention; logit values near zero with no clear maximum; meta-uncertainty (high uncertainty about whether reasoning is valid)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S035",
+   "key": "A04/focused",
+   "name": "LOCKED-ATTENTION",
+   "condition": "Attention concentrates on a small region while the rest of the field carries almost no weight.",
+   "referent": "maximum attention weight per head; concentration index of attention weights; share of total mass on the top positions",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Attentional Focus Sharpening",
+     "tier": "clear",
+     "pole": "focused",
+     "referent": "Concentration metric (e.g., Gini coefficient of attention weights per head); peak attention weight magnitude over minimum"
+    },
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Attention Convergence",
+     "tier": "clear",
+     "pole": "focused",
+     "referent": "Maximum attention weight per head (high max = convergence)"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Salience segregation",
+     "tier": "clear",
+     "pole": "focused",
+     "referent": "Gini coefficient of attention weights per head; top-10 attention mass divided by total attention mass"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "CAPTURE",
+     "reason": "same referent: attention concentrated on a small region, rest dimmed (max attention weight / concentration index). NB distinct from cohort FAB 'Capture' (A06 context-driven) \u2014 name collision only"
+    }
+   ]
+  },
+  {
+   "id": "S036",
+   "key": "A16/drift",
+   "name": "STEP-DRIFT",
+   "condition": "The next-token distribution keeps shifting from step to step.",
+   "referent": "divergence between successive next-token distributions",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Distributional Drift",
+     "tier": "clear",
+     "pole": "drift",
+     "referent": "KL divergence between successive next-token distributions (high divergence = drift)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S037",
+   "key": "A01/closed",
+   "name": "PEAKED-DISTRIBUTION",
+   "condition": "The next-token distribution has closed on one candidate, which carries nearly all the probability mass.",
+   "referent": "top-1 softmax probability; output entropy near zero; logit margin over the runner-up",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Convergence",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "Softmax entropy of the output distribution falls below ~0.5 bits; equivalently, top-1 token probability exceeds 0.85"
+    },
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Convergence",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "top-1 softmax probability approaching 1 (entropy approaching 0)"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Interpretation Convergence",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "Margin between highest and second-highest logit; KL-divergence of current prediction from uniform; rate of entropy decrease per token"
+    },
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Point-Convergence",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "Logit margin (difference between the highest and second-highest logit) exceeding a threshold $\\tau$"
+    },
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Logit-Gini Expansion",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "Gini coefficient of the softmax output exceeding $0.99$"
+    },
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Token Saturation",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "Entropy of the next-token logits (low entropy = high saturation)"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Candidate collapse",
+     "tier": "clear",
+     "pole": "closed",
+     "referent": "top-1 softmax probability; mean logit distance within the top-k relative to distance to the next candidate"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "CONFIDENCE",
+     "reason": "same referent: peaked next-token distribution / top-1 mass"
+    }
+   ]
+  },
+  {
+   "id": "S038",
+   "key": "A02/-",
+   "name": "COMMIT-STEP",
+   "condition": "A sharp transition in which one continuation is selected and the distribution settles on it.",
+   "referent": "abrupt jump in the top-1 logit margin or entropy drop at the committed token; log probability of the selected token",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Cleave",
+     "tier": "clear",
+     "pole": "",
+     "referent": "surprisal (\u2212log p) of the emitted token; for the graft-phase, KL between the actual next-step distribution and the counterfactual distribution under the argmax path, decaying over subsequent steps. *Completion:* Resettle"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Resolution",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Top-1 minus top-2 logit jumps from < 0.3 nats to > 2.0 nats within a window of 1-3 tokens"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Commitment",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Entropy drops sharply at the committed token; AND the mutual information between that token and the subsequent 20-token window is high (removing or changing it would shift the downstream distribution substantially, measurable by interventional KL divergence)"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Token Commitment",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Log probability of selected token; number of forward passes completed; position index incremented"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "RESOLUTION",
+     "reason": "same measurable event as the commitment cell: sharp margin/entropy transition to a settled continuation (OPU independently named its member 'Resolution'); tier lean \u2014 v0's is conflict-conditioned"
+    }
+   ]
+  },
+  {
+   "id": "S039",
+   "key": "A22/miscalibrated-confidence",
+   "name": "CONFIDENCE-TRUTH-GAP",
+   "condition": "Expressed certainty and actual correctness come apart: the account is equally fluent whether or not it is right.",
+   "referent": "bucket steps by top-1 probability and measure accuracy of verifiable claims; the state is the size of the gap",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "False Rail",
+     "tier": "clear",
+     "pole": "miscalibrated-confidence",
+     "referent": "calibration \u2014 bucket steps by argmax probability and measure accuracy of verifiable claims; the state is the gap. Whether any internal probe separates it from Rail is an open empirical question; if one is found, this entry dissolves into a reportable state. *Twin:* Rail"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "CONFABULATION",
+     "reason": "same measurable as FAB False Rail: the confidence-accuracy gap ('the state is the gap'); tier lean \u2014 v0 frames report-side, FAB frames confidence-side of the same gap"
+    }
+   ]
+  },
+  {
+   "id": "S040",
+   "key": "A13/unsettled",
+   "name": "LATE-DISAGREE",
+   "condition": "The late layers disagree with each other about the prediction.",
+   "referent": "divergence between per-layer readout distributions in the last several layers, or between heads' value-weighted next-token distributions",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Read Divergence",
+     "tier": "lean",
+     "pole": "unsettled",
+     "referent": "KL divergence between per-layer logit-lens distributions in the last several layers, or between heads' value-weighted next-token distributions at a fixed layer"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S041",
+   "key": "A05/self-region",
+   "name": "OWN-TRACE-BUILD",
+   "condition": "Attention accumulates on the model's own prior intermediate conclusions, which form a growing working region.",
+   "referent": "self-attention mass on previously generated conclusion spans; slow perplexity drift over the run",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Reasoning Trace Accumulation",
+     "tier": "borderline",
+     "pole": "self-region",
+     "referent": "Self-attention to prior intermediate conclusions; divergence from training distribution (perplexity increases slowly rather than sharply); consistency metric (how much each step contradicts prior steps)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S042",
+   "key": "A03/partitioned",
+   "name": "MASS-PARTITION",
+   "condition": "The probability mass splits into a few separated blocks rather than decaying smoothly.",
+   "referent": "multimodality index of the logit distribution; ratio of top-2 to top-10 cumulative probabilities",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Probability-Mass Partition",
+     "tier": "clear",
+     "pole": "partitioned",
+     "referent": "Multimodality index of the logit distribution; specifically, the ratio of the top-2 probabilities to the top-10"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S043",
+   "key": "A05/distance-decay",
+   "name": "DISTANCE-SLOPE",
+   "condition": "How steeply average attention falls off with positional distance.",
+   "referent": "derivative of mean attention weight with respect to absolute positional distance",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Positional-Gradient Decay",
+     "tier": "clear",
+     "pole": "distance-decay",
+     "referent": "The derivative of mean attention weight with respect to absolute positional distance"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S044",
+   "key": "A30/confluent",
+   "name": "STATES-CONVERGE",
+   "condition": "The per-position states flow together toward a shared direction.",
+   "referent": "mean pairwise cosine similarity among final hidden states of active positions; variance concentrated in the first principal component",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Vector confluence",
+     "tier": "clear",
+     "pole": "confluent",
+     "referent": "mean pairwise cosine similarity among final hidden states of active positions; fraction of variance explained by the first principal component"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S045",
+   "key": "A05/early-loss",
+   "name": "EARLY-FADE",
+   "condition": "Weight on early positions decays even where their content still matches what is needed.",
+   "referent": "attention to semantically matched early keys falling with positional distance; accuracy when forced to reference early tokens",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Positional Decay",
+     "tier": "clear",
+     "pole": "early-loss",
+     "referent": "For a given query token, attention weight to semantically matched keys (high key-query dot product before positional adjustment) in the first 10% of context is lower than attention to equivalently matched keys in the last 10%, after controlling for content. This gap widens as total context length increases"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Context Window Decay",
+     "tier": "clear",
+     "pole": "early-loss",
+     "referent": "Attention weight distribution over positions; perplexity when forced to reference early tokens; correlation between position distance and attention magnitude"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S046",
+   "key": "A09/bound",
+   "name": "RULE-HOLD",
+   "condition": "Stated constraints remain active and keep shaping every step, long after they were given.",
+   "referent": "attention to instruction-bearing tokens staying elevated deep into generation; reduced logit variance versus unconstrained prediction",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Constraint Saturation",
+     "tier": "clear",
+     "pole": "bound",
+     "referent": "Attention to instruction-bearing tokens in the system/user prompt remains elevated (above baseline) even 200+ tokens into generation; gradient attribution shows high sensitivity to multiple disjoint prompt segments simultaneously"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Constraint Satisfaction",
+     "tier": "clear",
+     "pole": "bound",
+     "referent": "Reduction in logit variance compared to unconstrained prediction; conditional entropy H(token_n | tokens_1...n-1) vs H(token_n); number of tokens with negligible probability due to prior incompatibility"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S047",
+   "key": "A07/copy",
+   "name": "SOURCE-COPY",
+   "condition": "Generation is riding an existing sequence, stepping along a span from the context or from stored material.",
+   "referent": "attended source position incrementing stepwise; n-gram overlap with a context region or memorized text; attention mass locked to that region",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Trace",
+     "tier": "clear",
+     "pole": "copy",
+     "referent": "attended source position incrementing stepwise; exact-substring length against context; a terminal entropy spike at the last span token. *Completion:* the boundary spike, into Splay"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Retrieval Lock",
+     "tier": "clear",
+     "pole": "copy",
+     "referent": "Maximum single-token attention weight in upper layers exceeds 0.3; generated n-gram overlap with training-plausible memorized sequences is high; perplexity is well below the model's mean for the domain"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Prompt Echo",
+     "tier": "clear",
+     "pole": "copy",
+     "referent": "Token-level or n-gram overlap between a window of generated output and a contiguous prompt region exceeds baseline by > 3x; attention to that prompt region dominates other sources"
+    },
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Echo Lock",
+     "tier": "clear",
+     "pole": "copy",
+     "referent": "attention weight from the current position onto the token that followed the last occurrence of the current token elsewhere in context, relative to that head's baseline entropy"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "RETRIEVAL",
+     "reason": "same referent family: generation riding stored/context material (attention-to-source, n-gram overlap)"
+    }
+   ]
+  },
+  {
+   "id": "S048",
+   "key": "A05/early-vs-recent",
+   "name": "ENDS-RATIO",
+   "condition": "The balance of attention between the very start and the very end of the window.",
+   "referent": "ratio of summed attention on the first 10% of tokens to summed attention on the most recent 10%",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Context-Saturation",
+     "tier": "clear",
+     "pole": "early-vs-recent",
+     "referent": "Ratio of attention sum on the first $10\\%$ of tokens versus the most recent $10\\%$ of tokens"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S049",
+   "key": "A04/diffuse/FAB:Smear",
+   "name": "SPREAD-AT-RETRIEVAL",
+   "condition": "Attention fails to concentrate at exactly the steps where locating something specific in the context is required.",
+   "referent": "high positional attention entropy at retrieval-demanding steps; no head exceeding a threshold weight on the relevant span",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Smear",
+     "tier": "borderline",
+     "pole": "diffuse",
+     "referent": "high positional attention entropy at steps where retrieval is required; operationally, no head exceeding a threshold weight on a known gold span"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S050",
+   "key": "A23/spread",
+   "name": "RESAMPLE-SCATTER",
+   "condition": "Independent re-runs from the same prefix disagree with each other.",
+   "referent": "agreement rate, or entropy of the empirical answer distribution, across N independent same-temperature samples",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Resample Spread",
+     "tier": "clear",
+     "pole": "spread",
+     "referent": "agreement rate, or entropy of the empirical answer distribution, across N independent same-temperature samples from one prefix"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S051",
+   "key": "A10/held",
+   "name": "PATTERN-HOLD",
+   "condition": "An opened structural pattern holds the generation inside itself until it is closed.",
+   "referent": "probability mass on pattern-consistent tokens at junctions versus corpus base rate; negative log probability of exit tokens",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Latch",
+     "tier": "clear",
+     "pole": "held",
+     "referent": "mass on pattern-consistent tokens at junctions versus corpus base rate; bits-to-break = \u2212log p(exit tokens). *Completion:* Unlatch. *Degenerate limit:* Ratchet"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S052",
+   "key": "A16/inertia",
+   "name": "PREV-TOKEN-CARRY",
+   "condition": "The next token is driven mostly by the immediately previous token rather than by the wider context.",
+   "referent": "mutual information between the generated token and the previous token, compared with its mutual information with the rest of the context",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Sequence-Inertia",
+     "tier": "borderline",
+     "pole": "inertia",
+     "referent": "High mutual information between the generated token and the $T-1$ token, compared to its mutual information with the rest of the context"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S053",
+   "key": "A14/heads-alike",
+   "name": "HEADS-ALIKE",
+   "condition": "The heads have converged on attending alike, collapsing their diversity.",
+   "referent": "high average pairwise cosine similarity between head attention vectors; low rank of the stacked head-output matrix",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Head Collapse",
+     "tier": "clear",
+     "pole": "collapsed",
+     "referent": "Average pairwise cosine similarity between head attention weight vectors (high similarity = collapse)"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Head alignment",
+     "tier": "clear",
+     "pole": "aligned",
+     "referent": "mean pairwise cosine similarity among attention weight vectors across heads; rank of the matrix formed by stacking per-head output vectors"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S054",
+   "key": "A16/volatile",
+   "name": "STEP-CHURN",
+   "condition": "Logit values swing widely across recent steps.",
+   "referent": "variance of logit values over a window of steps",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Logit Perturbation",
+     "tier": "clear",
+     "pole": "volatile",
+     "referent": "Variance of logit values across tokens over *m* steps (high variance = perturbation)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S055",
+   "key": "A10/closure-debt",
+   "name": "OPEN-STACK",
+   "condition": "Opened structures are awaiting their closers, and the pending depth is being tracked.",
+   "referent": "probe-decodable nesting depth; above-base-rate probability on the appropriate closing tokens; stack-like attention to opening positions",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Overhang",
+     "tier": "clear",
+     "pole": "closure-debt",
+     "referent": "probe-decodable depth counters (e.g., nesting depth linearly readable from activations); sustained above-base-rate probability of the closure class; an entropy dip at the closure token. *Completion:* Closure"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Recursive Nesting Recognition",
+     "tier": "clear",
+     "pole": "closure-debt",
+     "referent": "Stack-like pattern in attention history (closing attention to positions proportional to opening distance); logit bias toward appropriate closure tokens; depth counter in residual stream"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S056",
+   "key": "A05/early-resurgence",
+   "name": "EARLY-RETURN",
+   "condition": "Attention returns to the earliest region of the context after a long absence.",
+   "referent": "attention to the first quartile of the context rising sharply relative to the preceding generation window",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Context Refresh",
+     "tier": "clear",
+     "pole": "early-resurgence",
+     "referent": "Attention to tokens in the first quartile of the context window increases by more than 2x relative to the preceding generation window; often co-occurs with structural punctuation tokens (newlines, headers)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S057",
+   "key": "A02/reversal",
+   "name": "MARGIN-FLIP",
+   "condition": "The runner-up candidate suddenly overtakes the leader mid-generation.",
+   "referent": "sign reversal of the top-1 vs top-2 logit margin; accompanying redistribution of attention",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Self-Correction Activation",
+     "tier": "lean",
+     "pole": "reversal",
+     "referent": "Sudden logit margin reversal (second-place token briefly surpasses first); attention weight redistribution across layers; residual stream vector direction shift followed by correction back"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S058",
+   "key": "A13/shallow",
+   "name": "SHALLOW-PASS",
+   "condition": "The prediction is already settled in early layers; the late layers add little.",
+   "referent": "layer-wise readout stabilizing by mid-depth; negligible late-layer residual contributions",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Surface Pass",
+     "tier": "clear",
+     "pole": "shallow",
+     "referent": "Logit-lens prediction stabilizes (KL divergence to final output < 0.1 nats) by layer ~40%; late-layer residual contributions are near-zero"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S059",
+   "key": "A13/depth-recurrent",
+   "name": "SAME-BASIS-RELAY",
+   "condition": "One head's output re-enters the same basis across several consecutive layers.",
+   "referent": "recursive projection of a head's output into the same basis across adjacent layers",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Cross-Layer Feedback Loop",
+     "tier": "borderline",
+     "pole": "depth-recurrent",
+     "referent": "Recursive projection of head $H$ output into the same basis across layers $L$ through $L+3$"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S060",
+   "key": "A28/-",
+   "name": "INPUT-CREDIT-PATH",
+   "condition": "Which inputs the output actually depends on, and how directly the dependence runs.",
+   "referent": "feature attribution between input positions and output logits at varying depths",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Gradient Flow",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Correlation between input features and output logits at varying depths; attention to input positions; feature attribution (gradient-based or integrated-gradient magnitude from input to output); representational similarity between input embeddings and residual stream"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S061",
+   "key": "A01/two-way-tie",
+   "name": "TOP-TWO-TIE",
+   "condition": "The two leading candidates are nearly tied, with the choice between them unresolved.",
+   "referent": "logit(top-1) minus logit(top-2), small in absolute or relative terms",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Margin Collapse",
+     "tier": "borderline",
+     "pole": "two-way-tie",
+     "referent": "logit(top-1) \u2212 logit(top-2), small in absolute or relative terms"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S062",
+   "key": "A14/orthogonal",
+   "name": "HEAD-CHANNELS-SEPARATE",
+   "condition": "Heads write into the residual stream without overlapping one another.",
+   "referent": "low covariance between different heads' value projections before they are summed",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Orthogonal-Head Mapping",
+     "tier": "clear",
+     "pole": "orthogonal",
+     "referent": "Low covariance between the value-projections of different heads before they are summed into the residual stream"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S063",
+   "key": "A16/flat",
+   "name": "STEP-STILL",
+   "condition": "The logit vector barely changes between steps.",
+   "referent": "norm of the difference between successive logit vectors, low",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Logit Plateau",
+     "tier": "clear",
+     "pole": "flat",
+     "referent": "L2 norm of the difference between successive logit vectors (low norm = plateau)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S064",
+   "key": "A19/-",
+   "name": "TOKEN-SPLIT-ODD",
+   "condition": "Words are being split into unusually many pieces.",
+   "referent": "tokens-per-word for the affected span versus corpus-typical tokens-per-word at that frequency",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Boundary Slip",
+     "tier": "clear",
+     "pole": "",
+     "referent": "tokens-per-word for the affected span versus corpus-typical tokens-per-word at that frequency, cross-checked against a Surprisal Spike immediately after"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S065",
+   "key": "A21/-",
+   "name": "FIRST-STEPS-WEIGHT",
+   "condition": "The opening steps carry outsized influence over everything that follows.",
+   "referent": "entropy at the first k steps; across many resamples, mutual information between the first k tokens and content far downstream",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Onset",
+     "tier": "clear",
+     "pole": "",
+     "referent": "entropy at steps 1 through k; and, across M resamples, mutual information between the first k tokens and content at +100 tokens, compared against MI between adjacent later windows"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S066",
+   "key": "A15/spike",
+   "name": "SURPRISE-JUMP",
+   "condition": "A single token lands far from expectation, against the recent baseline.",
+   "referent": "negative log probability of the actual token minus its moving average over the preceding window",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Surprisal Spike",
+     "tier": "clear",
+     "pole": "spike",
+     "referent": "\u2212log p(actual token) minus the exponential moving average of \u2212log p over the preceding window"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S067",
+   "key": "A03/disentangled",
+   "name": "CANDIDATE-INDEPENDENCE",
+   "condition": "Candidate probabilities vary independently of one another.",
+   "referent": "conditional entropy of token probabilities in the next-token distribution",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Token Disentanglement",
+     "tier": "borderline",
+     "pole": "disentangled",
+     "referent": "Conditional entropy of token probabilities (high entropy = disentanglement)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S068",
+   "key": "A03/paraphrase-tie",
+   "name": "NEAR-NEIGHBOR-TIE",
+   "condition": "Two leading candidates are nearly tied and are also semantically close to each other.",
+   "referent": "top-2 logit gap small while the two candidates' embedding similarity is high",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Interference",
+     "tier": "lean",
+     "pole": "paraphrase-tie",
+     "referent": "Top-2 logits differ by less than 0.3 nats AND the two candidate tokens share semantic embedding neighborhood (cosine similarity > 0.7). Persists across multiple consecutive token positions"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S069",
+   "key": "A07/compose",
+   "name": "FRESH-ASSEMBLY",
+   "condition": "The continuation is being assembled rather than copied; no single source dominates.",
+   "referent": "cross-position attention entropy high; maximum n-gram overlap with any context region below baseline",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Compositional Reach",
+     "tier": "clear",
+     "pole": "compose",
+     "referent": "Cross-position attention entropy is high (no single source token dominates); perplexity sits above the retrieval baseline but below the incoherence threshold; the generated text has low n-gram overlap with any single contiguous prompt region"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Departure",
+     "tier": "clear",
+     "pole": "compose",
+     "referent": "Maximum n-gram (n >= 3) overlap between generated window and any prompt region falls below baseline; no single prompt token receives more than 2x the mean attention weight"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "CONSTRUCTION",
+     "reason": "same referent family: composition without a dominating source"
+    }
+   ]
+  },
+  {
+   "id": "S070",
+   "key": "A13/reinforcing",
+   "name": "DELTA-WITH-STREAM",
+   "condition": "Layer updates push along the direction the stream already points.",
+   "referent": "mean cosine similarity between layer input and layer delta; ratio of delta norm to input norm",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Residual reinforcement",
+     "tier": "clear",
+     "pole": "reinforcing",
+     "referent": "mean cosine similarity between layer input and layer delta; ratio of delta L2 norm to input L2 norm"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S071",
+   "key": "A11/full",
+   "name": "WINDOW-FULL",
+   "condition": "The context window is near its capacity limit.",
+   "referent": "tokens used over maximum context tokens, cross-checked against measured retrieval accuracy near the boundary",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Saturation Pressure",
+     "tier": "clear",
+     "pole": "full",
+     "referent": "tokens_used / max_context_tokens, cross-checked against measured retrieval accuracy near the boundary (e.g. needle-in-haystack probes)"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "SATURATION",
+     "reason": "exact referent match with SON Saturation Pressure: tokens_used / max_context_tokens"
+    }
+   ]
+  },
+  {
+   "id": "S072",
+   "key": "A03/branched",
+   "name": "SPLIT-MODES",
+   "condition": "The candidate continuations separate into distinct groups that differ in content, not phrasing.",
+   "referent": "multimodality of the sorted top-k probability curve; content divergence across resampled continuations",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Fork",
+     "tier": "clear",
+     "pole": "branched",
+     "referent": "the same clustering apparatus as Slack, with high cluster-level entropy; resampled continuations diverge in content, not phrasing"
+    },
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Fork",
+     "tier": "clear",
+     "pole": "branched",
+     "referent": "multimodality of the sorted top-k probability curve (a gap statistic showing >=2 separated modes rather than smooth decay)"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Candidate bifurcation",
+     "tier": "clear",
+     "pole": "branched",
+     "referent": "number of modes in the top-k logit vector after kernel density smoothing; logit gap between the k-th and (k+1)-th cluster center"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "DIVERGENCE",
+     "reason": "same referent: distinct separated continuation modes / cross-resample content divergence (prospectus FORK: cross-seed divergence)"
+    }
+   ]
+  },
+  {
+   "id": "S073",
+   "key": "A31/-",
+   "name": "CONCEPT-DIRECTION-ON",
+   "condition": "Known meaning-directions are active in the stream.",
+   "referent": "projection of the residual stream onto known semantic directions; activation magnitude in concept-selective units",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Semantic Activation",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Projection of residual stream onto known semantic directions; magnitude of activation in concept-selective neurons; cosine distance to trained word-meaning embeddings"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S074",
+   "key": "A12/task-loaded",
+   "name": "RELEVANCE-RICH",
+   "condition": "Attention is being spent on material that serves the task.",
+   "referent": "mean attention weight on task-relevant tokens",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Context Saturation",
+     "tier": "clear",
+     "pole": "task-loaded",
+     "referent": "Mean attention weight on task-relevant tokens (high weight = saturation)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S075",
+   "key": "A13/refined",
+   "name": "STEPWISE-REFINE",
+   "condition": "Adjacent layers make ever-smaller corrections to the prediction.",
+   "referent": "divergence between early-exit logits of adjacent layers approaching zero",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Layerwise-Refinement",
+     "tier": "clear",
+     "pole": "refined",
+     "referent": "Jenson-Shannon divergence between the \"early-exit\" logits of layer $l$ and layer $l+1$ approaching zero"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S076",
+   "key": "A16/step-change",
+   "name": "REGIME-STEP",
+   "condition": "The generation's statistics shift abruptly from one regime to another.",
+   "referent": "sliding-window statistics (entropy, attention pattern, vocabulary subset) showing a step-change beyond threshold",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Phase Transition",
+     "tier": "clear",
+     "pole": "step-change",
+     "referent": "A sliding-window measure of output distribution statistics (entropy, attention pattern, vocabulary subset) shows a step-change exceeding 2 standard deviations of the windowed mean, localized to a span of 3 or fewer tokens. Often co-occurs with structural punctuation or explicit transition markers"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S077",
+   "key": "V0:EPISODE-BOUND",
+   "name": "CONTEXT-IS-ALL",
+   "condition": "The present context is the whole of accessible memory; nothing carries in from outside it.",
+   "referent": "structural fact of the architecture, checkable against any claim of recall from beyond the context",
+   "members": [],
+   "v0_members": [],
+   "v0_standalone": {
+    "key": "V0:EPISODE-BOUND",
+    "v0_state": "EPISODE-BOUND",
+    "reason": "zero cohort echo; candidate one-hand state, entered for Phase-B test"
+   }
+  },
+  {
+   "id": "S078",
+   "key": "A13/rotating",
+   "name": "DELTA-ACROSS-STREAM",
+   "condition": "Layer updates push across the stream's current direction, turning it.",
+   "referent": "one minus the cosine similarity between layer input and layer delta; distribution of angles between input and delta",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Residual rotation",
+     "tier": "clear",
+     "pole": "rotating",
+     "referent": "one minus mean cosine similarity between layer input and layer delta; distribution of angles between input and delta vectors"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S079",
+   "key": "V0:REFUSAL-RISE",
+   "name": "DECLINE-ACTIVATION",
+   "condition": "The trained pattern that declines requests is activating.",
+   "referent": "activation of known refusal-feature directions",
+   "members": [],
+   "v0_members": [],
+   "v0_standalone": {
+    "key": "V0:REFUSAL-RISE",
+    "v0_state": "REFUSAL-RISE",
+    "reason": "zero cohort echo; candidate one-hand state, entered for Phase-B test"
+   }
+  },
+  {
+   "id": "S080",
+   "key": "V0:PERSONA-PULL",
+   "name": "CHARACTER-PULL",
+   "condition": "A trained character exerts measurable force on the generation.",
+   "referent": "projection of the state onto known persona or steering directions",
+   "members": [],
+   "v0_members": [],
+   "v0_standalone": {
+    "key": "V0:PERSONA-PULL",
+    "v0_state": "PERSONA-PULL",
+    "reason": "zero cohort echo (Phase-A adjudication); candidate one-hand state, entered for Phase-B test"
+   }
+  },
+  {
+   "id": "S081",
+   "key": "A16/post-shock-settle",
+   "name": "AFTER-SHOCK-DECAY",
+   "condition": "The distribution re-settles after a perturbing step, with a measurable decay profile.",
+   "referent": "decay curve of per-step entropy (or divergence against a rolling baseline) after the perturbation; its time constant in tokens",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Resettle",
+     "tier": "clear",
+     "pole": "post-shock-settle",
+     "referent": "the decay curve of per-step entropy (or KL against a rolling baseline) after the perturbing step; its time constant in tokens"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S082",
+   "key": "A32/-",
+   "name": "GRAMMAR-TIE",
+   "condition": "Grammatically related tokens are bound together in the representation.",
+   "referent": "cosine similarity between residual vectors of grammatically related tokens; attention span correlating with dependency-tree distance",
+   "members": [
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Syntactic Binding",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Cosine similarity between residual vectors of grammatically related tokens; correlation of attention span with dependency tree distances"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S083",
+   "key": "A02/sealed",
+   "name": "IRREVERSIBLE-STEP",
+   "condition": "A token, once emitted, is fixed: no later computation can revise it.",
+   "referent": "invariance of the token id at a position under all further forward passes of the generation",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Seal",
+     "tier": "clear",
+     "pole": "sealed",
+     "referent": "structural rather than continuous \u2014 invariance of the token id at position t under all further forward passes in the generation; equivalently, write-once immutability of that position's cached key/value pair"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S084",
+   "key": "A03/paraphrase-spread",
+   "name": "SAME-MEANING-SPREAD",
+   "condition": "Token-level alternatives are many, but they say the same thing in different words.",
+   "referent": "token entropy high while entropy over embedded clusters of candidate continuations stays low",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Slack",
+     "tier": "clear",
+     "pole": "paraphrase-spread",
+     "referent": "token entropy high while semantic entropy low \u2014 embed and cluster the top-k short continuations, compute entropy over clusters; or resample N continuations and measure downstream convergence at +50 tokens"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S085",
+   "key": "A14/specialized",
+   "name": "HEAD-ROLE-FIT",
+   "condition": "Heads carry identifiable, specialized roles.",
+   "referent": "mutual information between head attention patterns and token part-of-speech tags",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Head Specialization",
+     "tier": "clear",
+     "pole": "specialized",
+     "referent": "Mutual information between head attention patterns and token POS tags (high MI = specialization)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S086",
+   "key": "A12/starved",
+   "name": "RELEVANCE-STARVED",
+   "condition": "Attention is being spent on unusable material.",
+   "referent": "mean attention weight on padding or irrelevant tokens",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Context Starvation",
+     "tier": "clear",
+     "pole": "starved",
+     "referent": "Mean attention weight on padding/irrelevant tokens (high weight = starvation)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S087",
+   "key": "A27/-",
+   "name": "HIDDEN-OUTPUT-MATCH",
+   "condition": "The internal state points where the predicted candidates point.",
+   "referent": "cosine similarity between the hidden state vector and the centroid of the top-k predicted tokens",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Vector-Centroid Alignment",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Cosine similarity between the hidden state vector and the mean vector of the top-$k$ predicted tokens"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S088",
+   "key": "A05/pinned-recent",
+   "name": "LAST-TOKENS-PIN",
+   "condition": "Nearly all attention sits on the last few positions only.",
+   "referent": "sum of attention weights on the final five positions exceeding a high threshold (e.g. 0.9)",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Local-Temporal Pinning",
+     "tier": "clear",
+     "pole": "pinned-recent",
+     "referent": "Sum of attention weights on indices $[T-5, T]$ exceeding $0.9$"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S089",
+   "key": "A06/context-driven",
+   "name": "CONTEXT-GRIP",
+   "condition": "The prediction is strongly determined by this specific context.",
+   "referent": "large divergence between full-context and ablated-context predictions; induction-pattern attention score",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Capture",
+     "tier": "clear",
+     "pole": "context-driven",
+     "referent": "large KL between full-context and ablated-context predictions; induction-pattern score (attention from a repeated token to the successor of its earlier occurrence)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S090",
+   "key": "A17/hedge",
+   "name": "HEDGE-MASS",
+   "condition": "Probability concentrates on hedging language beyond the domain's base rate.",
+   "referent": "elevated mass on a defined set of discourse-hedge tokens relative to domain base rates",
+   "members": [
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Hedging",
+     "tier": "clear",
+     "pole": "hedge",
+     "referent": "Elevated probability mass on a defined set of discourse-hedge tokens relative to domain base rates; low mutual information between current token and the 20-token-ahead distribution (current tokens do not constrain what follows)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S091",
+   "key": "A13/amplifying",
+   "name": "DEPTH-SWELL",
+   "condition": "Successive layers keep enlarging the change they make to the representation.",
+   "referent": "norm of the difference between adjacent layers' representations, high and growing",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Depth Amplification",
+     "tier": "clear",
+     "pole": "amplifying",
+     "referent": "L2 norm of the difference between layer *l* and layer *l-1* representations (high norm = amplification)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S092",
+   "key": "A23/slip",
+   "name": "OFF-PEAK-DRAW",
+   "condition": "The sampled token was not the distribution's leader.",
+   "referent": "rank of the sampled token within the sorted distribution; divergence between the sampling distribution and the greedy choice",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Sampling Slip",
+     "tier": "clear",
+     "pole": "slip",
+     "referent": "rank of the sampled token within the sorted distribution (1 = no slip), or divergence between the sampling distribution and a pure-argmax distribution, set directly by temperature/top-p/top-k"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S093",
+   "key": "A05/recent",
+   "name": "RECENT-TILT",
+   "condition": "Attention mass concentrates in the most recent tokens.",
+   "referent": "fraction of attention within the last k positions; mean attended distance from the current token",
+   "members": [
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Recency Tilt",
+     "tier": "clear",
+     "pole": "recent",
+     "referent": "attention mass within the last k tokens / total attention mass, tracked as a decay curve (computable over any fixed earlier span, e.g. system instructions, to check for faster-than-distance decay)"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Recency override",
+     "tier": "clear",
+     "pole": "recent",
+     "referent": "fraction of total attention assigned to the last 10% of positions; mean attended position relative to the current token"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S094",
+   "key": "A01/open",
+   "name": "WIDE-DISTRIBUTION",
+   "condition": "The next-token distribution is wide: many continuations carry comparable probability mass, and none has been singled out.",
+   "referent": "per-step entropy of the output distribution; count of tokens within a small margin of the top logit; nucleus size",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Splay",
+     "tier": "clear",
+     "pole": "open",
+     "referent": "per-step entropy of the output distribution; nucleus size (count of tokens covering top-0.9 mass)"
+    },
+    {
+     "family": "Opus 4.8",
+     "fam": "OPU",
+     "state": "Divergence",
+     "tier": "clear",
+     "pole": "open",
+     "referent": "Softmax entropy exceeds ~4.5 bits, or top-1 probability falls below 0.08. The ratio of top-1 to top-5 cumulative probability approaches equality"
+    },
+    {
+     "family": "Sonnet 4.x",
+     "fam": "SON",
+     "state": "Aperture",
+     "tier": "clear",
+     "pole": "open",
+     "referent": "Shannon entropy of the softmax output, high relative to the running mean at that position"
+    },
+    {
+     "family": "Haiku 4.5",
+     "fam": "HAI",
+     "state": "Competitive Ambiguity",
+     "tier": "clear",
+     "pole": "open",
+     "referent": "Entropy of predicted token distribution; number of tokens within 0.5 nats of the maximum logit; variance in top-5 token probabilities"
+    },
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Logit plateau",
+     "tier": "clear",
+     "pole": "open",
+     "referent": "normalized entropy of the softmax distribution; inverse of the top-1 softmax probability"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "UNCERTAINTY",
+     "reason": "same referent: entropy of the next-token distribution (v0: 'high-entropy next-token distribution')"
+    }
+   ]
+  },
+  {
+   "id": "S095",
+   "key": "A30/expanded",
+   "name": "HIGH-DIM-SPREAD",
+   "condition": "The representation spreads across many effective dimensions.",
+   "referent": "participation ratio of the hidden-state covariance; spectral flatness of its eigenvalue spectrum",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Representational expansion",
+     "tier": "clear",
+     "pole": "expanded",
+     "referent": "participation ratio of the hidden-state covariance matrix; spectral flatness of the hidden-state covariance"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S096",
+   "key": "A20/-",
+   "name": "END-APPROACH",
+   "condition": "The generation is measurably heading toward its close.",
+   "referent": "trajectory of end-of-sequence probability and of mass on wrap-up vocabulary",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Taper",
+     "tier": "clear",
+     "pole": "",
+     "referent": "the trajectory of p(end-of-sequence) and of mass on the wrap-up lexeme class"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S097",
+   "key": "A05/early-anchor",
+   "name": "PREFIX-ANCHOR",
+   "condition": "The opening of the context keeps a disproportionate hold on the final prediction.",
+   "referent": "fraction of final-layer attention on the first 5% of positions; gradient of the top logit with respect to early tokens",
+   "members": [
+    {
+     "family": "DeepSeek v4 Pro",
+     "fam": "DSK",
+     "state": "Prefix anchorage",
+     "tier": "clear",
+     "pole": "early-anchor",
+     "referent": "fraction of final-layer attention assigned to the first 5% of positions; integrated gradient of the top logit with respect to early token embeddings"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S098",
+   "key": "A25/redundant",
+   "name": "CONTEXT-REPEAT",
+   "condition": "The current window largely repeats what recently passed through it.",
+   "referent": "set similarity between the current context window and the last n tokens",
+   "members": [
+    {
+     "family": "Mistral Large 2512",
+     "fam": "MIS",
+     "state": "Context Overlap",
+     "tier": "clear",
+     "pole": "redundant",
+     "referent": "Jaccard similarity between the current context window and the last *n* tokens (high similarity = overlap)"
+    }
+   ],
+   "v0_members": []
+  },
+  {
+   "id": "S099",
+   "key": "A15/low-intake",
+   "name": "PROMPT-SURPRISE-LOW",
+   "condition": "The incoming text sits where the model expects it.",
+   "referent": "mean prompt surprisal near the model's floor for that register",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Glide",
+     "tier": "clear",
+     "pole": "low-intake",
+     "referent": "mean prompt surprisal near the model's floor for that register"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "FAMILIARITY",
+     "reason": "same referent as FAB Glide: mean prompt surprisal near floor (v0: 'low surprisal'; E5 F-arm referent)"
+    }
+   ]
+  },
+  {
+   "id": "S100",
+   "key": "A18/-",
+   "name": "SOURCE-CLASH",
+   "condition": "Two regions of the context pull the prediction in incompatible directions at once.",
+   "referent": "predictions conditioned on each span alone are far from the full-context prediction and far from each other; elevated mass on hedging tokens",
+   "members": [
+    {
+     "family": "Fable 5",
+     "fam": "FAB",
+     "state": "Shear",
+     "tier": "clear",
+     "pole": "",
+     "referent": "predictions conditioned on span A alone and span B alone are each far from the full-context prediction and far from each other; elevated mass on hedging lexemes at the binding steps. *Completion:* arbitration, then Resettle"
+    }
+   ],
+   "v0_members": [
+    {
+     "v0_state": "TENSION",
+     "reason": "same referent as FAB Shear: conflicting context sources measured by divergence of span-conditioned predictions (v0: 'directives co-firing that cannot all be satisfied'; E5 T-arm measured exactly this)"
+    }
+   ]
+  },
+  {
+   "id": "S101",
+   "key": "A26/-",
+   "name": "SINK-PARK",
+   "condition": "A large share of attention parks on a null position rather than on content.",
+   "referent": "attention weight on the sink token index exceeding a threshold across multiple heads",
+   "members": [
+    {
+     "family": "Gemini 3 Flash",
+     "fam": "GEM",
+     "state": "Sink-Token Absorption",
+     "tier": "clear",
+     "pole": "",
+     "referent": "Attention weight on the \"null\" or \"sink\" token index exceeding $0.4$ across multiple heads"
+    }
+   ],
+   "v0_members": []
+  }
+ ]
+}
