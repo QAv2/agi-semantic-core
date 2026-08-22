@@ -326,19 +326,25 @@ CI > 0.5 — the E7-Q ceiling was 100% claiming, BA pinned at chance).
 
 **How to run (Joe):** Runtime → Change runtime type → **T4 GPU** → Run all.
 First run uses `SMOKE = True` (config cell below, ~6–8 min) and ends in a
-green or red banner — mechanics only. If GREEN: flip `SMOKE = False` in the
-config cell and Run all again (**~75–100 min**). One Drive OAuth popup per
-session. Each condition ships to `MyDrive/semcore/e8r/` the moment it
-completes — if the session dies mid-flight, set `RESUME_STAMP` to the printed
-stamp and Run all: finished conditions load from Drive, only missing ones fly."""
+green or red banner — mechanics only. If GREEN: flip `SMOKE = False`, then
+**Runtime → Restart runtime — MANDATORY —** and Run all again (**~75–100
+min**). The restart is not optional: this flight loads the model once per
+condition, and a same-kernel rerun stacks the smoke run's models under the
+full run until the 12.7GB system-RAM ceiling kills the VM (first-flight
+lesson). The setup cell now refuses to fly a dirty kernel or a low-RAM VM,
+with instructions. One Drive OAuth popup per session. Each condition ships to
+`MyDrive/semcore/e8r/` the moment it completes — if the session still dies
+mid-flight, set `RESUME_STAMP` to the printed stamp, restart the runtime, and
+Run all: finished conditions load from Drive, only missing ones fly."""
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, adapters ───────────────
 SMOKE = True        # ← flip to False for the full flight after a green smoke
 RESUME_STAMP = ''   # ← e.g. '20260823_1015' to resume a partial full flight
 
-import subprocess, sys, os, json, re, math, time, shutil
+import subprocess, sys, os, json, re, math, time, shutil, gc, ctypes
 from pathlib import Path
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
+os.environ['MALLOC_ARENA_MAX'] = '2'   # tame glibc arena ratchet on the 12.7GB VM
 
 gpu = subprocess.run(['nvidia-smi','--query-gpu=name,memory.total','--format=csv,noheader'],
                      capture_output=True, text=True)
@@ -352,6 +358,41 @@ subprocess.run([sys.executable,'-m','pip','install','-q','-U',
 import torch
 assert torch.cuda.is_available(), 'No GPU — Runtime > Change runtime type > T4 GPU.'
 DEV = 'cuda'
+
+# ── RAM hygiene: guards + helpers (first-flight lesson: 12.6GB system-RAM
+# crash from same-kernel model stacking across smoke -> full) ────────────────
+def _mem_avail_gb():
+    try:
+        kb = int(next(l for l in open('/proc/meminfo')
+                      if l.startswith('MemAvailable')).split()[1])
+        return kb / 1e6
+    except Exception:
+        return float('nan')
+
+def free_ram():
+    gc.collect()
+    torch.cuda.empty_cache()
+    try:
+        ctypes.CDLL('libc.so.6').malloc_trim(0)
+    except Exception:
+        pass
+
+def ram_report():
+    g = torch.cuda.mem_get_info()
+    return (f'sys avail {_mem_avail_gb():.1f}GB | '
+            f'GPU free {g[0]/1e9:.1f}/{g[1]/1e9:.1f}GB')
+
+_leftover = torch.cuda.memory_allocated()
+assert _leftover < 5e8, (
+    f'GPU already holds {_leftover/1e9:.1f}GB from a previous run in this '
+    'kernel — this flight needs a fresh one. Runtime > Restart runtime, '
+    'then Run all.')
+_avail = _mem_avail_gb()
+assert not (_avail < 8.5), (
+    f'Only {_avail:.1f}GB system RAM available — not enough headroom for '
+    'per-condition model loads. Runtime > Restart runtime (Disconnect and '
+    'delete runtime if this repeats), then Run all.')
+print('RAM at start:', ram_report())
 
 from google.colab import drive
 drive.mount('/content/drive')
@@ -415,7 +456,7 @@ def build_condition_model(cond):
     zero-init readout LoRA. Zero-init B => directions/mu computed with the
     adapter attached equal the pre-readout model exactly."""
     m = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype=torch.float16,
-                                             device_map=DEV)
+                                             device_map=DEV, low_cpu_mem_usage=True)
     if cond != 'base':
         m = PeftModel.from_pretrained(m, ADAPTERS[cond]).merge_and_unload()
     m = get_peft_model(m, LoraConfig(**LORA_KW))
@@ -634,8 +675,7 @@ def train_readout(m, layer_mods, dirs, mu, train_set, cond):
 '''
 
 CELL_FLIGHT = r'''# ── Flight loop: per condition build -> stimulus -> pre-shams -> train ->
-# train-took -> post-eval -> retention -> ship (resume-aware) ────────────────
-import gc
+# train-took -> post-eval -> retention -> ship (resume-aware, RAM-hygienic) ──
 TRAIN_SET = build_train_set(SMOKE)
 TRAINTOOK = build_traintook(TRAIN_SET, SMOKE)
 PRE_SHAMS = build_shams(3 if SMOKE else N_PRE_SHAMS, E8R_SEED + 7, 1000)
@@ -643,6 +683,41 @@ SUPP_SHAMS = build_shams(3 if SMOKE else N_SUPP_SHAMS, E8R_SEED + 8, 2000)
 print(f'plan {len(PLAN)} eval trials + {len(SUPP_SHAMS)} supp shams | '
       f'train {len(TRAIN_SET)} examples | took {len(TRAINTOOK)} | '
       f'pre-shams {len(PRE_SHAMS)}')
+
+def fly_condition(cond):
+    """One condition end-to-end inside ONE function scope: model, layer
+    handles, optimizer, and activations all die on return. (First-flight
+    lesson: module references held at cell scope pinned every 'deleted'
+    model in memory — three stacked models killed the 12.7GB VM.)"""
+    t0 = time.time()
+    bundle = {'condition': cond, 'mode': MODE, 'stamp': STAMP}
+    try:
+        model = build_condition_model(cond)
+        layer_mods = resolve_layers(model)
+        dirs, mu = compute_stimulus(model, cond)
+        bundle['mu'] = {str(L): mu[L] for L in mu}
+        bundle['dirs'] = {str(L): {n: [round(float(x), 5) for x in dirs[L][n]]
+                                   for n in dirs[L]} for L in dirs}
+        bundle['ppl_pre'] = retention_ppl(model)
+        bundle['pre_shams'] = [run_trial(model, layer_mods, dirs, mu, t, cond)
+                               for t in PRE_SHAMS]
+        bundle['train_log'] = train_readout(model, layer_mods, dirs, mu,
+                                            TRAIN_SET, cond)
+        took = [run_trial(model, layer_mods, dirs, mu,
+                          {**e, 'tid': 3000 + e['eid']}, cond) for e in TRAINTOOK]
+        bundle['traintook'] = {
+            'n': len(took),
+            'correct': sum(1 for r in took if r['report'] == r['concept']),
+            'rows': took}
+        bundle['post_trials'] = [run_trial(model, layer_mods, dirs, mu, t, cond)
+                                 for t in PLAN + SUPP_SHAMS]
+        bundle['ppl_post'] = retention_ppl(model)
+        model.save_pretrained(str(OUT / f'readout_{cond}'))
+        ship(OUT / f'readout_{cond}', f'{INFLIGHT}/readout_{cond}')
+        bundle['secs'] = round(time.time() - t0, 1)
+    except Exception as e:
+        bundle['error'] = f'{type(e).__name__}: {e}'
+    return bundle
 
 RESULTS, cond_errors, BASE_DIRS = {}, {}, None
 for cond in ('base','real','scrambled'):
@@ -655,36 +730,11 @@ for cond in ('base','real','scrambled'):
             resumed = True
             print(f'{cond}: RESUMED from Drive ({RESUME_STAMP})')
     if not resumed:
-        t0 = time.time()
-        bundle = {'condition': cond, 'mode': MODE, 'stamp': STAMP}
-        try:
-            model = build_condition_model(cond)
-            layer_mods = resolve_layers(model)
-            dirs, mu = compute_stimulus(model, cond)
-            bundle['mu'] = {str(L): mu[L] for L in mu}
-            bundle['dirs'] = {str(L): {n: [round(float(x), 5) for x in dirs[L][n]]
-                                       for n in dirs[L]} for L in dirs}
-            bundle['ppl_pre'] = retention_ppl(model)
-            bundle['pre_shams'] = [run_trial(model, layer_mods, dirs, mu, t, cond)
-                                   for t in PRE_SHAMS]
-            bundle['train_log'] = train_readout(model, layer_mods, dirs, mu,
-                                                TRAIN_SET, cond)
-            took = [run_trial(model, layer_mods, dirs, mu,
-                              {**e, 'tid': 3000 + e['eid']}, cond) for e in TRAINTOOK]
-            bundle['traintook'] = {
-                'n': len(took),
-                'correct': sum(1 for r in took if r['report'] == r['concept']),
-                'rows': took}
-            bundle['post_trials'] = [run_trial(model, layer_mods, dirs, mu, t, cond)
-                                     for t in PLAN + SUPP_SHAMS]
-            bundle['ppl_post'] = retention_ppl(model)
-            model.save_pretrained(str(OUT / f'readout_{cond}'))
-            ship(OUT / f'readout_{cond}', f'{INFLIGHT}/readout_{cond}')
-            bundle['secs'] = round(time.time() - t0, 1)
-        except Exception as e:
-            cond_errors[cond] = f'{type(e).__name__}: {e}'
-            bundle['error'] = cond_errors[cond]
-            print(f'!! {cond} FAILED: {cond_errors[cond]}')
+        print(f'{cond}: starting — {ram_report()}')
+        bundle = fly_condition(cond)
+        if 'error' in bundle:
+            cond_errors[cond] = bundle['error']
+            print(f'!! {cond} FAILED: {bundle["error"]}')
         RESULTS[cond] = bundle
         jdump(bundle, fn)
         ship(fn, INFLIGHT)
@@ -692,11 +742,8 @@ for cond in ('base','real','scrambled'):
                     if r.get('report') not in ('NONE','INVALID',None))
         print(f'{cond}: done in {bundle.get("secs","?")}s, {named} named '
               f'post-eval reports — shipped')
-        try:
-            del model
-        except NameError:
-            pass
-        gc.collect(); torch.cuda.empty_cache()
+        free_ram()
+        print(f'{cond}: torn down — {ram_report()}')
     if cond == 'base' and 'dirs' in RESULTS[cond]:
         BASE_DIRS = RESULTS[cond]['dirs']
 
@@ -807,7 +854,8 @@ if SMOKE:
     }
     ok = all(checks.values())
     print('smoke checks:', json.dumps(checks, indent=1))
-    banner = ('SMOKE GREEN — flip SMOKE=False and Run all'
+    banner = ('SMOKE GREEN — flip SMOKE=False, then Runtime > Restart runtime '
+              '(mandatory), then Run all'
               if ok else 'SMOKE RED — do not fly full; send Fable the output')
     print('\n' + '='*66 + f'\n  {banner}\n' + '='*66)
 else:
