@@ -312,12 +312,14 @@ def holm(pvals):
 
 MD0 = """# E8-R — The Report-Readout Rung (Phase 10, UI flight)
 
-**NOTEBOOK BUILD: v4-resume-assert (2026-08-23)** — the setup cell prints this
-tag as its first output line; if yours doesn't match, you are looking at a
-stale copy: in Colab use File → Upload notebook and pick the Desktop file.
-With `RESUME_STAMP` set, setup now FAILS LOUDLY in seconds if the resume dir
-isn't found on Drive (instead of silently re-flying finished conditions), and
-prints which condition bundles it sees there.
+**NOTEBOOK BUILD: v4.1-armed (2026-08-23) — PRE-CONFIGURED, JUST RUN ALL.**
+`SMOKE = False` and `RESUME_STAMP = '20260822_2329'` are already set: this
+run reloads the finished base + real conditions from last night's Drive
+bundles (setup prints which bundles it found, and fails loudly in seconds if
+the resume dir isn't visible), flies **scrambled only** (~10 min), then
+computes and ships the full three-condition verdict. The setup cell prints
+this build tag as its first output line; if yours doesn't match, you are on
+a stale copy: File → Upload notebook → pick the Desktop file.
 
 **Pre-registration: `docs/E8R_PROTOCOL.md` (session 126, commit 7c46ab7) — locks at first full flight.**
 
@@ -355,11 +357,12 @@ VM). A crashed run costs only its own condition — rerun with the same
 `RESUME_STAMP` and it picks up where it fell."""
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, adapters ───────────────
-NB_BUILD = 'v4-resume-assert (2026-08-23)'
+NB_BUILD = 'v4.1-armed (2026-08-23)'
 print('E8-R notebook build:', NB_BUILD)
 
-SMOKE = True        # ← flip to False for the full flight after a green smoke
-RESUME_STAMP = ''   # ← paste the stamp the previous run's end banner printed
+SMOKE = False                    # ARMED: full flight (smoke flew green 08-22)
+RESUME_STAMP = '20260822_2329'   # ARMED: resume base+real from last night —
+                                 # this run flies scrambled only, then verdict
 ONE_CONDITION_PER_RUN = True   # full flight = 3 short runs (~30 min each, one
                                # model load per run); the end banner chains them
 
