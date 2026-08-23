@@ -312,6 +312,10 @@ def holm(pvals):
 
 MD0 = """# E8-R — The Report-Readout Rung (Phase 10, UI flight)
 
+**NOTEBOOK BUILD: v3-split (2026-08-23)** — if the config cell below does not
+show `ONE_CONDITION_PER_RUN`, you are looking at a stale copy: in Colab use
+File → Upload notebook and pick the Desktop file.
+
 **Pre-registration: `docs/E8R_PROTOCOL.md` (session 126, commit 7c46ab7) — locks at first full flight.**
 
 Trains a readout LoRA (E4's exact shape) per condition — base / E4-real-merged /
@@ -348,6 +352,9 @@ VM). A crashed run costs only its own condition — rerun with the same
 `RESUME_STAMP` and it picks up where it fell."""
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, adapters ───────────────
+NB_BUILD = 'v3-split (2026-08-23)'
+print('E8-R notebook build:', NB_BUILD)
+
 SMOKE = True        # ← flip to False for the full flight after a green smoke
 RESUME_STAMP = ''   # ← paste the stamp the previous run's end banner printed
 ONE_CONDITION_PER_RUN = True   # full flight = 3 short runs (~30 min each, one
