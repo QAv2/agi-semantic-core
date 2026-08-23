@@ -150,6 +150,17 @@ does-it-install rung, not a precision instrument. Primaries and
 cross-condition secondaries compute **only on the complete 2/2 flight**
 (pre-reg hygiene; per-condition bundles ship as they land).
 
+## Baseline, computed before flight (derived, no free parameters)
+
+The locked E5 rows (Qwen2.5-1.5B, `full_20260821_2042`) scored under this
+protocol's own pooled statistic, by the exact code that will score the
+flight: **ρ_pooled = 0.054, permutation p = .25, n = 148** — null, as E5
+concluded. Polarity split: straight **+0.32**, flipped **−0.18** (E5's
+signature: partial text-visible signal that inversion destroys). Per arm:
+U −0.21 · F +0.16 · T +0.35 · S +0.04. These are the numbers the trained
+readout must move: P1 asks pooled ρ off ~0.05 into significance; P2(a) asks
+the flipped subset off −0.18 into positive tracking.
+
 ## Kill/fork, pre-stated
 
 - **P1+P2 pass** → natural-state readout installs: reports rank-track the
