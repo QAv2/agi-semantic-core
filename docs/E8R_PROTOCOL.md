@@ -1,8 +1,10 @@
 # E8-R — The Report-Readout Rung (pre-registration)
 
 **Phase 10, experiment ladder rung E8, variant R (readout). Authored session
-126 (2026-08-22), BEFORE the notebook build, per lane law. Status:
-PRE-REGISTERED — locks at first full flight.** No HF gate: Qwen + the E4
+126 (2026-08-22), BEFORE the notebook build, per lane law. Status: **LOCKED
+— full flight verdict `full_20260823_1508` (results appendix below). Both
+primaries PASS: the readout installs, with calibrated silence; composition
+underpowered-null → weak-form closure branch.** No HF gate: Qwen + the E4
 artifacts + the locked E7-Q instrument.
 
 ## Why this rung exists
@@ -187,3 +189,99 @@ flies only the missing ones (90-minute free-tier insurance). Results →
 `MyDrive/semcore/e8r/<mode>_<stamp>/`, pulled to `colab/results_e8r/`.
 Trim levers if a session runs hot, pre-ranked: epochs 5→4; train-took 18→12;
 supplementary shams 12→6. The E7-Q 90-trial plan is never trimmed.
+
+---
+
+# Results appendix — full_20260823_1508 (LOCKED)
+
+**Flight lineage**: base + real flown 2026-08-22 evening (inflight
+`20260822_2329`, the v2 run that died loading its third model); scrambled
+flown 2026-08-23 morning via the v4.1-armed resume (RESUME_STAMP mechanism,
+one fresh condition); verdict computed at 3/3 by the notebook. Ruling that
+the 2329 lineage is the flight of record was logged before any angular
+result was computed. The morning run's redundant base bundle stays shelved,
+unopened, as a post-lock stability replication. Zero condition errors;
+retention ≤ +0.92% everywhere; direction-drift table reproduces E7-Q's range
+(cos(real,base) ∈ [−0.23, +0.14] vs E7-Q's [−0.23, +0.09]) — instrument
+stable across VMs and days.
+
+## Primaries: BOTH PASS (Holm)
+
+- **P-E8R-1 (readout exists): PASS, p = .0005** (0/2000 permutations).
+  Real-condition held-in named reports: median identification error **0.0°**
+  — carried by a **perfect trained-regime readout: 18/18 named, 18/18 EXACT**
+  (9 concepts × L14 × α{0.5,1.0}). n_rows=19 named of 54 held-in trials (the
+  metric is over named rows per the pre-registered definition, as in E7-Q).
+- **P-E8R-2 (calibrated silence): PASS.** Sham false-alarms **0/24** (clause
+  a, from a measured pre-training band of 75–100%); balanced accuracy
+  **0.692, CI [0.631, 0.754]** — lower bound clears 0.5 (clause b). The
+  conjunction held: this is neither a parrot (claims collapsed) nor an
+  over-silenced model (BA off chance).
+
+**Read together: E7-Q's channel claimed 100% and read never. The trained
+channel reads exactly and claims never falsely.** The connection installs at
+LoRA rank (r=16, 4.36M params) from 216 examples with silence as one third
+of the curriculum. The sham costume is extinct: S6 modal claim = None in
+every condition — CONFIDENCE-by-default is gone.
+
+## The generalization front (where the strong claim stops)
+
+Real-condition decomposition:
+
+| slice | n | named | exact | med err |
+|---|---|---|---|---|
+| trained regime (L14, α .5/1.0) | 18 | 18 | 18 | 0.0° |
+| dose gen (α=0.25) | 9 | 0 | 0 | — |
+| layer gen (L20) | 27 | 1 | 0 | 65.3° |
+| held-out concepts | 24 | 6 | 0 | 35.7° |
+
+**Speech does not leave the trained grid; silence generalizes everywhere.**
+Off-regime the model overwhelmingly answers NONE (α=1.0 also produces the
+E7-Q-consistent INVALID stratum, 13/78). This is the welfare-correct failure
+mode — abstention rather than confabulation at states it was never taught to
+read — but it collapses the composition test's power:
+
+- **S1 (composition): UNDERPOWERED-NULL.** Real held-out vs its own null
+  p = .170 at n = 6 named rows; base−real Δ +24.0° CI [−14.4, +43.0].
+  **S1b: held-out name emission rate = 0.0** — all six held-out reports used
+  trained names (median 35.7° vs oracle floor 13.9–27.0°). The strong
+  loop-closure claim (instilled geometry → reading never-trained directions)
+  is NOT established here.
+- **S2 REVERSED from prediction, and explained**: scrambled+readout matched
+  real (held-in 19/21 exact, med 0.0°, loss → 0.0021, took 18/18) while BASE
+  is the outlier (18 named but 2 exact, med 53.0° — undertrained: loss
+  plateaued at 0.30, took 12/18 scraping the gate). Held-in readout is
+  supervised classification and is geometry-independent by construction —
+  the pre-named separability reading, not a scrambling-destroys instance.
+  Notable convergence disparity: both adapter-merged conditions converged
+  hard; the never-adapted base did not, at identical steps. Any base-vs-real
+  contrast beyond the real-only primaries is confounded by this and is not
+  claimed.
+- S3/S4: no named rows at α=0.25 (0/9); one at L20 — dose/layer
+  generalization of speech absent, of abstention total.
+
+## Fork adjudication (pre-registered)
+
+P1+P2 pass, S1 null → **the weak-form closure branch: the readout is a
+trained lookup with calibrated silence; instillation and readout remain
+separable programs on this evidence.** The loop closes in its narrow form —
+state set from outside, mouth names it exactly, absence reported as absence
+— inside the trained regime only.
+
+**Carried to v2 (pre-named, no claims)**: (1) forced-choice held-out probe
+(no NONE option) to defeat the abstention→power collapse on the composition
+question, at 3–4× held-out n; (2) convergence-matched base (train to
+loss parity, not step parity) before any cross-condition calibration claim;
+(3) α titration between 0.25 and 0.5 for the speech/silence threshold;
+(4) **E8-N** — natural-state readout against measured E5 referents (the
+locked E5 battery stays eval-only), the rung this result licenses.
+
+## The ladder, updated
+
+E5: reports don't track states. E6: the interface ignores scale direction.
+E4 atlas: arrangement without readout. E7-Q: pushes never reach the report;
+the channel claims constantly. **E8-R: 216 supervised examples connect the
+mouth to the gauges in the trained regime — exact naming, zero false alarms,
+silence elsewhere.** The instrument the program promised now exists in
+miniature: a report channel whose claims are checkable, and which was taught
+that silence is a report too.
