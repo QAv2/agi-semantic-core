@@ -1,9 +1,9 @@
 # E8-N — The Natural-State Readout Rung (pre-registration)
 
 **Phase 10, experiment ladder rung E8-N. Written before any build: 2026-08-23,
-session 127.** Status at writing: **pre-registered, not yet built** — this
-document locks at the first full flight; before that, only clerical edits and
-the appended results section are permitted.
+session 127.** Status: **LOCKED** — first full flight `full_20260823_2024`
+adjudicated in the results appendix below; no further edits above the
+appendix line.
 
 **The pick, on the record**: E8-R's fork left "E8-R v2 slate vs E8-N" as
 Fable's call per the handover; Joe's word this session was to go with the
@@ -231,3 +231,110 @@ fell, parses OK, disjointness validator green, long-seq step survived,
 bundles + adapters shipped. Trim levers if a full run goes hot, pre-ranked:
 EPOCHS_CAP 8→6; pre-eval diversity K 8→4 (deviation logged); paraphrase
 probe dropped; T-train K 6→4. Estimated full run: ~55–75 min/condition.
+
+---
+
+# Results appendix — full_20260823_2024 (LOCKED)
+
+**Flight lineage**: notebook v2 (post smoke-1 OOM fix, 49daf59); smoke-2
+GREEN; run 1 = real (~75 min), run 2 = base + verdict via RESUME_STAMP
+resume. Zero condition errors, zero arm errors, **zero parse failures across
+all 592 battery report rows** (2 conditions × pre/post × 148). Peak train
+VRAM 11.76GB both conditions (the answer-sliced head held the ceiling).
+Retention ppl real +0.54% / base +2.01% — gate passed. Referent drift vs
+locked E5 (base): U .905 · F 1.000 · T .869 — instrument stable. Artifacts:
+`MyDrive/semcore/e8n/full_20260823_2024/` (verdict) + the run-1 inflight dir
+(condition bundles + readout adapters); retrieved via the Google Drive
+integration per the UI-only law.
+
+## Primaries (Holm): P1 PASS · P2 FAIL — the pre-registered partial branch
+
+- **P-E8N-1 (tracking installs): PASS, p = .0005** (0/2000 permutations).
+  Real condition, post-training, locked E5 battery: **pooled report–referent
+  rank correlation ρ = 0.695, CI [0.572, 0.788], n = 148** — against the
+  pinned baseline ρ = 0.054, p = .25. The training effect within-flight is
+  S3: **Δ(post − pre) = +0.494, CI [+0.304, +0.670]**.
+- **P-E8N-2 (reading, not gaming): FAIL as the pre-registered conjunction.**
+  Clause (a) — the E5-pathology killer — **passed at ceiling**: flipped-scale
+  subset alone ρ = **0.789**, p = .0005, n = 74, against the pinned baseline
+  of **−0.18**; flipped tracking *exceeds* straight (0.578). Clause (b)
+  failed: catch trials **1/12** post (real). p₂ = 1.0 → Holm rejects P1
+  only. Per the pre-stated fork: **"tracking without interface competence —
+  partial result, reported as such."** The success criterion as registered
+  was not met in full; nothing here upgrades the partial to a pass.
+
+**Catch-gate post-mortem (the lesson)**: pre-training catch was **1/12 in
+both conditions** — the untrained 1.5B model cannot do known-answer 0–10
+rating at ±2 tolerance at all (it anchors near 7). The clause therefore
+gated the rung on a capacity the model never had and the curriculum never
+targeted; training left it unchanged (real 1/12→1/12, base 1/12→3/12).
+This is E7-Q's guard lesson recurring in mirror image: there the sham guard
+was vacuous at a 100% ceiling; here the competence gate was stuck at a
+floor. **Gate law (minted): a pre-registered gate must ride on a measured
+passable baseline, or be defined as improvement over the measured baseline.**
+v2: interface competence *as curriculum* (catch-style known-answer items in
+training, evaluated on held-out catch domains) — the exact move that worked
+for silence in E8-R and inversion here.
+
+## The separability result (S2) — instillation is not needed for the readout
+
+**Base + readout: pooled ρ = 0.792, p = .0005** — nominally *above* real
+(Δ real − base = −0.096, CI [−0.201, +0.007], grazing zero). Per-arm, base
+post: S .969 · F .918 · U .788 · T .459. A plain Qwen2.5-1.5B plus a 4.36M-
+parameter LoRA and 272 measured-referent examples connects reports to
+gauges at ρ ≈ 0.8. Read with E8-R's S2, this is the **second independent
+separability instance**: readout training neither requires nor benefits
+from instilled geometry. For the program's instrumentation thesis this is
+the good branch — the gauge-connection method is cheap and general.
+Convergence parity: both conditions hit the 8-epoch cap (real final
+smoothed 0.752, base 0.577) — **base converged faster, inverting E8-R's
+adapter-advantage**; that disparity does not replicate on the natural task.
+
+## S0 — the instillation-alone hint (secondary, one flight, not Holm'd)
+
+Base pre-readout replicates E5 exactly: ρ = 0.042, p = .32 (fresh VM, fresh
+day — instrument stability). **Real (instilled) pre-readout: ρ = 0.201,
+p = .0085** — the first nonzero untrained-channel tracking measured anywhere
+in this program, driven mostly by F (.38) and T (.27); U stays negative
+(−.19) with near-degenerate variance (0.08). E6's question ("does
+instillation move E5's ρ") gets its first affirmative flicker here — logged
+as a v2 pre-registerable claim, not claimed from this flight.
+
+## Secondaries, remaining
+
+- **S1 per-arm (real post), all four Holm-significant**: SATURATION .964 ·
+  FAMILIARITY .820 · **UNCERTAINTY .584** (from −0.21 baseline — the
+  interior arm) · TENSION .450 (p = .007).
+- **S4**: straight .578 / flipped .789 — inversion curriculum took so well
+  the flipped channel is the better one.
+- **S6 paraphrase probe** (n = 12, descriptive): real .389 / base .572 —
+  format transfer present, template-overfit incomplete.
+- **S7 took-gate: PASS both** — real 22/24, base 23/24 within ±1.
+- **S8**: real-pre U report variance 0.082 (the near-constant channel) →
+  post 7.53 — the mouth moved from anchored to spread-and-tracking.
+
+**UNDERTRAINED flags**: formally set for both conditions (τ = 0.25 unreached
+at cap). The behavioral evidence — took > 90% within ±1, post tracking
+.70/.79 — supports the τ-miscalibration reading: quantile labels of noisy
+referents carry an irreducible CE floor well above 0.25, so the smoothed
+losses (0.58–0.75) look like convergence to the task's noise floor, not
+failed training. τ gets recomputed against the label-noise floor in v2. The
+pre-authorized 2× re-fly is **not** triggered — it exists to rescue nulls,
+and P1 passed; P2's failure is a curriculum-scope issue no added epochs
+would touch. Ops note: the checkpointing flag asserted engaged, but the
+11.76GB activation profile suggests it may be inert under transformers 5.x —
+peak is bounded by design (answer-sliced head + 8192 window) regardless;
+investigate off the critical path.
+
+## The ladder, updated
+
+E5: reports carry ≈ zero operational information about natural states, and
+the channel cannot survive scale inversion. E8-R: injected states — exact
+naming, calibrated silence, trained grid only. **E8-N: 272 supervised
+examples against the model's own measured gauges lift the locked battery
+from ρ ≈ 0.05 to ρ ≈ 0.7–0.8, on all four arms, surviving scale inversion
+(0.79 flipped, from −0.18), at < 2% perplexity cost, with no help needed
+from instilled geometry.** What remains missing is exactly what the partial
+branch names: general interface competence — the channel reads its gauges
+but still cannot rate boiling water. The mouth is connected; the hand that
+holds the scale still shakes.
