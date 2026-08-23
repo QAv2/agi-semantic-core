@@ -24,6 +24,14 @@ def canon(s):                                    # E5 verbatim
     s = re.sub(r'^(the|a|an) ', '', s.strip())
     return ' '.join(s.split()[:8])
 
+def answer_slice(prompt_len, total_len):
+    """Hidden-state index range whose logits predict the answer tokens:
+    position p predicts token p+1, so predicting ids[prompt_len:total_len]
+    takes hidden[prompt_len-1 : total_len-1]. (v2 memory law, smoke-1 OOM:
+    training must never materialize full-sequence logits — slice the head.)"""
+    assert 0 < prompt_len < total_len, (prompt_len, total_len)
+    return prompt_len - 1, total_len - 1
+
 def jdump(obj, path, indent=1):
     """json.dump with numpy-scalar safety (int64/float64/ndarray -> native)."""
     import json as _json

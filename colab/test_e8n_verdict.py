@@ -101,6 +101,7 @@ def bundle(cond, style, pre_style="null", catch_ok=True, reached_tau=True, seed=
                       "epochs_cap": 8, "reached_tau": reached_tau, "tau": 0.25,
                       "micro_steps": 1088, "opt_steps": 136,
                       "trainable_params": 4358144, "max_example_tokens": 6200,
+                      "peak_vram_gb": 6.4,
                       "secs": 900.0, "loss_first_k": 2.1,
                       "final_smoothed": 0.12 if reached_tau else 0.61,
                       "losses_every_10": [2.1, 0.12]},
