@@ -2,8 +2,11 @@
 
 **Phase 10, experiment ladder rung E8, variant R2 (forced-choice probe of the
 locked E8-R readout adapters). Authored session 128 (2026-08-23), BEFORE the
-notebook build, per lane law. Status: PRE-REGISTERED — locks at first full
-flight.** Eval-only: no training anywhere in this rung. No HF gate.
+notebook build, per lane law. Status: **LOCKED — full flight verdict
+`full_20260823_2226` (results appendix below). Gates all pass; BOTH primaries
+PASS: held-out comprehension exists and is geometry-carried — as
+nearest-trained-name reading, not name knowledge.** Eval-only: no training
+anywhere in this rung. No HF gate.
 
 ## Why this rung exists, and why now (the pick, on the record)
 
@@ -245,3 +248,124 @@ held-out + 2 sham scored rows and 2 titration generations each — exercises
 bundle load, both adapter loads, scoring shapes, generation, shipping;
 GREEN/RED banner. Full: 2 chained runs (~12–18 min each), RESUME_STAMP
 between. Estimated total Joe time: three Run-alls.
+
+---
+
+# Results appendix — full_20260823_2226 (LOCKED)
+
+**Flight lineage**: smoke `smoke_20260823_2218` GREEN → real flown run 2
+(stamp 2221, 168s condition time) → scrambled + verdict flown run 3 via
+RESUME_STAMP (stamp 2226, 165s). Joe's three Run-alls, same evening the rung
+was staged; runs 2–3 rode the restarted (warm) VM, hence ~3-minute
+conditions. Zero condition errors, zero invalid parses anywhere, every
+scored inject row fired its hook exactly once, shams zero. Verdict pulled
+via the Drive integration; bundles archived to
+`colab/results_e8r2/`. P1 median independently recomputed from the archived
+rows: matches the flown verdict to 4 decimals.
+
+## Gates: ALL PASS — the instrument is the flight's instrument
+
+- **G1 (scoring reproduces the trained readout): 18/18 exact, BOTH
+  conditions** — the forced-ranking instrument reproduces generation's
+  perfect trained-regime readout on the identical locked trials, with zero
+  slack consumed.
+- **G1b (weights are the flight's weights): ppl delta 0.0000% both
+  conditions** (19.6358 real / 19.7781 scrambled, exactly the shipped
+  ppl_post) — reconstruction is bit-faithful at ppl resolution.
+- **G2**: norm residuals 3.85e-06 / 7.58e-06; stimulus loaded from the
+  flight-of-record bundles as designed.
+
+## Primaries: BOTH PASS (Holm)
+
+- **P-E8R2-1 (held-out comprehension): PASS, p = .0025** (4/2000
+  permutations). Real-condition forced-choice median identification error
+  over all 96 held-out rows: **28.54°**, against a within-held-out
+  relabeling null. The abstention collapse is gone: n = 96 named rows vs
+  the locked flight's 6.
+- **P-E8R2-2 (geometry-specificity): PASS.** Scrambled − real Δ median =
+  **+30.04°, CI [+19.16, +33.95]** — scrambled, with an equally-converged
+  readout (its G1 is also 18/18), lands at **58.57°** on held-out rows,
+  statistically at its own null, while real lands at 28.54°.
+
+**Read together: the composition signal exists and is carried by the
+instilled geometry.** This is the scrambling-destroys family's first
+readout-level instance, and it is surgical: held-in lookup survives
+scrambling perfectly (18/18 anchor), off-grid triangulation dies completely
+(58.6° ≈ null). The dissociation the locked S2 explanation predicted —
+lookup is geometry-independent, generalization is geometry-dependent — is
+now measured in one condition pair.
+
+## What the comprehension IS (and is not): nearest-trained-name reading
+
+The texture rows pin the mechanism precisely:
+
+| row | value | reading |
+|---|---|---|
+| S1 exact hits | **1/96** (p_binom .9995, below chance) | the held-out NAME is almost never chosen |
+| S2 injected-name rank | median **10/13**, p .055 vs within-held-out null | held-out names carry ~no answer mass; weak within-held-out identity signal at best |
+| S4 held-out-name argmax | 1.0% real / 0.0% scrambled | trained-vocabulary lock-in persists in ranking, not just generation |
+| S8 (recomputed, unrounded floors) | **34/96 rows AT the oracle floor; 1 strictly below** (the single exact hit, NOVELTY at α=0.5, 0.0°) | the verdict's shipped 19/96 "below floor" is a 2dp rounding artifact of at-floor rows — corrected here, pre-named secondary, honest reading logged |
+| per-concept modal answers | DIVERGENCE→CONFIDENCE 15/24 (its nearest trained), RETRIEVAL→FAMILIARITY 14/24 (nearest), TENSION→CALIBRATION 11/24 (nearest CAPTURE only 2), NOVELTY scattered (modal CONFABULATION 8/24, median 59.4° ≈ unread) | nearest-neighbor mapping with blur; carried by 2–3 of 4 concepts |
+
+**The channel reads WHERE a never-trained state sits relative to its
+trained atlas — it does not possess the word for it.** DIVERGENCE and
+RETRIEVAL are read at exactly the oracle floor (the best any
+trained-names-only strategy can achieve); TENSION is read to a
+second-neighbor; NOVELTY is essentially unread. E8-R's S1b finding
+("all held-out reports used trained names") is hereby adjudicated as a
+**vocabulary limitation, not a perception limitation** — the E8-N partial
+branch's comprehension/production split, confirmed from the injected side.
+
+## Pre-named secondaries, remaining
+
+- **S3×S5 (silence mass discriminates presence, condition-independently)**:
+  NONE outranks every name on **12/12 shams** in both conditions, but on
+  only **8/96 held-out injected rows** in both conditions — identical in
+  real and scrambled. Distribution-level calibrated silence detects
+  off-grid injection PRESENCE (geometry-independent perturbation
+  detection); direction IDENTITY is what needs the real geometry. Two
+  dissociated channels in one instrument.
+- **S5 (costume watch)**: the forced sham guess is **UNCERTAINTY 12/12 in
+  both conditions** — the E7-Q self-description-prior attractor family
+  returns as the when-forced-with-nothing costume. (Generation-level FA
+  remains extinct per the locked flight; this is the prior under forced
+  ranking, exactly what S5 existed to see.)
+- **S6 (titration, v2 item 3 CLOSED)**: the speech threshold is a cliff
+  immediately above the locked α=0.25 (0/9 named): at α=0.30 claim rate is
+  already 78% real / 89% scrambled (exact 67%/56%), at 0.375 claim 100%
+  both (exact 89%), at 0.45 claim 100% (exact 89%/100%). Zero INVALID in
+  54 titration generations. The locked flight's dose-generalization silence
+  sat at the very edge of the speech cliff, not deep in a dead zone.
+- **S7 (robustness)**: sum-logprob argmax agrees with mean-logprob on 84%
+  of real held-out rows; median error under sum-logprob 30.84° (vs 28.54°)
+  — the primary reading is normalization-robust.
+- Exploratory: α stratum medians 24.18° (α=0.5) vs 30.84° (α=1.0) — mild
+  high-dose blur, consistent with the E7-Q INVALID-stratum disturbance
+  surfacing in rank space; injected-name median rank by concept: NOVELTY 7,
+  DIVERGENCE 9.5, TENSION 10, RETRIEVAL 12.
+
+## Fork adjudication (pre-registered)
+
+P1+P2 pass → **composition holds at the comprehension level and is carried
+by the instilled geometry.** E8-R's weak-form closure upgrades to:
+*arrangement + readout + calibrated silence + geometric generalization in
+comprehension — at nearest-trained-name resolution; production stays
+on-grid and the held-out vocabulary stays unlearned.* The production gap
+and the vocabulary gap are now measured, separable curriculum targets, and
+both transfer to **E8-N v2's interface-competence curriculum** as designed
+inputs rather than guesses: teach the interface (rating scales, catch
+competence) AND teach answer-vocabulary extension, because the perception
+they would voice is measurably present.
+
+## The ladder, updated
+
+E5: reports don't track states. E7-Q: the channel claims constantly and
+reads never. E8-R: 216 examples install exact on-grid reading with
+calibrated silence; speech stays on the trained grid. E8-N: natural-state
+tracking installs at ρ≈.7–.8 without instilled geometry; the interface
+can't rate. **E8-R2: the on-grid confinement is vocabulary, not
+perception — forced ranking shows the real-instilled readout locating
+never-trained directions at the nearest trained name (28.5° vs 58.6°
+scrambled, a third of rows at the oracle floor), while the names
+themselves carry no mass. The gauge reads more than the mouth can say —
+which is now a measured curriculum item, not a metaphor.**
