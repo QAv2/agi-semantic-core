@@ -312,9 +312,12 @@ def holm(pvals):
 
 MD0 = """# E8-R — The Report-Readout Rung (Phase 10, UI flight)
 
-**NOTEBOOK BUILD: v3-split (2026-08-23)** — if the config cell below does not
-show `ONE_CONDITION_PER_RUN`, you are looking at a stale copy: in Colab use
-File → Upload notebook and pick the Desktop file.
+**NOTEBOOK BUILD: v4-resume-assert (2026-08-23)** — the setup cell prints this
+tag as its first output line; if yours doesn't match, you are looking at a
+stale copy: in Colab use File → Upload notebook and pick the Desktop file.
+With `RESUME_STAMP` set, setup now FAILS LOUDLY in seconds if the resume dir
+isn't found on Drive (instead of silently re-flying finished conditions), and
+prints which condition bundles it sees there.
 
 **Pre-registration: `docs/E8R_PROTOCOL.md` (session 126, commit 7c46ab7) — locks at first full flight.**
 
@@ -352,7 +355,7 @@ VM). A crashed run costs only its own condition — rerun with the same
 `RESUME_STAMP` and it picks up where it fell."""
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, adapters ───────────────
-NB_BUILD = 'v3-split (2026-08-23)'
+NB_BUILD = 'v4-resume-assert (2026-08-23)'
 print('E8-R notebook build:', NB_BUILD)
 
 SMOKE = True        # ← flip to False for the full flight after a green smoke
@@ -452,6 +455,14 @@ STAMP = time.strftime('%Y%m%d_%H%M')
 MODE = 'smoke' if SMOKE else 'full'
 OUT = Path(f'/content/out_{MODE}_{STAMP}'); OUT.mkdir(parents=True, exist_ok=True)
 INFLIGHT = f'e8r/inflight_{RESUME_STAMP or STAMP}'
+if RESUME_STAMP:
+    _rd = SEM / INFLIGHT
+    assert _rd.exists(), (
+        f'RESUME_STAMP={RESUME_STAMP!r} but {_rd} does not exist on Drive — '
+        'check the stamp string (copy it exactly; no spaces). A silent '
+        'fallback here would re-fly finished conditions.')
+    _have = sorted(p.name for p in _rd.glob('condition_*.json'))
+    print('resume dir found; bundles present:', _have or 'NONE')
 print('MODE:', MODE.upper(), '| stamp', STAMP,
       ('| RESUMING ' + RESUME_STAMP) if RESUME_STAMP else '')
 '''
@@ -654,8 +665,12 @@ def train_readout(m, layer_mods, dirs, mu, train_set, cond):
     params = [p for p in m.parameters() if p.requires_grad]
     n_tr = sum(p.numel() for p in params)
     opt = torch.optim.AdamW(params, lr=LR)
-    scaler = torch.cuda.amp.GradScaler()
+    try:
+        scaler = torch.amp.GradScaler('cuda')
+    except (AttributeError, TypeError):
+        scaler = torch.cuda.amp.GradScaler()
     losses, hook_calls, micro = [], 0, 0
+    total_micro = EPOCHS * len(train_set)
     t0 = time.time()
     for ep in range(EPOCHS):
         order = np.random.default_rng(E8R_SEED + 100 + ep).permutation(len(train_set))
@@ -673,12 +688,17 @@ def train_readout(m, layer_mods, dirs, mu, train_set, cond):
             else:
                 out = m(input_ids=ids, labels=labels, use_cache=False)
             loss = out.loss
-            assert math.isfinite(float(loss)), f'non-finite loss at ep{ep} ex{ex["eid"]}'
-            losses.append(round(float(loss), 4))
+            lv = float(loss.detach())
+            assert math.isfinite(lv), f'non-finite loss at ep{ep} ex{ex["eid"]}'
+            losses.append(round(lv, 4))
             scaler.scale(loss / ACCUM).backward()
             micro += 1
             if micro % ACCUM == 0:
                 scaler.step(opt); scaler.update(); opt.zero_grad()
+            if micro % 200 == 0:
+                print(f'    {cond} training {micro}/{total_micro} micro-steps, '
+                      f'loss~{np.mean(losses[-50:]):.3f}, '
+                      f'{time.time()-t0:.0f}s')
     if micro % ACCUM:
         scaler.step(opt); scaler.update(); opt.zero_grad()
     m.eval()
