@@ -71,7 +71,7 @@ def run_verdict(results, cond_errors, smoke=False):
     g = {n: getattr(R, n) for n in dir(R) if not n.startswith("_")}
     g.update(dict(
         json=json, np=np, SMOKE=smoke, MODE="full" if not smoke else "smoke",
-        STAMP="test", MODEL_ID="Qwen/Qwen2.5-1.5B-Instruct",
+        STAMP="test", MODEL_ID="Qwen/Qwen2.5-1.5B-Instruct", RESUME_STAMP="",
         RESULTS=results, cond_errors=cond_errors, drift=None,
         VEC=VEC, DESC=DESC, PLAN=PLAN, SUPP_SHAMS=SUPP,
         OUT=out, SEM=sem, INFLIGHT="e8r/inflight_test",
@@ -124,12 +124,18 @@ res3 = {c: bundle(c, "perfect") for c in ("base", "real")}
 res3["scrambled"] = {"condition": "scrambled", "mode": "full", "stamp": "test",
                      "error": "RuntimeError: CUDA out of memory"}
 v3 = run_verdict(res3, {"scrambled": "RuntimeError: CUDA out of memory"})
-check("verdict assembles from survivors",
-      set(v3["conditions"]) == {"base", "real"} and "primaries" in v3)
-check("S2 absent without scrambled, S1 present",
-      "S2_scrambled_minus_base_heldin" not in v3["secondaries"] and
-      "S1_composition_base_minus_real_heldout" in v3["secondaries"])
+check("survivors scored, flight marked incomplete",
+      set(v3["conditions"]) == {"base", "real"} and
+      v3["complete_conditions"] == ["base", "real"])
+check("NO primaries on an incomplete flight (pre-reg hygiene)",
+      "primaries" not in v3 and "secondaries" not in v3)
 check("error recorded", v3["cond_errors"]["scrambled"].startswith("RuntimeError"))
+
+print("== scenario 3b: partial run (base only — one-condition-per-run flow) ==")
+v3b = run_verdict({"base": bundle("base", "perfect")}, {})
+check("partial run clean: base scored, no primaries, complete=[base]",
+      set(v3b["conditions"]) == {"base"} and "primaries" not in v3b and
+      v3b["complete_conditions"] == ["base"])
 
 print("== smoke branch on scenario 1 ==")
 v4 = run_verdict(res, {}, smoke=True)

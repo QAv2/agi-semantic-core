@@ -326,20 +326,32 @@ CI > 0.5 — the E7-Q ceiling was 100% claiming, BA pinned at chance).
 
 **How to run (Joe):** Runtime → Change runtime type → **T4 GPU** → Run all.
 First run uses `SMOKE = True` (config cell below, ~6–8 min) and ends in a
-green or red banner — mechanics only. If GREEN: flip `SMOKE = False`, then
-**Runtime → Restart runtime — MANDATORY —** and Run all again (**~75–100
-min**). The restart is not optional: this flight loads the model once per
-condition, and a same-kernel rerun stacks the smoke run's models under the
-full run until the 12.7GB system-RAM ceiling kills the VM (first-flight
-lesson). The setup cell now refuses to fly a dirty kernel or a low-RAM VM,
-with instructions. One Drive OAuth popup per session. Each condition ships to
-`MyDrive/semcore/e8r/` the moment it completes — if the session still dies
-mid-flight, set `RESUME_STAMP` to the printed stamp, restart the runtime, and
-Run all: finished conditions load from Drive, only missing ones fly."""
+green or red banner — mechanics only.
+
+**The full flight is THREE SHORT RUNS, one condition each (~30–35 min), so
+the 12.7GB VM only ever holds ONE model** (second-attempt lesson: even with
+teardown, an all-in-one flight leaves too little headroom on a tired VM):
+
+1. Flip `SMOKE = False` → **Runtime → Restart runtime** → Run all. Flies
+   **base**, ships it to Drive, and the end banner prints the exact
+   `RESUME_STAMP = '...'` line for the next run.
+2. Paste that line into the config cell → Restart runtime → Run all. Base
+   reloads from Drive in seconds; **real** flies and ships.
+3. Same again → **scrambled** flies, and with all three landed the verdict
+   computes (primaries only ever compute on the complete flight — pre-reg
+   hygiene).
+
+Restarts between runs are MANDATORY; the setup cell refuses dirty kernels
+and low-RAM VMs with instructions (if the RAM guard trips on a freshly
+restarted runtime, use Runtime → Disconnect and delete runtime for a fresh
+VM). A crashed run costs only its own condition — rerun with the same
+`RESUME_STAMP` and it picks up where it fell."""
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, adapters ───────────────
 SMOKE = True        # ← flip to False for the full flight after a green smoke
-RESUME_STAMP = ''   # ← e.g. '20260823_1015' to resume a partial full flight
+RESUME_STAMP = ''   # ← paste the stamp the previous run's end banner printed
+ONE_CONDITION_PER_RUN = True   # full flight = 3 short runs (~30 min each, one
+                               # model load per run); the end banner chains them
 
 import subprocess, sys, os, json, re, math, time, shutil, gc, ctypes
 from pathlib import Path
@@ -388,10 +400,11 @@ assert _leftover < 5e8, (
     'kernel — this flight needs a fresh one. Runtime > Restart runtime, '
     'then Run all.')
 _avail = _mem_avail_gb()
-assert not (_avail < 8.5), (
-    f'Only {_avail:.1f}GB system RAM available — not enough headroom for '
-    'per-condition model loads. Runtime > Restart runtime (Disconnect and '
-    'delete runtime if this repeats), then Run all.')
+_floor = 6.5 if (SMOKE or ONE_CONDITION_PER_RUN) else 8.5
+assert not (_avail < _floor), (
+    f'Only {_avail:.1f}GB system RAM available (need {_floor}). Runtime > '
+    'Restart runtime; if it trips again, Runtime > Disconnect and delete '
+    'runtime for a fresh VM, then Run all.')
 print('RAM at start:', ram_report())
 
 from google.colab import drive
@@ -720,16 +733,27 @@ def fly_condition(cond):
     return bundle
 
 RESULTS, cond_errors, BASE_DIRS = {}, {}, None
+FRESH_CAP = 1 if (ONE_CONDITION_PER_RUN and not SMOKE) else 3
+flew = 0
 for cond in ('base','real','scrambled'):
     fn = OUT / f'condition_{cond}.json'
     resumed = False
     if RESUME_STAMP:
         prev = SEM / INFLIGHT / f'condition_{cond}.json'
         if prev.exists():
-            RESULTS[cond] = json.load(open(prev))
-            resumed = True
-            print(f'{cond}: RESUMED from Drive ({RESUME_STAMP})')
+            b = json.load(open(prev))
+            if b.get('post_trials'):
+                RESULTS[cond] = b
+                resumed = True
+                print(f'{cond}: RESUMED from Drive ({RESUME_STAMP})')
+            else:
+                print(f'{cond}: errored bundle on Drive '
+                      f'({str(b.get("error"))[:60]}) — re-flying')
     if not resumed:
+        if flew >= FRESH_CAP:
+            print(f'{cond}: deferred to the next run (one condition per run)')
+            continue
+        flew += 1
         print(f'{cond}: starting — {ram_report()}')
         bundle = fly_condition(cond)
         if 'error' in bundle:
@@ -791,7 +815,11 @@ for cond, b in RESULTS.items():
                       if k != 'losses_every_10'},
     }
 
-if not SMOKE and 'real' in scored:
+COMPLETE = [c for c in ('base','real','scrambled')
+            if RESULTS.get(c, {}).get('post_trials')]
+summary['complete_conditions'] = COMPLETE
+
+if not SMOKE and len(COMPLETE) == 3 and 'real' in scored:
     rl = slices['real']
     r_hi = score_condition(rl['held_in'], VEC)['rows']
     obs1, p1, _ = perm_null_median(r_hi, VEC)
@@ -832,7 +860,8 @@ if not SMOKE and 'real' in scored:
 
 fn = OUT / 'e8r_verdict.json'
 jdump(summary, fn)
-ship(OUT, f'e8r/{MODE}_{STAMP}')
+if SMOKE or len(COMPLETE) == 3:
+    ship(OUT, f'e8r/{MODE}_{STAMP}')
 print(json.dumps({k: v for k, v in summary.items() if k != 'drift_cos_real_base'},
                  indent=1, default=str))
 
@@ -854,12 +883,23 @@ if SMOKE:
     }
     ok = all(checks.values())
     print('smoke checks:', json.dumps(checks, indent=1))
-    banner = ('SMOKE GREEN — flip SMOKE=False, then Runtime > Restart runtime '
-              '(mandatory), then Run all'
+    banner = ('SMOKE GREEN — flip SMOKE=False, Runtime > Restart runtime, Run '
+              'all. Full mode flies ONE condition per run (~30-35 min); follow '
+              'the end banner between runs.'
               if ok else 'SMOKE RED — do not fly full; send Fable the output')
     print('\n' + '='*66 + f'\n  {banner}\n' + '='*66)
-else:
+elif len(COMPLETE) == 3:
     print('\nFULL FLIGHT COMPLETE — results shipped to MyDrive/semcore/e8r/')
+else:
+    left = [c for c in ('base','real','scrambled') if c not in COMPLETE]
+    print('\n' + '='*66)
+    print(f'  PARTIAL — {len(COMPLETE)}/3 conditions shipped '
+          f'({", ".join(COMPLETE) or "none"}); left: {", ".join(left)}')
+    print(f"  Next run: Runtime > Restart runtime, set RESUME_STAMP = "
+          f"'{RESUME_STAMP or STAMP}',")
+    print('  then Run all. Finished conditions reload from Drive in seconds;')
+    print('  primaries compute only when all three have landed (pre-reg hygiene).')
+    print('='*66)
 '''
 
 nb = {
