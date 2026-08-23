@@ -67,6 +67,15 @@ check("rank01 endpoints", list(L.rank01([5, 1, 9])) == [0.5, 0.0, 1.0])
 check("quantile_labels endpoints + monotone",
       L.quantile_labels([1.0, 2.0, 3.0]) == [0, 5, 10] and
       L.quantile_labels([7.0]) == [5])
+check("answer_slice off-by-one: hidden[P-1:T-1] predicts ids[P:T]",
+      L.answer_slice(10, 13) == (9, 12) and
+      (L.answer_slice(10, 13)[1] - L.answer_slice(10, 13)[0]) == 3 and
+      L.answer_slice(1, 2) == (0, 1))
+try:
+    L.answer_slice(5, 5)
+    check("answer_slice rejects empty answers", False)
+except AssertionError:
+    check("answer_slice rejects empty answers", True)
 check("orient signs: F is -nll, U entropy, T divergence, S fill",
       L.orient_referent("familiarity", {"nll": 3.0}) == -3.0 and
       L.orient_referent("uncertainty", {"entropy": 2.5}) == 2.5 and

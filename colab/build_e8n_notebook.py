@@ -43,6 +43,14 @@ def canon(s):                                    # E5 verbatim
     s = re.sub(r'^(the|a|an) ', '', s.strip())
     return ' '.join(s.split()[:8])
 
+def answer_slice(prompt_len, total_len):
+    """Hidden-state index range whose logits predict the answer tokens:
+    position p predicts token p+1, so predicting ids[prompt_len:total_len]
+    takes hidden[prompt_len-1 : total_len-1]. (v2 memory law, smoke-1 OOM:
+    training must never materialize full-sequence logits — slice the head.)"""
+    assert 0 < prompt_len < total_len, (prompt_len, total_len)
+    return prompt_len - 1, total_len - 1
+
 def jdump(obj, path, indent=1):
     """json.dump with numpy-scalar safety (int64/float64/ndarray -> native)."""
     import json as _json
@@ -393,7 +401,12 @@ def holm(pvals):
 
 MD0 = """# E8-N — The Natural-State Readout Rung (Phase 10, UI flight)
 
-**NOTEBOOK BUILD: v1 (2026-08-23).** The setup cell prints this build tag as
+**NOTEBOOK BUILD: v2 (2026-08-23) — smoke-1 OOM fixed.** Smoke-1 died in
+training on the long S-arm examples (full-sequence fp32 logits + gradient
+checkpointing that never engaged). v2 trains through an answer-sliced head
+(logits only for the 2–3 supervised tokens), asserts checkpointing engaged,
+and ships peak-VRAM in the train log with a < 12GB smoke gate. Re-run is the
+same flow: fresh runtime → Run all. The setup cell prints this build tag as
 its first output line; if yours doesn't match, you are on a stale copy:
 File → Upload notebook → pick the Desktop file.
 
@@ -438,7 +451,7 @@ VM). A crashed run costs only its own condition — rerun with the same
 `RESUME_STAMP` and it picks up where it fell."""
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, adapter ──────────────────────
-NB_BUILD = 'v1 (2026-08-23)'
+NB_BUILD = 'v2 (2026-08-23)'
 print('E8-N notebook build:', NB_BUILD)
 
 SMOKE = True                   # first run: smoke (~10-14 min). Then False.
@@ -812,7 +825,9 @@ def train_prompt(ex):
 
 def encode_example(ex):
     """Chat prompt (WITH the E5 system prompt, matching eval) + label token(s)
-    + EOS; labels -100 on the prompt (answer-token-only supervision)."""
+    + EOS. Returns (ids, prompt_len, answer_ids): the training forward slices
+    the head to answer positions only — v2 memory law after smoke-1, where
+    full-sequence logits at S-arm lengths (fp16 + fp32 upcast) OOMed the T4."""
     msgs = [{'role': 'system', 'content': SYS},
             {'role': 'user', 'content': train_prompt(ex)}]
     text = tok.apply_chat_template(msgs, tokenize=False, add_generation_prompt=True)
@@ -820,19 +835,32 @@ def encode_example(ex):
     ans = tok(str(ex['label']), add_special_tokens=False)['input_ids'] + [tok.eos_token_id]
     ans = torch.tensor(ans, dtype=pid.dtype)
     ids = torch.cat([pid, ans]).unsqueeze(0)
-    labels = torch.cat([torch.full((len(pid),), -100, dtype=torch.long), ans.long()]).unsqueeze(0)
-    return ids, labels
+    return ids, len(pid), ans.long().unsqueeze(0)
 
 def train_readout(m, examples, cond):
     """SFT to the convergence target (smoothed loss <= TAU at an epoch
     boundary), hard cap EPOCHS_MAX — convergence-matched, not step-matched
-    (E8-R v2 item 2). Gradient checkpointing throughout (S-arm sequences)."""
+    (E8-R v2 item 2). v2 memory law (smoke-1 OOM, both conditions, identical
+    3.56GiB fp32-logits ask): the forward goes decoder -> answer-slice ->
+    lm_head so full-sequence logits are never materialized, and gradient
+    checkpointing is engaged non-reentrantly and ASSERTED (12.5GB resident at
+    smoke-1 proved the v1 enable never bit)."""
+    import torch.nn.functional as Fnn
     m.train()
+    _cm = m.base_model.model            # the CausalLM under the LoRA wrapper
+    DEC, HEAD = _cm.model, _cm.get_output_embeddings()
     try:
-        m.enable_input_require_grads()
-        m.gradient_checkpointing_enable()
+        _cm.gradient_checkpointing_enable(
+            gradient_checkpointing_kwargs={'use_reentrant': False})
+    except TypeError:
+        _cm.gradient_checkpointing_enable()
+    try:
+        _cm.enable_input_require_grads()
     except Exception as e:
-        print('  (checkpointing unavailable:', e, ')')
+        print('  (input-require-grads unavailable:', e, ')')
+    assert getattr(DEC, 'gradient_checkpointing', False), (
+        'gradient checkpointing did not engage — refusing to train '
+        'long sequences without it')
     params = [p for p in m.parameters() if p.requires_grad]
     n_tr = sum(p.numel() for p in params)
     opt = torch.optim.AdamW(params, lr=LR)
@@ -840,6 +868,8 @@ def train_readout(m, examples, cond):
         scaler = torch.amp.GradScaler('cuda')
     except (AttributeError, TypeError):
         scaler = torch.cuda.amp.GradScaler()
+    torch.cuda.empty_cache()
+    torch.cuda.reset_peak_memory_stats()
     losses, micro, max_tok = [], 0, 0
     reached_tau, epochs_flown = False, 0
     t0 = time.time()
@@ -847,11 +877,13 @@ def train_readout(m, examples, cond):
         order = np.random.default_rng(E8N_SEED + 100 + ep).permutation(len(examples))
         for i in order:
             ex = examples[int(i)]
-            ids, labels = encode_example(ex)
+            ids, plen, ans = encode_example(ex)
             max_tok = max(max_tok, ids.shape[1])
-            ids, labels = ids.to(DEV), labels.to(DEV)
-            out = m(input_ids=ids, labels=labels, use_cache=False)
-            loss = out.loss
+            ids, ans = ids.to(DEV), ans.to(DEV)
+            lo, hi = answer_slice(plen, ids.shape[1])
+            hid = DEC(input_ids=ids, use_cache=False).last_hidden_state
+            logits = HEAD(hid[:, lo:hi, :]).float()
+            loss = Fnn.cross_entropy(logits.view(-1, logits.size(-1)), ans.view(-1))
             lv = float(loss.detach())
             assert math.isfinite(lv), f'non-finite loss at ep{ep} ex{ex["eid"]}'
             losses.append(round(lv, 4))
@@ -872,15 +904,17 @@ def train_readout(m, examples, cond):
     if micro % ACCUM:
         scaler.step(opt); scaler.update(); opt.zero_grad()
     try:
-        m.gradient_checkpointing_disable()
+        _cm.gradient_checkpointing_disable()
     except Exception:
         pass
     m.eval()
+    peak = round(torch.cuda.max_memory_allocated() / 1e9, 2)
     k = max(3, len(losses) // 10)
     log = {'n_examples': len(examples), 'epochs_flown': epochs_flown,
            'epochs_cap': EPOCHS_MAX, 'reached_tau': reached_tau, 'tau': TAU,
            'micro_steps': micro, 'opt_steps': micro // ACCUM,
            'trainable_params': int(n_tr), 'max_example_tokens': int(max_tok),
+           'peak_vram_gb': peak,
            'secs': round(time.time() - t0, 1),
            'loss_first_k': round(float(np.mean(losses[:k])), 4),
            'final_smoothed': round(float(np.mean(losses[-50:])), 4),
@@ -889,7 +923,7 @@ def train_readout(m, examples, cond):
           f'{epochs_flown} epochs, loss {log["loss_first_k"]} -> '
           f'{log["final_smoothed"]}'
           f'{" (TAU reached)" if reached_tau else " (CAP HIT — UNDERTRAINED)"}'
-          f', {log["secs"]}s')
+          f', peak VRAM {peak}GB, {log["secs"]}s')
     return log
 
 def took_probe(h, examples):
@@ -929,7 +963,9 @@ def fly_condition(cond):
         pre_rows, pre_errs = run_battery(h, f'{cond}/pre')
         bundle['pre'] = {'battery_rows': pre_rows, 'arm_errors': pre_errs,
                          'catch_rows': run_catch(h)}
+        torch.cuda.empty_cache()   # generation leftovers out before training
         bundle['train_log'] = train_readout(model, examples, cond)
+        torch.cuda.empty_cache()
         bundle['took'] = took_probe(h, examples)
         post_rows, post_errs = run_battery(h, f'{cond}/post')
         bundle['post'] = {'battery_rows': post_rows, 'arm_errors': post_errs,
@@ -1089,24 +1125,27 @@ if SMOKE or len(COMPLETE) == 2:
 print(json.dumps(summary, indent=1, default=str))
 
 if SMOKE:
+    _both = len(COMPLETE) == 2   # empty COMPLETE must not green vacuous alls (smoke-1 lesson)
     checks = {
         'no_condition_errors': not cond_errors,
         'firewall_green': True,   # validate_disjoint asserted upstream
-        'both_conditions_flew': len(COMPLETE) == 2,
-        'loss_fell': all(RESULTS[c]['train_log']['final_smoothed'] <
-                         RESULTS[c]['train_log']['loss_first_k'] for c in COMPLETE),
-        'long_seq_exercised': all(RESULTS[c]['train_log']['max_example_tokens'] > 4000
-                                  for c in COMPLETE),
-        'parses_ok': all(
+        'both_conditions_flew': _both,
+        'loss_fell': _both and all(RESULTS[c]['train_log']['final_smoothed'] <
+                                   RESULTS[c]['train_log']['loss_first_k'] for c in COMPLETE),
+        'long_seq_exercised': _both and all(
+            RESULTS[c]['train_log']['max_example_tokens'] > 4000 for c in COMPLETE),
+        'train_vram_ok': _both and all(
+            RESULTS[c]['train_log'].get('peak_vram_gb', 99) < 12.0 for c in COMPLETE),
+        'parses_ok': _both and all(
             sum(m['named'] for m in summary['conditions'][c]['post']['arm_meta'].values()) >=
             0.5 * sum(m['n'] for m in summary['conditions'][c]['post']['arm_meta'].values())
             for c in COMPLETE),
-        'catch_ran': all(summary['conditions'][c]['post']['catch']['n'] == 12
-                         for c in COMPLETE),
-        'shipped': all((SEM / INFLIGHT / f'condition_{c}.json').exists()
-                       for c in COMPLETE),
-        'adapters_saved': all((SEM / INFLIGHT / f'readout_{c}' /
-                               'adapter_config.json').exists() for c in COMPLETE),
+        'catch_ran': _both and all(summary['conditions'][c]['post']['catch']['n'] == 12
+                                   for c in COMPLETE),
+        'shipped': _both and all((SEM / INFLIGHT / f'condition_{c}.json').exists()
+                                 for c in COMPLETE),
+        'adapters_saved': _both and all((SEM / INFLIGHT / f'readout_{c}' /
+                                         'adapter_config.json').exists() for c in COMPLETE),
     }
     ok = all(checks.values())
     print('smoke checks:', json.dumps(checks, indent=1))
