@@ -307,3 +307,54 @@ blocks still ship under a GATES-DIRTY banner.
   imply the bridge predicts true geometry — that wall stands from E8-J
   regardless of outcome here.
 - Wing-13 appears ONLY in the untrained, ungated S5 texture.
+
+## §8 Flight 1 record + registered re-fly revision (2026-08-24, before rebuild)
+
+**Flight 1** (`full_20260824_2205`, 2830s wall, Joe's runs; smoke GREEN
+first): GATES ALL PASS — G2 resid 4e-08, μ 81.875 exact, ppl +0.83%
+(amendment 1's 5.0% bar; the original 0.5% would have false-killed a
+passing flight), parse 0/421 INVALID, shams 0/24 with clean NONE (the
+calibrated-silence institution transferred to the featural grammar on
+first installation). **G-INSTALL FAIL → NO_VERDICT as registered**: spot
+pooled .4688 (p at the 1e-4 floor, null .326) under the .55 absolute bar.
+Verdict recomputed locally VERBATIM (0 substantive diffs;
+`recompute_e8f_flight.py` committed as the instrument; bundles archived
+`results_e8f/full_20260824_2205/`).
+
+**Adjudication — the pre-registered epoch-starvation reading applies
+verbatim** (§2; E8-N v2's mechanism, second occurrence): the train log
+shows cap-6 HIT with `plateaued=false` and EVERY strand still descending
+at the cap (full 0.2499→0.183, −6.3%/epoch at the end; truedir −5.2%;
+pair −3.6%). Mechanism rows agree the channel reads and was still
+improving: S3 errors are 87% adjacent-tercile (757/872 — boundary
+misses, not confusions; opposite errors concentrate on z/fz, 21+25 of
+115); S8 declines monotonically with code density (sparse .96 → dense
+~.45). Withheld-but-on-record: P1 held-out .5128 at the p-floor with
+11/14 axes Holm — HIGHER than spot's .4688 (no memorization gap; the
+readout learned the field, not the exemplars — recorded as context, no
+claim made under NO_VERDICT). P3 .377 p .015 with x/e Holm-clear (e at
+.4453 ≈ its .4219 linear prior). P2 0/128 (per-field .51 cannot survive
+14-field Hamming decode — the margin analysis predicted this). S5
+texture: the featural readout, with zero wing exposure, spells the
+E8-J v2 d̂ injections at median ~11/14 fields matching the RE-ENCODED
+wing codes vs ~4/14 matching hand codes (CONFIDENCE 14v2, CALIBRATION
+14v6; FAMILIARITY the lone inversion 5v6) — a third independent
+instrument reading the re-encoded register over the hand code.
+
+**Registered revision for the pre-authorized re-fly** (minimal, targeted
+at the failed gate; everything not listed is IDENTICAL — same payload,
+stimuli, split, eval rows, seeds, and ALL bars including the .55):
+
+1. **EPOCH_CAP_F 6 → 12** (budget: the failure mechanism is cap-hit with
+   descending strands; per-strand plateau still governs termination).
+2. **Full strand ×2**: train-256 at BOTH α (256 → 512 rows; curriculum
+   780 → 1036). The registered density menu ("denser pair/full strands");
+   S8 says dense-code reading is the binding constraint and the full
+   strand is what trains it. The α-parity rule is retired with it.
+
+truedir/pair/atom/carrier/sham strands unchanged (epochs alone double
+their optimizer passes). Smoke ladder re-flies first (build changed).
+**Stop rule**: if the re-fly also fails G-INSTALL, that is the honest
+stop — the record stands as an installation-capacity bound at this
+curriculum family, and any redesign needs fresh registration (no third
+fly on this prereg).
