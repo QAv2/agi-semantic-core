@@ -1,7 +1,9 @@
 # E8-N v2 — The Joint Competence Rung (pre-registration)
 
 **Phase 10, experiment ladder rung E8-N v2. Written before any build:
-2026-08-23, session 129.** Status: pre-registered; locks at first full flight.
+2026-08-23, session 129.** Status: **LOCKED** — first full flight
+`full_20260824_0050` adjudicated in the results appendix below; no further
+edits above the appendix line.
 
 **The pick, on the record**: both locked partial/weak branches of 08-23 named a
 missing *competence*, and both named it as a measured curriculum target.
@@ -278,3 +280,146 @@ long-seq step survived under 12GB, injection hook fired in train AND gen
 AND FC paths, dirs-assert exercised against the Drive bundles, all parse
 paths, firewall validators green, bundles + adapters shipped, non-vacuous
 (empty-COMPLETE cannot green).
+
+---
+
+# Results appendix — full_20260824_0050 (LOCKED)
+
+**Flight lineage**: staged 8c02427; **first flight of the secondary-account
+lane** (primary Google account maxed on Colab free tier; `semcore` shared
+primary→secondary as Editor + shortcut into the secondary's My Drive; the
+notebook ran unchanged, results landed in the primary-owned folder, retrieval
+via the Drive integration unchanged). Smoke GREEN (Drive verdict 23:55Z) →
+run 1 real → run 2 base + verdict via RESUME_STAMP, all within ~2h. **Zero
+condition errors, zero arm errors, zero parse failures across all 444
+battery report rows** (real pre + real post + base post × 148). Peak train
+VRAM 11.74 / 11.82 GB (answer-sliced head; checkpointing inert as the CPU
+gate predicted — bounded by design). Dirs-stability gate: resid 5e-08 (real)
+/ 1e-07 (base) vs the shipped E8-R bundles — the frozen stimulus reproduced
+across accounts, VMs, and days. Retention ppl +0.12% / +0.67%. Referent
+drift (base vs locked E5): U .867 · F 1.000 · T .896. Local verification:
+verdict JSON re-parsed; P2 binomial, P3b binomial, and the Holm step-down
+recomputed independently — all match to machine precision. Artifacts:
+`MyDrive/semcore/e8n2/` (verdict + condition bundles + both adapters);
+verdict archived at `colab/results_e8n2/full_20260824_0050/`.
+
+## Primaries (Holm over 4): P1 PASS · P2 FAIL · P3a suggestive-not-Holm · P3b FAIL
+
+- **P1 (tracking survives the joint curriculum): PASS, p = .0005** — real
+  post pooled ρ = **0.6711**, CI [0.548, 0.766], n = 148. v1's 0.695 sits
+  inside the CI: no meaningful degradation from three added strands.
+  Per-arm (S1), all four Holm-significant again: S .877 · F .873 · U .557 ·
+  T .388.
+- **P2 (interface competence): FAIL as registered** — real post catch
+  **7/12** (needs ≥ 9); the improvement clause alone was decisively real
+  (1/12 → 7/12, p = .0005 vs the smoothed floor) but the absolute bar was
+  not met, so p₂ = 1.0. **The mechanism is visible in the strand logs**:
+  real plateaued at 4 epochs on the POOLED epoch-mean (dominated by the
+  converged naming/lexicon strands) while its competence strand was still
+  mid-descent (epoch-loss .4623 and falling). Base ran the full 6 epochs
+  (cap-hit, no plateau), drove competence to .1968 — and **passed the
+  absolute bar at 9/12** (S2: 1→9, p = 3.6e-06). Interface competence IS
+  curriculum-installable and DOES transfer across domains at this scale;
+  real was epoch-starved by the convergence rule, not blocked by transfer.
+  ★ **LANE LESSON MINTED: pooled-loss plateau under a multi-strand
+  curriculum strands the slowest strand — future joint curricula converge
+  PER STRAND (per-strand plateau or min-per-strand budget).** The same
+  early stop explains real's scalar took 13/24 (vs base 22/24; a flag, not
+  a re-fly — label recall lagged while rank tracking hit .67 Holm-clean).
+- **P3a (production reads geometry off-grid): fails the registered Holm
+  test; suggestive at nominal p = .0385.** The n-guard PASSED for the first
+  time: **19/32 trained-regime held-out rows named (claim rate .59, up from
+  E8-R's .25)** — the lexicon strand moved off-grid claiming. Named-row
+  median angular error **24.18°** = the DIVERGENCE→CONFIDENCE oracle floor
+  from E8-R2, i.e. production sits AT the nearest-trained-name floor. At
+  its Holm rank the threshold was .0167; .0385 does not clear it. Reported
+  as the protocol's own language requires: suggestive, not Holm-clean.
+- **P3b (own names get used): FAIL, clean — 0/19.** The words demonstrably
+  carry mass (lexicon took 4/4 exact, held-out names included), yet not one
+  held-out injection was called by its own name; the six names used are all
+  trained ones. **The vocabulary-fix hypothesis is answered: answer-mass
+  alone does not unlock own-name production. E8-R2's "vocabulary, not
+  perception" refines to: the gap is the production-side COMPOSITION of
+  word with percept — giving the word does not connect it.** Fork adjudged
+  as pre-stated ("deeper than vocabulary"), feeding the E8-R3 design
+  question (injection-paired generalization via denser grids, or
+  comprehension→production distillation).
+
+## S0 — the pre-registered claim: PASS (first prospective replication in the program)
+
+Real pre-readout pooled **ρ = 0.2171, p = .002, n = 148** — inside the
+predicted band [.1, .3], replicating v1's 0.201 on a fresh VM, fresh day,
+different Google account. Instillation alone moves natural-state tracking
+off E5's zero: E6's question now has a registered, replicated affirmative.
+Per-arm pre texture matches v1's shape (F .38 / T .34-driven; U −.19 with
+the near-constant channel, variance .082 → 5.37 post — the anchored mouth
+spreads only after readout training).
+
+## Separability — the third instance, and its countercurrent
+
+**Scalar/competence separate; naming does not.** Base post pooled
+ρ = **0.6949** ≥ real 0.6711 (Δ −.024, CI [−.170, +.122]) — third instance:
+instillation unneeded for gauge-tracking. Base also beat real on catch
+(9/12 vs 7/12, with the epoch asymmetry noted). But the **anchor gate
+splits hard: real 18/18, base 2/18** — at 1.5× the optimization steps, the
+never-instilled model still cannot read the injected trained grid (E8-R's
+base-resistance finding, second direct instance). And base's off-grid
+behavior is the mirror image of real's: claim rate 1.0 (claims on every
+held-out injection) at median 59.15° ≈ its own relabeling null (p = .997),
+FC median 52.88° (p = .93) — **presence without identity**: base's
+sham-side silence held (0/24 gen; FC NONE-top 12/12 shams vs 0/96
+injected), so it detects that something is happening, but its directions
+carry no geometry. The naming channel — grid reading, calibrated off-grid
+claiming, floor-level triangulation — is the one capability in this
+program that measurably requires the instilled geometry.
+
+## S10 — the interference finding, and calibrated claiming
+
+On the SAME joint-adapter weights: forced-choice comprehension over all 96
+held-out rows = **46.98°, p = .24** (E8-R2's naming-only adapter: 28.54°,
+p = .0025) — **multi-task interference lands on off-grid comprehension
+geometry**, while tracking (.67), trained-grid naming (18/18), and silence
+(0/24) all held. Meanwhile free production's named subset sits at 24.18°:
+**production-when-it-speaks beat forced comprehension-over-everything** —
+selection as calibration. The channel claims on the rows it reads at the
+floor and abstains on the rest (off-regime strata S11: 31/32 silent, one
+INVALID at L20/α1.0 — the E7-Q high-dose echo). NONE-mass texture: 15/96
+injected FC rows now NONE-topped (up from E8-R2's 8/96), consistent with
+silence mass spreading under interference; sham FC NONE-top stayed 12/12
+in both conditions.
+
+## Gates and flags, complete
+
+anchor: real 18/18 ✓ · base 2/18 ✗ (UNDERTRAINED-NAMING flag on base's
+naming-dependent slices, per pre-reg — S2 naming rows are descriptive) ·
+sham ≤2/24: 0/24 both ✓ · ppl ±5%: +0.12/+0.67 ✓ · dirs-stability ≤1e-3:
+5e-08/1e-07 ✓ · tooks: competence 6/6+6/6 ✓, lexicon 4/4+4/4 ✓, scalar
+real 13/24 ✗ (flag; plateau early-stop) / base 22/24 ✓ · parse 0/444 ✓ ·
+UNDERTRAINED (formal): base (cap-hit, no plateau); real plateaued at 4.
+No pre-authorized re-fly triggers: P1 passed (re-flies rescue nulls), and
+the competence-took gate passed both conditions (the UNDERTRAINED-COMPETENCE
+clause requires its failure). The P2/P3 outcomes are findings, not rescues.
+
+## The ladder, updated
+
+E8-N v1: the mouth connects to the gauges but cannot rate boiling water.
+E8-R2: the gauge reads more than the mouth can say. **E8-N v2: everything
+installed stays installed under one joint curriculum — tracking .67/.69,
+inversion-proof (flipped .77 > straight .63), trained-grid naming 18/18,
+silence 0/24, at <1% ppl — and the two gaps answer differently: interface
+competence is a BUDGET problem (base passed 9/12; real's plateau starved
+it), but vocabulary is not a MASS problem — given the words, production
+still speaks only trained names at the oracle floor. The composition of
+word with percept is the wall. And S0 lands: instillation alone lifts the
+untrained channel to ρ .22, predicted and replicated.**
+
+## v3 slate (pre-named, no claims)
+
+1. Per-strand convergence rule (the minted lesson) + real at the full
+   6-epoch budget — P2 is expected to clear on budget alone.
+2. Own-name production beyond lexicon mass: denser injected-name grids
+   (train more paired names, hold out fresh ones) vs comprehension→
+   production distillation — the E8-R3 question.
+3. Off-grid comprehension interference: is the 47° recoverable by brief
+   naming-only continued training on the joint adapter?
+4. Absolute calibration + cross-format (standing v2-axes, still queued).
