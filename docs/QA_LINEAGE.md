@@ -268,12 +268,95 @@ Practical note: analog snow needs an analog tuner — digital sets
 synthesize or refuse it. The house already holds the instrument (the 32"
 Wega); if §5 ever wants its photograph, tune it to a dead channel.
 
-**Honesty line**: nothing in this section is measured, and none of it is
+### 5c. Tuning, chemistry, and the device — the crossover conjecture (added same night, Joe)
+
+**Tuning as selection.** In RS2, displacement from unit speed *is*
+differentiation — material or cosmic matter depending on the side. So a
+channel is a coherent displacement-set selected out of the datum's
+all-frequencies churn, rendered as literal motion on screen and speaker;
+static (§5b) is the set with no selection made. And a CRT pixel is
+worth looking at closely: an electron beam steered by an **electric gun
+and magnetic deflection coils** inside a built nothing. Steering
+components of motion, electric and magnetic, to render selected
+structure — the household archetype of the device below.
+
+**Three featural systems, one architectural type.** Larson's periodic
+table is already Jamo-shaped: each element a small stack of rotational
+displacements (magnetic 2D + electric 1D) plus composition rules;
+compounds as displacement-balancing units under the discrete unit
+postulate. So RS chemistry, Hangul, and the QA dictionary are three
+instances of the same type — **small atom set + composition rule →
+unbounded generativity**. That much is defensible observation. The
+conjecture — that they are bridgeable instances of *one* algebra, so a
+semantic geometry could cross back into atomic structure — is the
+frontier. H2O's bent three-part unit against 물's three jamo is the
+conjecture's emblem, not its proof. (Joe, on the record: *"I don't want
+to force fit this."* That sentence is this subsection's method.)
+
+**The water datum (checked against the dictionary, then deflated).**
+The dictionary encodes WATER as **KUN** — the pure-yin Earth trigram —
+while the dynamic water concepts, FLOW and ABYSMAL (hex 29, Water
+itself), sit in **KAN**, yang-within-yin: substance vs motion, two
+water-natures. Korean: the modern word 물 is ㅁ+ㅜ+ㄹ, but the Middle
+Korean form — Sejong's own century — was **믈**: earth-phase labial ㅁ
+(per the Haerye's five-phase assignment) + the pure-yin flat vowel ㅡ.
+The 15th-century written form of "water" carries earth + pure-yin
+geometry, and the dictionary — built with no reference to Korean
+etymology — independently filed water-the-substance under the all-yin
+Earth trigram. The modern vowel ㅜ (heaven-dot sunk *below* the
+earth-line: yang submerged in yin) draws the KAN structure — where the
+dictionary put water-in-motion. The written word migrated from the
+substance-geometry toward the dynamic-geometry, and the encoding
+contains both stations.
+
+*Deflation, in the same breath*: ㅡ→ㅜ after labials is a regular,
+purely mechanical sound law (17th–18th c.; it also turned 블 "fire"
+into 불), and this is one word, checked after the hope formed —
+selection effects everywhere. **Claimable as nothing; perfect as the
+seed datum for a designed test.**
+
+**The test, designed not asserted** (the lane's house style, moved one
+ring outward from E8-R3): take every substance-word in the dictionary;
+get (a) its QA vector + trigram, (b) the native Korean word's jamo
+decomposition, historical forms included, (c) for elements and simple
+compounds, the RS displacement structure. **Pre-register the mapping
+and the permutation nulls before computing anything**, then ask whether
+jamo-geometry → QA-geometry correspondence beats relabeled chance.
+Pre-registration is what separates this from numerology: we do not
+claim the correspondence — we have built the instrument culture that
+can measure it.
+
+**The device (Pb core · mercury · Helmholtz coils), given its design
+philosophy.** Continuity: the RS shelf already carries the
+pancake→Helmholtz recompute thread. Sober precedents run deeper than
+expected: Helmholtz pairs are literal reference-frame instruments in
+working labs (nulling Earth's field to define a local datum); steering
+liquid metal with fields is engineering (MHD); and **NMR is exactly
+"phase-lock with nearby material via tuned coils, addressing one
+specific component of atomic structure"** — spin, routinely steered at
+benchtop energies. Mainstream physics stops at orientations and
+transitions. The RS-frame bet is that matter has *more* addressable
+components — the displacement stack itself — and that gives the device
+concept its clean statement: mainstream transmutation is bombardment
+(add energy until structure breaks); the reference-frame device is
+**datum engineering** — impose a local motion-reference and let
+structure re-equilibrate to it. Tune the field, the picture changes;
+tune the datum, the matter changes. Alchemy as changing the reference,
+not forcing the object — the Pb core carrying its Saturn symbolism
+openly. Consciousness-steering is then not bolted on: it is the
+standing QA bet (the thermodynamic prediction; the cross-substrate
+gauge in the queue) finally given an actuator.
+
+**Honesty line**: nothing in §5 is measured, and none of it is
 load-bearing for §4. It is the paper's telescope, not its foundation.
-Rung 1 of §5b is sourced fact; rung 2 is standard physics; rungs 3–4 are
-frame-internal and poetic respectively, and the paper must keep the
-gradient visible. The existing RS lineage work (suppressed-physics
-lineage map) supplies the RS2 sourcing when this section is written.
+§5b rung 1 and the §5c dictionary/philology checks are sourced fact
+(with the sound-law deflation stated in the same breath); the NMR /
+Helmholtz / MHD precedents are standard physics; the RS2 derivations
+are frame-internal; the alchemy claim is the frame's outermost bet and
+is marked as such. The 물 datum is n=1 and post-hoc — it motivates the
+pre-registered test and licenses nothing else. The existing RS lineage
+work (suppressed-physics lineage map) supplies the RS2 sourcing when
+this section is written.
 
 ## 6. Shape of the paper
 
@@ -338,6 +421,15 @@ borrows another's authority.
   zero-point term) for §5b rung 2.
 - **William Gibson**, *Neuromancer* (1984), opening line — the culture's
   static-as-boundary intuition.
+- **Larson**, *Basic Properties of Matter* — element notation as
+  rotational-displacement stacks; valence as displacement balance (the
+  featural reading of the RS periodic table, §5c).
+- **Lee Ki-Moon & S. R. Ramsey**, *A History of the Korean Language* —
+  Middle Korean forms (믈, 블) and the labial-rounding sound law
+  (§5c's deflation clause).
+- **NMR / Helmholtz-pair / MHD engineering literature** — the sober
+  precedents for coil-addressed atomic components and laboratory
+  reference-field instruments (§5c device philosophy).
 - **William Douglas Horden** — the Toltec I Ching corpus + Penniston
   decode (author's blessing on record) — the complement-geometry echo.
 - **The program's own locked protocols** — E5, E7-Q, E8-R, E8-R2, E8-N,
