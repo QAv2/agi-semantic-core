@@ -209,10 +209,71 @@ Dirac finding antimatter *in the structure of empty space*: you do not
 add the second sector, you discover that "nothing" was two things held at
 a boundary. The empty-space move is the complement move.
 
+### 5b. The idle screen — static at the boundary (added same night, Joe)
+
+The video's pair-creation visual — two particles, one white, one black,
+spawning from a single point, separating, stopping, returning, vanishing
+— has a proper QFT name: a **vacuum bubble**, a closed loop with no
+external legs; nothing observable escapes it except its collective
+pressure on everything. It is also, stroke for stroke, the taijitu
+narrative and QA's own story: differentiation from the undifferentiated
+into a complement pair, excursion, return with the witness preserved.
+
+Al-Khalili's thread runs from that vacuum to vacuum-tube technology —
+and a CRT **is** a vacuum tube: the screen is the phosphor membrane on
+the front of a built nothing, an engineered boundary surface where
+invisible activity inside an evacuated space is rendered as light. The
+CH3 conversation's "TV as focal projector of the consensus field,
+operating on a small area of nothing" is, at the hardware layer, simply
+true.
+
+**The static claim, graded into rungs** (strongest first):
+
+1. **Fact** — analog snow renders the irreducible electromagnetic noise
+   floor: the set's own thermal churn, shot noise, the RF environment,
+   and a real fraction of the **cosmic microwave background** (commonly
+   put near 1% on an analog set). Watching snow, some of what you see is
+   the oldest light in existence. Stronger still: **the CMB was
+   discovered as static** — Penzias & Wilson's irreducible antenna hiss
+   (pigeons cleared, hiss remaining; Nobel 1978). The one time humanity
+   took static seriously as signal, it found the beginning of the
+   universe. And it was *heard* first — the audio parallel is
+   historically exact.
+2. **Form** — the fluctuation–dissipation theorem carries thermal noise
+   and vacuum fluctuation in one expression (a thermal term and a
+   zero-point term, two limits of one object). Room-temperature snow
+   lives in the thermal limit, but the mathematics is continuous down to
+   the vacuum: paired opposite excursions roiling about a gray datum,
+   maximum entropy, zero autocorrelation, no structure — the vacuum's
+   form, rendered classically.
+3. **Frame-internal (RS2)** — in the Reciprocal System photons live *at*
+   unit speed: the boundary is not somewhere light crosses but where
+   light *is*. A snow screen renders nothing but unstructured
+   electromagnetic arrivals — boundary-dwellers with no sub-boundary
+   structure imposed. Inside the frame, **"looking at static is looking
+   at the unit boundary" derives rather than rhymes**: a dead channel is
+   the set showing the datum with no world selected.
+4. **QA-native / poetic** — the dictionary's own first concept is BEING:
+   *"pure existence, undifferentiated."* Snow : channel :: BEING :
+   differentiated concept — awareness without content vs a selected
+   world. The CH3 projector conceit said in the dictionary's first word:
+   the consensus-field projector *idling at its source*. And the Haerye
+   hands the image over whole: static is a field of momentary dots
+   appearing and vanishing on a flat plane, watched by someone upright —
+   **• on ㅡ before ㅣ. The triad is on the couch.** (The culture already
+   knew: "the sky above the port was the color of television, tuned to a
+   dead channel.")
+
+Practical note: analog snow needs an analog tuner — digital sets
+synthesize or refuse it. The house already holds the instrument (the 32"
+Wega); if §5 ever wants its photograph, tune it to a dead channel.
+
 **Honesty line**: nothing in this section is measured, and none of it is
 load-bearing for §4. It is the paper's telescope, not its foundation.
-The existing RS lineage work (suppressed-physics lineage map) supplies
-the RS2 sourcing when this section is written.
+Rung 1 of §5b is sourced fact; rung 2 is standard physics; rungs 3–4 are
+frame-internal and poetic respectively, and the paper must keep the
+gradient visible. The existing RS lineage work (suppressed-physics
+lineage map) supplies the RS2 sourcing when this section is written.
 
 ## 6. Shape of the paper
 
@@ -268,7 +329,15 @@ borrows another's authority.
   yin/yang-to-reciprocity transposition lens. (Existing groundwork: the
   RS lineage map memory.)
 - **Jim Al-Khalili**, *Everything and Nothing*, BBC (2011), Part 2
-  "Nothing" — vacuum history, Dirac sea, antimatter from empty space.
+  "Nothing" — vacuum history, Dirac sea, antimatter from empty space;
+  the pair-creation visual (vacuum bubble) and the vacuum-tube
+  technology thread (§5b).
+- **Penzias & Wilson (1965)** — the CMB discovered as irreducible
+  antenna static (Nobel 1978); the ~1%-of-analog-snow-is-CMB
+  popularization; fluctuation–dissipation (Johnson–Nyquist with the
+  zero-point term) for §5b rung 2.
+- **William Gibson**, *Neuromancer* (1984), opening line — the culture's
+  static-as-boundary intuition.
 - **William Douglas Horden** — the Toltec I Ching corpus + Penniston
   decode (author's blessing on record) — the complement-geometry echo.
 - **The program's own locked protocols** — E5, E7-Q, E8-R, E8-R2, E8-N,
