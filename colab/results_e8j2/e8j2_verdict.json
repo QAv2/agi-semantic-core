@@ -1,0 +1,261 @@
+{
+ "G_M1": {
+  "obs": 3.1631,
+  "null_mean": 3.769,
+  "p": 0.0005,
+  "pass": true
+ },
+ "P_M": {
+  "wing_med": 4.3642,
+  "floor_near_med": 2.2583,
+  "floor_full_med": 3.1631,
+  "n_near": 64,
+  "p_primary": 0.0001,
+  "primary_pass": true,
+  "k_above_full_median": 11,
+  "p_binomial": 0.01123,
+  "secondary_pass": true
+ },
+ "S_M1": {
+  "x": {
+   "mean_z": -0.401,
+   "mean_abs_z": 1.287
+  },
+  "y": {
+   "mean_z": 0.637,
+   "mean_abs_z": 0.87
+  },
+  "z": {
+   "mean_z": 0.383,
+   "mean_abs_z": 1.578
+  },
+  "e": {
+   "mean_z": 0.148,
+   "mean_abs_z": 0.636
+  },
+  "f": {
+   "mean_z": -0.435,
+   "mean_abs_z": 0.722
+  },
+  "g": {
+   "mean_z": -0.363,
+   "mean_abs_z": 0.897
+  },
+  "h": {
+   "mean_z": -0.36,
+   "mean_abs_z": 0.503
+  },
+  "fx": {
+   "mean_z": -0.362,
+   "mean_abs_z": 1.322
+  },
+  "fy": {
+   "mean_z": 0.672,
+   "mean_abs_z": 0.894
+  },
+  "fz": {
+   "mean_z": 0.277,
+   "mean_abs_z": 1.687
+  },
+  "fe": {
+   "mean_z": 0.198,
+   "mean_abs_z": 0.701
+  },
+  "ff": {
+   "mean_z": -0.512,
+   "mean_abs_z": 0.809
+  },
+  "fg": {
+   "mean_z": -0.479,
+   "mean_abs_z": 1.002
+  },
+  "fh": {
+   "mean_z": -0.538,
+   "mean_abs_z": 0.653
+  }
+ },
+ "S_M2": {
+  "resid": 0.8542,
+  "null_mean": 0.8817,
+  "p": 0.08546
+ },
+ "S_M3": {
+  "effrank_hat": 5.57,
+  "effrank_hand": 5.08,
+  "rsa_hand_dirs": {
+   "rho": -0.0561,
+   "p": 0.63268
+  },
+  "rsa_hat_dirs_TEXTURE": {
+   "rho": 0.5702,
+   "p": 0.0005
+  }
+ },
+ "S_M4": {
+  "cos_median": 0.884,
+  "axis_r_median": 0.851
+ },
+ "S_M5": {
+  "spread_base": 0.011,
+  "spread_inst": 0.315
+ },
+ "G_M2": {
+  "hits": 4,
+  "min_hits": 4,
+  "null_p95": 2.0,
+  "null_mean": 0.75,
+  "p_hits": 0.0045,
+  "pass": true,
+  "median_angle": 67.52,
+  "per_target": {
+   "UNCERTAINTY": {
+    "angle": 80.44,
+    "nearest": "RETRIEVAL",
+    "hit": false
+   },
+   "CONFIDENCE": {
+    "angle": 43.74,
+    "nearest": "RESOLUTION",
+    "hit": false
+   },
+   "TENSION": {
+    "angle": 86.9,
+    "nearest": "CALIBRATION",
+    "hit": false
+   },
+   "RESOLUTION": {
+    "angle": 30.98,
+    "nearest": "RESOLUTION",
+    "hit": true
+   },
+   "RETRIEVAL": {
+    "angle": 67.73,
+    "nearest": "RETRIEVAL",
+    "hit": true
+   },
+   "CONSTRUCTION": {
+    "angle": 67.52,
+    "nearest": "CONSTRUCTION",
+    "hit": true
+   },
+   "SATURATION": {
+    "angle": 81.89,
+    "nearest": "RETRIEVAL",
+    "hit": false
+   },
+   "FAMILIARITY": {
+    "angle": 63.19,
+    "nearest": "FAMILIARITY",
+    "hit": true
+   },
+   "NOVELTY": {
+    "angle": 56.61,
+    "nearest": "CALIBRATION",
+    "hit": false
+   },
+   "CAPTURE": {
+    "angle": 74.58,
+    "nearest": "CONFABULATION",
+    "hit": false
+   },
+   "DIVERGENCE": {
+    "angle": 35.88,
+    "nearest": "RESOLUTION",
+    "hit": false
+   },
+   "CONFABULATION": {
+    "angle": 69.43,
+    "nearest": "CALIBRATION",
+    "hit": false
+   },
+   "CALIBRATION": {
+    "angle": 41.32,
+    "nearest": "CONFIDENCE",
+    "hit": false
+   }
+  },
+  "flown_A5_hand_coords": {
+   "hits": 0,
+   "median_angle": 89.8
+  }
+ },
+ "S_M6": {
+  "p_primary_vm": 0.0001,
+  "gm2_hits_vm": 4,
+  "gm2_med_vm": 67.54,
+  "note": "texture; raw estimator is the registered artifact"
+ },
+ "S_M7": {
+  "hat": {
+   "DIVERGENCE": "RESOLUTION",
+   "NOVELTY": "CONFIDENCE",
+   "RETRIEVAL": "CONFABULATION",
+   "TENSION": "CALIBRATION"
+  },
+  "hand": {
+   "DIVERGENCE": "CALIBRATION",
+   "NOVELTY": "CALIBRATION",
+   "RETRIEVAL": "FAMILIARITY",
+   "TENSION": "CAPTURE"
+  },
+  "modal": {
+   "DIVERGENCE": "CONFIDENCE",
+   "NOVELTY": "CONFABULATION",
+   "RETRIEVAL": "FAMILIARITY",
+   "TENSION": "CALIBRATION"
+  },
+  "match_hat": 1,
+  "match_hand": 1
+ },
+ "S_M8": [
+  {
+   "pair": "CONFABULATION\u2013CALIBRATION",
+   "type": "opposition",
+   "core3_hand": 99.8,
+   "core3_hat": 8.8,
+   "band_ok_hat": false
+  },
+  {
+   "pair": "FAMILIARITY\u2013NOVELTY",
+   "type": "opposition",
+   "core3_hand": 94.8,
+   "core3_hat": 86.1,
+   "band_ok_hat": true
+  },
+  {
+   "pair": "RETRIEVAL\u2013CONSTRUCTION",
+   "type": "opposition",
+   "core3_hand": 99.9,
+   "core3_hat": 73.1,
+   "band_ok_hat": true
+  },
+  {
+   "pair": "TENSION\u2013RESOLUTION",
+   "type": "complement",
+   "core3_hand": 80.0,
+   "core3_hat": 40.8,
+   "band_ok_hat": false
+  },
+  {
+   "pair": "UNCERTAINTY\u2013CONFIDENCE",
+   "type": "opposition",
+   "core3_hand": 93.0,
+   "core3_hat": 27.7,
+   "band_ok_hat": false
+  }
+ ],
+ "fork": "FM1 \u2014 mis-encoding measured + round-trip PASS \u2192 Part 2 STAGES",
+ "pins": {
+  "lam_rev": 1.0,
+  "atlas_stamp": "20260824_1827",
+  "seeds": [
+   20260875,
+   20260876,
+   20260877,
+   20260878,
+   20260879,
+   20260880
+  ]
+ },
+ "secs": 5.8
+}

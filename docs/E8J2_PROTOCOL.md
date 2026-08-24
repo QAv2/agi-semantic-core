@@ -255,3 +255,85 @@ path; local tests exercise both mode constants (lane law).
   encoding rules protect existing concepts precisely against casual
   re-encoding.
 - Push/public remains Joe's gate; commits local.
+
+---
+
+## APPENDIX — Part 1 measurement: FM1 (2026-08-24, session 132) — LOCKED
+
+Run: `colab/e8j2_measure.py` → `results_e8j2/e8j2_verdict.json` (5.8s
+local). Machinery teeth green in-run (predict∘permute identity; rank-sum
+planted/null p=.0005/.43). **G-M1 re-verify PASS p=.0005** (obs 3.163,
+null 3.769 — matches §1 exactly on a fresh seed).
+
+**P-M: MIS-ENCODING MEASURED.** Wing Δstd median 4.364 vs region floor
+2.258 (n=64), p=.0001 (10k label perms); conservative secondary agrees —
+11/13 above the full-anchor median, binomial p=.0112. **No FM4 split.**
+Per-concept percentiles vs the anchor-LOO distribution: worst = SATURATION
+99.4, RESOLUTION 97.8, CONSTRUCTION 96.6, RETRIEVAL 96.2; most in-register
+= CONFABULATION 42.2, CAPTURE 49.7. E8-J's Fork-2 adjudication is now a
+quantity, not an inference.
+
+**Where and how it is mis-encoded**:
+- **S-M1 axis profile**: the mismatch concentrates on core z/fz (signed
+  +0.38/+0.28 — the substrate reads the wing HIGHER on z than the hand
+  code) and x/fx (−0.40/−0.36 — the substrate reads the wing MORE YIN),
+  then g/fg (−0.36/−0.48).
+- **S-M2 systematicity**: Procrustes resid .854 vs null .882, p=.0855 —
+  NOT a coherent rotation at α=.05. Registered reading applies:
+  per-concept mis-assignment, not a family-level rotated frame. "Two
+  registers" sharpens to: **there is no clean transform between them**.
+- **S-M3**: hand↔dirs RSA ρ=−.056 p=.63 (the design-check-era null, now
+  on the measured record); x̂ cloud eff-rank 5.57 (hand 5.08); x̂↔dirs
+  ρ=.570 p<.001 texture (by construction, marked).
+- **S-M4 depth replication STRONG**: x̂(L20) vs x̂(L14) per-concept cos
+  median .884, per-axis r median .851 — the reverse read is
+  register-stable across depth, not layer noise.
+- **S-M5 base control**: reverse estimates from the base cone collapse to
+  spread .011 (vs instilled .315) — the locked degeneracy finding
+  reproduced in reverse, as predicted.
+- **S-M6 shrinkage sensitivity**: un-shrunk P-M p=.0001, G-M2 4/13 @
+  67.5° — all conclusions shrinkage-robust.
+
+**G-M2 PASS AT THE BAR → Part 2 STAGES.** 4/13 exact geometric hits
+(bar ≥4; derangement null p95 = 2.0), median angle 67.5°, vs the flown
+hand-coordinate A5 at 0/13 @ 89.8°. Per §1 calibration, 4/13 IS the
+healthy in-register 13-set median — the re-encoded wing round-trips like
+a native part of the broad register. Hits = **RESOLUTION, RETRIEVAL,
+CONSTRUCTION, FAMILIARITY** — three of the four worst-mis-encoded
+concepts: where the hand code was most wrong, the re-encode moves
+farthest and the round trip lands. Coherent mechanism, on the record.
+
+**Prediction outcomes (honesty)**:
+- P-M mis-encoding: predicted, CONFIRMED.
+- S-M5 base collapse: predicted, CONFIRMED.
+- **S-M7 modal concordance: prediction MISSED** — x̂ 1/4 vs hand 1/4 (no
+  improvement; only TENSION→CALIBRATION matches under x̂). The
+  coord-space nearest under shrinkage is not the dir-space FC floor
+  geometry. The flight's S1′ behavioral row is the operative test.
+- G-M2: registered as uncertain (52% calibration); passed at the median.
+
+**S-M8 + post-hoc shrinkage sensitivity (labeled, unregistered row)**:
+raw-x̂ bands break 3/5, but the un-shrunk variant restores
+FAMILIARITY–NOVELTY (136°), RETRIEVAL–CONSTRUCTION (103°), and
+TENSION–RESOLUTION (89°) — those three collapses were estimator
+shrinkage. Two genuine findings survive:
+- **UNCERTAINTY–CONFIDENCE: the substrate disagrees with the label.**
+  Their full 1536-D dirs sit at **54.5°** — kinship, not opposition
+  (un-shrunk coords 48°). A real code-vs-substrate disagreement for the
+  wing-v2 ledger, not an artifact.
+- **CONFABULATION–CALIBRATION: a register-capacity limit.** Full dirs at
+  79.9° (healthy complement-band separation) but merged in the readable
+  subspace (9° raw / 18° un-shrunk) — their difference lives in
+  dimensions the broad bridge cannot see. Distinct mechanism from the
+  above, both on the record.
+
+**Part-2 power note**: trained-9 ∩ geometric hits = {RESOLUTION,
+CONSTRUCTION, FAMILIARITY} — the mechanism model expects behavioral wins
+concentrated in those ~24/72 real rows; the stratified primary permutes
+within matched pairs, so concentration is what it is powered for.
+
+**Artifacts**: `results_e8j2/wing_reencode_v1.json` (x̂ L14/L20/base, σ,
+provenance) · `results_e8j2/rung_pins.json` (d̂ real arm, pinned
+derangement, geometric-hit list, sha `685255b9eec94a3a`).
+
+**Part 1 LOCKED. FM1 → Part 2 staged: `E8J2_RUNG_UI.ipynb`.**
