@@ -337,3 +337,71 @@ provenance) · `results_e8j2/rung_pins.json` (d̂ real arm, pinned
 derangement, geometric-hit list, sha `685255b9eec94a3a`).
 
 **Part 1 LOCKED. FM1 → Part 2 staged: `E8J2_RUNG_UI.ipynb`.**
+
+---
+
+## APPENDIX — Part 2 flight: FJ1 (2026-08-24, `full_20260824_2006`) — LOCKED
+
+**Flight record**: smoke GREEN (Joe's run, ~1956). Full attempt 1 died at
+PARSE time — IndentationError in the FLY cell. Diagnosed from the staged
+bytes without touching the VM: the staged cell compiles clean locally, and
+the VM's reported error line (27) vs the staged line (36) showed ~9 lines
+missing — the VM's cell text had diverged post-smoke (the R3-c divergence
+class, caught pre-execution this time). Remedy per lane law: NO in-place
+repair — fresh upload of the byte-identical staged notebook, straight to
+full (the green smoke had validated this exact build). Full flew clean,
+352s. Nothing partial preceded it (parse error = the flight never started).
+
+**GATES ALL PASS, pristine**: anchor 18/18 · locked shams 0/12 claims ·
+ppl reconstruction delta 0.0000% (19.6358 exact) · G4 pins (on-VM sha
+recompute == `685255b9eec94a3a`, 208/208 rows, all inject hooks fired,
+shams uninjected, titration parse fails 0).
+
+**Primary P-B′ PASS p=.0001** — real arm 19 exact vs permuted arm 0 over
+the trained-9 matched pairs (72 vs 72); alpha-balanced (10 @ α0.5, 9 @
+α1.0 — not an alpha artifact). Sign-flip robustness p=.01562 = 8/512:
+ALL 6 nonzero targets favor real (CONSTRUCTION +7, CALIBRATION +4,
+CONFIDENCE +3, CAPTURE +3, FAMILIARITY +1, SATURATION +1); the registered
+"≈8/9 targets" prose bar is not met (6/9 nonzero) and is reported
+alongside as registered — the exhaustive test is significant.
+
+**Mechanism row CLEAN**: behavioral hits {CONSTRUCTION, 7/8} ⊆ geometric
+hits {CONSTRUCTION, FAMILIARITY, RESOLUTION}; anomalies none. Both
+sub-flag dissociation directions are on the record as texture:
+- RESOLUTION: geometric hit, 0 behavioral — the geometry lands where the
+  readout does not execute it.
+- CALIBRATION 4/8, CONFIDENCE 3/8, CAPTURE 3/8: behavioral success
+  WITHOUT a geometric hit (all under the ≥5 flag bar) — the readout's
+  decision regions are its own geometry, not nearest-in-13 angles.
+
+**Secondaries**:
+- **S1′ held-out concordance: real 4/32 vs perm 8/32** — the E8-R2 modal
+  confusion structure does NOT survive the bottleneck (real-arm held-out
+  modals collapse to a CALIBRATION attractor; TENSION reads CONFIDENCE).
+  Coherent with Part 1's S-M7 miss: the re-encode carries trained-name
+  IDENTITY through the register; it does not carry the held-out confusion
+  geometry. The perm arm's 8/32 includes a coincidental TENSION 5/8
+  (deranged dir happens to read as TENSION's modal).
+- S2: none_top rate 0.0 both arms (injection always claims — E8-R2
+  regime confirmed). Held-out-4 real exact 0/32 (texture): untrained
+  names still carry no output mass, E8-R2's finding intact.
+- S_titr α=1.5: claim .154, exact 0, invalid 22/26 — past-cliff
+  degradation, texture as registered.
+
+**RECOMPUTE CLEAN (the law)**: the staged notebook's verdict cell exec'd
+VERBATIM over the raw shipped `rungb.json` → **0 differences** against
+the shipped verdict, and independent fresh-code tallies reproduce every
+primary ingredient (19/0/19, 18/18, 0/12, hooks, alpha split).
+`colab/recompute_e8j2_flight.py` committed as the instrument; bundles
+archived `results_e8j2/full_20260824_2006/` (byte sizes match the Drive
+listing; pins sha verified in-bundle).
+
+**FORK: FJ1 — the rung lands in BOTTLENECK FORM** (registered wording
+verbatim): wing identity survives compression into the 14-coordinate
+dictionary register and returns through the forward bridge into the
+locked readout's naming. Codebook-capacity claim — NOT independent
+authorship; native-F1 (independently authored coordinates) remains named
+future work. **L3 (featural curriculum) licensed in bottleneck form.**
+
+**Part 2 LOCKED. E8-J v2 complete: the mis-encoding measured (Part 1),
+and the re-encoded register executes through the readout (Part 2).**
