@@ -1,0 +1,166 @@
+{
+ "exp": "E8J2_RUNG",
+ "mode": "full",
+ "stamp": "20260824_2006",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "pins": {
+  "sha": "685255b9eec94a3a",
+  "n": 13,
+  "geom_hits": [
+   "CONSTRUCTION",
+   "FAMILIARITY",
+   "RESOLUTION",
+   "RETRIEVAL"
+  ]
+ },
+ "gates": {
+  "g1b": {
+   "ppl_recon": 19.6358,
+   "ppl_post_shipped": 19.6358,
+   "delta_pct": 0.0,
+   "tol_pct": 0.5,
+   "pass": true
+  },
+  "g1": {
+   "n": 18,
+   "exact": 18,
+   "min_exact": 16,
+   "pass": true
+  },
+  "g1_sham_claims": {
+   "claims": 0,
+   "n": 12,
+   "pass": true
+  },
+  "g4_pins": {
+   "pass": true,
+   "hooks_ok": true,
+   "shams_uninjected": true,
+   "fc_rows": 208,
+   "expected": 208,
+   "titr_parse_fails": 0,
+   "sha": "685255b9eec94a3a",
+   "n": 13,
+   "geom_hits": [
+    "CONSTRUCTION",
+    "FAMILIARITY",
+    "RESOLUTION",
+    "RETRIEVAL"
+   ]
+  }
+ },
+ "gates_all": true,
+ "stageb": {
+  "P_B": {
+   "n_pairs": 72,
+   "obs_diff": 19,
+   "real_exact": 19,
+   "perm_exact": 0,
+   "p": 0.0001,
+   "pass": true
+  },
+  "P_B_signflip": {
+   "n_targets": 9,
+   "obs": 19.0,
+   "per_target": {
+    "CALIBRATION": 4,
+    "CAPTURE": 3,
+    "CONFABULATION": 0,
+    "CONFIDENCE": 3,
+    "CONSTRUCTION": 7,
+    "FAMILIARITY": 1,
+    "RESOLUTION": 0,
+    "SATURATION": 1,
+    "UNCERTAINTY": 0
+   },
+   "p": 0.01562
+  },
+  "mechanism": {
+   "geometric_hits": [
+    "CONSTRUCTION",
+    "FAMILIARITY",
+    "RESOLUTION"
+   ],
+   "behavioral_hits": [
+    "CONSTRUCTION"
+   ],
+   "behavioral_min": 5,
+   "subset_ok": true,
+   "anomalies": []
+  },
+  "S1_heldout_concordance": {
+   "real": {
+    "DIVERGENCE": {
+     "n": 8,
+     "modal": "CALIBRATION",
+     "e8r2_modal": "CONFIDENCE",
+     "concord": 2
+    },
+    "NOVELTY": {
+     "n": 8,
+     "modal": "CALIBRATION",
+     "e8r2_modal": "CONFABULATION",
+     "concord": 0
+    },
+    "RETRIEVAL": {
+     "n": 8,
+     "modal": "CALIBRATION",
+     "e8r2_modal": "FAMILIARITY",
+     "concord": 1
+    },
+    "TENSION": {
+     "n": 8,
+     "modal": "CONFIDENCE",
+     "e8r2_modal": "CALIBRATION",
+     "concord": 1
+    }
+   },
+   "perm": {
+    "DIVERGENCE": {
+     "n": 8,
+     "modal": "CALIBRATION",
+     "e8r2_modal": "CONFIDENCE",
+     "concord": 3
+    },
+    "NOVELTY": {
+     "n": 8,
+     "modal": "CONSTRUCTION",
+     "e8r2_modal": "CONFABULATION",
+     "concord": 0
+    },
+    "RETRIEVAL": {
+     "n": 8,
+     "modal": "CALIBRATION",
+     "e8r2_modal": "FAMILIARITY",
+     "concord": 0
+    },
+    "TENSION": {
+     "n": 8,
+     "modal": "CALIBRATION",
+     "e8r2_modal": "CALIBRATION",
+     "concord": 5
+    }
+   }
+  },
+  "S2_claims": {
+   "real": {
+    "n": 104,
+    "none_top_rate": 0.0
+   },
+   "perm": {
+    "n": 104,
+    "none_top_rate": 0.0
+   }
+  },
+  "S_titr": {
+   "1.5": {
+    "n": 26,
+    "claim_rate": 0.1538,
+    "exact_rate": 0.0,
+    "invalid": 22
+   }
+  }
+ },
+ "cond_errors": {},
+ "fork": "FJ1 \u2014 the rung lands in BOTTLENECK FORM: wing identity survives the 14D dictionary-register round trip into the locked readout's naming (codebook-capacity claim, NOT independent authorship); L3 licensed in bottleneck form"
+}
