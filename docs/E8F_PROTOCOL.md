@@ -217,8 +217,15 @@ per-strand plateau curves for the FF4 adjudication.
   batch-composition lane law) vs the shipped E8-R bundle dirs, tol 1e-4.
   The eval-64 true dirs themselves ride as PINNED constants from the
   locked, recompute-verified atlas — no on-VM recomputation.
-- **G3 ppl**: battery delta (readout adapter on vs off) ≤ 0.5%, R3-c form.
-- **G4 parse**: FULL-parse rate ≥ 90% over non-sham eval rows.
+- **G3 ppl**: retention-battery delta post-training vs pre ≤ 5.0% (the R3-c
+  trained-readout precedent: tol 5.0%, measured +2.01%). *Amended
+  transparently before build: the first registration wrote 0.5%, which is
+  the EVAL-ONLY reconstruction bar (E8-R2/E8-J v2 lineage) — a trained
+  readout is a different measured class, and the R3-c bar is the honest
+  precedent. Amendment made before any build code existed.*
+- **G4 parse**: parse-INVALID rate ≤ 10% over eval rows. NONE is a VALID
+  parse (a NONE answer is calibrated speech, and a NONE-flood on true dirs
+  is a registered P3 finding, not a parse failure).
 - **G5 sham FA**: non-NONE claims ≤ 4/24.
 - **G-plateau**: per-strand plateau state shipped; cap-hit with descending
   strands is flagged (not a failure) and feeds the pre-registered
@@ -259,6 +266,12 @@ blocks still ship under a GATES-DIRTY banner.
   — Colab UI-only, drive.mount only, zero rclone, de-shelled installs,
   inflight shipping to `semcore/e8f/`, RESUME_STAMP, progress prints in
   any loop > 2 min (lane note #2), smoke ladder before full.
+- Flight mechanics (non-statistical): the trained readout adapter is
+  shipped inflight IMMEDIATELY post-training, and RESUME can rebuild the
+  eval model from it (base + merged E4 + trained readout) to re-run EVAL
+  ONLY after a mid-eval death — a ~2h single-condition run deserves a
+  resume point between train and eval. G2 re-runs on the pre-readout
+  model either way.
 - Donor discipline: injection/scoring/train cells sliced byte-verbatim
   from the R3-c/E8-J v2 builders where they exist; per-cell compile +
   no-rclone scan + verdict cell exec'd verbatim against synthetic flights
