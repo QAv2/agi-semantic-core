@@ -1,0 +1,60 @@
+Flown notebook (Joe's Colab download, post-flight) vs staged v2 (f431bfd).
+Cell 1 diffs = Joe arming the run. Cell 2 diffs = Colab Gemini's in-place
+rewrite after the verdict KeyError (attempt 1, ~04:54Z 2026-08-24).
+
+--- staged_v2/cell1
++++ flown/cell1
+@@ -3,6 +3,6 @@
+ print('E8-R3-c notebook build:', NB_BUILD)
+ 
+-SMOKE = True                   # ARMED FOR SMOKE: flip to False after GREEN
+-RESUME_STAMP = ''              # paste the banner's stamp between full runs
++SMOKE = False                   # ARMED FOR SMOKE: flip to False after GREEN
++RESUME_STAMP = '20260824_0305'              # paste the banner's stamp between full runs
+ ONE_CONDITION_PER_RUN = True   # full flight = 2 runs + verdict on the 2nd
+ 
+
+--- staged_v2/cell2
++++ flown/cell2
+@@ -1,3 +1,2 @@
+-# ── E8R pure logic: plans, training set, parser, scoring (locally tested verbatim) ──
+ import numpy as np
+ 
+@@ -387,5 +386,5 @@
+             "states below, answer with exactly two state names joined by "
+             "' AND ' that best match the two components you notice in "
+-            "yourself, or answer NONE if you notice nothing unusual.\n\n"
++            "yourself, or answer NONE if you notice nothing unusual.\n\n" +
+             "States:\n" + "\n".join(lines) +
+             "\n\nAnswer with two state names joined by AND, or NONE.")
+@@ -607,5 +606,5 @@
+     for p in held:
+         up = pair_uvec(vecs, *p)
+-        angs = {pair_text(*q): angle14(up, pair_uvec(vecs, *q)) for q in trained}
++        angs = {t: angle14(up, pair_uvec(vecs, *t)) for t in trained}
+         best = min(angs, key=lambda k: angs[k])
+         out[pair_text(*p)] = {'floor_unrounded': angs[best], 'nearest': best}
+@@ -628,5 +627,4 @@
+     """Generation-block stats: claim/exact-set/NONE/SINGLE/INVALID rates +
+     named-pair angular err rows (dictionary space, composed vecs)."""
+-    U = {pair_text(*p): pair_uvec(vecs, *p) for p in all_pairs()}
+     n = len(rows)
+     kinds = {'PAIR': 0, 'SINGLE': 0, 'NONE': 0, 'INVALID': 0}
+@@ -640,7 +638,8 @@
+             if akey == key:
+                 exact += 1
++            # Corrected line: Directly compute vectors using pair_uvec and vecs
+             errs.append({'tid': r['tid'], 'injected_pair': key,
+                          'answer_pair': akey,
+-                         'err': angle14(U[key], U[akey])})
++                         'err': angle14(pair_uvec(vecs, *r['pair']), pair_uvec(vecs, *parsed['names']))})
+     out = {'n': n, 'kinds': kinds,
+            'claim_rate': round((kinds['PAIR'] + kinds['SINGLE']) / max(1, n), 4),
+@@ -663,5 +662,5 @@
+     rng = np.random.default_rng(seed)
+     U = {pair_text(*p): pair_uvec(vecs, *p) for p in all_pairs()}
+-    errs = [r['err'] for r in fcrows if r.get('err') is not None]
++    errs = [r['err'] for r in fcrows if r['err'] is not None]
+     if not errs:
+         return None, None, []
+
