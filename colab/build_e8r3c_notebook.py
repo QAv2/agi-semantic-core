@@ -964,10 +964,17 @@ def fly_condition(cond):
         bundle['gen_rows'] = gen_rows
         print(f'-- {cond}/forced choice ({len(FC_ROWS_ALL)} rows x '
               f'{len(PAIR_SCORED)} candidates) --')
-        bundle['fc_rows'] = [score_pair_trial(model, layer_mods,
-                                              dirs[TRAIN_LAYER],
-                                              mu[TRAIN_LAYER], t, cond)
-                             for t in FC_ROWS_ALL]
+        fc_rows, fc_t0 = [], time.time()
+        for fi, t in enumerate(FC_ROWS_ALL, 1):
+            fc_rows.append(score_pair_trial(model, layer_mods,
+                                            dirs[TRAIN_LAYER],
+                                            mu[TRAIN_LAYER], t, cond))
+            if fi % 30 == 0 or fi == len(FC_ROWS_ALL):
+                el = time.time() - fc_t0
+                eta = el / fi * (len(FC_ROWS_ALL) - fi)
+                print(f'    {cond} fc {fi}/{len(FC_ROWS_ALL)}, '
+                      f'{el:.0f}s elapsed, ~{eta:.0f}s left')
+        bundle['fc_rows'] = fc_rows
         bundle['ppl_post'] = retention_ppl(model)
         model.save_pretrained(str(OUT / f'readout_{cond}'))
         ship(OUT / f'readout_{cond}', f'{INFLIGHT}/readout_{cond}')
