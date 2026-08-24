@@ -281,6 +281,14 @@ ems2 = ems + [{"single": 1.88, "pair": 1.95, "sham": 0.97}]
 check("plateau converges when all strands flatten",
       L.per_strand_plateau(ems2, 2, 0.05))
 check("plateau needs min epochs", not L.per_strand_plateau(ems2[:1], 2, 0.05))
+check("plateau at SMOKE constants: one epoch returns False, no throw "
+      "(smoke-1 regression)",
+      L.per_strand_plateau([{"single": 2.0, "pair": 2.0, "sham": 2.0}],
+                           1, 0.05) is False)
+check("plateau at SMOKE constants: two flat epochs converge",
+      L.per_strand_plateau([{"single": 2.0, "pair": 2.0, "sham": 2.0},
+                            {"single": 1.99, "pair": 1.99, "sham": 1.99}],
+                           1, 0.05))
 check("binom tail sanity",
       abs(L.binom_tail_r3(1, 1, 0.5) - 0.5) < 1e-12
       and L.binom_tail_r3(0, 10, 0.1) == 1.0)
@@ -322,6 +330,9 @@ train = cells[3]
 check("train cell: answer-sliced head + checkpoint assert",
       "answer_slice(plen, ids.shape[1])" in train
       and "gradient checkpointing did not engage" in train)
+check("train cell: mode constants pinned (both modes locally exercised)",
+      "EPOCHS_CAP = 1 if SMOKE else 6" in train
+      and "MIN_EPOCHS_STRAND = 1 if SMOKE else 2" in train)
 iw = train.index("with Injector(layer_mods, inj[1], vec, plen - 1) as injh:")
 bw = train.index("scaler.scale(loss / ACCUM).backward()", iw)
 hc = train.index("hook_calls += injh.calls", iw)

@@ -260,8 +260,8 @@ def per_strand_plateau(strand_epoch_means, min_epochs=2, rel=0.05):
                if strand_epoch_means[-1][s] is not None]
     for s in strands:
         seq = [em.get(s) for em in strand_epoch_means if em.get(s) is not None]
-        if len(seq) < min_epochs:
-            return False
+        if len(seq) < max(2, min_epochs):   # a comparison needs two epochs
+            return False                    # (smoke-1: min_epochs=1 crashed here)
         prev, cur = seq[-2], seq[-1]
         if prev <= 0:
             continue
