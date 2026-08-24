@@ -52,9 +52,15 @@ for line in ("pred_perm = {c: pred_real[DER[c]] for c in CHOICE_SET}",
              "dirs_stability(wing_recomp, SRC_REAL['dirs']",
              "gate_g1b(retention_ppl(m), SRC_REAL['ppl_post'])",
              "stage_a_verdict(list(ANCH), VEC",
-             "if atlas['gb']['pass'] or SMOKE:"):
+             "if atlas['gb']['pass'] or SMOKE:",
+             # v2 smoke-1 pin: gated wing dirs in the flight-of-record call
+             # shape (own 13-text pooled call), both models
+             "_wb = compute_dirs(m, [14], list(CHOICE_SET))",
+             "_wi = compute_dirs(m, [14, 20], list(CHOICE_SET))"):
     assert line in stage_cell, f"E8-J stage cell drifted: missing {line!r}"
-print("E8-J stage cell carries the flight sequence — pinned")
+assert "compute_dirs(m, [14, 20], names_all)" not in stage_cell, \
+    "mixed-batch wing computation regressed (smoke-1 lesson)"
+print("E8-J stage cell carries the flight sequence — pinned (v2 call shapes)")
 
 # ── tiny model + stub tokenizer ──────────────────────────────────────────────
 torch.manual_seed(0)
