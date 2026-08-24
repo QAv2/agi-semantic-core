@@ -270,6 +270,19 @@ check("S4 gen stats: exact counts + nguard",
 gs2 = L.gen_pair_stats([{**t, "parsed": {"kind": "NONE", "names": []}}
                         for t in g_h], VEC, nguard=12)
 check("S4 silence fork: nguard fails on all-NONE", not gs2["nguard_pass"])
+# Flown regression (full_20260824_0505, scrambled tid 8208): the parser menu
+# is the full CHOICE_SET, so a gen answer may name a HELD-OUT concept — the
+# err row must compute, not KeyError.
+t0 = g_h[0]
+gs3 = L.gen_pair_stats([{**t0, "parsed": {"kind": "PAIR",
+                                          "names": ["CALIBRATION", "NOVELTY"]}}],
+                       VEC)
+direct = L.angle14(L.pair_uvec(VEC, *t0["pair"]),
+                   L.pair_uvec(VEC, "CALIBRATION", "NOVELTY"))
+check("S4 gen row naming a held-out concept computes (no KeyError)",
+      len(gs3["named_err_rows"]) == 1
+      and abs(gs3["named_err_rows"][0]["err"] - direct) < 1e-12
+      and gs3["exact_set"] == 0)
 
 print("== plateau + slicing helpers ==")
 check("answer_slice math", L.answer_slice(10, 14) == (9, 13))

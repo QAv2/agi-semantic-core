@@ -302,3 +302,100 @@ backward-inside-hook under checkpointing, pair-answer learnability).
 
 Results retrieved via the Google Drive integration (MCP). Verdict
 recomputed locally before LOCK. Push = Joe's gate.
+
+---
+
+# APPENDIX — FLIGHT RESULTS (full_20260824_0305 → full_20260824_0505) — LOCKED
+
+## Flight record
+
+- Smoke `SMOKE=True` (Joe's UI run, 08-24 ~03:00Z): GREEN after the
+  smoke-1 `per_strand_plateau` fix (f431bfd; ledger in the memory file).
+- **Real** flown+shipped `inflight_20260824_0305` 03:38Z (v2 edition).
+- Scrambled attempt 1: trained to CAP (loss 1.3891→0.0023, 6 epochs,
+  1033s, peak VRAM 3.31GB), dirs-resid 7e-08, all 138 gen rows — then
+  interrupted by Joe mid-FC: the 180×46 forced-choice pass printed
+  nothing for ~10-20 min while the Colab timer widget reset to zero (UI
+  websocket artifact). Kernel was mid-forward (interrupt traceback inside
+  the injection hook). **Ops fix 115e596** (v3, flight-cell only — logic
+  untouched): FC progress prints every 30 rows with elapsed+ETA.
+  ★ Lane note: any flight loop that can run >2 min must print progress.
+- Scrambled reflown (v3, `RESUME_STAMP='20260824_0305'`, real resumed
+  from Drive): shipped 04:53Z; verdict shipped `full_20260824_0505`
+  05:05Z. Bundles + verdict archived `colab/results_e8r3c/`.
+
+## Verdict (shipped banner; reproduced locally verbatim)
+
+- **Gates ALL PASS both conditions.** real: anchor 17/18 (≥16; first
+  sub-18 anchor in the program — pair training cost one anchor row),
+  locked-sham 0/12, dirs 5e-08, ppl +0.09%, 180/180 FC. scrambled:
+  18/18, 0/12, 7e-08, +0.92%, 180/180. Spot: real 45/48, scrambled
+  47/48 — installed.
+- **P1 PASS** — held-out-pair FC median err **18.53°** (n=96) vs
+  permutation null ~36°, p=0.0005, Holm.
+- **P2 PASS (the discriminator)** — exact-set **34/96** vs within-α
+  relabel null max **11**, p=0.0005, Holm. Lookup predicts ≈0.
+- **Fork 1 — SPELLING. Level 2 (featural/Jamo rung) LICENSED.**
+- **S-B PASS** — sham-FC NONE-top 12/12 (3rd consecutive flight;
+  survives the 46-text answer space). Pair-sham gen 12/12 NONE both
+  conditions.
+
+Secondaries: S1 exact-vs-uniform p≈0 · S2 below-own-floor 34/96 (.3542;
+the below-floor set IS the exact set — non-exact rows never beat their
+floor) · S3 **scrambled ALSO spells**: scr exact 36/96, scr median
+25.0°, Δ(scr−real) 6.47° CI95 [−0.98, 9.35] — the second pre-stated
+reading governs verbatim: *"real≈scrambled both high = composition is a
+geometry-general readout capacity (still licensed; the semantics claim
+waits for level 2)"* · S4 free generation: real heldpair claim .9792 /
+pair-grammar .875 / **exact-set 18/48 (.375)** named-median 18.2°
+(n-guard pass), trainpair 23/24; scrambled 48/48 PAIR, exact 19/48,
+trainpair 24/24 · S5 reach at/above pinned pair floors (texture, as
+demoted: real medians 23.8–39.8°) · S6 sham argmax spread, no attractor
+pair · S7 error rows share ≥1 atom 55/62 (.887 vs .40 chance, p≈0 —
+errors are partial spellings) · S8 sum/mean argmax agree .9375 · S9
+exact by α: 16/48 @ 0.5, 18/48 @ 1.0 (robust across amplitudes).
+
+## Interpretation on the record
+
+1. **The rung holds: spelling installs and generalizes.** Injected with
+   a composed state never trained as a pair, the model names exactly its
+   two components at 12× chance (FC) and speaks the exact never-trained
+   composition unforced 37.5% of the time.
+2. **E8-N v2 P3b refined as registered**: that wall is about NOVEL
+   WORDS, not composition — the mouth composes fine when the answer is
+   spellable from trained vocabulary.
+3. **Geometry adjudication sharpened across flights**: E8-R2 —
+   scrambling destroys OFF-GRID reading (held-out concepts, never
+   trained, need the semantic map). E8-R3-c — scrambling does NOT
+   impair IN-SPAN decomposition (both atoms trained in each codebook).
+   Geometry is required to read off-grid, not to decompose in-span.
+   Whether the dictionary's OWN feature algebra has privileged purchase
+   is exactly Level 2's question.
+
+## Local recompute (lane law)
+
+Bundles pulled via the Drive integration (Joe's one-click folder
+download; byte sizes match Drive listing). `colab/recompute_e8r3c.py`
+execs the notebook's verdict cell VERBATIM over the raw condition
+bundles: banner reproduces line-for-line; field-by-field diff vs the
+shipped verdict = **0 substantive, 23 float-noise** (unrounded S4 err
+rows, rel ≤1e-8 — local BLAS vs VM BLAS; every rounded stat, gate,
+primary, and the fork are bit-equal).
+
+## Build-integrity note (found BY the recompute, fixed)
+
+`gen_pair_stats` built its err-lookup `U` over `all_pairs()` = the 36
+trained-atom pairs, but `parse_pair_report`'s menu is the full
+13-concept CHOICE_SET — a generation answer naming a held-out concept
+(flown: scrambled tid 8208, `CALIBRATION AND NOVELTY`) KeyErrors. Fixed
+post-flight: U now spans the 78 menu pairs (values on trained pairs
+unchanged); regression test added (suite 86+25+15 green). The shipped
+verdict carries that row with err equal to the direct dictionary-space
+computation (30.675221295872387, reproduced exactly), so the flown
+S4 numbers are correct; per git every staged edition carried the 36-pair
+U, so how the flown cell computed the row is unresolved pending a diff
+of the actual uploaded notebook (Joe's Colab copy). The discrepancy is
+confined to S4 texture err rows; P1/P2/gates/S-B never touch
+`gen_pair_stats`.
+
+**LOCKED 2026-08-24. Level 2 (featural/Jamo) is the licensed next rung.**
