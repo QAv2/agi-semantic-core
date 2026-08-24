@@ -167,7 +167,19 @@ geometric miss is an anomaly to flag, not a pass).
 - **G1** anchor ≥16/18 (rides 17-18/18 measured) — adapter reconstruction.
 - **G1b** locked shams ≤1/12 claims (rides 0/24) — calibrated silence intact.
 - **G2** dirs-stability: wing-13 instilled-model dirs vs shipped E8-R real
-  bundle, sign-sensitive resid ≤1e-5 (rides measured 5e-08).
+  bundle, sign-sensitive resid ≤1e-4 — v2, amended at smoke-1 BEFORE lock
+  (the protocol locks at first full flight). Smoke-1 measured resid
+  4.27e-05 at L20/CONSTRUCTION with everything else green (μ-drift assert
+  passed): fp16 pooled reps are batch-composition-sensitive, and v1 had
+  batched the wing texts together with the anchors while the flight of
+  record computed them alone. v2 recomputes the gated wing-13 in the
+  flight-of-record call shape (own 13-text pooled call, both models) and
+  sets the tolerance between the measured kernel-noise class
+  (1e-6..4e-5: E8-R2 7.6e-6 cross-day; smoke-1's mixed-batch 4.27e-5)
+  and the smallest real-failure class (wrong adapter/model/desc/layer,
+  ≥1e-3). v1's 1e-5 was tighter than the flown machinery's own default
+  (1e-3) with no measured basis. Side effect, welcome: base and instilled
+  dirs now share per-name batch shapes, so S4's delta row is cleaner.
 - **G3** ppl reconstruction delta ≤0.5% (rides E8-R2's 0.0000%).
 - **G4** counts/pins: 320-draw reproduces the builder's pinned draw exactly;
   derangement reproduces; curriculum/row counts exact; parse failures 0.

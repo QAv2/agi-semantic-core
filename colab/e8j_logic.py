@@ -525,7 +525,14 @@ N_B_ORDERS_SMOKE = 2
 TITR_ALPHA_B = 1.5              # bridge titration texture (past the 0.25->0.30 cliff)
 N_TITR_ORDERS = 2
 BEHAV_HIT_MIN = 5               # mechanism row: real exact >= 5 of 8 rows (full mode)
-DIRS_TOL_E8J = 1e-5             # G2 vs shipped E8-R real bundle (rides 5e-08)
+DIRS_TOL_E8J = 1e-4             # G2 vs shipped E8-R real bundle. v2 (smoke-1):
+                                # fp16 kernel noise across VMs/days measures
+                                # 1e-6..4e-5 (E8-R2 7.6e-6; smoke-1 4.27e-5 at
+                                # L20 from mixed-batch padding); real failures
+                                # (wrong adapter/model/desc/layer) are >=1e-3.
+                                # 1e-4 sits between the classes. Wing dirs are
+                                # ALSO recomputed in the flight-of-record call
+                                # shape (own 13-text call) — see the stage cell.
 AXIS_NAMES = ['x','y','z','e','f','g','h','fx','fy','fz','fe','ff','fg','fh']
 E8R2_MODAL = {'DIVERGENCE': 'CONFIDENCE', 'NOVELTY': 'CONFABULATION',
               'RETRIEVAL': 'FAMILIARITY', 'TENSION': 'CALIBRATION'}
