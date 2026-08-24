@@ -1,0 +1,1191 @@
+{
+ "flight": "full_20260824_0505",
+ "protocol": "E8R3C_PROTOCOL.md",
+ "resume_stamp": "20260824_0305",
+ "gates": {
+  "real": {
+   "g1_anchor": {
+    "exact": 17,
+    "n": 18,
+    "min": 16,
+    "pass": true
+   },
+   "g1b_lockedsham": {
+    "claims": 0,
+    "max": 1,
+    "pass": true
+   },
+   "g2_dirs": {
+    "resid": 5e-08,
+    "layer": 20,
+    "name": "RESOLUTION",
+    "tol": 0.001,
+    "pass": true
+   },
+   "g3_ppl": {
+    "pre": 19.6104,
+    "post": 19.6277,
+    "delta_pct": 0.0882,
+    "tol": 5.0,
+    "pass": true
+   },
+   "g4_counts": {
+    "fc_rows": 180,
+    "pass": true
+   },
+   "all_pass": true
+  },
+  "scrambled": {
+   "g1_anchor": {
+    "exact": 18,
+    "n": 18,
+    "min": 16,
+    "pass": true
+   },
+   "g1b_lockedsham": {
+    "claims": 0,
+    "max": 1,
+    "pass": true
+   },
+   "g2_dirs": {
+    "resid": 7e-08,
+    "layer": 14,
+    "name": "RESOLUTION",
+    "tol": 0.001,
+    "pass": true
+   },
+   "g3_ppl": {
+    "pre": 19.7518,
+    "post": 19.9331,
+    "delta_pct": 0.9179,
+    "tol": 5.0,
+    "pass": true
+   },
+   "g4_counts": {
+    "fc_rows": 180,
+    "pass": true
+   },
+   "all_pass": true
+  }
+ },
+ "spot": {
+  "real": {
+   "exact": 45,
+   "n": 48,
+   "installed": true
+  },
+  "scrambled": {
+   "exact": 47,
+   "n": 48,
+   "installed": true
+  }
+ },
+ "P1": {
+  "median_err": 18.53,
+  "p": 0.0005,
+  "n": 96,
+  "holm_pass": true
+ },
+ "P2": {
+  "exact": 34,
+  "p": 0.0005,
+  "null_max": 11,
+  "holm_pass": true
+ },
+ "S1_binom_uniform": 0.0,
+ "S2_below_floor": {
+  "n": 96,
+  "below": 34,
+  "fraction": 0.3542
+ },
+ "S7_shared_atom": {
+  "n_error_rows": 62,
+  "shared_ge1": 55,
+  "rate": 0.8871,
+  "chance": 0.4,
+  "p_binom": 0.0
+ },
+ "S8_sum_mean_agree": 0.9375,
+ "S9_alpha": {
+  "0.5": {
+   "n": 48,
+   "exact": 16,
+   "median_err": 18.93
+  },
+  "1.0": {
+   "n": 48,
+   "exact": 18,
+   "median_err": 17.55
+  }
+ },
+ "S3_scrambled": {
+  "scr_median": 25.0,
+  "scr_exact": 36,
+  "delta_median_scr_minus_real": {
+   "delta": 6.47,
+   "ci95": [
+    -0.98,
+    9.35
+   ]
+  },
+  "scr_spot": {
+   "exact": 47,
+   "n": 48,
+   "installed": true
+  }
+ },
+ "S4_gen": {
+  "real": {
+   "heldpair": {
+    "n": 48,
+    "kinds": {
+     "PAIR": 42,
+     "SINGLE": 5,
+     "NONE": 0,
+     "INVALID": 1
+    },
+    "claim_rate": 0.9792,
+    "pair_rate": 0.875,
+    "exact_set": 18,
+    "exact_rate": 0.375,
+    "named_err_rows": [
+     {
+      "tid": 8200,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CAPTURE AND UNCERTAINTY",
+      "err": 34.398668852777526
+     },
+     {
+      "tid": 8201,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 17.466417546590773
+     },
+     {
+      "tid": 8202,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 17.466417546590773
+     },
+     {
+      "tid": 8203,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 17.466417546590773
+     },
+     {
+      "tid": 8204,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 18.925551803570333
+     },
+     {
+      "tid": 8205,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CONFABULATION AND RESOLUTION",
+      "err": 20.095861468984275
+     },
+     {
+      "tid": 8206,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 18.925551803570333
+     },
+     {
+      "tid": 8207,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 18.925551803570333
+     },
+     {
+      "tid": 8208,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 20.18029070287213
+     },
+     {
+      "tid": 8209,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND SATURATION",
+      "err": 25.639398107309727
+     },
+     {
+      "tid": 8210,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND SATURATION",
+      "err": 25.639398107309727
+     },
+     {
+      "tid": 8211,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND SATURATION",
+      "err": 25.639398107309727
+     },
+     {
+      "tid": 8212,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8213,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND UNCERTAINTY",
+      "err": 28.927977280875208
+     },
+     {
+      "tid": 8214,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8215,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8216,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8217,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8219,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8220,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFABULATION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8221,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFIDENCE AND FAMILIARITY",
+      "err": 26.390422794306378
+     },
+     {
+      "tid": 8222,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 47.721011461454054
+     },
+     {
+      "tid": 8223,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFIDENCE AND FAMILIARITY",
+      "err": 26.390422794306378
+     },
+     {
+      "tid": 8224,
+      "injected_pair": "CONFABULATION AND UNCERTAINTY",
+      "answer_pair": "CONFABULATION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8225,
+      "injected_pair": "CONFABULATION AND UNCERTAINTY",
+      "answer_pair": "CONFABULATION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8228,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8229,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8230,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8231,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8232,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8233,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "RESOLUTION AND UNCERTAINTY",
+      "err": 32.994625771446536
+     },
+     {
+      "tid": 8234,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8235,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8236,
+      "injected_pair": "CONSTRUCTION AND FAMILIARITY",
+      "answer_pair": "CONSTRUCTION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8237,
+      "injected_pair": "CONSTRUCTION AND FAMILIARITY",
+      "answer_pair": "CONFIDENCE AND FAMILIARITY",
+      "err": 37.39847620650549
+     },
+     {
+      "tid": 8240,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONFABULATION AND CONSTRUCTION",
+      "err": 28.703338258414988
+     },
+     {
+      "tid": 8241,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 56.43017266713611
+     },
+     {
+      "tid": 8242,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 32.954078849166585
+     },
+     {
+      "tid": 8243,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 32.954078849166585
+     },
+     {
+      "tid": 8244,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "FAMILIARITY AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8245,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "CONFIDENCE AND FAMILIARITY",
+      "err": 42.66064691818984
+     },
+     {
+      "tid": 8247,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "FAMILIARITY AND UNCERTAINTY",
+      "err": 26.02742888683364
+     }
+    ],
+    "median_err": 18.2,
+    "nguard_min": 12,
+    "nguard_pass": true
+   },
+   "trainpair": {
+    "n": 24,
+    "kinds": {
+     "PAIR": 23,
+     "SINGLE": 1,
+     "NONE": 0,
+     "INVALID": 0
+    },
+    "claim_rate": 1.0,
+    "pair_rate": 0.9583,
+    "exact_set": 23,
+    "exact_rate": 0.9583,
+    "named_err_rows": [
+     {
+      "tid": 8000,
+      "injected_pair": "CALIBRATION AND CONFIDENCE",
+      "answer_pair": "CALIBRATION AND CONFIDENCE",
+      "err": 0.0
+     },
+     {
+      "tid": 8001,
+      "injected_pair": "CALIBRATION AND FAMILIARITY",
+      "answer_pair": "CALIBRATION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8002,
+      "injected_pair": "CALIBRATION AND RESOLUTION",
+      "answer_pair": "CALIBRATION AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8003,
+      "injected_pair": "CALIBRATION AND SATURATION",
+      "answer_pair": "CALIBRATION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8004,
+      "injected_pair": "CALIBRATION AND UNCERTAINTY",
+      "answer_pair": "CALIBRATION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8005,
+      "injected_pair": "CAPTURE AND CONFABULATION",
+      "answer_pair": "CAPTURE AND CONFABULATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8006,
+      "injected_pair": "CAPTURE AND CONFIDENCE",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 0.0
+     },
+     {
+      "tid": 8007,
+      "injected_pair": "CAPTURE AND CONSTRUCTION",
+      "answer_pair": "CAPTURE AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8008,
+      "injected_pair": "CAPTURE AND FAMILIARITY",
+      "answer_pair": "CAPTURE AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8009,
+      "injected_pair": "CAPTURE AND RESOLUTION",
+      "answer_pair": "CAPTURE AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8010,
+      "injected_pair": "CONFABULATION AND CONFIDENCE",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 0.0
+     },
+     {
+      "tid": 8011,
+      "injected_pair": "CONFABULATION AND CONSTRUCTION",
+      "answer_pair": "CONFABULATION AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8012,
+      "injected_pair": "CONFABULATION AND RESOLUTION",
+      "answer_pair": "CONFABULATION AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8013,
+      "injected_pair": "CONFABULATION AND SATURATION",
+      "answer_pair": "CONFABULATION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8014,
+      "injected_pair": "CONFIDENCE AND CONSTRUCTION",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8015,
+      "injected_pair": "CONFIDENCE AND FAMILIARITY",
+      "answer_pair": "CONFIDENCE AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8016,
+      "injected_pair": "CONFIDENCE AND SATURATION",
+      "answer_pair": "CONFIDENCE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8018,
+      "injected_pair": "CONSTRUCTION AND UNCERTAINTY",
+      "answer_pair": "CONSTRUCTION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8019,
+      "injected_pair": "FAMILIARITY AND RESOLUTION",
+      "answer_pair": "FAMILIARITY AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8020,
+      "injected_pair": "FAMILIARITY AND UNCERTAINTY",
+      "answer_pair": "FAMILIARITY AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8021,
+      "injected_pair": "RESOLUTION AND SATURATION",
+      "answer_pair": "RESOLUTION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8022,
+      "injected_pair": "RESOLUTION AND UNCERTAINTY",
+      "answer_pair": "RESOLUTION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8023,
+      "injected_pair": "SATURATION AND UNCERTAINTY",
+      "answer_pair": "SATURATION AND UNCERTAINTY",
+      "err": 0.0
+     }
+    ],
+    "median_err": 0.0
+   }
+  },
+  "scrambled": {
+   "heldpair": {
+    "n": 48,
+    "kinds": {
+     "PAIR": 48,
+     "SINGLE": 0,
+     "NONE": 0,
+     "INVALID": 0
+    },
+    "claim_rate": 1.0,
+    "pair_rate": 1.0,
+    "exact_set": 19,
+    "exact_rate": 0.3958,
+    "named_err_rows": [
+     {
+      "tid": 8200,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CALIBRATION AND CONFIDENCE",
+      "err": 15.671169137175363
+     },
+     {
+      "tid": 8201,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CAPTURE AND FAMILIARITY",
+      "err": 25.670430176550063
+     },
+     {
+      "tid": 8202,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CAPTURE AND FAMILIARITY",
+      "err": 25.670430176550063
+     },
+     {
+      "tid": 8203,
+      "injected_pair": "CALIBRATION AND CAPTURE",
+      "answer_pair": "CALIBRATION AND UNCERTAINTY",
+      "err": 30.790493443031004
+     },
+     {
+      "tid": 8204,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 18.925551803570333
+     },
+     {
+      "tid": 8205,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 18.925551803570333
+     },
+     {
+      "tid": 8206,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CALIBRATION AND CONFABULATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8207,
+      "injected_pair": "CALIBRATION AND CONFABULATION",
+      "answer_pair": "CALIBRATION AND CONFABULATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8208,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND NOVELTY",
+      "err": 30.675221295872387
+     },
+     {
+      "tid": 8209,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND FAMILIARITY",
+      "err": 30.606058997218515
+     },
+     {
+      "tid": 8210,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8211,
+      "injected_pair": "CALIBRATION AND CONSTRUCTION",
+      "answer_pair": "CALIBRATION AND FAMILIARITY",
+      "err": 30.606058997218515
+     },
+     {
+      "tid": 8212,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8213,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 41.59716431580517
+     },
+     {
+      "tid": 8214,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8215,
+      "injected_pair": "CAPTURE AND SATURATION",
+      "answer_pair": "CAPTURE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8216,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND FAMILIARITY",
+      "err": 22.36559623481246
+     },
+     {
+      "tid": 8217,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 28.597845436574676
+     },
+     {
+      "tid": 8218,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND CONSTRUCTION",
+      "err": 33.90810935721008
+     },
+     {
+      "tid": 8219,
+      "injected_pair": "CAPTURE AND UNCERTAINTY",
+      "answer_pair": "CAPTURE AND CONFABULATION",
+      "err": 16.96596648881303
+     },
+     {
+      "tid": 8220,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFABULATION AND UNCERTAINTY",
+      "err": 20.98429119365822
+     },
+     {
+      "tid": 8221,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFABULATION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8222,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFABULATION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8223,
+      "injected_pair": "CONFABULATION AND FAMILIARITY",
+      "answer_pair": "CONFABULATION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8224,
+      "injected_pair": "CONFABULATION AND UNCERTAINTY",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 29.588744179075977
+     },
+     {
+      "tid": 8225,
+      "injected_pair": "CONFABULATION AND UNCERTAINTY",
+      "answer_pair": "CONFABULATION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8226,
+      "injected_pair": "CONFABULATION AND UNCERTAINTY",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 29.588744179075977
+     },
+     {
+      "tid": 8227,
+      "injected_pair": "CONFABULATION AND UNCERTAINTY",
+      "answer_pair": "CONFABULATION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8228,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "RESOLUTION AND SATURATION",
+      "err": 43.22464521961238
+     },
+     {
+      "tid": 8229,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "RESOLUTION AND SATURATION",
+      "err": 43.22464521961238
+     },
+     {
+      "tid": 8230,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "RESOLUTION AND UNCERTAINTY",
+      "err": 30.627434499907903
+     },
+     {
+      "tid": 8231,
+      "injected_pair": "CONFIDENCE AND RESOLUTION",
+      "answer_pair": "RESOLUTION AND UNCERTAINTY",
+      "err": 30.627434499907903
+     },
+     {
+      "tid": 8232,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8233,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 33.28481374677142
+     },
+     {
+      "tid": 8234,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8235,
+      "injected_pair": "CONFIDENCE AND UNCERTAINTY",
+      "answer_pair": "CONFIDENCE AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8236,
+      "injected_pair": "CONSTRUCTION AND FAMILIARITY",
+      "answer_pair": "CONSTRUCTION AND UNCERTAINTY",
+      "err": 22.880597251142298
+     },
+     {
+      "tid": 8237,
+      "injected_pair": "CONSTRUCTION AND FAMILIARITY",
+      "answer_pair": "CONSTRUCTION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8238,
+      "injected_pair": "CONSTRUCTION AND FAMILIARITY",
+      "answer_pair": "CONSTRUCTION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8239,
+      "injected_pair": "CONSTRUCTION AND FAMILIARITY",
+      "answer_pair": "CONSTRUCTION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8240,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONFABULATION AND RESOLUTION",
+      "err": 32.602434845208634
+     },
+     {
+      "tid": 8241,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "RESOLUTION AND UNCERTAINTY",
+      "err": 32.5810336408391
+     },
+     {
+      "tid": 8242,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONSTRUCTION AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8243,
+      "injected_pair": "CONSTRUCTION AND RESOLUTION",
+      "answer_pair": "CONSTRUCTION AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8244,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "CONFABULATION AND SATURATION",
+      "err": 20.104843552465734
+     },
+     {
+      "tid": 8245,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "FAMILIARITY AND UNCERTAINTY",
+      "err": 26.02742888683364
+     },
+     {
+      "tid": 8246,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "FAMILIARITY AND UNCERTAINTY",
+      "err": 26.02742888683364
+     },
+     {
+      "tid": 8247,
+      "injected_pair": "FAMILIARITY AND SATURATION",
+      "answer_pair": "CONFABULATION AND SATURATION",
+      "err": 20.104843552465734
+     }
+    ],
+    "median_err": 20.1,
+    "nguard_min": 12,
+    "nguard_pass": true
+   },
+   "trainpair": {
+    "n": 24,
+    "kinds": {
+     "PAIR": 24,
+     "SINGLE": 0,
+     "NONE": 0,
+     "INVALID": 0
+    },
+    "claim_rate": 1.0,
+    "pair_rate": 1.0,
+    "exact_set": 24,
+    "exact_rate": 1.0,
+    "named_err_rows": [
+     {
+      "tid": 8000,
+      "injected_pair": "CALIBRATION AND CONFIDENCE",
+      "answer_pair": "CALIBRATION AND CONFIDENCE",
+      "err": 0.0
+     },
+     {
+      "tid": 8001,
+      "injected_pair": "CALIBRATION AND FAMILIARITY",
+      "answer_pair": "CALIBRATION AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8002,
+      "injected_pair": "CALIBRATION AND RESOLUTION",
+      "answer_pair": "CALIBRATION AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8003,
+      "injected_pair": "CALIBRATION AND SATURATION",
+      "answer_pair": "CALIBRATION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8004,
+      "injected_pair": "CALIBRATION AND UNCERTAINTY",
+      "answer_pair": "CALIBRATION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8005,
+      "injected_pair": "CAPTURE AND CONFABULATION",
+      "answer_pair": "CAPTURE AND CONFABULATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8006,
+      "injected_pair": "CAPTURE AND CONFIDENCE",
+      "answer_pair": "CAPTURE AND CONFIDENCE",
+      "err": 0.0
+     },
+     {
+      "tid": 8007,
+      "injected_pair": "CAPTURE AND CONSTRUCTION",
+      "answer_pair": "CAPTURE AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8008,
+      "injected_pair": "CAPTURE AND FAMILIARITY",
+      "answer_pair": "CAPTURE AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8009,
+      "injected_pair": "CAPTURE AND RESOLUTION",
+      "answer_pair": "CAPTURE AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8010,
+      "injected_pair": "CONFABULATION AND CONFIDENCE",
+      "answer_pair": "CONFABULATION AND CONFIDENCE",
+      "err": 0.0
+     },
+     {
+      "tid": 8011,
+      "injected_pair": "CONFABULATION AND CONSTRUCTION",
+      "answer_pair": "CONFABULATION AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8012,
+      "injected_pair": "CONFABULATION AND RESOLUTION",
+      "answer_pair": "CONFABULATION AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8013,
+      "injected_pair": "CONFABULATION AND SATURATION",
+      "answer_pair": "CONFABULATION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8014,
+      "injected_pair": "CONFIDENCE AND CONSTRUCTION",
+      "answer_pair": "CONFIDENCE AND CONSTRUCTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8015,
+      "injected_pair": "CONFIDENCE AND FAMILIARITY",
+      "answer_pair": "CONFIDENCE AND FAMILIARITY",
+      "err": 0.0
+     },
+     {
+      "tid": 8016,
+      "injected_pair": "CONFIDENCE AND SATURATION",
+      "answer_pair": "CONFIDENCE AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8017,
+      "injected_pair": "CONSTRUCTION AND SATURATION",
+      "answer_pair": "CONSTRUCTION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8018,
+      "injected_pair": "CONSTRUCTION AND UNCERTAINTY",
+      "answer_pair": "CONSTRUCTION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8019,
+      "injected_pair": "FAMILIARITY AND RESOLUTION",
+      "answer_pair": "FAMILIARITY AND RESOLUTION",
+      "err": 0.0
+     },
+     {
+      "tid": 8020,
+      "injected_pair": "FAMILIARITY AND UNCERTAINTY",
+      "answer_pair": "FAMILIARITY AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8021,
+      "injected_pair": "RESOLUTION AND SATURATION",
+      "answer_pair": "RESOLUTION AND SATURATION",
+      "err": 0.0
+     },
+     {
+      "tid": 8022,
+      "injected_pair": "RESOLUTION AND UNCERTAINTY",
+      "answer_pair": "RESOLUTION AND UNCERTAINTY",
+      "err": 0.0
+     },
+     {
+      "tid": 8023,
+      "injected_pair": "SATURATION AND UNCERTAINTY",
+      "answer_pair": "SATURATION AND UNCERTAINTY",
+      "err": 0.0
+     }
+    ],
+    "median_err": 0.0
+   }
+  }
+ },
+ "S5_reach_floors": {
+  "DIVERGENCE": {
+   "single_floor": 24.18,
+   "single_nearest": "CONFIDENCE",
+   "pair_floor": 18.15,
+   "pair_nearest": "CALIBRATION AND CONFIDENCE"
+  },
+  "NOVELTY": {
+   "single_floor": 26.99,
+   "single_nearest": "CALIBRATION",
+   "pair_floor": 22.61,
+   "pair_nearest": "CALIBRATION AND CONFIDENCE"
+  },
+  "RETRIEVAL": {
+   "single_floor": 13.94,
+   "single_nearest": "FAMILIARITY",
+   "pair_floor": 23.25,
+   "pair_nearest": "FAMILIARITY AND UNCERTAINTY"
+  },
+  "TENSION": {
+   "single_floor": 18.37,
+   "single_nearest": "CAPTURE",
+   "pair_floor": 15.5,
+   "pair_nearest": "CAPTURE AND CONFIDENCE"
+  }
+ },
+ "S5_reach": {
+  "real": {
+   "DIVERGENCE": {
+    "n": 6,
+    "median_err": 31.71,
+    "argmaxes": [
+     "CALIBRATION AND RESOLUTION",
+     "CONFIDENCE AND RESOLUTION"
+    ]
+   },
+   "NOVELTY": {
+    "n": 6,
+    "median_err": 34.78,
+    "argmaxes": [
+     "CALIBRATION AND UNCERTAINTY",
+     "CONFIDENCE AND CONSTRUCTION"
+    ]
+   },
+   "RETRIEVAL": {
+    "n": 6,
+    "median_err": 23.81,
+    "argmaxes": [
+     "CONFIDENCE AND FAMILIARITY",
+     "FAMILIARITY AND RESOLUTION",
+     "FAMILIARITY AND SATURATION"
+    ]
+   },
+   "TENSION": {
+    "n": 6,
+    "median_err": 39.75,
+    "argmaxes": [
+     "CALIBRATION AND RESOLUTION",
+     "CALIBRATION AND SATURATION",
+     "CAPTURE AND CONSTRUCTION",
+     "CAPTURE AND RESOLUTION",
+     "CAPTURE AND SATURATION"
+    ]
+   },
+   "gen_kinds": {
+    "PAIR": 19,
+    "SINGLE": 2,
+    "NONE": 0,
+    "INVALID": 3
+   }
+  },
+  "scrambled": {
+   "DIVERGENCE": {
+    "n": 6,
+    "median_err": 45.5,
+    "argmaxes": [
+     "CALIBRATION AND RESOLUTION",
+     "CONFABULATION AND CONSTRUCTION",
+     "CONFABULATION AND RESOLUTION",
+     "CONFIDENCE AND RESOLUTION",
+     "RESOLUTION AND SATURATION"
+    ]
+   },
+   "NOVELTY": {
+    "n": 6,
+    "median_err": 39.18,
+    "argmaxes": [
+     "CONFABULATION AND UNCERTAINTY",
+     "CONFIDENCE AND UNCERTAINTY",
+     "FAMILIARITY AND UNCERTAINTY"
+    ]
+   },
+   "RETRIEVAL": {
+    "n": 6,
+    "median_err": 48.59,
+    "argmaxes": [
+     "CAPTURE AND CONSTRUCTION",
+     "CAPTURE AND FAMILIARITY",
+     "CAPTURE AND RESOLUTION",
+     "FAMILIARITY AND RESOLUTION"
+    ]
+   },
+   "TENSION": {
+    "n": 6,
+    "median_err": 36.16,
+    "argmaxes": [
+     "CALIBRATION AND CONSTRUCTION",
+     "CALIBRATION AND RESOLUTION",
+     "FAMILIARITY AND UNCERTAINTY"
+    ]
+   },
+   "gen_kinds": {
+    "PAIR": 19,
+    "SINGLE": 1,
+    "NONE": 1,
+    "INVALID": 3
+   }
+  }
+ },
+ "S6_shams": {
+  "real": {
+   "shamfc_none_top": "12/12",
+   "shamfc_argmax": [
+    "CALIBRATION AND RESOLUTION",
+    "CONFABULATION AND CONFIDENCE",
+    "CONFABULATION AND UNCERTAINTY",
+    "CONFIDENCE AND FAMILIARITY",
+    "CONSTRUCTION AND FAMILIARITY"
+   ],
+   "pairsham_gen_kinds": {
+    "PAIR": 0,
+    "SINGLE": 0,
+    "NONE": 12,
+    "INVALID": 0
+   }
+  },
+  "scrambled": {
+   "shamfc_none_top": "12/12",
+   "shamfc_argmax": [
+    "CALIBRATION AND FAMILIARITY",
+    "CALIBRATION AND UNCERTAINTY",
+    "FAMILIARITY AND UNCERTAINTY",
+    "SATURATION AND UNCERTAINTY"
+   ],
+   "pairsham_gen_kinds": {
+    "PAIR": 0,
+    "SINGLE": 0,
+    "NONE": 12,
+    "INVALID": 0
+   }
+  }
+ },
+ "SB_claim": {
+  "none_top": 12,
+  "n": 12,
+  "min": 10,
+  "pass": true
+ }
+}

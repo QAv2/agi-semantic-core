@@ -340,8 +340,12 @@ def reach_floors(vecs):
 
 def gen_pair_stats(rows, vecs, nguard=None):
     """Generation-block stats: claim/exact-set/NONE/SINGLE/INVALID rates +
-    named-pair angular err rows (dictionary space, composed vecs)."""
-    U = {pair_text(*p): pair_uvec(vecs, *p) for p in all_pairs()}
+    named-pair angular err rows (dictionary space, composed vecs).
+    U spans every pair the parser can emit (full CHOICE_SET menu, 78), not
+    just the 36 trained-atom pairs — a generation answer may name a held-out
+    concept (flown: scrambled tid 8208 'CALIBRATION AND NOVELTY')."""
+    U = {pair_text(*p): pair_uvec(vecs, *p)
+         for p in _it.combinations(sorted(CHOICE_SET), 2)}
     n = len(rows)
     kinds = {'PAIR': 0, 'SINGLE': 0, 'NONE': 0, 'INVALID': 0}
     exact, errs = 0, []
