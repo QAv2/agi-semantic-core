@@ -254,3 +254,91 @@ must pass, planted Stage-B rows must pass/fail P-B as constructed) ·
 under the injection hook) · `test_e8j_verdict.py` (verdict cell exec'd
 VERBATIM vs synthetic flights: fork-1 / fork-2-skip / fork-3 / fork-4 /
 gate-fail / smoke).
+
+---
+
+# APPENDIX — FLIGHT RESULTS (full_20260824_1827)
+
+**Flight of record**: smoke-2 GREEN (stamp 1824: gates all pass, forced
+Stage B flew clean, sham claims 0/2) → full flight same evening (stamp
+1827, ~5 min wall — Stage B skipped per G-B, so the flight is the atlas).
+Joe's UI runs, secondary account, v2 notebook.
+
+## Gates — ALL PASS
+- **G2 dirs-stability: resid 5e-08** (L20/RESOLUTION, tol 1e-4) — the v2
+  own-call fix restored exact-reproduction class (smoke-1's 4.27e-05
+  mixed-batch diagnosis confirmed by the cure).
+- **G1b ppl: 19.6358 vs 19.6358 shipped, delta 0.0000%** (E8-R2 class).
+- **G4 pins: 320 anchors, sha dfb115cded2e1cd3, frame 1,865** — the
+  build-time draw reproduced on the VM.
+
+## Verdict — FORK 2 (registered): correspondence at scale, but it does not reach the wing family
+
+**P-A PASS — the program's first measured dictionary↔hidden-space
+correspondence at scale** (instilled model, L14, n=320):
+- A1 RSA: ρ=0.1124, p=0.0001 (10k perms, 51,040 pairs).
+- A2 LOO bridge: median 73.22° vs relabel-null 86.52°, p=0.0005.
+- A3 retrieval: top-1 3/320 vs null mean 0.428 (≈7× chance, p=0.009);
+  top-5 14/320. λ-stable (0.1/1/10 → top-1 2/3/3).
+- S3 L20 replication: ρ=0.093 p=0.0005, top-1 3.
+- Honest size: ρ≈0.11 and sub-1% top-1 = a REAL but THIN correspondence.
+  The hand-tuned coordinates carry a small, unambiguous amount of
+  substrate-real geometric information.
+
+**G-B FAIL 0/13 — the wing family is geometrically DISCONNECTED from the
+broad code**: wing-transfer median 89.83° ≈ orthogonal (null mean 86.96,
+p=0.589); several predictions ANTI-aligned (CONFIDENCE 140.3°, DIVERGENCE
+139.0°, CALIBRATION 126.0°, NOVELTY 125.3°). Adjudication (with §1's
+design check — the wing-13's own internal RSA was already null): **the
+wall is the wing family's coordinates, not the substrate and not the
+method.** The wing was encoded in session 125 from cohort verbal
+structure; the broad dictionary was hand-tuned over its own long history —
+two encodings, two registers, and the bridge learned the broad one.
+
+**A4 axis profile INVERTS Phase 6**: hidden dirs carry x (0.199) and fx
+(0.196) — the primary yang/yin polarity axes — above all else; domain
+axes e/f/g/h sit at 0.08–0.11 (Phase 6 embeddings: domain 0.59–0.66 >
+core). Different representation, different carried features; the
+substrate's NAME:desc reading encodes polarity most.
+
+**S4 instillation delta: E4 did NOT move global geometry toward the
+codebook** — base RSA ρ=0.1032 ≈ instilled 0.1124; base top-1 8 >
+instilled 3 (delta −5). The instillation installed a naming INTERFACE
+(E8-R anchor 18/18 requires it) without strengthening the atlas-level
+correspondence — interface and geography dissociate, rhyming with E8-N
+v2's separability instances. ⚠ ANOMALY FLAGGED: base loo_median 8.92°
+(vs instilled 73.22°) alongside base top-1 only 8/320 — the signature of
+a DEGENERATE base dir cloud (dominant common component ⇒ low prediction
+angles trivially while retrieval stays near chance). Adjudication needs
+the raw dirs (below); no interpretive weight is placed on the 8.92°
+number until then.
+
+**Smoke-2 texture** (n=2, anecdote only): the real-codebook bridge
+prediction for DIVERGENCE reproduced its E8-R2 modal reading
+(CONFIDENCE, 2/2) while the permuted arm read FAMILIARITY (concord 1/2)
+— right-signed whisper for an eventual rung, claimable as nothing.
+
+## Recompute (the law) — status
+- **A5/G-B recomputed locally EXACT** from independent inputs (true wing
+  dirs from the local R3-c real bundle — G2's 5e-08 makes them the
+  flight's dirs; predictions from shipped atlas.json): all 13 per-target
+  angles match to ≤0.0054° (5dp ship rounding), nearest-names identical,
+  hits 0/13, median 89.83, lookup floors reproduce, derangement matches
+  the local pin.
+- **Verdict cell exec'd VERBATIM over the shipped atlas: 0 differences**
+  vs the shipped verdict (fork banner line-for-line).
+- **A1–A4 + S4 adjudication PENDING raw dirs**: atlas_dirs.json is 19MB,
+  over the Drive integration's 10MB cap → Joe's one-click folder
+  download (R3-c precedent), then the stage-A statistics recompute
+  verbatim and the base-cloud degeneracy check (effective rank +
+  μ-baseline angle) closes the S4 anomaly. LOCK lands with that.
+
+## Forward path licensed by Fork 2 (for the next pick, not committed)
+(a) **Reverse-bridge wing re-encoding**: estimate wing coordinates FROM
+their substrate dirs via the broad bridge — the delta against the hand
+coordinates is itself the measurement of the mis-encoding; then the rung
+re-flies on re-encoded coordinates. (b) Hand re-encode the wing in the
+broad code's register (label-over-band contract). (c) Enlarge the atlas
+toward the full 1,865-name frame for a stronger bridge first. The atlas
+instrument (320 anchor dirs, both models, both layers) is now standing
+equipment either way.

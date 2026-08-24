@@ -1,0 +1,240 @@
+{
+ "exp": "E8J",
+ "mode": "full",
+ "stamp": "20260824_1827",
+ "seed": 20260825,
+ "lam": 1.0,
+ "gates": {
+  "g2": {
+   "resid": 5e-08,
+   "layer": 20,
+   "name": "RESOLUTION",
+   "tol": 0.0001,
+   "pass": true
+  },
+  "g1b": {
+   "ppl_recon": 19.6358,
+   "ppl_post_shipped": 19.6358,
+   "delta_pct": 0.0,
+   "tol_pct": 0.5,
+   "pass": true
+  },
+  "g4_pins": {
+   "pass": true,
+   "n_anchors": 320,
+   "sha": "dfb115cded2e1cd3",
+   "n_smoke": 48,
+   "frame_size": 1865
+  }
+ },
+ "gates_all_pass": true,
+ "cond_errors": {},
+ "atlas": {
+  "n_anchors": 320,
+  "anchors_sha": "dfb115cded2e1cd3",
+  "lam": 1.0,
+  "smoke": false,
+  "A1_rsa_L14": {
+   "rho": 0.1124,
+   "p": 0.0001,
+   "n_perm": 10000
+  },
+  "S6_folded_L14": {
+   "rho": 0.0388,
+   "p": 0.08449
+  },
+  "A2_loo": {
+   "median_angle": 73.22,
+   "null_median_mean": 86.52,
+   "p_median": 0.0005
+  },
+  "A3_retrieval": {
+   "top1": 3,
+   "top5": 14,
+   "n": 320,
+   "null_top1_mean": 0.428,
+   "null_top1_max": 4,
+   "p_top1": 0.009
+  },
+  "P_A": {
+   "top1": 3,
+   "p": 0.009,
+   "pass": true
+  },
+  "S5_lam_sens": {
+   "0.1": {
+    "median_angle": 74.16,
+    "top1": 2
+   },
+   "10.0": {
+    "median_angle": 73.27,
+    "top1": 3
+   }
+  },
+  "A4_axiswise_r2": {
+   "x": 0.1992,
+   "y": 0.0795,
+   "z": 0.0614,
+   "e": 0.0818,
+   "f": 0.0943,
+   "g": 0.0936,
+   "h": 0.105,
+   "fx": 0.1961,
+   "fy": 0.0951,
+   "fz": 0.1099,
+   "fe": 0.0886,
+   "ff": 0.0741,
+   "fg": 0.1153,
+   "fh": 0.1139
+  },
+  "A5_wing": {
+   "per_target": {
+    "UNCERTAINTY": {
+     "angle": 62.3,
+     "nearest": "RESOLUTION",
+     "hit": false,
+     "lookup_floor": 54.48
+    },
+    "CONFIDENCE": {
+     "angle": 140.33,
+     "nearest": "FAMILIARITY",
+     "hit": false,
+     "lookup_floor": 26.35
+    },
+    "TENSION": {
+     "angle": 70.26,
+     "nearest": "FAMILIARITY",
+     "hit": false,
+     "lookup_floor": 71.92
+    },
+    "RESOLUTION": {
+     "angle": 110.05,
+     "nearest": "TENSION",
+     "hit": false,
+     "lookup_floor": 26.35
+    },
+    "RETRIEVAL": {
+     "angle": 77.91,
+     "nearest": "RESOLUTION",
+     "hit": false,
+     "lookup_floor": 71.13
+    },
+    "CONSTRUCTION": {
+     "angle": 89.83,
+     "nearest": "DIVERGENCE",
+     "hit": false,
+     "lookup_floor": 75.86
+    },
+    "SATURATION": {
+     "angle": 61.17,
+     "nearest": "RESOLUTION",
+     "hit": false,
+     "lookup_floor": 54.15
+    },
+    "FAMILIARITY": {
+     "angle": 101.56,
+     "nearest": "RESOLUTION",
+     "hit": false,
+     "lookup_floor": 70.68
+    },
+    "NOVELTY": {
+     "angle": 125.32,
+     "nearest": "FAMILIARITY",
+     "hit": false,
+     "lookup_floor": 49.69
+    },
+    "CAPTURE": {
+     "angle": 72.43,
+     "nearest": "FAMILIARITY",
+     "hit": false,
+     "lookup_floor": 70.68
+    },
+    "DIVERGENCE": {
+     "angle": 138.98,
+     "nearest": "FAMILIARITY",
+     "hit": false,
+     "lookup_floor": 33.29
+    },
+    "CONFABULATION": {
+     "angle": 77.92,
+     "nearest": "RESOLUTION",
+     "hit": false,
+     "lookup_floor": 69.36
+    },
+    "CALIBRATION": {
+     "angle": 125.98,
+     "nearest": "FAMILIARITY",
+     "hit": false,
+     "lookup_floor": 35.28
+    }
+   },
+   "hits": 0,
+   "median_angle": 89.83,
+   "null_median_mean": 86.96,
+   "p_median": 0.58921
+  },
+  "gb": {
+   "hits": 0,
+   "min_hits": 4,
+   "null_p95": 2.0,
+   "null_mean": 1.082,
+   "p_hits": 1.0,
+   "pass": false
+  },
+  "derangement": {
+   "UNCERTAINTY": "RETRIEVAL",
+   "CONFIDENCE": "CONFABULATION",
+   "TENSION": "CONFIDENCE",
+   "RESOLUTION": "NOVELTY",
+   "RETRIEVAL": "DIVERGENCE",
+   "CONSTRUCTION": "CALIBRATION",
+   "SATURATION": "CONSTRUCTION",
+   "FAMILIARITY": "RESOLUTION",
+   "NOVELTY": "FAMILIARITY",
+   "CAPTURE": "SATURATION",
+   "DIVERGENCE": "CAPTURE",
+   "CONFABULATION": "UNCERTAINTY",
+   "CALIBRATION": "TENSION"
+  },
+  "S3_L20": {
+   "rsa_rho": 0.093,
+   "rsa_p": 0.0005,
+   "loo_median": 72.16,
+   "top1": 3
+  },
+  "S4_base": {
+   "rsa_rho": 0.1032,
+   "rsa_p": 0.0005,
+   "loo_median": 8.92,
+   "top1": 8,
+   "delta_top1_inst_minus_base": -5
+  },
+  "secs_stageA": 204.0,
+  "stamp": "20260824_1827",
+  "pins": {
+   "n_anchors": 320,
+   "sha": "dfb115cded2e1cd3",
+   "n_smoke": 48,
+   "frame_size": 1865
+  },
+  "gates_snapshot": {
+   "g2": {
+    "resid": 5e-08,
+    "layer": 20,
+    "name": "RESOLUTION",
+    "tol": 0.0001,
+    "pass": true
+   },
+   "g1b": {
+    "ppl_recon": 19.6358,
+    "ppl_post_shipped": 19.6358,
+    "delta_pct": 0.0,
+    "tol_pct": 0.5,
+    "pass": true
+   }
+  }
+ },
+ "stageb": null,
+ "fork": "FORK 2 \u2014 correspondence at scale, but it does not reach the wing family; Stage B skipped per G-B",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct"
+}
