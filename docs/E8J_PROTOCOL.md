@@ -342,3 +342,55 @@ broad code's register (label-over-band contract). (c) Enlarge the atlas
 toward the full 1,865-name frame for a stronger bridge first. The atlas
 instrument (320 anchor dirs, both models, both layers) is now standing
 equipment either way.
+
+## Recompute COMPLETE + S4 adjudication (atlas_dirs via Joe's download) — LOCK
+
+**Verbatim recompute** (`colab/recompute_e8j.py`: the flown
+`stage_a_verdict` re-run from `e8j_logic` — single source — over the raw
+shipped dirs, full constants, 522s local vs 204s VM): **EVERY headline
+statistic reproduces EXACTLY** — A1 ρ/p, A2 med/null/p, A3 top-1/top-5/p,
+P-A, A5 hits/median/p, G-B, S3, S4, S6, and all 14 A4 axis R²s, including
+every permutation p-value (the seeded Generator streams are identical
+cross-machine). The only 14 differing fields are fp-noise: one 2dp-boundary
+rounding (FAMILIARITY 101.55 vs 101.56) and 13 `wing_pred_real` vectors
+with max single-coordinate delta 1e-5 (5dp ship-rounding boundary ×
+cross-BLAS last-ulp). Zero substantive differences. Channel integrity:
+Joe's zip download and the MCP pulls are byte-identical where they overlap.
+
+**S4 anomaly ADJUDICATED — and it mints a finding.** Cloud diagnostics on
+the raw dirs (320 anchors):
+- **base L14: eff-rank 24.0** · mean-dir norm 0.6763 · angle-to-mean
+  median 6.98° · pairwise median 16.9° (q25 8.1°) — the base model
+  renders all 320 "NAME: desc" dirs inside a narrow cone. The 8.92° LOO
+  median is the COMMON-COMPONENT floor (predicting anything near the mean
+  achieves it); it carries no codebook information. The informative base
+  rows stand as: top-1 8/320, RSA ρ=0.1032 (structure exists WITHIN the
+  cone).
+- **instilled L14: eff-rank 149.4** · mean-dir norm 0.1023 ·
+  angle-to-mean median 84.96° · pairwise median 89.3° — near-isotropic
+  spread.
+
+**Finding (S4-refined): instillation DIFFERENTIATES without ALIGNING.**
+E4 blew the substrate's concept-direction cloud open by ~6× effective
+rank (24 → 149) while leaving the codebook correspondence unchanged
+(RSA base 0.103 ≈ instilled 0.112; retrieval did not improve). The earlier
+"interface without geography" line sharpens: what instillation measurably
+did to the geometry is differentiation, not alignment. Cross-refs: E8-N
+v2's separability instances (base ≥ real on tracking; naming requires
+instilled geometry) — the instilled stack's naming interface may ride
+exactly this differentiated spread. QA-register texture (marked as
+texture, three-register honesty): the instillation's measured geometric
+effect IS differentiation — the dictionary's own first move.
+
+**Base-model caveat kept honest**: within a 17°-pairwise cone, base
+top-1 8/320 resolves finer angular structure than the instilled 3/320
+does in an 89° cloud — the two retrieval numbers are NOT directly
+comparable as "base beats instilled"; S4's registered claim stays the
+conservative one (no evidence instillation moved geometry TOWARD the
+codebook).
+
+**LOCKED** (2026-08-24, session 131). Fork 2 stands on recomputed
+statistics end-to-end: P-A pass (thin, real), G-B fail (wing register
+disconnection), gates clean, recompute exact. The forward menu (§above)
+awaits the next pick; the atlas (raw dirs, both models, both layers,
+archived `colab/results_e8j/full_20260824_1827/`) is standing equipment.
