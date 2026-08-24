@@ -94,7 +94,8 @@ DIRS_TOL_F = 1e-4                # G2: between kernel-noise (<=4e-5) and real fa
 MU14_ATLAS = 81.875              # locked atlas mu at L14 (pin)
 CARRIED8 = ['x','z','e','h','fx','fy','fz','fh']   # design check §7b, delta>=.08
 STRANDS_F = ['carrier','atom','pair','full','truedir','sham']
-EPOCH_CAP_F = 6
+EPOCH_CAP_F = 12                 # §8 re-fly revision (flight 1: cap-6 hit,
+                                 # plateaued=false, all strands descending)
 DESC_MIN_F = 40                  # frame rule (E8-J verbatim)
 ANCHORS_SHA_F = 'dfb115cded2e1cd3'
 
@@ -270,9 +271,9 @@ def build_e8f_train(vecs, smoke=False):
                     add('pair', 'inject', f'pairc:{ai}:{si}:{aj}:{sj}', a,
                         code_of(x))
     fulls = sorted(TRAIN256)[:4] if smoke else sorted(TRAIN256)
-    for i, n in enumerate(fulls):
-        add('full', 'inject', f'full:{n}', ALPHA_MAIN[i % 2] if not smoke
-            else alphas[0], target_for(n, vecs))
+    for n in fulls:                       # §8 revision: BOTH alphas (was parity)
+        for a in alphas:
+            add('full', 'inject', f'full:{n}', a, target_for(n, vecs))
     tds = TRUEDIR128[:2] if smoke else TRUEDIR128
     for n in tds:
         add('truedir', 'inject', f'true:{n}', 1.0, target_for(n, vecs))
@@ -334,7 +335,7 @@ def eval_counts(rows):
 EXPECT_EVAL_FULL = {'spot': 48, 'p1': 128, 'p3': 128, 'wperm': 32,
                     'carrier': 4, 'sham': 24, 'atom': 28, 'titr': 16,
                     'wing': 13}
-EXPECT_TRAIN_FULL = {'carrier': 12, 'atom': 168, 'pair': 168, 'full': 256,
+EXPECT_TRAIN_FULL = {'carrier': 12, 'atom': 168, 'pair': 168, 'full': 512,
                      'truedir': 128, 'sham': 48}
 
 # ── firewalls ────────────────────────────────────────────────────────────────
@@ -735,12 +736,19 @@ composition), **P3** true-dir reading on the carried-8, **P2** dictionary
 decode-to-name. Single condition, pinned stimuli (no on-VM dir/bridge
 computation; G2 identity probe only).
 
+**v2 = the §8 registered re-fly** (flight 1 `full_20260824_2205`:
+gates all passed, G-INSTALL missed at .4688 with cap-6 hit and every
+strand still descending — epoch starvation, the pre-registered reading).
+Revision: EPOCH_CAP 12 (plateau still governs) + full strand at BOTH α
+(curriculum 780 → 1036 rows). Everything else — payload, stimuli, split,
+eval rows, bars — is byte-identical to flight 1.
+
 **Flight plan (Run all, twice)**
 1. **Smoke** (`SMOKE=True`, armed): tiny curriculum + eval + verdict smoke,
    ~10–15 min. GREEN banner → Runtime > Restart runtime.
-2. **Full** (`SMOKE=False`): one run, ~60–120 min (train plateaus 3–6
-   epochs, then 421 eval generations with progress prints). Verdict banner +
-   `e8f/` results on Drive.
+2. **Full** (`SMOKE=False`): one run, ~90–150 min worst case (train runs
+   to per-strand plateau, cap 12; then 421 eval generations with progress
+   prints). Verdict banner + `e8f/` results on Drive.
 
 If a full run dies mid-eval: Runtime > Restart runtime, set `RESUME_STAMP`
 to the banner's stamp, Run all — the shipped trained readout is reloaded and
@@ -752,7 +760,7 @@ own mount only (UI-only law).
 """
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, adapter, shipped bundles ──
-NB_BUILD = 'v1 (2026-08-24)'
+NB_BUILD = 'v2 (2026-08-24, §8 re-fly: cap 12 + full-strand x2)'
 print('E8-F notebook build:', NB_BUILD)
 
 SMOKE = True                   # ARMED FOR SMOKE: flip to False after GREEN
