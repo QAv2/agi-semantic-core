@@ -149,18 +149,25 @@ All eval at greedy decode; rows pinned with seeded construction at build.
 | wing     | 13   | E8-J v2 pinned d̂ (re-encoded wing), α1.0 — texture only |
 
 **P1 — composition/interface (primary)**: pooled per-field accuracy over
-the 128 P1 rows × 14 axes vs 2,000 concept-level derangements of the
-eval-64 codes (rows rescored against code(π(c)) consistently). PASS =
-p ≤ .0025 **and** ≥ 6/14 axes individually significant under per-axis
-derangement nulls, Holm over 14. The claim on pass (registered wording):
+the 128 P1 rows × 14 axes vs 10,000 concept-level derangements of the
+eval-64 codes (rows rescored against code(π(c)) consistently; the same
+10,000 permutations are shared by the pooled and per-axis statistics).
+PASS = pooled p ≤ .0025 **and** ≥ 6/14 axes individually significant
+under per-axis derangement nulls at Holm-.05 over 14. *Amended
+transparently before build: the first registration wrote 2,000
+permutations and per-axis "Holm" with no level, implying the .0025 family
+level — arithmetically unreachable (permutation-p floor 1/2001 ≈ 5e-4 >
+.0025/14 ≈ 1.8e-4). The pooled primary carries the strict .0025 family
+bar at 10,000 permutations (floor 1e-4); the axis-count clause is a
+structural guard at the conventional Holm-.05.* The claim on pass (registered wording):
 *never-trained points of the register are spelled by composition through
 the trained channel — the code generalizes across the coordinate field,
 beyond any lookup over trained points* (the derangement null and the
 held-out split kill lookup).
 
 **P3 — true-dir semantics arm (primary)**: pooled per-field accuracy over
-the 128 P3 rows on the **carried-8** axes only, vs the same 2,000-
-derangement construction. PASS = p ≤ .0025. The linear prior band is
+the 128 P3 rows on the **carried-8** axes only, vs the same 10,000-
+derangement construction. PASS = p ≤ .0025 (floor 1e-4). The linear prior band is
 quoted (per-axis .42–.61 vs nulls .29–.41), not gated: the trained channel
 may fall below it (SFT noise) or above it (nonlinearity) — either side is
 reported against the band. A NONE-flood on true dirs is a REGISTERED
