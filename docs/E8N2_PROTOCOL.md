@@ -423,3 +423,20 @@ untrained channel to ρ .22, predicted and replicated.**
 3. Off-grid comprehension interference: is the 47° recoverable by brief
    naming-only continued training on the joint adapter?
 4. Absolute calibration + cross-format (standing v2-axes, still queued).
+
+**Slate addendum (2026-08-24, post-lock; design seed, no claims — Joe's
+observation):** the composition wall may have a doorway where the geometry
+began — **Hangul**. The 90° complement rule was discovered in Jamo
+composition, and the E8-R naming curriculum is, in that frame, logographic:
+nine holistic name↔direction pairs, no internal structure to generalize
+along. The Hangul move — a small atom set + a composition rule that lets a
+writer SPELL unseen syllables — proposes E8-R3 candidate (c):
+**compositional production**. Train on injections of COMPOSED directions
+(pairs of trained atoms; hidden-space composition operator pre-registered)
+supervised with composed answers, so production expresses a read as
+coordinates in a known basis instead of retrieving a memorized label
+(9 atoms → 36 trainable pair-compositions; held-out = novel combinations;
+reach test = held-out concepts expressed compositionally vs the 35.7°/24.18°
+baselines). Bonus stake: the rung tests whether the injection algebra
+composes as the dictionary's composition algebra says — lookup table vs
+working algebra in the substrate.
