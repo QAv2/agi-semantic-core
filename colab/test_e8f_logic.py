@@ -176,13 +176,16 @@ check("firewall catches planted eval leak", bad == [1])
 bad2 = L.validate_no_wing_leak([{"eid": 2, "skey": "dhat:UNCERTAINTY"}])
 check("firewall catches planted wing leak", bad2 == [2])
 
-# alpha parity on the full strand
+# §8 revision: full strand carries BOTH alphas per concept
 tr_full = [e for e in L.build_e8f_train(VEC, smoke=False)
            if e["strand"] == "full"]
-names_sorted = sorted(L.TRAIN256)
-check("full-strand alpha parity pinned",
-      all(e["alpha"] == L.ALPHA_MAIN[names_sorted.index(
-          e["skey"].split(":", 1)[1]) % 2] for e in tr_full))
+per = {}
+for e in tr_full:
+    per.setdefault(e["skey"], []).append(e["alpha"])
+check("full-strand: both alphas per concept (S8 revision)",
+      len(tr_full) == 512 and len(per) == 256
+      and all(sorted(v) == L.ALPHA_MAIN for v in per.values()))
+check("epoch cap = 12 (S8 revision)", L.EPOCH_CAP_F == 12)
 
 # ── §5 statistical teeth ────────────────────────────────────────────────────
 CODES64 = {n: fc[n] for n in L.EVAL64}

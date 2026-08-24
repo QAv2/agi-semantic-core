@@ -374,7 +374,8 @@ DIRS_TOL_F = 1e-4                # G2: between kernel-noise (<=4e-5) and real fa
 MU14_ATLAS = 81.875              # locked atlas mu at L14 (pin)
 CARRIED8 = ['x','z','e','h','fx','fy','fz','fh']   # design check §7b, delta>=.08
 STRANDS_F = ['carrier','atom','pair','full','truedir','sham']
-EPOCH_CAP_F = 6
+EPOCH_CAP_F = 12                 # §8 re-fly revision (flight 1: cap-6 hit,
+                                 # plateaued=false, all strands descending)
 DESC_MIN_F = 40                  # frame rule (E8-J verbatim)
 ANCHORS_SHA_F = 'dfb115cded2e1cd3'
 
@@ -550,9 +551,9 @@ def build_e8f_train(vecs, smoke=False):
                     add('pair', 'inject', f'pairc:{ai}:{si}:{aj}:{sj}', a,
                         code_of(x))
     fulls = sorted(TRAIN256)[:4] if smoke else sorted(TRAIN256)
-    for i, n in enumerate(fulls):
-        add('full', 'inject', f'full:{n}', ALPHA_MAIN[i % 2] if not smoke
-            else alphas[0], target_for(n, vecs))
+    for n in fulls:                       # §8 revision: BOTH alphas (was parity)
+        for a in alphas:
+            add('full', 'inject', f'full:{n}', a, target_for(n, vecs))
     tds = TRUEDIR128[:2] if smoke else TRUEDIR128
     for n in tds:
         add('truedir', 'inject', f'true:{n}', 1.0, target_for(n, vecs))
@@ -614,7 +615,7 @@ def eval_counts(rows):
 EXPECT_EVAL_FULL = {'spot': 48, 'p1': 128, 'p3': 128, 'wperm': 32,
                     'carrier': 4, 'sham': 24, 'atom': 28, 'titr': 16,
                     'wing': 13}
-EXPECT_TRAIN_FULL = {'carrier': 12, 'atom': 168, 'pair': 168, 'full': 256,
+EXPECT_TRAIN_FULL = {'carrier': 12, 'atom': 168, 'pair': 168, 'full': 512,
                      'truedir': 128, 'sham': 48}
 
 # ── firewalls ────────────────────────────────────────────────────────────────
