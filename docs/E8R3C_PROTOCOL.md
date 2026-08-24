@@ -320,9 +320,14 @@ recomputed locally before LOCK. Push = Joe's gate.
   the injection hook). **Ops fix 115e596** (v3, flight-cell only — logic
   untouched): FC progress prints every 30 rows with elapsed+ETA.
   ★ Lane note: any flight loop that can run >2 min must print progress.
-- Scrambled reflown (v3, `RESUME_STAMP='20260824_0305'`, real resumed
-  from Drive): shipped 04:53Z; verdict shipped `full_20260824_0505`
-  05:05Z. Bundles + verdict archived `colab/results_e8r3c/`.
+- Scrambled reflown — in the SAME v2 tab (not the restaged v3; FC silent
+  again, rode through this time): shipped 04:53Z. Verdict attempt 1
+  (~04:54Z) crashed on the `gen_pair_stats` KeyError (below). Colab's
+  Gemini assist rewrote cell 2 in place; session restart + Run-all at
+  05:05Z resumed BOTH conditions from Drive (seconds — hence the 0505
+  stamp) and the patched verdict shipped clean, `full_20260824_0505`.
+  Bundles + verdict + the flown notebook + its diff vs staged v2
+  archived `colab/results_e8r3c/full_20260824_0505/`.
 
 ## Verdict (shipped banner; reproduced locally verbatim)
 
@@ -391,11 +396,28 @@ trained-atom pairs, but `parse_pair_report`'s menu is the full
 post-flight: U now spans the 78 menu pairs (values on trained pairs
 unchanged); regression test added (suite 86+25+15 green). The shipped
 verdict carries that row with err equal to the direct dictionary-space
-computation (30.675221295872387, reproduced exactly), so the flown
-S4 numbers are correct; per git every staged edition carried the 36-pair
-U, so how the flown cell computed the row is unresolved pending a diff
-of the actual uploaded notebook (Joe's Colab copy). The discrepancy is
-confined to S4 texture err rows; P1/P2/gates/S-B never touch
-`gen_pair_stats`.
+computation (30.675221295872387, reproduced exactly).
+
+**RESOLVED (Joe's Colab download + debug.png)**: the KeyError DID fire
+on the VM (verdict attempt 1, ~04:54Z). Joe invoked Colab's Gemini
+assist, which rewrote the LOGIC CELL in place — the err line became the
+on-the-fly computation `angle14(pair_uvec(vecs, *r['pair']),
+pair_uvec(vecs, *parsed['names']))` (value-identical to the canonical
+78-pair-U fix), plus four incidental paraphrases, all value-neutral on
+the flown data (one, tuple-keyed floors, changes a field that never
+ships). The flown notebook diffs from staged v2 in exactly two cells:
+Joe's arming constants and Gemini's rewrite. The flight cells that
+actually flew both conditions are byte-identical to the staged,
+locally-tested build, and the 05:05Z run resumed both bundles without
+re-flying, so no trained or evaluated row was touched by the patch. The
+local recompute with the canonical fixed code reproduces the shipped
+verdict at 0 substantive diffs — the locked verdict rests on the tested
+code, not the VM patch. P1/P2/gates/S-B never touch `gen_pair_stats`.
+
+★ **Lane law minted**: VM cells are never edited in place — not by
+hand, not by Colab's Gemini assist. A VM error comes back to the
+builder, gets fixed + tested + restaged here. In-place AI-assist edits
+are a silent staged-bytes/executed-bytes divergence vector, invisible
+until the recompute law catches it — as it did here.
 
 **LOCKED 2026-08-24. Level 2 (featural/Jamo) is the licensed next rung.**
