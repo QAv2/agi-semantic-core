@@ -79,8 +79,17 @@ part. Then the ladder climbed:
   translation between the two coordinate systems (E8-J).
 - Can it learn the **14 dials themselves as an alphabet** — each dial
   LOW/MID/HIGH — and spell concepts it was never trained on, dial by
-  dial? That is E8-F, the current flight. If it can, it didn't memorize
-  a lookup table; it learned to *read the code*.
+  dial? YES (E8-F): .70 accuracy with every dial individually
+  significant, and the dictionary decoded two spellings back to their
+  exact names — CRUCIBLE and TEMPERANCE, the first words ever named
+  through the algebra.
+- Does ORDER matter — can it read "A expressed through B's mode"
+  differently from "B through A's"? PARTLY (E8-O, the Ifá rung): it
+  reads composite points no dictionary word occupies, but mostly by the
+  senior half — it fills in the junior half from habit, because the
+  dictionary's own redundancy taught it that shortcut. Order survives
+  only as a faint trend. The wall is mapped, and the fix (train on
+  mixed figures) is designed but not yet flown.
 
 ## How this differs from normal ML
 
