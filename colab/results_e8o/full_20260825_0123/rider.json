@@ -1,0 +1,22 @@
+{
+ "flight": "full_20260825_0123",
+ "protocol": "E8O_PROTOCOL.md rider",
+ "span_bridge15": {
+  "odu_med": 0.64604,
+  "ctl_med": 0.54552,
+  "delta": 0.10052,
+  "p": 0.27777
+ },
+ "span_anchor320": {
+  "odu_med": 0.23882,
+  "ctl_med": 1e-05,
+  "delta": 0.23881,
+  "p": 0.0001
+ },
+ "rsa": {
+  "rho": -0.1409,
+  "p": 0.9915
+ },
+ "fork": "r2 \u2014 within the matched-control distribution: addressing-refinement-only (honest)",
+ "r3_structure_visible": false
+}
