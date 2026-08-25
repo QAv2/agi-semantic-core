@@ -190,6 +190,30 @@ check("stimulus: heldout generation dropped from GEN_ROWS",
       "HELDOUT_GEN = []" in stim
       and "GEN_ROWS = ANCHOR_ROWS + SHAM_ROWS_LOCKED + SUPP_SHAMS" in stim
       and "heldout_gen_rows(SMOKE)" not in stim)
+# SMOKE-RED 20260825_2119 regression tooth (KeyError: 20): LAYERS_RUN must
+# come from the SHIPPED bundle (what the G2 gate iterates), not from the
+# trimmed rows — executed here against a two-layer shipped stub.
+i0 = stim.find("LAYERS_RUN = ")
+i1 = stim.find("print('eval rows:", i0)
+glue = stim[i0:i1]
+ns = {"SHIPPED": {"real": {"dirs": {"14": {}, "20": {}}}},
+      "TRAIN_LAYER": L.TRAIN_LAYER,
+      "GEN_ROWS": [{"layer": 14}, {"layer": None}],
+      "FC_ROWS": [{"layer": 14}]}
+exec(glue, ns)
+check("LAYERS_RUN derives from SHIPPED and covers the gate's layers",
+      ns["LAYERS_RUN"] == [14, 20]
+      and "SHIPPED['real']['dirs']" in glue
+      and "GEN_ROWS + FC_ROWS if t.get('layer')})" not in glue)
+ns_bad = {**ns, "GEN_ROWS": [{"layer": 20}],
+          "SHIPPED": {"real": {"dirs": {"14": {}}}}}
+try:
+    exec(glue, ns_bad)
+    uncovered_caught = False
+except AssertionError:
+    uncovered_caught = True
+check("a row layer outside the computed set is refused (subset assert)",
+      uncovered_caught)
 flight = next(s for s in cells if "def fly_condition" in s)
 check("flight: paraphrase probe dropped, catch kept",
       "paraphrase_rows" not in flight

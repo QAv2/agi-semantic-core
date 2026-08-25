@@ -235,6 +235,20 @@ def build_stimulus_cell():
     s = sub(s, "      'sham_supp': len(SUPP_SHAMS), 'heldout_gen': "
                "len(HELDOUT_GEN),",
             "      'sham_supp': len(SUPP_SHAMS),", "stim-print")
+    # SMOKE-RED 20260825_2119 FIX (KeyError: 20): the G2 dirs-stability gate
+    # iterates every (layer, name) in the SHIPPED E8-R bundle ({14, 20}).
+    # v2's row-derived LAYERS_RUN included 20 only via the held-out rows the
+    # v3 trim removed — so the stimulus must be computed at the SHIPPED
+    # layers (exactly what the gate consumes), with the rows' layers
+    # asserted to be a subset.
+    s = sub(s, "LAYERS_RUN = sorted({t['layer'] for t in GEN_ROWS + FC_ROWS "
+               "if t.get('layer')})\nassert TRAIN_LAYER in LAYERS_RUN",
+            "LAYERS_RUN = sorted(int(_L) for _L in SHIPPED['real']['dirs'])\n"
+            "assert TRAIN_LAYER in LAYERS_RUN\n"
+            "assert all(t['layer'] in LAYERS_RUN\n"
+            "           for t in GEN_ROWS + FC_ROWS if t.get('layer')), \\\n"
+            "    'eval row wants a layer the stimulus does not compute'",
+            "stim-layers-run")
     return s
 
 
