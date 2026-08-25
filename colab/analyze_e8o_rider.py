@@ -23,6 +23,9 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import e8o_logic as L
+import e8j_logic as _J
+L.J = _J      # odu_structure_rsa's mantel ref — post-flight-only code path,
+              # never called on the VM (the flown cells don't invoke it)
 
 STAMP_DIR = sys.argv[1] if len(sys.argv) > 1 else None
 assert STAMP_DIR, "usage: analyze_e8o_rider.py full_<stamp>"

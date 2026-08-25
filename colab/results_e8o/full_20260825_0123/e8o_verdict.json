@@ -1,0 +1,271 @@
+{
+ "flight": "full_20260825_0123",
+ "protocol": "E8O_PROTOCOL.md",
+ "payload_sha": "3ff29fe916792edd",
+ "pair_sha": "da1aa937ad9ec59c",
+ "readout_src": "e8f/inflight_20260824_2311/readout_real",
+ "gates": {
+  "g1_pins": {
+   "payload": "3ff29fe916792edd",
+   "pairs": "da1aa937ad9ec59c",
+   "asserted_in_flight": true,
+   "pass": true
+  },
+  "g2_dirs": {
+   "resid": 4e-08,
+   "layer": 14,
+   "name": "CONSTRUCTION",
+   "tol": 0.0001,
+   "pass": true
+  },
+  "g_id": {
+   "pooled_acc": 0.5982,
+   "min": 0.55,
+   "pass": true,
+   "n_rows": 16
+  },
+  "g4_parse": {
+   "n": 142,
+   "invalid": 1,
+   "rate": 0.007,
+   "max": 0.1,
+   "pass": true
+  },
+  "g5_sham": {
+   "claims": 0,
+   "n": 12,
+   "max": 2,
+   "pass": true
+  }
+ },
+ "P_O1": {
+  "pooled_acc": 0.4464,
+  "p": 9.999000099990002e-05,
+  "null_mean": 0.3174,
+  "per_axis": {
+   "x": {
+    "acc": 0.4479,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "y": {
+    "acc": 0.5521,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "z": {
+    "acc": 0.5417,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "e": {
+    "acc": 0.5833,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "f": {
+    "acc": 0.6042,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "g": {
+    "acc": 0.3646,
+    "p": 0.72083,
+    "holm_sig": false
+   },
+   "h": {
+    "acc": 0.4792,
+    "p": 0.0029,
+    "holm_sig": true
+   },
+   "fx": {
+    "acc": 0.3958,
+    "p": 0.0147,
+    "holm_sig": false
+   },
+   "fy": {
+    "acc": 0.3438,
+    "p": 0.44896,
+    "holm_sig": false
+   },
+   "fz": {
+    "acc": 0.2604,
+    "p": 0.45615,
+    "holm_sig": false
+   },
+   "fe": {
+    "acc": 0.4167,
+    "p": 0.0084,
+    "holm_sig": false
+   },
+   "ff": {
+    "acc": 0.3438,
+    "p": 0.59934,
+    "holm_sig": false
+   },
+   "fg": {
+    "acc": 0.4271,
+    "p": 0.10559,
+    "holm_sig": false
+   },
+   "fh": {
+    "acc": 0.4896,
+    "p": 0.001,
+    "holm_sig": true
+   }
+  },
+  "axes_sig": [
+   "x",
+   "y",
+   "z",
+   "e",
+   "f",
+   "h",
+   "fh"
+  ],
+  "n_axes_sig": 7,
+  "n_rows": 96,
+  "pass": true
+ },
+ "P_O2": {
+  "d_mean": 0.0275,
+  "p": 0.018998100189981004,
+  "per_pair": {
+   "0": -0.1071,
+   "1": -0.0179,
+   "2": 0.0357,
+   "3": 0.0,
+   "4": 0.0,
+   "5": 0.0536,
+   "6": -0.0536,
+   "7": 0.125,
+   "8": 0.0536,
+   "9": -0.0714,
+   "10": 0.0,
+   "11": 0.0357,
+   "12": 0.1071,
+   "13": 0.0714,
+   "14": 0.0714,
+   "15": 0.0893,
+   "16": -0.0536,
+   "17": 0.0536,
+   "18": 0.0357,
+   "19": 0.0,
+   "20": 0.0179,
+   "21": 0.125,
+   "22": 0.0357,
+   "23": 0.0536
+  },
+  "n_pairs": 24,
+  "n_pos": 15,
+  "pass": false
+ },
+ "S1": {
+  "po": {
+   "n": 96,
+   "CODE": 95,
+   "NONE": 0,
+   "INVALID": 1,
+   "mean_fields": 13.82
+  },
+  "ident": {
+   "n": 16,
+   "CODE": 16,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 14.0
+  },
+  "sham": {
+   "n": 12,
+   "CODE": 0,
+   "NONE": 12,
+   "INVALID": 0,
+   "mean_fields": 0.0
+  },
+  "carrier": {
+   "n": 2,
+   "CODE": 2,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 14.0
+  },
+  "odu": {
+   "n": 16,
+   "CODE": 16,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 14.0
+  }
+ },
+ "S_carrier": {
+  "n": 2,
+  "all_mid": 2
+ },
+ "S_odu": {
+  "OGBE": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:HIGH e:MID f:LOW g:LOW h:LOW fx:LOW fy:MID fz:HIGH fe:HIGH ff:LOW fg:LOW fh:LOW"
+  },
+  "OYEKU": {
+   "kind": "CODE",
+   "code": "x:MID y:LOW z:HIGH e:LOW f:HIGH g:LOW h:LOW fx:LOW fy:LOW fz:HIGH fe:LOW ff:HIGH fg:LOW fh:LOW"
+  },
+  "IWORI": {
+   "kind": "CODE",
+   "code": "x:LOW y:MID z:HIGH e:MID f:MID g:HIGH h:HIGH fx:LOW fy:MID fz:HIGH fe:MID ff:MID fg:HIGH fh:HIGH"
+  },
+  "ODI": {
+   "kind": "CODE",
+   "code": "x:MID y:LOW z:HIGH e:HIGH f:LOW g:HIGH h:LOW fx:MID fy:LOW fz:HIGH fe:HIGH ff:LOW fg:HIGH fh:LOW"
+  },
+  "IROSUN": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:MID e:MID f:MID g:MID h:MID fx:MID fy:LOW fz:MID fe:LOW ff:MID fg:MID fh:MID"
+  },
+  "OWONRIN": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:HIGH e:MID f:LOW g:HIGH h:MID fx:MID fy:MID fz:HIGH fe:LOW ff:LOW fg:HIGH fh:MID"
+  },
+  "OBARA": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:MID e:HIGH f:LOW g:LOW h:LOW fx:HIGH fy:MID fz:MID fe:HIGH ff:LOW fg:LOW fh:LOW"
+  },
+  "OKANRAN": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:MID e:MID f:MID g:HIGH h:LOW fx:HIGH fy:HIGH fz:HIGH fe:HIGH ff:MID fg:HIGH fh:LOW"
+  },
+  "OGUNDA": {
+   "kind": "CODE",
+   "code": "x:MID y:HIGH z:HIGH e:LOW f:HIGH g:MID h:MID fx:MID fy:HIGH fz:HIGH fe:LOW ff:HIGH fg:MID fh:MID"
+  },
+  "OSA": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:MID e:HIGH f:HIGH g:HIGH h:HIGH fx:LOW fy:HIGH fz:HIGH fe:HIGH ff:HIGH fg:HIGH fh:HIGH"
+  },
+  "IKA": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:MID e:MID f:MID g:MID h:MID fx:MID fy:LOW fz:MID fe:LOW ff:MID fg:MID fh:MID"
+  },
+  "OTURUPON": {
+   "kind": "CODE",
+   "code": "x:MID y:HIGH z:MID e:MID f:HIGH g:LOW h:HIGH fx:MID fy:MID fz:MID fe:MID ff:MID fg:LOW fh:HIGH"
+  },
+  "OTURA": {
+   "kind": "CODE",
+   "code": "x:HIGH y:MID z:LOW e:HIGH f:HIGH g:HIGH h:HIGH fx:HIGH fy:MID fz:LOW fe:HIGH ff:HIGH fg:HIGH fh:HIGH"
+  },
+  "IRETE": {
+   "kind": "CODE",
+   "code": "x:MID y:LOW z:HIGH e:HIGH f:LOW g:HIGH h:HIGH fx:LOW fy:LOW fz:HIGH fe:HIGH ff:LOW fg:HIGH fh:HIGH"
+  },
+  "OSE": {
+   "kind": "CODE",
+   "code": "x:MID y:MID z:MID e:MID f:MID g:MID h:MID fx:MID fy:LOW fz:MID fe:MID ff:MID fg:MID fh:MID"
+  },
+  "OFUN": {
+   "kind": "CODE",
+   "code": "x:MID y:LOW z:LOW e:HIGH f:LOW g:LOW h:MID fx:MID fy:LOW fz:LOW fe:HIGH ff:LOW fg:LOW fh:MID"
+  }
+ },
+ "fork": "FO2 \u2014 leg-heterogeneous points read but the reader SYMMETRIZES: order collapses in the channel"
+}

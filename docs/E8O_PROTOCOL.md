@@ -177,3 +177,62 @@ cell tested against synthetic flights at both mode constants, recompute
 law on retrieval. Locked inputs: E8-F payload/readout (flight of
 record), E8-J atlas, E8-R real bundle (G2). Seeds: E8O_SEED = 20260900
 stream, disjoint from all prior.
+
+## §6 Flight record — FO2 + rider r2 (LOCKED)
+
+**Flight** (`full_20260825_0123`, 419s — the fastest flight in the
+program; smoke GREEN 0122 → full, Joe's runs). GATES ALL PASS: G2 4e-08 ·
+μ 81.875 exact · **G-ID .5982** (locked-readout identity confirmed at the
+.55 bar; below flight-2's .6964 on the same 16 rows — small-n re-run
+variance, noted) · parse 1/142 INVALID · shams 0/12 (fourth consecutive
+clean-silence block). Verdict recomputed locally VERBATIM: **0
+substantive diffs, all fresh tallies match**
+(`recompute_e8o_flight.py` = instrument; bundles archived
+`results_e8o/full_20260825_0123/`).
+
+**P-O1 PASS**: pooled .4464 vs null .3174, p at the 1e-4 floor, 7/14
+axes Holm — the readout reads leg-heterogeneous points that NOTHING in
+the dictionary occupies (mixed figures cast and read). But the seven
+significant axes are the ESSENCE leg almost exactly (x y z e f h + only
+fh): essence fields read at ~.51, function fields at ~.38.
+
+**P-O2 FAIL as registered**: d = .0275, p = .019 (15/24 pairs positive)
+— a faint positive order-trend, well under the .0025 bar. **FO2: the
+reader substantially SYMMETRIZES; order collapses in the channel.** The
+red-square-dog wall stands at the readout level, now with a measured
+residual trend rather than a zero.
+
+**Mechanism row (LABELED POST-HOC, no bar; `posthoc_meji.json`)** — the
+méjì-shortcut test: on the same rows, the function-leg fields score
+**.4420 against the essence-donor A's own function code** (its méjì
+completion) vs **.3824 against B's actual content**; essence-vs-A .5104,
+essence-vs-B .3958. Reading: the E8-F readout learned to IMPUTE function
+fields from essence content — a shortcut the register's measured f≈0.80e
+redundancy made available on the méjì-manifold training distribution;
+leg-decoupling exposed it. Shown a mixed figure, the reader casts it
+back to the senior leg's méjì. The register's redundancy is now a
+measured property of the trained INTERFACE, not just the code — the
+eff-rank-8.4 finding's readout-side echo.
+
+**Rider (r2 + registered nulls)**: span-residual vs matched controls on
+the REGISTERED bridge-span primary: Odù .646 vs controls .546, p = .278
+→ **r2, addressing-refinement-only (honest)** — the 16 profiles do not
+measurably escape the bridge-reachable subspace relative to ordinary
+concepts. anchor320 texture row carries an instrument caveat, on the
+record: the controls are members of that basis (residual 0 by
+construction), so it reports only that Odù dirs hold ~24% of energy
+outside the full concept span, uncompared. Inversion-RSA ρ = −.141,
+p = .99 under the pre-flight-pinned authoring-order↔binary mapping — no
+structure visible (the mapping is arbitrary w.r.t. the traditional
+sequence; a null under it is weak evidence, stated). S-texture: the
+readout spelled all 16 Odù injections as full codes (OSA near-all-HIGH
+domain, OTURA x:HIGH with full domain, IROSUN/IKA/OSE near-carrier) —
+raw material banked for any future wing-v2 thinking.
+
+**E8-O COMPLETE.** L4's answer, first pass: the register's ordered
+composition is INJECTABLE and PARTIALLY READABLE (senior leg), but the
+current readout — trained entirely on méjì-manifold points — does not
+discriminate order at bar. The measured path to an L4 v2 is exactly the
+E8-F precedent: a curriculum that trains on leg-decoupled points (mixed
+figures) to break the imputation shortcut. That is a TRAINING flight and
+needs fresh registration; this prereg's forks are terminal and honored.
