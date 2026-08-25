@@ -358,3 +358,62 @@ their optimizer passes). Smoke ladder re-flies first (build changed).
 stop — the record stands as an installation-capacity bound at this
 curriculum family, and any redesign needs fresh registration (no third
 fly on this prereg).
+
+## §9 Flight 2 record — FF1/FF3: L3 LANDS (LOCKED)
+
+**Flight 2** (`full_20260824_2311`, the §8 registered re-fly; smoke GREEN
+23:09 → full 5219s wall / 4109s train, Joe's runs). GATES ALL PASS (G2
+4e-08 · μ exact · ppl +0.64% · parse 3/421 INVALID = 0.7% · shams 0/24,
+third consecutive clean-silence flight). **G-INSTALL PASS .7783** (p at
+floor; from .4688 — the §8 epoch-starvation adjudication is CONFIRMED BY
+ITS CURE, the e5d0920 pattern: cap 12 + full×2 was the entire change).
+Verdict recomputed locally VERBATIM: 0 substantive diffs, all fresh-code
+tallies match. Bundles archived `results_e8f/full_20260824_2311/`.
+
+**P1 PASS — THE RUNG: pooled .6964 vs null .3276, p at the 1e-4 floor,
+ALL 14 AXES individually Holm-significant** (range fg .5938 → e .8438).
+Registered claim wording applies verbatim: *never-trained points of the
+register are spelled by composition through the trained channel — the
+code generalizes across the coordinate field, beyond any lookup over
+trained points.* **L3 lands in bottleneck form. The featural rung of the
+Hangul staircase is real: the 14 register axes are a readable
+compositional alphabet.**
+
+**P3 FAIL as registered** — .3604 vs null .3213, p .037; fx alone Holm
+(.4453, p .0051), x/e nominal (.3906/.4141). **Replicated across both
+flights** (fl.1 .377 p .015; same three leading axes fx/x/e both times,
+never at bar): the FF3 wording stands — *interface-without-geography*,
+the separability family's 4th instance. Joe's same-day hypothesis
+("the shape inside the dictionary and the shape inside the head are
+likely not the same") is hereby adjudicated twice in hardware with the
+same answer: a real, faint, replicated seam — not a readable one at the
+registered bar through this channel. Context on the record: cap-12 hit
+with strands still descending (truedir .1063→.0841); the stop rule holds
+— no third fly on this prereg; any P3-focused redesign needs fresh
+registration.
+
+**P2 FAIL at bar — with the program's first generative namings**: 2/128
+rows decoded exactly, p at the 1e-4 floor vs derangement — **CRUCIBLE
+and TEMPERANCE**, the first concepts ever named by the dictionary
+decoding the model's spelling of a never-trained injection (S6: one from
+the margin≥2 set, one from margin≤1). Texture, not a pass; the margin
+analysis's fragility prediction held.
+
+**S-blocks**: S2 RESOLVES toward direction-reading — vs-permuted .4509
+p .002 (significant), vs-original .4196 p .057: the pre-stated second
+reading (the R3-c S3 inheritance) is now visible in-flight; the readout
+reads axis DIRECTIONS, geometry-general. S3: 542 errors, 94.8% adjacent-
+tercile (514/28) — boundary calibration, the z/fz opposite-error
+concentration of flight 1 dissolved. S8: the density wall LIFTED (dense
+codes .63–.76, was .39–.53). S5: all 13/13 wing concepts now favor the
+re-encoded codes (FAMILIARITY flipped to 8v2) — the re-encoding
+preference replicated and strengthened. S7 carrier 4/4 all-MID. S4
+titration cliff/degradation stable.
+
+**E8-F COMPLETE — fork consequences per registration**: L4 design
+(operator/ordered-composition grammar) UNPARKS, and the Ifá seed's
+design check (docs/IFA_SEED.md) becomes runnable next; the Cirlot-100
+atlas probe (docs/FRACTAL_LEXICON_SEED.md) may share that session's
+instruments. Native-F1 (independent authorship) remains named future
+work. The plain account (docs/PLAIN_ACCOUNT.md) updates with this
+verdict per the plain-register law.
