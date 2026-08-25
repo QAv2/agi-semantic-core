@@ -157,6 +157,23 @@ check("compressed world: slopes ~.2 with rank tracking intact",
       all(0.05 < c_comp["per_arm"][a]["slope"] < 0.4
           and c_comp["per_arm"][a]["rho_rank"] > 0.8 for a in L.ARMS))
 
+# SMOKE-RED 20260825_2119b regression teeth (empty LOO concatenate): a
+# smoke-size battery leaves 0 or 1 arms above MIN_POOLED_N — calib_stats
+# must degrade, never crash.
+full_b = planted_battery(1.0)
+one_arm = {a: (rows if a == "familiarity" else rows[:2])
+           for a, rows in full_b.items()}
+c_one = L.calib_stats(one_arm)
+check("one usable arm: no crash, LOO skipped with the marker, others "
+      "degenerate",
+      c_one["loo"]["familiarity"].get("skipped") == "needs >= 2 usable arms"
+      and all(c_one["per_arm"][a].get("degenerate") for a in L.ARMS
+              if a != "familiarity"))
+c_none = L.calib_stats({a: rows[:2] for a, rows in full_b.items()})
+check("zero usable arms: all degenerate, empty LOO, no crash",
+      c_none["loo"] == {}
+      and all(c_none["per_arm"][a].get("degenerate") for a in L.ARMS))
+
 print("== eval row sets at both mode constants ==")
 check("full: anchor 18 · shams 12+12 · fc 96 · fc tids ⊆ baseline",
       len(L.anchor_rows(False)) == 18 and len(L.sham_rows(False)) == 12

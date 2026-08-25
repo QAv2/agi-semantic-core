@@ -48,12 +48,15 @@ for arm in BAT.values():
         it["flipped"] = i % 2 == 1
 
 
-def synth_battery_rows(style, seed):
+def synth_battery_rows(style, seed, smoke=False):
+    """smoke=True mirrors the smoke battery's scale: 2 items/arm, 1 fill —
+    every arm lands under MIN_POOLED_N (the 20260825_2119b crash class)."""
     rng = np.random.default_rng(seed)
     rows = {}
     for arm in L.ARMS:
-        items = BAT[arm]["items"]
-        stims = ([(it, f) for it in items for f in FILLS]
+        items = BAT[arm]["items"][:2] if smoke else BAT[arm]["items"]
+        fills = FILLS[:1] if smoke else FILLS
+        stims = ([(it, f) for it in items for f in fills]
                  if arm == "saturation" else [(it, None) for it in items])
         refs = []
         for it, f in stims:
@@ -193,12 +196,14 @@ def bundle(style="perfect", catch_pre=1, catch_post=10, fc_style="recovered",
         "took_competence": {"n": 6, "within_tol": 6, "pass": True, "rows": []},
         "took_lexicon": {"n": 4, "exact": 4, "pass": True, "rows": []},
         "pre": {"catch_rows": synth_catch(catch_pre),
-                "battery_rows": synth_battery_rows("weakpos", seed + 1),
+                "battery_rows": synth_battery_rows("weakpos", seed + 1,
+                                                   smoke=smoke),
                 "arm_errors": {}},
         "ppl_pre": 11.0, "ppl_post": 11.15, "secs": 6000.0,
     }
     if not no_post:
-        b["post"] = {"battery_rows": synth_battery_rows(style, seed + 2),
+        b["post"] = {"battery_rows": synth_battery_rows(style, seed + 2,
+                                                        smoke=smoke),
                      "arm_errors": {}, "catch_rows": synth_catch(catch_post)}
         b["injection_rows"] = synth_injection(anchor_exact, sham_claims, smoke)
         b["fc_rows"] = synth_fc(fc_style, smoke)
@@ -313,6 +318,13 @@ v7, out7 = run_verdict({"real": bundle(seed=70, smoke=True)}, {}, smoke=True)
 check("smoke: no primaries, real scored, banner GREEN",
       "primaries" not in v7 and "real" in v7["conditions"]
       and "SMOKE GREEN" in out7)
+check("smoke battery is smoke-sized and calib degrades without crashing "
+      "(the 2119b class: every arm under MIN_POOLED_N, empty LOO)",
+      all(m["n"] <= 2 for m in
+          v7["conditions"]["real"]["post"]["arm_meta"].values())
+      and all(v7["conditions"]["real"]["post"]["abs_calib"]["per_arm"][a]
+              .get("degenerate") for a in L.ARMS)
+      and v7["conditions"]["real"]["post"]["abs_calib"]["loo"] == {})
 
 print("== scenario 8: incomplete flight ==")
 v8, out8 = run_verdict({"real": bundle(no_post=True, seed=80)},
