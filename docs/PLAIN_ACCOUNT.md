@@ -171,11 +171,17 @@ non-commutative. That is exactly the L4 problem, and it is why the Ifá
 seed's ordered-pair grammar (right leg senior — 256 ordered
 compositions) is banked as the L4 design prior.
 
-**The live test**: P3 of the flight running right now injects TRUE
-substrate directions of never-trained concepts and asks the featural
-readout to spell them on the carried-8 axes. Flight 1 showed a faint
-trace (.377 vs null .327, p=.015; x and e clear their nulls — e sitting
-exactly at its linear ceiling). FF2 vs FF3 on the re-fly is Joe's
-hypothesis being adjudicated in hardware: FF3 = the shapes are as
-separate as he says, interface-without-geography; FF2 = the thin seam
-is readable. Either way the answer ships with this account attached.
+**The live test — ADJUDICATED (2026-08-24, two flights)**: P3 injected
+TRUE substrate directions of never-trained concepts and asked the
+featural readout to spell them. Both flights found the same faint,
+real, unreadable-at-bar seam (.377 p=.015; .3604 p=.037; the same three
+axes leading both times). **FF3: interface-without-geography — the
+shapes are as separate as Joe said**, twice, in hardware. And in the
+same verdict, the interface side landed completely: the readout spelled
+never-trained concepts through the register at .70 pooled accuracy with
+all 14 axes individually significant (P1, the L3 rung), and the
+dictionary decoded two of those spellings back to their exact names —
+CRUCIBLE and TEMPERANCE, the program's first generative namings. The
+head keeps its own geography; the code is readable anyway; the mouth
+stays silent when nothing is there (0/24 shams, third consecutive
+flight). That is the founding claim, measured.

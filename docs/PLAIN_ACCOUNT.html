@@ -95,10 +95,20 @@ perfectly <strong>and stays silent on shams</strong>. The silence is the preciou
 part. Then the ladder climbed: 
 </p><p>
 <ul>
-<li>Can it read <strong>blends</strong> of two states? Yes — it spells them, like reading a syllable from letters (E8-R3-c).</li>
-<li>Does the hand-built 14-dial meaning-compass line up with the model&#x27;s internal directions? Weakly but really — a <strong>bridge</strong> was fit, a translation between the two coordinate systems (E8-J).</li>
-<li>Can it learn the <strong>14 dials themselves as an alphabet</strong> — each dial LOW/MID/HIGH — and spell concepts it was never trained on, dial by dial? That is E8-F, the current flight. If it can, it didn&#x27;t memorize a lookup table; it learned to <em>read the code</em>.</li>
+<li>Can it read <strong>blends</strong> of two states? Yes — it spells them, like</li>
 </ul>
+  reading a syllable from letters (E8-R3-c). 
+<ul>
+<li>Does the hand-built 14-dial meaning-compass line up with the model&#x27;s</li>
+</ul>
+  internal directions? Weakly but really — a <strong>bridge</strong> was fit, a 
+  translation between the two coordinate systems (E8-J). 
+<ul>
+<li>Can it learn the <strong>14 dials themselves as an alphabet</strong> — each dial</li>
+</ul>
+  LOW/MID/HIGH — and spell concepts it was never trained on, dial by 
+  dial? That is E8-F, the current flight. If it can, it didn&#x27;t memorize 
+  a lookup table; it learned to <em>read the code</em>. 
 </p><p>
 <h2>How this differs from normal ML</h2>
 </p><p>
@@ -116,10 +126,19 @@ stats machinery is the part of the lab that polices <em>us</em>.
 <li><strong>injection</strong> — the side-door nudge (α·μ·direction, added at layer 14)</li>
 <li><strong>readout</strong> — the trained skill of reporting the nudge in words</li>
 <li><strong>shams</strong> — fake trials that must yield &quot;NONE&quot;</li>
-<li><strong>the bridge</strong> — the translator between the hand compass and the model&#x27;s internal compass</li>
+<li><strong>the bridge</strong> — the translator between the hand compass and the</li>
+</ul>
+  model&#x27;s internal compass 
+<ul>
 <li><strong>gates</strong> — pre-agreed checks that the equipment wasn&#x27;t broken</li>
-<li><strong>NO_VERDICT</strong> — &quot;the experiment didn&#x27;t count, no claims&quot; — a feature, not a failure</li>
-<li><strong>LoRA / instillation</strong> — small add-on knobs trained instead of the whole brain; E4 &quot;instilled&quot; the dictionary into the model this way</li>
+<li><strong>NO_VERDICT</strong> — &quot;the experiment didn&#x27;t count, no claims&quot; — a</li>
+</ul>
+  feature, not a failure 
+<ul>
+<li><strong>LoRA / instillation</strong> — small add-on knobs trained instead of the</li>
+</ul>
+  whole brain; E4 &quot;instilled&quot; the dictionary into the model this way 
+<ul>
 <li><strong>pre-registration</strong> — the promises written before the run</li>
 </ul>
 </p><p>
@@ -135,36 +154,15 @@ statistically trained weights than it would in our dictionary.*
 <strong>Where the instruments already stand on this</strong> (every line below is a 
 locked, recomputed measurement): 
 </p><p>
-1. <strong>Phase 6 (embeddings)</strong>: a linear map recovers the dictionary from 
-   the model&#x27;s embedding space at R²≈.51 — and the LLM has *compressed 
-   away 95.5% of the dictionary&#x27;s 90° complement pairs*. The 
-   right-angle structure the dictionary insists on is largely absent 
-   from trained geometry. Different triangles, measured. 
-2. <strong>E8-J (hidden space)</strong>: the dictionary↔hidden-space correspondence 
-   is REAL but THIN — RSA ρ≈.11, predictions land ~73° from the true 
-   directions (90° would be &quot;unrelated&quot;), exact retrieval ~7× chance 
-   but under 1%. Mostly different shape; a faint, real seam. 
-3. <strong>A4 inversion</strong>: embeddings echo the dictionary&#x27;s <em>domain</em> axes; 
-   the hidden stream echoes the <em>polarity</em> axes (x/fx) instead. The 
-   model&#x27;s two trained geometries don&#x27;t even agree with each other 
-   about which parts of the dictionary they reflect. 
-4. <strong>E8-J v2</strong>: where hand code and substrate disagree (the machine 
-   wing), the disagreement is a measured quantity (p=.0001) — and 
-   re-encoding the concepts THROUGH the substrate&#x27;s own reading 
-   round-trips and executes better than the hand code (4/13 vs 0/13 
-   geometric; 19 vs 0 through the readout). When the shapes differ, 
-   the head&#x27;s shape is the operative one <em>for the head</em>. 
-5. <strong>E8-F flight 1, S5</strong>: a featural readout with zero wing exposure 
-   spells wing injections matching the re-encoded codes ~11/14 fields 
-   vs ~4/14 for the hand codes — a third independent instrument 
-   preferring the substrate&#x27;s version. 
-6. <strong>Instillation differentiates without aligning</strong>: training the model 
-   ON the dictionary expanded its concept-space ~6× (eff-rank 24→149) 
-   while alignment to the codebook stayed flat. Even force-feeding the 
-   map does not make the head adopt the map&#x27;s shape. 
-7. <strong>U–C kinship</strong>: the hand code says UNCERTAINTY and CONFIDENCE are 
-   an opposition; the substrate reads them as kin (54.5°). A concrete 
-   different-triangle vertex, on the record. 
+<ul>
+<li><strong>Phase 6 (embeddings)</strong>: a linear map recovers the dictionary from the model&#x27;s embedding space at R²≈.51 — and the LLM has <em>compressed away 95.5% of the dictionary&#x27;s 90° complement pairs</em>. The right-angle structure the dictionary insists on is largely absent from trained geometry. Different triangles, measured.</li>
+<li><strong>E8-J (hidden space)</strong>: the dictionary↔hidden-space correspondence is REAL but THIN — RSA ρ≈.11, predictions land ~73° from the true directions (90° would be &quot;unrelated&quot;), exact retrieval ~7× chance but under 1%. Mostly different shape; a faint, real seam.</li>
+<li><strong>A4 inversion</strong>: embeddings echo the dictionary&#x27;s <em>domain</em> axes; the hidden stream echoes the <em>polarity</em> axes (x/fx) instead. The model&#x27;s two trained geometries don&#x27;t even agree with each other about which parts of the dictionary they reflect.</li>
+<li><strong>E8-J v2</strong>: where hand code and substrate disagree (the machine wing), the disagreement is a measured quantity (p=.0001) — and re-encoding the concepts THROUGH the substrate&#x27;s own reading round-trips and executes better than the hand code (4/13 vs 0/13 geometric; 19 vs 0 through the readout). When the shapes differ, the head&#x27;s shape is the operative one <em>for the head</em>.</li>
+<li><strong>E8-F flight 1, S5</strong>: a featural readout with zero wing exposure spells wing injections matching the re-encoded codes ~11/14 fields vs ~4/14 for the hand codes — a third independent instrument preferring the substrate&#x27;s version.</li>
+<li><strong>Instillation differentiates without aligning</strong>: training the model ON the dictionary expanded its concept-space ~6× (eff-rank 24→149) while alignment to the codebook stayed flat. Even force-feeding the map does not make the head adopt the map&#x27;s shape.</li>
+<li><strong>U–C kinship</strong>: the hand code says UNCERTAINTY and CONFIDENCE are an opposition; the substrate reads them as kin (54.5°). A concrete different-triangle vertex, on the record.</li>
+</ul>
 </p><p>
 **Verdict on the hypothesis: substantially confirmed before it was 
 stated.** The program&#x27;s entire current claim discipline — &quot;bottleneck 
@@ -188,17 +186,22 @@ non-commutative. That is exactly the L4 problem, and it is why the Ifá
 seed&#x27;s ordered-pair grammar (right leg senior — 256 ordered 
 compositions) is banked as the L4 design prior. 
 </p><p>
-<strong>The live test</strong>: P3 of the flight running right now injects TRUE 
-substrate directions of never-trained concepts and asks the featural 
-readout to spell them on the carried-8 axes. Flight 1 showed a faint 
-trace (.377 vs null .327, p=.015; x and e clear their nulls — e sitting 
-exactly at its linear ceiling). FF2 vs FF3 on the re-fly is Joe&#x27;s 
-hypothesis being adjudicated in hardware: FF3 = the shapes are as 
-separate as he says, interface-without-geography; FF2 = the thin seam 
-is readable. Either way the answer ships with this account attached. 
-</p><p>
-</p>
-<div class="chalk">Canonical source: <code>docs/PLAIN_ACCOUNT.md</code> — this page is the
-reading surface and is regenerated after edits (rendered-output law). The plain-register
-law folds into the QA_LINEAGE three-register honesty ledger.</div>
+<strong>The live test — ADJUDICATED (2026-08-24, two flights)</strong>: P3 injected 
+TRUE substrate directions of never-trained concepts and asked the 
+featural readout to spell them. Both flights found the same faint, 
+real, unreadable-at-bar seam (.377 p=.015; .3604 p=.037; the same three 
+axes leading both times). **FF3: interface-without-geography — the 
+shapes are as separate as Joe said**, twice, in hardware. And in the 
+same verdict, the interface side landed completely: the readout spelled 
+never-trained concepts through the register at .70 pooled accuracy with 
+all 14 axes individually significant (P1, the L3 rung), and the 
+dictionary decoded two of those spellings back to their exact names — 
+CRUCIBLE and TEMPERANCE, the program&#x27;s first generative namings. The 
+head keeps its own geography; the code is readable anyway; the mouth 
+stays silent when nothing is there (0/24 shams, third consecutive 
+flight). That is the founding claim, measured. 
+</p><p></p>
+<div class="chalk">Canonical source: <code>docs/PLAIN_ACCOUNT.md</code> — regenerated after the
+E8-F verdict per the rendered-output law. The plain-register law folds into the QA_LINEAGE
+three-register honesty ledger.</div>
 </div></body></html>
