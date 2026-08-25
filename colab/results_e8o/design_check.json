@@ -1,0 +1,100 @@
+{
+ "what": "E8-O design check",
+ "seed": 20260900,
+ "generator": {
+  "parity_supports": [
+   [
+    0,
+    1,
+    3
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1,
+    2,
+    3
+   ]
+  ],
+  "bit_rule": "v>0",
+  "leg_order": "d=(e f g h), p=(x y z)"
+ },
+ "zero_coord_rate": 0.01088,
+ "s2_tetragram": {
+  "dominant_figure": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "cells_occupied": 12,
+  "sizes": [
+   1808,
+   17,
+   14,
+   9,
+   6,
+   3,
+   2,
+   2,
+   1,
+   1,
+   1,
+   1
+  ],
+  "entropy_bits": 0.281,
+  "trigram_entropy_bits": 2.976,
+  "within_cell_med": 44.9,
+  "cross_cell_med": 56.9
+ },
+ "s3_meji": {
+  "meji": 1841,
+  "n": 1865,
+  "meji_rate": 0.9871,
+  "odu_cells": 19,
+  "mixed_cells": 8
+ },
+ "s4_heptagram": {
+  "cells": 37,
+  "top": 553,
+  "singletons": 18
+ },
+ "s5_dominant_line": "line-5 x",
+ "s5_hamming": {
+  "codeword": 557,
+  "rate": 0.2987,
+  "chance": 0.125,
+  "syndromes": {
+   "(0, 0, 0)": 557,
+   "(0, 0, 1)": 83,
+   "(0, 1, 0)": 201,
+   "(0, 1, 1)": 45,
+   "(1, 0, 0)": 561,
+   "(1, 0, 1)": 112,
+   "(1, 1, 0)": 236,
+   "(1, 1, 1)": 70
+  }
+ },
+ "s6_opA": {
+  "sep_med": 100.81,
+  "sep_p10": 57.11,
+  "frac_ge_channel": 1.0,
+  "parent_med": 43.45,
+  "code_ham_med": 9.0,
+  "mixed_400": 45,
+  "nearest_flip_400": 42
+ },
+ "s6_opB": {
+  "sep_med": 31.56,
+  "sep_p10": 15.94,
+  "frac_ge_channel": 0.792,
+  "parent_med": 17.26,
+  "code_ham_med": 6.0,
+  "mixed_400": 0,
+  "nearest_flip_400": 93
+ },
+ "s6b_envelope_med": 35.95
+}
