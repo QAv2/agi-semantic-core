@@ -477,7 +477,15 @@ if SMOKE:
     checks = {
         'no_condition_errors': not cond_errors,
         'real_flew': _ok1,
-        'loss_fell': _ok1 and _tl()['final_smoothed'] < _tl()['loss_first_k'],
+        # smoke-3 20260825_2218: the old window-vs-window loss comparison is
+        # a coin flip at smoke scale — 1 epoch, per-strand means 0.006..4.76,
+        # so the seeded shuffle's strand mixture sets both windows (~46% of
+        # orderings pass under ZERO learning; ~54% of HEALTHY runs go red).
+        # Behavioral movement is the deterministic instrument: a broken train
+        # path scores 0/4 verbatim lexicon and leaves the catch flat.
+        'train_moved': _ok1 and (
+            e.get('took_lexicon', {}).get('exact', 0) >= 3
+            or e['post']['catch']['passed'] - e['pre']['catch']['passed'] >= 3),
         'long_seq_exercised': _ok1 and _tl()['max_example_tokens'] > 4000,
         'train_vram_ok': _ok1 and _tl().get('peak_vram_gb', 99) < 12.0,
         'train_hooks_fired': _ok1 and _tl().get('hook_calls', 0) > 0,
