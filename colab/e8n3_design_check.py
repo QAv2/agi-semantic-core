@@ -138,10 +138,17 @@ def calib(rows_by_arm, tag):
                     "report_var": round(float(rep.var()), 3)}
         pooled_pairs.append((q10, rep, arm))
     # cross-arm scale invariance: LOO arm transfer of the calibration line
+    # (defined only with >= 2 usable arms — a smoke-size battery can leave
+    #  0 or 1 above MIN_POOLED_N, and an empty training set must be
+    #  skipped, never concatenated)
     loo = {}
     for q10, rep, arm in pooled_pairs:
-        tr_q = np.concatenate([q for q, r_, a in pooled_pairs if a != arm])
-        tr_r = np.concatenate([r_ for q, r_, a in pooled_pairs if a != arm])
+        others = [(q, r_) for q, r_, a in pooled_pairs if a != arm]
+        if not others:
+            loo[arm] = {"skipped": "needs >= 2 usable arms"}
+            continue
+        tr_q = np.concatenate([q for q, r_ in others])
+        tr_r = np.concatenate([r_ for q, r_ in others])
         bb, aa = np.polyfit(tr_q, tr_r, 1)
         pred = aa + bb * q10
         mae_t = float(np.mean(np.abs(pred - rep)))
