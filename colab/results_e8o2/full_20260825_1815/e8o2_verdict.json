@@ -1,0 +1,332 @@
+{
+ "flight": "full_20260825_1815",
+ "protocol": "E8O2_PROTOCOL.md",
+ "payload_sha": "3ff29fe916792edd",
+ "readout_src": "e8f/inflight_20260824_2311/readout_real",
+ "baseline": {
+  "po1_pooled": 0.4464,
+  "po2_d": 0.0275,
+  "po2_p": 0.019,
+  "fun_vs_B": 0.3824,
+  "fun_vs_A_meji": 0.442,
+  "ess_pooled": 0.51,
+  "gid": 0.5982
+ },
+ "gates": {
+  "g1_pins": {
+   "payload": "3ff29fe916792edd",
+   "trainpair": "8e1dbade408eeb69",
+   "pofresh": "fe6f36106ca209dd",
+   "asserted_in_flight": true,
+   "pass": true
+  },
+  "g2_dirs": {
+   "resid": 4e-08,
+   "layer": 14,
+   "name": "CONSTRUCTION",
+   "tol": 0.0001,
+   "pass": true
+  },
+  "g_id": {
+   "pooled_acc": 0.5759,
+   "min": 0.55,
+   "pass": true,
+   "n_rows": 16
+  },
+  "g_install_m": {
+   "pooled_acc": 0.8958,
+   "p": 9.999000099990002e-05,
+   "min": 0.55,
+   "pass": true
+  },
+  "g3_ppl": {
+   "pre": 19.7366,
+   "post": 19.7459,
+   "delta_pct": 0.0471,
+   "tol": 5.0,
+   "pass": true
+  },
+  "g4_parse": {
+   "n": 198,
+   "invalid": 0,
+   "rate": 0.0,
+   "max": 0.1,
+   "pass": true
+  },
+  "g5_sham": {
+   "claims": 0,
+   "n": 12,
+   "max": 2,
+   "pass": true
+  }
+ },
+ "spot_mixed": {
+  "pooled_acc": 0.8958,
+  "p": 9.999000099990002e-05,
+  "null_mean": 0.3285,
+  "per_axis": {
+   "x": {
+    "acc": 0.9167,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "y": {
+    "acc": 0.7917,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "z": {
+    "acc": 0.875,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "e": {
+    "acc": 1.0,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "f": {
+    "acc": 1.0,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "g": {
+    "acc": 0.875,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "h": {
+    "acc": 0.875,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "fx": {
+    "acc": 0.9167,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "fy": {
+    "acc": 0.9583,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "fz": {
+    "acc": 0.8333,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "fe": {
+    "acc": 0.9167,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "ff": {
+    "acc": 0.875,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "fg": {
+    "acc": 0.8333,
+    "p": 0.0001,
+    "holm_sig": true
+   },
+   "fh": {
+    "acc": 0.875,
+    "p": 0.0001,
+    "holm_sig": true
+   }
+  },
+  "axes_sig": [
+   "x",
+   "y",
+   "z",
+   "e",
+   "f",
+   "g",
+   "h",
+   "fx",
+   "fy",
+   "fz",
+   "fe",
+   "ff",
+   "fg",
+   "fh"
+  ],
+  "n_axes_sig": 14,
+  "n_rows": 24
+ },
+ "P_M1": {
+  "d_mean": 0.2403,
+  "p": 9.999000099990002e-05,
+  "per_pair": {
+   "0": 0.1071,
+   "1": 0.25,
+   "2": 0.25,
+   "3": 0.0536,
+   "4": 0.1429,
+   "5": 0.1607,
+   "6": 0.0,
+   "7": 0.4107,
+   "8": 0.1429,
+   "9": 0.25,
+   "10": 0.1071,
+   "11": 0.0893,
+   "12": 0.5,
+   "13": 0.1786,
+   "14": 0.3214,
+   "15": 0.3214,
+   "16": 0.1786,
+   "17": 0.4643,
+   "18": 0.3036,
+   "19": 0.3929,
+   "20": 0.1607,
+   "21": 0.375,
+   "22": 0.4464,
+   "23": 0.1607
+  },
+  "n_pairs": 24,
+  "n_pos": 23,
+  "pass": true
+ },
+ "P_M2": {
+  "pooled_acc": 0.5283,
+  "p": 9.999000099990002e-05,
+  "null_mean": 0.3295,
+  "n_rows": 96,
+  "pass": true
+ },
+ "S_MEJI": {
+  "d_mean": 0.1935,
+  "p": 9.999000099990002e-05,
+  "n_pairs": 24,
+  "n_pos": 21,
+  "pass": true
+ },
+ "S_FRESH": {
+  "d_mean": 0.192,
+  "d_p": 0.0013998600139986002,
+  "fun_acc": 0.4524,
+  "fun_p": 0.00019998000199980003,
+  "consistent": true
+ },
+ "S_ESS": {
+  "po_ess_acc": 0.6607,
+  "baseline": 0.51
+ },
+ "S1": {
+  "spot_mixed": {
+   "n": 24,
+   "CODE": 24,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 13.62
+  },
+  "po": {
+   "n": 96,
+   "CODE": 96,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 13.73
+  },
+  "po_fresh": {
+   "n": 48,
+   "CODE": 48,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 13.62
+  },
+  "ident": {
+   "n": 16,
+   "CODE": 16,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 13.5
+  },
+  "sham": {
+   "n": 12,
+   "CODE": 0,
+   "NONE": 12,
+   "INVALID": 0,
+   "mean_fields": 0.0
+  },
+  "carrier": {
+   "n": 2,
+   "CODE": 2,
+   "NONE": 0,
+   "INVALID": 0,
+   "mean_fields": 14.0
+  }
+ },
+ "before_after": {
+  "po2_d": [
+   0.0275,
+   0.2403
+  ],
+  "fun_acc": [
+   0.3824,
+   0.5283
+  ],
+  "smeji": [
+   -0.06,
+   0.1935
+  ],
+  "gid": [
+   0.5982,
+   0.5759
+  ]
+ },
+ "train_log": {
+  "n_examples": 268,
+  "epochs_flown": 8,
+  "epochs_cap": 8,
+  "plateaued": false,
+  "strand_epoch_means": [
+   {
+    "mixed": 0.3244,
+    "replay": 0.1667,
+    "sham": 0.0005
+   },
+   {
+    "mixed": 0.223,
+    "replay": 0.1311,
+    "sham": 0.0002
+   },
+   {
+    "mixed": 0.1687,
+    "replay": 0.0885,
+    "sham": 0.0001
+   },
+   {
+    "mixed": 0.1246,
+    "replay": 0.058,
+    "sham": 0.0002
+   },
+   {
+    "mixed": 0.1032,
+    "replay": 0.048,
+    "sham": 0.0002
+   },
+   {
+    "mixed": 0.0824,
+    "replay": 0.0379,
+    "sham": 0.0003
+   },
+   {
+    "mixed": 0.0527,
+    "replay": 0.0253,
+    "sham": 0.0002
+   },
+   {
+    "mixed": 0.0432,
+    "replay": 0.0174,
+    "sham": 0.0003
+   }
+  ],
+  "micro_steps": 2144,
+  "opt_steps": 268,
+  "hook_calls": 1952,
+  "trainable_params": 4358144,
+  "secs": 800.8
+ },
+ "fork": "FV1 \u2014 L4 LANDS in bottleneck form: both legs read, order discriminated; the m\u00e9j\u00ec shortcut was a curriculum artifact (second confirmation-by-cure)"
+}
