@@ -8,8 +8,11 @@ S-ABS rows present, fork FN1; (2) FN2 — catch fails with the competence
 strand PLATEAUED → honest-stop fork; (3) FN3 — catch fails at cap-hit with
 competence still descending → single re-fly fork; (4) FN4 — tracking dead,
 catch passes → retention-casualty fork; (5) catch-pre sanity (6/12 pre) →
-gates NO_VERDICT; (6) sham flood → gates NO_VERDICT; (7) smoke GREEN path;
-(8) incomplete flight → no primaries, no fork, resume banner.
+gates NO_VERDICT; (6) sham flood → gates NO_VERDICT; (7) smoke GREEN path,
+incl. the train_moved teeth — 7b: the smoke-3 20260825_2218 shape (loss
+windows inverted by strand mixture, behavior healthy) stays GREEN; 7c: a
+broken train path (lexicon 0/4, catch flat) goes RED even with falling loss
+windows; (8) incomplete flight → no primaries, no fork, resume banner.
 
 Run:  python3 colab/test_e8n3_verdict.py   (numpy only; ~2-4 min)
 """
@@ -325,6 +328,25 @@ check("smoke battery is smoke-sized and calib degrades without crashing "
       and all(v7["conditions"]["real"]["post"]["abs_calib"]["per_arm"][a]
               .get("degenerate") for a in L.ARMS)
       and v7["conditions"]["real"]["post"]["abs_calib"]["loo"] == {})
+
+print("== scenario 7b: smoke-3 incident shape — inverted loss windows, "
+      "healthy behavior -> GREEN ==")
+b7b = bundle(seed=71, catch_post=6, smoke=True)
+b7b["train_log"]["loss_first_k"] = 1.4914      # the flown smoke-3 values
+b7b["train_log"]["final_smoothed"] = 1.8684    # (20260825_2218): final > first
+v7b, out7b = run_verdict({"real": b7b}, {}, smoke=True)
+check("train_moved true on behavior (lexicon 4/4, catch 1->6); banner GREEN "
+      "despite the window inversion that killed smoke-3",
+      '"train_moved": true' in out7b and "SMOKE GREEN" in out7b)
+
+print("== scenario 7c: broken train path -> RED even with falling windows ==")
+b7c = bundle(seed=72, catch_post=1, smoke=True)   # catch flat at pre level
+b7c["took_lexicon"] = {"n": 4, "exact": 0, "pass": False, "rows": []}
+v7c, out7c = run_verdict({"real": b7c}, {}, smoke=True)
+check("train_moved false (lexicon 0/4, catch 1->1) and banner RED, even "
+      "though the fixture's loss windows fall 2.4->0.5 (old-check blind spot)",
+      b7c["train_log"]["final_smoothed"] < b7c["train_log"]["loss_first_k"]
+      and '"train_moved": false' in out7c and "SMOKE RED" in out7c)
 
 print("== scenario 8: incomplete flight ==")
 v8, out8 = run_verdict({"real": bundle(no_post=True, seed=80)},

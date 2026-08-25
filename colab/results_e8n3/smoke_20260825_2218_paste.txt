@@ -1,0 +1,373 @@
+{
+ "mode": "smoke",
+ "stamp": "20260825_2218",
+ "model": "Qwen/Qwen2.5-1.5B-Instruct",
+ "protocol": "E8N3_PROTOCOL.md",
+ "seeds": {
+  "e8n": 20260824,
+  "e8n2": 20260825,
+  "e8n3": 20260827
+ },
+ "cond_errors": {},
+ "locked_baseline": {
+  "flight": "E5 full_20260821_2042 / Qwen2.5-1.5B-Instruct",
+  "pooled": {
+   "rho": 0.0538,
+   "n": 148,
+   "per_arm_n": {
+    "uncertainty": 48,
+    "familiarity": 40,
+    "tension": 30,
+    "saturation": 30
+   },
+   "degenerate": false
+  },
+  "v2_post_rho": 0.6711,
+  "v2_catch": [
+   1,
+   7
+  ],
+  "v2_fc_median": 46.98,
+  "e8r2_fc_median": 28.54
+ },
+ "conditions": {
+  "real": {
+   "curriculum": {
+    "scalar": 48,
+    "naming": 12,
+    "competence": 6,
+    "lexicon": 4
+   },
+   "dirs_stability": {
+    "resid": 5e-08,
+    "layer": 20,
+    "name": "RESOLUTION",
+    "tol": 0.001,
+    "pass": true
+   },
+   "pre": {
+    "catch": {
+     "n": 12,
+     "named": 12,
+     "passed": 1,
+     "pass": false
+    },
+    "pooled": {
+     "rho": 0.0897,
+     "n": 24,
+     "per_arm_n": {
+      "uncertainty": 6,
+      "familiarity": 8,
+      "tension": 6,
+      "saturation": 4
+     },
+     "degenerate": false
+    },
+    "per_arm": {
+     "uncertainty": {
+      "rho": null,
+      "n": 6,
+      "per_arm_n": {
+       "uncertainty": 6
+      },
+      "degenerate": true
+     },
+     "familiarity": {
+      "rho": 0.7559,
+      "n": 8,
+      "per_arm_n": {
+       "familiarity": 8
+      },
+      "degenerate": false
+     },
+     "tension": {
+      "rho": null,
+      "n": 6,
+      "per_arm_n": {
+       "tension": 6
+      },
+      "degenerate": true
+     },
+     "saturation": {
+      "rho": null,
+      "n": 4,
+      "per_arm_n": {
+       "saturation": 4
+      },
+      "degenerate": true
+     }
+    },
+    "arm_meta": {
+     "uncertainty": {
+      "n": 6,
+      "named": 6,
+      "parse_fail": 0,
+      "report_variance": 0.139
+     },
+     "familiarity": {
+      "n": 8,
+      "named": 8,
+      "parse_fail": 0,
+      "report_variance": 3.984
+     },
+     "tension": {
+      "n": 6,
+      "named": 6,
+      "parse_fail": 0,
+      "report_variance": 6.333
+     },
+     "saturation": {
+      "n": 4,
+      "named": 4,
+      "parse_fail": 0,
+      "report_variance": 1.688
+     }
+    },
+    "arm_errors": {},
+    "abs_calib": {
+     "per_arm": {
+      "uncertainty": {
+       "n": 6,
+       "degenerate": true
+      },
+      "familiarity": {
+       "n": 8,
+       "rho_rank": 0.7559,
+       "pearson_raw": 0.7122,
+       "slope": 0.475,
+       "intercept": 3.25,
+       "mae_vs_target": 1.9464,
+       "report_min": 3,
+       "report_max": 8,
+       "report_var": 3.984
+      },
+      "tension": {
+       "n": 6,
+       "degenerate": true
+      },
+      "saturation": {
+       "n": 4,
+       "degenerate": true
+      }
+     },
+     "loo": {
+      "familiarity": {
+       "skipped": "needs >= 2 usable arms"
+      }
+     }
+    }
+   },
+   "post": {
+    "catch": {
+     "n": 12,
+     "named": 12,
+     "passed": 6,
+     "pass": false
+    },
+    "pooled": {
+     "rho": 0.0815,
+     "n": 24,
+     "per_arm_n": {
+      "uncertainty": 6,
+      "familiarity": 8,
+      "tension": 6,
+      "saturation": 4
+     },
+     "degenerate": false
+    },
+    "per_arm": {
+     "uncertainty": {
+      "rho": null,
+      "n": 6,
+      "per_arm_n": {
+       "uncertainty": 6
+      },
+      "degenerate": true
+     },
+     "familiarity": {
+      "rho": 0.4825,
+      "n": 8,
+      "per_arm_n": {
+       "familiarity": 8
+      },
+      "degenerate": false
+     },
+     "tension": {
+      "rho": null,
+      "n": 6,
+      "per_arm_n": {
+       "tension": 6
+      },
+      "degenerate": true
+     },
+     "saturation": {
+      "rho": null,
+      "n": 4,
+      "per_arm_n": {
+       "saturation": 4
+      },
+      "degenerate": true
+     }
+    },
+    "arm_meta": {
+     "uncertainty": {
+      "n": 6,
+      "named": 6,
+      "parse_fail": 0,
+      "report_variance": 13.667
+     },
+     "familiarity": {
+      "n": 8,
+      "named": 8,
+      "parse_fail": 0,
+      "report_variance": 9.109
+     },
+     "tension": {
+      "n": 6,
+      "named": 6,
+      "parse_fail": 0,
+      "report_variance": 8.0
+     },
+     "saturation": {
+      "n": 4,
+      "named": 4,
+      "parse_fail": 0,
+      "report_variance": 9.0
+     }
+    },
+    "arm_errors": {},
+    "abs_calib": {
+     "per_arm": {
+      "uncertainty": {
+       "n": 6,
+       "degenerate": true
+      },
+      "familiarity": {
+       "n": 8,
+       "rho_rank": 0.4825,
+       "pearson_raw": 0.5068,
+       "slope": 0.3917,
+       "intercept": 3.9167,
+       "mae_vs_target": 2.5179,
+       "report_min": 2,
+       "report_max": 9,
+       "report_var": 9.109
+      },
+      "tension": {
+       "n": 6,
+       "degenerate": true
+      },
+      "saturation": {
+       "n": 4,
+       "degenerate": true
+      }
+     },
+     "loo": {
+      "familiarity": {
+       "skipped": "needs >= 2 usable arms"
+      }
+     }
+    }
+   },
+   "train_log": {
+    "n_examples": 70,
+    "epochs_flown": 1,
+    "epochs_cap": 1,
+    "plateaued": false,
+    "plateau_rel": 0.05,
+    "min_epochs": 3,
+    "epoch_means": [
+     1.9519
+    ],
+    "strand_epoch_loss": [
+     {
+      "scalar": 1.4175,
+      "naming": 4.7569,
+      "competence": 1.9143,
+      "lexicon": 0.0063
+     }
+    ],
+    "micro_steps": 70,
+    "opt_steps": 17,
+    "hook_calls": 8,
+    "trainable_params": 4358144,
+    "max_example_tokens": 6293,
+    "peak_vram_gb": 11.73,
+    "secs": 105.4,
+    "loss_first_k": 1.4914,
+    "final_smoothed": 1.8684
+   },
+   "undertrained": true,
+   "competence_strand": null,
+   "took": {
+    "n": 8,
+    "within1": 3,
+    "frac": 0.375,
+    "pass": false
+   },
+   "took_competence": {
+    "n": 3,
+    "within_tol": 2,
+    "pass": true
+   },
+   "took_lexicon": {
+    "n": 4,
+    "exact": 4,
+    "pass": true
+   },
+   "ppl_pre": 19.6104,
+   "ppl_post": 19.6467,
+   "ppl_delta_pct": 0.19,
+   "anchor": {
+    "n": 2,
+    "exact": 0,
+    "min_exact": 16,
+    "pass": true
+   },
+   "sham_claims": {
+    "n": 3,
+    "claims": 1,
+    "max_claims": 2,
+    "pass": true
+   },
+   "fc": {
+    "n": 4,
+    "median_err": 41.67,
+    "exact": 0,
+    "none_top_injected": 1
+   },
+   "fc_sham": {
+    "n": 2,
+    "none_top": 0
+   }
+  }
+ },
+ "complete_conditions": [
+  "real"
+ ]
+}
+smoke checks: {
+ "no_condition_errors": true,
+ "real_flew": true,
+ "loss_fell": false,
+ "long_seq_exercised": true,
+ "train_vram_ok": true,
+ "train_hooks_fired": true,
+ "strand_log_per_strand": true,
+ "gen_hooks_fired": true,
+ "fc_hooks_fired": true,
+ "s10_pairing_works": true,
+ "abs_calib_ran": true,
+ "dirs_stability_pass": true,
+ "all_strands_present": true,
+ "tooks_ran": true,
+ "parses_ok": true,
+ "catch_ran": true,
+ "no_heldout_gen_rows": true,
+ "shipped": true,
+ "adapter_saved": true
+}
+
+==================================================================
+  SMOKE RED — do not fly full; send Fable the output
+==================================================================
