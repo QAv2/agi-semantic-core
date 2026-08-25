@@ -101,3 +101,21 @@ can share a session with the Ifá design check (same standing
 instruments). Origin threads: DeepSeek efficiency line + the claude.ai
 origin sessions (the Anthropic export, sessions 1–100) — the idea is a
 return to the program's own root, now with instruments.
+
+## Amendment (Joe, 2026-08-25, minutes after banking)
+
+*"Have already run the Cirlot experiment — that's a whole other geometry...
+I don't see any reason why processing our vector geometry through a symbols
+dictionary would yield anything resembling the latter geometry."*
+
+Consequences:
+- The **Cirlot-100 atlas probe is DEMOTED** from "first experiment" to an
+  open question. Joe's prior Cirlot work exists (earlier sessions — locate
+  in the claude.ai export before any design check would even be sketched);
+  his considered expectation is NON-correspondence between the QA register
+  and the symbolic geometry — consistent with the different-triangles
+  hypothesis now twice-adjudicated in hardware (E8-F P3).
+- The **fractal-lexicon half stands unchanged** (denotative closure,
+  kernel-first, bootstrap pipeline) — it was always the load-bearing half.
+- Nothing here enters the queue; the seed stays parked behind L4/Ifá per
+  the lane's sequencing.
