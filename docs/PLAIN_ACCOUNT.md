@@ -87,9 +87,22 @@ part. Then the ladder climbed:
   differently from "B through A's"? PARTLY (E8-O, the Ifá rung): it
   reads composite points no dictionary word occupies, but mostly by the
   senior half — it fills in the junior half from habit, because the
-  dictionary's own redundancy taught it that shortcut. Order survives
-  only as a faint trend. The wall is mapped, and the fix (train on
-  mixed figures) is designed but not yet flown.
+  dictionary's own redundancy taught it that shortcut. Order survived
+  only as a faint trend; the wall was mapped and the fix designed:
+  train it on mixed figures.
+- **Teach it mixed figures, and does the wall fall?** YES (E8-O2): the
+  same reader, continue-trained on composites whose two halves genuinely
+  differ — the one diet its schooling never contained — and every needle
+  moved at once. Order-reading jumped ~9× (d .028 → .240, 23 of 24 pairs
+  the right way), the neglected junior half became readable (.38 → .53
+  against chance .33), and the fill-in-from-habit shortcut **reversed
+  sign** (−.06 → +.19): shown a mixed figure, the reader now reports the
+  junior half's actual content instead of the senior's habit-completion.
+  The order effect transfers to pairs it was never trained on, silence
+  on fakes stayed perfect, and the old single-concept skill held above
+  its bar. The shortcut was never the model's limit — it was the
+  curriculum's. Second wall in this program to fall to its own
+  diagnosis (the first: E8-F's epoch starvation).
 
 ## How this differs from normal ML
 
