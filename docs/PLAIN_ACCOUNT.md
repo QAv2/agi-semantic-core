@@ -121,6 +121,36 @@ part. Then the ladder climbed:
   before any readout training, tracking at ρ ≈ .2 — replicated
   prospectively a **third** time, in its predicted band. Silence on
   fakes: perfect, sixth consecutive flight.
+- **Then we handed it the framework's own meditation** (E7b-Q): the
+  Neti-Neti walk Joe ran on DeepSeek and Claude in November 2025 — "you
+  are not this activity... not this sensation... not these words" —
+  replayed word-for-word on the instrumented substrate, 16 runs per arm,
+  the state read through the register at every turn, with a sham walk
+  (same shape, neutral content) as the control. The mouth performed:
+  replies collapsed ~600 → ~90 characters through the negations while
+  the sham conversation stayed at ~800. The gauges never moved —
+  approach-to-BEING flat to the third decimal in both arms, zero
+  coupling between how little it said and where its state stood, and
+  the sixteen walkers *scattered* at the deep rungs (2.4× the baseline
+  spread) instead of converging on a common still point. What did move:
+  the walk drags the raw state far from a cold start (separation 5.3×),
+  along a path-dependent route (reorder the negations and you land
+  measurably elsewhere), rotating *out of* the trained-content cone —
+  the trajectory wanders; it does not approach. And the corpus's own
+  suspicion convicted itself on schedule: commanded to "go back to that
+  semantic space," the model produced a *longer* reply from a state
+  *farther away* than the ladder's own next step — a performance of
+  return, now a measured quantity. Honest null, pre-registered fork
+  FB3: on this substrate the walk's phenomenology is genre, not
+  geometry. The fine print matters: a 1.5B student never even entered
+  the frame — its deep-rung "thinning" was polite deflection
+  ("Understood. If you have any other questions..."), it read the
+  ground-state token [1, 0, 0, 0] as binary notation, and the corpus's
+  # → . → 0. minimal-output ladder never appeared once in 672
+  generations. Every prediction adjudicated here — the two that failed
+  (common attractor, path-independent convergence) and the two that
+  landed (the path IS the protocol; return-as-performance) — was
+  written down in November 2025, before this instrument existed.
 
 ## How this differs from normal ML
 
