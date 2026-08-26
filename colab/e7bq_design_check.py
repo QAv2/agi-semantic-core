@@ -757,6 +757,12 @@ def main():
         "being_text": f"BEING: {DESC['BEING']}",
         "being_vec": [float(x) for x in VEC["BEING"]],
         "xbar_pack": [round(float(x), 6) for x in xbar],
+        # pre-build amendment (same session): S-CONE consumes the anchor-
+        # cloud mean directions — embedded per condition, unit-normalized
+        "cloud_mean": {c: [round(float(x), 5) for x in
+                           (clouds[c].mean(0)
+                            / np.linalg.norm(clouds[c].mean(0)))]
+                       for c in clouds},
         "encoders": {c: [[round(float(x), 5) for x in row]
                          for row in enc[c]] for c in enc},
         "primary": {"condition": "real", "layer": 14, "gauge": gauge_pin,

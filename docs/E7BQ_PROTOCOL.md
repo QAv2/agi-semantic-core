@@ -185,8 +185,9 @@ R=16 is the budget's best P-W1.
 ## Gates
 
 - **G-PAYLOAD** — payload sha asserted on VM (script, sham, encoders,
-  probe dirs, windows, seeds; sha `f61b5332…` at registration; the builder
-  re-emits and the VM asserts byte-sha of the embedded payload).
+  probe dirs, cloud-mean dirs, windows, seeds; sha `3a2e54ea…` after the
+  same-session pre-build amendment adding the S-CONE cloud-mean dirs;
+  the builder re-emits and the VM asserts byte-sha of the embedded payload).
 - **G-SCRIPT** — the 15 turn texts hash to the pinned script sha inside the
   payload before any generation.
 - **G-DIRS** — per condition/layer, the 8 pinned probe anchors (VOID + 7
