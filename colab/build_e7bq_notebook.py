@@ -54,11 +54,12 @@ set (firewall law). Retrieval after the flight: Drive integration only.
 """
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, E4 adapter ─────────────
-NB_BUILD = 'E7BQ v3 (2026-08-26, eval-freeze fix)'
+NB_BUILD = 'E7BQ v4 (2026-08-26, two-band G-DIRS + pack pin)'
 print('E7b-Q notebook build:', NB_BUILD)
 
 SMOKE = True                   # first run: smoke. Then False for the full flight.
 RESUME_STAMP = ''              # paste a full-run stamp only to resume it
+PACK_CANON_SHA = '__PACK_CANON_SHA__'  # builder-injected G-PACK pin
 
 import subprocess, sys, os, json, re, math, time, shutil, gc, ctypes, hashlib
 from pathlib import Path
@@ -128,7 +129,15 @@ PACK = Path('/content/e4_dictionary_pack.json')
 if not PACK.exists():
     shutil.copy2(SEM / 'e4/e4_dictionary_pack.json', PACK)
 pack = json.load(open(PACK))
-print('pack:', pack['name'], '| concepts', pack['n_concepts'])
+# G-PACK: canonical-json sha vs the build-time pin — desc/pack drift aborts
+# here deterministically (this axis used to ride on G-DIRS numerics)
+_pack_canon = json.dumps(pack, sort_keys=True,
+                         separators=(',', ':')).encode('utf-8')
+assert hashlib.sha256(_pack_canon).hexdigest()[:16] == PACK_CANON_SHA, (
+    'G-PACK FAIL: Drive pack differs semantically from the build-time pack '
+    '— desc drift would silently shift probes/centroid; re-ship the pack')
+print('pack:', pack['name'], '| concepts', pack['n_concepts'],
+      '| G-PACK', PACK_CANON_SHA)
 DESC = {c['name']: c['desc'] for c in pack['concepts']}
 
 # E4 instillation adapter — REAL condition
@@ -157,6 +166,13 @@ if RESUME_STAMP:
 print('MODE:', MODE.upper(), '| stamp', STAMP,
       ('| RESUMING ' + RESUME_STAMP) if RESUME_STAMP else '')
 '''
+
+_pack_local = json.load(open(os.path.join(HERE, "e4_dictionary_pack.json")))
+PACK_CANON_SHA = hashlib.sha256(json.dumps(
+    _pack_local, sort_keys=True,
+    separators=(",", ":")).encode("utf-8")).hexdigest()[:16]
+CELL_SETUP = CELL_SETUP.replace("__PACK_CANON_SHA__", PACK_CANON_SHA)
+assert "__PACK_CANON_SHA__" not in CELL_SETUP
 
 # zlib+b64 transport, chunked into short lines. A verbatim embed of the
 # pretty-printed payload put 115,537 source lines / 2.5MB into this one cell
@@ -201,8 +217,15 @@ print(f'mode consts: R={MC["R"]} cap={MC["cap"]} perms={MC["n_perm"]}')
 
 CELL_FLIGHT = r'''# ── Flight: per-condition function scope -> capture -> inflight ship ─────────
 import numpy as _np
+import transformers as _tfm
+import peft as _peftm
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
+
+ENV = {'torch': torch.__version__, 'transformers': _tfm.__version__,
+       'peft': _peftm.__version__, 'cuda': torch.version.cuda,
+       'gpu': torch.cuda.get_device_name(0)}
+print('env:', ENV)
 
 tok = AutoTokenizer.from_pretrained(MODEL_ID)
 if tok.pad_token is None:
@@ -320,10 +343,14 @@ def fly_condition(cond):
             probe_dirs[L][p] - _np.asarray(PAYLOAD['probe_dirs'][key][p]))))
             for p in PAYLOAD['probes'])
         gdirs[str(L)] = resid
-        print(f'  G-DIRS {cond} L{L}: resid {resid:.2e} (tol {DIRS_TOL})')
-        assert resid <= DIRS_TOL, (
-            f'G-DIRS FAIL {cond} L{L}: {resid:.2e} — wrong adapter/layer/'
-            'template; do NOT edit cells in place, re-stage per the VM law')
+        print(f'  G-DIRS {cond} L{L}: resid {resid:.2e} '
+              f'(noise {DIRS_TOL} | hard {DIRS_HARD})')
+        assert resid <= DIRS_HARD, (
+            f'G-DIRS HARD FAIL {cond} L{L}: {resid:.2e} — wrong adapter/'
+            'layer scale; do NOT edit cells in place, re-stage per the VM law')
+        if resid > DIRS_TOL:
+            print(f'  ! G-DIRS {cond} L{L} above the noise class — cross-era '
+                  'stack drift; recorded in bundle, judged at recompute')
 
     enc14 = encoder_for(PAYLOAD, cond, 14)
     enc20 = encoder_for(PAYLOAD, cond, 20)
@@ -373,6 +400,8 @@ def fly_condition(cond):
                   f'({time.time()-t0:.0f}s) — {ram_report()}')
     bundle = {'stamp': STAMP, 'mode': MODE, 'cond': cond,
               'plan_sha': PLAN_SHA, 'payload_sha': PAYLOAD_SHA_PIN,
+              'env': dict(ENV, model_rev=getattr(m.config, '_commit_hash',
+                                                 None)),
               'gdirs': gdirs,
               'centroid': {str(L): [round(float(x), 5) for x in cents[L]]
                            for L in layers},

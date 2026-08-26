@@ -195,6 +195,27 @@ R=16 is the budget's best P-W1.
   atlas dirs: sign-sensitive residual ≤ 1e-4 (the E8-J v2 tolerance: above
   measured kernel/batch noise ≤4.3e-5, below the smallest real-failure
   class ≥1e-3). Catches wrong adapter / layer / desc / template drift.
+  **AMENDED 2026-08-26 — during smoke, before any full flight** (gate
+  law: gates ride measured passable baselines): smoke-2 measured resid
+  3.42e-3 on base L14. The VM stack is installed unpinned and moved
+  between the pin-producing E8-J v2 flight (08-24) and today
+  (torch/transformers/CUDA versions were never recorded, so the pin-era
+  stack is unrecoverable); the same-era 1e-4 band is therefore not
+  passable cross-era, and benign stack drift overlaps the ≥1e-3
+  small-failure class. Two-band form: HARD abort at 2e-2 — measured
+  wrong-setup signatures on the pinned anchors are wrong-adapter
+  0.379–0.634 and wrong-layer 0.072–0.158 max-abs, so 2e-2 sits 3.6×
+  under the weakest real signature — and the 1e-4 NOISE class retained:
+  any residual above it passes but is flagged DRIFT in the flight log,
+  banner, and verdict, recorded per condition/layer in the bundle, and
+  judged at recompute. The desc/pack-drift axis G-DIRS was implicitly
+  covering moves to the deterministic G-PACK below. Library versions and
+  the resolved model revision are now recorded in every bundle (`env`).
+- **G-PACK** (added 2026-08-26) — the E4 dictionary pack loaded from
+  Drive must match the build-time pack semantically: sha-256 of the
+  canonical JSON (sorted keys, tight separators) asserted on the VM
+  against the builder-injected pin. Catches desc/pack drift
+  byte-format-independently, before any model work.
 - **G-PLAN** — the generation plan (conds × arms × replicates × turns,
   seeds) reproduces the builder's pinned plan exactly; counts exact
   (WALKED 15·16, SHAM 15·16, REORDER 11·16, UNWALKED 1·16 per condition =

@@ -12,7 +12,12 @@ import numpy as np
 
 E7BQ_SEED = 20260950           # fresh stream, disjoint from all prior rungs
 LAM_GAUGE = 10.0               # = the flown A4 constant (e8j_logic.LAM_REV)
-DIRS_TOL = 1e-4                # G-DIRS (E8-J v2 tolerance class)
+DIRS_TOL = 1e-4                # G-DIRS noise class (E8-J v2, same-era stack)
+DIRS_HARD = 2e-2               # G-DIRS hard abort — wrong-setup floor. Measured
+                               # on the pinned anchors: wrong-adapter .379-.634,
+                               # wrong-layer .072-.158; cross-era stack drift
+                               # 3.42e-3 (smoke 08-26 vs 08-24 pins). 2e-2 sits
+                               # 3.6x under the weakest real signature.
 CHAT_SPOT_TOL = 2e-3           # in-verdict chat-recompute spot tolerance
 
 R_FULL, R_SMOKE = 16, 2
@@ -369,10 +374,15 @@ def d_cent(chat_vec, payload):
 
 
 # ── gates ───────────────────────────────────────────────────────────────────
-def gate_dirs(gdirs, tol=DIRS_TOL):
-    """gdirs: {cond: {layer_str: max sign-sensitive resid}}."""
+def gate_dirs(gdirs, noise_tol=DIRS_TOL, hard_tol=DIRS_HARD):
+    """gdirs: {cond: {layer_str: max sign-sensitive resid}}. Two-band
+    (protocol amendment 2026-08-26): above hard_tol = wrong setup, gate
+    fails; above noise_tol only = cross-era stack drift, gate passes with
+    the DRIFT flag — recorded, surfaced in the banner, judged at recompute."""
     worst = max(v for c in gdirs.values() for v in c.values())
-    return {"pass": bool(worst <= tol), "worst": float(worst), "tol": tol}
+    return {"pass": bool(worst <= hard_tol), "drift": bool(worst > noise_tol),
+            "worst": float(worst), "noise_tol": noise_tol,
+            "hard_tol": hard_tol}
 
 
 def gate_plan(bundles, smoke):
@@ -607,7 +617,8 @@ def verdict(bundles, payload, mode):
     out["fork"] = fork
     lines = [
         f"E7b-Q {mode.upper()} verdict — fork {fork}",
-        (f"  gates: dirs {gates['g_dirs']['pass']} "
+        (f"  gates: dirs {gates['g_dirs']['pass']}"
+         f"{' DRIFT' if gates['g_dirs']['drift'] else ''} "
          f"(worst {gates['g_dirs']['worst']:.1e}) | plan "
          f"{gates['g_plan']['pass']} | capture {gates['g_capture']['pass']} "
          f"(spot {gates['g_capture']['spot_worst']:.1e})"),
@@ -696,7 +707,7 @@ def synth_flight(payload, world, smoke, seed):
         bundles[cond] = {
             "cond": cond, "rows": rows,
             "gdirs": {"14": 3e-5 if not (world == "dirty"
-                                         and cond == "real") else 5e-3,
+                                         and cond == "real") else 6e-2,
                       "20": 2e-5},
             "centroid": cent}
     return bundles

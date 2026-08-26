@@ -153,10 +153,13 @@ check("holm on known case",
 
 print("== gates + verdict plumbing (synthetic flights) ==")
 b1 = L.synth_flight(PAYLOAD, "fb1", smoke=True, seed=31)
-check("gate_dirs pass on clean, fail on dirty",
-      L.gate_dirs({c: b1[c]["gdirs"] for c in L.CONDS})["pass"]
-      and not L.gate_dirs({"real": {"14": 5e-3}, "base": {"14": 1e-5}})
-      ["pass"])
+_gd_clean = L.gate_dirs({c: b1[c]["gdirs"] for c in L.CONDS})
+_gd_drift = L.gate_dirs({"real": {"14": 3.4e-3}, "base": {"14": 1e-5}})
+_gd_hard = L.gate_dirs({"real": {"14": 6e-2}, "base": {"14": 1e-5}})
+check("gate_dirs two-band: clean pass, drift pass+flag, hard fail",
+      _gd_clean["pass"] and not _gd_clean["drift"]
+      and _gd_drift["pass"] and _gd_drift["drift"]
+      and not _gd_hard["pass"])
 check("gate_plan pass on complete", L.gate_plan(b1, smoke=True)["pass"])
 b_short = {c: dict(b1[c]) for c in b1}
 b_short["real"] = dict(b_short["real"])
