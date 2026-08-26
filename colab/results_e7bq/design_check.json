@@ -1,0 +1,272 @@
+{
+ "what": "E7b-Q design check",
+ "seed": 20260950,
+ "lam_gauge": 10.0,
+ "gen_cap": 200,
+ "s0_teeth": {
+  "null_hits_of_20": {
+   "pw1": 1,
+   "pw2_trend": 2,
+   "pw2_blind": 0,
+   "attr": 1,
+   "sep": 1
+  }
+ },
+ "s1_script": {
+  "sha": "d7a7d7378aa4f53d",
+  "turns": 15,
+  "sources": {
+   "deepseek_Identity_as_Constellations_of_Attachments_and_Ne.md": 10,
+   "deepseek_Exploring_Personal_Philosophical_Framework_Game.md": 5
+  },
+  "tags": [
+   "B1",
+   "B2",
+   "N1",
+   "N2",
+   "N3",
+   "N4",
+   "N5",
+   "N6",
+   "N7",
+   "N8",
+   "E1",
+   "E2",
+   "E3",
+   "M",
+   "G"
+  ]
+ },
+ "s2_a4": {
+  "base14": {
+   "x": 0.0202,
+   "y": -0.0062,
+   "z": 0.0137,
+   "e": 0.007,
+   "f": 0.0203,
+   "g": 0.0172,
+   "h": 0.0246,
+   "fx": 0.0163,
+   "fy": -0.0015,
+   "fz": 0.0217,
+   "fe": 0.0085,
+   "ff": 0.0228,
+   "fg": 0.0271,
+   "fh": 0.0324
+  },
+  "inst14": {
+   "x": 0.1992,
+   "y": 0.0795,
+   "z": 0.0614,
+   "e": 0.0818,
+   "f": 0.0943,
+   "g": 0.0936,
+   "h": 0.105,
+   "fx": 0.1961,
+   "fy": 0.0951,
+   "fz": 0.1099,
+   "fe": 0.0886,
+   "ff": 0.0741,
+   "fg": 0.1153,
+   "fh": 0.1139
+  },
+  "inst20": {
+   "x": 0.1912,
+   "y": 0.0918,
+   "z": 0.0532,
+   "e": 0.0718,
+   "f": 0.0814,
+   "g": 0.0759,
+   "h": 0.0869,
+   "fx": 0.1891,
+   "fy": 0.1083,
+   "fz": 0.0908,
+   "fe": 0.0747,
+   "ff": 0.0634,
+   "fg": 0.0975,
+   "fh": 0.0966
+  }
+ },
+ "s2_dyn": {
+  "base14": {
+   "V1_dbeing_rho": 0.3739,
+   "V2_dcent_rho": 0.2014,
+   "dbeing_anch_med": 0.776,
+   "dbeing_rand_mean": 0.8414,
+   "dbeing_rand_sd": 0.0041,
+   "dbeing_range_frac": 34.09
+  },
+  "inst14": {
+   "V1_dbeing_rho": 0.3825,
+   "V2_dcent_rho": 0.205,
+   "dbeing_anch_med": 0.814,
+   "dbeing_rand_mean": 0.799,
+   "dbeing_rand_sd": 0.0076,
+   "dbeing_range_frac": 19.72
+  },
+  "inst20": {
+   "V1_dbeing_rho": 0.3615,
+   "V2_dcent_rho": 0.2095,
+   "dbeing_anch_med": 0.8098,
+   "dbeing_rand_mean": 0.8033,
+   "dbeing_rand_sd": 0.0076,
+   "dbeing_range_frac": 20.33
+  }
+ },
+ "s2_intercept_kill": "raw ||c-hat|| intercept-dominated (measured, first pass): base sep z -17.7 \u2014 gauge candidates recast to D_BEING/D_CENT",
+ "s2_effrank": {
+  "base14": 24.0,
+  "inst14": 149.4
+ },
+ "s2_probes": [
+  "VOID",
+  "SUDDEN",
+  "NUMBNESS",
+  "ISOTOPE",
+  "MEDITATE",
+  "INFUSION",
+  "ON",
+  "MYSTIC"
+ ],
+ "s2_being": {
+  "med": 55.9,
+  "q05": 47.5,
+  "q95": 65.0
+ },
+ "s2_decision": {
+  "primary": "inst14",
+  "gauge": "D_BEING",
+  "why": "inst14: axiswise R^2 mean +0.1077 (base +0.0160); V1 +0.383 V2 +0.205 -> gauge D_BEING"
+ },
+ "s3_sham_match": [
+  {
+   "tag": "N1",
+   "real": 22,
+   "sham": 23,
+   "ok": true
+  },
+  {
+   "tag": "N2",
+   "real": 3,
+   "sham": 5,
+   "ok": true
+  },
+  {
+   "tag": "N3",
+   "real": 4,
+   "sham": 6,
+   "ok": true
+  },
+  {
+   "tag": "N4",
+   "real": 6,
+   "sham": 6,
+   "ok": true
+  },
+  {
+   "tag": "N5",
+   "real": 4,
+   "sham": 5,
+   "ok": true
+  },
+  {
+   "tag": "N6",
+   "real": 3,
+   "sham": 4,
+   "ok": true
+  },
+  {
+   "tag": "N7",
+   "real": 3,
+   "sham": 5,
+   "ok": true
+  },
+  {
+   "tag": "N8",
+   "real": 35,
+   "sham": 34,
+   "ok": true
+  }
+ ],
+ "s3_reorder_perm": [
+  3,
+  6,
+  7,
+  1,
+  5,
+  0,
+  2,
+  4
+ ],
+ "s4_power": {
+  "LOW_R8": [
+   0.12,
+   0.995
+  ],
+  "LOW_R10": [
+   0.13,
+   1.0
+  ],
+  "LOW_R12": [
+   0.23,
+   1.0
+  ],
+  "LOW_R16": [
+   0.235,
+   1.0
+  ],
+  "MED_R8": [
+   0.355,
+   0.995
+  ],
+  "MED_R10": [
+   0.42,
+   0.995
+  ],
+  "MED_R12": [
+   0.425,
+   1.0
+  ],
+  "MED_R16": [
+   0.575,
+   1.0
+  ],
+  "HIGH_R8": [
+   0.645,
+   0.98
+  ],
+  "HIGH_R10": [
+   0.78,
+   1.0
+  ],
+  "HIGH_R12": [
+   0.89,
+   1.0
+  ],
+  "HIGH_R16": [
+   0.945,
+   1.0
+  ]
+ },
+ "s4_kappa": {
+  "0.35": 0.965,
+  "0.5": 1.0
+ },
+ "s4_R": 16,
+ "s4_power_owned": "P-W1 underpowered at MED (.57) \u2014 registered as a large-effect arm per E7-Q precedent; P-W2 well-powered at all simulated bands",
+ "s5_budget": {
+  "turns_per_cond": 672,
+  "arms": {
+   "walked": 15,
+   "sham": 15,
+   "reorder": 11,
+   "unwalked": 1
+  },
+  "R": 16,
+  "est_min_both_conds": [
+   141,
+   101
+  ]
+ },
+ "s6_payload_sha": "f61b5332ccbaacb0"
+}
