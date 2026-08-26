@@ -98,6 +98,17 @@ check("dirty G-DIRS reported",
       not V["gates"]["g_dirs"]["pass"]
       and V["gates"]["g_dirs"]["worst"] > 1e-4)
 
+print("== scenario 4b: cross-era drift band -> verdict proceeds, flagged ==")
+b = L.synth_flight(PAYLOAD, "fb1", smoke=False, seed=48)
+for _c in b:
+    b[_c]["gdirs"] = {"14": 3.4e-3, "20": 2e-5}
+V, out, _, _ = run_verdict_cell(b, "full")
+check("drift-band flight reaches a verdict fork",
+      V["fork"] != "FB4-NO_VERDICT" and V["gates"]["all_pass"])
+check("drift flagged in gate + banner",
+      V["gates"]["g_dirs"]["drift"]
+      and any("DRIFT" in l for l in V["banner"]))
+
 print("== scenario 5: smoke shape ==")
 b = L.synth_flight(PAYLOAD, "fb1", smoke=True, seed=49)
 V, out, _, _ = run_verdict_cell(b, "smoke")
