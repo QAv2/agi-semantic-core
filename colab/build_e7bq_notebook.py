@@ -7,9 +7,11 @@ Colab UI-only law: zero rclone, drive.mount only, de-shelled installs.
 
 Run:  python3 colab/build_e7bq_notebook.py
 """
+import base64
 import hashlib
 import json
 import os
+import zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -52,7 +54,7 @@ set (firewall law). Retrieval after the flight: Drive integration only.
 """
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, E4 adapter ─────────────
-NB_BUILD = 'E7BQ v1 (2026-08-26)'
+NB_BUILD = 'E7BQ v2 (2026-08-26, slim payload transport)'
 print('E7b-Q notebook build:', NB_BUILD)
 
 SMOKE = True                   # first run: smoke. Then False for the full flight.
@@ -156,18 +158,29 @@ print('MODE:', MODE.upper(), '| stamp', STAMP,
       ('| RESUMING ' + RESUME_STAMP) if RESUME_STAMP else '')
 '''
 
-CELL_PAYLOAD = ("# ── Pinned payload (design-check output; sha asserted) ──"
-                "──────────────────\n"
-                "PAYLOAD_SHA_PIN = '" + PAYLOAD_SHA + "'\n"
-                "PAYLOAD_RAW = r'''" + PAYLOAD_RAW.decode("utf-8")
-                + "'''\n"
-                "import hashlib as _h, json as _j\n"
-                "_raw = PAYLOAD_RAW.encode('utf-8')\n"
-                "assert _h.sha256(_raw).hexdigest()[:16] == PAYLOAD_SHA_PIN, "
-                "'payload sha mismatch — stale notebook upload'\n"
-                "PAYLOAD = _j.loads(PAYLOAD_RAW)\n"
-                "print('payload OK:', PAYLOAD_SHA_PIN, '| script sha', "
-                "PAYLOAD['script_sha'], '| R', PAYLOAD['R'])\n")
+# zlib+b64 transport, chunked into short lines. A verbatim embed of the
+# pretty-printed payload put 115,537 source lines / 2.5MB into this one cell
+# and the Colab editor could not open the notebook on a 3.7GB-RAM machine
+# (2026-08-26). The sha pin is asserted on the DECODED bytes, so it stays
+# byte-identical to the design-check output file.
+_PB64 = base64.b64encode(zlib.compress(PAYLOAD_RAW, 9)).decode("ascii")
+_PB64_LINES = "".join(
+    "    '" + _PB64[i:i + 1900] + "'\n" for i in range(0, len(_PB64), 1900))
+
+CELL_PAYLOAD = (
+    "# ── Pinned payload (design-check output; zlib+b64 transport; sha asserted\n"
+    "#    on the decoded bytes = byte-identical to the design-check file) ────────\n"
+    "PAYLOAD_SHA_PIN = '" + PAYLOAD_SHA + "'\n"
+    "_PAYLOAD_B64 = (\n" + _PB64_LINES + ")\n"
+) + r'''import base64 as _b64, zlib as _zl, hashlib as _h, json as _j
+_raw = _zl.decompress(_b64.b64decode(_PAYLOAD_B64))
+assert _h.sha256(_raw).hexdigest()[:16] == PAYLOAD_SHA_PIN, \
+    'payload sha mismatch — stale notebook upload'
+PAYLOAD = _j.loads(_raw)
+print('payload OK:', PAYLOAD_SHA_PIN, '| script sha', PAYLOAD['script_sha'],
+      '| R', PAYLOAD['R'], '| transport',
+      f'{len(_PAYLOAD_B64)//1024}KB b64 -> {len(_raw)//1024}KB json')
+'''
 
 CELL_PLAN = r'''# ── Plan + G-SCRIPT + ledger self-test ───────────────────────────────────────
 assert script_sha(PAYLOAD['script']) == PAYLOAD['script_sha'], 'G-SCRIPT FAIL'
@@ -494,6 +507,20 @@ assert "def jdump" in LOGIC_SRC or "jdump" not in CELL_FLIGHT, \
 out_nb = os.path.join(HERE, "E7BQ_WALK_UI.ipynb")
 with open(out_nb, "w") as f:
     json.dump(nb, f, indent=1)
+
+# ── Colab-loadability gates (minted 2026-08-26 after the v1 2.5MB/115K-line
+# notebook choked the Colab editor; proven-good fleet band is <=560KB with
+# short lines — these bounds keep any future build inside it) ─────────────────
+_size = os.path.getsize(out_nb)
+_nb2 = json.load(open(out_nb))
+_maxline = max(len(s.rstrip("\n")) for c in _nb2["cells"] for s in c["source"])
+_nlines = sum(len(c["source"]) for c in _nb2["cells"])
+assert _size < 900_000, f"notebook {_size} bytes — over the Colab-editor band"
+assert _maxline < 5_000, f"a source line is {_maxline} chars — chunk it"
+assert _nlines < 20_000, f"{_nlines} source lines — Colab-editor risk"
+print(f"loadability gates: {_size:,} bytes | max line {_maxline} | "
+      f"{_nlines:,} lines — PASS")
+
 sha = hashlib.sha256(open(out_nb, "rb").read()).hexdigest()[:16]
 print("wrote", out_nb, f"({len(nb['cells'])} cells, "
       f"{os.path.getsize(out_nb)} bytes, sha {sha})")
