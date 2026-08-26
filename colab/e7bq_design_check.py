@@ -265,12 +265,13 @@ def attr_test(S, n_perm, seed, base_win=None, term_win=None):
         return vals.mean(axis=(-1, -2))
 
     ones = np.ones(len(ii), int)
-    obs = float(np.log(disp_pair(ones, ones)
-                       / disp_pair(1 - ones, 1 - ones)))
+    obs = float(np.log(np.maximum(disp_pair(ones, ones), 1e-12)
+                       / np.maximum(disp_pair(1 - ones, 1 - ones), 1e-12)))
     rng = np.random.default_rng(seed)
     L = (rng.random((n_perm, R)) < 0.5).astype(int)
     a, b = L[:, ii], L[:, jj]
-    null = np.log(disp_pair(a, b) / disp_pair(1 - a, 1 - b))
+    null = np.log(np.maximum(disp_pair(a, b), 1e-12)
+                  / np.maximum(disp_pair(1 - a, 1 - b), 1e-12))
     return obs, (1 + int(np.sum(null <= obs))) / (n_perm + 1)
 
 
