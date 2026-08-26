@@ -103,6 +103,24 @@ part. Then the ladder climbed:
   its bar. The shortcut was never the model's limit — it was the
   curriculum's. Second wall in this program to fall to its own
   diagnosis (the first: E8-F's epoch starvation).
+- **And the tracking lane closed honestly** (E8-N v3): the natural-state
+  tracker re-trained with the budget its strands actually asked for —
+  each skill trains until *it* stops improving, not until a pooled
+  average says stop. Two things healed and one wall stood. Tracking held
+  and sharpened (.67 → .70, all four state-families individually
+  significant — the strongest read yet), and v2's collateral damage to
+  the older forced-choice skill healed completely (median error 47° →
+  31°, back to its pre-interference neighborhood): that injury was
+  under-training, cured by the same budget. But the bar the flight was
+  flown for — catch-trial competence, reporting a *known* state within
+  tolerance on 9 of 12 probes — landed at **7/12 again**, v2's exact
+  number, this time with the competence strand fully converged. More
+  schooling is not the answer; the wall is deeper (scale or adapter
+  capacity), and the pre-registered honest stop fired. One quiet gem
+  rode along: the untrained-channel whisper — instillation alone,
+  before any readout training, tracking at ρ ≈ .2 — replicated
+  prospectively a **third** time, in its predicted band. Silence on
+  fakes: perfect, sixth consecutive flight.
 
 ## How this differs from normal ML
 
