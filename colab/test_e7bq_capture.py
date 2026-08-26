@@ -37,8 +37,12 @@ for frag in ("def run_turn(m, tok, msgs, seed, cap, layers):",
              "post.hidden_states[L][0, ids.shape[1]:].mean(0)",
              "torch.manual_seed(seed)",
              "cent = pooled_reps(m, CENT_NAMES, L).mean(0)",
-             "t = run_turn(m, tok, msgs, r['seed'], MC['cap'], layers)"):
+             "t = run_turn(m, tok, msgs, r['seed'], MC['cap'], layers)",
+             "m.requires_grad_(False)"):
     assert frag in FLIGHT_CELL, f"flight cell drifted: missing {frag!r}"
+assert (FLIGHT_CELL.index("m.requires_grad_(False)")
+        < FLIGHT_CELL.index("assert not any(p.requires_grad")), \
+    "freeze must precede the eval-only guard"
 print("flight cell carries the pinned capture sequence")
 
 # ── tiny model + stub tokenizer ─────────────────────────────────────────────
@@ -50,6 +54,15 @@ cfg = Qwen2Config(vocab_size=VOCAB, hidden_size=32, intermediate_size=64,
                   tie_word_embeddings=True)
 model = Qwen2ForCausalLM(cfg)
 model.eval()
+
+print("== eval-only guard (fly_condition preamble; smoke-1 RED escape) ==")
+check("fresh model load leaves requires_grad True (v1 guard unsatisfiable)",
+      any(p.requires_grad for p in model.parameters()))
+_guard = next(l for l in FLIGHT_CELL.split("\n")
+              if l.strip().startswith("assert not any(p.requires_grad"))
+model.requires_grad_(False)
+exec(_guard.strip(), {"m": model})
+check("cell's guard line passes verbatim after the cell's freeze", True)
 
 
 class StubTok:

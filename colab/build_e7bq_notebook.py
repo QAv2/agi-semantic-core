@@ -54,7 +54,7 @@ set (firewall law). Retrieval after the flight: Drive integration only.
 """
 
 CELL_SETUP = r'''# ── Config + setup: GPU, installs, Drive mount, pack, E4 adapter ─────────────
-NB_BUILD = 'E7BQ v2 (2026-08-26, slim payload transport)'
+NB_BUILD = 'E7BQ v3 (2026-08-26, eval-freeze fix)'
 print('E7b-Q notebook build:', NB_BUILD)
 
 SMOKE = True                   # first run: smoke. Then False for the full flight.
@@ -306,6 +306,7 @@ def fly_condition(cond):
         print(f'[{cond}] merging E4-real instillation adapter...')
         m = PeftModel.from_pretrained(m, str(ADAPTER_REAL)).merge_and_unload()
     m.eval()
+    m.requires_grad_(False)  # eval() never touches requires_grad; fresh loads have it True
     assert not any(p.requires_grad for p in m.parameters()), 'eval-only flight'
 
     print(f'[{cond}] centroid + G-DIRS probes...')
