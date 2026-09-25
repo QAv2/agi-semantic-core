@@ -612,6 +612,53 @@ in the order of the log. Memoryless rung 8 is the **cold** presentation.
    label invariance (max \|Δ\| ≤ 0.10) becomes an equivalence test per rung,
    with an explicit INCONCLUSIVE branch.
 
+## Build-time clarifications (2026-09-25, before the push, before any call)
+
+Writing the builder (`jev/`) fixed details the text above leaves open. They are
+recorded here, and they are part of the registration because they are committed
+before the push and before any call.
+
+1. **Rung 9 withdraws the payoff from the labels too.** At rung 9 the content
+   actions lose "(see payoffs)", and the no-action option reads "Take no action
+   this round" (named arm: "Observe without acting"), with no "(payoff 0)".
+2. **"Upper 95% bound"** in J1-P3 is the upper end of the two-sided 95%
+   percentile interval (the 97.5th percentile): the stricter reading.
+3. **The pilot extension** is triggered by A0's 75% point or by the chosen A1
+   strength's 75% point falling outside the grid (the protocol names only
+   "Jev's 75% point"). Extension levels continue the √2 (F3: 0.08) ladder.
+4. **meta-I** is the plug-in mutual information between correctness and
+   confidence in 10 equal-mass bins (bins merge where ties collapse them).
+5. **J2 option positions.** The no-action option sits at position (ladder +
+   rung + repeat) mod 5, and the true target cycles through the remaining
+   four. The logic suite checks both are balanced to within 15% over the plan.
+6. **F1 at K = 2, strong A1** converts one machine to per-minute readings (two
+   when K = 4).
+7. **F2 codes are shown to 2 decimals**, and the reading is generated from the
+   shown codes, so the ideal observer on the page is exact up to the reading's
+   own rounding.
+8. **The pilot renders the same 40 stimuli per level in all three
+   presentations** (paired), so the A1-versus-A0 drop is estimated within
+   stimuli.
+9. **Smoke isolation statistic.** Per stimulus: *between* = mean |c<sub>alone</sub>
+   − c<sub>bundled</sub>| over all 25 cross pairs; *floor* = the mean over
+   within-condition pairs. Effect = between − floor, with a bootstrap CI over
+   the 30 stimuli.
+10. **Smoke determinism, J2 part:** 4 ladders × M-walked rungs 0, 4 and 8 at
+    c = 3.
+11. **J1-P1 strata** are arm × strength decile within each family. Each
+    family is tested separately.
+12. **The missing-call flag** is computed per family × arm (J1) and per arm
+    (J2).
+13. **S-J2-3** takes its one-sided p from the Wald z of the "held"
+    coefficient. **S-J2-7** fits a quasi-binomial logistic of P(hold) on the
+    logit of the ideal p\* per c, and reads the 0.5 crossing.
+14. **A6 on F1 at K = 2:** the two yes/no questions ride on its A0 and A1-same
+    calls as well, as the text of §5.3 implies.
+15. **The verdict suite** runs the planted agents on a reduced flight (240
+    stimuli per family, 40 ladders, 320 permutations: the smallest count whose
+    minimum p, 1/321, clears the strictest Holm step, .01/3). The registered
+    analysis uses 400 stimuli, 120 ladders and 2,000 permutations.
+
 ## Amendments
 
 *(None. Dated entries go here.)*
