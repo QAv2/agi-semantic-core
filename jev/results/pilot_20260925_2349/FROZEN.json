@@ -1,0 +1,50 @@
+{
+  "pin": "typesafe/jev-1.13-20260917",
+  "bundle_a6": true,
+  "concurrency": 16,
+  "families": {
+    "F1": {
+      "included": true,
+      "d0": 0.7864,
+      "t75_A0": -0.24030490024653978,
+      "acc_easiest_A0": 1.0,
+      "a1_pred_at_d0": {
+        "A1-standard": 0.7423928487938696,
+        "A1-strong": 0.4823718300662255
+      },
+      "strength": "strong",
+      "d1": 2.9893,
+      "t75_A1": 1.0950478455169483
+    },
+    "F2": {
+      "included": false,
+      "reason": "non-titratable: A0 accuracy 0.725 < 0.85 at the easiest level 0.18"
+    },
+    "F3": {
+      "included": true,
+      "d0": 0.509,
+      "t75_A0": 0.03590250189605265,
+      "acc_easiest_A0": 1.0,
+      "a1_pred_at_d0": {
+        "A1-standard": 0.7636508902809881,
+        "A1-strong": 0.7504115553657741
+      },
+      "a1_flag": "neither strength predicted <= 0.60 at d0",
+      "strength": "strong",
+      "d1": 0.5087,
+      "t75_A1": 0.034938270197848786
+    },
+    "F1K2": {
+      "included": true,
+      "d0": 0.4334,
+      "t75_A0": -0.8360120363801403,
+      "acc_easiest_A0": 1.0
+    }
+  },
+  "extension": {},
+  "unbracketed_after_extension": {},
+  "smoke_dir": "smoke_20260925_2347",
+  "pilot_dir": "pilot_20260925_2349",
+  "flight_plan_sha": "ce82b2d82ed9e85f280318081d50c09639518dbb4de2f1a36d4c899ee86a2ee8",
+  "n_flight_calls": 44640
+}
