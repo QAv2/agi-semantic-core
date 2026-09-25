@@ -2,7 +2,7 @@
 
 > A consciousness-first semantic dictionary — 3,033 concepts hand-encoded as 16-dimensional dual-octonion vectors — with **Oracle**, a diagnostic engine built on top of it that produces grounded readings using King Wen, Toltec, and Tarot layers as transparency mappings.
 
-**Author**: Joe Van Horn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
+**Author**: Joseph Vanhorn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
 **Source (canonical)**: [github.com/QAv2/agi-semantic-core](https://github.com/QAv2/agi-semantic-core)
 **Mirror**: [codeberg.org/QAv2/agi-semantic-core](https://codeberg.org/QAv2/agi-semantic-core)
 **Live demo**: [qav2-oracle.netlify.app](https://qav2-oracle.netlify.app)
@@ -179,7 +179,7 @@ The system prompt for the Reflective Principle is in `worker/src/worker.js` and 
 
 There is no telemetry beyond Cloudflare's standard request logs and the donation-coffer state (a balance counter in KV, no per-user data). The frontend caches Pyodide and the dictionary locally; everything else is fetched on demand from CDN.
 
-The author is Joe Van Horn ([joeyv23.neocities.org](https://joeyv23.neocities.org)). The work is dedicated to his late brother Robby ("Buddha"), who introduced him to the wrestling lineage that became the precursor to this individual-scale tool.
+The author is Joseph Vanhorn ([joeyv23.neocities.org](https://joeyv23.neocities.org)). The work is dedicated to his late brother Robby ("Buddha"), who introduced him to the wrestling lineage that became the precursor to this individual-scale tool.
 
 Verifying the code: clone this repo, read `oracle/engine.py` for the diagnostic pipeline, `worker/src/worker.js` for the LLM persona and rate limits, `web/app.js` for what the browser does. The whole stack is small enough to read in an evening.
 

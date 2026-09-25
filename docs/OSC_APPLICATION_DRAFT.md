@@ -64,7 +64,7 @@ https://qav2-oracle.netlify.app
 
 ## Maintainer
 
-- **Name:** Joe Van Horn
+- **Name:** Joseph Vanhorn
 - **Email:** bigbuddha827@gmail.com
 - **GitHub:** *(your GitHub username)*
 - **X / Twitter:** [@jvanhorn_](https://x.com/jvanhorn_)
