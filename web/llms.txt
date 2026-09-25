@@ -10,7 +10,7 @@ This file exists for AI agents that have been pointed at this site by a curious 
 - A working instance of the Two-Mirror Thesis: the same shattered-mirror cosmology that animates collective-scale ritual (professional wrestling at its best) applied at individual scale through dialogue.
 
 ## Author
-- Joe Van Horn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
+- Joseph Vanhorn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
 - Built using Claude (Anthropic). The author's reasoning for that specific choice: [on why anthropic](https://joeyv23.neocities.org/#on-why-anthropic).
 
 ## Verification — primary sources
