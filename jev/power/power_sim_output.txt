@@ -1,0 +1,16 @@
+P2 n_stim=  400 acc-drop~0.084: self-knower PASS 0.57 (CI half 0.035) | evidence-reader FAIL(>.10) 0.18, false PASS 0.00
+P2 n_stim=  400 acc-drop~0.133: self-knower PASS 0.57 (CI half 0.035) | evidence-reader FAIL(>.10) 0.95, false PASS 0.00
+P2 n_stim=  800 acc-drop~0.084: self-knower PASS 0.95 (CI half 0.025) | evidence-reader FAIL(>.10) 0.12, false PASS 0.00
+P2 n_stim=  800 acc-drop~0.129: self-knower PASS 0.94 (CI half 0.025) | evidence-reader FAIL(>.10) 0.99, false PASS 0.00
+P2 n_stim= 1200 acc-drop~0.085: self-knower PASS 1.00 (CI half 0.020) | evidence-reader FAIL(>.10) 0.07, false PASS 0.00
+P2 n_stim= 1200 acc-drop~0.130: self-knower PASS 0.99 (CI half 0.020) | evidence-reader FAIL(>.10) 1.00, false PASS 0.00
+P1 n_stim=400/family, self-signal 0.0: mean dAUROC 0.000, power(p<.0033) 0.00
+P1 n_stim=400/family, self-signal 0.15: mean dAUROC 0.006, power(p<.0033) 0.00
+P1 n_stim=400/family, self-signal 0.3: mean dAUROC 0.020, power(p<.0033) 0.00
+J2 P3 ladders=120: per-rung CI half-width 0.017
+J2 P3 ladders=240: per-rung CI half-width 0.012
+
+# NOTE (2026-09-25): the three P1 lines above are INVALID as power figures -- 200 permutations
+# cannot produce p < .0033 (minimum attainable p = 1/201 = .005). Superseded by power_p1b.py
+# (flexible null, z-approximation; output power_p1b_output.txt). The linear in-sample null's
+# false-positive check is power_p1_linear.py (3 of 30 datasets crossed z > 2.72 with no self-signal).

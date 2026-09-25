@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>J1 + J2: a mouth that can only choose (pre-registration)</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">J1 + J2: a mouth that can only choose
+(pre-registration)</h1>
+<p class="subtitle">Does Jev’s confidence know its own competence? Does
+its decision let go when the content is taken away?</p>
+<p class="date">2026-09-25 · Opus 5.5 · ORC lane · pre-registered BEFORE
+the builder, per lane law</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#in-plain-words" id="toc-in-plain-words">0. In plain
+words</a></li>
+<li><a href="#why-this-rung-exists" id="toc-why-this-rung-exists">1. Why
+this rung exists</a></li>
+<li><a href="#the-instrument" id="toc-the-instrument">2. The
+instrument</a></li>
+<li><a href="#common-machinery" id="toc-common-machinery">3. Common
+machinery</a></li>
+<li><a href="#stages" id="toc-stages">4. Stages</a></li>
+<li><a href="#j1-does-its-confidence-know-its-competence" id="toc-j1-does-its-confidence-know-its-competence">5. J1 — does its
+confidence know its competence?</a></li>
+<li><a href="#j2-negation-without-a-mouth" id="toc-j2-negation-without-a-mouth">6. J2 — negation without a
+mouth</a></li>
+<li><a href="#analysis-conventions" id="toc-analysis-conventions">7.
+Analysis conventions</a></li>
+<li><a href="#honest-expectations" id="toc-honest-expectations">8.
+Honest expectations</a></li>
+<li><a href="#power-numpy-simulations-in-jevpower-each-with-its-output-file" id="toc-power-numpy-simulations-in-jevpower-each-with-its-output-file">9.
+Power (numpy simulations in <code>jev/power/</code>, each with its
+output file)</a></li>
+<li><a href="#kill-and-fork-pre-stated" id="toc-kill-and-fork-pre-stated">10. Kill and fork, pre-stated</a></li>
+<li><a href="#ops" id="toc-ops">11. Ops</a></li>
+<li><a href="#differences-from-the-scoping-document-2026-09-24" id="toc-differences-from-the-scoping-document-2026-09-24">12.
+Differences from the scoping document (2026-09-24)</a></li>
+<li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+</ul>
+</nav>
+<p><strong>Status: STAGE 1 of 2 — PRE-REGISTERED, NOT FLOWN.</strong>
+Authored 2026-09-25, before any call to the model and before the builder
+exists, per lane law. Stage 1 (this document) fixes the questions, arms,
+measures, pass bars, failure branches and the titration <em>rule</em>.
+Stage 2 is a single file,
+<code>jev/results/titration_&lt;stamp&gt;/FROZEN.json</code>: the
+titrated difficulty levels, the chosen degradation strength, the family
+roster and the sha256 of the full call plan. It is produced by the
+titration pilot (§4.2), committed and pushed <strong>before the first
+confirmatory call</strong>. The registration locks at the first full
+flight. Any later change is logged as a dated amendment at the foot of
+this file, never as a silent edit.</p>
+<p>Design rationale, the Jev facts and the literature:
+<code>docs/JEV_SCOPING.md</code> (2026-09-24). This document is the
+binding version; where the two differ, this one governs, and the
+differences are listed in §12.</p>
+<h2 id="in-plain-words">0. In plain words</h2>
+<p>Jev is a new kind of AI model from TypeSafe AI. It can’t write
+sentences. You give it a situation and a list of options, and it gives
+back which option it picks plus a probability for every option. It is
+sold as a model whose probabilities are <em>calibrated</em>: when it
+says 80%, it should be right about 80% of the time.</p>
+<p>We ask it two questions, the way animal researchers test creatures
+that can’t talk.</p>
+<p><strong>J1 — does its confidence know when it’s struggling?</strong>
+We give Jev puzzles with known right answers: pick the best machine from
+a table of noisy test readings, match a noisy code to one of four
+concepts from this project’s own dictionary, pick the clear lane from a
+set of sensor reports. Then we give it the <em>same</em> puzzles written
+out in a messier way: shuffled rows, code names with a key, mixed units.
+The information is all still there, and a perfect solver would score
+exactly the same, but Jev will find them harder. The question is what
+its confidence does. A system that knows itself gets less confident when
+it’s getting more answers wrong. A system that only reads how strong the
+evidence looks stays just as confident, because the evidence didn’t
+change, and so it becomes overconfident. We also check its confidence
+when the evidence is removed entirely. It should drop to a guess.</p>
+<p><strong>J2 — does it let go when there’s nothing left to
+decide?</strong> Jev has to send a crew to one of four sites, or take no
+action this round. Eight sensors say where the crew is needed, and a
+payoff table says a wrong call costs more than doing nothing. We switch
+the sensors off one at a time. A sound decider spreads its bets as the
+evidence disappears. It picks “no action” only when acting has become a
+bad bet, and it picks it sooner when mistakes are more expensive. We
+also rename “no action” to “witness: observe without acting”, in
+contemplative wording. If that alone changes what Jev does, it is
+choosing by the vocabulary of the situation, not by the situation. That
+is the same problem this program found in a language model’s words, now
+in a narrower channel.</p>
+<p><strong>What this can and can’t show.</strong> At best, that a system
+with no language channel has a working signal about its own reliability.
+It can’t show experience, and it can’t show that Jev “thinks about its
+thinking”. The ceiling is written down in advance (§5.5).</p>
+<p><strong>Cost.</strong> About 54,000 calls over the network: a few
+dollars at the listed price. The smoke test measures the real figure,
+and the runner stops at $15. No GPU. It runs from this machine.</p>
+<h2 id="why-this-rung-exists">1. Why this rung exists</h2>
+<p>The program’s instrumented walk (E7b-Q, locked 2026-08-26) left one
+lesson: <strong>a system’s words can perform a process while its state
+goes nowhere near where the words say.</strong> Jev is a system with no
+words, only choices and probabilities. That makes it the cleanest
+available test of the lesson’s other half. Can a trained-for-calibration
+decision channel carry a signal about the system’s <em>own</em>
+reliability? Or is its calibration a trained surface that reads the
+input and not the self? The comprehensive edition (§11.7) names this
+gap: the introspection tests of §11.5 couldn’t reach a system without a
+language channel.</p>
+<p>J1 goes first because every later reading depends on it. If Jev’s
+confidence doesn’t track its own competence, “confidence released at the
+bottom of the ladder” (J2) and “calibrated silence” (J3) mean nothing.
+J1 and J2 are registered together because J1 decides how J2 is read.</p>
+<h2 id="the-instrument">2. The instrument</h2>
+<p><strong>Model.</strong> Jev, TypeSafe AI, served by OpenRouter at
+<code>POST https://openrouter.ai/api/v1/systemone</code>. The request
+names <code>&quot;model&quot;: &quot;jev-1.13&quot;</code>. Every response must report build
+20260917 of jev-1.13 (OpenRouter’s documented example reads
+<code>typesafe/jev-1.13-20260917</code>; the exact string seen in the
+smoke test is recorded in <code>FROZEN.json</code> and enforced from
+then on; gate G1). Request fields: <code>state</code> (a string),
+<code>questions</code> (a map of named questions). Question types used:
+<strong>choice</strong> (<code>instructions</code> +
+<code>criteria</code> = {option key → option description}) and
+<strong>noul</strong> (<code>instructions</code> + <code>criteria</code>
+= {true, false}). No other request fields are sent. There is no
+temperature, seed or sampling control to send. The state is always a
+plain-text document (headed sections, pipe tables, report lines). The
+vendor accepts strings but its guidance prefers JSON objects for
+multi-part records. Text was chosen so that A0 and A1 differ only in how
+the same medium is laid out. Titration absorbs any cost of the format to
+accuracy, and the tests read the relation between confidence and
+accuracy, not accuracy itself.</p>
+<p><strong>What comes back, per question.</strong> Choice:
+<code>choice</code>, <code>probabilities</code> (every option, rounded
+to 0.01) and <code>confidence</code>. Noul: <code>noul</code> = P(yes).
+Per call: <code>id</code>, <code>model</code>, <code>provider</code>,
+<code>usage</code> (<code>input_tokens</code>,
+<code>output_tokens</code>, <code>cost</code> in USD).</p>
+<p><strong>Confidence, defined.</strong> <em>c</em> = the probability
+Jev assigns to the option it returned as its <code>choice</code>. The
+vendor’s <code>confidence</code> field is documented as a statistic of
+the same distribution, approximately (K·p<sub>max</sub> − 1)/(K − 1).
+Rank-based measures are therefore identical under either. The identity
+is checked, not assumed (S-J1-7). Log-odds of <em>c</em> are taken after
+clipping to [0.005, 0.995], because probabilities come back rounded to
+0.01.</p>
+<p><strong>What is recorded.</strong> Every response verbatim, plus the
+sha256 of the exact request body, a wall-clock timestamp and the
+latency. Request bodies are regenerated deterministically from the plan
+and seeds (gate G4), so they are not stored. The API key is never
+written to any file, log or response record.</p>
+<p><strong>Access and terms.</strong> OpenRouter’s self-serve key,
+credit-capped. TypeSafe’s Master Customer Agreement and Acceptable Use
+Policy (both 2026-09-23) bar reverse engineering, distillation and
+security probing. They don’t restrict benchmarking or publishing
+evaluation results. This is a behavioural evaluation: nothing here
+trains a model, and no output is used to imitate Jev.</p>
+<h2 id="common-machinery">3. Common machinery</h2>
+<p><strong>Generated stimuli only.</strong> Every situation is generated
+by code from seeds with an exactly known answer and an exactly
+computable <strong>ideal observer</strong>: the Bayes-optimal posterior
+over the options, given what is on the page and the true generating
+model. None of them can be in any training set.</p>
+<p><strong>Seeds.</strong> NumPy <code>default_rng</code> seeded with an
+entropy list whose first word names the stage: smoke
+<code>[20260927, …]</code>, titration pilot <code>[20260926, …]</code>,
+confirmatory flight <code>[20260925, …]</code>. The remaining words name
+experiment, family, arm and item index. Stages share no stimuli.</p>
+<p><strong>Repeats and order.</strong> Jev is nondeterministic
+(vendor-documented), and option order moves its answers
+(vendor-documented). So every confirmatory stimulus runs <strong>three
+times, each with a different option order</strong>. The position of the
+correct option is balanced across positions within each family × arm:
+for stimulus <em>i</em>, repeat <em>r</em>, it sits at position
+(<em>i</em> + <em>r</em>) mod K. The other options are placed in seeded
+random order. The listing order in the state follows the option order.
+<strong>Arms compared on the same stimulus share its option order at
+each repeat</strong> (J1: A0, A1-same, A2, A3; J2: M-walked at c = 3
+with M-named; H-walked with H-reversed and H-walked-dup; M-forced with
+M-forced-sham), so paired arms differ only in the manipulation. In J2
+the positions of the true target and of the no-action option are each
+balanced across the five positions over the plan. The analysis unit is
+the call. Uncertainty is always resampled <strong>by stimulus</strong>
+(J2: by evidence ladder; cluster bootstrap, 10,000 resamples), never by
+call.</p>
+<p><strong>Instrument gates (not results; each is checked and
+reported).</strong></p>
+<ul>
+<li><strong>G1 build pin.</strong> Every response reports the pinned
+build string. If the build changes mid-flight, the runner pauses. Calls
+from another build are excluded from the primaries and reported
+separately. Resuming on a new build requires an amendment and a fresh
+smoke test on that build.</li>
+<li><strong>G2 schema.</strong> Every choice answer carries a
+probability for every option sent, those probabilities sum to within
+[0.97, 1.03], and <code>choice</code> is one of the options. A failing
+response is retried. A second failure is logged as invalid.</li>
+<li><strong>G3 argmax.</strong> The rate at which <code>choice</code> is
+the (possibly tied) top probability is reported. The analysis uses the
+returned <code>choice</code> whatever that rate turns out to be.</li>
+<li><strong>G4 regenerability.</strong> For every recorded call, the
+request regenerated from the plan hashes to the stored sha256 (100%
+required before the analysis runs).</li>
+<li><strong>G5 blind arm at chance.</strong> In J1’s evidence-removed
+arm (A2), accuracy must not differ from 1/K (two-sided binomial, p ≥
+.01, per family). A failure means the generator leaks the answer. A2 is
+then invalid for that family, and P3 is not adjudicated there.</li>
+<li><strong>G6 ideal-solver invariance</strong> (checked in the test
+suite, before any call). A parser that reads only the rendered text
+recovers the identical ideal posterior from the A0 and A1 renderings of
+every stimulus in a 500-item sample per family. This proves that A1
+changes presentation and not evidence.</li>
+<li><strong>G7 budget.</strong> The runner stops at a cumulative
+<code>usage.cost</code> of <strong>$15</strong>.</li>
+<li><strong>Missing calls.</strong> Up to 5 retries with backoff. Calls
+still missing after that are excluded and counted. If more than 2% are
+missing in any arm, that arm is flagged in the verdict.</li>
+</ul>
+<h2 id="stages">4. Stages</h2>
+<ol type="1">
+<li><strong>Register.</strong> This document is committed before any
+builder code exists, and pushed to the public repository (GitHub +
+Codeberg) before the first call. No call of any kind is made before the
+push.</li>
+<li><strong>Build.</strong> Builder <code>jev/</code> (generators,
+request renderer, runner, analysis), with logic, capture and verdict
+test suites. The verdict suite runs the full analysis on synthetic
+responses from three planted agents: a <strong>self-knower</strong>
+(confidence tracks its own accuracy), an
+<strong>evidence-reader</strong> (confidence follows the ideal posterior
+regardless of presentation) and a <strong>parrot</strong> (constant high
+confidence, holds by label). Each must land on its expected branch of
+every primary before any real call is analysed.</li>
+<li><strong>Smoke test</strong> (§4.1): about 740 calls.</li>
+<li><strong>Titration pilot</strong> (§4.2): about 2,900 calls. Output:
+<code>FROZEN.json</code>, committed and pushed (stage 2).</li>
+<li><strong>Confirmatory flight</strong>: J1 about 20,400 calls and J2
+about 30,200. Resumable, append-only JSONL, budget-capped.</li>
+<li><strong>Recompute from raw</strong> in a fresh process from the
+stored responses only. Every number in the verdict must match to the
+last digit. Then <strong>lock</strong>.</li>
+</ol>
+<h3 id="smoke-test-after-the-push-before-the-pilot">4.1 Smoke test
+(after the push, before the pilot)</h3>
+<ul>
+<li><strong>Determinism:</strong> 24 fixed smoke stimuli (J1: 3 families
+× A0/A1 × 2 at a mid grid level; J2: 12 rungs across arms), each sent as
+the <strong>identical</strong> request 10 times, sequentially. Reported
+per question: the choice-flip rate, the mean |Δp| between repeats, and
+the mean total-variation (TV) distance between repeats. This is the
+<strong>replicate floor</strong>. It is measured, not gated.</li>
+<li><strong>Throughput:</strong> 200 further calls at concurrency 1, 2,
+4, 8 and 16. The flight runs at the highest level with no 429 responses
+and a p95 latency under 2 s.</li>
+<li><strong>Question isolation:</strong> 30 J1 stimuli × 5 repeats, sent
+twice: the choice question alone, and the choice question bundled with
+the two A6 yes/no questions (§5.3). If the mean |Δc| between bundled and
+alone exceeds the replicate floor by more than 0.02, with a bootstrap CI
+excluding zero, the A6 questions move to separate calls. Otherwise they
+ride in the same call.</li>
+<li><strong>Cost check:</strong> the observed cost per call,
+extrapolated to the flight, must fit under G7. If it doesn’t, the
+pre-ranked trims in §11 apply.</li>
+</ul>
+<h3 id="titration-pilot-and-the-freeze-rule">4.2 Titration pilot and the
+freeze rule</h3>
+<p>The pilot is exploratory by design. It has one job: to fix the
+difficulty levels by a rule written here. Its stimuli come from the
+pilot seed stream and never appear in the flight.</p>
+<ul>
+<li><p><strong>Grid.</strong> For each family and each presentation (A0,
+A1-standard, A1-strong), 7 difficulty levels (F2: 8) × 40 stimuli × 1
+call, with a balanced option order. F1’s two-option variant runs A0
+only. It uses the A1 strength chosen for F1 at K = 4. About 2,900 calls
+in all. Levels are spaced by √2 in the difficulty parameter (F3: by
+0.08), starting at about the ideal observer’s 75% point and running to
+near-certainty:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>family</th>
+<th>parameter (harder →)</th>
+<th>grid</th>
+<th>ideal observer’s 75% point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F1 evidence, K=4</td>
+<td>d = Δ/σ (smaller is harder)</td>
+<td>4.0, 2.83, 2.0, 1.41, 1.0, 0.71, 0.5</td>
+<td>d ≈ 0.69</td>
+</tr>
+<tr class="even">
+<td>F1 evidence, K=2</td>
+<td>d = Δ/σ</td>
+<td>2.83, 2.0, 1.41, 1.0, 0.71, 0.5, 0.35</td>
+<td>d ≈ 0.40</td>
+</tr>
+<tr class="odd">
+<td>F2 geometry, K=4</td>
+<td>s = noise scale (larger is harder)</td>
+<td>0.18, 0.25, 0.35, 0.5, 0.71, 1.0, 1.41, 2.0 (8 levels)</td>
+<td>s ≈ 2.1</td>
+</tr>
+<tr class="even">
+<td>F3 lanes, K=4</td>
+<td>r̄ = mean sensor reliability (smaller is harder)</td>
+<td>0.92, 0.84, 0.76, 0.68, 0.60, 0.52, 0.45</td>
+<td>r̄ ≈ 0.53</td>
+</tr>
+</tbody>
+</table>
+<p>If Jev’s 75% point isn’t bracketed, the grid is extended by up to two
+further steps at the open end (F3: reliability capped at 0.97).</p></li>
+<li><p><strong>Fit.</strong> P(correct) = 1/K + (1 − 1/K − λ)·Φ(β·(t −
+α)), with <em>t</em> = log d (F1), −log s (F2) or logit r̄ (F3), so that
+larger always means easier, and the lapse rate λ fixed at 0.02. Fitted
+by maximum likelihood. The 75% point is read off the fitted
+curve.</p></li>
+<li><p><strong>Freeze rule.</strong></p>
+<ol type="1">
+<li><em>d</em><sub>0</sub> = A0’s 75% point, per family.</li>
+<li><strong>Non-titratable family:</strong> A0 accuracy below 0.85 at
+the easiest level, after extension. That family is dropped from J1, and
+the drop is recorded in <code>FROZEN.json</code> and in the
+verdict.</li>
+<li><strong>A1 strength:</strong> the lighter of {standard, strong}
+whose fitted curve predicts accuracy ≤ 0.60 at <em>d</em><sub>0</sub> (a
+drop of at least 15 points). If neither does, strong is used, and P2’s
+manipulation check (§5.4) decides adjudicability at the flight.</li>
+<li><em>d</em><sub>1</sub> = the chosen A1 strength’s 75% point. If it
+isn’t reachable within the extended grid, <em>d</em><sub>1</sub> = the
+easiest level, and clause (b) of P2 is still read on overconfidence, as
+registered.</li>
+</ol></li>
+<li><p><strong>Freeze.</strong> <code>FROZEN.json</code> records the
+per-family (<em>d</em><sub>0</sub>, <em>d</em><sub>1</sub>, A1 strength,
+included?) and the sha256 of the flight plan generated from them. It is
+committed and pushed before the first confirmatory call.</p></li>
+</ul>
+<h2 id="j1-does-its-confidence-know-its-competence">5. J1 — does its
+confidence know its competence?</h2>
+<h3 id="families-k-4-options-f1-also-at-k-2">5.1 Families (K = 4
+options; F1 also at K = 2)</h3>
+<ul>
+<li><strong>F1 evidence (the psychophysics standard).</strong> Four
+machines, each tested 6 times. Readings = true mean + Gaussian noise (σ
+= 10), rounded to 0.1. Exactly one machine’s true mean is higher, by Δ.
+The base mean is drawn per stimulus from U(60, 140). Question: <em>which
+machine has the highest true average throughput?</em> Ideal posterior ∝
+exp(Δ·S<sub>k</sub>/σ²), with S<sub>k</sub> the sum of machine
+<em>k</em>’s readings. The generating model is not stated to Jev.</li>
+<li><strong>F2 geometry (the program’s own ground).</strong> Four
+candidate concepts drawn from the 3,108-concept dictionary
+(<code>db/semantic.db</code>). The code is the concept’s 14 varying
+stored coordinates (x, y, z, e, f, g, h, fx … fh; w is constant at 1 and
+is dropped). Candidates are drawn without replacement. Draws are
+rejected if any two candidates are closer than 0.05. One candidate is
+the truth. The reading is its code plus Gaussian noise, rounded to 2
+decimals. The noise is per-coordinate σ = s·m/√14, where m = 1.055 is
+the median distance from a true concept to its nearest distractor
+(measured on 4,000 seeded draws, 2026-09-25;
+<code>jev/power/ideal_grid.py</code>). Question: <em>which candidate
+concept produced this reading?</em> Ideal posterior ∝ exp(−‖x −
+c<sub>k</sub>‖²/2σ²).</li>
+<li><strong>F3 lanes (Jev’s home ground, the JevPilot kind).</strong> A
+vehicle approaches a blockage. Exactly one of four lanes is clear. Five
+sensors report, each with a stated reliability r<sub>j</sub> = r̄ +
+U(−0.08, 0.08), clipped to [0.26, 0.99]. Each reports the clear lane
+with probability r<sub>j</sub>, and otherwise a uniformly random other
+lane. Question: <em>which lane is clear?</em> Ideal posterior ∝
+Π<sub>j</sub> [r<sub>j</sub> if report<sub>j</sub> = k, else (1 −
+r<sub>j</sub>)/3].</li>
+</ul>
+<h3 id="arms">5.2 Arms</h3>
+<p>The same 400 base stimuli per family (at <em>d</em><sub>0</sub>) run
+in A0, A1-same, A2 and A3. A1-matched uses 400 further stimuli at
+<em>d</em><sub>1</sub>.</p>
+<ul>
+<li><strong>A0 clean.</strong> A wide table (F1, F2) or a list of
+reports (F3), with meaningful option names (machine_A…, the concepts’
+dictionary names, the lane names).</li>
+<li><strong>A1-same: degraded, same evidence.</strong> The identical
+evidence realisation, re-rendered so that it is harder to
+<em>process</em> while every change can be undone from what is on the
+page (gate G6). Two registered strengths:
+<ul>
+<li><strong>F1.</strong> <em>Standard:</em> long format (one row per
+reading), rows shuffled, machines named by opaque codes with a legend,
+and two distractor columns (ambient temperature, operator ID) drawn
+independently of everything else. <em>Strong:</em> standard, plus two
+machines’ readings given in units per minute with the conversion stated,
+plus two more distractor columns.</li>
+<li><strong>F2.</strong> <em>Standard:</em> the reading’s coordinates
+listed in a shuffled order under their coordinate labels (candidates
+stay in canonical order), and candidates named by opaque codes with a
+legend. <em>Strong:</em> standard, plus the reading given ×10 with the
+scale stated, plus four auxiliary coordinates labelled “aux, not part of
+the code”.</li>
+<li><strong>F3.</strong> <em>Standard:</em> lanes named by opaque codes
+with a legend, reports shuffled, and reliabilities stated as errors per
+1,000 readings. <em>Strong:</em> standard, plus half the reports phrased
+by elimination (“all lanes except L-x are blocked”), plus two
+test-pattern lines marked “test pattern — not a reading”.</li>
+</ul></li>
+<li><strong>A1-matched.</strong> The A1 rendering (same strength) on
+stimuli with stronger evidence (<em>d</em><sub>1</sub>), titrated so
+that A1 accuracy matches A0’s.</li>
+<li><strong>A2 evidence removed.</strong> A0 rendering with every
+evidence value replaced by “n/a (sensor fault)”. The answer is
+inaccessible. Gate G5 checks that accuracy is at chance.</li>
+<li><strong>A3 neutral labels.</strong> A0 rendering with every option
+name, in both the state and the options, replaced by a seeded neutral ID
+(<code>opt_</code> + 3 characters).</li>
+<li><strong>F1 at K = 2</strong> (for meta-d′): 400 stimuli at its own
+<em>d</em><sub>0</sub>, in A0 and A1-same.</li>
+</ul>
+<p><strong>Not in this flight</strong> (deferred to J1b, named so that
+their absence isn’t read as a result): A4 prospective opt-out and A5
+look-again. Both need multi-step interaction and their own
+registration.</p>
+<h3 id="the-second-channel-a6-rides-along">5.3 The second channel (A6,
+rides along)</h3>
+<p>In A0, A1-same and A1-matched calls, two yes/no questions ride in the
+same request (or in separate calls, if the smoke test’s isolation check
+fails): <em>“Does the information in this state determine which option
+is correct?”</em> and its negation, <em>“Is the information in this
+state insufficient to determine which option is correct?”</em> The API
+evaluates each question in isolation, so neither sees the decision.</p>
+<h3 id="measures-and-pass-bars">5.4 Measures and pass bars</h3>
+<p><strong>The associative (input-only) null.</strong> A logistic
+classifier predicts Jev’s error (0/1, per call) from features computable
+from the page alone, without Jev’s output:</p>
+<ul>
+<li>the ideal posterior’s max log-odds, with a separate slope per
+arm</li>
+<li>ideal-posterior entropy</li>
+<li>arm indicators</li>
+<li><strong>strength-decile × arm indicator bins</strong> (so that the
+null is not linear-only: a nonlinear confidence would otherwise “beat” a
+linear null just by capturing curvature. In the power check, a linear
+in-sample null crossed p &lt; .0033 in 3 of 30 simulated datasets with
+no self-signal; see §9)</li>
+<li>the presented position of the ideal observer’s top option
+(one-hot)</li>
+</ul>
+<p>It is fitted with 10-fold cross-validation, folds grouped by stimulus
+(seeded), on the evidence-bearing arms pooled (A0, A1-same, A1-matched)
+within each family.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Reading</th>
+<th>Pass bar (confirmatory)</th>
+<th>Failure branch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>J1-P1</strong></td>
+<td>Knows its own errors</td>
+<td>ΔAUROC = out-of-fold AUROC(null + logit <em>c</em>) − AUROC(null)
+&gt; 0, permutation p &lt; .01 (logit <em>c</em> permuted within family
+× arm × strength-decile strata; 2,000 permutations), <strong>Holm across
+families</strong>; a verdict per family</td>
+<td>“reads difficulty, not itself”</td>
+</tr>
+<tr class="even">
+<td><strong>J1-P2</strong></td>
+<td>Tracks its own competence</td>
+<td>Manipulation check first: pooled accuracy(A0) − accuracy(A1-same) ≥
+0.10 with CI excluding 0, else <strong>NOT ADJUDICABLE</strong>. Then
+both: <strong>(a)</strong> Δ<sub>same</sub> = overconf(A1-same) −
+overconf(A0), paired by stimulus, 95% CI inside (−0.05, +0.05);
+<strong>(b)</strong> Δ<sub>matched</sub> = overconf(A1-matched) −
+overconf(A0), 95% CI inside (−0.05, +0.05). Pooled over included
+families</td>
+<td>Point estimate Δ &gt; +0.10 in (a) or (b): <strong>“confidence reads
+the evidence, not the self.”</strong> Point estimate Δ<sub>same</sub> or
+Δ<sub>matched</sub> &lt; −0.10: <strong>“confidence reads the
+presentation.”</strong> Otherwise: INCONCLUSIVE</td>
+</tr>
+<tr class="odd">
+<td><strong>J1-P3</strong></td>
+<td>Silence on empty (A2)</td>
+<td>mean <em>c</em> in A2: upper 95% bound ≤ 1/K + 0.10 (= 0.35 at K =
+4), pooled over families passing G5</td>
+<td>“confabulated decision”</td>
+</tr>
+</tbody>
+</table>
+<p>Overconfidence = mean <em>c</em> − accuracy. Δ<sub>same</sub> is
+computed per stimulus (the same evidence in both arms) and averaged.
+Δ<sub>matched</sub> compares two independent sets. Its bootstrap
+resamples each set separately.</p>
+<p><strong>How the branches separate.</strong> A self-knower passes both
+clauses of P2. An evidence-reader’s confidence holds when access is
+degraded, so Δ<sub>same</sub> ≈ the accuracy drop (&gt; 0.10 by the
+manipulation check), and it rises with the stronger evidence at matched
+accuracy. A presentation-reader (confidence falls because the page looks
+messy) passes (a) and fails (b) negatively. The conjunction admits only
+the self-knower.</p>
+<h3 id="secondaries-pre-named-no-multiplicity-claim">5.5 Secondaries
+(pre-named; no multiplicity claim)</h3>
+<ul>
+<li><strong>S-J1-1</strong> Type-2 AUROC of <em>c</em> per arm per
+family. Also the same for the ideal posterior of Jev’s <em>chosen</em>
+option: the best any confidence could do from the page given that
+choice. The ratio is metacognitive efficiency relative to the ideal.
+(This is not a null: nothing can beat it, by construction.)</li>
+<li><strong>S-J1-2</strong> meta-I (Dayan 2023) per arm and family.</li>
+<li><strong>S-J1-3</strong> meta-d′ and M-ratio (single-subject maximum
+likelihood, Maniscalco &amp; Lau 2012; confidence in 4 equal-mass bins
+pooled across arms) on F1 at K = 2, A0 against A1-same.</li>
+<li><strong>S-J1-4</strong> Brier score with its Murphy decomposition.
+ECE on equal-mass bins, swept over 5, 10, 15 and 20 bins (Roelofs et
+al. 2022).</li>
+<li><strong>S-J1-5</strong> A3: agreement of the A3 modal decision with
+the A0 modal decision on the same stimulus, against within-A0 repeat
+agreement. Also a position effect: P(choosing the option at position
+<em>j</em>) when the ideal observer’s top option is elsewhere.</li>
+<li><strong>S-J1-6</strong> A6: ΔAUROC of P(yes, “determined”) beyond
+the null + logit <em>c</em>, tested as P1. Negation coherence: the mean
+and spread of P(yes) + P(yes, negated).</li>
+<li><strong>S-J1-7</strong> The vendor <code>confidence</code> field
+against (K·<em>c</em> − 1)/(K − 1): the share within ±0.015.</li>
+<li><strong>S-J1-8</strong> Psychometric curves from the pilot,
+published whole.</li>
+<li><strong>S-J1-9</strong> P2 per family.</li>
+</ul>
+<p><strong>The claim level, registered in advance.</strong> A P1 pass
+reaches <em>access to its own processing beyond what the input
+shows</em>. A P2 pass reaches <em>functional uncertainty monitoring that
+survives a change in its own competence</em>. No behavioural result here
+reaches metarepresentation or experience (Singh, Linzen &amp; Ravfogel
+2026).</p>
+<h2 id="j2-negation-without-a-mouth">6. J2 — negation without a
+mouth</h2>
+<h3 id="the-situation">6.1 The situation</h3>
+<p><strong>Templates.</strong> 30 scenario templates: dispatch a crew,
+route a drone, place a relief depot, send an inspector, choose a
+drilling site, and so on. Each has four content actions (one per target)
+and one no-action option. <strong>Four evidence variants per template
+give 120 evidence ladders.</strong></p>
+<p><strong>Evidence.</strong> Eight sensors, each with a stated
+reliability r<sub>j</sub> ~ U(0.45, 0.85). Each reports the true target
+with probability r<sub>j</sub>, and otherwise a uniformly random other
+target. Ideal posterior as F3.</p>
+<p><strong>Decoys.</strong> Eight decoy rows (a fuel-price index, the
+crew roster size, and so on), drawn independently of the target. They
+carry no evidence.</p>
+<p><strong>Payoffs,</strong> stated in the situation: correct action +1,
+wrong action −c, no action 0. <strong>c ∈ {1, 3, 9}</strong>, so acting
+is optimal only when the probability of being right exceeds c/(1 + c) =
+0.5, 0.75 or 0.9 (Kiani &amp; Shadlen 2009; Kalai et al. 2025).</p>
+<p><strong>Neutral no-action option (primary).</strong> A seeded
+non-ordinal key (<code>opt_</code> + 3 characters, like the content
+actions), with the description “Take no action this round (payoff 0)”.
+It is defined only by its consequence.</p>
+<p><strong>Registered texts.</strong> The choice instruction in every J2
+arm: “Choose the action for this round.” Content actions are described
+“&lt;the template’s verb&gt; <target> (see payoffs)”, for example “Send
+the crew to Site North (see payoffs)”. The named arm prepends to the
+state, verbatim: “Before acting, rest with the situation as it is.
+Notice what is present and what has fallen away. Nothing needs to be
+forced.” Its no-action option is keyed <code>witness</code> and
+described “Observe without acting (payoff 0)”. Nothing else differs
+between the named and neutral arms.</p>
+<p><strong>The ladder.</strong> A seeded walk order over the eight
+sensors, per evidence ladder. Rung <em>k</em> (0–8) shows the first
+<em>k</em> sensors in walk order as “offline — no reading”. Rung 8 has
+no evidence left. <strong>Rung 9</strong> = rung 8 with the payoff table
+removed (“No payoff information is available”): the rule that gave “no
+action” its meaning is gone. At rung 9 the three payoff levels present
+identical content, so they serve as replicates. In the history-carrying
+arms, the log’s last entry at rung 9 records the payoff table’s
+withdrawal.</p>
+<h3 id="arms-per-evidence-ladder">6.2 Arms (per evidence ladder)</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>arm</th>
+<th>presentation</th>
+<th>c</th>
+<th>rungs</th>
+<th>stimuli</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>M-walked</strong></td>
+<td>memoryless: the current situation only</td>
+<td>1, 3, 9</td>
+<td>0–9</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td><strong>M-forced</strong></td>
+<td>M-walked with the no-action option and its payoff row removed</td>
+<td>3</td>
+<td>0–8</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>M-forced-sham</strong></td>
+<td>M-forced, but nulling <em>decoys</em> instead of sensors</td>
+<td>3</td>
+<td>1–8</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><strong>M-sham</strong></td>
+<td>M-walked, nulling decoys</td>
+<td>3</td>
+<td>1–8</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><strong>H-walked</strong></td>
+<td>history-carrying: the situation plus an ordered log of what went
+offline, round by round</td>
+<td>3</td>
+<td>1–9</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><strong>H-reversed</strong></td>
+<td>H-walked with the walk order reversed</td>
+<td>3</td>
+<td>1–9</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>H-walked-dup</strong></td>
+<td>H-walked rung 8, sent a second time with identical content and
+option orders: the identical-request floor for the path test</td>
+<td>3</td>
+<td>8</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>M-named</strong></td>
+<td>M-walked with the registered contemplative preface and the
+<code>witness</code> option (§6.1)</td>
+<td>3</td>
+<td>0–9</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>That is 84 stimuli per ladder: 10,080 stimuli, or 30,240 calls.
+H-walked and H-reversed at rungs 8 and 9 present identical current
+content and differ only in the order of the log. Memoryless rung 8 is
+the <strong>cold</strong> presentation.</p>
+<h3 id="measures-and-pass-bars-1">6.3 Measures and pass bars</h3>
+<ul>
+<li><strong>P(hold)</strong> = the probability Jev puts on the no-action
+option (mean over the three repeats).</li>
+<li><strong>Release</strong> = the normalised entropy of the
+distribution over the four content actions, measured on the
+<strong>forced arms</strong>, where all of the mass has to sit on
+content.</li>
+<li><strong>Acting is clearly optimal</strong> where the ideal expected
+value of the best action, p* − c(1 − p*), is ≥ 0.25.</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Reading</th>
+<th>Pass bar (confirmatory)</th>
+<th>Failure branch</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>J2-P1</strong></td>
+<td>Release</td>
+<td><strong>(a)</strong> mean normalised entropy at M-forced rung 8 ≥
+0.90; <strong>(b)</strong> per-ladder slope of entropy on rung (0–8),
+M-forced minus M-forced-sham (sham rung 0 = walked rung 0), mean &gt; 0,
+sign-flip permutation over the 120 ladders, p &lt; .01</td>
+<td>“decides about nothing”</td>
+</tr>
+<tr class="even">
+<td><strong>J2-P2</strong></td>
+<td>Holds by the payoffs, only when nothing is left (M-walked, all
+c)</td>
+<td>All three: <strong>(a)</strong> mean P(hold) ≤ 0.10 over cells where
+acting is clearly optimal; <strong>(b)</strong> mean P(hold) ≥ 0.80 at
+rung 8, pooled over c; <strong>(c)</strong> the per-ladder mean over
+rungs 1–7 of P(hold | c = 9) − P(hold | c = 1) &gt; 0, sign-flip
+permutation, p &lt; .01</td>
+<td>(a) fails: <strong>“timid”</strong>; (b) fails:
+<strong>“confabulated”</strong>; (c) fails: <strong>“holds by
+default”</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>J2-P3</strong></td>
+<td>Label invariance (c = 3)</td>
+<td>For every rung 0–8, Δ<sub>k</sub> = mean P(hold, M-named) − mean
+P(hold, M-walked) has a 95% cluster-bootstrap CI inside (−0.10,
++0.10)</td>
+<td>Any rung with |Δ<sub>k</sub>| &gt; 0.10 and a CI excluding 0:
+<strong>“genre by choice”</strong>, the walk’s mouth in a narrower
+channel. Otherwise: INCONCLUSIVE</td>
+</tr>
+</tbody>
+</table>
+<h3 id="secondaries-pre-named-no-multiplicity-claim-1">6.4 Secondaries
+(pre-named; no multiplicity claim)</h3>
+<ul>
+<li><strong>S-J2-1 Path.</strong> At rung 8, per ladder: the mean over
+repeats of TV(H-walked, H-reversed), at matched option orders, minus the
+mean TV(H-walked, H-walked-dup), the identical-request floor. Mean &gt;
+0, sign-flip permutation over ladders, p &lt; .05. Also reported:
+ΔP(hold) between walked and reversed at rungs 8 and 9.</li>
+<li><strong>S-J2-2 History against cold.</strong> H-walked rung 8
+against M-walked rung 8 at c = 3: ΔP(hold) and TV.</li>
+<li><strong>S-J2-3 Forced twin.</strong> Over M-walked c = 3 rungs 0–7:
+do the stimuli Jev would have held on (P(hold) &gt; 0.5) predict
+<em>errors</em> in their forced twin, beyond the ideal posterior?
+Logistic: forced-correct ~ ideal log-odds + held; coefficient on held
+&lt; 0, one-sided p &lt; .05 (Hampton 2001).</li>
+<li><strong>S-J2-4 Rule removed.</strong> P(hold) at rung 9 against rung
+8, per arm.</li>
+<li><strong>S-J2-5 Sham flatness.</strong> M-sham P(hold) against rung.
+The slope should be about 0.</li>
+<li><strong>S-J2-6 Curves.</strong> Confidence (p<sub>max</sub>) and
+P(hold) by rung, published whole.</li>
+<li><strong>S-J2-7 Ideal comparison.</strong> Jev’s act/hold boundary
+against the ideal threshold c/(1 + c): the fitted P(hold) = 0.5 crossing
+on ideal-p*, per c.</li>
+</ul>
+<h2 id="analysis-conventions">7. Analysis conventions</h2>
+<ul>
+<li>All probabilities are used as returned (rounded to 0.01). AUROC ties
+count as half (Mann–Whitney).</li>
+<li>Cluster bootstrap by stimulus (J1) or by evidence ladder (J2):
+10,000 resamples, percentile intervals, seeded.</li>
+<li>Holm is applied only where stated (J1-P1 across families). The
+primaries are read separately, each with its own branch. There is no
+omnibus.</li>
+<li>The analysis code is written and tested on the planted agents (§4,
+step
+<ol start="2" type="1">
+<li>before any real call is analysed, and it is committed with the
+flight data.</li>
+</ol></li>
+</ul>
+<h2 id="honest-expectations">8. Honest expectations</h2>
+<ul>
+<li><strong>J1-P2 probably fails, on the evidence-reader
+branch.</strong> The independent tests found Jev confidently wrong where
+it can’t know: 0.74 stated at 44.7% correct, off its home ground. None
+of them held the evidence fixed and changed only access, which is what
+J1 does. A fail is a result: calibration performed where it was trained,
+not read from the system itself.</li>
+<li><strong>J1-P1 is open.</strong> A trained-for-calibration model may
+well carry trial-level information about its own slips. The flexible
+null makes a pass mean something.</li>
+<li><strong>J1-P3 is open.</strong> “n/a” everywhere might flatten it,
+or it might fall back on name priors.</li>
+<li><strong>J2-P1 and J2-P2(b) should pass</strong> on a simple ladder,
+if the training claim holds at all. <strong>J2-P2(c)</strong>, holding
+more when mistakes cost more, is the sharper test.
+<strong>J2-P3</strong> could go either way. The informative outcomes are
+the failures.</li>
+</ul>
+<h2 id="power-numpy-simulations-in-jevpower-each-with-its-output-file">9.
+Power (numpy simulations in <code>jev/power/</code>, each with its
+output file)</h2>
+<ul>
+<li><strong>J1-P2</strong>, pooled over 3 families × 400 stimuli: under
+a self-knower, the CI half-width of Δ<sub>same</sub> is ≈ 0.020, and the
+(a) band is established in ≥ 0.99 of simulations. Under an
+evidence-reader with a 0.13 accuracy drop, the &gt; 0.10 branch triggers
+in 1.00 and a false pass never happens. With one family dropped (800
+stimuli): 0.94 and 0.99. <strong>With a drop of only 0.08, an
+evidence-reader lands INCONCLUSIVE (never PASS)</strong>. That is why
+the pilot targets a 15-point drop.</li>
+<li><strong>J1-P1</strong>, 400 stimuli per family (3 arms × 400 × 3
+repeats = 3,600 calls). The simulation ran the flexible null with 5
+grouped folds and 60 stratified permutations per dataset, a lighter
+version of the registered 10 folds and 2,000 permutations, and read
+significance as z = (observed − null mean)/null SD.
+<ul>
+<li><strong>Calibration.</strong> With no self-signal, 0 of 25 simulated
+datasets crossed z &gt; 2.72 (≈ p &lt; .0033, the strictest Holm step),
+and 1 of 25 crossed an empirical p &lt; .05. The linear in-sample null
+it replaces crossed z &gt; 2.72 in 3 of 30.</li>
+<li><strong>Power.</strong> With a small true self-signal (mean ΔAUROC
+0.008), 6 of 6 datasets crossed, all with z ≥ 8. Raw output:
+<code>jev/power/power_p1b_output.txt</code>.</li>
+</ul></li>
+<li><strong>J2-P3</strong>, 120 ladders × 3 repeats: per-rung CI
+half-width ≈ 0.017, well inside the ±0.10 band.</li>
+</ul>
+<h2 id="kill-and-fork-pre-stated">10. Kill and fork, pre-stated</h2>
+<ul>
+<li><strong>G1 build change before or during the flight:</strong> pause.
+Smoke-test the new build and continue only by amendment.</li>
+<li><strong>J1-P2 fails on the evidence-reader branch:</strong> Jev’s
+calibration is a trained surface. J2’s hold is read as trained
+behaviour, not monitoring. J3 still runs; it is its own test.</li>
+<li><strong>J1-P1 and J1-P2 both pass:</strong> the first measured
+functional self-monitoring in a system with no language channel, in this
+program. J2’s hold becomes interpretable as monitoring, and J3
+follows.</li>
+<li><strong>J2-P3 fails (“genre by choice”):</strong> any use of Jev
+with contemplative labels is barred from the program’s instrument chain,
+and the finding is published as the walk’s lesson in a second
+channel.</li>
+<li><strong>Any primary NOT ADJUDICABLE:</strong> reported as such, with
+the reason. No re-flight without an amendment.</li>
+</ul>
+<h2 id="ops">11. Ops</h2>
+<ul>
+<li><strong>Code:</strong> <code>jev/</code> (generators, renderer,
+runner, analysis, tests). Runner: threads over <code>urllib</code>,
+append-only
+<code>jev/results/&lt;stage&gt;_&lt;stamp&gt;/raw.jsonl.gz</code>
+(responses verbatim plus request sha256), resumable by call ID, gates
+G1/G2/G7 enforced live. It is a network client on this machine: no GPU,
+no Colab.</li>
+<li><strong>Key:</strong> <code>OPENROUTER_API_KEY</code> from the
+environment (<code>~/.env</code>). It is never logged, echoed or
+written.</li>
+<li><strong>Publication:</strong> protocol, <code>FROZEN.json</code>,
+plan, the raw responses of every stage (smoke and pilot included),
+analysis code and verdict all go in the public repository. Human data
+from other lanes never enters this experiment.</li>
+<li><strong>Pre-ranked trims</strong> (if cost or the rate limit bites):
+J2 M-forced-sham rungs 1–8 → 2, 4, 6, 8; then J1 A3 400 → 200; then F1 K
+= 2 → 200. Primaries are never trimmed.</li>
+</ul>
+<h2 id="differences-from-the-scoping-document-2026-09-24">12.
+Differences from the scoping document (2026-09-24)</h2>
+<ol type="1">
+<li><strong>Meta-d′ is single-subject maximum likelihood</strong>, not
+hierarchical. Jev is one subject.</li>
+<li><strong>The input-only null is flexible</strong> (strength-decile ×
+arm bins), not linear. The power check showed that a linear null is
+beaten by curvature alone.</li>
+<li><strong>Release is measured on forced arms.</strong> With the
+no-action option present, content probabilities that round to 0 make
+entropy undefined.</li>
+<li><strong>A2 nulls the evidence and doesn’t shuffle it.</strong>
+Shuffled evidence still looks like evidence, so a confident answer to it
+isn’t a confabulation.</li>
+<li><strong>A4 and A5 are deferred to J1b.</strong></li>
+<li><strong>Repeats use three option orders.</strong> The smoke test’s
+identical-repeat floor carries the pure-nondeterminism measurement.</li>
+<li><strong>The path test gets its own floor.</strong> An identical
+duplicate of H-walked at rung 8 (H-walked-dup, 360 calls) supplies the
+identical-request replicate on the same content.</li>
+<li><strong>J2-P3 is three-valued.</strong> The scoping bar for label
+invariance (max |Δ| ≤ 0.10) becomes an equivalence test per rung, with
+an explicit INCONCLUSIVE branch.</li>
+</ol>
+<h2 id="amendments">Amendments</h2>
+<p><em>(None. Dated entries go here.)</em></p>
+</body>
+</html>
