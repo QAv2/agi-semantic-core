@@ -22,3 +22,7 @@ exports/
 # sqlite runtime sidecars
 db/*.db-wal
 db/*.db-shm
+
+# Private E7b-Q source dossier (personal material; kept local)
+docs/e7bq_sources/
+docs/E7BQ_SOURCES.md

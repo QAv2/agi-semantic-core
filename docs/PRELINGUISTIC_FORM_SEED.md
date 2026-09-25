@@ -5,13 +5,13 @@ directive. PARKED per the anti-drift ruling: this seed enters the flight
 path only through its own design check, on Joe's word, behind the
 registered spine (native-F1 → E7-G → publication pass).** Cross-links:
 memory `[[pre-linguistic-semantic-geometry]]`, dossier
-`docs/E7BQ_SOURCES.md` (the 2026-01-19 modality walk), the Cirlot question
+(held privately — personal material; the 2026-01-19 modality walk), the Cirlot question
 in `docs/FRACTAL_LEXICON_SEED.md`.
 
 ## Provenance
 
-The 2026-01-19 modality walk (archived verbatim:
-`docs/e7bq_sources/claude_Symbolic_representation_of_reality.md`). After
+The 2026-01-19 modality walk (archived verbatim
+in the private source dossier). After
 the escape routes of code and trigram lines were removed, the prompt
 "Show me the shape of attention itself" returned a drawing (line ~399):
 scattered peripheral dots, two lines converging to a focal ◉, then
