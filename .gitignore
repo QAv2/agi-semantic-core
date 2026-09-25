@@ -26,3 +26,6 @@ db/*.db-shm
 # Private E7b-Q source dossier (personal material; kept local)
 docs/e7bq_sources/
 docs/E7BQ_SOURCES.md
+
+# Jev runs: commit the compressed raw file only
+jev/results/*/raw.jsonl

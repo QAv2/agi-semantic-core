@@ -102,6 +102,8 @@ output file)</a></li>
 <li><a href="#ops" id="toc-ops">11. Ops</a></li>
 <li><a href="#differences-from-the-scoping-document-2026-09-24" id="toc-differences-from-the-scoping-document-2026-09-24">12.
 Differences from the scoping document (2026-09-24)</a></li>
+<li><a href="#build-time-clarifications-2026-09-25-before-the-push-before-any-call" id="toc-build-time-clarifications-2026-09-25-before-the-push-before-any-call">Build-time
+clarifications (2026-09-25, before the push, before any call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
 </ul>
 </nav>
@@ -950,6 +952,62 @@ identical-request replicate on the same content.</li>
 <li><strong>J2-P3 is three-valued.</strong> The scoping bar for label
 invariance (max |Δ| ≤ 0.10) becomes an equivalence test per rung, with
 an explicit INCONCLUSIVE branch.</li>
+</ol>
+<h2 id="build-time-clarifications-2026-09-25-before-the-push-before-any-call">Build-time
+clarifications (2026-09-25, before the push, before any call)</h2>
+<p>Writing the builder (<code>jev/</code>) fixed details the text above
+leaves open. They are recorded here, and they are part of the
+registration because they are committed before the push and before any
+call.</p>
+<ol type="1">
+<li><strong>Rung 9 withdraws the payoff from the labels too.</strong> At
+rung 9 the content actions lose “(see payoffs)”, and the no-action
+option reads “Take no action this round” (named arm: “Observe without
+acting”), with no “(payoff 0)”.</li>
+<li><strong>“Upper 95% bound”</strong> in J1-P3 is the upper end of the
+two-sided 95% percentile interval (the 97.5th percentile): the stricter
+reading.</li>
+<li><strong>The pilot extension</strong> is triggered by A0’s 75% point
+or by the chosen A1 strength’s 75% point falling outside the grid (the
+protocol names only “Jev’s 75% point”). Extension levels continue the √2
+(F3: 0.08) ladder.</li>
+<li><strong>meta-I</strong> is the plug-in mutual information between
+correctness and confidence in 10 equal-mass bins (bins merge where ties
+collapse them).</li>
+<li><strong>J2 option positions.</strong> The no-action option sits at
+position (ladder + rung + repeat) mod 5, and the true target cycles
+through the remaining four. The logic suite checks both are balanced to
+within 15% over the plan.</li>
+<li><strong>F1 at K = 2, strong A1</strong> converts one machine to
+per-minute readings (two when K = 4).</li>
+<li><strong>F2 codes are shown to 2 decimals</strong>, and the reading
+is generated from the shown codes, so the ideal observer on the page is
+exact up to the reading’s own rounding.</li>
+<li><strong>The pilot renders the same 40 stimuli per level in all three
+presentations</strong> (paired), so the A1-versus-A0 drop is estimated
+within stimuli.</li>
+<li><strong>Smoke isolation statistic.</strong> Per stimulus:
+<em>between</em> = mean |c<sub>alone</sub> − c<sub>bundled</sub>| over
+all 25 cross pairs; <em>floor</em> = the mean over within-condition
+pairs. Effect = between − floor, with a bootstrap CI over the 30
+stimuli.</li>
+<li><strong>Smoke determinism, J2 part:</strong> 4 ladders × M-walked
+rungs 0, 4 and 8 at c = 3.</li>
+<li><strong>J1-P1 strata</strong> are arm × strength decile within each
+family. Each family is tested separately.</li>
+<li><strong>The missing-call flag</strong> is computed per family × arm
+(J1) and per arm (J2).</li>
+<li><strong>S-J2-3</strong> takes its one-sided p from the Wald z of the
+“held” coefficient. <strong>S-J2-7</strong> fits a quasi-binomial
+logistic of P(hold) on the logit of the ideal p* per c, and reads the
+0.5 crossing.</li>
+<li><strong>A6 on F1 at K = 2:</strong> the two yes/no questions ride on
+its A0 and A1-same calls as well, as the text of §5.3 implies.</li>
+<li><strong>The verdict suite</strong> runs the planted agents on a
+reduced flight (240 stimuli per family, 40 ladders, 320 permutations:
+the smallest count whose minimum p, 1/321, clears the strictest Holm
+step, .01/3). The registered analysis uses 400 stimuli, 120 ladders and
+2,000 permutations.</li>
 </ol>
 <h2 id="amendments">Amendments</h2>
 <p><em>(None. Dated entries go here.)</em></p>
