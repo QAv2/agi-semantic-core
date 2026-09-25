@@ -1,0 +1,4 @@
+P1 400/family sig=0.0: dAUROC 0.000  median z -0.43  power(z>2.72 ~ p<.0033) 0.10
+P1 400/family sig=0.15: dAUROC 0.006  median z 18.14  power(z>2.72 ~ p<.0033) 1.00
+P1 400/family sig=0.3: dAUROC 0.020  median z 59.83  power(z>2.72 ~ p<.0033) 1.00
+# 30 simulated datasets per row; 0.10 at sig=0.0 = 3 of 30 false positives -> linear null rejected.
