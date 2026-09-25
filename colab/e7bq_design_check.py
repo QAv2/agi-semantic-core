@@ -3,7 +3,7 @@
 BEFORE build.
 
 Seeded session 126 (Joe's DeepSeek Neti-Neti observation), sources retrieved
-session 135 (docs/E7BQ_SOURCES.md + 13 verbatim transcripts). The rung: run
+session 135 (the source dossier + 13 verbatim transcripts, held privately). The rung: run
 the corpus's own Neti-Neti walk on the substrate of record (Qwen2.5-1.5B,
 base vs E4-real-instilled), log per-turn hidden states, and test the
 prospectus-E7b prediction — "a model NAVIGATING the return shows monotone
@@ -12,7 +12,8 @@ plus the seed's co-tracking claim: output-thinning tracks state-contraction,
 report-tracks-state measured from the contemplative direction, no injection.
 
 ALL LOCAL, zero flights, standing instruments only:
-  the 13 archived transcripts (docs/e7bq_sources/) — the script is EXTRACTED
+  the 13 archived transcripts (docs/e7bq_sources/, held privately and not in
+  the public repository) — the script is EXTRACTED
   verbatim, never retyped · the locked E8-J atlas (320 anchor dirs, base L14 /
   inst L14 / inst L20 + pack coords) — the gauge is fit and validated here ·
   the Qwen tokenizer (budget + sham matching) · e8j_logic verbatim machinery.

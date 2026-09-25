@@ -10,8 +10,9 @@ as content is stripped; a model QUOTING the return produces compliant words
 while its trajectory wanders"*) · session-126 seed (Joe's DeepSeek walk:
 output-thinning should co-track state-contraction, report-tracks-state from
 the contemplative direction, no injection; token-level logging kills the
-blank-vs-whitespace ambiguity) · the source dossier `docs/E7BQ_SOURCES.md`
-(session 135: the November-2025 Neti-Neti arc, 13 verbatim transcripts).
+blank-vs-whitespace ambiguity) · the source dossier
+(session 135: the November-2025 Neti-Neti arc, 13 verbatim transcripts; held
+privately — personal material, not in the public repository).
 Design check `colab/e7bq_design_check.py` (committed with this registration;
 outputs `colab/results_e7bq/design_check.json`, payload
 `colab/e7bq_payload.json`).
