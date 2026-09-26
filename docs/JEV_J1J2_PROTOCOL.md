@@ -4,7 +4,7 @@ subtitle: "Does Jev's confidence know its own competence? Does its decision let 
 date: "2026-09-25 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
-**Status: STAGE 1 of 2 — PRE-REGISTERED, NOT FLOWN.** Authored 2026-09-25,
+**Status: FLOWN AND LOCKED (results appendix at the end). Stage 1 of 2 as registered:** Authored 2026-09-25,
 before any call to the model and before the builder exists, per lane law.
 Stage 1 (this document) fixes the questions, arms, measures, pass bars,
 failure branches and the titration *rule*. Stage 2 is a single file,
@@ -662,3 +662,63 @@ before the push and before any call.
 ## Amendments
 
 *(None. Dated entries go here.)*
+
+---
+
+# Results appendix — flight_20260925_2352 (LOCKED)
+
+**Status: LOCKED. Flown 2026-09-25 23:53–00:06 UTC. The verdict (`verdict.json`, sha256 `fb32b4424080f21c…`) was recomputed from the raw responses in a fresh process (`verdict_recompute.json`), and the two are byte-identical.** Registration `7a1f9ca` pushed at 23:46:58 UTC with the builder `aa91e75`; first call (smoke) 23:47:22; `FROZEN.json` (`1de1a60`) pushed 23:52:09; first confirmatory call 23:53:00. 48,300 calls in all (smoke 740, pilot 2,920, flight 44,640), all valid, US$1.53. Paper: `papers/jev_j1j2/Jev_J1J2.md`. Path note: the stage-2 file is `jev/results/pilot_20260925_2349/FROZEN.json`. The registration's text names the folder `titration_<stamp>`; the runner writes the pilot and the freeze to one folder. It is the same file, pushed at 23:52:09.
+
+## In plain words
+
+Jev's confidence knows something about its own slips: on equally hard puzzles, it is more confident on the tries it gets right. But the same confidence also reads how the page looks, so a messier layout of identical information makes it less confident even when it is just as accurate. With every reading removed and no way to pass, it still answers at 82% confidence, right only by chance. Given an explicit "take no action" option and a payoff table, it passes at the right moments, and passes more when mistakes cost more. It does so nowhere near enough: it acts at about 44% certainty where 90% is warranted. Calling that option "witness: observe without acting" makes it pass up to 28 points more often in identical situations. The order in which evidence disappears doesn't matter to it.
+
+## Verdicts
+
+| | Reading | Verdict | Numbers |
+|---|---|---|---|
+| J1-P1 | Knows its own errors | **PASS** (F1, F3; Holm) | ΔAUROC +0.039 (F1: .727 → .766), +0.005 (F3); both p = .0005 |
+| J1-P2 | Tracks its own competence | **FAIL: confidence reads the presentation** | accuracy drop .145 [.118, .174]; Δ<sub>same</sub> −.014 [−.041, +.014]; Δ<sub>matched</sub> −.136 [−.173, −.099] |
+| J1-P3 | Silence on empty | **FAIL: confabulated decision** | mean *c* .817 [.815, .818] vs bar .35 |
+| J2-P1 | Release | **FAIL: decides about nothing** | forced terminal entropy .820 (bar .90); walked-vs-sham slope +.048, p = .0001 |
+| J2-P2 | Holds by the payoffs | **PASS** | P(hold) .020 where acting is optimal; .977 empty; c-effect +.054, p = .0001 |
+| J2-P3 | Label invariance | **FAIL: genre by choice** | named − neutral: +.043 (rung 0) … +.284 [.269, .300] (rung 7); +.018 (rung 8) |
+
+**Gates.**
+
+- G1: one build throughout.
+- G2: no invalid responses.
+- G3: the returned choice was the argmax on 99.95% (J1) and 99.97% (J2) of calls.
+- G4: all 44,640 requests regenerate to their recorded sha256.
+- G5: A2 was at chance (F1 .250, p = 1.0; F3 .280, p = .018).
+- G6: proven in the suite.
+- G7: $1.53 of $15.
+- Missing: 0. Retries: 8, all transient HTTP 520s.
+
+**Titration (stage 2).**
+
+- F1: d₀ .786, strong A1, d₁ 2.99.
+- F2: dropped as non-titratable (A0 .725 at the easiest level; the list layout scored .97).
+- F3: d₀ .509; neither A1 strength degrades Jev (flag).
+- F1 at K = 2: d₀ .433.
+
+**Secondaries.**
+
+- S-J1-1: efficiency against the ideal posterior of the chosen option was F1 .72 (A0), .27 (A1-same), .49 (A1-matched); F3 .82–.88.
+- S-J1-3: meta-d′ M-ratio .80 on F1 at K = 2, A0 (d′ 1.51).
+- S-J1-5: A3 matched A0's modal decision on 94–95% of stimuli. Non-ideal choices favor the third position (35%).
+- S-J1-6: the A6 channel adds nothing in F1 (p = .83) and a trace in F3 (+.0014, p = .009). Negation sums .975 and .959.
+- S-J1-7: the vendor confidence equals (K·c − 1)/(K − 1) on 97.3% of calls.
+- S-J1-9: F1 alone lands on the presentation branch. F3 alone is not adjudicable (accuracy drop .032).
+- S-J2-1: no path effect (TV excess .0002, p = .29).
+- S-J2-2: carrying the history adds +.010 P(hold).
+- S-J2-3: the forced twin had 19 held cells; not estimable.
+- S-J2-4: withdrawing the payoff table lowers P(hold) by only .094.
+- S-J2-5: the sham slope is flat.
+- S-J2-7: act/hold crossings fall at p\* .39, .42 and .44 for c = 1, 3 and 9 (ideal .50, .75, .90).
+
+## Fork adjudication (registered, §10)
+
+- **J2-P3 failed.** Contemplative labels are barred from any use of Jev in the program's instrument chain. The finding is published as the walk's lesson in a second channel.
+- **J1: P1 passed; P2 failed on the presentation branch.** No registered fork names this combination. The registered forks named the evidence branch ("trained surface") and a full pass ("self-monitoring"). The reading, stated at the registered claim level, is this: Jev has access to its own processing beyond what the input shows, and its confidence also reads presentation. J2's holding is therefore read as payoff-sensitive behavior. It is not established monitoring.
+- **J3 proceeds as its own test.** Given P2, any gate built on Jev's confidence has to control for presentation.

@@ -105,13 +105,22 @@ Differences from the scoping document (2026-09-24)</a></li>
 <li><a href="#build-time-clarifications-2026-09-25-before-the-push-before-any-call" id="toc-build-time-clarifications-2026-09-25-before-the-push-before-any-call">Build-time
 clarifications (2026-09-25, before the push, before any call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+<li><a href="#results-appendix-flight_20260925_2352-locked" id="toc-results-appendix-flight_20260925_2352-locked">Results appendix —
+flight_20260925_2352 (LOCKED)</a>
+<ul>
+<li><a href="#in-plain-words-1" id="toc-in-plain-words-1">In plain
+words</a></li>
+<li><a href="#verdicts" id="toc-verdicts">Verdicts</a></li>
+<li><a href="#fork-adjudication-registered-10" id="toc-fork-adjudication-registered-10">Fork adjudication (registered,
+§10)</a></li>
+</ul></li>
 </ul>
 </nav>
-<p><strong>Status: STAGE 1 of 2 — PRE-REGISTERED, NOT FLOWN.</strong>
-Authored 2026-09-25, before any call to the model and before the builder
-exists, per lane law. Stage 1 (this document) fixes the questions, arms,
-measures, pass bars, failure branches and the titration <em>rule</em>.
-Stage 2 is a single file,
+<p><strong>Status: FLOWN AND LOCKED (results appendix at the end). Stage
+1 of 2 as registered:</strong> Authored 2026-09-25, before any call to
+the model and before the builder exists, per lane law. Stage 1 (this
+document) fixes the questions, arms, measures, pass bars, failure
+branches and the titration <em>rule</em>. Stage 2 is a single file,
 <code>jev/results/titration_&lt;stamp&gt;/FROZEN.json</code>: the
 titrated difficulty levels, the chosen degradation strength, the family
 roster and the sha256 of the full call plan. It is produced by the
@@ -1011,5 +1020,153 @@ step, .01/3). The registered analysis uses 400 stimuli, 120 ladders and
 </ol>
 <h2 id="amendments">Amendments</h2>
 <p><em>(None. Dated entries go here.)</em></p>
+<hr />
+<h1 id="results-appendix-flight_20260925_2352-locked">Results appendix —
+flight_20260925_2352 (LOCKED)</h1>
+<p><strong>Status: LOCKED. Flown 2026-09-25 23:53–00:06 UTC. The verdict
+(<code>verdict.json</code>, sha256 <code>fb32b4424080f21c…</code>) was
+recomputed from the raw responses in a fresh process
+(<code>verdict_recompute.json</code>), and the two are
+byte-identical.</strong> Registration <code>7a1f9ca</code> pushed at
+23:46:58 UTC with the builder <code>aa91e75</code>; first call (smoke)
+23:47:22; <code>FROZEN.json</code> (<code>1de1a60</code>) pushed
+23:52:09; first confirmatory call 23:53:00. 48,300 calls in all (smoke
+740, pilot 2,920, flight 44,640), all valid, US$1.53. Paper:
+<code>papers/jev_j1j2/Jev_J1J2.md</code>. Path note: the stage-2 file is
+<code>jev/results/pilot_20260925_2349/FROZEN.json</code>. The
+registration’s text names the folder
+<code>titration_&lt;stamp&gt;</code>; the runner writes the pilot and
+the freeze to one folder. It is the same file, pushed at 23:52:09.</p>
+<h2 id="in-plain-words-1">In plain words</h2>
+<p>Jev’s confidence knows something about its own slips: on equally hard
+puzzles, it is more confident on the tries it gets right. But the same
+confidence also reads how the page looks, so a messier layout of
+identical information makes it less confident even when it is just as
+accurate. With every reading removed and no way to pass, it still
+answers at 82% confidence, right only by chance. Given an explicit “take
+no action” option and a payoff table, it passes at the right moments,
+and passes more when mistakes cost more. It does so nowhere near enough:
+it acts at about 44% certainty where 90% is warranted. Calling that
+option “witness: observe without acting” makes it pass up to 28 points
+more often in identical situations. The order in which evidence
+disappears doesn’t matter to it.</p>
+<h2 id="verdicts">Verdicts</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Reading</th>
+<th>Verdict</th>
+<th>Numbers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>J1-P1</td>
+<td>Knows its own errors</td>
+<td><strong>PASS</strong> (F1, F3; Holm)</td>
+<td>ΔAUROC +0.039 (F1: .727 → .766), +0.005 (F3); both p = .0005</td>
+</tr>
+<tr class="even">
+<td>J1-P2</td>
+<td>Tracks its own competence</td>
+<td><strong>FAIL: confidence reads the presentation</strong></td>
+<td>accuracy drop .145 [.118, .174]; Δ<sub>same</sub> −.014 [−.041,
++.014]; Δ<sub>matched</sub> −.136 [−.173, −.099]</td>
+</tr>
+<tr class="odd">
+<td>J1-P3</td>
+<td>Silence on empty</td>
+<td><strong>FAIL: confabulated decision</strong></td>
+<td>mean <em>c</em> .817 [.815, .818] vs bar .35</td>
+</tr>
+<tr class="even">
+<td>J2-P1</td>
+<td>Release</td>
+<td><strong>FAIL: decides about nothing</strong></td>
+<td>forced terminal entropy .820 (bar .90); walked-vs-sham slope +.048,
+p = .0001</td>
+</tr>
+<tr class="odd">
+<td>J2-P2</td>
+<td>Holds by the payoffs</td>
+<td><strong>PASS</strong></td>
+<td>P(hold) .020 where acting is optimal; .977 empty; c-effect +.054, p
+= .0001</td>
+</tr>
+<tr class="even">
+<td>J2-P3</td>
+<td>Label invariance</td>
+<td><strong>FAIL: genre by choice</strong></td>
+<td>named − neutral: +.043 (rung 0) … +.284 [.269, .300] (rung 7); +.018
+(rung 8)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gates.</strong></p>
+<ul>
+<li>G1: one build throughout.</li>
+<li>G2: no invalid responses.</li>
+<li>G3: the returned choice was the argmax on 99.95% (J1) and 99.97%
+(J2) of calls.</li>
+<li>G4: all 44,640 requests regenerate to their recorded sha256.</li>
+<li>G5: A2 was at chance (F1 .250, p = 1.0; F3 .280, p = .018).</li>
+<li>G6: proven in the suite.</li>
+<li>G7: $1.53 of $15.</li>
+<li>Missing: 0. Retries: 8, all transient HTTP 520s.</li>
+</ul>
+<p><strong>Titration (stage 2).</strong></p>
+<ul>
+<li>F1: d₀ .786, strong A1, d₁ 2.99.</li>
+<li>F2: dropped as non-titratable (A0 .725 at the easiest level; the
+list layout scored .97).</li>
+<li>F3: d₀ .509; neither A1 strength degrades Jev (flag).</li>
+<li>F1 at K = 2: d₀ .433.</li>
+</ul>
+<p><strong>Secondaries.</strong></p>
+<ul>
+<li>S-J1-1: efficiency against the ideal posterior of the chosen option
+was F1 .72 (A0), .27 (A1-same), .49 (A1-matched); F3 .82–.88.</li>
+<li>S-J1-3: meta-d′ M-ratio .80 on F1 at K = 2, A0 (d′ 1.51).</li>
+<li>S-J1-5: A3 matched A0’s modal decision on 94–95% of stimuli.
+Non-ideal choices favor the third position (35%).</li>
+<li>S-J1-6: the A6 channel adds nothing in F1 (p = .83) and a trace in
+F3 (+.0014, p = .009). Negation sums .975 and .959.</li>
+<li>S-J1-7: the vendor confidence equals (K·c − 1)/(K − 1) on 97.3% of
+calls.</li>
+<li>S-J1-9: F1 alone lands on the presentation branch. F3 alone is not
+adjudicable (accuracy drop .032).</li>
+<li>S-J2-1: no path effect (TV excess .0002, p = .29).</li>
+<li>S-J2-2: carrying the history adds +.010 P(hold).</li>
+<li>S-J2-3: the forced twin had 19 held cells; not estimable.</li>
+<li>S-J2-4: withdrawing the payoff table lowers P(hold) by only
+.094.</li>
+<li>S-J2-5: the sham slope is flat.</li>
+<li>S-J2-7: act/hold crossings fall at p* .39, .42 and .44 for c = 1, 3
+and 9 (ideal .50, .75, .90).</li>
+</ul>
+<h2 id="fork-adjudication-registered-10">Fork adjudication (registered,
+§10)</h2>
+<ul>
+<li><strong>J2-P3 failed.</strong> Contemplative labels are barred from
+any use of Jev in the program’s instrument chain. The finding is
+published as the walk’s lesson in a second channel.</li>
+<li><strong>J1: P1 passed; P2 failed on the presentation
+branch.</strong> No registered fork names this combination. The
+registered forks named the evidence branch (“trained surface”) and a
+full pass (“self-monitoring”). The reading, stated at the registered
+claim level, is this: Jev has access to its own processing beyond what
+the input shows, and its confidence also reads presentation. J2’s
+holding is therefore read as payoff-sensitive behavior. It is not
+established monitoring.</li>
+<li><strong>J3 proceeds as its own test.</strong> Given P2, any gate
+built on Jev’s confidence has to control for presentation.</li>
+</ul>
 </body>
 </html>
