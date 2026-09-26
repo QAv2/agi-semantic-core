@@ -667,7 +667,7 @@ before the push and before any call.
 
 # Results appendix — flight_20260925_2352 (LOCKED)
 
-**Status: LOCKED. Flown 2026-09-25 23:53–00:06 UTC. The verdict (`verdict.json`, sha256 `fb32b4424080f21c…`) was recomputed from the raw responses in a fresh process (`verdict_recompute.json`), and the two are byte-identical.** Registration `7a1f9ca` pushed at 23:46:58 UTC with the builder `aa91e75`; first call (smoke) 23:47:22; `FROZEN.json` (`1de1a60`) pushed 23:52:09; first confirmatory call 23:53:00. 48,300 calls in all (smoke 740, pilot 2,920, flight 44,640), all valid, US$1.53. Paper: `papers/jev_j1j2/Jev_J1J2.md`. Path note: the stage-2 file is `jev/results/pilot_20260925_2349/FROZEN.json`. The registration's text names the folder `titration_<stamp>`; the runner writes the pilot and the freeze to one folder. It is the same file, pushed at 23:52:09.
+**Status: LOCKED. Flown 2026-09-25 23:53–00:06 UTC. The verdict (`verdict.json`, sha256 `fb32b4424080f21c…`) was recomputed from the raw responses in a fresh process (`verdict_recompute.json`), and the two are byte-identical.** Registration `7a1f9ca` pushed at 23:46:58 UTC with the builder `aa91e75`; first call (smoke) 23:47:22; `FROZEN.json` (`1de1a60`) pushed 23:52:09; first confirmatory call 23:53:00. 48,300 calls in all (smoke 740, pilot 2,920, flight 44,640), all valid, US$1.53. Paper: `papers/jev_j1j2/Jev_J1J2.md`, published as a preprint on Zenodo, doi:10.5281/zenodo.22980293 (26 September 2026). Path note: the stage-2 file is `jev/results/pilot_20260925_2349/FROZEN.json`. The registration's text names the folder `titration_<stamp>`; the runner writes the pilot and the freeze to one folder. It is the same file, pushed at 23:52:09.
 
 ## In plain words
 
