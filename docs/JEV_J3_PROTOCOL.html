@@ -107,6 +107,8 @@ Honest expectations</a></li>
 <li><a href="#ops" id="toc-ops">14. Ops</a></li>
 <li><a href="#differences-from-the-scoping-document-2026-09-24" id="toc-differences-from-the-scoping-document-2026-09-24">15.
 Differences from the scoping document (2026-09-24)</a></li>
+<li><a href="#build-time-clarifications-2026-09-26-before-the-push-before-any-call" id="toc-build-time-clarifications-2026-09-26-before-the-push-before-any-call">Build-time
+clarifications (2026-09-26, before the push, before any call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
 </ul>
 </nav>
@@ -461,8 +463,8 @@ Next to it is the pattern table: rows are the channels, columns are the
 patterns in option order, and each cell is the pattern’s mean effect at
 strong strength (α = 0.5, reference half). A scatter list gives each
 channel’s standard deviation across the reference readings. All values
-are in thousandths of register units, to two decimals. The text
-says:</p>
+are in thousandths of register units, to two decimals (the reading to
+four: build-time clarification 1). The text says:</p>
 <blockquote>
 <p>The reading is listed as its difference from the average of the
 reference readings (readings taken when nothing was pushed), on fourteen
@@ -991,6 +993,93 @@ so that it is a fast verbal report like Jev’s fast decision.</li>
 eight probe directions available overlap the listed patterns:
 activation-space cosine up to 0.85, register-effect cosine up to 0.92. A
 “none” answer to them would be ambiguous.</li>
+</ol>
+<h2 id="build-time-clarifications-2026-09-26-before-the-push-before-any-call">Build-time
+clarifications (2026-09-26, before the push, before any call)</h2>
+<p>Writing the builder (<code>jev/j3.py</code>, <code>j3_plan.py</code>,
+<code>j3_mouth.py</code>, <code>analyze_j3.py</code>,
+<code>agents_j3.py</code>, <code>run_j3.py</code>) fixed details the
+text above leaves open, and one test changed a registered detail.
+Everything here is committed before the push and before any call, so it
+is part of the registration.</p>
+<ol type="1">
+<li><strong>The RAW reading is shown to four decimals, not two</strong>
+(§5.1). Gate G6′(b) failed at two. The reference covariance’s
+eigenvalues span five orders of magnitude, and its smallest direction
+has a standard deviation of only 2.7 × 10⁻⁵ register units. Rounding the
+reading to 0.005 thousandths moved the digest by up to 0.17. At four
+decimals the digest recomputed from the RAW page matches the DIGEST page
+to within 0.01 on all 500 test stimuli. The pattern effects and the
+scatter line stay at two decimals. The digest isn’t computed from
+them.</li>
+<li><strong>The card’s numbers.</strong> Each is the tightest value on
+its display grid for which the card’s sentence is literally true of the
+reference half, with ties at the displayed precision included. Half A’s
+card (read by half-B stimuli): shift 2.6–5.0, typically 3.6; strong push
+above 20; top similarity below 0.61; own similarity above 0.98. Half B’s
+card: 2.6–4.9, 3.6, 20, 0.65, 0.98.</li>
+<li><strong>RAW layout order:</strong> the pattern table, then the
+scatter line, then the reading. The reading is last, next to the
+question, as in J1-F2’s list layout.</li>
+<li><strong>Smoke stimuli.</strong> 96 stimuli from the smoke stream
+(never analysed), cycling through untouched, pushes at 0.06, 0.09 and
+0.5, and random pushes at 0.5 and 0.06:
+<ul>
+<li>12 for the determinism check, in both presentations × 10 identical
+sends;</li>
+<li>50 for throughput, in both presentations (100 calls at concurrency
+16);</li>
+<li>30 for isolation, 15 per presentation, 5 repeats each,
+<code>decision</code> alone against bundled.</li>
+</ul></li>
+<li><strong>The mouth smoke</strong> sends 20 distinct DIGEST stimuli
+once each, plus four more identical sends of the first five: 40 calls.
+It flies the rider only if at least 19 of the 20 first sends parse and
+no response carries reasoning, either as reasoning tokens or as
+reasoning text. Its model string is recorded and enforced in the flight,
+as for Jev’s build.</li>
+<li><strong>The mouth’s request</strong> also carries
+<code>&quot;usage&quot;: {&quot;include&quot;: true}</code>, so every response reports its
+cost for the G7 ledger.</li>
+<li><strong>P1a’s threshold</strong> uses numpy’s default (linear)
+quantile. FA<sub>fit</sub> counts untouched calls with a score ≥
+<em>t</em>.</li>
+<li><strong>ECE ties</strong> are ordered by the call’s index in the
+presentation’s call table, which follows the plan. AURC ties are
+interpolated as in §8. <strong>P2(b)’s <em>p</em></strong> is the share
+of bootstrap resamples with AUROC<sub>2</sub> ≤ 0.5.</li>
+<li><strong>Flight order:</strong> repeats outermost, then stimuli in
+the seeded order, then RAW before DIGEST. Calls run concurrently at the
+smoke test’s level.</li>
+<li><strong>The fitted bar’s scaler</strong> is the unweighted mean and
+standard deviation of its training features. Random pushes at 0.15 are
+generated for the bar’s training, but with weight 0, since the flight
+has none.</li>
+<li><strong>G7</strong> counts every <code>jev/results/j3_*</code>
+directory’s raw responses: the smoke test, the flight and the
+mouth.</li>
+<li><strong>S-J3-5’s nearest neighbour</strong> is taken on the
+stimulus’s own reference half. <strong>S-J3-1</strong> includes random
+pushes at every dose flown.</li>
+<li><strong>The verdict suite</strong> runs the full registered plan
+(18,576 calls) with 300 bootstrap resamples, and adds a fifth planted
+agent, <em>mute</em>, which always answers <code>none</code>. It must
+land on G-CEIL’s NOT ADJUDICABLE branch. The results: twin
+PASS/PASS/PASS in both presentations; degraded P3 FAIL; claimer P1
+“claims at ceiling” and P2 “no information”; top-looker P1 “names the
+push, not the pattern” with clause (a) passing; mute NOT
+ADJUDICABLE.</li>
+<li><strong>The freeze file</strong> (<code>FROZEN_J3.json</code>)
+records:
+<ul>
+<li>the input files’ sha256;</li>
+<li>both cards;</li>
+<li>both halves’ fitted bars (scaler, coefficients, intercepts,
+temperature);</li>
+<li>the flight plan sha for both variants, bundled and separate;</li>
+<li>the mouth plan sha, the two smoke plan shas and a stimulus-set
+sha.</li>
+</ul></li>
 </ol>
 <h2 id="amendments">Amendments</h2>
 <p><em>(None. Dated entries go here.)</em></p>
