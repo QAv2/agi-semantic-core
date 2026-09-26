@@ -34,3 +34,33 @@ verbatim, with the sha256 of its request). Request bodies aren't stored. They
 are regenerated from the seeds, and `analyze` checks that every one hashes to its
 recorded sha (gate G4). The API key is read from the environment and never
 written anywhere.
+
+## J3: the monitor at threshold
+
+The builder for [`docs/JEV_J3_PROTOCOL.md`](../docs/JEV_J3_PROTOCOL.md). Jev reads the
+program's 14-coordinate register of recorded Qwen states (E7b-Q, layer 14), pushed along
+13 known directions or at random, in two presentations (RAW, DIGEST), against a fitted
+classifier. A small language model reads the DIGEST page in words as a comparison (the mouth).
+
+| file | what it does |
+|---|---|
+| `j3.py` | recorded states, halves, reference cards, stimuli, the two renderers, text-only parsers, the fitted bar |
+| `j3_plan.py` | smoke, flight (bundled or separate `pushed` noul) and mouth plans; plan shas |
+| `j3_mouth.py` | the chat-completions client for the mouth, on J1 + J2's `Runner` |
+| `analyze_j3.py` | gates, P1–P3 per presentation, secondaries, the mouth, the J4 fork |
+| `agents_j3.py` | planted agents: twin, degraded, claimer, top-looker, mute |
+| `power/j3_design_check.py`, `power/j3_power.py` | the design and power checks cited in the protocol |
+| `tests/test_j3_*.py` | logic (incl. gate G6'), capture, verdict suites |
+
+```sh
+PY=~/venvs/semcore/bin/python
+$PY -m pytest jev/tests/test_j3_logic.py jev/tests/test_j3_capture.py jev/tests/test_j3_verdict.py -q
+$PY -m jev.run_j3 plan                                   # counts and shas; no calls
+$PY -m jev.run_j3 freeze                                 # FROZEN_J3.json; no calls
+$PY -m jev.run_j3 smoke  --frozen jev/results/j3_freeze_<stamp>/FROZEN_J3.json
+$PY -m jev.run_j3 flight --frozen <F> --smoke jev/results/j3_smoke_<stamp>
+$PY -m jev.run_j3 mouth  --frozen <F> --smoke jev/results/j3_smoke_<stamp>
+$PY -m jev.run_j3 analyze --flight jev/results/j3_flight_<stamp> --frozen <F> --smoke <S> --mouth jev/results/j3_mouth_<stamp>
+```
+
+G7 for J3 is its own: every `jev/results/j3_*` stage counts toward $5.

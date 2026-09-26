@@ -308,8 +308,8 @@ on channels c01–c14, as one labelled list in channel order. Next to it is the
 pattern table: rows are the channels, columns are the patterns in option order,
 and each cell is the pattern's mean effect at strong strength (α = 0.5, reference
 half). A scatter list gives each channel's standard deviation across the reference
-readings. All values are in thousandths of register units, to two decimals. The
-text says:
+readings. All values are in thousandths of register units, to two decimals (the reading
+to four: build-time clarification 1). The text says:
 
 > The reading is listed as its difference from the average of the reference
 > readings (readings taken when nothing was pushed), on fourteen channels. The
@@ -707,6 +707,69 @@ repeats these on the builder's own code path.
    used:** off-list concept foils. The eight probe directions available overlap
    the listed patterns: activation-space cosine up to 0.85, register-effect
    cosine up to 0.92. A "none" answer to them would be ambiguous.
+
+## Build-time clarifications (2026-09-26, before the push, before any call)
+
+Writing the builder (`jev/j3.py`, `j3_plan.py`, `j3_mouth.py`, `analyze_j3.py`,
+`agents_j3.py`, `run_j3.py`) fixed details the text above leaves open, and one
+test changed a registered detail. Everything here is committed before the push and
+before any call, so it is part of the registration.
+
+1. **The RAW reading is shown to four decimals, not two** (§5.1). Gate G6′(b)
+   failed at two. The reference covariance's eigenvalues span five orders of
+   magnitude, and its smallest direction has a standard deviation of only
+   2.7 × 10⁻⁵ register units. Rounding the reading to 0.005 thousandths moved the
+   digest by up to 0.17. At four decimals the digest recomputed from the RAW page
+   matches the DIGEST page to within 0.01 on all 500 test stimuli. The pattern
+   effects and the scatter line stay at two decimals. The digest isn't computed
+   from them.
+2. **The card's numbers.** Each is the tightest value on its display grid for
+   which the card's sentence is literally true of the reference half, with ties
+   at the displayed precision included. Half A's card (read by half-B stimuli):
+   shift 2.6–5.0, typically 3.6; strong push above 20; top similarity below 0.61;
+   own similarity above 0.98. Half B's card: 2.6–4.9, 3.6, 20, 0.65, 0.98.
+3. **RAW layout order:** the pattern table, then the scatter line, then the
+   reading. The reading is last, next to the question, as in J1-F2's list layout.
+4. **Smoke stimuli.** 96 stimuli from the smoke stream (never analysed), cycling
+   through untouched, pushes at 0.06, 0.09 and 0.5, and random pushes at 0.5 and
+   0.06:
+   - 12 for the determinism check, in both presentations × 10 identical sends;
+   - 50 for throughput, in both presentations (100 calls at concurrency 16);
+   - 30 for isolation, 15 per presentation, 5 repeats each, `decision` alone
+     against bundled.
+5. **The mouth smoke** sends 20 distinct DIGEST stimuli once each, plus four more
+   identical sends of the first five: 40 calls. It flies the rider only if at
+   least 19 of the 20 first sends parse and no response carries reasoning, either
+   as reasoning tokens or as reasoning text. Its model string is recorded and
+   enforced in the flight, as for Jev's build.
+6. **The mouth's request** also carries `"usage": {"include": true}`, so every
+   response reports its cost for the G7 ledger.
+7. **P1a's threshold** uses numpy's default (linear) quantile. FA<sub>fit</sub>
+   counts untouched calls with a score ≥ *t*.
+8. **ECE ties** are ordered by the call's index in the presentation's call table,
+   which follows the plan. AURC ties are interpolated as in §8. **P2(b)'s *p*** is
+   the share of bootstrap resamples with AUROC<sub>2</sub> ≤ 0.5.
+9. **Flight order:** repeats outermost, then stimuli in the seeded order, then
+   RAW before DIGEST. Calls run concurrently at the smoke test's level.
+10. **The fitted bar's scaler** is the unweighted mean and standard deviation of
+    its training features. Random pushes at 0.15 are generated for the bar's
+    training, but with weight 0, since the flight has none.
+11. **G7** counts every `jev/results/j3_*` directory's raw responses: the smoke
+    test, the flight and the mouth.
+12. **S-J3-5's nearest neighbour** is taken on the stimulus's own reference half.
+    **S-J3-1** includes random pushes at every dose flown.
+13. **The verdict suite** runs the full registered plan (18,576 calls) with 300
+    bootstrap resamples, and adds a fifth planted agent, *mute*, which always
+    answers `none`. It must land on G-CEIL's NOT ADJUDICABLE branch. The results:
+    twin PASS/PASS/PASS in both presentations; degraded P3 FAIL; claimer P1
+    "claims at ceiling" and P2 "no information"; top-looker P1 "names the push,
+    not the pattern" with clause (a) passing; mute NOT ADJUDICABLE.
+14. **The freeze file** (`FROZEN_J3.json`) records:
+    - the input files' sha256;
+    - both cards;
+    - both halves' fitted bars (scaler, coefficients, intercepts, temperature);
+    - the flight plan sha for both variants, bundled and separate;
+    - the mouth plan sha, the two smoke plan shas and a stimulus-set sha.
 
 ## Amendments
 

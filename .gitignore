@@ -29,3 +29,4 @@ docs/E7BQ_SOURCES.md
 
 # Jev runs: commit the compressed raw file only
 jev/results/*/raw.jsonl
+jev/results/*/*/raw.jsonl
