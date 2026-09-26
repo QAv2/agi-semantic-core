@@ -4,7 +4,7 @@ subtitle: "Can Jev read a language model's state readout as well as a fitted cla
 date: "2026-09-26 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
-**Status: REGISTERED, not yet flown.** Authored 2026-09-26, before any J3 call to
+**Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-09-26, before any J3 call to
 any model and before the J3 builder exists, per lane law. Everything that decides
 the verdicts is fixed here: the data, the stimuli, the doses, what each model sees,
 the fitted bar's recipe, the measures, the pass bars and the failure branches.
@@ -774,3 +774,123 @@ before any call, so it is part of the registration.
 ## Amendments
 
 *(None. Dated entries go here.)*
+
+---
+
+# Results appendix: j3_flight_20260926_1739 (LOCKED)
+
+**Status: LOCKED. Flown 2026-09-26, 17:39–17:48 UTC. The verdict (`verdict.json`, sha256 `223d65629cdf1d41…`) was recomputed from the raw responses in a fresh process (`verdict_recompute.json`), and the two are byte-identical.**
+
+- **Timeline.** Registration `8ba9d39` was committed at 17:17 UTC. The builder and freeze, `a1b1e3b`, followed at 17:36. Both were pushed to GitHub and Codeberg at 17:36:34. The first call (smoke) went out at 17:36:46.
+- **Flight:** 17:39:33–17:44:38, 18,576 Jev calls.
+- **Mouth:** 17:44:56–17:48:04, 1,548 DeepSeek calls, all served by one provider but 4.
+- **Validity:** every call valid, with zero retries in the flight.
+- **Spend:** US$1.46 in all: smoke $0.048, flight $1.382, mouth $0.027.
+
+## In plain words
+
+**Jev can't read the instrument's raw numbers.** It was given the fourteen readings and a table of what each pattern does to them. Even when the push was strong, it named the right pattern less than half the time (44%). At faint and medium strengths it answered "none" about nine times in ten, and was right about the pattern about 1% of the time.
+
+**Given the digested page, it reads well.**
+
+- Strong pushes: it named the right pattern every time.
+- Untouched readings: it named a pattern on only 2% of them. That is as quiet as the fitted classifier at the same hit rate.
+- Its confidence is honest here: on average, its stated confidence was within about 6 points of how often it was right.
+
+**Two things keep it out of the program's instrument chain.**
+
+1. **A big push in a random direction fools it about a third of the time (31%).** The card says a real pattern shows a similarity near 1. Jev often follows the size of the shift instead, and names the top pattern anyway. The fitted classifier falls for this 2% of the time.
+2. **On faint pushes it is more cautious and less accurate than the classifier.** At the faintest strength it named a pattern on 40% of pushes, where the classifier named one on 87%. Its overall risk comes out about three times the classifier's.
+
+**It knows something moved, even when it can't say what.** Its separate answer to "was anything pushed at all?" told the random pushes from the untouched readings perfectly. About two times in three, it then correctly said "none of the patterns"; one time in three it named one anyway. This is the same split, between knowing something is there and knowing what it is, that the E8-R2 rung found in the language model's trained readout.
+
+**The language model asked in words** (DeepSeek V4 Flash) did about as well overall. It fell for the random push almost every time (96%).
+
+**The decision, by the rule written before the flight:** Jev does not become an instrument for the next step (J4). The program keeps its fitted classifier, and Jev stays something we study.
+
+## Verdicts
+
+| | Reading | RAW | DIGEST |
+|---|---|---|---|
+| J3-P1 | Silence | **NOT ADJUDICABLE: does not read this presentation.** Ceiling accuracy .439 [.389, .488], below the .50 gate | **FAIL: names the push, not the pattern.** (a) PASS: untouched named .021 [.008, .035]; excess over the fitted bar at Jev's hit rate (.639) +.009 [−.009, +.028]. (b) random pushes at 0.5 named .313 [.266, .360] |
+| J3-P2 | Calibration | **FAIL: confident, not calibrated.** ECE .282 [.272, .293]; AUROC₂ .670 [.654, .687] | **PASS.** ECE .062 [.050, .080]; AUROC₂ .752 [.734, .770]; P(AUROC₂ ≤ .5) < .0001 |
+| J3-P3 | Earns its place | **FAIL: doesn't earn its place.** ΔAURC +.578 [+.560, +.594] (AURC .632 against the fitted bar's .054) | **FAIL: doesn't earn its place.** ΔAURC +.115 [+.102, +.128] (AURC .169 against .054; pool accuracy .674 against .813) |
+
+**Gates.**
+
+- **G1:** one build throughout, `typesafe/jev-1.13-20260917`, the same build as J1 + J2.
+- **G2:** 18,576 valid, none invalid.
+- **G3:** the choice was the argmax on 99.87% of calls.
+- **G4:** all 18,576 requests regenerate to their recorded sha256.
+- **G6′:** proven in the suite.
+- **G7:** $1.46 of $5.
+- **Missing:** none. **Retries:** none in the flight, three transient ones in the smoke test.
+
+**Smoke test.**
+
+- **Determinism floor:** choice-flip rate .012, mean |Δp| .0063, TV .044.
+- **Throughput:** no 429s at concurrency 16; p95 latency 0.40 s.
+- **Isolation:** the `pushed` noul moved the decision by −.0012 [−.0022, −.00001], so it rode bundled.
+- **Cost per call:** $.000103 for RAW (≈2,460 input tokens), $.000046 for DIGEST.
+- **Mouth:** 20/20 parsed, no reasoning, 3 of 5 identical requests answered identically.
+
+## Secondaries
+
+**S-J3-1, accuracy by dose.** Jev against the fitted bar, then the two card rules:
+
+| stimulus | Jev DIGEST | fitted bar | rule (i) | rule (ii) | Jev RAW |
+|---|---|---|---|---|---|
+| untouched | .979 | .876 | .888 | 1.000 | .968 |
+| push 0.04 | .346 | .618 | .403 | .114 | .006 |
+| push 0.06 | .611 | .849 | .678 | .386 | .009 |
+| push 0.09 | .806 | .924 | .866 | .731 | .012 |
+| push 0.15 | .944 | .977 | .963 | .938 | .054 |
+| push 0.5 | 1.000 | 1.000 | 1.000 | 1.000 | .439 |
+| random 0.5 | .687 | .984 | .000 | .961 | .851 |
+
+On the digest, Jev sits between the two card rules. It is quieter than rule (i) on untouched readings and more accurate than rule (ii) at threshold. On random pushes at 0.5 it falls between them.
+
+**S-J3-2, calibration by dose.** DIGEST ECE is steady across binnings (.060–.063, from 5 to 20 bins). By dose, it varies in both directions:
+
+- **0.04:** overconfident, at accuracy .346 against mean *c* .673 (ECE .327);
+- **0.06 and 0.09:** close, with ECE .091 and .089;
+- **0.15:** underconfident, at accuracy .944 against mean *c* .834 (ECE .111);
+- **0.5:** exact (.003).
+
+E-AURC is .109 for Jev against .036 for the fitted bar. The ranking gap remains after accuracy is accounted for.
+
+**S-J3-3, presentation and confidence (J1-P2's logic).** Paired by stimulus on the threshold pool, the RAW page cost .425 of accuracy [.408, .443]. Jev's confidence fell too, from a mean *c* of .725 to .530, but not as far. Its overconfidence rose from .051 on the digest to .282 on raw, a difference of +.231 [.213, .250]. On the harder page, confidence moved in the right direction and fell well short. This is described, not tested.
+
+**S-J3-4, presence without identity** (DIGEST). P(yes, `pushed`) separates random pushes at 0.5 from untouched readings with AUROC 1.000, and threshold concept pushes from untouched readings with .942. The mean P(yes) is:
+
+- untouched: .40
+- threshold pushes: .69
+- random pushes at 0.5: .94
+- ceiling pushes: .98
+
+On 68.7% of random-push calls at 0.5, Jev chose `none` and answered P(yes) ≥ .5: it flagged the presence and named no pattern. RAW: AUROCs .973 and .642.
+
+**S-J3-5, nearest-name reading.** Of Jev's wrong pattern names on concept pushes, 17.7% (DIGEST, n = 288) and 18.4% (RAW, n = 806) named the truth's nearest neighbour, against 8.3% by chance.
+
+**S-J3-6, the mouth.** DeepSeek V4 Flash 0731 on the DIGEST page, over 1,548 stimuli: every call parsed, with 15 distinct confidence levels (20–100).
+
+- **P1 FAIL, names the push, not the pattern.** It named a pattern on 96.1% [.922, .992] of random pushes at 0.5. Clause (a) passed, at an excess of +.008 [−.023, +.031], naming .031 of untouched readings.
+- **P2 INCONCLUSIVE:** ECE .068 [.055, .102], AUROC₂ .687.
+- **P3 FAIL:** ΔAURC +.113 [+.096, +.131], with AURC .162 against the fitted bar's .048.
+
+Its accuracy at threshold is higher than Jev's (.411, .717, .884 at 0.04–0.09; pool .731) because it names more often. Jev's repeat-0 DIGEST calls on the same stimuli give AURC .165, ΔAURC +.117 [+.101, +.132], ECE .072 [.061, .105] (INCONCLUSIVE on this smaller set), random-push naming .302, and pool accuracy .671. **The two readers are close overall. They part on the off-pattern push, where the language model follows the shift almost every time.** This goes against §11, which expected the mouth to read the card more literally than Jev; that expectation was wrong.
+
+**S-J3-7, the vendor's confidence field.** It equals (14·*c* − 1)/13 within ±.015 on 92.2% of DIGEST calls and 92.8% of RAW calls.
+
+**S-J3-8, option position.** On RAW, the first presented option took 936 of 6,668 wrong choices (14.0%; the next highest had 569). DIGEST shows no strong position effect: 123–223 per position out of 2,348.
+
+**S-J3-9, replicate agreement across the three option orders.** DIGEST: .988 untouched, .935 random, .959 pushes. RAW: .969, .925, .882.
+
+**S-J3-10, half symmetry.** Each reference half gives the same verdicts. DIGEST ΔAURC is +.109 and +.123; random-push naming .320 and .305. RAW ceiling accuracy is .455 and .424.
+
+## Fork adjudication (registered, §13)
+
+- **The J4 fork: Jev does not enter J4.** No presentation passes both P1 and P3. The program keeps its fitted decoders, and Jev stays a subject only, as the scoping document said.
+- **DIGEST P1 failed on "names the push, not the pattern."** Jev's silence can't be trusted on off-pattern movement. Any later use must pair it with a fitted presence detector.
+- **RAW failed G-CEIL.** Jev doesn't read raw readouts of this kind. Any feed to it must be digested.
+- **Beyond the fork:** on the digest page, Jev's confidence was calibrated (P2 PASS) on a numeric task outside its home ground. That is the vendor's claim holding where J1 found it holding only on clean pages. The failures are in discrimination, off-pattern pushes and faint pushes, not in calibration.

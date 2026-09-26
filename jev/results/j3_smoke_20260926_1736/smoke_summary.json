@@ -1,0 +1,209 @@
+{
+  "status_counts": {
+    "ok": 640,
+    "invalid": 0,
+    "error": 0,
+    "build_mismatch": 0
+  },
+  "builds": [
+    "typesafe/jev-1.13-20260917"
+  ],
+  "pin": "typesafe/jev-1.13-20260917",
+  "same_build_as_J1J2": true,
+  "determinism": {
+    "groups": {
+      "J3S-det-s1000-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.005523809523809524,
+        "mean_tv": 0.038666666666666676
+      },
+      "J3S-det-s1000-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.008476190476190477,
+        "mean_tv": 0.059333333333333314
+      },
+      "J3S-det-s1001-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.005476190476190476,
+        "mean_tv": 0.03833333333333332
+      },
+      "J3S-det-s1001-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.004920634920634922,
+        "mean_tv": 0.03444444444444445
+      },
+      "J3S-det-s1002-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.003809523809523812,
+        "mean_tv": 0.02666666666666668
+      },
+      "J3S-det-s1002-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.00634920634920635,
+        "mean_tv": 0.044444444444444446
+      },
+      "J3S-det-s1003-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.0005079365079365082,
+        "mean_tv": 0.0035555555555555575
+      },
+      "J3S-det-s1003-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.009666666666666667,
+        "mean_tv": 0.06766666666666665
+      },
+      "J3S-det-s1004-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.008857142857142857,
+        "mean_tv": 0.062
+      },
+      "J3S-det-s1004-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.009444444444444446,
+        "mean_tv": 0.0661111111111111
+      },
+      "J3S-det-s1005-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.0033650793650793665,
+        "mean_tv": 0.023555555555555566
+      },
+      "J3S-det-s1005-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.005047619047619048,
+        "mean_tv": 0.03533333333333334
+      },
+      "J3S-det-s1006-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.0015238095238095223,
+        "mean_tv": 0.01066666666666666
+      },
+      "J3S-det-s1006-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.008095238095238096,
+        "mean_tv": 0.056666666666666664
+      },
+      "J3S-det-s1007-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.19999999999999996,
+        "mean_abs_dp": 0.00695238095238095,
+        "mean_tv": 0.04866666666666666
+      },
+      "J3S-det-s1007-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.00819047619047619,
+        "mean_tv": 0.05733333333333333
+      },
+      "J3S-det-s1008-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.0021904761904761906,
+        "mean_tv": 0.015333333333333332
+      },
+      "J3S-det-s1008-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.006317460317460317,
+        "mean_tv": 0.044222222222222225
+      },
+      "J3S-det-s1009-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.0007619047619047624,
+        "mean_tv": 0.005333333333333337
+      },
+      "J3S-det-s1009-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.09999999999999998,
+        "mean_abs_dp": 0.01579365079365079,
+        "mean_tv": 0.11055555555555555
+      },
+      "J3S-det-s1010-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.005238095238095237,
+        "mean_tv": 0.03666666666666667
+      },
+      "J3S-det-s1010-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.011095238095238096,
+        "mean_tv": 0.07766666666666668
+      },
+      "J3S-det-s1011-00-DIGEST": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.005095238095238096,
+        "mean_tv": 0.035666666666666666
+      },
+      "J3S-det-s1011-00-RAW": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "mean_abs_dp": 0.007587301587301586,
+        "mean_tv": 0.053111111111111095
+      }
+    },
+    "flip_rate": 0.012499999999999997,
+    "mean_abs_dp": 0.006261904761904763,
+    "mean_tv": 0.043833333333333335
+  },
+  "throughput": {
+    "n": 100,
+    "ok": 100,
+    "n_429": 0,
+    "p95_latency_s": 0.40410999999999914,
+    "median_latency_s": 0.23604999999999998
+  },
+  "concurrency": 16,
+  "isolation": {
+    "effect": -0.001173333333333334,
+    "ci": [
+      -0.0021533333333333344,
+      -6.666666666667565e-06
+    ],
+    "n_stimuli": 30,
+    "bundle_pushed": true
+  },
+  "cost": {
+    "per_call": {
+      "RAW": 0.00010307914285714287,
+      "DIGEST": 4.5665485714285724e-05
+    },
+    "smoke_spent_jev": 0.047191284,
+    "projected_flight": 1.3815401101714289
+  },
+  "mouth": {
+    "parsed_first_sends": 20,
+    "n_first_sends": 20,
+    "reasoning_tokens_max": 0,
+    "identical_repeat_share": 0.6,
+    "models": [
+      "deepseek/deepseek-v4-flash-0731"
+    ],
+    "pin": "deepseek/deepseek-v4-flash-0731",
+    "providers": [
+      "OpenInference",
+      "Parasail",
+      "Sail Research",
+      "StreamLake"
+    ],
+    "fly": true,
+    "spent": 0.0007667685,
+    "mean_cost": 1.91692125e-05
+  },
+  "stop_reason": null
+}
