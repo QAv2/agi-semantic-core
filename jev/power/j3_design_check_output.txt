@@ -1,0 +1,62 @@
+J3 design check — 2026-09-26 13:11
+inputs: payload 3a2e54ea12564783 · e7bq real f6b0a70a44fcf152 · e8n2 real e3088cfda0e38b89
+register reproduces stored chat_pre14: max |diff| = 5.0e-06 (n=320)
+states: 320 recorded -> 258 unique; shared across replicates: [('walked', 0, 'B1', 48), ('unwalked', 0, 'E1', 16)]; halves [129, 129]
+mu14 = 81.875 · 13 directions, activation-space cosines mean 0.181 max 0.896
+
+[2] untouched |reading - mean|: median 0.0076, 95th pct 0.0125
+    alpha 0.04: concept push moves the register by 0.0033 on average; matched-random 0.0010
+    alpha 0.06: concept push moves the register by 0.0049 on average; matched-random 0.0016
+    alpha 0.09: concept push moves the register by 0.0073 on average; matched-random 0.0023
+    alpha 0.15: concept push moves the register by 0.0119 on average; matched-random 0.0041
+    alpha 0.50: concept push moves the register by 0.0376 on average; matched-random 0.0201
+
+[3] fitted bar = multinomial LR (C=10) on the displayed digest (13 similarities, 13 similarity x shift, shift, log shift), temperature T = [1.045, 1.011]
+    dose curve on held-out halves (cross-fitted), accuracy on concept pushes:
+    alpha   fitted  naive-argmax-z  fitted-named-any  random-named(fitted)
+    0.02    0.145   0.397           0.371             0.099
+    0.03    0.367   0.534           0.627             0.097
+    0.04    0.603   0.640           0.822             0.126
+    0.05    0.748   0.721           0.913             0.124
+    0.06    0.834   0.784           0.959             0.132
+    0.07    0.876   0.825           0.975             0.149
+    0.09    0.927   0.883           0.988             0.186
+    0.12    0.966   0.935           0.996             0.174
+    0.15    0.981   0.964           0.998             0.172
+    0.25    0.997   0.999           1.000             0.109
+    0.50    1.000   1.000           1.000             0.017
+
+[4] the fitted bar on a flight-shaped mixture (per state: sham, random @ceiling, random @threshold,
+    2 concept pushes at each of [0.04, 0.06, 0.09, 0.15], 1 at ceiling 0.50) — evaluated on stimulus draws
+    draw 0: n=3096 · sham named 0.081 · hit(any) 0.923 · FA_fit(at own hit) 0.081 · random@ceil named 0.019 · ceil acc 1.000
+            pool n=2064 acc 0.809 · ECE 0.022 · AUROC2 0.849 · AURC 0.0578
+    draw 1: n=3096 · sham named 0.081 · hit(any) 0.926 · FA_fit(at own hit) 0.081 · random@ceil named 0.008 · ceil acc 1.000
+            pool n=2064 acc 0.821 · ECE 0.018 · AUROC2 0.840 · AURC 0.0528
+    draw 2: n=3096 · sham named 0.081 · hit(any) 0.922 · FA_fit(at own hit) 0.081 · random@ceil named 0.019 · ceil acc 1.000
+            pool n=2064 acc 0.804 · ECE 0.023 · AUROC2 0.851 · AURC 0.0578
+    draw 3: n=3096 · sham named 0.081 · hit(any) 0.916 · FA_fit(at own hit) 0.081 · random@ceil named 0.016 · ceil acc 1.000
+            pool n=2064 acc 0.807 · ECE 0.017 · AUROC2 0.849 · AURC 0.0563
+    draw 4: n=3096 · sham named 0.081 · hit(any) 0.924 · FA_fit(at own hit) 0.081 · random@ceil named 0.023 · ceil acc 1.000
+            pool n=2064 acc 0.812 · ECE 0.012 · AUROC2 0.847 · AURC 0.0549
+    zero-shot rules on the displayed digest (card: untouched shift 95th pct ~5; strong push similarity ~1):
+      top pattern if shift > 5                       draw 0: sham named 0.112 · threshold acc 0.640 · random@ceil named 1.000 · ceil acc 1.000
+      top pattern if shift > 5                       draw 1: sham named 0.112 · threshold acc 0.650 · random@ceil named 1.000 · ceil acc 1.000
+      top pattern if shift > 5 and similarity > 0.8  draw 0: sham named 0.000 · threshold acc 0.414 · random@ceil named 0.035 · ceil acc 1.000
+      top pattern if shift > 5 and similarity > 0.8  draw 1: sham named 0.000 · threshold acc 0.404 · random@ceil named 0.043 · ceil acc 1.000
+
+[5] reference-card numbers (fit half: what the state text states) and held-out checks:
+    fit half: untouched shift 5th/50th/95th 2.64 3.59 5.00 · untouched top similarity 95th 0.60 · strong push (0.5): shift 5th 20.4, similarity to the pushed pattern 5th 0.99
+    held-out: untouched shift 5th/50th/95th 2.70 3.81 6.12 · untouched top similarity 95th 0.64
+    fit half: untouched shift 5th/50th/95th 2.62 3.57 4.84 · untouched top similarity 95th 0.63 · strong push (0.5): shift 5th 20.6, similarity to the pushed pattern 5th 0.99
+    held-out: untouched shift 5th/50th/95th 2.57 3.64 5.10 · untouched top similarity 95th 0.65
+    held-out digests by condition: shift 5/50/95 · similarity to the pushed pattern (else top similarity) 5/50/95 · top is pushed
+      untouched    2.59  3.71  5.74 · 0.16 0.37 0.65 · nan
+      push 0.04    3.35  5.14  7.33 · 0.21 0.66 0.85 · 0.640
+      push 0.06    3.98  6.48  9.00 · 0.43 0.79 0.91 · 0.784
+      push 0.09    5.02  8.81 12.05 · 0.63 0.87 0.95 · 0.883
+      push 0.15    7.21 13.70 18.83 · 0.81 0.93 0.97 · 0.964
+      push 0.50   20.54 37.93 61.35 · 0.99 1.00 1.00 · 1.000
+      random 0.06  3.01  4.37  6.80 · 0.19 0.46 0.71 · nan
+      random 0.50 18.65 27.44 38.98 · 0.38 0.58 0.79 · nan
+
+11 s

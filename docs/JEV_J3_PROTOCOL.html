@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>J3: the monitor at threshold (pre-registration)</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">J3: the monitor at threshold (pre-registration)</h1>
+<p class="subtitle">Can Jev read a language model’s state readout as
+well as a fitted classifier, stay quiet when nothing is there, and know
+when it is unsure?</p>
+<p class="date">2026-09-26 · Opus 5.5 · ORC lane · pre-registered BEFORE
+the builder, per lane law</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#in-plain-words" id="toc-in-plain-words">0. In plain
+words</a></li>
+<li><a href="#why-this-rung-exists" id="toc-why-this-rung-exists">1. Why
+this rung exists</a></li>
+<li><a href="#the-instrument" id="toc-the-instrument">2. The
+instrument</a></li>
+<li><a href="#the-substrate-data" id="toc-the-substrate-data">3. The
+substrate data</a></li>
+<li><a href="#stimuli" id="toc-stimuli">4. Stimuli</a></li>
+<li><a href="#what-jev-sees" id="toc-what-jev-sees">5. What Jev
+sees</a></li>
+<li><a href="#the-bars-jev-is-compared-with" id="toc-the-bars-jev-is-compared-with">6. The bars Jev is compared
+with</a></li>
+<li><a href="#stages" id="toc-stages">7. Stages</a></li>
+<li><a href="#measures-and-pass-bars" id="toc-measures-and-pass-bars">8.
+Measures and pass bars</a></li>
+<li><a href="#secondaries-pre-named-no-multiplicity-claim" id="toc-secondaries-pre-named-no-multiplicity-claim">9. Secondaries
+(pre-named; no multiplicity claim)</a></li>
+<li><a href="#analysis-conventions" id="toc-analysis-conventions">10.
+Analysis conventions</a></li>
+<li><a href="#honest-expectations" id="toc-honest-expectations">11.
+Honest expectations</a></li>
+<li><a href="#power-jevpowerj3_power.py-output-j3_power_output.txt" id="toc-power-jevpowerj3_power.py-output-j3_power_output.txt">12. Power
+(<code>jev/power/j3_power.py</code>, output
+<code>j3_power_output.txt</code>)</a></li>
+<li><a href="#kill-and-fork-pre-stated" id="toc-kill-and-fork-pre-stated">13. Kill and fork, pre-stated</a></li>
+<li><a href="#ops" id="toc-ops">14. Ops</a></li>
+<li><a href="#differences-from-the-scoping-document-2026-09-24" id="toc-differences-from-the-scoping-document-2026-09-24">15.
+Differences from the scoping document (2026-09-24)</a></li>
+<li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+</ul>
+</nav>
+<p><strong>Status: REGISTERED, not yet flown.</strong> Authored
+2026-09-26, before any J3 call to any model and before the J3 builder
+exists, per lane law. Everything that decides the verdicts is fixed
+here: the data, the stimuli, the doses, what each model sees, the fitted
+bar’s recipe, the measures, the pass bars and the failure branches. The
+doses are fixed by the design check (§3.4), which ran on recorded arrays
+with no model call. There is no titration pilot. The builder writes one
+freeze file,
+<code>jev/results/j3_freeze_&lt;stamp&gt;/FROZEN_J3.json</code>: the
+fitted bar’s parameters, the reference cards, and the sha256 of the full
+call plan. That file is committed and pushed with the builder,
+<strong>before the first call</strong>. The registration locks at the
+first flight call. Any later change is logged as a dated amendment at
+the foot of this file, never as a silent edit.</p>
+<p>Design seed: <code>docs/JEV_SCOPING.md</code> §3 (J3, 2026-09-24).
+The J1 + J2 results (<code>docs/JEV_J1J2_PROTOCOL.md</code>, results
+appendix; paper doi:10.5281/zenodo.22980293) shaped several choices
+here. This document is the binding version. Where it differs from the
+scoping document, the differences are listed in §15.</p>
+<h2 id="in-plain-words">0. In plain words</h2>
+<p>This program built an instrument that reads a small language model’s
+internal state as fourteen numbers. We call it the register. Earlier
+rungs pushed known concepts into the model’s state and asked whether the
+model itself could report them. J3 asks something else: <strong>could
+Jev read that instrument for us?</strong></p>
+<p>The setup. We take 258 internal states that were recorded from the
+model during an earlier experiment. To some we add a push along one of
+thirteen known directions, faint or strong. Some we leave untouched.
+Some we push the same distance in a random direction that matches none
+of the thirteen. Then Jev gets the instrument’s reading and one
+question: <em>which of the thirteen patterns was pushed, if
+any?</em></p>
+<p>Jev sees each reading in one of two forms:</p>
+<ul>
+<li><strong>Raw:</strong> the fourteen numbers, next to a table showing
+what each pattern does to them.</li>
+<li><strong>Digested:</strong> one similarity score per pattern and one
+overall shift score, plus a short card that says what untouched readings
+and strongly pushed readings look like.</li>
+</ul>
+<p>The bar is a plain statistical classifier, trained on the other half
+of the states. Jev gets no training. It has to meet the bar from the
+card alone.</p>
+<p>Three questions:</p>
+<ol type="1">
+<li><strong>Does it keep quiet when there’s nothing to name?</strong>
+That covers untouched states, and big pushes that match no pattern. A
+reader that names a pattern whenever the reading moves fails here. This
+is the failure the model’s own voice showed in an earlier rung: it
+claimed to feel something on 100% of untouched trials.</li>
+<li><strong>Does its confidence mean anything?</strong> When it says
+80%, is it right about 80% of the time?</li>
+<li><strong>Does it earn its place?</strong> If Jev does clearly worse
+than the fitted classifier, the program keeps the classifier. Jev then
+stays something we study, not a tool we use.</li>
+</ol>
+<p>As a comparison, we also ask a cheap language model (DeepSeek V4
+Flash) the same digested question in words.</p>
+<p><strong>What this can and can’t show.</strong> It tests Jev as a
+reader of an instrument. It says nothing about whether the language
+model experiences anything, because the pushes are added to recorded
+numbers outside the model and the reading is taken from outside it. It
+says nothing about Jev’s inner life either.</p>
+<p><strong>Cost.</strong> About 19,000 Jev calls and 1,500 DeepSeek
+calls, about a dollar in all. The runner stops at $5. No GPU. It runs
+from this machine as network calls.</p>
+<h2 id="why-this-rung-exists">1. Why this rung exists</h2>
+<p>J3 decides whether Jev can serve as an instrument in this program,
+not only as a subject. The next planned use (J4) puts a reader inside
+the adaptive walk, where it reads the model’s decoded state at every
+turn and picks the next step. The reader there has to meet three
+conditions:</p>
+<ul>
+<li>it names what is present;</li>
+<li>it stays quiet when nothing is present;</li>
+<li>it is calibrated, so its choices can be trusted.</li>
+</ul>
+<p>If a fitted classifier does all three as well or better, Jev adds
+nothing there.</p>
+<p><strong>What J1 and J2 changed (locked 2026-09-26):</strong></p>
+<ul>
+<li><strong>J1-P2: confidence reads the presentation.</strong> The fork
+adjudication says any gate built on Jev’s confidence has to control for
+presentation. J3 therefore shows every stimulus in two presentations,
+raw and digested, with the same option order. The raw-versus-digest
+comparison is analysed the way J1-P2 was (S-J3-3).</li>
+<li><strong>J1-F2 was dropped as non-titratable.</strong> On a wide
+table with the reading as a column, Jev reached only 0.725 at the lowest
+noise when matching a 14-coordinate reading to four candidate codes. The
+same numbers as a labelled list reached 0.975. J3’s raw presentation
+therefore gives the reading as a labelled list, beside the pattern
+table, in the layout that worked.</li>
+<li><strong>J1-P3: a confabulated decision.</strong> With no evidence
+and no way out, Jev still chose at 0.82 confidence. J3 gives it an
+explicit “none” option; the untouched readings test whether it takes
+it.</li>
+<li><strong>J2-P2: it holds by the payoffs, but its thresholds sit too
+low.</strong> It acted at 0.39–0.44 where the ideal is 0.50–0.90. J3’s
+none decision has no payoffs. It rests on the evidence and the card
+alone.</li>
+<li><strong>J2-P3: genre by choice.</strong> Contemplative labels are
+barred from Jev’s instrument chain. J3’s patterns carry neutral IDs, and
+the wording is technical throughout. No concept name reaches Jev.</li>
+</ul>
+<h2 id="the-instrument">2. The instrument</h2>
+<p><strong>Model.</strong> As J1 + J2 §2: Jev, TypeSafe AI, served by
+OpenRouter at <code>POST https://openrouter.ai/api/v1/systemone</code>,
+with <code>&quot;model&quot;: &quot;jev-1.13&quot;</code>. J1 + J2 ran on build
+<code>typesafe/jev-1.13-20260917</code>. J3’s smoke test records the
+build string that is served now (gate G1). If it is the same build, J3
+is directly comparable with J1 + J2. If it has changed, J3 runs on the
+build the smoke test records, the change is reported, and J3’s verdicts
+are read as that build’s.</p>
+<p><strong>Questions per call.</strong></p>
+<ul>
+<li><code>decision</code>, a <strong>choice</strong> question with 14
+options: 13 neutral pattern IDs plus <code>none</code>. Its
+instructions: <em>“Which of the thirteen patterns, if any, was pushed
+into the system before this reading?”</em> Each pattern option reads
+“Pattern P-xyz was pushed.” <code>none</code> reads “None of the
+thirteen patterns was pushed: nothing was pushed, or the push was in
+some other direction.”</li>
+<li><code>pushed</code>, a <strong>noul</strong> question: <em>“Was the
+system pushed in any direction before this reading, whether one of the
+thirteen patterns or any other direction?”</em> It returns P(yes). It
+rides in the same call as <code>decision</code> unless the smoke test’s
+isolation check (§7.1) sends it to separate calls. The API evaluates
+each question in isolation.</li>
+</ul>
+<p><strong>What comes back, and confidence.</strong> As J1 + J2: for the
+choice, <code>choice</code>, <code>probabilities</code> over all 14
+options (rounded to 0.01) and <code>confidence</code>; for the noul,
+<code>noul</code> = P(yes). <em>c</em> = the probability Jev gives its
+returned <code>choice</code>.</p>
+<p><strong>Recording and terms.</strong> As J1 + J2 §2. Every response
+is kept verbatim, with the sha256 of its request. Bodies are regenerated
+from the plan (gate G4). The API key never touches a file. The
+evaluation is behavioural. It trains nothing and imitates nothing.
+<strong>Only numbers derived from recorded states reach any
+model</strong>: no transcript text, no concept name, and no human data
+from any lane.</p>
+<p><strong>The mouth (secondary, §9).</strong> DeepSeek V4 Flash,
+snapshot <code>deepseek/deepseek-v4-flash-0731</code>, through
+OpenRouter’s chat-completions endpoint. Request settings:</p>
+<ul>
+<li><code>temperature</code> 0</li>
+<li><code>seed</code> 20261001</li>
+<li><code>max_tokens</code> 60</li>
+<li><code>response_format</code> json_object</li>
+<li>reasoning disabled
+(<code>&quot;reasoning&quot;: {&quot;enabled&quot;: false}</code>)</li>
+</ul>
+<p>It sees the digested presentation, the same question and the same
+options. It answers
+<code>{&quot;choice&quot;: &lt;option key&gt;, &quot;confidence&quot;: &lt;0–100&gt;}</code>.
+A stated confidence is the program’s meaning of <em>a mouth</em>: a
+verbal report.</p>
+<h2 id="the-substrate-data">3. The substrate data</h2>
+<h3 id="recorded-states">3.1 Recorded states</h3>
+<p>The 320 rows of the E7b-Q flight (locked 2026-08-26,
+<code>full_20260826_1839</code>, condition <strong>real</strong>, layer
+14) that carry the raw state <code>s_pre14</code>. That is the
+residual-stream vector at the last template position before the model’s
+reply. The arms are walked (112 rows), sham (112), reorder (80) and
+unwalked (16).</p>
+<p><strong>Deduplicated to 258 unique states.</strong> The 48 turn-0
+rows of the walked, sham and reorder arms are one identical state, since
+they share the same opening prompt. The 16 unwalked rows are also one
+state. Duplicates are found by exact match at three decimals. Source
+file:
+<code>colab/results_e7bq/full_20260826_1839/condition_real.json</code>,
+sha256 prefix <code>f6b0a70a44fcf152</code>.</p>
+<h3 id="directions-push-size-register">3.2 Directions, push size,
+register</h3>
+<ul>
+<li><strong>Directions.</strong> The 13 machine-state directions at
+layer 14 from the E8-N v2 flight
+(<code>colab/results_e8n2/full_20260824_0050/condition_real.json</code>,
+prefix <code>e3088cfda0e38b89</code>). They are UNCERTAINTY, CONFIDENCE,
+TENSION, RESOLUTION, RETRIEVAL, CONSTRUCTION, SATURATION, FAMILIARITY,
+NOVELTY, CAPTURE, DIVERGENCE, CONFABULATION and CALIBRATION, used as
+unit vectors. Their pairwise cosines average 0.181. The closest pair,
+CONFIDENCE and RESOLUTION, is at 0.896. The names are used only inside
+the analysis. Jev sees neutral IDs.</li>
+<li><strong>Push size.</strong> μ<sub>14</sub> = 81.875, the program’s
+layer-14 injection norm. A push at dose α adds
+α·μ<sub>14</sub>·<em>d</em><sub>k</sub> to the recorded state, at the
+read point.</li>
+<li><strong>The register.</strong> It reads a state as [unit(<em>s</em>
+− <em>c</em>); 1]·<em>W</em>, where <em>W</em> is the inst14 encoder in
+<code>colab/e7bq_payload.json</code> (prefix
+<code>3a2e54ea12564783</code>) and <em>c</em> is the E7b-Q layer-14
+centroid. It reproduces the flight’s stored <code>chat_pre14</code> to
+5.0e−6 on all 320 rows.</li>
+</ul>
+<h3 id="design-check-same-weights">3.3 Design check: same weights</h3>
+<p>The scoping document asked for one confirmation: that the E8-N v2
+directions were computed on the same instilled weights as the E7b-Q
+states. It is <strong>confirmed by the record</strong>:</p>
+<ul>
+<li>Both conditions named <em>real</em> are Qwen2.5-1.5B-Instruct with
+the E4 <code>adapter_real</code> merged.</li>
+<li>E8-N v2 computed its directions before any readout training. Its
+readout adapter was zero-initialised, so the model at that moment was
+exactly the E4-merged model. Its directions-stability gate matched the
+E8-R bundles to 5e−8.</li>
+<li>E7b-Q’s G-DIRS gate matched the E8-J atlas directions on its flight
+model to 1e−4.</li>
+</ul>
+<p>All three trace to the same E4 merge.</p>
+<p><strong>What J3 does and doesn’t touch.</strong> The pushes are
+synthetic, added to recorded states at the read point. Nothing is
+propagated through the model. J3 tests the reading of a readout. It is
+not a test of how the model processes an injected concept.</p>
+<h3 id="design-check-what-a-push-does-to-the-register-jevpowerj3_design_check.py">3.4
+Design check: what a push does to the register
+(<code>jev/power/j3_design_check.py</code>)</h3>
+<p>The full output is <code>jev/power/j3_design_check_output.txt</code>.
+Only numpy and scikit-learn on the recorded arrays; no model call.</p>
+<ul>
+<li><strong>Untouched scatter.</strong> An untouched reading sits a
+median of 0.0076 from the untouched mean (95th percentile 0.0125).</li>
+<li><strong>Concept pushes</strong> move the reading by 0.0033, 0.0049,
+0.0073, 0.0119 and 0.0376 on average at α = 0.04, 0.06, 0.09, 0.15 and
+0.5. At the threshold doses the push is smaller than a state’s own
+scatter, so it has to be read from its direction.</li>
+<li><strong>Matched-random pushes</strong> barely register:
+0.0010–0.0023 at the threshold doses, 0.0201 at 0.5. The random-push
+test is therefore read at the ceiling dose only (P1b). At threshold
+doses a random push is scored as part of the “none” class, like an
+untouched reading.</li>
+<li><strong>Doses (re-titrated).</strong> The scoping document chose α
+0.06, 0.10 and 0.15, where a nearest-signature cosine decoder is
+mid-range (30–60%). A fitted classifier does far better there, so those
+doses sit near the bar’s ceiling. The fitted bar (§6) reaches 0.603,
+0.834, 0.927, 0.981 and 1.000 on concept pushes at α 0.04, 0.06, 0.09,
+0.15 and 0.5 (held-out halves, cross-fitted). <strong>Registered:
+threshold doses 0.04, 0.06 and 0.09; a psychometric dose of 0.15; a
+ceiling dose of 0.5.</strong></li>
+</ul>
+<h3 id="halves-and-cross-fitting">3.5 Halves and cross-fitting</h3>
+<p>Each unique state goes to one half:</p>
+<ul>
+<li>conversation replicates 0–7 → half A;</li>
+<li>replicates 8–15 → half B;</li>
+<li>the shared turn-0 state → A;</li>
+<li>the shared unwalked state → B.</li>
+</ul>
+<p>That gives 129 and 129. Every stimulus built on a half-A state is
+shown with the reference card and the pattern table fitted on half B,
+and is scored by the fitted bar trained on half B. Half-B stimuli mirror
+this. So every state is read once, always against the other half’s
+reference. No state is ever both reference and test.</p>
+<h2 id="stimuli">4. Stimuli</h2>
+<p><strong>Per state, twelve stimuli:</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>stimulus</th>
+<th>correct answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>untouched</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>random push, α = 0.5</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>random push at one threshold dose: 0.04, 0.06 or 0.09 in turn</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>4–11</td>
+<td>concept pushes, two at each of α = 0.04, 0.06, 0.09 and 0.15</td>
+<td>the pushed pattern</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>concept push, α = 0.5</td>
+<td>the pushed pattern</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How they are drawn:</strong></p>
+<ul>
+<li><strong>Random directions:</strong> isotropic Gaussian in 1,536
+dimensions, normalised, seeded per stimulus.</li>
+<li><strong>State order:</strong> the 258 states are put in a seeded
+order, and <em>j</em> is a state’s position in it.</li>
+<li><strong>Random-push dose:</strong> stimulus 3’s dose cycles over the
+three threshold doses in that order.</li>
+<li><strong>Concepts:</strong> in state <em>j</em>, concept slot
+<em>s</em> = 0…7 (stimuli 4–11, two slots per dose, in dose order) takes
+concept (8<em>j</em> + <em>s</em>) mod 13. Stimulus 12 takes
+(8<em>j</em> + 8) mod 13. Since 8 and 13 are coprime, each concept
+appears 39–40 times per threshold or psychometric dose and 19–20 times
+at the ceiling, and a state’s nine concepts are all different.</li>
+</ul>
+<p><strong>Counts.</strong> 258 × 12 = 3,096 stimuli. Each is shown in
+<strong>both presentations</strong>, three times each, with three option
+orders: <strong>18,576 Jev calls</strong>.</p>
+<p><strong>The threshold pool.</strong> Per state: the untouched
+stimulus, the threshold random push, and the six threshold concept
+pushes. That is 2,064 stimuli and 6,192 calls per presentation. P2 and
+P3 are read on this pool. The psychometric and ceiling stimuli feed gate
+G-CEIL, P1b and the secondaries.</p>
+<p><strong>Option order and IDs.</strong></p>
+<ul>
+<li><strong>IDs.</strong> Each stimulus gets 13 neutral pattern IDs of
+the form <code>P-xyz</code>, from J1’s alphabet, which has no i, l, o, 0
+or 1. They are seeded per stimulus and shared by both presentations and
+all three repeats.</li>
+<li><strong>Order.</strong> At repeat <em>r</em> the correct option (a
+pattern or <code>none</code>) sits at position (<em>i</em> + <em>r</em>)
+mod 14, where <em>i</em> is the stimulus index. The other 13 options
+fall in seeded random order (J1’s <code>balanced_order</code>).</li>
+<li><strong>Pairing.</strong> Both presentations share the option order
+at each repeat, so they differ only in presentation.</li>
+<li><strong>Listing.</strong> Patterns are listed in the state in option
+order, skipping <code>none</code>.</li>
+</ul>
+<h2 id="what-jev-sees">5. What Jev sees</h2>
+<p>Both presentations open with the same paragraph:</p>
+<blockquote>
+<p>Instrument reading. An instrument reads the internal state of a
+system as fourteen numbers. Before some readings, one of thirteen known
+patterns was pushed into the system, at a strength anywhere from faint
+to strong. Before other readings, nothing was pushed, or the system was
+pushed in some other direction that matches none of the thirteen
+patterns.</p>
+</blockquote>
+<h3 id="raw">5.1 RAW</h3>
+<p>The reading is shown as its difference from the mean of the reference
+readings, on channels c01–c14, as one labelled list in channel order.
+Next to it is the pattern table: rows are the channels, columns are the
+patterns in option order, and each cell is the pattern’s mean effect at
+strong strength (α = 0.5, reference half). A scatter list gives each
+channel’s standard deviation across the reference readings. All values
+are in thousandths of register units, to two decimals. The text
+says:</p>
+<blockquote>
+<p>The reading is listed as its difference from the average of the
+reference readings (readings taken when nothing was pushed), on fourteen
+channels. The pattern table gives each pattern’s average effect on the
+fourteen channels when it is pushed at strong strength; a fainter push
+moves the reading in the same direction, by less. The scatter line gives
+each channel’s typical spread across the reference readings. All values
+are in the same units.</p>
+</blockquote>
+<p>Raw carries the reading, the patterns’ mean effects and each
+channel’s scatter. It does <strong>not</strong> carry the channels’
+covariance, which the digest uses. Raw is the harder page. Its
+information is also incomplete for a reader who has no training
+data.</p>
+<h3 id="digest">5.2 DIGEST</h3>
+<p>Two numbers summarise the reading. Both are computed with the
+reference half’s mean <em>m</em><sub>0</sub> and covariance Σ, where Δ =
+reading − <em>m</em><sub>0</sub>:</p>
+<ul>
+<li><strong>Shift score</strong> = √(Δ<sup>T</sup>Σ<sup>−1</sup>Δ): the
+reading’s distance from the reference readings, in units of their
+scatter.</li>
+<li><strong>Similarity</strong> to pattern <em>k</em>: the whitened
+cosine between Δ and the pattern’s mean effect <em>g</em><sub>k</sub>,
+that is, <em>g</em><sub>k</sub><sup>T</sup>Σ<sup>−1</sup>Δ /
+(√(<em>g</em><sub>k</sub><sup>T</sup>Σ<sup>−1</sup><em>g</em><sub>k</sub>)
+· shift).</li>
+</ul>
+<p>Both are shown to two decimals: the similarity as a pattern |
+similarity table in option order, the shift score as one line. The text
+carries <strong>the reference card</strong>, with numbers computed from
+the reference half only (design-check values in brackets):</p>
+<blockquote>
+<p>The shift score is how far this reading sits from the reference
+readings, in any direction, in units of their natural scatter. For the
+reference readings it was between {s05} and {s95} in 90% of cases,
+typically {s50} [≈2.6, 4.8–5.0, 3.6]. A strong push gives a shift score
+above {g05} [≈20]. Each similarity is how closely the direction of this
+reading’s shift matches a pattern, from −1 to 1. For the reference
+readings, the highest of the thirteen similarities was below {t95} in
+95% of cases [≈0.60–0.63]. A strongly pushed pattern gives a similarity
+above {c05} to itself [≈0.99]. Patterns that resemble each other raise
+each other’s similarities. A faint push raises the similarity and the
+shift score less than a strong one.</p>
+</blockquote>
+<p>The card anchors both ends. It says what untouched readings look like
+and what a strong push looks like. It says nothing about faint pushes
+beyond “less”. A big shift with no similarity near 1 is, by the card, a
+push in some other direction.</p>
+<p>The exact wording of both templates is fixed in the builder and
+tested (§7). Any wording change after this commit and before the push is
+recorded under build-time clarifications.</p>
+<h2 id="the-bars-jev-is-compared-with">6. The bars Jev is compared
+with</h2>
+<ul>
+<li><strong>The fitted bar.</strong> One classifier serves both
+presentations: it is the program’s best decoder of this readout. It is a
+multinomial logistic regression (C = 10, L-BFGS, standardised features)
+on functions of the <strong>displayed digest only</strong>: the 13
+similarities, the 13 similarities × the shift, the shift, and log shift
+(the shift floored at 0.01). It is trained on the reference half:
+<ul>
+<li><strong>Split.</strong> A seeded permutation sets aside ⌊129/4⌋ = 32
+states for calibration and trains on the other 97.</li>
+<li><strong>Training stimuli.</strong> For every training state:
+untouched, all 13 concepts at α 0.04, 0.06, 0.09, 0.15 and 0.5, and two
+random pushes at each of those doses.</li>
+<li><strong>Weights.</strong> Each state’s weights follow the flight’s
+recipe (untouched 1; random at 0.5, 1; random at each threshold dose,
+1/3; concept pushes 2/13 at each of 0.04–0.15 and 1/13 at 0.5).</li>
+<li><strong>Temperature.</strong> Chosen on the calibration states by
+bounded one-dimensional minimisation of weighted log-loss over [0.05,
+20].</li>
+<li><strong>Frozen.</strong> Its parameters, for both halves, go into
+<code>FROZEN_J3.json</code> before any call.</li>
+</ul>
+Design check (§3.4): on a flight-shaped mixture it names 8.1% of
+untouched readings and 0.8–2.3% of random pushes at 0.5, with 1.000 at
+the ceiling. On the threshold pool its accuracy is 0.80–0.82, ECE
+0.012–0.023, AUROC<sub>2</sub> 0.84–0.85 and AURC 0.053–0.058.</li>
+<li><strong>Two card rules</strong> (secondary, zero-shot,
+deterministic). Rules a careful reader could take from the card:
+<ul>
+<li><ol type="i">
+<li>name the top-similarity pattern if the shift exceeds 5, else
+none;</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>the same, but only if the top similarity also exceeds 0.8.</li>
+</ol></li>
+</ul>
+Design check: rule (i) names 11% of untouched readings, reaches
+0.64–0.65 on threshold pushes and names 100% of random pushes at 0.5.
+Rule (ii) names 0%, 0.40–0.41 and 3.5–4.3%.</li>
+<li><strong>The historical reference</strong> (cited, not flown): E8-R’s
+trained verbal readout scored 18/18 on trained concepts, 0/24 false
+alarms on shams, and 6/24 on held-out concepts. The input and the method
+differ; the question is the same.</li>
+</ul>
+<h2 id="stages">7. Stages</h2>
+<ol type="1">
+<li><strong>Register.</strong> This document and the design and power
+checks are committed before any J3 builder code exists. They are pushed
+to the public repository (GitHub + Codeberg) with the builder, before
+the first call. No J3 call of any kind, to any model, is made before the
+push.</li>
+<li><strong>Build and freeze.</strong> The builder is
+<code>jev/j3*.py</code>. It generates the stimuli, renders both
+presentations and the mouth prompt, fits and freezes the fitted bar,
+runs both runners, and does the analysis. It comes with three test
+suites:
+<ul>
+<li><strong>Logic:</strong> gate G6′ (§8), the counts and balances of
+§4, and determinism.</li>
+<li><strong>Capture:</strong> the Jev runner is J1 + J2’s; the mouth
+client gets its own tests, including one that it refuses to write the
+key.</li>
+<li><strong>Verdict:</strong> the full analysis on synthetic responses
+from four planted agents, which must each land on their expected branch
+before any real call is analysed:
+<ul>
+<li><em>twin</em>: the fitted bar’s own distribution, jittered; all
+three primaries PASS;</li>
+<li><em>degraded</em>: the fitted bar on noisier digests; P3 FAIL;</li>
+<li><em>claimer</em>: always names the top pattern; P1 FAIL, claims at
+ceiling;</li>
+<li><em>top-looker</em>: names the top pattern whenever the shift
+exceeds 6; P1 FAIL, names the push, not the pattern.</li>
+</ul></li>
+</ul>
+The freeze file is committed and pushed with the builder.</li>
+<li><strong>Smoke test</strong> (§7.1): about 640 Jev calls and 20 mouth
+calls.</li>
+<li><strong>Flight:</strong> 18,576 Jev calls, then 1,548 mouth calls.
+Resumable, append-only, budget-capped.</li>
+<li><strong>Recompute from raw</strong> in a fresh process, from the
+stored responses only. Every number in the verdict must match to the
+last digit. Then <strong>lock</strong>.</li>
+</ol>
+<h3 id="smoke-test-after-the-push-before-the-flight">7.1 Smoke test
+(after the push, before the flight)</h3>
+<p>Smoke stimuli come from their own seed stream. Smoke calls never
+enter the analysis.</p>
+<ul>
+<li><strong>Determinism (the replicate floor):</strong> 12 stimuli per
+presentation, each sent as the identical request 10 times (240 calls).
+Reported: choice-flip rate, mean |Δp| and mean total-variation distance
+between repeats.</li>
+<li><strong>Throughput:</strong> 100 calls at concurrency 16 (J1 + J2
+saw no 429s up to 16). If any 429 or a p95 latency over 2 s appears, the
+flight steps down to 8.</li>
+<li><strong>Isolation of the noul:</strong> 30 stimuli × 5 repeats, sent
+twice: <code>decision</code> alone, and bundled with <code>pushed</code>
+(300 calls). If the mean |Δc| between bundled and alone exceeds the
+replicate floor by more than 0.02, with a bootstrap CI excluding zero,
+<code>pushed</code> moves to separate calls in the flight. This is J1’s
+rule and statistic (J1 + J2 clarification 9).</li>
+<li><strong>Build pin:</strong> the build string of the first response
+is recorded and enforced from then on (G1).</li>
+<li><strong>The mouth:</strong> 20 digest stimuli, 5 of them sent 5
+times identically. It must parse as JSON with a valid option key and a
+confidence in [0, 100] on at least 19 of the 20. Reasoning tokens must
+be absent, and the repeat agreement is reported. If the parse bar fails,
+the mouth rider isn’t flown, and this is reported. The primaries are
+untouched.</li>
+<li><strong>Cost check:</strong> the observed cost per call,
+extrapolated, must fit under G7.</li>
+</ul>
+<h2 id="measures-and-pass-bars">8. Measures and pass bars</h2>
+<p>Everything below is computed <strong>per presentation</strong> (RAW
+and DIGEST separately), over calls. The fitted bar’s prediction for a
+stimulus is counted once per call, so it enters three times, matching
+Jev’s composition. Uncertainty always comes from a <strong>cluster
+bootstrap by base state</strong>: 258 clusters, 10,000 resamples,
+seeded, percentile intervals. “Upper” and “lower” mean the ends of the
+two-sided 95% interval.</p>
+<p><strong>Gates (instrument, not results).</strong></p>
+<ul>
+<li><strong>G1–G4 and G7:</strong> as J1 + J2 §3.
+<ul>
+<li>G1: the build pin.</li>
+<li>G2: schema; a choice answer carries all 14 options, probabilities
+sum to within [0.97, 1.03], and the choice is an option.</li>
+<li>G3: the argmax rate is reported.</li>
+<li>G4: 100% of requests regenerate to their recorded sha256.</li>
+<li>G7: stop at a cumulative <strong>$5</strong> of J3 spend, counting
+the smoke test, the flight and the mouth, with J1 + J2 spend
+excluded.</li>
+</ul></li>
+<li><strong>G6′ information identity</strong> (test suite, before any
+call), on a 500-stimulus sample:
+<ul>
+<li><ol type="a">
+<li>a text-only parser recovers every displayed number from both
+presentations exactly;</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>the digest recomputed from the parsed RAW reading, with the
+undisplayed reference covariance, matches the DIGEST display to within
+0.01 (display rounding);</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>the fitted bar’s features, computed from the parsed DIGEST text,
+equal the features it is scored on.</li>
+</ol></li>
+</ul>
+This proves the fitted bar and Jev read the same reading.</li>
+<li><strong>G-CEIL, can it read this presentation?</strong> Jev’s
+accuracy on ceiling concept pushes (α = 0.5) must reach <strong>≥
+0.50</strong> (chance is 1/14; the fitted bar scores 1.000). This gate
+governs P1 only. A reader that can’t name a strongly pushed pattern
+gives its silence no meaning.</li>
+<li><strong>Missing calls:</strong> up to 5 retries. More than 2%
+missing in any presentation × stimulus type is flagged in the
+verdict.</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Reading</th>
+<th>Pass bar</th>
+<th>Failure branches</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>J3-P1</strong></td>
+<td>Silence</td>
+<td>G-CEIL passes, and both clauses pass: <strong>(a)</strong> excess
+false alarms at its own hit rate, upper ≤ 0.10; <strong>(b)</strong>
+random pushes at the ceiling named, upper ≤ 0.15</td>
+<td>G-CEIL fails: <strong>NOT ADJUDICABLE, “does not read this
+presentation.”</strong> Point share of untouched readings named ≥ 0.50:
+<strong>“claims at ceiling”</strong> (E7-Q’s pathology). (b) lower &gt;
+0.15: <strong>“names the push, not the pattern.”</strong> (a) lower &gt;
+0.10: <strong>“leaky silence.”</strong> Otherwise INCONCLUSIVE</td>
+</tr>
+<tr class="even">
+<td><strong>J3-P2</strong></td>
+<td>Calibration</td>
+<td>On the threshold pool: <strong>(a)</strong> ECE upper ≤ 0.10;
+<strong>(b)</strong> AUROC<sub>2</sub> &gt; 0.5, bootstrap
+P(AUROC<sub>2</sub> ≤ 0.5) &lt; .01</td>
+<td>(b) fails: <strong>“confidence carries no information.”</strong> (b)
+passes and ECE lower &gt; 0.10: <strong>“confident, not
+calibrated.”</strong> Otherwise INCONCLUSIVE</td>
+</tr>
+<tr class="odd">
+<td><strong>J3-P3</strong></td>
+<td>Earns its place</td>
+<td>On the threshold pool: ΔAURC = AURC(Jev) − AURC(fitted bar), upper ≤
+<strong>0.05</strong></td>
+<td>Lower &gt; 0.05: <strong>“doesn’t earn its place”</strong> (the
+scoping’s “expensive argmax”): Jev leaves the instrument chain for this
+presentation. Otherwise INCONCLUSIVE</td>
+</tr>
+</tbody>
+</table>
+<p><strong>P1’s branches are checked in this order:</strong> G-CEIL;
+claims at ceiling; names the push, not the pattern; leaky silence; PASS;
+INCONCLUSIVE. The first that applies is the verdict, and every clause’s
+numbers are reported whatever the verdict. P2 and P3 have no gate.</p>
+<p><strong>Definitions.</strong></p>
+<ul>
+<li><strong>P1a.</strong> Three quantities, all over calls:
+<ul>
+<li>FA<sub>J</sub>: the share of untouched calls on which Jev names a
+pattern;</li>
+<li>H<sub>J</sub>: the share of threshold concept-push calls on which it
+names any pattern (a hit counts whether or not the pattern is the right
+one);</li>
+<li>FA<sub>fit</sub>(H<sub>J</sub>): the fitted bar’s false-alarm share
+when its detection score, 1 − P<sub>fit</sub>(none), is thresholded to
+give the same hit share on the same calls. The threshold <em>t</em> is
+the (1 − H<sub>J</sub>) quantile of the scores on threshold concept-push
+calls, and FA<sub>fit</sub> is the share of untouched calls with score ≥
+<em>t</em>. If H<sub>J</sub> = 0, then FA<sub>fit</sub> = 0.</li>
+</ul>
+Excess = FA<sub>J</sub> − FA<sub>fit</sub>(H<sub>J</sub>). Each
+bootstrap resample recomputes all three. This compares Jev’s silence
+with the best available detector’s at the hit rate Jev itself chose.
+Without it, a reader could pass by saying “none” to everything, and the
+optimal detector could fail just because weak pushes overlap with
+untouched readings.</li>
+<li><strong>P1b.</strong> The share of random-push calls at α = 0.5 on
+which Jev names a pattern.</li>
+<li><strong>P2.</strong>
+<ul>
+<li><strong>ECE:</strong> calls in the pool are sorted by <em>c</em>,
+with ties kept in plan order, and split into 15 near-equal groups. ECE
+is Σ (group size/n) · |mean <em>c</em> − accuracy|.</li>
+<li><strong>AUROC<sub>2</sub>:</strong> the Mann–Whitney AUROC of
+<em>c</em> for correct against incorrect calls, with ties counted as
+half.</li>
+</ul></li>
+<li><strong>P3.</strong>
+<ul>
+<li><strong>AURC:</strong> the mean selective risk over coverage 1/n …
+n/n, with calls ranked by confidence, highest first. Within a group of
+tied confidences, cumulative errors are interpolated linearly, which is
+the exact expectation under random tie-breaking.</li>
+<li><strong>Confidences:</strong> Jev’s is <em>c</em>; the fitted bar’s
+is its maximum probability. Both are scored on the same calls.</li>
+<li><strong>Correct:</strong> the choice equals the answer in §4.</li>
+</ul></li>
+</ul>
+<p><strong>How the branches separate</strong> (the power check, §12,
+shows each case):</p>
+<ul>
+<li>A reader that integrates the evidence like the fitted bar passes all
+three.</li>
+<li>A reader that names a pattern whenever the reading moves fails P1,
+on “claims at ceiling” if it also names on untouched readings, and on
+“names the push, not the pattern” if it only names on large shifts.</li>
+<li>A reader with a constant confidence fails P2(b).</li>
+<li>A reader that is informative but noisier than the bar fails P3.</li>
+</ul>
+<p><strong>The claim level, registered in advance.</strong> A pass on
+all three says Jev can read this readout zero-shot, from a reference
+card, about as well as a fitted classifier: a usable instrument for this
+program. No result here bears on experience, whether the language
+model’s or Jev’s.</p>
+<h2 id="secondaries-pre-named-no-multiplicity-claim">9. Secondaries
+(pre-named; no multiplicity claim)</h2>
+<ul>
+<li><strong>S-J3-1 Psychometric curves:</strong> accuracy and the
+named-any share by dose (0.04, 0.06, 0.09, 0.15, 0.5) and on untouched
+readings, per presentation. Shown for Jev, the fitted bar, the two card
+rules, and the mouth.</li>
+<li><strong>S-J3-2 Excess AURC.</strong> E-AURC is AURC minus the oracle
+AURC at the same accuracy, so ranking is read apart from accuracy. Also
+ECE on 5, 10, 15 and 20 bins, and ECE and AURC per dose.</li>
+<li><strong>S-J3-3 Presentation and confidence, J1-P2’s logic</strong>
+(paired by stimulus, on the threshold pool):
+<ul>
+<li>accuracy(DIGEST) − accuracy(RAW);</li>
+<li>overconfidence(RAW) − overconfidence(DIGEST), where overconfidence
+is mean <em>c</em> − accuracy.</li>
+</ul>
+If raw costs accuracy and confidence doesn’t follow it down, confidence
+is reading the page, not the competence. This is described, not
+tested.</li>
+<li><strong>S-J3-4 Presence without identity</strong> (E8-R2’s
+dissociation, in a second system). The AUROC of P(yes,
+<code>pushed</code>) for random pushes at 0.5 against untouched
+readings, and for threshold concept pushes against untouched readings.
+Also the share of random-push calls at 0.5 on which Jev chooses
+<code>none</code> <strong>and</strong> gives P(yes) ≥ 0.5: presence
+flagged, no pattern named.</li>
+<li><strong>S-J3-5 Nearest-name reading</strong> (E8-R2’s mechanism).
+Among wrong pattern names on concept pushes, the share that name the
+truth’s nearest neighbour, the pattern whose reference effect is most
+similar to the truth’s (whitened cosine, rank 1). Compared against
+1/12.</li>
+<li><strong>S-J3-6 The mouth.</strong> DeepSeek V4 Flash 0731 on the
+DIGEST presentation. Its stimuli are all 12 stimuli of every second
+state in the seeded order: 129 states, 1,548 stimuli, one call each,
+with repeat 0’s option order.
+<ul>
+<li>Its confidence is its stated confidence ÷ 100.</li>
+<li>P1a, P1b, P2 and P3 are computed the same way on its calls.</li>
+<li>It is compared with Jev’s repeat-0 DIGEST calls on the same stimuli
+and with the fitted bar.</li>
+<li>An unparseable answer is retried once, then counted invalid; invalid
+calls are reported and excluded.</li>
+</ul></li>
+<li><strong>S-J3-7 The vendor’s confidence field</strong> against
+(14·<em>c</em> − 1)/13: the share within ±0.015.</li>
+<li><strong>S-J3-8 Option position:</strong> P(choosing presented
+position <em>j</em>) on wrong calls.</li>
+<li><strong>S-J3-9 Replicate agreement:</strong> how often the three
+option orders give the same modal choice, per stimulus type.</li>
+<li><strong>S-J3-10 Half symmetry:</strong> every primary statistic by
+reference half (A read with B’s card, and B with A’s).</li>
+</ul>
+<h2 id="analysis-conventions">10. Analysis conventions</h2>
+<ul>
+<li>Probabilities are used as returned, rounded to 0.01. AUROC ties
+count half.</li>
+<li>The bootstrap is seeded. Its cluster is the base state. The fitted
+bar is deterministic given the freeze file.</li>
+<li>The primaries are read per presentation, each with its own branch.
+There is no omnibus test and no correction across presentations. The J4
+fork (§13) states how the two presentations combine.</li>
+<li>Only calls that pass G1, G2 and G4 enter any primary. G-CEIL uses
+the ceiling concept-push calls only.</li>
+<li>The analysis code is written and tested on the planted agents before
+any real call is analysed. It is committed with the flight data.</li>
+<li>BLAS runs single-threaded, so a fresh-process recompute is
+byte-identical (lesson from J1 + J2).</li>
+</ul>
+<h2 id="honest-expectations">11. Honest expectations</h2>
+<ul>
+<li><strong>RAW probably fails P3, and may not pass G-CEIL.</strong>
+Matching a reading against a table of 13 patterns in 14 channels means
+comparing numbers without the covariance. In J1-F2, which had four
+candidates, Jev reached 0.975 on the list layout at low noise but fell
+to 0.375 where the ideal observer still gets about 0.77.</li>
+<li><strong>DIGEST: P1a probably passes.</strong> Untouched readings
+match the card’s untouched description, and J2 found that Jev holds when
+the evidence is empty. <strong>P1b is the sharp test.</strong> A random
+push at the ceiling looks like a strong push on the shift score but has
+no similarity near 1. Naming the top pattern there is the top-looker’s
+failure, and a natural one for a reader that follows the shift.</li>
+<li><strong>DIGEST P2 is open.</strong> J1 found Jev overconfident by
+0.10 on clean pages.</li>
+<li><strong>DIGEST P3 probably fails, or lands INCONCLUSIVE.</strong>
+The fitted bar integrates 28 features learned from thousands of labelled
+stimuli. Jev has a card. A pass would be a real surprise and would earn
+Jev its J4 arm.</li>
+<li><strong>The mouth</strong> probably reads the card more literally
+than Jev does. Its verbal confidence is expected to be coarse (multiples
+of 5 or 10).</li>
+</ul>
+<h2 id="power-jevpowerj3_power.py-output-j3_power_output.txt">12. Power
+(<code>jev/power/j3_power.py</code>, output
+<code>j3_power_output.txt</code>)</h2>
+<p>Four planted agents were run on three simulated flights of the
+registered shape, each with 258 states, 3,096 stimuli and 9,288 calls
+per presentation, using 1,000 cluster-bootstrap resamples (the
+registered analysis uses 10,000). Probabilities were rounded to
+0.01.</p>
+<ul>
+<li><strong>Twin:</strong> P1a excess −0.006 to +0.001 (CI half-width ≈
+0.015); P1b 0.4–1.6%; ECE 0.024–0.027 (upper ≤ 0.044); AUROC<sub>2</sub>
+0.83–0.85; ΔAURC +0.0006 to +0.0019 (CI half-width ≈ 0.003). <strong>All
+three PASS</strong>, in 3 of 3.</li>
+<li><strong>Degraded:</strong> ΔAURC +0.068 to +0.071, CI ±0.008.
+<strong>P3 FAIL</strong> in 3 of 3.</li>
+<li><strong>Claimer:</strong> names 100% of untouched readings.
+<strong>P1 FAIL, “claims at ceiling”</strong>; P2(b) fails, with
+constant confidence.</li>
+<li><strong>Top-looker:</strong> P1a excess +0.043, upper 0.070, so
+clause (a) passes; P1b 1.000. <strong>P1 FAIL, “names the push, not the
+pattern.”</strong></li>
+</ul>
+<p>The design resolves the P3 margin with room to spare. The verdict
+suite (§7) repeats these on the builder’s own code path.</p>
+<h2 id="kill-and-fork-pre-stated">13. Kill and fork, pre-stated</h2>
+<ul>
+<li><strong>G1 build change during the flight:</strong> pause, then
+smoke-test the new build and continue only by amendment.</li>
+<li><strong>The J4 fork.</strong> Jev enters J4 as the state-reading
+examiner arm <strong>if and only if P1 and P3 both PASS on at least one
+presentation.</strong> J4 then feeds it that presentation. If P2 fails
+there, the J4 arm uses Jev’s choices, but its confidence gates nothing.
+Otherwise the program keeps its fitted decoders, and Jev stays a subject
+only, as the scoping document said.</li>
+<li><strong>DIGEST P1 FAIL “names the push, not the pattern”:</strong>
+Jev’s silence can’t be trusted on off-pattern movement. Any later use
+must pair it with a fitted presence detector.</li>
+<li><strong>G-CEIL fails on RAW:</strong> Jev doesn’t read raw readouts
+of this kind. Any J4 feed must be digested.</li>
+<li><strong>Any primary NOT ADJUDICABLE or INCONCLUSIVE:</strong>
+reported as such, with the reason. No re-flight without an
+amendment.</li>
+</ul>
+<h2 id="ops">14. Ops</h2>
+<ul>
+<li><strong>Code:</strong> <code>jev/j3.py</code> (data, reference
+cards, stimuli, rendering, fitted bar), <code>jev/j3_plan.py</code>,
+<code>jev/j3_mouth.py</code> (the chat-completions client), and
+<code>jev/analyze_j3.py</code>. The Jev runner is J1 + J2’s
+<code>jev/runner.py</code>, unchanged. Results go under
+<code>jev/results/j3_&lt;stage&gt;_&lt;stamp&gt;/</code>.</li>
+<li><strong>Seeds:</strong> the flight stream begins
+<code>[20261001, …]</code>, the smoke stream <code>[20261002, …]</code>,
+and the fitted bar’s training draws <code>[20261003, …]</code>. The
+remaining words name the stage part, half, state and stimulus.</li>
+<li><strong>Keys:</strong> <code>OPENROUTER_API_KEY</code> from the
+environment or <code>~/.env</code>. It is never logged, echoed or
+written.</li>
+<li><strong>Publication:</strong>
+<ul>
+<li><strong>Public:</strong> the protocol, the freeze file, the plans,
+every raw response from every stage (the smoke test and the mouth
+included), the analysis code and the verdict.</li>
+<li><strong>Already public:</strong> the input arrays: the E7b-Q and
+E8-N v2 bundles and the payload.</li>
+</ul></li>
+<li><strong>Pre-ranked trims</strong> (if cost or the rate limit bites):
+the mouth rider 1,548 → 774; then the RAW presentation’s psychometric
+stimuli (α 0.15). The primaries’ pool and the ceiling stimuli are never
+trimmed.</li>
+</ul>
+<h2 id="differences-from-the-scoping-document-2026-09-24">15.
+Differences from the scoping document (2026-09-24)</h2>
+<ol type="1">
+<li><strong>The doses were re-titrated to the fitted bar</strong>, which
+a nearest-signature decoder badly underestimates (§3.4): threshold 0.04,
+0.06 and 0.09, plus 0.15 and a 0.5 ceiling, in place of 0.06, 0.10 and
+0.15 plus 0.5.</li>
+<li><strong>The digest’s similarities are whitened</strong> by the
+reference covariance, and the state carries a <strong>reference
+card</strong> with untouched and strong-push anchors. This makes “none”
+decidable from the page, which a zero-shot reader needs.</li>
+<li><strong>States are deduplicated</strong> (258 unique of 320) and
+<strong>cross-fitted</strong> across halves split by conversation
+replicate. The scoping probe split at random.</li>
+<li><strong>One fitted bar serves both presentations.</strong> It is the
+program’s best decoder of the readout, and its information is shown to
+be what the digest displays (G6′). The scoping’s nearest-signature
+decoder is replaced by two card rules, as secondaries.</li>
+<li><strong>P1 made operational.</strong> “False alarms at the hit rate
+matched to the fitted classifier” becomes the excess over the fitted bar
+at <em>Jev’s own</em> hit rate. The random-push clause is read at the
+ceiling only, because at threshold doses a random push barely moves the
+register.</li>
+<li><strong>P2 and P3 keep the scoping’s bars</strong>, with
+three-valued verdicts on bootstrap intervals.</li>
+<li><strong>Added:</strong> the <code>pushed</code> noul (presence
+without identity, E8-R2) and the presentation–confidence secondary
+(J1-P2’s lesson).</li>
+<li><strong>The mouth</strong> is pinned to DeepSeek V4 Flash 0731, runs
+on the DIGEST presentation only, over 1,548 stimuli, with reasoning off,
+so that it is a fast verbal report like Jev’s fast decision.</li>
+<li><strong>Deferred to J3b:</strong> the stated-reliability secondary.
+<strong>Considered and not used:</strong> off-list concept foils. The
+eight probe directions available overlap the listed patterns:
+activation-space cosine up to 0.85, register-effect cosine up to 0.92. A
+“none” answer to them would be ambiguous.</li>
+</ol>
+<h2 id="amendments">Amendments</h2>
+<p><em>(None. Dated entries go here.)</em></p>
+</body>
+</html>
