@@ -1,5 +1,7 @@
 # Phase B — Structure Elicitation: Results
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Flown 2026-08-22, all 7 families, analysis run exactly as pre-registered
 (PHASE_B_PREREG.md, locked at commit 8a5f671 before any participant ran).**
 Adjudicator: Fable 5 (disclosed; participated only as a fresh-context

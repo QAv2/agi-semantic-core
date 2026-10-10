@@ -1,5 +1,7 @@
 # E8-R3-c — Compositional Production: Spelling vs Lookup (pre-registration)
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Status: PRE-REGISTERED (before build), 2026-08-24.**
 **Rung**: Phase 10, E8 family — the Hangul staircase, level 1 (concept-level).
 **Design seed**: E8-N v2 appendix slate addendum (Joe, 2026-08-24) — the

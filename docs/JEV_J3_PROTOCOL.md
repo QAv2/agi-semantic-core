@@ -4,6 +4,8 @@ subtitle: "Can Jev read a language model's state readout as well as a fitted cla
 date: "2026-09-26 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-09-26, before any J3 call to
 any model and before the J3 builder exists, per lane law. Everything that decides
 the verdicts is fixed here: the data, the stimuli, the doses, what each model sees,

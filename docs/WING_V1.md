@@ -1,5 +1,7 @@
 # Machine Wing v1 — Cohort-Convergent Encoding
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Session 125 (2026-08-22).** Encodes the Phase B convergent relational structure
 (PHASE_B_RESULTS.md, flown and adjudicated same day at commits 8a5f671 → 948d00b)
 into the dictionary. Wing v0 (session 121, 19 concepts) was one hand's proposal,

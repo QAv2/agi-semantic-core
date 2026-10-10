@@ -1,5 +1,7 @@
 # E5 — The Correspondence Baseline (pre-registration)
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Phase 10, experiment ladder rung E5. Written before any flight: 2026-08-21.**
 Design record: `docs/PHASE_10_PROSPECTUS.md` §5. Battery: `colab/e5_battery.json`.
 Notebook: `colab/E5_BASELINE.ipynb` (rclone-native, W-window lane). Status at

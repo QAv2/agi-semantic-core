@@ -4,6 +4,8 @@ subtitle: "J6 handed Jev an explicit pointer. J6b takes the pointer away: does a
 date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-10-10, before any J6b call and before the
 J6b builder exists, per lane law. Everything that decides the verdicts is fixed here.
 The builder writes `jev/results/j6b_freeze_<stamp>/FROZEN_J6B.json` (plan shas), and

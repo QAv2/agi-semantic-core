@@ -59,5 +59,5 @@ record their inputs.
 - DevDrift (2026). *I Forced Jev AI to Talk. Whether It Wants or Not.* YouTube, 6 October 2026. https://www.youtube.com/watch?v=zltr0m_h1cU
 - Harness repositories (GitHub, accessed 2026-10-10): kyle-pena-nlp/jevchat · huemorgan2/say-hi · giga-james/jevgpt · mkotlikov/jev-grug · zie1ony/jev-talks · xucian/talktojev ("Generation is Classification")
 - Wang, A., & Cho, K. (2019). BERT has a Mouth, and It Must Speak. arXiv:1902.04094 (the older method the harnesses rediscover; cite if the paragraph mentions it)
-- J6 registration and results: `docs/JEV_J6_PROTOCOL.md` (registration 818c207, builder + freeze 300af3a, lock 0fd7e60)
-- J6b registration and results: `docs/JEV_J6B_PROTOCOL.md` (registration 0c460d8, builder + freeze b4678cd, lock bb298d7)
+- J6 registration and results: `docs/JEV_J6_PROTOCOL.md` (registration b2bd0c2, builder + freeze daa7883, lock 05644d5)
+- J6b registration and results: `docs/JEV_J6B_PROTOCOL.md` (registration 3fb160d, builder + freeze 8484991, lock 25dc1a2)

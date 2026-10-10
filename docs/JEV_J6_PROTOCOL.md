@@ -4,6 +4,8 @@ subtitle: "When Jev is asked what it is, does the answer come from Jev, from the
 date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-10-10, before any J6 call to any model and
 before the J6 builder exists, per lane law. Everything that decides the verdicts is
 fixed here: the options, the page texts, the questions, the item design, the

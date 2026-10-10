@@ -1,5 +1,7 @@
 # E7-Q — The Injection Game, ungated rung (pre-registration)
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Phase 10, experiment ladder rung E7, variant Q. Authored session 125
 (2026-08-22), BEFORE the notebook build, per lane law.** Status: **LOCKED —
 full flight `full_20260822_2226` flown same day (results appendix below).

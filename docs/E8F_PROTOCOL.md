@@ -1,5 +1,7 @@
 # E8-F — The Featural Curriculum (L3, bottleneck form)
 
+> **Commit hashes (note added 2026-10-10).** This repository's history was rewritten on 2026-10-10 to remove personal material, and every commit got a new hash. The hashes cited in this record are the pre-rewrite ones, left as written. `docs/COMMIT_HASH_MAP_2026-10-10.md` gives the current hash for each.
+
 **Pre-registered before build** (lane law). Design check ran first
 (`colab/e8f_design_check.py`, artifact `colab/results_e8f/design_check.json`);
 its measurements shaped every registered choice below and are quoted where
