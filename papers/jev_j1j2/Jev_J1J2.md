@@ -1,7 +1,7 @@
 # Knows Its Slips, Reads the Page: A Pre-registered Study of Confidence and Abstention in Jev, a Calibrated Decision Model
 
 ::: {.byline}
-Joseph Vanhorn · ORCID 0009-0003-0972-606X · September 2026 · Preprint
+Joseph Vanhorn · ORCID 0009-0003-0972-606X · September 2026 · Preprint · Version 2, October 2026
 :::
 
 ## Abstract
@@ -75,11 +75,11 @@ The protocol (`docs/JEV_J1J2_PROTOCOL.md` in the project repository) fixed the q
 
 | Stage | Commit | Public (UTC, 25–26 Sep 2026) | Calls |
 |---|---|---|---|
-| Registration | `7a1f9ca` | committed 23:01; pushed 23:46:58 with the builder | 0 |
-| Builder and test suites | `aa91e75` | pushed 23:46:58 | 0 |
-| Smoke test | `1de1a60` (data) | first call 23:47:22 | 740 |
-| Titration pilot | `1de1a60` (data) | 23:49:38–23:50:30 | 2,920 |
-| Freeze: `FROZEN.json`, plan sha `ce82b2d8…` | `1de1a60` | pushed 23:52:09 | 0 |
+| Registration | `abfcb66` (v1: `7a1f9ca`) | committed 23:01; pushed 23:46:58 with the builder | 0 |
+| Builder and test suites | `ba74e45` (v1: `aa91e75`) | pushed 23:46:58 | 0 |
+| Smoke test | `bbb2d48` (data; v1: `1de1a60`) | first call 23:47:22 | 740 |
+| Titration pilot | `bbb2d48` (data; v1: `1de1a60`) | 23:49:38–23:50:30 | 2,920 |
+| Freeze: `FROZEN.json`, plan sha `ce82b2d8…` | `bbb2d48` (v1: `1de1a60`) | pushed 23:52:09 | 0 |
 | Confirmatory flight | results commit | 23:53:00 to 00:06:24 | 44,640 |
 
 Fifteen build-time clarifications, such as the exact binning of one secondary statistic, were written into the protocol before the push. There were no amendments after it.
@@ -306,7 +306,7 @@ Jev's probabilities are neither empty nor self-knowledge. They carry a genuine s
 
 ## Data and Code Availability
 
-Everything is in the public repository, https://github.com/QAv2/agi-semantic-core (mirror: https://codeberg.org/QAv2/agi-semantic-core):
+Everything is in the public repository, https://github.com/QAv2/agi-semantic-core:
 
 - the protocol, `docs/JEV_J1J2_PROTOCOL.md`;
 - the instrument and its test suites, `jev/`;
@@ -321,6 +321,8 @@ python -m jev.run analyze --flight jev/results/flight_20260925_2352 \
 ```
 
 The OpenRouter API key is never stored. Re-running the calls needs one's own key and costs about $1.50.
+
+**Version 2 (10 October 2026).** The repository's history was rewritten on 10 October 2026 to remove personal material unrelated to the study. File contents and commit dates did not change, but every commit received a new hash. Version 1 cited the old hashes. This version cites the current ones, with the version 1 hash beside each in §2.2, and `docs/COMMIT_HASH_MAP_2026-10-10.md` in the repository maps every old hash to its new one. At each cited commit, the old and new trees differ only in two lines outside the study (in `README.md` and an unrelated application draft); no protocol, instrument, response or analysis file differs. The Codeberg mirror listed in version 1 has been withdrawn; GitHub is the record. Nothing else in the paper changed.
 
 ## Acknowledgments
 

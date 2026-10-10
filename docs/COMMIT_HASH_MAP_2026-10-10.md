@@ -2,6 +2,8 @@
 
 On 2026-10-10 this repository's history was rewritten to remove personal material (git filter-repo, force-pushed to GitHub and Codeberg). File contents and commit dates are unchanged, but every commit got a new hash. Documents and papers written before that date cite the old hashes. This table resolves each old hash to its current one.
 
+The J1+J2 paper on Zenodo cites commits: version 1 ([10.5281/zenodo.22980293](https://doi.org/10.5281/zenodo.22980293)) has the old hashes, and version 2 ([10.5281/zenodo.23288651](https://doi.org/10.5281/zenodo.23288651), 2026-10-10) has the new ones, with the old ones alongside.
+
 Two local commits from that afternoon (78cf4d3, 713322b) were folded into 9253df4 by the rewrite.
 
 | old | new | date | subject |

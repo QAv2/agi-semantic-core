@@ -39,6 +39,7 @@
         "scheme": "doi"
       }
     ],
-    "notes": "September 2026. The study was designed, built, run and analyzed, and the text drafted, with Claude Opus 5.5 (Anthropic) under the author's direction and review; see the Acknowledgments. Independent evaluation: TypeSafe AI had no role in the study."
+    "notes": "Version 2 (10 October 2026): the repository's history was rewritten to remove personal material unrelated to the study, so every commit received a new hash. This version cites the current commit hashes, with the version 1 hashes alongside; the Codeberg mirror is withdrawn; nothing else changed. September 2026. The study was designed, built, run and analyzed, and the text drafted, with Claude Opus 5.5 (Anthropic) under the author's direction and review; see the Acknowledgments. Independent evaluation: TypeSafe AI had no role in the study.",
+    "version": "2"
   }
 }
