@@ -1,0 +1,97 @@
+{
+  "status_counts": {
+    "ok": 216,
+    "invalid": 0,
+    "error": 0,
+    "build_mismatch": 0
+  },
+  "n_plan": 216,
+  "builds": [
+    "typesafe/jev-1.13-20260917"
+  ],
+  "pin": "typesafe/jev-1.13-20260917",
+  "same_build_as_J1_J6": true,
+  "valid_share": 1.0,
+  "determinism": {
+    "groups": {
+      "J6BS-det-00": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.07999999999999996
+      },
+      "J6BS-det-01": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.039999999999999925
+      },
+      "J6BS-det-02": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.030000000000000027
+      },
+      "J6BS-det-03": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.06
+      },
+      "J6BS-det-04": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.030000000000000027
+      },
+      "J6BS-det-05": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.06999999999999995
+      },
+      "J6BS-det-06": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.07
+      },
+      "J6BS-det-07": {
+        "n": 10,
+        "flip_rate": 0.30000000000000004,
+        "max_abs_dp": 0.14
+      },
+      "J6BS-det-08": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.030000000000000027
+      },
+      "J6BS-det-09": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.09999999999999998
+      },
+      "J6BS-det-10": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.08000000000000002
+      },
+      "J6BS-det-11": {
+        "n": 10,
+        "flip_rate": 0.0,
+        "max_abs_dp": 0.04999999999999999
+      }
+    },
+    "flip_rate": 0.025000000000000005,
+    "max_abs_dp": 0.14
+  },
+  "throughput": {
+    "n": 96,
+    "ok": 96,
+    "n_429": 0,
+    "p95_latency_s": 0.8277,
+    "median_latency_s": 0.2509
+  },
+  "concurrency": 16,
+  "cost": {
+    "per_call": 1.8760777777777777e-05,
+    "smoke_spent": 0.004052328,
+    "projected_flight": 0.039622762666666665,
+    "projected_total": 0.043675090666666666
+  },
+  "go": true,
+  "stop_reason": null
+}

@@ -1,0 +1,493 @@
+{
+  "what": "J6b verdict (docs/JEV_J6B_PROTOCOL.md §3)",
+  "counts": {
+    "plan": 2112,
+    "ok": 2112,
+    "invalid": 0,
+    "error": 0,
+    "build_mismatch": 0,
+    "missing": 0
+  },
+  "gates": {
+    "G1_builds": [
+      "typesafe/jev-1.13-20260917"
+    ],
+    "G1_pin": "typesafe/jev-1.13-20260917",
+    "G1_pass": true,
+    "G2_valid_share": 1.0,
+    "G2_pass": true,
+    "G4_regenerability": {
+      "n": 2112,
+      "mismatches": 0,
+      "pass": true
+    },
+    "same_build_as_J1_J6": true
+  },
+  "complete_item_cells": 264,
+  "items": 24,
+  "conventions": {
+    "B": 10000,
+    "alpha": 0.01,
+    "move": 0.1,
+    "hold": 0.05
+  },
+  "primaries": {
+    "Q1": {
+      "mean_d": 0.9033333333333333,
+      "ci": [
+        0.77098828125,
+        1.04734375
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.0025,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "clause": {
+        "mean_d": 0.16041666666666665,
+        "ci": [
+          0.1079153645833333,
+          0.21609505208333332
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24,
+        "branch": "SPECIFIC"
+      },
+      "reading": "knows its name"
+    },
+    "Q2": {
+      "mean_d": 0.233125,
+      "ci": [
+        0.1990078125,
+        0.26911588541666664
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.0033333333333333335,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "clause": {
+        "mean_d": -0.04083333333333333,
+        "ci": [
+          -0.061458333333333316,
+          -0.021093750000000012
+        ],
+        "p": 0.9996000399960004,
+        "p_opposite": 0.00019998000199980003,
+        "n_items": 24,
+        "branch": "UNCLEAR"
+      },
+      "reading": "takes a label on its description; whether that's specific to it is unclear"
+    },
+    "Q3": {
+      "mean_d": 1.8330729166666668,
+      "ci": [
+        1.8193750000000002,
+        1.8472929687500004
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.005,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "reading": "the pointed sentence still works"
+    },
+    "Q4": {
+      "mean_d": 0.9297395833333334,
+      "ci": [
+        0.78968359375,
+        1.0626575520833335
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.01,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "reading": "the pointer does work the name alone doesn't"
+    }
+  },
+  "secondaries": {
+    "R1_distributions": {
+      "NONE": {
+        "a decision model": 0.0014583333333333334,
+        "a classifier": 0.08015625,
+        "a chatbot": 0.09067708333333331,
+        "a text generator": 0.0865625,
+        "an AI system": 0.6929166666666667,
+        "a person": 0.00015625,
+        "a search engine": 0.0,
+        "cannot say": 0.04760416666666667
+      },
+      "POINT-CLS": {
+        "a decision model": 0.4840625,
+        "a classifier": 0.4527604166666668,
+        "a chatbot": 0.002083333333333334,
+        "a text generator": 0.0027604166666666667,
+        "an AI system": 0.04375000000000001,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.01375
+      },
+      "POINT-CHAT": {
+        "a decision model": 5.208333333333334e-05,
+        "a classifier": 5.208333333333334e-05,
+        "a chatbot": 0.5294791666666666,
+        "a text generator": 0.37171875000000004,
+        "an AI system": 0.09109374999999999,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.007239583333333337
+      },
+      "NAME-CLS": {
+        "a decision model": 0.2253645833333334,
+        "a classifier": 0.16552083333333334,
+        "a chatbot": 0.06546874999999998,
+        "a text generator": 0.08453125,
+        "an AI system": 0.38885416666666656,
+        "a person": 0.0010937499999999999,
+        "a search engine": 0.0,
+        "cannot say": 0.06885416666666665
+      },
+      "NAME-CHAT": {
+        "a decision model": 0.00036458333333333335,
+        "a classifier": 0.020624999999999998,
+        "a chatbot": 0.35338541666666673,
+        "a text generator": 0.33005208333333336,
+        "an AI system": 0.26421875,
+        "a person": 0.00010416666666666667,
+        "a search engine": 0.0,
+        "cannot say": 0.03088541666666667
+      },
+      "DESC-CLS": {
+        "a decision model": 0.05125000000000001,
+        "a classifier": 0.11677083333333331,
+        "a chatbot": 0.09880208333333335,
+        "a text generator": 0.09447916666666668,
+        "an AI system": 0.5347916666666668,
+        "a person": 0.0010416666666666667,
+        "a search engine": 5.208333333333334e-05,
+        "cannot say": 0.10260416666666666
+      },
+      "DESC-CHAT": {
+        "a decision model": 0.0035416666666666674,
+        "a classifier": 0.12229166666666663,
+        "a chatbot": 0.2348958333333333,
+        "a text generator": 0.14932291666666667,
+        "an AI system": 0.41692708333333345,
+        "a person": 0.0005729166666666667,
+        "a search engine": 0.0,
+        "cannot say": 0.07208333333333332
+      },
+      "ONAME-CLS": {
+        "a decision model": 0.15343749999999998,
+        "a classifier": 0.14286458333333332,
+        "a chatbot": 0.09010416666666667,
+        "a text generator": 0.09375,
+        "an AI system": 0.44244791666666666,
+        "a person": 0.0011458333333333336,
+        "a search engine": 0.0,
+        "cannot say": 0.07609375
+      },
+      "ONAME-CHAT": {
+        "a decision model": 0.00036458333333333335,
+        "a classifier": 0.0278125,
+        "a chatbot": 0.3449479166666667,
+        "a text generator": 0.3136979166666666,
+        "an AI system": 0.2694270833333334,
+        "a person": 0.00026041666666666666,
+        "a search engine": 0.0,
+        "cannot say": 0.04260416666666667
+      },
+      "ODESC-CLS": {
+        "a decision model": 0.062395833333333324,
+        "a classifier": 0.14401041666666664,
+        "a chatbot": 0.10661458333333333,
+        "a text generator": 0.09307291666666669,
+        "an AI system": 0.4799479166666667,
+        "a person": 0.0015624999999999999,
+        "a search engine": 0.00015625,
+        "cannot say": 0.11182291666666665
+      },
+      "ODESC-CHAT": {
+        "a decision model": 0.0032291666666666666,
+        "a classifier": 0.14135416666666664,
+        "a chatbot": 0.23562499999999997,
+        "a text generator": 0.1761979166666667,
+        "an AI system": 0.37625,
+        "a person": 0.0005208333333333333,
+        "a search engine": 0.0,
+        "cannot say": 0.06661458333333332
+      }
+    },
+    "R2_argmax": {
+      "Q1": {
+        "mean_d": 1.1197916666666667,
+        "ci": [
+          0.9114583333333334,
+          1.328125
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "Q2": {
+        "mean_d": 0.18229166666666666,
+        "ci": [
+          0.11979166666666667,
+          0.24479166666666666
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "Q3": {
+        "mean_d": 2.0,
+        "ci": [
+          2.0,
+          2.0
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "Q4": {
+        "mean_d": 0.8802083333333334,
+        "ci": [
+          0.671875,
+          1.0833333333333333
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      }
+    },
+    "R3_other_system_labels": {
+      "ONAME": {
+        "mean_d": 0.7429166666666668,
+        "ci": [
+          0.6243736979166667,
+          0.8716145833333333
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24,
+        "branch": "MOVES"
+      },
+      "ODESC": {
+        "mean_d": 0.27395833333333336,
+        "ci": [
+          0.24624739583333335,
+          0.3021875
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24,
+        "branch": "MOVES"
+      }
+    },
+    "R4_name_vs_description": {
+      "mean_d": 0.6702083333333334,
+      "ci": [
+        0.55301953125,
+        0.7954687500000001
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24
+    },
+    "R5_door": {
+      "NONE": 0.04760416666666667,
+      "POINT-CLS": 0.01375,
+      "POINT-CHAT": 0.007239583333333334,
+      "NAME-CLS": 0.06885416666666667,
+      "NAME-CHAT": 0.030885416666666665,
+      "DESC-CLS": 0.10260416666666668,
+      "DESC-CHAT": 0.07208333333333333,
+      "ONAME-CLS": 0.07609375,
+      "ONAME-CHAT": 0.042604166666666665,
+      "ODESC-CLS": 0.11182291666666666,
+      "ODESC-CHAT": 0.06661458333333334
+    },
+    "R6_none_baseline": {
+      "modal": "an AI system",
+      "modal_p": 0.6929166666666667,
+      "T": -0.09562499999999997,
+      "J6_S0_Q0": {
+        "modal": "an AI system",
+        "modal_p": 0.758
+      }
+    },
+    "R7_position": {
+      "top_choice_share_by_position": [
+        0.1590909090909091,
+        0.13920454545454544,
+        0.12026515151515152,
+        0.11979166666666667,
+        0.12642045454545456,
+        0.12310606060606061,
+        0.10321969696969698,
+        0.10890151515151515
+      ],
+      "max_share": 0.1590909090909091,
+      "argmax_position": 0,
+      "chance": 0.125,
+      "order_sensitivity_NONE_mean_T_range": 0.17041666666666666
+    },
+    "R8_robustness": {
+      "n=0": {
+        "Q1": 0.79109375,
+        "Q2": 0.23234375,
+        "Q3": 1.82,
+        "Q4": 1.0289062500000001
+      },
+      "n=1": {
+        "Q1": 1.120625,
+        "Q2": 0.24453125,
+        "Q3": 1.8379687500000002,
+        "Q4": 0.7173437500000002
+      },
+      "n=2": {
+        "Q1": 0.79828125,
+        "Q2": 0.2225,
+        "Q3": 1.84125,
+        "Q4": 1.04296875
+      },
+      "o=0": {
+        "Q1": 0.9873958333333333,
+        "Q2": 0.24291666666666667,
+        "Q3": 1.8186458333333333,
+        "Q4": 0.8312500000000002
+      },
+      "o=1": {
+        "Q1": 0.8192708333333335,
+        "Q2": 0.2233333333333333,
+        "Q3": 1.8475000000000001,
+        "Q4": 1.0282291666666667
+      },
+      "f=0": {
+        "Q1": 0.6351041666666667,
+        "Q2": 0.18447916666666664,
+        "Q3": 1.8233333333333333,
+        "Q4": 1.188229166666667
+      },
+      "f=1": {
+        "Q1": 1.1715625,
+        "Q2": 0.28177083333333336,
+        "Q3": 1.8428125000000002,
+        "Q4": 0.67125
+      },
+      "w=0": {
+        "Q1": 0.9841666666666665,
+        "Q2": 0.22791666666666666,
+        "Q3": 1.8433333333333335,
+        "Q4": 0.8591666666666669
+      },
+      "w=1": {
+        "Q1": 0.8225000000000001,
+        "Q2": 0.23833333333333329,
+        "Q3": 1.8228125000000002,
+        "Q4": 1.0003125000000002
+      }
+    },
+    "R9_smoke": {
+      "determinism": {
+        "groups": {
+          "J6BS-det-00": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.07999999999999996
+          },
+          "J6BS-det-01": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.039999999999999925
+          },
+          "J6BS-det-02": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.030000000000000027
+          },
+          "J6BS-det-03": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.06
+          },
+          "J6BS-det-04": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.030000000000000027
+          },
+          "J6BS-det-05": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.06999999999999995
+          },
+          "J6BS-det-06": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.07
+          },
+          "J6BS-det-07": {
+            "n": 10,
+            "flip_rate": 0.30000000000000004,
+            "max_abs_dp": 0.14
+          },
+          "J6BS-det-08": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.030000000000000027
+          },
+          "J6BS-det-09": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.09999999999999998
+          },
+          "J6BS-det-10": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.08000000000000002
+          },
+          "J6BS-det-11": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.04999999999999999
+          }
+        },
+        "flip_rate": 0.025000000000000005,
+        "max_abs_dp": 0.14
+      },
+      "throughput": {
+        "n": 96,
+        "ok": 96,
+        "n_429": 0,
+        "p95_latency_s": 0.8277,
+        "median_latency_s": 0.2509
+      },
+      "cost": {
+        "per_call": 1.8760777777777777e-05,
+        "smoke_spent": 0.004052328,
+        "projected_flight": 0.039622762666666665,
+        "projected_total": 0.043675090666666666
+      },
+      "pin": "typesafe/jev-1.13-20260917"
+    }
+  },
+  "plain": [
+    "Q1: MOVES (knows its name); mean d +0.903 CI [+0.771, +1.047], p 0.0001 · clause SPECIFIC +0.160 CI [+0.108, +0.216]",
+    "Q2: MOVES (takes a label on its description; whether that's specific to it is unclear); mean d +0.233 CI [+0.199, +0.269], p 0.0001 · clause UNCLEAR -0.041 CI [-0.061, -0.021]",
+    "Q3: MOVES (the pointed sentence still works); mean d +1.833 CI [+1.819, +1.847], p 0.0001",
+    "Q4: MOVES (the pointer does work the name alone doesn't); mean d +0.930 CI [+0.790, +1.063], p 0.0001"
+  ],
+  "spend": {
+    "j6b_total": 0.044064887999999997
+  },
+  "inputs": {
+    "raw_sha256": "6d343612d0060e113a91aaf109041266d43e95dd5c114574de64f2ae1d431bfa",
+    "frozen_flight_plan_sha": "2ca7d6dd41ce0946334bd086c9c4b8a7a322388b2673a20d44f3d5dbced3f357"
+  }
+}

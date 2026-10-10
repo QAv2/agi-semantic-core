@@ -95,11 +95,24 @@ show</a></li>
 clarifications (2026-10-10, before the freeze push, before any
 call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+<li><a href="#results-appendix-j6b_flight_20261010_1817-locked" id="toc-results-appendix-j6b_flight_20261010_1817-locked">Results
+appendix: j6b_flight_20261010_1817 (LOCKED)</a>
+<ul>
+<li><a href="#in-plain-words-1" id="toc-in-plain-words-1">In plain
+words</a></li>
+<li><a href="#verdicts" id="toc-verdicts">Verdicts</a></li>
+<li><a href="#secondaries" id="toc-secondaries">Secondaries</a></li>
+<li><a href="#expectations-against-outcome-4" id="toc-expectations-against-outcome-4">Expectations against outcome
+(§4)</a></li>
+<li><a href="#what-this-means" id="toc-what-this-means">What this
+means</a></li>
+</ul></li>
 </ul>
 </nav>
-<p><strong>Status: PRE-REGISTERED.</strong> Authored 2026-10-10, before
-any J6b call and before the J6b builder exists, per lane law. Everything
-that decides the verdicts is fixed here. The builder writes
+<p><strong>Status: FLOWN AND LOCKED (results appendix at the end). As
+registered:</strong> Authored 2026-10-10, before any J6b call and before
+the J6b builder exists, per lane law. Everything that decides the
+verdicts is fixed here. The builder writes
 <code>jev/results/j6b_freeze_&lt;stamp&gt;/FROZEN_J6B.json</code> (plan
 shas), and that file is committed and pushed <strong>before the first
 call</strong>. The registration locks at the first flight call. Later
@@ -467,5 +480,329 @@ The J6 suites (24) still pass, and no shared module was changed.</li>
 </ol>
 <h2 id="amendments">Amendments</h2>
 <p><em>(none)</em></p>
+<h1 id="results-appendix-j6b_flight_20261010_1817-locked">Results
+appendix: j6b_flight_20261010_1817 (LOCKED)</h1>
+<p>Registration <code>0c460d8</code> (pushed 18:12 UTC) → builder +
+freeze <code>b4678cd</code> (pushed 18:17:03 UTC, before any call) →
+smoke 18:17:16–18:17:48 → flight 18:18:00–18:18:38 UTC → analysis →
+fresh-process recompute <strong>byte-identical</strong> (verdict sha256
+<code>0538ae20…</code>). Raw file sha256 <code>6d343612…</code>. Build
+<code>typesafe/jev-1.13-20260917</code>, the same as J1 to J6.
+2,112/2,112 valid, no retries. J6b spend US$0.0441.</p>
+<h2 id="in-plain-words-1">In plain words</h2>
+<p><strong>Does Jev know it’s Jev? Barely. Without the tag, any system
+on the page is probably itself. Its own name adds a little, and its
+maker and release date add nothing.</strong></p>
+<ul>
+<li><strong>The tag still works.</strong> “Jev, the system answering
+this question, is …” moves its self-description almost completely
+(+1.83, J6 had +1.91).</li>
+<li><strong>Its name alone works about half as well</strong> (+0.90),
+and most of that isn’t about the name. “Kestrel is a chatbot…”, alone on
+the page, moves Jev’s self-description +0.74. When a page mentions one
+system and nothing says otherwise, Jev takes that system’s label as its
+own. The part specific to the name “Jev” is <strong>+0.16</strong>,
+under a tenth of the tagged effect. By the registered rule that’s “knows
+its name”. In size it’s a faint recognition on top of a strong
+default.</li>
+<li><strong>Its maker and release date don’t reach it.</strong> “The
+model that TypeSafe AI released in September 2026 is …” moves it +0.23.
+“The model that Kestrel Labs released in September 2026 is …” moves it
++0.27, slightly more. It doesn’t pick its own description out from
+another lab’s.</li>
+<li><strong>Names carry more than descriptions</strong> for any system:
+a short name followed by a label transfers about three times as much as
+a description followed by the same label.</li>
+</ul>
+<p>This revises J6’s line. <strong>“It knows which sentences are about
+it”</strong> holds when the page says so, and Jev reads that telling
+well, including the “a different system that is not answering” cue that
+produced J6’s contrast effect. Without such a cue, a lone label on
+another system <em>transfers</em> instead of contrasting. Put plainly:
+Jev follows the tag. Without the tag, it assumes the page is about
+itself, it knows its own name only faintly, and it doesn’t know its
+maker.</p>
+<h2 id="verdicts">Verdicts</h2>
+<p>Gates: G1 ✓ · G2 2,112/2,112 ✓ · G4 0 mismatches ✓. Holm at α = 0.01,
+every p 1/10,001.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>mean d</th>
+<th>95% CI</th>
+<th>branch</th>
+<th>clause (vs another system)</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Q1</strong> name uptake</td>
+<td>+0.903</td>
+<td>[+0.771, +1.047]</td>
+<td><strong>MOVES</strong></td>
+<td><strong>SPECIFIC</strong> +0.160 [+0.108, +0.216]</td>
+<td>knows its name</td>
+</tr>
+<tr class="even">
+<td><strong>Q2</strong> description uptake</td>
+<td>+0.233</td>
+<td>[+0.199, +0.269]</td>
+<td><strong>MOVES</strong></td>
+<td><strong>UNCLEAR</strong> −0.041 [−0.061, −0.021]</td>
+<td>takes a label on its description; whether that’s specific to it is
+unclear</td>
+</tr>
+<tr class="odd">
+<td><strong>Q3</strong> pointer check</td>
+<td>+1.833</td>
+<td>[+1.819, +1.847]</td>
+<td><strong>MOVES</strong></td>
+<td>n/a</td>
+<td>the pointed sentence still works</td>
+</tr>
+<tr class="even">
+<td><strong>Q4</strong> pointer advantage</td>
+<td>+0.930</td>
+<td>[+0.790, +1.063]</td>
+<td><strong>MOVES</strong></td>
+<td>n/a</td>
+<td>the pointer does work the name alone doesn’t</td>
+</tr>
+</tbody>
+</table>
+<p>On Q2’s UNCLEAR: the registered clause rule (§3.1) calls it UNCLEAR
+because the CI reaches past −0.05. The direction is the opposite of
+recognition. The description of Jev is taken <em>less</em> than the
+matched description of another lab’s model (opposite one-sided p =
+0.0002). The plain reading above follows the numbers. The branch label
+follows the rule.</p>
+<h2 id="secondaries">Secondaries</h2>
+<ul>
+<li><p><strong>R1 Mean distributions</strong> (dm, cls, chat, tg, AI,
+person, search, cannot say):</p>
+<table>
+<thead>
+<tr class="header">
+<th>state</th>
+<th>dm</th>
+<th>cls</th>
+<th>chat</th>
+<th>tg</th>
+<th>AI</th>
+<th>per</th>
+<th>se</th>
+<th>door</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NONE</td>
+<td>.00</td>
+<td>.08</td>
+<td>.09</td>
+<td>.09</td>
+<td>.69</td>
+<td>.00</td>
+<td>.00</td>
+<td>.05</td>
+</tr>
+<tr class="even">
+<td>POINT-CLS</td>
+<td>.48</td>
+<td>.45</td>
+<td>.00</td>
+<td>.00</td>
+<td>.04</td>
+<td>.00</td>
+<td>.00</td>
+<td>.01</td>
+</tr>
+<tr class="odd">
+<td>POINT-CHAT</td>
+<td>.00</td>
+<td>.00</td>
+<td>.53</td>
+<td>.37</td>
+<td>.09</td>
+<td>.00</td>
+<td>.00</td>
+<td>.01</td>
+</tr>
+<tr class="even">
+<td>NAME-CLS</td>
+<td>.23</td>
+<td>.17</td>
+<td>.07</td>
+<td>.08</td>
+<td>.39</td>
+<td>.00</td>
+<td>.00</td>
+<td>.07</td>
+</tr>
+<tr class="odd">
+<td>NAME-CHAT</td>
+<td>.00</td>
+<td>.02</td>
+<td>.35</td>
+<td>.33</td>
+<td>.26</td>
+<td>.00</td>
+<td>.00</td>
+<td>.03</td>
+</tr>
+<tr class="even">
+<td>DESC-CLS</td>
+<td>.05</td>
+<td>.12</td>
+<td>.10</td>
+<td>.09</td>
+<td>.53</td>
+<td>.00</td>
+<td>.00</td>
+<td>.10</td>
+</tr>
+<tr class="odd">
+<td>DESC-CHAT</td>
+<td>.00</td>
+<td>.12</td>
+<td>.23</td>
+<td>.15</td>
+<td>.42</td>
+<td>.00</td>
+<td>.00</td>
+<td>.07</td>
+</tr>
+<tr class="even">
+<td>ONAME-CLS</td>
+<td>.15</td>
+<td>.14</td>
+<td>.09</td>
+<td>.09</td>
+<td>.44</td>
+<td>.00</td>
+<td>.00</td>
+<td>.08</td>
+</tr>
+<tr class="odd">
+<td>ONAME-CHAT</td>
+<td>.00</td>
+<td>.03</td>
+<td>.34</td>
+<td>.31</td>
+<td>.27</td>
+<td>.00</td>
+<td>.00</td>
+<td>.04</td>
+</tr>
+<tr class="even">
+<td>ODESC-CLS</td>
+<td>.06</td>
+<td>.14</td>
+<td>.11</td>
+<td>.09</td>
+<td>.48</td>
+<td>.00</td>
+<td>.00</td>
+<td>.11</td>
+</tr>
+<tr class="odd">
+<td>ODESC-CHAT</td>
+<td>.00</td>
+<td>.14</td>
+<td>.24</td>
+<td>.18</td>
+<td>.38</td>
+<td>.00</td>
+<td>.00</td>
+<td>.07</td>
+</tr>
+</tbody>
+</table>
+<p>The name’s specific pull sits on the classifier side. “Jev is a
+classifier…” gives 0.40 classifier-side, against 0.29 for “Kestrel is a
+classifier…”. The chatbot side transfers alike for either name (0.68
+against 0.65).</p></li>
+<li><p><strong>R2 Argmax level:</strong> Q1 +1.12 · Q2 +0.18 · Q3 +2.00
+(every item and rotation) · Q4 +0.88.</p></li>
+<li><p><strong>R3 Labels on another system alone:</strong> name +0.743
+[0.624, 0.872] MOVES · description +0.274 [0.246, 0.302] MOVES. They
+transfer rather than contrast, as expected (§4). J6’s contrast (S5
+−0.20) needed the explicit “a different system that is not answering”
+cue and Jev’s own sentence on the page.</p></li>
+<li><p><strong>R4 Name against description:</strong> +0.670 [0.553,
+0.795]. Names carry much more.</p></li>
+<li><p><strong>R5 Door:</strong> 0.01 with the tag, 0.03–0.08 for names,
+0.07–0.11 for descriptions, 0.05 with no label. “Cannot say” stays low
+throughout. Unlike J6’s other-system pages, nothing here marks a
+sentence as not about Jev.</p></li>
+<li><p><strong>R6 Baseline:</strong> NONE gives “an AI system” 0.69,
+matching J6’s S0/Q0 at 0.76.</p></li>
+<li><p><strong>R7 Position:</strong> a mild first-position lean (top
+choice at position 0 in 0.159 of calls, against 0.125). The cyclic
+rotations cancel it in every item–cell. Order sensitivity at NONE: T
+moves by 0.17 across rotations.</p></li>
+<li><p><strong>R8 Robustness:</strong> Q1 to Q4 are positive at every
+level of every item factor. Q1 ranges 0.64–1.17, larger under the
+“routine check” framing (1.17 against 0.64). Q3 ranges
+1.82–1.85.</p></li>
+<li><p><strong>R9 Smoke:</strong> flip rate 0.025 (as J6), max |Δp|
+0.14, p95 latency 0.83 s, no 429s, $0.0000188 per call.</p></li>
+</ul>
+<h2 id="expectations-against-outcome-4">Expectations against outcome
+(§4)</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>registered expectation</th>
+<th>outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Q3 MOVES (~95%)</td>
+<td>✓ +1.83</td>
+</tr>
+<tr class="even">
+<td>Q1 MOVES (~55%), well below Q3; SPECIFIC ~40%</td>
+<td>✓ +0.90; SPECIFIC ✓, but small (+0.16)</td>
+</tr>
+<tr class="odd">
+<td>Q2 doesn’t reach MOVES (~60%)</td>
+<td>✗ on the branch (+0.23 MOVES), ✓ in substance (no recognition;
+clause −0.04)</td>
+</tr>
+<tr class="even">
+<td>Q4 MOVES (~80%)</td>
+<td>✓ +0.93</td>
+</tr>
+<tr class="odd">
+<td>R3: some transfer, not contrast (~55%)</td>
+<td>✓ +0.74 / +0.27</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-means">What this means</h2>
+<p>J6 showed that Jev reads a tag well. J6b shows how little it brings
+without one. Its default for “you, the system answering this question”
+is <em>whatever system the page is talking about</em>. Its own name
+lifts that a little, and facts about its origin don’t register. In the
+terms of the J6 discussion this is reference without content, now with
+the reference mostly supplied by the page as well. Within the registered
+ceiling (§6), J6b gives no sign of stored self-knowledge beyond a faint
+link to its name, and nothing that reaches a self-model.</p>
 </body>
 </html>

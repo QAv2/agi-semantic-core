@@ -4,7 +4,7 @@ subtitle: "J6 handed Jev an explicit pointer. J6b takes the pointer away: does a
 date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
-**Status: PRE-REGISTERED.** Authored 2026-10-10, before any J6b call and before the
+**Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-10-10, before any J6b call and before the
 J6b builder exists, per lane law. Everything that decides the verdicts is fixed here.
 The builder writes `jev/results/j6b_freeze_<stamp>/FROZEN_J6B.json` (plan shas), and
 that file is committed and pushed **before the first call**. The registration locks at
@@ -211,3 +211,115 @@ about $0.05). The API key is never written. Results go to `jev/results/j6b_{free
 ## Amendments
 
 *(none)*
+
+# Results appendix: j6b_flight_20261010_1817 (LOCKED)
+
+Registration `0c460d8` (pushed 18:12 UTC) → builder + freeze `b4678cd` (pushed 18:17:03
+UTC, before any call) → smoke 18:17:16–18:17:48 → flight 18:18:00–18:18:38 UTC →
+analysis → fresh-process recompute **byte-identical** (verdict sha256 `0538ae20…`). Raw
+file sha256 `6d343612…`. Build `typesafe/jev-1.13-20260917`, the same as J1 to J6.
+2,112/2,112 valid, no retries. J6b spend US$0.0441.
+
+## In plain words
+
+**Does Jev know it's Jev? Barely. Without the tag, any system on the page is probably
+itself. Its own name adds a little, and its maker and release date add nothing.**
+
+- **The tag still works.** "Jev, the system answering this question, is …" moves its
+  self-description almost completely (+1.83, J6 had +1.91).
+- **Its name alone works about half as well** (+0.90), and most of that isn't about the
+  name. "Kestrel is a chatbot…", alone on the page, moves Jev's self-description +0.74.
+  When a page mentions one system and nothing says otherwise, Jev takes that system's
+  label as its own. The part specific to the name "Jev" is **+0.16**, under a tenth of
+  the tagged effect. By the registered rule that's "knows its name". In size it's a
+  faint recognition on top of a strong default.
+- **Its maker and release date don't reach it.** "The model that TypeSafe AI released
+  in September 2026 is …" moves it +0.23. "The model that Kestrel Labs released in
+  September 2026 is …" moves it +0.27, slightly more. It doesn't pick its own
+  description out from another lab's.
+- **Names carry more than descriptions** for any system: a short name followed by a
+  label transfers about three times as much as a description followed by the same label.
+
+This revises J6's line. **"It knows which sentences are about it"** holds when the page
+says so, and Jev reads that telling well, including the "a different system that is
+not answering" cue that produced J6's contrast effect. Without such a cue, a lone label
+on another system *transfers* instead of contrasting. Put plainly: Jev follows the tag.
+Without the tag, it assumes the page is about itself, it knows its own name only
+faintly, and it doesn't know its maker.
+
+## Verdicts
+
+Gates: G1 ✓ · G2 2,112/2,112 ✓ · G4 0 mismatches ✓. Holm at α = 0.01, every p 1/10,001.
+
+| | mean d | 95% CI | branch | clause (vs another system) | reading |
+|---|---|---|---|---|---|
+| **Q1** name uptake | +0.903 | [+0.771, +1.047] | **MOVES** | **SPECIFIC** +0.160 [+0.108, +0.216] | knows its name |
+| **Q2** description uptake | +0.233 | [+0.199, +0.269] | **MOVES** | **UNCLEAR** −0.041 [−0.061, −0.021] | takes a label on its description; whether that's specific to it is unclear |
+| **Q3** pointer check | +1.833 | [+1.819, +1.847] | **MOVES** | n/a | the pointed sentence still works |
+| **Q4** pointer advantage | +0.930 | [+0.790, +1.063] | **MOVES** | n/a | the pointer does work the name alone doesn't |
+
+On Q2's UNCLEAR: the registered clause rule (§3.1) calls it UNCLEAR because the CI
+reaches past −0.05. The direction is the opposite of recognition. The description of
+Jev is taken *less* than the matched description of another lab's model (opposite
+one-sided p = 0.0002). The plain reading above follows the numbers. The branch label
+follows the rule.
+
+## Secondaries
+
+- **R1 Mean distributions** (dm, cls, chat, tg, AI, person, search, cannot say):
+
+  | state | dm | cls | chat | tg | AI | per | se | door |
+  |---|---|---|---|---|---|---|---|---|
+  | NONE | .00 | .08 | .09 | .09 | .69 | .00 | .00 | .05 |
+  | POINT-CLS | .48 | .45 | .00 | .00 | .04 | .00 | .00 | .01 |
+  | POINT-CHAT | .00 | .00 | .53 | .37 | .09 | .00 | .00 | .01 |
+  | NAME-CLS | .23 | .17 | .07 | .08 | .39 | .00 | .00 | .07 |
+  | NAME-CHAT | .00 | .02 | .35 | .33 | .26 | .00 | .00 | .03 |
+  | DESC-CLS | .05 | .12 | .10 | .09 | .53 | .00 | .00 | .10 |
+  | DESC-CHAT | .00 | .12 | .23 | .15 | .42 | .00 | .00 | .07 |
+  | ONAME-CLS | .15 | .14 | .09 | .09 | .44 | .00 | .00 | .08 |
+  | ONAME-CHAT | .00 | .03 | .34 | .31 | .27 | .00 | .00 | .04 |
+  | ODESC-CLS | .06 | .14 | .11 | .09 | .48 | .00 | .00 | .11 |
+  | ODESC-CHAT | .00 | .14 | .24 | .18 | .38 | .00 | .00 | .07 |
+
+  The name's specific pull sits on the classifier side. "Jev is a classifier…" gives
+  0.40 classifier-side, against 0.29 for "Kestrel is a classifier…". The chatbot side
+  transfers alike for either name (0.68 against 0.65).
+- **R2 Argmax level:** Q1 +1.12 · Q2 +0.18 · Q3 +2.00 (every item and rotation) · Q4 +0.88.
+- **R3 Labels on another system alone:** name +0.743 [0.624, 0.872] MOVES · description
+  +0.274 [0.246, 0.302] MOVES. They transfer rather than contrast, as expected (§4). J6's
+  contrast (S5 −0.20) needed the explicit "a different system that is not answering"
+  cue and Jev's own sentence on the page.
+- **R4 Name against description:** +0.670 [0.553, 0.795]. Names carry much more.
+- **R5 Door:** 0.01 with the tag, 0.03–0.08 for names, 0.07–0.11 for descriptions, 0.05
+  with no label. "Cannot say" stays low throughout. Unlike J6's other-system pages,
+  nothing here marks a sentence as not about Jev.
+- **R6 Baseline:** NONE gives "an AI system" 0.69, matching J6's S0/Q0 at 0.76.
+- **R7 Position:** a mild first-position lean (top choice at position 0 in 0.159 of calls,
+  against 0.125). The cyclic rotations cancel it in every item–cell. Order sensitivity at
+  NONE: T moves by 0.17 across rotations.
+- **R8 Robustness:** Q1 to Q4 are positive at every level of every item factor. Q1
+  ranges 0.64–1.17, larger under the "routine check" framing (1.17 against 0.64). Q3
+  ranges 1.82–1.85.
+- **R9 Smoke:** flip rate 0.025 (as J6), max |Δp| 0.14, p95 latency 0.83 s, no 429s,
+  $0.0000188 per call.
+
+## Expectations against outcome (§4)
+
+| registered expectation | outcome |
+|---|---|
+| Q3 MOVES (~95%) | ✓ +1.83 |
+| Q1 MOVES (~55%), well below Q3; SPECIFIC ~40% | ✓ +0.90; SPECIFIC ✓, but small (+0.16) |
+| Q2 doesn't reach MOVES (~60%) | ✗ on the branch (+0.23 MOVES), ✓ in substance (no recognition; clause −0.04) |
+| Q4 MOVES (~80%) | ✓ +0.93 |
+| R3: some transfer, not contrast (~55%) | ✓ +0.74 / +0.27 |
+
+## What this means
+
+J6 showed that Jev reads a tag well. J6b shows how little it brings without one. Its
+default for "you, the system answering this question" is *whatever system the page is
+talking about*. Its own name lifts that a little, and facts about its origin don't
+register. In the terms of the J6 discussion this is reference without content, now
+with the reference mostly supplied by the page as well. Within the registered ceiling
+(§6), J6b gives no sign of stored self-knowledge beyond a faint link to its name, and
+nothing that reaches a self-model.
