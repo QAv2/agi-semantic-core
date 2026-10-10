@@ -30,3 +30,8 @@ docs/E7BQ_SOURCES.md
 # Jev runs: commit the compressed raw file only
 jev/results/*/raw.jsonl
 jev/results/*/*/raw.jsonl
+
+# Windows-series runs: commit the compressed raw file and the reader JPEGs; original PNGs stay local
+windows/results/*/raw.jsonl
+windows/results/*/*/raw.jsonl
+windows/results/**/png/
