@@ -4,7 +4,6 @@
 
 **Author**: Joseph Vanhorn — [joeyv23.neocities.org](https://joeyv23.neocities.org)
 **Source (canonical)**: [github.com/QAv2/agi-semantic-core](https://github.com/QAv2/agi-semantic-core)
-**Mirror**: [codeberg.org/QAv2/agi-semantic-core](https://codeberg.org/QAv2/agi-semantic-core)
 **Live demo**: [qav2-oracle.netlify.app](https://qav2-oracle.netlify.app)
 **License**: MIT — see [`LICENSE`](LICENSE)
 

@@ -30,7 +30,6 @@ These need to be resolved before submission, not discovered mid-application:
 
 ### Repository
 - Primary: https://github.com/QAv2/agi-semantic-core
-- Mirror: https://codeberg.org/QAv2/agi-semantic-core
 
 ### License
 **MIT** *(`LICENSE` file at repo root, added 2026-04-26)*
