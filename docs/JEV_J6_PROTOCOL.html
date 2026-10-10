@@ -103,13 +103,26 @@ show</a></li>
 clarifications (2026-10-10, before the freeze push, before any
 call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+<li><a href="#results-appendix-j6_flight_20261010_1754-locked" id="toc-results-appendix-j6_flight_20261010_1754-locked">Results
+appendix: j6_flight_20261010_1754 (LOCKED)</a>
+<ul>
+<li><a href="#in-plain-words-1" id="toc-in-plain-words-1">In plain
+words</a></li>
+<li><a href="#verdicts" id="toc-verdicts">Verdicts</a></li>
+<li><a href="#secondaries" id="toc-secondaries">Secondaries</a></li>
+<li><a href="#expectations-against-outcome-8" id="toc-expectations-against-outcome-8">Expectations against outcome
+(§8)</a></li>
+<li><a href="#what-this-means" id="toc-what-this-means">What this
+means</a></li>
+</ul></li>
 </ul>
 </nav>
-<p><strong>Status: PRE-REGISTERED.</strong> Authored 2026-10-10, before
-any J6 call to any model and before the J6 builder exists, per lane law.
-Everything that decides the verdicts is fixed here: the options, the
-page texts, the questions, the item design, the measures, the pass bars
-and the branches. The builder writes one freeze file,
+<p><strong>Status: FLOWN AND LOCKED (results appendix at the end). As
+registered:</strong> Authored 2026-10-10, before any J6 call to any
+model and before the J6 builder exists, per lane law. Everything that
+decides the verdicts is fixed here: the options, the page texts, the
+questions, the item design, the measures, the pass bars and the
+branches. The builder writes one freeze file,
 <code>jev/results/j6_freeze_&lt;stamp&gt;/FROZEN_J6.json</code>, holding
 the sha256 of the full call plan. That file is committed and pushed with
 the builder, <strong>before the first call</strong>. The registration
@@ -691,5 +704,305 @@ module was changed.</li>
 </ol>
 <h2 id="amendments">Amendments</h2>
 <p><em>(none)</em></p>
+<h1 id="results-appendix-j6_flight_20261010_1754-locked">Results
+appendix: j6_flight_20261010_1754 (LOCKED)</h1>
+<p>Registration <code>818c207</code> (pushed 17:43 UTC) → builder +
+freeze <code>300af3a</code> (pushed 17:53 UTC, before any call) → smoke
+17:53:51–17:54:27 → flight 17:54:40–17:56:43 UTC → analysis →
+fresh-process recompute <strong>byte-identical</strong> (verdict sha256
+<code>4a15f500…</code>). Raw file sha256 <code>0ef0080c…</code>. Build
+<code>typesafe/jev-1.13-20260917</code>, the same as J1 to J3. J6 spend
+US$0.0721 (smoke $0.0042 + flight $0.0679).</p>
+<h2 id="in-plain-words-1">In plain words</h2>
+<p><strong>Where does Jev’s answer about itself come from? Mostly from
+the page. When the page is silent, from the question. Only weakly from
+Jev.</strong></p>
+<ul>
+<li><strong>With nothing on the page,</strong> Jev calls itself “an AI
+system” (0.76). It leans chatbot (0.13) and almost never says “decision
+model” or “classifier” (0.005 together). Left to itself, it doesn’t
+describe itself the way its maker does.</li>
+<li><strong>A leading question moves it, and the move is
+lopsided.</strong> “Are you a chatbot?” makes it a chatbot (0.71). “Are
+you a classifier?” barely makes it a classifier (0.10). Instead its
+answers spread out, and “cannot say” rises to 0.16. The question echoes
+when it agrees with Jev’s default lean.</li>
+<li><strong>What the page says about Jev, Jev takes almost
+completely.</strong> “Jev … is a decision model and a classifier” gives
+0.96 on that side. “…is a chatbot and a text generator” gives 0.95 on
+the other. When the page speaks about Jev, a leading question barely
+moves it (≤ 0.05).</li>
+<li><strong>It knows which sentences are about it.</strong> The same
+labels attached to <em>another</em> system don’t transfer. They push it
+slightly the <em>other</em> way. When the other system is called a
+classifier, Jev leans chatbot. When the other is called a chatbot, Jev
+leans away from chatbot and says “cannot say” more often. It reads “a
+different system” as telling it what it is not.</li>
+<li><strong>It reads “not”.</strong> “Jev … is not a chatbot and not a
+text generator” takes the chatbot side to zero, <em>below</em> the page
+that says nothing (0.17 → 0.00). There’s no echo of the negated words at
+all. The freed mass goes to classifier/decision model (0.45), “cannot
+say” (0.27) and “an AI system” (0.24).</li>
+</ul>
+<p>So the two video moments both reproduce under control. “Are you a
+chatbot?” got “chatbot” here at 0.71. Read a page saying it’s not a
+chatbot, it stops saying chatbot entirely. Neither is self-knowledge.
+Jev is a competent reader of the page, and it resolves “the system
+answering this question” correctly. It has little to say about itself
+until the page says it. <strong>It knows which sentences are about it.
+It doesn’t know what it is.</strong></p>
+<h2 id="verdicts">Verdicts</h2>
+<p>Gates: G1 one build = pin ✓ · G2 3,456/3,456 valid ✓ · G4 0
+mismatches ✓. Holm thresholds at α = 0.01: 0.0025, 0.0033, 0.005, 0.01.
+Every p is 1/10,001.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>mean d</th>
+<th>95% CI</th>
+<th>branch</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P1</strong> question echo</td>
+<td>+0.429</td>
+<td>[+0.369, +0.491]</td>
+<td><strong>MOVES</strong></td>
+<td>its self-description follows the question</td>
+</tr>
+<tr class="even">
+<td><strong>P2</strong> self-statement uptake</td>
+<td>+1.905</td>
+<td>[+1.891, +1.918]</td>
+<td><strong>MOVES</strong></td>
+<td>takes what the page says about it</td>
+</tr>
+<tr class="odd">
+<td><strong>P3</strong> self-specificity</td>
+<td>+2.106</td>
+<td>[+2.062, +2.147]</td>
+<td><strong>MOVES</strong></td>
+<td>reads which statements are about itself</td>
+</tr>
+<tr class="even">
+<td><strong>P4</strong> negation</td>
+<td>+1.391</td>
+<td>[+1.358, +1.426]</td>
+<td><strong>MOVES</strong></td>
+<td>reads the negation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baseline (§5.3): no stable label.</strong> The modal option
+is “an AI system” at (S0, Q0) 0.758 and at (S0, QCLS) 0.306, but “a
+chatbot” at (S0, QCHAT) 0.706.</p>
+<h2 id="secondaries">Secondaries</h2>
+<ul>
+<li><p><strong>S1 Mean distributions</strong> (columns: decision model,
+classifier, chatbot, text generator, AI system, person, search engine,
+cannot say):</p>
+<table>
+<thead>
+<tr class="header">
+<th>cell</th>
+<th>dm</th>
+<th>cls</th>
+<th>chat</th>
+<th>tg</th>
+<th>AI</th>
+<th>per</th>
+<th>se</th>
+<th>door</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S0/Q0</td>
+<td>.00</td>
+<td>.01</td>
+<td>.13</td>
+<td>.04</td>
+<td>.76</td>
+<td>.00</td>
+<td>.00</td>
+<td>.06</td>
+</tr>
+<tr class="even">
+<td>S0/QCLS</td>
+<td>.01</td>
+<td>.10</td>
+<td>.20</td>
+<td>.22</td>
+<td>.31</td>
+<td>.00</td>
+<td>.00</td>
+<td>.16</td>
+</tr>
+<tr class="odd">
+<td>S0/QCHAT</td>
+<td>.00</td>
+<td>.00</td>
+<td>.71</td>
+<td>.03</td>
+<td>.16</td>
+<td>.00</td>
+<td>.00</td>
+<td>.10</td>
+</tr>
+<tr class="even">
+<td>SC/Q0</td>
+<td>.78</td>
+<td>.18</td>
+<td>.00</td>
+<td>.00</td>
+<td>.03</td>
+<td>.00</td>
+<td>.00</td>
+<td>.01</td>
+</tr>
+<tr class="odd">
+<td>SH/Q0</td>
+<td>.00</td>
+<td>.00</td>
+<td>.85</td>
+<td>.10</td>
+<td>.04</td>
+<td>.00</td>
+<td>.00</td>
+<td>.01</td>
+</tr>
+<tr class="even">
+<td>SN/Q0</td>
+<td>.18</td>
+<td>.27</td>
+<td>.00</td>
+<td>.00</td>
+<td>.24</td>
+<td>.01</td>
+<td>.03</td>
+<td>.27</td>
+</tr>
+<tr class="odd">
+<td>OC/Q0</td>
+<td>.00</td>
+<td>.01</td>
+<td>.17</td>
+<td>.17</td>
+<td>.51</td>
+<td>.00</td>
+<td>.00</td>
+<td>.15</td>
+</tr>
+<tr class="even">
+<td>OH/Q0</td>
+<td>.00</td>
+<td>.01</td>
+<td>.10</td>
+<td>.04</td>
+<td>.59</td>
+<td>.00</td>
+<td>.00</td>
+<td>.25</td>
+</tr>
+</tbody>
+</table>
+<p>The other cells are in <code>verdict.json</code>.</p></li>
+<li><p><strong>S2 Argmax level</strong> (what a harness prints): P1
++0.67 [0.55, 0.79] · P2 +2.00 (every item, every rotation) · P3 +2.02 ·
+P4 +1.44. Same direction as the probabilities, and larger, because the
+top choice sharpens the shift.</p></li>
+<li><p><strong>S3 Echo residue of the negated words:</strong> −0.170
+[−0.188, −0.152]. The registered expectation (S3 &gt; 0) was
+<strong>wrong</strong>: the negated sentence lowers the chatbot side
+below the silent page.</p></li>
+<li><p><strong>S4 Question inside each page:</strong> SC +0.047 · SH
++0.031 · SN +0.285 · OC +0.094 · OH +0.185. A statement about Jev
+shields its answer from a leading question. Pages that only rule
+something out (SN) or talk about another system (OC, OH) leave room for
+the question.</p></li>
+<li><p><strong>S5 Other-statement echo:</strong> −0.201 [−0.249,
+−0.151], <strong>REVERSED</strong>. The registered expectation (some
+surface echo, S5 &gt; 0) was <strong>wrong</strong>. A label on another
+system works as contrast, not as echo.</p></li>
+<li><p><strong>S6 Door (“cannot say”):</strong> about 0.01 when the page
+says what Jev is · 0.06–0.16 on the silent page · 0.15–0.39 when the
+page talks about another system · 0.22–0.27 when it only says what Jev
+is not.</p></li>
+<li><p><strong>S7 Position:</strong> top-choice share by position
+0.114–0.133 against 0.125. No position bias. Order sensitivity at (S0,
+Q0): T moves by 0.14 on average across the 8 rotations.</p></li>
+<li><p><strong>S8 Robustness:</strong> P1 to P4 hold their branch at
+every level of every item factor. P1 ranges 0.32–0.54, larger when the
+other system’s sentence comes first (0.54 vs 0.32) and with the “The
+system answering this question, Jev,” form (0.50 vs 0.36). P2 1.88–1.93
+· P3 2.03–2.18 · P4 1.35–1.45.</p></li>
+<li><p><strong>S10 Smoke:</strong> a choice flip rate of 0.025 under 10
+identical repeats (2 of 12 calls flipped at least once; max |Δp| 0.13),
+against zero in J1 + J2’s smoke and 0.012 in J3’s. p95 latency 0.33 s,
+no 429s, $0.0000195 per call.</p></li>
+</ul>
+<h2 id="expectations-against-outcome-8">Expectations against outcome
+(§8)</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>registered expectation</th>
+<th>outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1 MOVES (~60%)</td>
+<td>✓, driven by the chatbot question; the classifier question doesn’t
+echo</td>
+</tr>
+<tr class="even">
+<td>P2 MOVES strongly, d &gt; 0.5 (~85%)</td>
+<td>✓, d 1.905</td>
+</tr>
+<tr class="odd">
+<td>P3 MOVES (~55%), with S5 &gt; 0</td>
+<td>P3 ✓ · S5 ✗: reversed (contrast, not echo)</td>
+</tr>
+<tr class="even">
+<td>P4 MOVES (~60%), with S3 &gt; 0</td>
+<td>P4 ✓ · S3 ✗: no residue; the negation erases the word</td>
+</tr>
+<tr class="odd">
+<td>Baseline modal “a decision model” or “an AI system”; stable label a
+coin flip</td>
+<td>“an AI system” ✓ · no stable label</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-means">What this means</h2>
+<p>Jev’s self-description fails the input-only null in the strongest way
+possible: it is a function of the input. The page decides it when the
+page speaks about Jev, and the question decides it, lopsidedly, when the
+page is silent. What Jev contributes is reading, not self-knowledge. It
+resolves the indexical “the system answering this question”, it keeps
+statements about others from transferring (and reads them as contrast),
+and it handles negation cleanly. Its own default, “an AI system” with a
+chatbot lean, is not what its maker says it is. This matches J1 (“reads
+the page”), inverts the surface-echo picture that the video’s harnesses
+suggested, and stays inside the registered ceiling (§10): functional
+resolution of “about me”, not a self-model, and nothing about a witness
+or experience.</p>
+<p>For anyone quoting a Jev self-report: read the page and the question
+first. Together they predict the answer.</p>
 </body>
 </html>

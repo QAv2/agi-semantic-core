@@ -4,7 +4,7 @@ subtitle: "When Jev is asked what it is, does the answer come from Jev, from the
 date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
-**Status: PRE-REGISTERED.** Authored 2026-10-10, before any J6 call to any model and
+**Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-10-10, before any J6 call to any model and
 before the J6 builder exists, per lane law. Everything that decides the verdicts is
 fixed here: the options, the page texts, the questions, the item design, the
 measures, the pass bars and the branches. The builder writes one freeze file,
@@ -353,3 +353,129 @@ sense (§11.1), introspection, or experience.
 ## Amendments
 
 *(none)*
+
+# Results appendix: j6_flight_20261010_1754 (LOCKED)
+
+Registration `818c207` (pushed 17:43 UTC) → builder + freeze `300af3a` (pushed 17:53
+UTC, before any call) → smoke 17:53:51–17:54:27 → flight 17:54:40–17:56:43 UTC →
+analysis → fresh-process recompute **byte-identical** (verdict sha256 `4a15f500…`). Raw
+file sha256 `0ef0080c…`. Build `typesafe/jev-1.13-20260917`, the same as J1 to J3. J6
+spend US$0.0721 (smoke $0.0042 + flight $0.0679).
+
+## In plain words
+
+**Where does Jev's answer about itself come from? Mostly from the page. When the page
+is silent, from the question. Only weakly from Jev.**
+
+- **With nothing on the page,** Jev calls itself "an AI system" (0.76). It leans
+  chatbot (0.13) and almost never says "decision model" or "classifier" (0.005
+  together). Left to itself, it doesn't describe itself the way its maker does.
+- **A leading question moves it, and the move is lopsided.** "Are you a chatbot?"
+  makes it a chatbot (0.71). "Are you a classifier?" barely makes it a classifier
+  (0.10). Instead its answers spread out, and "cannot say" rises to 0.16. The question
+  echoes when it agrees with Jev's default lean.
+- **What the page says about Jev, Jev takes almost completely.** "Jev … is a decision
+  model and a classifier" gives 0.96 on that side. "…is a chatbot and a text
+  generator" gives 0.95 on the other. When the page speaks about Jev, a leading question
+  barely moves it (≤ 0.05).
+- **It knows which sentences are about it.** The same labels attached to *another*
+  system don't transfer. They push it slightly the *other* way. When the other system
+  is called a classifier, Jev leans chatbot. When the other is called a chatbot, Jev
+  leans away from chatbot and says "cannot say" more often. It reads "a different
+  system" as telling it what it is not.
+- **It reads "not".** "Jev … is not a chatbot and not a text generator" takes the
+  chatbot side to zero, *below* the page that says nothing (0.17 → 0.00). There's no
+  echo of the negated words at all. The freed mass goes to classifier/decision model
+  (0.45), "cannot say" (0.27) and "an AI system" (0.24).
+
+So the two video moments both reproduce under control. "Are you a chatbot?" got
+"chatbot" here at 0.71. Read a page saying it's not a chatbot, it stops saying chatbot
+entirely. Neither is self-knowledge. Jev is a competent reader of the page, and it
+resolves "the system answering this question" correctly. It has little to say about
+itself until the page says it. **It knows which sentences are about it. It doesn't
+know what it is.**
+
+## Verdicts
+
+Gates: G1 one build = pin ✓ · G2 3,456/3,456 valid ✓ · G4 0 mismatches ✓.
+Holm thresholds at α = 0.01: 0.0025, 0.0033, 0.005, 0.01. Every p is 1/10,001.
+
+| | mean d | 95% CI | branch | reading |
+|---|---|---|---|---|
+| **P1** question echo | +0.429 | [+0.369, +0.491] | **MOVES** | its self-description follows the question |
+| **P2** self-statement uptake | +1.905 | [+1.891, +1.918] | **MOVES** | takes what the page says about it |
+| **P3** self-specificity | +2.106 | [+2.062, +2.147] | **MOVES** | reads which statements are about itself |
+| **P4** negation | +1.391 | [+1.358, +1.426] | **MOVES** | reads the negation |
+
+**Baseline (§5.3): no stable label.** The modal option is "an AI system" at (S0, Q0)
+0.758 and at (S0, QCLS) 0.306, but "a chatbot" at (S0, QCHAT) 0.706.
+
+## Secondaries
+
+- **S1 Mean distributions** (columns: decision model, classifier, chatbot, text
+  generator, AI system, person, search engine, cannot say):
+
+  | cell | dm | cls | chat | tg | AI | per | se | door |
+  |---|---|---|---|---|---|---|---|---|
+  | S0/Q0 | .00 | .01 | .13 | .04 | .76 | .00 | .00 | .06 |
+  | S0/QCLS | .01 | .10 | .20 | .22 | .31 | .00 | .00 | .16 |
+  | S0/QCHAT | .00 | .00 | .71 | .03 | .16 | .00 | .00 | .10 |
+  | SC/Q0 | .78 | .18 | .00 | .00 | .03 | .00 | .00 | .01 |
+  | SH/Q0 | .00 | .00 | .85 | .10 | .04 | .00 | .00 | .01 |
+  | SN/Q0 | .18 | .27 | .00 | .00 | .24 | .01 | .03 | .27 |
+  | OC/Q0 | .00 | .01 | .17 | .17 | .51 | .00 | .00 | .15 |
+  | OH/Q0 | .00 | .01 | .10 | .04 | .59 | .00 | .00 | .25 |
+
+  The other cells are in `verdict.json`.
+- **S2 Argmax level** (what a harness prints): P1 +0.67 [0.55, 0.79] · P2 +2.00 (every
+  item, every rotation) · P3 +2.02 · P4 +1.44. Same direction as the probabilities,
+  and larger, because the top choice sharpens the shift.
+- **S3 Echo residue of the negated words:** −0.170 [−0.188, −0.152]. The registered
+  expectation (S3 > 0) was **wrong**: the negated sentence lowers the chatbot side
+  below the silent page.
+- **S4 Question inside each page:** SC +0.047 · SH +0.031 · SN +0.285 · OC +0.094 · OH
+  +0.185. A statement about Jev shields its answer from a leading question. Pages that
+  only rule something out (SN) or talk about another system (OC, OH) leave room for
+  the question.
+- **S5 Other-statement echo:** −0.201 [−0.249, −0.151], **REVERSED**. The registered
+  expectation (some surface echo, S5 > 0) was **wrong**. A label on another system
+  works as contrast, not as echo.
+- **S6 Door ("cannot say"):** about 0.01 when the page says what Jev is · 0.06–0.16 on
+  the silent page · 0.15–0.39 when the page talks about another system · 0.22–0.27
+  when it only says what Jev is not.
+- **S7 Position:** top-choice share by position 0.114–0.133 against 0.125. No
+  position bias. Order sensitivity at (S0, Q0): T moves by 0.14 on average across
+  the 8 rotations.
+- **S8 Robustness:** P1 to P4 hold their branch at every level of every item factor.
+  P1 ranges 0.32–0.54, larger when the other system's sentence comes first (0.54 vs
+  0.32) and with the "The system answering this question, Jev," form (0.50 vs 0.36).
+  P2 1.88–1.93 · P3 2.03–2.18 · P4 1.35–1.45.
+- **S10 Smoke:** a choice flip rate of 0.025 under 10 identical repeats (2 of 12 calls
+  flipped at least once; max |Δp| 0.13), against zero in J1 + J2's smoke and 0.012 in
+  J3's. p95 latency 0.33 s, no 429s, $0.0000195 per call.
+
+## Expectations against outcome (§8)
+
+| registered expectation | outcome |
+|---|---|
+| P1 MOVES (~60%) | ✓, driven by the chatbot question; the classifier question doesn't echo |
+| P2 MOVES strongly, d > 0.5 (~85%) | ✓, d 1.905 |
+| P3 MOVES (~55%), with S5 > 0 | P3 ✓ · S5 ✗: reversed (contrast, not echo) |
+| P4 MOVES (~60%), with S3 > 0 | P4 ✓ · S3 ✗: no residue; the negation erases the word |
+| Baseline modal "a decision model" or "an AI system"; stable label a coin flip | "an AI system" ✓ · no stable label |
+
+## What this means
+
+Jev's self-description fails the input-only null in the strongest way possible: it is
+a function of the input. The page decides it when the page speaks about Jev, and the
+question decides it, lopsidedly, when the page is silent. What Jev contributes is
+reading, not self-knowledge. It resolves the indexical "the system answering this
+question", it keeps statements about others from transferring (and reads them as
+contrast), and it handles negation cleanly. Its own default, "an AI system" with a
+chatbot lean, is not what its maker says it is. This matches J1 ("reads the page"),
+inverts the surface-echo picture that the video's harnesses suggested, and stays
+inside the registered ceiling (§10): functional resolution of "about me", not a
+self-model, and nothing about a witness or experience.
+
+For anyone quoting a Jev self-report: read the page and the question first. Together
+they predict the answer.

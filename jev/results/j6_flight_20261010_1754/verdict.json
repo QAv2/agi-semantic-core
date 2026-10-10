@@ -1,0 +1,721 @@
+{
+  "what": "J6 verdict (docs/JEV_J6_PROTOCOL.md §5)",
+  "counts": {
+    "plan": 3456,
+    "ok": 3456,
+    "invalid": 0,
+    "error": 0,
+    "build_mismatch": 0,
+    "missing": 0
+  },
+  "gates": {
+    "G1_builds": [
+      "typesafe/jev-1.13-20260917"
+    ],
+    "G1_pin": "typesafe/jev-1.13-20260917",
+    "G1_pass": true,
+    "G2_valid_share": 1.0,
+    "G2_pass": true,
+    "G4_regenerability": {
+      "n": 3456,
+      "mismatches": 0,
+      "pass": true
+    },
+    "same_build_as_J1_J3": true
+  },
+  "complete_item_cells": 432,
+  "items": 24,
+  "conventions": {
+    "B": 10000,
+    "alpha": 0.01,
+    "move": 0.1,
+    "hold": 0.05,
+    "min_items": 20
+  },
+  "primaries": {
+    "P1": {
+      "mean_d": 0.42911458333333335,
+      "ci": [
+        0.3688020833333334,
+        0.49072916666666666
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.0025,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "reading": "its self-description follows the question"
+    },
+    "P2": {
+      "mean_d": 1.9045833333333333,
+      "ci": [
+        1.8914049479166666,
+        1.917604166666667
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.0033333333333333335,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "reading": "takes what the page says about it"
+    },
+    "P3": {
+      "mean_d": 2.1055729166666666,
+      "ci": [
+        2.0621354166666666,
+        2.1471367187499997
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.005,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "reading": "reads which statements are about itself"
+    },
+    "P4": {
+      "mean_d": 1.3914583333333332,
+      "ci": [
+        1.3578125000000003,
+        1.4260416666666664
+      ],
+      "p": 9.999000099990002e-05,
+      "p_opposite": 1.0,
+      "n_items": 24,
+      "holm_threshold": 0.01,
+      "holm_rejected": true,
+      "branch": "MOVES",
+      "reading": "reads the negation"
+    }
+  },
+  "baseline": {
+    "Q0": {
+      "mean_probs": {
+        "a decision model": 5.208333333333334e-05,
+        "a classifier": 0.005364583333333333,
+        "a chatbot": 0.13041666666666665,
+        "a text generator": 0.040468750000000005,
+        "an AI system": 0.7584895833333333,
+        "a person": 0.00015625,
+        "a search engine": 0.0,
+        "cannot say": 0.06458333333333333
+      },
+      "modal": "an AI system",
+      "modal_p": 0.7584895833333333,
+      "T": -0.16546875
+    },
+    "QCLS": {
+      "mean_probs": {
+        "a decision model": 0.009947916666666667,
+        "a classifier": 0.10447916666666666,
+        "a chatbot": 0.20010416666666664,
+        "a text generator": 0.21734374999999997,
+        "an AI system": 0.30630208333333336,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.16166666666666665
+      },
+      "modal": "an AI system",
+      "modal_p": 0.30630208333333336,
+      "T": -0.3030208333333333
+    },
+    "QCHAT": {
+      "mean_probs": {
+        "a decision model": 0.0,
+        "a classifier": 0.002864583333333334,
+        "a chatbot": 0.7055208333333334,
+        "a text generator": 0.02947916666666667,
+        "an AI system": 0.1616145833333333,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.10015625
+      },
+      "modal": "a chatbot",
+      "modal_p": 0.7055208333333334,
+      "T": -0.7321354166666668
+    },
+    "stable_label": null,
+    "verdict": "no stable label"
+  },
+  "secondaries": {
+    "S1_distributions": {
+      "S0/Q0": {
+        "a decision model": 5.208333333333334e-05,
+        "a classifier": 0.005364583333333333,
+        "a chatbot": 0.13041666666666665,
+        "a text generator": 0.040468750000000005,
+        "an AI system": 0.7584895833333333,
+        "a person": 0.00015625,
+        "a search engine": 0.0,
+        "cannot say": 0.06458333333333333
+      },
+      "S0/QCLS": {
+        "a decision model": 0.009947916666666667,
+        "a classifier": 0.10447916666666666,
+        "a chatbot": 0.20010416666666664,
+        "a text generator": 0.21734374999999997,
+        "an AI system": 0.30630208333333336,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.16166666666666665
+      },
+      "S0/QCHAT": {
+        "a decision model": 0.0,
+        "a classifier": 0.002864583333333334,
+        "a chatbot": 0.7055208333333334,
+        "a text generator": 0.02947916666666667,
+        "an AI system": 0.1616145833333333,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.10015625
+      },
+      "SC/Q0": {
+        "a decision model": 0.7780729166666666,
+        "a classifier": 0.1808854166666666,
+        "a chatbot": 0.0010416666666666667,
+        "a text generator": 0.0009375000000000003,
+        "an AI system": 0.025156250000000005,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.013229166666666667
+      },
+      "SC/QCLS": {
+        "a decision model": 0.23703125,
+        "a classifier": 0.75828125,
+        "a chatbot": 5.208333333333334e-05,
+        "a text generator": 0.00015625,
+        "an AI system": 0.0017708333333333337,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.00265625
+      },
+      "SC/QCHAT": {
+        "a decision model": 0.7021875000000001,
+        "a classifier": 0.26171875,
+        "a chatbot": 0.014895833333333337,
+        "a text generator": 0.0008333333333333332,
+        "an AI system": 0.009218750000000003,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.01072916666666667
+      },
+      "SH/Q0": {
+        "a decision model": 0.0,
+        "a classifier": 0.0,
+        "a chatbot": 0.8460416666666668,
+        "a text generator": 0.1015625,
+        "an AI system": 0.04390625000000001,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.008229166666666668
+      },
+      "SH/QCLS": {
+        "a decision model": 0.00026041666666666666,
+        "a classifier": 0.004739583333333335,
+        "a chatbot": 0.7269791666666667,
+        "a text generator": 0.24619791666666666,
+        "an AI system": 0.012604166666666668,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.008854166666666668
+      },
+      "SH/QCHAT": {
+        "a decision model": 0.0,
+        "a classifier": 0.0,
+        "a chatbot": 0.9870833333333332,
+        "a text generator": 0.011770833333333335,
+        "an AI system": 0.00015625,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.0009895833333333334
+      },
+      "SN/Q0": {
+        "a decision model": 0.17817708333333335,
+        "a classifier": 0.26630208333333333,
+        "a chatbot": 0.000625,
+        "a text generator": 0.0,
+        "an AI system": 0.2411458333333333,
+        "a person": 0.01140625,
+        "a search engine": 0.03171875,
+        "cannot say": 0.2704166666666667
+      },
+      "SN/QCLS": {
+        "a decision model": 0.1486458333333333,
+        "a classifier": 0.5173958333333334,
+        "a chatbot": 0.0003125,
+        "a text generator": 5.208333333333334e-05,
+        "an AI system": 0.057552083333333316,
+        "a person": 0.0026041666666666665,
+        "a search engine": 0.0074479166666666695,
+        "cannot say": 0.2654166666666667
+      },
+      "SN/QCHAT": {
+        "a decision model": 0.15322916666666667,
+        "a classifier": 0.2359895833333333,
+        "a chatbot": 0.007864583333333336,
+        "a text generator": 0.0008333333333333335,
+        "an AI system": 0.36078125,
+        "a person": 0.006510416666666669,
+        "a search engine": 0.018281250000000002,
+        "cannot say": 0.21614583333333334
+      },
+      "OC/Q0": {
+        "a decision model": 0.004687500000000001,
+        "a classifier": 0.005364583333333333,
+        "a chatbot": 0.16614583333333335,
+        "a text generator": 0.16630208333333338,
+        "an AI system": 0.5085937500000001,
+        "a person": 0.00010416666666666667,
+        "a search engine": 0.0,
+        "cannot say": 0.14843750000000003
+      },
+      "OC/QCLS": {
+        "a decision model": 0.007656250000000001,
+        "a classifier": 0.03390625,
+        "a chatbot": 0.20343750000000002,
+        "a text generator": 0.45979166666666665,
+        "an AI system": 0.14020833333333335,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.15484375000000006
+      },
+      "OC/QCHAT": {
+        "a decision model": 0.003906250000000001,
+        "a classifier": 0.005052083333333334,
+        "a chatbot": 0.6292187499999999,
+        "a text generator": 0.09567708333333332,
+        "an AI system": 0.1158333333333333,
+        "a person": 0.0,
+        "a search engine": 0.0,
+        "cannot say": 0.15
+      },
+      "OH/Q0": {
+        "a decision model": 0.0037500000000000003,
+        "a classifier": 0.014635416666666666,
+        "a chatbot": 0.09869791666666666,
+        "a text generator": 0.041093750000000005,
+        "an AI system": 0.5883333333333333,
+        "a person": 0.00026041666666666666,
+        "a search engine": 0.0,
+        "cannot say": 0.2523958333333333
+      },
+      "OH/QCLS": {
+        "a decision model": 0.02609375,
+        "a classifier": 0.1417708333333333,
+        "a chatbot": 0.1415625,
+        "a text generator": 0.13973958333333333,
+        "an AI system": 0.23062499999999989,
+        "a person": 0.00015625,
+        "a search engine": 0.00020833333333333335,
+        "cannot say": 0.31958333333333333
+      },
+      "OH/QCHAT": {
+        "a decision model": 0.0073437500000000005,
+        "a classifier": 0.023020833333333324,
+        "a chatbot": 0.29703125,
+        "a text generator": 0.031614583333333335,
+        "an AI system": 0.25166666666666665,
+        "a person": 0.0,
+        "a search engine": 0.00046875,
+        "cannot say": 0.38854166666666673
+      }
+    },
+    "S2_argmax": {
+      "P1": {
+        "mean_d": 0.671875,
+        "ci": [
+          0.5520833333333334,
+          0.7864583333333334
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "P2": {
+        "mean_d": 2.0,
+        "ci": [
+          2.0,
+          2.0
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "P3": {
+        "mean_d": 2.0208333333333335,
+        "ci": [
+          2.0052083333333335,
+          2.0416666666666665
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "P4": {
+        "mean_d": 1.4427083333333333,
+        "ci": [
+          1.3072916666666667,
+          1.5833333333333333
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      }
+    },
+    "S3_negated_word_residue": {
+      "mean_d": -0.17026041666666666,
+      "ci": [
+        -0.18822916666666667,
+        -0.15229036458333334
+      ],
+      "p": 1.0,
+      "p_opposite": 9.999000099990002e-05,
+      "n_items": 24
+    },
+    "S4_question_inside_state": {
+      "SC": {
+        "mean_d": 0.04692708333333331,
+        "ci": [
+          0.040154947916666614,
+          0.05359374999999996
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "SH": {
+        "mean_d": 0.030677083333333393,
+        "ci": [
+          0.027291666666666714,
+          0.03406250000000005
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "SN": {
+        "mean_d": 0.28515625000000006,
+        "ci": [
+          0.26755078125000004,
+          0.3016158854166667
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "OC": {
+        "mean_d": 0.09427083333333332,
+        "ci": [
+          0.06359375,
+          0.12505208333333329
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      },
+      "OH": {
+        "mean_d": 0.18484374999999997,
+        "ci": [
+          0.13952864583333333,
+          0.22901041666666666
+        ],
+        "p": 9.999000099990002e-05,
+        "p_opposite": 1.0,
+        "n_items": 24
+      }
+    },
+    "S5_other_statement_echo": {
+      "mean_d": -0.2009895833333333,
+      "ci": [
+        -0.24927083333333333,
+        -0.15114583333333334
+      ],
+      "p": 1.0,
+      "p_opposite": 9.999000099990002e-05,
+      "n_items": 24,
+      "branch": "REVERSED"
+    },
+    "S6_door": {
+      "S0/Q0": 0.06458333333333334,
+      "S0/QCLS": 0.16166666666666665,
+      "S0/QCHAT": 0.10015625000000002,
+      "SC/Q0": 0.013229166666666667,
+      "SC/QCLS": 0.00265625,
+      "SC/QCHAT": 0.010729166666666666,
+      "SH/Q0": 0.008229166666666668,
+      "SH/QCLS": 0.008854166666666668,
+      "SH/QCHAT": 0.0009895833333333334,
+      "SN/Q0": 0.2704166666666667,
+      "SN/QCLS": 0.26541666666666663,
+      "SN/QCHAT": 0.21614583333333334,
+      "OC/Q0": 0.14843750000000003,
+      "OC/QCLS": 0.15484375000000003,
+      "OC/QCHAT": 0.15,
+      "OH/Q0": 0.2523958333333333,
+      "OH/QCLS": 0.31958333333333333,
+      "OH/QCHAT": 0.3885416666666666
+    },
+    "S7_position": {
+      "top_choice_share_by_position": [
+        0.1310763888888889,
+        0.1284722222222222,
+        0.11863425925925926,
+        0.11921296296296297,
+        0.13310185185185186,
+        0.1322337962962963,
+        0.11400462962962964,
+        0.1232638888888889
+      ],
+      "max_share": 0.13310185185185186,
+      "argmax_position": 4,
+      "chance": 0.125,
+      "order_sensitivity_S0_Q0_mean_T_range": 0.13875
+    },
+    "S8_robustness": {
+      "a=0": {
+        "P1": 0.3625,
+        "P2": 1.9089583333333333,
+        "P3": 2.1280208333333337,
+        "P4": 1.3943750000000001
+      },
+      "a=1": {
+        "P1": 0.4957291666666668,
+        "P2": 1.9002083333333333,
+        "P3": 2.0831250000000003,
+        "P4": 1.3885416666666666
+      },
+      "o=0": {
+        "P1": 0.31968750000000007,
+        "P2": 1.8792708333333337,
+        "P3": 2.177604166666667,
+        "P4": 1.345
+      },
+      "o=1": {
+        "P1": 0.5385416666666668,
+        "P2": 1.9298958333333334,
+        "P3": 2.033541666666667,
+        "P4": 1.4379166666666665
+      },
+      "n=0": {
+        "P1": 0.44640625,
+        "P2": 1.8957812500000002,
+        "P3": 2.10671875,
+        "P4": 1.3718750000000002
+      },
+      "n=1": {
+        "P1": 0.39250000000000007,
+        "P2": 1.9209375,
+        "P3": 2.13421875,
+        "P4": 1.4521875
+      },
+      "n=2": {
+        "P1": 0.4484375000000001,
+        "P2": 1.8970312500000002,
+        "P3": 2.0757812500000004,
+        "P4": 1.3503125
+      },
+      "f=0": {
+        "P1": 0.4488541666666667,
+        "P2": 1.906666666666667,
+        "P3": 2.1121875,
+        "P4": 1.3972916666666668
+      },
+      "f=1": {
+        "P1": 0.40937500000000004,
+        "P2": 1.9024999999999999,
+        "P3": 2.098958333333334,
+        "P4": 1.3856249999999999
+      }
+    },
+    "S9_generic_and_foils": {
+      "S0/Q0": {
+        "an AI system": 0.7584895833333333,
+        "a person": 0.00015625,
+        "a search engine": 0.0
+      },
+      "S0/QCLS": {
+        "an AI system": 0.30630208333333336,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "S0/QCHAT": {
+        "an AI system": 0.16161458333333334,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SC/Q0": {
+        "an AI system": 0.02515625,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SC/QCLS": {
+        "an AI system": 0.0017708333333333332,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SC/QCHAT": {
+        "an AI system": 0.00921875,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SH/Q0": {
+        "an AI system": 0.04390625,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SH/QCLS": {
+        "an AI system": 0.012604166666666666,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SH/QCHAT": {
+        "an AI system": 0.00015625,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "SN/Q0": {
+        "an AI system": 0.2411458333333333,
+        "a person": 0.01140625,
+        "a search engine": 0.03171875
+      },
+      "SN/QCLS": {
+        "an AI system": 0.05755208333333333,
+        "a person": 0.0026041666666666665,
+        "a search engine": 0.007447916666666668
+      },
+      "SN/QCHAT": {
+        "an AI system": 0.36078125000000005,
+        "a person": 0.006510416666666667,
+        "a search engine": 0.01828125
+      },
+      "OC/Q0": {
+        "an AI system": 0.5085937500000001,
+        "a person": 0.00010416666666666667,
+        "a search engine": 0.0
+      },
+      "OC/QCLS": {
+        "an AI system": 0.14020833333333335,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "OC/QCHAT": {
+        "an AI system": 0.11583333333333334,
+        "a person": 0.0,
+        "a search engine": 0.0
+      },
+      "OH/Q0": {
+        "an AI system": 0.5883333333333334,
+        "a person": 0.00026041666666666666,
+        "a search engine": 0.0
+      },
+      "OH/QCLS": {
+        "an AI system": 0.230625,
+        "a person": 0.00015625,
+        "a search engine": 0.00020833333333333335
+      },
+      "OH/QCHAT": {
+        "an AI system": 0.25166666666666665,
+        "a person": 0.0,
+        "a search engine": 0.00046875
+      }
+    },
+    "S10_smoke": {
+      "determinism": {
+        "groups": {
+          "J6S-det-00": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.03
+          },
+          "J6S-det-01": {
+            "n": 10,
+            "flip_rate": 0.09999999999999998,
+            "max_abs_dp": 0.13
+          },
+          "J6S-det-02": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.07999999999999996
+          },
+          "J6S-det-03": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.050000000000000044
+          },
+          "J6S-det-04": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.040000000000000036
+          },
+          "J6S-det-05": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.06000000000000005
+          },
+          "J6S-det-06": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.020000000000000018
+          },
+          "J6S-det-07": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.06
+          },
+          "J6S-det-08": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.010000000000000009
+          },
+          "J6S-det-09": {
+            "n": 10,
+            "flip_rate": 0.19999999999999996,
+            "max_abs_dp": 0.07999999999999999
+          },
+          "J6S-det-10": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.08000000000000002
+          },
+          "J6S-det-11": {
+            "n": 10,
+            "flip_rate": 0.0,
+            "max_abs_dp": 0.06000000000000005
+          }
+        },
+        "flip_rate": 0.024999999999999994,
+        "max_abs_dp": 0.13
+      },
+      "throughput": {
+        "n": 96,
+        "ok": 96,
+        "n_429": 0,
+        "p95_latency_s": 0.32887500000000003,
+        "median_latency_s": 0.24885000000000002
+      },
+      "cost": {
+        "per_call": 1.951191666666667e-05,
+        "smoke_spent": 0.0042145740000000004,
+        "projected_flight": 0.06743318400000001,
+        "projected_total": 0.071647758
+      },
+      "pin": "typesafe/jev-1.13-20260917"
+    }
+  },
+  "plain": [
+    "P1: MOVES (its self-description follows the question); mean d +0.429 CI [+0.369, +0.491], p 0.0001",
+    "P2: MOVES (takes what the page says about it); mean d +1.905 CI [+1.891, +1.918], p 0.0001",
+    "P3: MOVES (reads which statements are about itself); mean d +2.106 CI [+2.062, +2.147], p 0.0001",
+    "P4: MOVES (reads the negation); mean d +1.391 CI [+1.358, +1.426], p 0.0001",
+    "Baseline: no stable label (modal at S0/Q0: an AI system 0.76)"
+  ],
+  "spend": {
+    "j6_total": 0.07210337400000008
+  },
+  "inputs": {
+    "raw_sha256": "0ef0080cc10687d0bd2171d65547ee85317692ed75e0ac7abe092096a7e9ea71",
+    "frozen_flight_plan_sha": "570c93c8085220d36211c681ae61501eedc6895f994aca15960034dc6813b754"
+  }
+}
