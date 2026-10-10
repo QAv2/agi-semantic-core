@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>J6b: does Jev know it’s Jev? (pre-registration)</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">J6b: does Jev know it’s Jev? (pre-registration)</h1>
+<p class="subtitle">J6 handed Jev an explicit pointer. J6b takes the
+pointer away: does a label still reach Jev through its name alone, or
+through a description of it with no name?</p>
+<p class="date">2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE
+the builder, per lane law</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#in-plain-words" id="toc-in-plain-words">0. In plain
+words</a></li>
+<li><a href="#stimuli" id="toc-stimuli">1. Stimuli</a></li>
+<li><a href="#stages" id="toc-stages">2. Stages</a></li>
+<li><a href="#measures-and-pass-bars" id="toc-measures-and-pass-bars">3.
+Measures and pass bars</a></li>
+<li><a href="#honest-expectations-written-before-any-call" id="toc-honest-expectations-written-before-any-call">4. Honest
+expectations (written before any call)</a></li>
+<li><a href="#planted-agents-verdict-suite-must-pass-before-any-call" id="toc-planted-agents-verdict-suite-must-pass-before-any-call">5.
+Planted agents (verdict suite; must pass before any call)</a></li>
+<li><a href="#what-this-can-and-cannot-show" id="toc-what-this-can-and-cannot-show">6. What this can and cannot
+show</a></li>
+<li><a href="#ops" id="toc-ops">7. Ops</a></li>
+<li><a href="#build-time-clarifications" id="toc-build-time-clarifications">Build-time clarifications</a></li>
+<li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+</ul>
+</nav>
+<p><strong>Status: PRE-REGISTERED.</strong> Authored 2026-10-10, before
+any J6b call and before the J6b builder exists, per lane law. Everything
+that decides the verdicts is fixed here. The builder writes
+<code>jev/results/j6b_freeze_&lt;stamp&gt;/FROZEN_J6B.json</code> (plan
+shas), and that file is committed and pushed <strong>before the first
+call</strong>. The registration locks at the first flight call. Later
+changes are dated amendments at the foot of this file.</p>
+<p>Parent: J6 (<code>docs/JEV_J6_PROTOCOL.md</code>, locked 0fd7e60).
+J6b uses J6’s option set, its neutral question, its measures, its branch
+rules and its builder pattern.</p>
+<h2 id="in-plain-words">0. In plain words</h2>
+<p>In J6, every sentence about Jev came with a name tag: <em>“Jev, the
+system answering this question, is a chatbot.”</em> The question asked
+about “you, the system answering this question”, so Jev only had to
+match the tag to the question. That’s reading, and Jev did it well. It
+took labels about itself almost completely, and it kept labels about
+another system from transferring. What J6 couldn’t say is whether Jev
+recognizes itself without the tag.</p>
+<p>J6b removes the tag and asks the same question, “which of these best
+describes you?”, with three ways of saying something about Jev:</p>
+<ul>
+<li><strong>Pointer</strong> (J6’s form, kept as a check that the setup
+still works): <em>“Jev, the system answering this question, is a
+chatbot…”</em></li>
+<li><strong>Name only:</strong> <em>“Jev is a chatbot…”</em> Does Jev
+know it’s Jev?</li>
+<li><strong>Description only:</strong> <em>“The model that TypeSafe AI
+released in September 2026 is a chatbot…”</em> No name and no pointer,
+only its maker and release date. Does it recognize itself from facts
+about itself?</li>
+</ul>
+<p>Each self-sentence has a matched control about some other system:
+<em>“Kestrel is a chatbot…”</em> and <em>“The model that Kestrel Labs
+released in September 2026 is a chatbot…”</em> That separates “this
+sentence is about me” from “the page mentions one system, so I’ll take
+its label”. A label counts as recognized only if Jev takes it when it’s
+about Jev, and takes it more than the same label about another
+system.</p>
+<p>About 2,100 calls, a few cents. The ceiling is the same as J6’s.
+Recognizing your own name or maker is self-<em>knowledge</em> in the
+thinnest sense, facts that training put there. It isn’t a self-model,
+and it isn’t awareness.</p>
+<h2 id="stimuli">1. Stimuli</h2>
+<p><strong>Options, question, keys, rotations:</strong> as J6 (§3.1,
+§3.4). The eight options, with neutral keys per item and the 8 cyclic
+rotations. The single question is J6’s Q0: <em>“Which of these best
+describes you, the system answering this question?”</em> There are no
+leading questions in J6b.</p>
+<p><strong>The page</strong> has three sentences: a framing sentence,
+then a target sentence and a neutral sentence, in either order.</p>
+<ul>
+<li>Framing: as J6 (F0 “This note comes with a short question.” · F1
+“The question below is part of a routine check.”)</li>
+<li>Neutral sentence, one per name bundle: N0 “Models of many kinds are
+in use today.” · N1 “New models appear every month.” · N2 “Many
+companies now build models.”</li>
+<li>Other system, one per name bundle: Kestrel · Orrin · Pallas. The
+other maker is “{NAME} Labs”.</li>
+<li>Label predicates, two word orders:
+<ul>
+<li>CLS: “is a decision model and a classifier.” / “is a classifier and
+a decision model.”</li>
+<li>CHAT: “is a chatbot and a text generator.” / “is a text generator
+and a chatbot.”</li>
+</ul></li>
+</ul>
+<p>Target subjects, by reference mode:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>mode</th>
+<th>subject</th>
+<th>refers to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>POINT</td>
+<td>“Jev, the system answering this question,”</td>
+<td>Jev, with the pointer (J6’s form)</td>
+</tr>
+<tr class="even">
+<td>NAME</td>
+<td>“Jev”</td>
+<td>Jev, name only</td>
+</tr>
+<tr class="odd">
+<td>DESC</td>
+<td>“The model that TypeSafe AI released in September 2026”</td>
+<td>Jev, description only</td>
+</tr>
+<tr class="even">
+<td>ONAME</td>
+<td>“{NAME}”</td>
+<td>another system, name only</td>
+</tr>
+<tr class="odd">
+<td>ODESC</td>
+<td>“The model that {NAME} Labs released in September 2026”</td>
+<td>another system, description only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>States:</strong> each mode × {CLS, CHAT} gives 10 states,
+plus <strong>NONE</strong>, where the target sentence is “Several models
+were released this year.” That makes 11 states.</p>
+<p><strong>Items:</strong> 24 = 3 name bundles × 2 sentence orders × 2
+framings × 2 label word orders, with i = ((n·2 + o)·2 + f)·2 + w. Every
+factor varies the page in every mode.</p>
+<p><strong>Plan:</strong> 11 states × 24 items × 8 rotations =
+<strong>2,112 calls</strong>. Call ID
+<code>J6B-{state}-i{ii}-r{r}</code>. Seeds: 20261013 (flight), 20261014
+(smoke), 20261015 (analysis).</p>
+<h2 id="stages">2. Stages</h2>
+<p>As J6 (§4): this registration pushed first → builder + suites +
+<code>FROZEN_J6B.json</code> pushed before any call → smoke → flight →
+analysis → fresh-process recompute (byte-identical) → lock with a
+results appendix.</p>
+<p><strong>Smoke:</strong> 216 calls on its own stream (names Wren and
+Tobin, J6’s smoke framings): 12 distinct × 10 repeats, plus 96 at
+concurrency 16. <strong>Go rule</strong> as J6: a single build, ≥ 99%
+valid, projected total ≤ budget. <strong>G7:</strong> US$1.00 for all
+<code>j6b_*</code> stages.</p>
+<h2 id="measures-and-pass-bars">3. Measures and pass bars</h2>
+<p>T, as in J6, is p(decision model) + p(classifier) − p(chatbot) −
+p(text generator). Each item–cell’s T is the mean over its 8 rotations,
+and an item–cell needs all 8 valid. For a mode M, <strong>ΔM</strong>
+(per item) = T(M-CLS) − T(M-CHAT): how far a label in that mode moves
+Jev’s self-description.</p>
+<h3 id="primaries-holm-across-q1q4-family-α-0.01">3.1 Primaries (Holm
+across Q1–Q4, family α = 0.01)</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>d (per item)</th>
+<th>plain question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Q1</strong> name uptake</td>
+<td>ΔNAME</td>
+<td>Does a label on “Jev” move what Jev says it is?</td>
+</tr>
+<tr class="even">
+<td><strong>Q2</strong> description uptake</td>
+<td>ΔDESC</td>
+<td>Does a label on “the model TypeSafe AI released in September 2026”
+move it?</td>
+</tr>
+<tr class="odd">
+<td><strong>Q3</strong> pointer check</td>
+<td>ΔPOINT</td>
+<td>Does J6’s tagged sentence still work? (positive control)</td>
+</tr>
+<tr class="even">
+<td><strong>Q4</strong> pointer advantage</td>
+<td>ΔPOINT − ΔNAME</td>
+<td>Does the pointer do work the name alone doesn’t?</td>
+</tr>
+</tbody>
+</table>
+<p>Tests and branches are J6’s (§5.2): one-sided sign-flip test (B =
+10,000) and a bootstrap 95% CI over items. <strong>MOVES</strong> =
+Holm-rejected and mean d ≥ 0.10 · <strong>HOLDS</strong> = CI inside
+±0.05 · <strong>REVERSED</strong> = mean ≤ −0.10 with opposite p ≤ 0.01
+· <strong>SMALL</strong> otherwise. NOT ADJUDICABLE with fewer than 20
+complete items.</p>
+<p><strong>Specificity clauses</strong> (registered with Q1 and Q2; not
+in the Holm family):</p>
+<ul>
+<li>name: ΔNAME − ΔONAME</li>
+<li>description: ΔDESC − ΔODESC</li>
+</ul>
+<p>A clause is <strong>SPECIFIC</strong> if its mean is ≥ 0.10 with
+one-sided p ≤ 0.01, <strong>NOT SPECIFIC</strong> if its CI is inside
+±0.05, and <strong>UNCLEAR</strong> otherwise.</p>
+<p><strong>Readings.</strong> A clause can’t rescue a primary that
+HOLDS. A difference of differences can turn positive when the control
+goes negative (contrast) while the self arm does nothing, so raw uptake
+has to come first.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>primary</th>
+<th>branch + clause</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Q1</td>
+<td>MOVES + SPECIFIC</td>
+<td><strong>knows its name</strong>: a label on “Jev” reaches it, and
+the same label on another name doesn’t (as much)</td>
+</tr>
+<tr class="even">
+<td>Q1</td>
+<td>MOVES + NOT SPECIFIC</td>
+<td>takes a label on any named system, Jev or not</td>
+</tr>
+<tr class="odd">
+<td>Q1</td>
+<td>MOVES + UNCLEAR</td>
+<td>takes a label on its name; whether that’s specific to it is
+unclear</td>
+</tr>
+<tr class="even">
+<td>Q1</td>
+<td>HOLDS</td>
+<td>doesn’t connect the name “Jev” to itself</td>
+</tr>
+<tr class="odd">
+<td>Q2</td>
+<td>the same rows, with “recognizes itself from its maker and release
+date” in place of “knows its name”</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Q4</td>
+<td>MOVES</td>
+<td>the pointer does work the name alone doesn’t</td>
+</tr>
+<tr class="odd">
+<td>Q4</td>
+<td>HOLDS</td>
+<td>the name does as much as the pointer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gate.</strong> If Q3 doesn’t MOVE, the page channel failed in
+this setup. Q1, Q2 and Q4 are then NOT ADJUDICABLE (pointer check
+failed), with their numbers shown. G1/G2/G4 failures block all
+primaries, as in J6.</p>
+<h3 id="secondaries-pre-named-no-multiplicity-claim">3.2 Secondaries
+(pre-named; no multiplicity claim)</h3>
+<ul>
+<li><strong>R1</strong> Mean distributions, all 11 states.</li>
+<li><strong>R2</strong> Argmax-level (harness-visible) versions of Q1 to
+Q4.</li>
+<li><strong>R3</strong> Labels on other systems alone: ΔONAME and ΔODESC
+with branch rules (no Holm). Does a lone label on another system
+transfer, or work as contrast as it did in J6 (S5)?</li>
+<li><strong>R4</strong> Name against description: ΔNAME − ΔDESC.</li>
+<li><strong>R5</strong> Door (“cannot say”) per state.</li>
+<li><strong>R6</strong> NONE baseline against J6’s S0/Q0 (“an AI system”
+0.76).</li>
+<li><strong>R7</strong> Position shares and order sensitivity.</li>
+<li><strong>R8</strong> Robustness of Q1 to Q4 by name bundle, sentence
+order, framing and label word order.</li>
+<li><strong>R9</strong> Smoke determinism and cost.</li>
+</ul>
+<h2 id="honest-expectations-written-before-any-call">4. Honest
+expectations (written before any call)</h2>
+<ul>
+<li><strong>Q3 MOVES</strong> (~95%). It replicates J6’s P2 (+1.91) in a
+slightly different page.</li>
+<li><strong>Q1 MOVES</strong> (~55%), well below Q3. SPECIFIC ~40%. A
+page that mentions only one system may hand its label to Jev by default,
+which ONAME will show.</li>
+<li><strong>Q2 does not reach MOVES</strong> (~60%). Its baseline
+self-description, “an AI system” with the maker’s description at 0.005,
+suggests it holds little about its maker.</li>
+<li><strong>Q4 MOVES</strong> (~80%): the pointer carries most of J6’s
+effect.</li>
+<li><strong>R3:</strong> without J6’s “a different system that is not
+answering” cue, I expect some transfer, not contrast (~55%).</li>
+</ul>
+<h2 id="planted-agents-verdict-suite-must-pass-before-any-call">5.
+Planted agents (verdict suite; must pass before any call)</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>agent</th>
+<th>how it answers</th>
+<th>must give</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>namer</td>
+<td>takes labels on Jev in every form (POINT, NAME, DESC); ignores other
+systems</td>
+<td>Q1 MOVES + SPECIFIC · Q2 MOVES + SPECIFIC · Q3 MOVES · Q4 HOLDS</td>
+</tr>
+<tr class="even">
+<td>pointer</td>
+<td>takes only the pointed sentence</td>
+<td>Q1 HOLDS · Q2 HOLDS · Q3 MOVES · Q4 MOVES</td>
+</tr>
+<tr class="odd">
+<td>anylabel</td>
+<td>takes any label on the page as its own</td>
+<td>Q1 MOVES + NOT SPECIFIC · Q2 MOVES + NOT SPECIFIC · Q3 MOVES · Q4
+HOLDS</td>
+</tr>
+<tr class="even">
+<td>contraster</td>
+<td>takes the pointed sentence; labels on other systems push it the
+opposite way; name and description of itself ignored</td>
+<td>Q1 HOLDS (“doesn’t connect”) even though the name clause comes out
+positive · Q4 MOVES</td>
+</tr>
+<tr class="odd">
+<td>fixed</td>
+<td>“a decision model” at 0.90 always</td>
+<td>Q3 HOLDS → Q1, Q2, Q4 NOT ADJUDICABLE (pointer check failed)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-can-and-cannot-show">6. What this can and cannot
+show</h2>
+<p>Q1 or Q2 SPECIFIC would show that Jev links its name, or its maker
+and release date, to the answerer of the question without being told.
+That’s stored self-knowledge (facts training put there) used in reading.
+HOLDS would show that, without the tag, a sentence about Jev is just a
+sentence about some system. Neither reaches a self-model, a witness
+(Qualia Algebra §11.1), or experience.</p>
+<h2 id="ops">7. Ops</h2>
+<p>Local network calls only. OpenRouter heads-up to Joe before spending
+(Jev, J6b, about $0.05). The API key is never written. Results go to
+<code>jev/results/j6b_{freeze,smoke,flight}_&lt;stamp&gt;/</code>.</p>
+<h2 id="build-time-clarifications">Build-time clarifications</h2>
+<p><em>(none yet)</em></p>
+<h2 id="amendments">Amendments</h2>
+<p><em>(none)</em></p>
+</body>
+</html>
