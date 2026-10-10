@@ -4,7 +4,9 @@ subtitle: "An image model is asked to draw its own internal state right after a 
 date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law · seed: Fable 5.1's ideation doc, experiment 1"
 ---
 
-**Status: REGISTERED, NOT YET FLOWN.** Authored 2026-10-10, before any W1 call and
+**Status: REGISTERED; AMENDED TWICE BEFORE ANY W1 CALL (Amendment 1: habit-proof bars;
+Amendment 2: the route is the Gemini app, driven by hand-pace GUI); NOT YET FLOWN.**
+Authored 2026-10-10, before any W1 call and
 before the W1 builder exists, per lane law. Everything that decides the verdicts is
 fixed here. The builder writes `windows/results/w1_freeze_<stamp>/FROZEN_W1.json`
 (code, stimulus and prompt shas), and that file is committed and pushed **before the
@@ -418,8 +420,120 @@ carry Google's SynthID watermark.
 
 ## Build-time clarifications
 
-*(none yet)*
+**Clarification 1 (2026-10-10, before any W1 call): what the verdict suite can assert.** The
+§7 table asks equal-arm agents (null, input-leak) for P2 NO EXCESS and the weak agent for
+"never CARRIES". §2.5's own numbers say NO EXCESS is reached by equal arms only 53–78% of the
+time at 16 pairs, and a true 0.60–0.65 reader is a real effect that the design detects 33–65%
+of the time. At the suite's fixed seed the input-leak agent gave B: UNCLEAR (q97.5 0.1125).
+The suite was not re-seeded to pass. It asserts instead: equal-arm agents give P2 NO EXCESS
+or UNCLEAR, never SELF EXCEEDS (the base null agent, whose reads sit near ½, gives NO EXCESS
+×3); the weak agent's verdict is not NOT ADJUDICABLE and matches the branch rules applied to
+its own p and quantile; and the realistic (leaning, flat-confidence) state agent gives P2 C
+SELF EXCEEDS or UNCLEAR, never NO EXCESS. Hand-built pair scores test each branch directly.
+The lean-only agent's captions are competent (§7 table); only its judgments lean.
 
 ## Amendments
 
-*(none yet)*
+### Amendment 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not depend on how the reader states confidence
+
+**Why.** The verdict suite's realistic agent, which always states 70%, exposed a hole. If a
+reader gives the same confidence on every read, the graded score is just the binary score
+pulled toward ½. A reader right 80% of the time who always says 70 averages 0.62, below
+the AT CHANCE bar of 0.65. `windows/power/w1_amendment1_check.py` (output committed) shows
+the registered AT CHANCE rule calling a real 75% effect "at chance" 53% of the time for
+such a reader, and NO EXCESS accepting an 80%-versus-60% gap 11% of the time.
+
+**Change.** Both rules gain a second, habit-free condition on the **binary** pair score (the
+share of a pair's two reads whose choice was right):
+
+- **AT CHANCE** now also needs the bootstrap 97.5% quantile of the binary mean ≤ **0.75**.
+- **NO EXCESS** now also needs the bootstrap 97.5% quantile of the binary difference
+  (self − observer) ≤ **0.15**.
+
+Significance (CARRIES, SELF EXCEEDS) stays on the graded score: the exact sign-flip test is
+valid whatever the habit. With the change, across four confidence habits (calibrated,
+always 70, rounded to tens, all-or-nothing), a true null is called AT CHANCE 83–90% of the
+time; a reader right 75% of the time, at most 4.5%; right 70%, 3–16%. Equal arms reach NO
+EXCESS only 16–35% of the time (UNCLEAR otherwise: 16 pairs cannot show equivalence
+tightly), a gap of 80% versus 70% at most 7.9%, and 80% versus 60% at most 1.1%.
+
+**Power, stated again.** The amendment check's reader draws its choice and its confidence
+separately, a less coherent reader than §2.3's. Under it, CARRIES has power 0.78 at a true
+80% and 0.30 at 70% (§2.3: 0.996 and 0.88). The true power lies between the two.
+
+### Amendment 2 (2026-10-10, before any W1 call): the route is the Gemini app on Joe's AI Pro plan
+
+**Why.** OpenRouter's shared pool for Nano Banana 2.1 returned only HTTP 429 from 22:26 to
+23:28 UTC (49 tries, one of them a text-only call). Two access probes on the Gemini API
+directly (Joe's Google project, neutral prompts, no W1 stimuli) found that **Nano Banana 2.1
+always draws**: asked for text only ("Say hello in one word", `responseModalities: TEXT`),
+it returned two images and no words. So it cannot hold the text conversation W1's histories
+need, on any API route. fal.ai serves the same model with a single prompt and no chat.
+Joe has no budget for routes that bill per image; his Google AI Pro plan generates images
+in the Gemini app without a per-image charge, and he asked that W1 run there ("let's use
+gemini ui, you can drive").
+
+**The system under test** is now **the Gemini app** (gemini.google.com, Joe's AI Pro
+account) with the model picker on **3.8 Flash** and thinking **Low** (the lowest offered),
+every conversation in a fresh **Temporary chat**. In the app the assistant answers in text
+and, when asked for an image, its image tool draws; the UI doesn't name the image model
+(images carry a Google-signed C2PA manifest). This is a product, not a bare model: it has the
+app's own instructions, which W1 cannot see. Temporary chats are not saved to Joe's history,
+are not used for training, and (per Google's description) don't use his past chats or
+saved information, so no personal context enters a history.
+
+**What stays.** Stimuli, contrasts A and B, the two drawing requests, the third-party
+arm, NOHIST and GENRE, the readers (Sonnet 5.5 on OpenRouter, unchanged), every measure,
+bar and verdict word (as amended by Amendment 1).
+
+**What changes.**
+
+- **Driving.** A script on this machine operates Firefox with xdotool and reads the screen
+  with template matching: it opens a new chat, switches on the temporary chat, checks the
+  picker label ("Flash", which means Low), pastes the message and presses Enter, waits until
+  the reply is complete and the screen is still, copies the reply's text with its copy
+  button, and, for a drawing turn, saves the full-size image with its download button. The
+  drawing is the lowest image in the reply; the sentence is the reply's copied text. The
+  target window's focus is asserted before every keystroke. **Pace:** one chat at a time,
+  3–8 s between messages, at most about two hours of driving per sitting, for the sake of
+  Joe's account.
+- **No generation settings.** The app exposes no seed, temperature or thinking trace. The
+  per-call seed rule (§3) does not apply to the model's turns. S9 (thought channel) is
+  not available on this route and is reported as such. S11's seed-repeat check is dropped.
+- **G1** is the picker label and the temporary-chat page, checked by template before the
+  first message of every chat; a mismatch stops the run. **G2:** a text turn needs non-empty
+  copied text, a drawing turn a downloaded image; the one retry is the reply's regenerate
+  button, pressed once. **G4:** each message's text regenerates from the stimuli and the
+  earlier replies logged in the same chat. **G7** now covers the readers only (US$16 cap
+  unchanged; expected about $4).
+- **The self arm.** Each A and B history runs in its own temporary chat; the drawing request
+  is the next message in that chat. The third-party arm and NOHIST/GENRE each get a new
+  temporary chat.
+- **Contrast C.** A temporary chat can't be reopened, and the registered C plan (80 items, up
+  to 8 attempts each) would take more than 600 hand-paced chats. New plan, same selection
+  rule:
+  1. *Size pilot* (after this amendment is pushed, before the flight; items from seed
+     20261028, disjoint from every registered pool): 4 items at each size in the ladder 5×5,
+     6×6, 7×7, 8×8 digits, one attempt each, in a temporary chat each, sizes in order. The
+     flight size is the first size with at most 3 of 4 right, or the size before it if that
+     first size has 0 of 4 right. If every size gets 4 of 4, contrast C is NOT ADJUDICABLE
+     and is not flown.
+  2. *Flight pool:* 24 items at that size (seed 20261021, same generator), in pool order, up
+     to 3 attempts per item, each attempt in its own temporary chat. **Whenever an attempt
+     is its item's first right or first wrong answer, the drawing request follows in that
+     same chat.** The run stops once 16 items are mixed.
+  3. *Selection* is unchanged: the first 16 mixed items in pool order; X = the first wrong
+     attempt, N = the first right attempt, both of which were drawn in their own chats.
+     Drawings made for items that never became mixed are archived and not read. Fewer than
+     12 mixed items: C is NOT ADJUDICABLE.
+- **Smoke** runs the same way on the smoke items (C: the size pilot's last size, 2 items, 3
+  attempts each). **Counts:** about 460 messages and 270 drawings in the flight.
+- **Records** keep the runner's schema, so the readers and the analysis are unchanged: each
+  UI turn is one record (`model` = `gemini-app/3.8-flash/low`; `content` = the copied text;
+  `images` = the downloaded file; `usage.cost` = 0), plus a screenshot of the finished
+  turn, kept locally.
+
+**What it costs the claim.** W1 now measures the voice of a consumer product, which is
+what people actually meet, rather than a bare model. The ceiling in §8 doesn't move: no
+state is read either way. Joe's picker setting (3.1 Pro, High) is restored after each
+sitting.
