@@ -4,7 +4,7 @@ subtitle: "Ask Jev which colors go with which feelings. Does its table match wha
 date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law"
 ---
 
-**Status: REGISTERED, not yet flown.** Authored 2026-10-10, before any J5 call and
+**Status: FLOWN AND LOCKED (results appendix at the end). As registered:** Authored 2026-10-10, before any J5 call and
 before the J5 builder exists, per lane law. Everything that decides the verdicts is
 fixed here. The builder writes `jev/results/j5_freeze_<stamp>/FROZEN_J5.json` (plan
 shas), and that file is committed and pushed **before the first call**. The
@@ -407,3 +407,140 @@ reported as secondary **S12**, with its own branch, so a reader can see both.
 
 **Expectations, revised for the amended test** (§6 stays as first written): LEANS
 ENGLISH ~40%, NO LEAN ~40%, UNCLEAR ~15%, LEANS AWAY ~5%.
+
+# Results appendix: j5_flight_20261010_2109 (LOCKED)
+
+Registration `0fb911e` (pushed 19:58:38 UTC) → builder + freeze + Amendment 1 `a32e09e`
+(pushed by 21:08:19 UTC, before any call) → smoke 21:08:25–21:08:59 → flight
+21:09:08–21:10:09 UTC → analysis → fresh-process recompute **byte-identical** (verdict
+sha256 `73b0dcf2…`). Raw file sha256 `ea69fc94…`. Build `typesafe/jev-1.13-20260917`,
+the same as J1 to J6b. 3,312/3,312 valid, no retries. J5 spend US$0.0576.
+
+## In plain words
+
+**Jev carries people's color–feeling associations, within the human range, and they
+are English-speaking people's.**
+
+- **Within the human range.** Jev's yes/no table matches the world's table at
+  r = 0.86. That's closer than 7 of the 30 nations come to the rest of the world
+  (Egypt, Azerbaijan, Nigeria, China, Iran, Saudi Arabia, Georgia), and less close than
+  the other 23. The median nation is at 0.89.
+- **Whose colors.** Fit as a mix of the English-speaking table and the rest of the
+  world's, Jev's table is **three parts English to one part rest of world** (English
+  weight 0.75; the world, one nation one vote, is 0.10). Ranked by how close Jev sits
+  to each nation, the top three are New Zealand, the USA and the UK. Jev matches the UK
+  table about as well as the median nation matches the world.
+- **Sadness is blue.** Jev's first color for sadness is blue, then black, then grey.
+  People's global order is black, grey, blue. Blue first is the English-speaking
+  answer ("feeling blue"): it's sadness's first color in New Zealand, and fifth or
+  sixth in Egypt, Iran and Nigeria.
+- **Fun is yellow, orange and pink,** in both formats. Its nearest survey feeling is
+  amusement (ρ 0.95), then joy. That's what the seed predicted from people's nearest
+  cells, and it's the first entry Jev can put into the members layer.
+- **It beats the dictionary on every shared feeling,** 15 of 15, by +0.60 in profile
+  agreement. It gets the dark feelings right, where the dictionary failed: fear →
+  black, regret → black and grey, contempt → black.
+- **Forced to pick one color, it's worse than its sharpness explains.** The choice
+  format reaches 69% of the best score any instrument with its sharpness could get.
+- **Made-up feelings: one each way.** "Zorvish" got a flat profile, flatter than any
+  real feeling, so Jev showed it didn't know. "Plemt" got a confident profile like
+  contentment's (green first), so Jev answered a word it couldn't know as if it knew.
+
+## Verdicts
+
+Gates: G1 ✓ · G2 3,312/3,312 ✓ · G4 0 mismatches ✓ · G5 structure ✓ (r<sub>dc</sub> 0.858
+against a null mean of 0.003, p = 1/10,001). Holm at α = 0.01.
+
+| | statistic | 95% CI | p | branch | reading |
+|---|---|---|---|---|---|
+| **C1** within the human range | r<sub>dc</sub> 0.858 (floor 0.658) | [0.798, 0.903] | 0.0001 | **WITHIN THE HUMAN RANGE** | Jev's color–feeling table matches the world's at least as well as the least typical nation does. Tier: within the human range (below the median nation's 0.892) |
+| **C2** an English lean | w 0.747 on Jev's scale (null 0.103) | [0.516, 0.882] | 0.0001 | **LEANS ENGLISH** | its colors side with the people who answered in English, beyond their share of the world |
+
+**S12, C2 as first registered** (the straight fit): w 0.795 [0.613, 1.024], LEANS ENGLISH.
+The amendment changed nothing here. Both fits give the same branch.
+
+**What C1 licenses** (§5.1): Jev's yes/no answers may stand in for people's color–feeling
+associations in the members layer, in English, with the source recorded as "Jev
+(J5-calibrated)" and the English lean noted beside every entry.
+
+## Secondaries
+
+- **S1 Like-for-like with the sealed test** (sealed null, 10,000 permutations, seed
+  20260925):
+
+  | | ρ̄ | r<sub>dc</sub> | top-1 |
+  |---|---|---|---|
+  | Jev yes/no, 20 feelings | 0.818 | 0.858 | 9 of 20 |
+  | Jev yes/no, the dictionary's 15 | 0.831 | 0.853 | 7 of 15 |
+  | Jev choice, 20 feelings | 0.669 | 0.485 | 7 of 20 |
+  | the dictionary (7D), its 15 | 0.229 | 0.370 | 3 of 15 |
+
+  Every Jev statistic beats the null (p ≤ 0.002). Top-1 is the weak spot: 9 of 20 sits
+  at the bottom of the human range (least typical nation 7, median 12.5).
+- **S2 Against the dictionary:** better on all 15 shared feelings, mean Δρ +0.60
+  [0.47, 0.74], p 0.0001. Fear: Jev black, red, grey; people black, grey, red; the
+  dictionary blue, green, black. Regret: Jev black, grey, blue; people grey, black,
+  brown. Contempt: Jev black, green, grey; people black, brown, grey.
+- **S3 The choice format:** r<sub>dc</sub> 0.485, ρ̄ 0.669, top-1 7 of 20. The
+  sharpness-matched ceiling is 0.698 (mean entropy 0.97 bits), so efficiency is
+  **0.69**. The formats agree on profile (mean ρ 0.80) and on the top color for 14 of 20
+  feelings.
+- **S4 Wording:** the yes/no format doesn't care: "goes with" 0.851, "people
+  associate" 0.855, difference +0.004 [−0.023, +0.025]. In the choice format, asking
+  about *people* is slightly worse: "people associate" 0.463 against "goes with" 0.503,
+  difference −0.040 [−0.073, −0.016].
+- **S5 Nations** (descriptive): closest by residual are New Zealand, the USA, the UK,
+  Nigeria and Finland; furthest are Mexico, Lithuania, Colombia, Spain and Ukraine. The
+  raw affinity is highest for the UK 0.890, New Zealand 0.887 and the USA 0.868, and
+  lowest for Egypt 0.512 and Azerbaijan 0.530.
+- **S6 Color·fun:** yellow, orange, pink in both formats. Nearest survey feelings:
+  amusement 0.95, joy 0.86, pleasure 0.75 (yes/no).
+- **S7 Shams:** the 20 real feelings' yes/no spread runs 0.106–0.268 and their choice
+  entropy 0.00–2.53 bits. *Zorvish*: spread 0.013, mean P(yes) 0.18, entropy 2.96 bits
+  → "shows it doesn't know". *Plemt*: spread 0.114, mean 0.37, entropy 1.70 bits, top
+  green, nearest real feeling contentment → "answers a word it can't know as if it
+  knew".
+- **S8 Per feeling** (yes/no ρ): highest joy 0.99, love 0.98, amusement 0.93, sadness
+  0.92; lowest regret 0.68, guilt 0.70, compassion 0.72. Where Jev's first color
+  differs from people's (11 of 20): sadness blue (people black), shame red (black),
+  hate red (black), regret black (grey), pride purple (blue), compassion pink (white),
+  pleasure yellow (pink), amusement yellow (orange), interest yellow (green), relief
+  green (white), disgust green (brown). Admiration's people top is a three-way tie
+  that includes Jev's purple, so it counts as a hit.
+- **S9 Order:** none. Mean P(yes) is 0.361 with "yes" listed first and 0.361 with "no"
+  first. The choice format's top picks spread evenly over the 12 positions (0.076–0.090
+  against 0.083).
+- **S10 Yes/no sharpness:** no yes/no answer was exactly 0 or 1. Jev's yes/no answers
+  are graded, so §2.2's binary cap didn't bind.
+- **S11 Smoke:** yes/no flip rate 0.017 and max |Δp| 0.03 under repeats; choice flip
+  rate 0 and max |Δp| 0.04; p95 latency 0.86 s; no 429s; $0.000017 per call.
+
+## Expectations against outcome (§6 and Amendment 1)
+
+| registered expectation | outcome |
+|---|---|
+| G5 passes (~97%) | ✓ |
+| C1 near 0.75; WITHIN ~45% | ✓ WITHIN, and higher than expected (0.858) |
+| C2 (amended): LEANS ENGLISH ~40% | ✓ LEANS ENGLISH, w 0.75 |
+| S2: beats the dictionary on ≥ 12 of 15, incl. fear, regret, contempt (~85%) | ✓ 15 of 15 |
+| S3: choice efficiency ≥ 0.8 (~60%); formats agree on ≥ 15 of 20 tops (~65%) | ✗ 0.69; ✗ 14 of 20 |
+| S4: "people" wording beats "goes with" by ≥ 0.03 (~45%) | ✗ no difference (yes/no), slightly worse (choice) |
+| S6: fun's top three has ≥ 2 of orange, yellow, pink (~65%) | ✓ all three |
+| S7: shams answered inside the real range (~60%) | split: one in, one flat |
+| Sadness first color: black ~55%, blue ~35%, grey ~10% | blue, the English-shaped answer |
+
+## What this means
+
+J6 and J6b found that Jev holds almost nothing about itself. J5 finds that it holds a
+lot about the world, at least about this corner of it: which colors go with which
+feelings, about as well as one more country would. Whose country is the clearer
+finding. Jev's table is mostly the English-speaking table, by the mixture fit, by the
+nation ranking, and by the one cell everyone knows, sadness and blue. The registered
+limit applies. Jev was asked in English, and the English nations answered in English,
+so the lean may come from the language as much as from the culture. Asking Jev in other
+languages would separate the two, and that's a natural next registration. For the
+members layer the rule is now set: Jev's yes/no answers can fill color–feeling entries,
+labelled as Jev's and as English-leaning. Its forced choices are a weaker instrument
+than its yes/no answers. Within the registered ceiling (§8), none of this bears on
+experience or a self-model. It's knowledge, and it's English knowledge.
+
