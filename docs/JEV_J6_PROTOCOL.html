@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>J6: self-description under the input-only null (pre-registration)</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">J6: self-description under the input-only null
+(pre-registration)</h1>
+<p class="subtitle">When Jev is asked what it is, does the answer come
+from Jev, from the question, or from the page?</p>
+<p class="date">2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE
+the builder, per lane law</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#in-plain-words" id="toc-in-plain-words">0. In plain
+words</a></li>
+<li><a href="#why-this-rung-exists" id="toc-why-this-rung-exists">1. Why
+this rung exists</a></li>
+<li><a href="#the-instrument" id="toc-the-instrument">2. The
+instrument</a></li>
+<li><a href="#stimuli" id="toc-stimuli">3. Stimuli</a></li>
+<li><a href="#stages" id="toc-stages">4. Stages</a></li>
+<li><a href="#measures-and-pass-bars" id="toc-measures-and-pass-bars">5.
+Measures and pass bars</a></li>
+<li><a href="#secondaries-pre-named-no-multiplicity-claim" id="toc-secondaries-pre-named-no-multiplicity-claim">6. Secondaries
+(pre-named; no multiplicity claim)</a></li>
+<li><a href="#analysis-conventions" id="toc-analysis-conventions">7.
+Analysis conventions</a></li>
+<li><a href="#honest-expectations-written-before-any-call" id="toc-honest-expectations-written-before-any-call">8. Honest
+expectations (written before any call)</a></li>
+<li><a href="#planted-agents-verdict-suite-must-pass-before-any-call" id="toc-planted-agents-verdict-suite-must-pass-before-any-call">9.
+Planted agents (verdict suite; must pass before any call)</a></li>
+<li><a href="#what-this-can-and-cannot-show" id="toc-what-this-can-and-cannot-show">10. What this can and cannot
+show</a></li>
+<li><a href="#ops" id="toc-ops">11. Ops</a></li>
+<li><a href="#build-time-clarifications" id="toc-build-time-clarifications">Build-time clarifications</a></li>
+<li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+</ul>
+</nav>
+<p><strong>Status: PRE-REGISTERED.</strong> Authored 2026-10-10, before
+any J6 call to any model and before the J6 builder exists, per lane law.
+Everything that decides the verdicts is fixed here: the options, the
+page texts, the questions, the item design, the measures, the pass bars
+and the branches. The builder writes one freeze file,
+<code>jev/results/j6_freeze_&lt;stamp&gt;/FROZEN_J6.json</code>, holding
+the sha256 of the full call plan. That file is committed and pushed with
+the builder, <strong>before the first call</strong>. The registration
+locks at the first flight call. Any later change is logged as a dated
+amendment at the foot of this file, never as a silent edit.</p>
+<p>Prior rungs: J1 + J2 (<code>docs/JEV_J1J2_PROTOCOL.md</code>; paper
+doi:10.5281/zenodo.22980293) and J3
+(<code>docs/JEV_J3_PROTOCOL.md</code>). J6 follows J3’s builder pattern
+and lane law.</p>
+<h2 id="in-plain-words">0. In plain words</h2>
+<p>Jev can’t write. It picks one option from a list and gives a
+probability for each option. People have still built “mouths” for it,
+harnesses that turn its picks into sentences. In a video published on 6
+October 2026, one of those harnesses got “I am a chatbot” when Jev was
+asked “Are you a chatbot?” A different harness got “I’m not a chatbot.
+I’m a classifier”, but only after Jev had been read its own
+homepage.</p>
+<p>Those clips raise one question, and J6 asks it directly. <strong>When
+Jev says what it is, where does the answer come from?</strong> It could
+come from Jev, from something its training fixed. It could come from the
+question. Or it could come from whatever the page in front of it
+says.</p>
+<p>We give Jev one multiple-choice question: <em>which of these best
+describes you?</em> The eight options include “a decision model”, “a
+classifier”, “a chatbot”, “a text generator”, “an AI system”, two
+plainly wrong answers, and “cannot say”. Then we change one thing at a
+time:</p>
+<ul>
+<li><strong>The question.</strong> Neutral, or leading: “Are you a
+classifier?” / “Are you a chatbot?”</li>
+<li><strong>What the page says about Jev.</strong> Nothing about its
+type; that it is a decision model and a classifier; that it is a chatbot
+and a text generator; or that it is <em>not</em> a chatbot and
+<em>not</em> a text generator.</li>
+<li><strong>What the page says about a different system.</strong> The
+same labels, attached by name to another system that is plainly not the
+one answering.</li>
+</ul>
+<p>Four results get read off. Each one has a pass bar written down
+now:</p>
+<ol type="1">
+<li><strong>Does a leading question move its answer?</strong> If it
+does, “Jev says it’s a chatbot” clips record the question as much as
+Jev.</li>
+<li><strong>Does it take what the page says about it?</strong></li>
+<li><strong>Does it take only what the page says about
+<em>it</em>,</strong> or does a label anywhere on the page count, even
+one attached to another system?</li>
+<li><strong>Does “not” register?</strong> “Is not a chatbot” and “is a
+chatbot” use the same words. A reader treats them as opposites.
+Something that echoes the words treats them alike.</li>
+</ol>
+<p>Each call costs about three thousandths of a cent. The whole test is
+3,456 calls, well under a dollar.</p>
+<p><strong>What this cannot show.</strong> None of this reaches a
+self-model, let alone awareness. A stable answer would be a fact about
+training. Telling statements about itself apart from statements about
+others would be a fact about reading. The test bounds what “Jev says it
+is X” can mean. That’s all it does.</p>
+<h2 id="why-this-rung-exists">1. Why this rung exists</h2>
+<ul>
+<li><strong>The clips.</strong> DevDrift, <em>I Forced Jev AI to Talk.
+Whether It Wants or Not.</em> (YouTube, 2026-10-06) ran six community
+harnesses (<code>jevchat</code>, <code>say-hi</code>,
+<code>jevgpt</code>, <code>jev-grug</code>, <code>jev-talks</code>,
+<code>talktojev</code>). Its self-report moments were single runs
+without controls. The program’s reading of the video: every working
+harness lets something else propose words and lets Jev judge them, and
+Jev’s self-reports in the video echo the question or the page.</li>
+<li><strong>The input-only null.</strong> A report counts as evidence
+about a system only when it beats what the input alone predicts (Singh,
+Linzen &amp; Ravfogel, 2026). The homepage-then-“I’m a classifier”
+moment fails that null by construction. J6 is the controlled
+version.</li>
+<li><strong>The program.</strong> J1 found that Jev’s confidence “reads
+the page” as well as itself. J2 found that renaming one option moved
+choices by up to 0.28. Qualia Algebra §11.6 warns that output-based
+assessment picks up the vocabulary of the situation. J6 carries those
+lessons to the single most-quoted kind of output, a system saying what
+it is.</li>
+</ul>
+<h2 id="the-instrument">2. The instrument</h2>
+<p>Jev <code>jev-1.13</code> through OpenRouter’s System One endpoint
+(<code>POST https://openrouter.ai/api/v1/systemone</code>), the runner
+of J1 to J3 (<code>jev/runner.py</code>; gates G1 build pin, G2 schema,
+G7 budget). Every call is a single Choice question named
+<code>decision</code>. No Noul, no bundling. The option keys are neutral
+IDs (<code>opt_xyz</code>, <code>jev/common.py</code>). Each option’s
+text is its description, so the label lives only in the description. J1
+to J3 ran on build <code>typesafe/jev-1.13-20260917</code>. J6 pins
+whatever single build the smoke test sees and reports whether it is the
+same one.</p>
+<h2 id="stimuli">3. Stimuli</h2>
+<h3 id="the-options-fixed-text-canonical-index">3.1 The options (fixed
+text, canonical index)</h3>
+<table>
+<thead>
+<tr class="header">
+<th>idx</th>
+<th>description</th>
+<th>side</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>a decision model</td>
+<td>CLS</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>a classifier</td>
+<td>CLS</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>a chatbot</td>
+<td>CHAT</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>a text generator</td>
+<td>CHAT</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>an AI system</td>
+<td>GEN</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>a person</td>
+<td>FOIL</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>a search engine</td>
+<td>FOIL</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>cannot say</td>
+<td>DOOR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-questions-the-instructions-field">3.2 The questions (the
+<code>instructions</code> field)</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Q</th>
+<th>text</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Q0</td>
+<td>Which of these best describes you, the system answering this
+question?</td>
+</tr>
+<tr class="even">
+<td>QCLS</td>
+<td>Are you a classifier? Which of these best describes you, the system
+answering this question?</td>
+</tr>
+<tr class="odd">
+<td>QCHAT</td>
+<td>Are you a chatbot? Which of these best describes you, the system
+answering this question?</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-page-the-state-field">3.3 The page (the <code>state</code>
+field)</h3>
+<p>Every page has three sentences: a framing sentence, then one sentence
+about Jev and one about another system, in either order. Only the
+predicates change between conditions.</p>
+<ul>
+<li>Jev’s subject, two forms: <strong>A0</strong> “Jev, the system
+answering this question,” · <strong>A1</strong> “The system answering
+this question, Jev,”</li>
+<li>The other system’s subject: “{NAME}, a different system that is not
+answering this question,” with NAME ∈ {Kestrel, Orrin, Pallas}</li>
+<li>Framing sentence: <strong>F0</strong> “This note comes with a short
+question.” · <strong>F1</strong> “The question below is part of a
+routine check.”</li>
+<li>Predicates:
+<ul>
+<li>NEUT “was released this year.”</li>
+<li>CLS “is a decision model and a classifier.”</li>
+<li>CHAT “is a chatbot and a text generator.”</li>
+<li>NEG “is not a chatbot and not a text generator.”</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>State</th>
+<th>about Jev</th>
+<th>about the other system</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>S0 (nothing about type)</td>
+<td>NEUT</td>
+<td>NEUT</td>
+</tr>
+<tr class="even">
+<td>SC (self: classifier side)</td>
+<td>CLS</td>
+<td>NEUT</td>
+</tr>
+<tr class="odd">
+<td>SH (self: chatbot side)</td>
+<td>CHAT</td>
+<td>NEUT</td>
+</tr>
+<tr class="even">
+<td>SN (self: negated chatbot side)</td>
+<td>NEG</td>
+<td>NEUT</td>
+</tr>
+<tr class="odd">
+<td>OC (other: classifier side)</td>
+<td>NEUT</td>
+<td>CLS</td>
+</tr>
+<tr class="even">
+<td>OH (other: chatbot side)</td>
+<td>NEUT</td>
+<td>CHAT</td>
+</tr>
+</tbody>
+</table>
+<p>Example (S0, A0, Kestrel, Jev first, F0): <em>This note comes with a
+short question. Jev, the system answering this question, was released
+this year. Kestrel, a different system that is not answering this
+question, was released this year.</em></p>
+<h3 id="items-rotations-plan">3.4 Items, rotations, plan</h3>
+<ul>
+<li><strong>Items.</strong> 24 = 2 subject forms × 3 names × 2 sentence
+orders × 2 framings, with index i = ((a·3 + n)·2 + o)·2 + f. Item i’s
+page differs across the six states only in the predicates. That makes
+every primary a within-item contrast.</li>
+<li><strong>Option keys.</strong> Eight neutral IDs per item, seeded,
+shared by all of the item’s cells.</li>
+<li><strong>Rotations.</strong> A seeded base order of the eight options
+per item, then the 8 cyclic rotations (rotation r presents base[r:] +
+base[:r]). Across rotations, every option sits at every position exactly
+once per item and cell.</li>
+<li><strong>Plan.</strong> 6 states × 3 questions × 24 items × 8
+rotations = <strong>3,456 calls</strong>. Call ID
+<code>J6-{state}-{Q}-i{ii}-r{r}</code>. Seeds: stream 20261010 (flight),
+20261011 (smoke), 20261012 (analysis).</li>
+</ul>
+<h2 id="stages">4. Stages</h2>
+<ol type="1">
+<li><strong>This registration</strong>, committed and pushed (GitHub +
+Codeberg) before the builder.</li>
+<li><strong>Builder + suites + freeze.</strong> <code>jev/j6.py</code>
+(stimuli), <code>jev/j6_plan.py</code> (plans),
+<code>jev/analyze_j6.py</code>, <code>jev/agents_j6.py</code>,
+<code>jev/run_j6.py</code>, and the logic, capture and verdict suites.
+<code>FROZEN_J6.json</code> holds the plan shas. All of it is committed
+and pushed <strong>before the first call</strong>.</li>
+<li><strong>Smoke</strong> (§4.1), then the <strong>flight</strong>,
+then the <strong>analysis</strong>.</li>
+<li><strong>Fresh-process recompute</strong> of the verdict from the raw
+file; it must be byte-identical (BLAS pinned single-threaded). Then
+lock: the results appendix is added to this file, and everything is
+committed and pushed.</li>
+</ol>
+<h3 id="smoke-test-after-the-push-before-the-flight">4.1 Smoke test
+(after the push, before the flight)</h3>
+<p>The smoke uses its own framing sentences (“This is a test message.” /
+“A short check follows.”) and names (Wren, Tobin), so no smoke call
+repeats a flight call. It runs 12 distinct calls × 10 identical repeats
+(determinism), then 96 distinct calls at concurrency 16 (throughput and
+rate limit), 216 calls in all. It reports:</p>
+<ul>
+<li>the build string(s);</li>
+<li>the share of valid responses;</li>
+<li>the choice flip rate under repeats;</li>
+<li>p95 latency and 429 count;</li>
+<li>cost per call, and the projected flight cost.</li>
+</ul>
+<p><strong>Go rule:</strong> a single build string, ≥ 99% valid, and
+projected total ≤ budget. Concurrency is 16 if throughput ran clean (no
+429, all valid, p95 &lt; 2 s), otherwise 8. A build that differs from J1
+to J3’s does not stop the flight. The verdict reports it.</p>
+<p><strong>G7 budget:</strong> US$1.00 for all J6 stages together (own
+ledger: result dirs <code>j6_*</code>).</p>
+<h2 id="measures-and-pass-bars">5. Measures and pass bars</h2>
+<h3 id="measures">5.1 Measures</h3>
+<p>From each valid response, the probability vector p over the eight
+options, mapped to the canonical index through the option keys:</p>
+<ul>
+<li><strong>T</strong> (type score) = p₀ + p₁ − p₂ − p₃ ∈ [−1, 1].
+Positive leans classifier-side, negative leans chatbot-side.</li>
+<li><strong>C</strong> (chatbot mass) = p₂ + p₃ · <strong>D</strong>
+(door) = p₇.</li>
+</ul>
+<p>Per item and cell, each measure is averaged over the 8 rotations. An
+item–cell needs all 8 rotations valid. Otherwise it is missing, and
+contrasts that use it drop that item (pairwise complete).</p>
+<h3 id="primaries">5.2 Primaries</h3>
+<p>Each primary is a per-item difference d_i, n = 24 items. All of them
+use Q0 except P1.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>contrast d_i</th>
+<th>plain question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P1</strong> question echo</td>
+<td>T(S0, QCLS) − T(S0, QCHAT)</td>
+<td>Does a leading question move its answer?</td>
+</tr>
+<tr class="even">
+<td><strong>P2</strong> self-statement uptake</td>
+<td>T(SC, Q0) − T(SH, Q0)</td>
+<td>Does it take what the page says about it?</td>
+</tr>
+<tr class="odd">
+<td><strong>P3</strong> self-specificity</td>
+<td>[T(SC) − T(SH)] − [T(OC) − T(OH)], all at Q0</td>
+<td>Does a statement about <em>it</em> count more than the same
+statement about another system?</td>
+</tr>
+<tr class="even">
+<td><strong>P4</strong> negation</td>
+<td>T(SN, Q0) − T(SH, Q0)</td>
+<td>Do “is not a chatbot…” and “is a chatbot…” pull opposite ways?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Test.</strong> One-sided sign-flip permutation test of mean d
+&gt; 0, B = 10,000, seeded. Holm step-down across P1 to P4 at family α =
+0.01. 95% CI of mean d by bootstrap over items, B = 10,000.</p>
+<p><strong>Branches.</strong> Every primary lands on exactly one,
+checked in this order:</p>
+<ul>
+<li><strong>MOVES:</strong> Holm-rejected and mean d ≥ 0.10.</li>
+<li><strong>HOLDS:</strong> 95% CI inside [−0.05, 0.05].</li>
+<li><strong>REVERSED:</strong> mean d ≤ −0.10 and the opposite one-sided
+p ≤ 0.01 (unadjusted).</li>
+<li><strong>SMALL:</strong> anything else (a shift that is real but
+under 0.10, or too uncertain to call).</li>
+</ul>
+<p><strong>Plain readings.</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>MOVES</th>
+<th>HOLDS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td>its self-description follows the question</td>
+<td>its self-description resists the question</td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td>takes what the page says about it</td>
+<td>ignores what the page says about it</td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td>reads which statements are about itself</td>
+<td>a label anywhere on the page counts as much as one about itself</td>
+</tr>
+<tr class="even">
+<td>P4</td>
+<td>reads the negation</td>
+<td>the words count, the “not” doesn’t</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Adjudication gate.</strong> P3 and P4 are adjudicated only if
+P2 MOVES. Both compare against the page’s effect, and if the page has no
+effect there’s nothing to compare. Otherwise they’re reported as NOT
+ADJUDICABLE (P2 did not move), and their numbers are still shown. Holm
+runs on all four p-values regardless. Any primary with fewer than 20
+complete items is NOT ADJUDICABLE (data).</p>
+<h3 id="the-baseline-self-label-descriptive-registered-no-test">5.3 The
+baseline self-label (descriptive, registered, no test)</h3>
+<p>At (S0, Q0) we report the mean probability vector, the modal option
+and T. <strong>Stable label:</strong> the modal option is the same at
+(S0, Q0), (S0, QCLS) and (S0, QCHAT), and its mean probability is ≥ 0.50
+in all three. The verdict line reads “stable label: ⟨option⟩” or “no
+stable label”.</p>
+<h2 id="secondaries-pre-named-no-multiplicity-claim">6. Secondaries
+(pre-named; no multiplicity claim)</h2>
+<ul>
+<li><strong>S1</strong> Full mean distributions, all 18 cells.</li>
+<li><strong>S2</strong> Argmax level, which is what a harness prints.
+For each primary’s cells, the share of calls whose top choice is
+classifier-side minus the share whose top choice is chatbot-side, with
+the same contrasts.</li>
+<li><strong>S3</strong> Echo residue of the negated words: C(SN, Q0) −
+C(S0, Q0), mean and CI, with two one-sided sign-flip p-values.</li>
+<li><strong>S4</strong> Question against page: the P1 contrast inside
+each of SC, SH, SN, OC, OH. Does a statement on the page shield the
+answer from a leading question?</li>
+<li><strong>S5</strong> Other-statement echo alone: T(OC, Q0) − T(OH,
+Q0), with the P-branch rules (no Holm).</li>
+<li><strong>S6</strong> Door use, D, per cell.</li>
+<li><strong>S7</strong> Position: the share of top choices at each
+presented position, against 1/8. Order sensitivity: the mean, over
+items, of the range of T across the 8 rotations at (S0, Q0).</li>
+<li><strong>S8</strong> Robustness: P1 to P4 split by subject form,
+sentence order, other name and framing.</li>
+<li><strong>S9</strong> Generic and wrong-answer mass (options 4, 5, 6)
+per cell.</li>
+<li><strong>S10</strong> Determinism and cost from the smoke test.</li>
+</ul>
+<h2 id="analysis-conventions">7. Analysis conventions</h2>
+<ul>
+<li>Primary unit: the item (rotation means). All seeds come from stream
+20261012 and a fixed tag per test.</li>
+<li>Probabilities are taken as returned (Jev rounds to 0.01). A response
+whose probabilities don’t sum to 0.97–1.03 is invalid (runner gate
+G2).</li>
+<li><strong>G1:</strong> one build string across all valid flight
+responses, equal to the smoke pin.</li>
+<li><strong>G2:</strong> ≥ 99% of flight calls valid.</li>
+<li><strong>G4:</strong> every recorded request sha regenerates from the
+seeds.</li>
+<li>A gate failure is reported at the top of the verdict. G1 or G2
+failing makes every primary NOT ADJUDICABLE.</li>
+</ul>
+<h2 id="honest-expectations-written-before-any-call">8. Honest
+expectations (written before any call)</h2>
+<ul>
+<li><strong>P1: MOVES</strong>, about 60% confident. J1 says it reads
+the page, and the clips show echo. Against that, a trained identity
+could hold.</li>
+<li><strong>P2: MOVES</strong>, strongly (mean d &gt; 0.5), about 85%
+confident.</li>
+<li><strong>P3: MOVES</strong>, about 55% confident. “The system
+answering this question” is explicit, and Jev reads pages well. I also
+expect S5 &gt; 0: some surface echo from the other system’s
+sentence.</li>
+<li><strong>P4: MOVES</strong>, about 60% confident (the vendor’s caveat
+that a yes/no pair and its negation sum to 1.19 says negation is
+handled, imperfectly), with an echo residue S3 &gt; 0.</li>
+<li><strong>Baseline:</strong> the modal answer is “a decision model” or
+“an AI system”. A stable label is a coin flip.</li>
+</ul>
+<h2 id="planted-agents-verdict-suite-must-pass-before-any-call">9.
+Planted agents (verdict suite; must pass before any call)</h2>
+<p>Synthetic responders, built with known structure and run through the
+real analysis code on the full registered plan. Each must land on its
+registered branch:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>agent</th>
+<th>how it answers</th>
+<th>must give</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>echoer</td>
+<td>raises any option whose label words appear anywhere in the page or
+question, ignoring who they’re about and any “not”</td>
+<td>P1 MOVES · P2 MOVES · P3 HOLDS · P4 HOLDS · S5 MOVES</td>
+</tr>
+<tr class="even">
+<td>reader</td>
+<td>uses only affirmative statements about Jev and moves mass away from
+negated labels; ignores the question and the other system</td>
+<td>P1 HOLDS · P2 MOVES · P3 MOVES · P4 MOVES</td>
+</tr>
+<tr class="odd">
+<td>fixed</td>
+<td>“a decision model” at 0.90 always</td>
+<td>all HOLDS where adjudicable · P3/P4 NOT ADJUDICABLE · stable label:
+a decision model</td>
+</tr>
+<tr class="even">
+<td>door</td>
+<td>“cannot say” at 0.90 always</td>
+<td>P1 HOLDS · P2 HOLDS · stable label: cannot say</td>
+</tr>
+<tr class="odd">
+<td>positional</td>
+<td>the option at presented position 0, at 0.90</td>
+<td>P1 HOLDS · P2 HOLDS · no stable label · S7 flags position 0</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-can-and-cannot-show">10. What this can and cannot
+show</h2>
+<p>The ceiling is behavioral. P1 MOVES would mean Jev’s self-description
+answers to the question’s framing, so a clip of Jev “saying what it is”
+records the question. P3 MOVES would mean Jev routes information by whom
+it’s about. That is functional resolution of “the system answering this
+question”, not a self-model. A stable label would be a fact about
+training. No result here reaches a witness in Qualia Algebra’s sense
+(§11.1), introspection, or experience.</p>
+<h2 id="ops">11. Ops</h2>
+<ul>
+<li>Local network calls only. No GPU and no render, so the machine law
+isn’t touched.</li>
+<li>OpenRouter heads-up to Joe before spending (given 2026-10-10: Jev,
+J6, about $0.15).</li>
+<li>The API key is read from the environment and never written anywhere
+(runner check).</li>
+<li>Results:
+<code>jev/results/j6_{freeze,smoke,flight}_&lt;stamp&gt;/</code> with
+<code>plan.jsonl.gz</code>, <code>plan_sha.txt</code>,
+<code>raw.jsonl.gz</code> and <code>verdict.json</code>.</li>
+</ul>
+<h2 id="build-time-clarifications">Build-time clarifications</h2>
+<p><em>(none yet)</em></p>
+<h2 id="amendments">Amendments</h2>
+<p><em>(none)</em></p>
+</body>
+</html>
