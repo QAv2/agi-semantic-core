@@ -95,6 +95,9 @@ Planted agents (verdict suite; must pass before any call)</a></li>
 <li><a href="#what-this-can-and-cannot-show" id="toc-what-this-can-and-cannot-show">8. What this can and cannot
 show</a></li>
 <li><a href="#ops" id="toc-ops">9. Ops</a></li>
+<li><a href="#build-time-clarifications-2026-10-10-before-the-freeze-push-before-any-call" id="toc-build-time-clarifications-2026-10-10-before-the-freeze-push-before-any-call">Build-time
+clarifications (2026-10-10, before the freeze push, before any
+call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
 </ul>
 </nav>
@@ -434,13 +437,15 @@ the least typical nation does</td>
 <p>Tier, descriptive: ≥ 0.892 “as close to the world as the median
 nation” · ≥ 0.658 “within the human range” · ≥ 0.50 “the seed’s
 provisional bar” · below that “below the seed’s bar”.</p>
-<p><strong>C2 — Whose colors: an English lean</strong> (YN). Fit dc(Y) ≈
-a·dc(English) + b·dc(rest) by least squares, where English is the
-unweighted mean of the UK, USA and New Zealand tables and rest is the
-unweighted mean of the other 26 (Nigeria, surveyed in Igbo and English,
-is left out). English weight w = a / (a + b). H0: w ≤ 3/29 (0.103), the
-English share of the world when each nation counts once. Bootstrap
-replicates with a + b ≤ 0 are dropped and counted.</p>
+<p><strong>C2 — Whose colors: an English lean</strong> (YN).
+<em>(Amended before any call: the fit is made on Jev’s own scale. See
+Amendment 1.)</em> Fit dc(Y) ≈ a·dc(English) + b·dc(rest) by least
+squares, where English is the unweighted mean of the UK, USA and New
+Zealand tables and rest is the unweighted mean of the other 26 (Nigeria,
+surveyed in Igbo and English, is left out). English weight w = a / (a +
+b). H0: w ≤ 3/29 (0.103), the English share of the world when each
+nation counts once. Bootstrap replicates with a + b ≤ 0 are dropped and
+counted.</p>
 <p>Checked in this order:</p>
 <table>
 <colgroup>
@@ -546,6 +551,8 @@ position.</li>
 exactly 0.00 or 1.00, beside the binary cap of §2.2.</li>
 <li><strong>S11 Smoke.</strong> Determinism (YN |Δp| and CH flip rate
 under repeats), latency, cost.</li>
+<li><strong>S12 C2 as first registered</strong> (added by Amendment 1):
+the straight fit with its own branch.</li>
 </ul>
 <h2 id="honest-expectations-written-before-any-call">6. Honest
 expectations (written before any call)</h2>
@@ -650,7 +657,121 @@ registration, and the composition test would lean on J5’s result.</p>
 <p>Local network calls only. OpenRouter heads-up to Joe before spending
 (Jev, J5, under $0.10). The API key is never written. Results go to
 <code>jev/results/j5_{freeze,smoke,flight}_&lt;stamp&gt;/</code>.</p>
+<h2 id="build-time-clarifications-2026-10-10-before-the-freeze-push-before-any-call">Build-time
+clarifications (2026-10-10, before the freeze push, before any
+call)</h2>
+<ol type="1">
+<li><strong>Order of work.</strong> <code>jev/j5.py</code> and
+<code>jev/j5_plan.py</code> were drafted in the working tree while this
+registration was being written, to check the call counts. Neither was
+committed before the registration push (0fb911e, 19:58 UTC), and no call
+was made.</li>
+<li><strong>The fixed agent’s choice answer</strong> is as close to
+uniform as 0.01 rounding allows (four colors at 0.09, eight at 0.08). An
+exact 1/12 rounds to 0.08 and fails the runner’s sum check. C1 and C2
+read only the yes/no table, which is exactly 0.5.</li>
+<li><strong>NOT ADJUDICABLE reasons.</strong> When the yes/no table has
+no variance, C2 reports “no variance” rather than the G5 reason. Both
+are NOT ADJUDICABLE.</li>
+<li><strong>The sharpness-matched ceiling (S3)</strong> can’t reach zero
+entropy for a feeling whose human column is tied at the top (admiration
+has a three-way tie at two decimals). k is capped at 200, as
+registered.</li>
+<li><strong>Suites before the freeze push</strong> (all green): logic 13
+· capture 3 · verdict 6. The J1–J6b suites are unchanged and still pass
+(124 tests, with J5’s logic suite), and no shared module was
+edited.</li>
+</ol>
 <h2 id="amendments">Amendments</h2>
-<p><em>(none)</em></p>
+<h3 id="amendment-1-2026-10-10-before-the-freeze-push-before-any-call-c2-is-fit-on-jevs-own-scale">Amendment
+1 (2026-10-10, before the freeze push, before any call): C2 is fit on
+Jev’s own scale</h3>
+<p><strong>What the verdict suite found.</strong> As first registered,
+C2 fits Jev’s yes/no table straight onto the English and rest-of-world
+tables. Two planted agents whose answers are a steep logistic of the
+human table (the shape §2.2 expects of Jev) missed their registered
+branches. The <em>people</em> agent came out UNCLEAR (w 0.155, CI −0.02
+to 0.35) where NO LEAN was registered, and the <em>rest</em> agent came
+out NO LEAN where LEANS AWAY was registered. A steep response curve
+bends the table. The straight fit then reads the bend as a small English
+lean (about +0.05) and widens the interval to about ±0.2, so a steep
+instrument could only come out UNCLEAR.</p>
+<p><strong>The change.</strong> Jev’s response curve is estimated as the
+best non-decreasing map from the world table (the 29 culture-test
+nations, each counted once) to Jev’s yes/no table, over all cells
+(isotonic regression). The English and rest-of-world tables are put
+through that curve before the mix is fit, so the mix is fit on Jev’s own
+scale. The curve is refit in every bootstrap replicate. A non-decreasing
+map can’t reorder cells, so it can’t invent a lean. To first order it
+cancels the bend. Nothing else in C2 changes: the null (w ≤ 3/29), the
+bootstrap, the branches and the 0.25 floor all stay as registered. C1 is
+unchanged, and stays on the raw table, like for like with the
+nations.</p>
+<p><strong>Its calibration</strong>
+(<code>jev/power/j5_c2_curve_check.py</code>, on the real analysis code;
+60 seeded tables per scenario, branch counts):</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>scenario</th>
+<th>curve-matched (amended)</th>
+<th>raw (as first registered)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>steep curve, world (the null)</td>
+<td>NO LEAN 60</td>
+<td>UNCLEAR 60</td>
+</tr>
+<tr class="even">
+<td>steep curve, rest of world</td>
+<td>LEANS AWAY 60</td>
+<td>NO LEAN 38 · UNCLEAR 22</td>
+</tr>
+<tr class="odd">
+<td>steep curve, 25% English</td>
+<td>LEANS ENGLISH 52 · UNCLEAR 8</td>
+<td>UNCLEAR 60</td>
+</tr>
+<tr class="even">
+<td>steep curve, 50% English</td>
+<td>LEANS ENGLISH 60</td>
+<td>LEANS ENGLISH 60</td>
+</tr>
+<tr class="odd">
+<td>all-or-nothing, world (null)</td>
+<td>NO LEAN 13 · UNCLEAR 46 · LEANS AWAY 1</td>
+<td>UNCLEAR 59 · LEANS ENGLISH 1</td>
+</tr>
+<tr class="even">
+<td>all-or-nothing, 50% English</td>
+<td>LEANS ENGLISH 56 · UNCLEAR 4</td>
+<td>LEANS ENGLISH 58 · UNCLEAR 2</td>
+</tr>
+<tr class="odd">
+<td>straight, world, noise 0.06</td>
+<td>NO LEAN 36 · UNCLEAR 24</td>
+<td>NO LEAN 30 · UNCLEAR 29 · LEANS ENGLISH 1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>A limit, stated.</strong> On its own, the amended p runs
+anti-conservative near the null. It falls at or below 0.01 in up to 7%
+of null runs (0–7% across the scenarios), from a +0.01 bias with a tight
+interval. The branch also needs w ≥ 0.25, and none of the 300 runs on
+the world or global table reached LEANS ENGLISH. Holm uses the amended p
+as it comes.</p>
+<p><strong>Kept on the record.</strong> C2 as first registered is
+computed on the same data and reported as secondary
+<strong>S12</strong>, with its own branch, so a reader can see both.</p>
+<p><strong>Expectations, revised for the amended test</strong> (§6 stays
+as first written): LEANS ENGLISH ~40%, NO LEAN ~40%, UNCLEAR ~15%, LEANS
+AWAY ~5%.</p>
 </body>
 </html>

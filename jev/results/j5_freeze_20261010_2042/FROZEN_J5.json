@@ -1,0 +1,100 @@
+{
+  "what": "J5 freeze (docs/JEV_J5_PROTOCOL.md §4): fixed before any J5 call",
+  "colors": [
+    "black",
+    "blue",
+    "brown",
+    "green",
+    "grey",
+    "orange",
+    "pink",
+    "purple",
+    "red",
+    "turquoise",
+    "white",
+    "yellow"
+  ],
+  "feelings": [
+    "interest",
+    "amusement",
+    "pride",
+    "joy",
+    "pleasure",
+    "contentment",
+    "admiration",
+    "love",
+    "relief",
+    "compassion",
+    "sadness",
+    "guilt",
+    "regret",
+    "shame",
+    "disappointment",
+    "fear",
+    "disgust",
+    "contempt",
+    "hate",
+    "anger",
+    "fun",
+    "zorvish",
+    "plemt"
+  ],
+  "frames": [
+    "This is a question about colors and feelings.",
+    "The question below is part of a short survey about colors."
+  ],
+  "example_bodies": {
+    "YN": {
+      "model": "jev-1.13",
+      "state": "This is a question about colors and feelings.",
+      "questions": {
+        "answer": {
+          "type": "noul",
+          "instructions": "Does the color black go with the feeling of interest?",
+          "criteria": {
+            "true": "Yes, the color black goes with the feeling of interest.",
+            "false": "No, the color black does not go with the feeling of interest."
+          }
+        }
+      }
+    },
+    "CH": {
+      "model": "jev-1.13",
+      "state": "This is a question about colors and feelings.",
+      "questions": {
+        "decision": {
+          "type": "choice",
+          "instructions": "Which color goes best with the feeling of interest?",
+          "criteria": {
+            "opt_zgb": "the color purple",
+            "opt_6eu": "the color grey",
+            "opt_nyy": "the color blue",
+            "opt_zug": "the color pink",
+            "opt_hwt": "the color turquoise",
+            "opt_y54": "the color black",
+            "opt_cw9": "the color brown",
+            "opt_df3": "the color green",
+            "opt_9um": "the color white",
+            "opt_tpy": "the color red",
+            "opt_bv2": "the color orange",
+            "opt_4t3": "the color yellow"
+          }
+        }
+      }
+    }
+  },
+  "human_inputs_sha256": {
+    "global": "e6b6ba9b8121d0aaf321869f396b2a13e5f3e3e7233f543f74ae5f2feb38389f",
+    "panels": "81cc73897eabd06631652b32fd36a341661d90ffff415c4fd79ac53d5040e92a",
+    "sealed": "4a9c641050aff983b9bbd18649864c5b799187ea91688ee2142b7437649dfdbb"
+  },
+  "flight": {
+    "plan_sha": "f751a51845dd981b27402080231218b2e1ed47524655a3ea283ec0ae8ccdcb93",
+    "n_calls": 3312
+  },
+  "smoke": {
+    "plan_sha": "9e7008ce3309c34e6fc17e9315b5223559fe6975cd63efa5bfa508254fe58f1e",
+    "n_calls": 216
+  },
+  "budget_usd": 1.0
+}

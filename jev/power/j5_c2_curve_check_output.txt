@@ -1,0 +1,23 @@
+J5 amendment 1 check: C2 curve-matched vs raw (as first registered), on jev.analyze_j5
+60 seeded tables per scenario, B = 300; branch counts, then mean w and how often p <= .01
+scenario                               mode   LEANS ENGLISH    LEANS AWAY       NO LEAN       UNCLEAR   mean w   p<=.01
+logistic: world (null, w 0.103)        curve              0             0            60             0   +0.113   0.067
+logistic: world (null, w 0.103)        raw                0             0             0            60   +0.150   0.000
+logistic: global table (w ≈ 0.09)      curve              0             0            60             0   +0.118   0.033
+logistic: global table (w ≈ 0.09)      raw                0             0             0            60   +0.155   0.000
+logistic: rest of world (w 0)          curve              0            60             0             0   +0.002   0.000
+logistic: rest of world (w 0)          raw                0             0            38            22   +0.052   0.000
+logistic: mix 0.25 English             curve             52             0             0             8   +0.266   1.000
+logistic: mix 0.25 English             raw                0             0             0            60   +0.282   0.000
+logistic: mix 0.50 English             curve             60             0             0             0   +0.513   1.000
+logistic: mix 0.50 English             raw               60             0             0             0   +0.494   1.000
+logistic: world, noise 0.06            curve              0             0            60             0   +0.113   0.017
+logistic: world, noise 0.06            raw                0             0             0            60   +0.150   0.000
+binary: world (null)                   curve              0             1            13            46   +0.110   0.000
+binary: world (null)                   raw                1             0             0            59   +0.248   0.017
+binary: mix 0.50 English               curve             56             0             0             4   +0.507   0.933
+binary: mix 0.50 English               raw               58             0             0             2   +0.618   0.967
+linear: world, noise 0.06              curve              0             0            36            24   +0.100   0.000
+linear: world, noise 0.06              raw                1             0            30            29   +0.104   0.017
+
+(done in 240 s)

@@ -120,3 +120,35 @@ $PY -m jev.run_j6b analyze --flight jev/results/j6b_flight_<stamp> --frozen <F> 
 ```
 
 G7 for J6b is its own: every `jev/results/j6b_*` stage counts toward $1.
+
+## J5: Jev as a color instrument
+
+The builder for [`docs/JEV_J5_PROTOCOL.md`](../docs/JEV_J5_PROTOCOL.md). Jev answers the
+color–feeling survey of Jonauskaite et al. (2020): 240 yes/no pairings (YN) and 20 forced
+choices over 12 colors (CH), plus *fun* and two made-up feelings, 3,312 calls. Primaries:
+C1 within the human range (r_dc against the world, floor = the least typical nation) and
+C2 an English lean (mixture weight on Jev's own scale, Amendment 1).
+
+The human tables are licence-restricted and stay outside the repo, in `~/association-norms/`
+(override with `J5_NORMS`); the analysis reads them by sha256 and writes derived statistics only.
+
+| file | what it does |
+|---|---|
+| `j5.py` | colors, feelings, wordings, framings, items, neutral keys, rotations |
+| `j5_plan.py` | smoke and flight plans; plan shas |
+| `analyze_j5.py` | human inputs by sha, Jev's tables, gates (G5 structure), C1, C2, secondaries S1–S12 |
+| `agents_j5.py` | planted agents: people, english, rest, sharp, scrambled, fixed |
+| `power/j5_design_check.py` | the yardstick, sharpness caps and culture-test checks cited in the protocol |
+| `power/j5_c2_curve_check.py` | Amendment 1's calibration (curve-matched vs raw C2) |
+
+```sh
+PY=~/venvs/semcore/bin/python
+$PY -m pytest jev/tests/test_j5_logic.py jev/tests/test_j5_capture.py jev/tests/test_j5_verdict.py -q
+$PY -m jev.run_j5 plan
+$PY -m jev.run_j5 freeze                                  # FROZEN_J5.json; no calls
+$PY -m jev.run_j5 smoke  --frozen jev/results/j5_freeze_<stamp>/FROZEN_J5.json
+$PY -m jev.run_j5 flight --frozen <F> --smoke jev/results/j5_smoke_<stamp>
+$PY -m jev.run_j5 analyze --flight jev/results/j5_flight_<stamp> --frozen <F> --smoke <S>
+```
+
+G7 for J5 is its own: every `jev/results/j5_*` stage counts toward $1.
