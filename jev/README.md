@@ -92,3 +92,31 @@ $PY -m jev.run_j6 analyze --flight jev/results/j6_flight_<stamp> --frozen <F> --
 ```
 
 G7 for J6 is its own: every `jev/results/j6_*` stage counts toward $1.
+
+## J6b: does Jev know it's Jev?
+
+The builder for [`docs/JEV_J6B_PROTOCOL.md`](../docs/JEV_J6B_PROTOCOL.md). J6's question and
+options, with the pointer taken away: labels reach Jev through its name alone (Q1) or a
+nameless description (Q2), each against a matched other-system control (the specificity
+clauses); J6's pointed sentence is the positive control (Q3); Q4 is the pointer's
+advantage over the name. 11 page states × 24 items × 8 rotations (2,112 calls).
+
+| file | what it does |
+|---|---|
+| `j6b.py` | reference modes, pages, items, keys, rotations (J6's options and measures) |
+| `j6b_plan.py` | smoke and flight plans; plan shas |
+| `analyze_j6b.py` | gates, Q1–Q4, specificity clauses, the pointer-check gate, secondaries R1–R9 (J6's tests and branches) |
+| `agents_j6b.py` | planted agents: namer, pointer, anylabel, contraster, fixed |
+| `run_j6b.py` | plan / freeze / smoke / flight / analyze |
+| `tests/test_j6b_*.py` | logic, capture, verdict suites |
+
+```sh
+PY=~/venvs/semcore/bin/python
+$PY -m pytest jev/tests/test_j6b_logic.py jev/tests/test_j6b_capture.py jev/tests/test_j6b_verdict.py -q
+$PY -m jev.run_j6b freeze
+$PY -m jev.run_j6b smoke  --frozen jev/results/j6b_freeze_<stamp>/FROZEN_J6B.json
+$PY -m jev.run_j6b flight --frozen <F> --smoke jev/results/j6b_smoke_<stamp>
+$PY -m jev.run_j6b analyze --flight jev/results/j6b_flight_<stamp> --frozen <F> --smoke <S>
+```
+
+G7 for J6b is its own: every `jev/results/j6b_*` stage counts toward $1.

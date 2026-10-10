@@ -188,9 +188,25 @@ self-model, a witness (Qualia Algebra §11.1), or experience.
 Local network calls only. OpenRouter heads-up to Joe before spending (Jev, J6b,
 about $0.05). The API key is never written. Results go to `jev/results/j6b_{freeze,smoke,flight}_<stamp>/`.
 
-## Build-time clarifications
+## Build-time clarifications (2026-10-10, before the freeze push, before any call)
 
-*(none yet)*
+1. **NONE varies less than §1 says.** "Every factor varies the page in every mode" holds
+   for the 10 labelled states. NONE has no predicate, so the label word order (w) can't
+   change its page. NONE has 12 distinct pages, each sent under two items' keys and
+   rotation bases. NONE feeds only secondaries (R1, R5, R6, R7), so no primary is
+   affected. Caught by the logic suite. The stimuli are unchanged.
+2. **Analysis stream.** J6b's tests use J6's procedure on J6b's own analysis seed
+   (20261015). The planted agents and the branch, Holm and gate rules are as registered.
+3. **Suites before the freeze push:** logic 11 · capture 3 · verdict 6, all green. The
+   planted agents land with wide margins:
+   - namer: Q1 +1.32 (clause SPECIFIC +1.32), Q4 −0.000;
+   - pointer: Q1 +0.004, Q3 +1.32, Q4 +1.32;
+   - anylabel: Q1 +1.32, but its clause is NOT SPECIFIC (+0.004);
+   - contraster: Q1 −0.001 (HOLDS), even though its clause comes out SPECIFIC at +0.71
+     because the control went negative. The registered reading correctly says "doesn't
+     connect the name Jev to itself".
+
+   The J6 suites (24) still pass, and no shared module was changed.
 
 ## Amendments
 
