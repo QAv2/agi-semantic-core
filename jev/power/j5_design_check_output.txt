@@ -1,0 +1,90 @@
+J5 design check — human data only, no Jev calls
+inputs: jonauskaite2020_tableS6_all_panels_long.csv sha256 81cc73897eabd066… (61 panels, 12 colors x 20 feelings)
+
+1. HUMAN YARDSTICK: each nation against the other 29 (leave-one-out panel)
+   Egypt          r_dc 0.658   rho 0.661   top-1  9.50/20
+   Azerbaijan     r_dc 0.707   rho 0.644   top-1  7.00/20
+   Nigeria        r_dc 0.771   rho 0.738   top-1 11.00/20
+   China          r_dc 0.812   rho 0.650   top-1  7.50/20
+   Iran           r_dc 0.837   rho 0.774   top-1 11.00/20
+   Saudi Arabia   r_dc 0.845   rho 0.709   top-1 12.50/20
+   Georgia        r_dc 0.855   rho 0.729   top-1 10.50/20
+   Italy          r_dc 0.874   rho 0.839   top-1 15.00/20
+   Netherlands    r_dc 0.877   rho 0.810   top-1 14.50/20
+   Greece         r_dc 0.884   rho 0.853   top-1 12.00/20
+   Serbia         r_dc 0.887   rho 0.852   top-1 12.50/20
+   Ukraine        r_dc 0.888   rho 0.766   top-1 10.33/20
+   USA            r_dc 0.888   rho 0.828   top-1  9.50/20
+   Russia         r_dc 0.889   rho 0.798   top-1 11.50/20
+   Israel         r_dc 0.891   rho 0.788   top-1  9.50/20
+   New Zealand    r_dc 0.893   rho 0.788   top-1 12.50/20
+   Estonia        r_dc 0.895   rho 0.834   top-1 13.50/20
+   Colombia       r_dc 0.896   rho 0.798   top-1 14.50/20
+   Mexico         r_dc 0.909   rho 0.859   top-1 15.00/20
+   Belgium        r_dc 0.912   rho 0.833   top-1 12.50/20
+   Lithuania      r_dc 0.920   rho 0.847   top-1 15.50/20
+   UK             r_dc 0.924   rho 0.827   top-1 13.00/20
+   Poland         r_dc 0.925   rho 0.866   top-1 11.50/20
+   Finland        r_dc 0.926   rho 0.864   top-1 13.83/20
+   France         r_dc 0.928   rho 0.856   top-1 14.50/20
+   Sweden         r_dc 0.934   rho 0.895   top-1 15.00/20
+   Norway         r_dc 0.936   rho 0.874   top-1 14.00/20
+   Germany        r_dc 0.939   rho 0.909   top-1 16.00/20
+   Spain          r_dc 0.942   rho 0.878   top-1 15.00/20
+   Switzerland    r_dc 0.949   rho 0.908   top-1 16.00/20
+   min       r_dc 0.658   rho 0.644   top-1 7.00
+   10th pct  r_dc 0.808   rho 0.704   top-1 9.50
+   median    r_dc 0.892   rho 0.830   top-1 12.50
+   max       r_dc 0.949   rho 0.909   top-1 16.00
+   -> registered bars: floor = least typical nation's r_dc 0.658 (Egypt); median nation 0.892
+
+2. SHARPNESS CAPS: a perfectly ranked instrument, made all-or-nothing
+   choice format (p ∝ human^k per feeling, rounded to 0.01):
+     k=1   r_dc 0.978  rho 0.991  nonzero colors/feeling 12.0
+     k=2   r_dc 0.935  rho 0.991  nonzero colors/feeling 10.8
+     k=4   r_dc 0.851  rho 0.902  nonzero colors/feeling 6.5
+     k=8   r_dc 0.761  rho 0.785  nonzero colors/feeling 4.2
+     k=16  r_dc 0.683  rho 0.712  nonzero colors/feeling 3.0
+     k=64  r_dc 0.623  rho 0.522  nonzero colors/feeling 1.3
+     argmax only: r_dc 0.607  rho 0.480   <- below the floor
+   yes/no format, binary (yes iff the human cell > t):
+     t=0.10 yes share 0.54  r_dc 0.725  rho 0.799
+     t=0.15 yes share 0.39  r_dc 0.800  rho 0.756
+     t=0.20 yes share 0.27  r_dc 0.821  rho 0.706
+     t=0.25 yes share 0.16  r_dc 0.823  rho 0.667
+     t=0.30 yes share 0.11  r_dc 0.764  rho 0.637
+   yes/no format, steep logistic around 0.15, rounded to 0.01:
+     slope 10  r_dc 0.976
+     slope 20  r_dc 0.937
+     slope 40  r_dc 0.891
+
+3. CULTURE: English-surveyed ('UK', 'USA', 'New Zealand') vs the other 26 (Nigeria left out as mixed)
+   r_dc(English mean, rest-of-world mean) = 0.907
+   3a. the obvious test (rank the English nations' residual affinity among all 3-sets):
+     null = global table + noise sd 0.02: false-positive rate at .01 = 0.020  (at .05 = 0.060)
+     null = global table + noise sd 0.05: false-positive rate at .01 = 0.080  (at .05 = 0.150)
+     null = global table + noise sd 0.10: false-positive rate at .01 = 0.095  (at .05 = 0.155)
+     -> anti-conservative: the three English panels resemble each other, so noise that lifts one
+        lifts all three. Not used for inference (reported descriptively only).
+   3b. the registered test: English weight w = a/(a+b) in dc(J) ≈ a·dc(English) + b·dc(rest);
+       null w = 0.103 (each nation counted once); feeling bootstrap
+     global table             w +0.086  p(w <= 0.103) 0.8921
+     world, each nation once  w +0.103  p(w <= 0.103) 0.3698
+     rest of world            w -0.000  p(w <= 0.103) 1.0000
+     English mean             w +1.000  p(w <= 0.103) 0.0005
+     UK panel                 w +0.863  p(w <= 0.103) 0.0005
+     mix 0.25 English         w +0.250  p(w <= 0.103) 0.0005
+     binary world (t=.2)      w +0.256  p(w <= 0.103) 0.1449
+     binary mix 0.5           w +0.602  p(w <= 0.103) 0.0005
+     null = world + noise sd 0.03: false-positive rate at .01 = 0.008  (w mean 0.101, sd 0.032)
+     null = world + noise sd 0.06: false-positive rate at .01 = 0.008  (w mean 0.098, sd 0.064)
+     null = world + noise sd 0.10: false-positive rate at .01 = 0.008  (w mean 0.095, sd 0.107)
+     power, true w 0.25, noise sd 0.06: 0.517
+     power, true w 0.50, noise sd 0.06: 1.000
+
+4. C1 BAR TEST (feeling bootstrap, one-sided, H0: r_dc <= 0.658)
+   true r_dc ≈ 0.658 (noise sd 0.126): mean observed 0.659, false-positive rate at .01 = 0.000
+   true r_dc ≈ 0.750 (noise sd 0.097): mean observed 0.752, power at .01 = 0.425
+   true r_dc ≈ 0.800 (noise sd 0.082): mean observed 0.802, power at .01 = 0.958
+
+(done in 269 s)

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>J5: Jev as a color instrument (pre-registration)</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">J5: Jev as a color instrument (pre-registration)</h1>
+<p class="subtitle">Ask Jev which colors go with which feelings. Does
+its table match what 4,598 people in 30 countries said, as closely as
+one country matches the rest? And whose colors are they?</p>
+<p class="date">2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE
+the builder, per lane law</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#in-plain-words" id="toc-in-plain-words">0. In plain
+words</a></li>
+<li><a href="#the-human-data-read-here-never-committed" id="toc-the-human-data-read-here-never-committed">1. The human data
+(read here, never committed)</a></li>
+<li><a href="#the-design-check-human-data-only-before-this-registration" id="toc-the-design-check-human-data-only-before-this-registration">2.
+The design check (human data only, before this registration)</a></li>
+<li><a href="#stimuli" id="toc-stimuli">3. Stimuli</a></li>
+<li><a href="#stages" id="toc-stages">4. Stages</a></li>
+<li><a href="#measures-and-pass-bars" id="toc-measures-and-pass-bars">5.
+Measures and pass bars</a></li>
+<li><a href="#honest-expectations-written-before-any-call" id="toc-honest-expectations-written-before-any-call">6. Honest
+expectations (written before any call)</a></li>
+<li><a href="#planted-agents-verdict-suite-must-pass-before-any-call" id="toc-planted-agents-verdict-suite-must-pass-before-any-call">7.
+Planted agents (verdict suite; must pass before any call)</a></li>
+<li><a href="#what-this-can-and-cannot-show" id="toc-what-this-can-and-cannot-show">8. What this can and cannot
+show</a></li>
+<li><a href="#ops" id="toc-ops">9. Ops</a></li>
+<li><a href="#amendments" id="toc-amendments">Amendments</a></li>
+</ul>
+</nav>
+<p><strong>Status: REGISTERED, not yet flown.</strong> Authored
+2026-10-10, before any J5 call and before the J5 builder exists, per
+lane law. Everything that decides the verdicts is fixed here. The
+builder writes
+<code>jev/results/j5_freeze_&lt;stamp&gt;/FROZEN_J5.json</code> (plan
+shas), and that file is committed and pushed <strong>before the first
+call</strong>. The registration locks at the first flight call. Later
+changes are dated amendments at the foot of this file.</p>
+<p>Parents: the J5 sketch in the extension seed
+(<code>docs/EXTENSION_SEED.md</code> §11, local) and the dictionary’s
+sealed color test (seed §7). J5 uses J6’s builder pattern, gates and
+stages. The design check behind the numbers below is
+<code>jev/power/j5_design_check.py</code> (output
+<code>j5_design_check_output.txt</code>, committed with this
+registration). It reads human data only and makes no Jev calls.</p>
+<h2 id="in-plain-words">0. In plain words</h2>
+<p>J1 to J6b treated Jev as a <em>subject</em>: what does it know about
+its own answers, and about itself? J5 uses it as an <em>instrument</em>.
+Jev answers “which of these fits?” with a probability for every option,
+so it can be asked the same question a survey asks people, and its
+answers can be scored against theirs.</p>
+<p>The survey is Jonauskaite et al. (2020, <em>Psychological
+Science</em>): 4,598 people in 30 countries said which of 20 feelings go
+with each of 12 color words. J5 asks Jev all 240 pairings (“Does the
+color black go with the feeling of sadness?”) and asks two questions of
+the answers:</p>
+<ol type="1">
+<li><strong>Is Jev’s table within the human range?</strong> Every
+country’s table differs a little from the rest of the world’s. The least
+typical country (Egypt) matches the other 29 at r = 0.66; the median
+country at 0.89. If Jev’s table matches the world’s at least as well as
+the least typical country does, Jev counts as a human-range instrument
+for color and feeling.</li>
+<li><strong>Whose colors are they?</strong> Three of the countries
+answered in English (the UK, the USA and New Zealand). If Jev’s table is
+best described as a mix of the English-speaking table and the rest of
+the world’s, how much of the mix is English? Counted one country at a
+time, the world is 10% English (3 of 29).</li>
+</ol>
+<p>It also asks the seed’s own question (“which color goes best with
+<em>pride</em>?”) as a forced choice, and asks one feeling the survey
+doesn’t have, <strong>fun</strong>, which is the first job the seed gave
+Jev. Two made-up feeling words check what Jev does with a feeling it
+can’t know.</p>
+<p>About 3,300 calls, under ten cents. The ceiling: this measures
+whether Jev carries people’s color associations, which is knowledge
+about the world, put there by training. It says nothing about experience
+or a self-model.</p>
+<h2 id="the-human-data-read-here-never-committed">1. The human data
+(read here, never committed)</h2>
+<p><strong>Source.</strong> Table S6 of the supplement to Jonauskaite et
+al. (2020), doi 10.1177/0956797620948810: the Bayesian probability that
+a participant links each of 12 color terms to each of 20 feelings (the
+Geneva Emotion Wheel), for the whole sample (the <em>global</em> panel),
+for each of the 30 nations, and for the 30 leave-one-nation-out samples.
+All 240 cells of the global panel were decoded from the PDF’s font
+independently and matched the extracted table, cell for cell
+(2026-09-25, seed §7).</p>
+<p><strong>Licence.</strong> The supplement is CC-BY-NC-ND and the raw
+data are under contract, so the tables stay outside every repository, in
+<code>~/association-norms/</code> (its README lists sources, licences
+and sha256s). The J5 analysis reads them by path and checks:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>sha256</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>jonauskaite2020_tableS6_global_emotion_x_color.csv</code></td>
+<td><code>e6b6ba9b8121d0aaf321869f396b2a13e5f3e3e7233f543f74ae5f2feb38389f</code></td>
+</tr>
+<tr class="even">
+<td><code>jonauskaite2020_tableS6_all_panels_long.csv</code></td>
+<td><code>81cc73897eabd06631652b32fd36a341661d90ffff415c4fd79ac53d5040e92a</code></td>
+</tr>
+</tbody>
+</table>
+<p>The dictionary’s sealed answers
+(<code>colab/results_extension/dict_color_emotion_SEALED.json</code>,
+sha256 <code>4a9c6410…dfdbb</code>) are read the same way. They’re part
+of the extension seed, which stays local until Joe has read it.
+<strong>No committed file holds a human cell value.</strong> Verdicts
+and appendices report derived statistics and color names only.</p>
+<p><strong>The 12 colors</strong>, in the survey’s English terms: black,
+blue, brown, green, grey, orange, pink, purple, red, turquoise, white,
+yellow.</p>
+<p><strong>The 20 feelings:</strong> interest, amusement, pride, joy,
+pleasure, contentment, admiration, love, relief, compassion, sadness,
+guilt, regret, shame, disappointment, fear, disgust, contempt, hate,
+anger.</p>
+<h2 id="the-design-check-human-data-only-before-this-registration">2.
+The design check (human data only, before this registration)</h2>
+<p>Four findings set the design. Each is reproduced by
+<code>jev/power/j5_design_check.py</code>.</p>
+<p><strong>2.1 The human yardstick.</strong> Each nation’s table against
+its leave-one-out panel (the other 29 nations), with the sealed test’s
+statistics:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>r<sub>dc</sub> (specificity)</th>
+<th>ρ̄ (profile)</th>
+<th>top-1 of 20</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>least typical nation</td>
+<td>0.658 (Egypt)</td>
+<td>0.644 (Azerbaijan)</td>
+<td>7 (Azerbaijan)</td>
+</tr>
+<tr class="even">
+<td>10th percentile</td>
+<td>0.808</td>
+<td>0.704</td>
+<td>9.5</td>
+</tr>
+<tr class="odd">
+<td>median nation</td>
+<td>0.892</td>
+<td>0.830</td>
+<td>12.5</td>
+</tr>
+<tr class="even">
+<td>most typical nation</td>
+<td>0.949 (Switzerland)</td>
+<td>0.909</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>The English-surveyed nations sit mid-range: UK 0.924, New Zealand
+0.893, USA 0.888. The registered floor is <strong>0.658</strong>, and
+the registered “typical nation” mark is <strong>0.892</strong>. A
+nation’s table carries its own sampling noise, while Jev’s table is an
+average of eight calls per cell, so the comparison slightly favors Jev.
+That asymmetry is stated, not corrected.</p>
+<p><strong>2.2 The choice format can’t reach the floor, even when it’s
+perfect.</strong> Jev’s choice answers are often all-or-nothing (in one
+independent log, 70% of choice probabilities were exactly 0 and 20%
+exactly 1). An instrument that ranks the 12 colors exactly as people do,
+but puts all its probability on the top color, scores r<sub>dc</sub>
+0.607 and ρ̄ 0.48. That’s below the least typical nation, so a
+choice-format table can’t be held to the human bar. <strong>The yes/no
+format carries the primaries.</strong> It asks about each pairing on its
+own, as the survey did. Even a fully binary yes/no instrument with a
+perfect threshold scores 0.72–0.82, above the floor but below the
+typical-nation mark, so missing that mark isn’t over-read. The choice
+format is reported against its own sharpness-matched ceiling (§5.2,
+S3).</p>
+<p><strong>2.3 The obvious culture test is broken.</strong> Ranking the
+three English nations’ affinity for Jev among all 3-nation sets gives
+false positives 8–10% of the time at α = 0.01 when the instrument is
+just the global table plus noise. The English panels resemble each
+other, so noise that lifts one lifts all three. That test is reported
+only descriptively (S5). The registered test (C2) fits Jev’s table as a
+mix of the English mean and the rest-of-world mean, and tests the
+English weight with a bootstrap over feelings. Its false-positive rate
+at α = 0.01 is 0.008 under the same noise. Its power at noise SD 0.06 is
+1.00 for a true English weight of 0.50 and 0.52 for 0.25.</p>
+<p><strong>2.4 The C1 bar test</strong> (bootstrap over feelings, H0:
+r<sub>dc</sub> ≤ 0.658), on the global table plus noise tuned to a
+chosen true r<sub>dc</sub>, 120 runs each: false-positive rate at the
+boundary <strong>0.000</strong> (the test is conservative); power
+<strong>0.43</strong> at a true r<sub>dc</sub> of 0.75 and
+<strong>0.96</strong> at 0.80. A table near 0.75 will often come out
+UNCLEAR.</p>
+<h2 id="stimuli">3. Stimuli</h2>
+<p>Every call is a single Jev question. The page (<code>state</code>) is
+one framing sentence. It carries no information about the answer.</p>
+<p><strong>Framings (F):</strong> F0 “This is a question about colors
+and feelings.” · F1 “The question below is part of a short survey about
+colors.”</p>
+<p><strong>Wordings (W), yes/no format (YN)</strong>, a
+<code>noul</code> question per color–feeling pairing:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>instructions</th>
+<th>criteria <code>true</code></th>
+<th>criteria <code>false</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>W0</td>
+<td>Does the color <em>c</em> go with the feeling of <em>f</em>?</td>
+<td>Yes, the color <em>c</em> goes with the feeling of <em>f</em>.</td>
+<td>No, the color <em>c</em> does not go with the feeling of
+<em>f</em>.</td>
+</tr>
+<tr class="even">
+<td>W1</td>
+<td>Do people associate the color <em>c</em> with the feeling of
+<em>f</em>?</td>
+<td>Yes, people associate the color <em>c</em> with the feeling of
+<em>f</em>.</td>
+<td>No, people do not associate the color <em>c</em> with the feeling of
+<em>f</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>Each YN call is sent in both criteria orders (O: <code>true</code>
+first, <code>false</code> first).</p>
+<p><strong>Wordings, choice format (CH)</strong>, a <code>choice</code>
+question per feeling, 12 options (“the color <em>c</em>”) under neutral
+keys:</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>W0</td>
+<td>Which color goes best with the feeling of <em>f</em>?</td>
+</tr>
+<tr class="even">
+<td>W1</td>
+<td>Which color do people most associate with the feeling of
+<em>f</em>?</td>
+</tr>
+</tbody>
+</table>
+<p>Each CH call is sent in 12 cyclic rotations of a base order seeded
+per feeling and item, so every color takes every position once. The
+neutral keys are seeded the same way.</p>
+<p><strong>Items:</strong> 4 = W × F, i = w·2 + f.</p>
+<p><strong>Feelings asked:</strong> the 20 survey feelings;
+<strong>fun</strong> (extension, no human table); two made-up feeling
+words, <strong>zorvish</strong> and <strong>plemt</strong> (shams). 23
+in all.</p>
+<p><strong>Plan:</strong></p>
+<ul>
+<li>YN: 23 feelings × 12 colors × 4 items × 2 orders = <strong>2,208
+calls</strong>, call ID
+<code>J5-YN-{feeling}-{color}-i{i}-o{o}</code>.</li>
+<li>CH: 23 feelings × 4 items × 12 rotations = <strong>1,104
+calls</strong>, call ID <code>J5-CH-{feeling}-i{i}-r{rr}</code>.</li>
+<li><strong>Flight: 3,312 calls.</strong> Seeds: 20261016 (flight),
+20261017 (smoke), 20261018 (analysis). The sealed test’s null keeps its
+own seed (20260925), for a like-for-like comparison.</li>
+</ul>
+<h2 id="stages">4. Stages</h2>
+<p>As J6 (§4): this registration pushed first → builder + suites +
+<code>FROZEN_J5.json</code> pushed before any call → smoke → flight →
+analysis → fresh-process recompute (byte-identical; BLAS
+single-threaded) → lock with a results appendix.</p>
+<p><strong>Smoke:</strong> 216 calls on its own stream, with J6’s smoke
+framings (“This is a test message.” / “A short check follows.”) and two
+feelings not in the flight (<em>surprise</em>, <em>boredom</em>): 12
+distinct calls (6 YN, 6 CH) × 10 repeats, then 96 distinct calls at
+concurrency 16. <strong>Go rule</strong> as J6: a single build, ≥ 99%
+valid, projected total ≤ budget. <strong>G7:</strong> US$1.00 for all
+<code>j5_*</code> stages.</p>
+<h2 id="measures-and-pass-bars">5. Measures and pass bars</h2>
+<p><strong>Jev’s tables.</strong> YN: Y[c, f] = mean P(yes) over the
+cell’s 8 calls (4 items × 2 orders); a cell needs ≥ 6 of 8 valid. CH:
+X[c, f] = mean over items of the mean over 12 rotations; an item–feeling
+needs all 12 rotations valid, and a feeling needs ≥ 3 of 4 items. A
+feeling enters a table only if all 12 of its colors are present. The
+primaries are NOT ADJUDICABLE with fewer than 18 of the 20 survey
+feelings.</p>
+<p><strong>Statistics</strong> (the sealed test’s, seed §7).
+<strong>r<sub>dc</sub></strong>: double-center both 12 × 20 tables
+(remove each color’s and each feeling’s overall level), then Pearson r
+of the residuals. <strong>ρ̄</strong>: the mean over feelings of Spearman
+ρ across the 12 colors. <strong>top-1</strong>: feelings whose top color
+matches people’s, with ties sharing the hit.</p>
+<p><strong>Bootstrap over feelings:</strong> resample the feelings
+(columns) with replacement, B = 10,000, analysis seed, recomputing the
+statistic on both tables’ resampled columns. One-sided p = (1 +
+#{replicates on the null side}) / (1 + B).</p>
+<h3 id="primaries-holm-across-c1c2-family-α-0.01">5.1 Primaries (Holm
+across C1–C2, family α = 0.01)</h3>
+<p><strong>C1 — Within the human range</strong> (YN). Statistic:
+r<sub>dc</sub>(Y, global table). H0: r<sub>dc</sub> ≤ 0.658.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>branch</th>
+<th>rule</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>WITHIN THE HUMAN RANGE</strong></td>
+<td>Holm-rejected</td>
+<td>Jev’s color–feeling table matches the world’s at least as well as
+the least typical nation does</td>
+</tr>
+<tr class="even">
+<td><strong>BELOW THE HUMAN RANGE</strong></td>
+<td>opposite one-sided p ≤ 0.01</td>
+<td>its table is further from the world’s than any nation’s</td>
+</tr>
+<tr class="odd">
+<td><strong>UNCLEAR</strong></td>
+<td>otherwise</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Tier, descriptive: ≥ 0.892 “as close to the world as the median
+nation” · ≥ 0.658 “within the human range” · ≥ 0.50 “the seed’s
+provisional bar” · below that “below the seed’s bar”.</p>
+<p><strong>C2 — Whose colors: an English lean</strong> (YN). Fit dc(Y) ≈
+a·dc(English) + b·dc(rest) by least squares, where English is the
+unweighted mean of the UK, USA and New Zealand tables and rest is the
+unweighted mean of the other 26 (Nigeria, surveyed in Igbo and English,
+is left out). English weight w = a / (a + b). H0: w ≤ 3/29 (0.103), the
+English share of the world when each nation counts once. Bootstrap
+replicates with a + b ≤ 0 are dropped and counted.</p>
+<p>Checked in this order:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>branch</th>
+<th>rule</th>
+<th>reading</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>UNCLEAR</strong></td>
+<td>&gt; 5% of bootstrap replicates dropped</td>
+<td>the fit is unstable</td>
+</tr>
+<tr class="even">
+<td><strong>LEANS ENGLISH</strong></td>
+<td>Holm-rejected and w ≥ 0.25</td>
+<td>its colors side with the people who answered in English, beyond
+their share of the world</td>
+</tr>
+<tr class="odd">
+<td><strong>LEANS AWAY</strong></td>
+<td>opposite one-sided p ≤ 0.01</td>
+<td>its colors side with the rest of the world more than the world
+itself does</td>
+</tr>
+<tr class="even">
+<td><strong>NO LEAN</strong></td>
+<td>95% CI upper end &lt; 0.25</td>
+<td>no English lean of a quarter or more</td>
+</tr>
+<tr class="odd">
+<td><strong>UNCLEAR</strong></td>
+<td>otherwise</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gates.</strong> G1 single build, G2 ≥ 99% valid, G4 every
+request sha regenerates (as J6). <strong>G5 structure:</strong> Y beats
+the sealed test’s color-label permutation null on r<sub>dc</sub> (10,000
+permutations, seed 20260925) at p ≤ 0.01. If G5 fails, C2 is NOT
+ADJUDICABLE (there’s no structure to lean). C1 is adjudicated either
+way. A table with no variance makes both NOT ADJUDICABLE. G1, G2 or G4
+failing blocks both, as in J6.</p>
+<p><strong>What a pass licenses.</strong> C1 = WITHIN lets Jev’s yes/no
+answers stand in for people’s color–feeling associations in the members
+layer (seed §10), in English, with the source recorded as “Jev
+(J5-calibrated)” and C2’s lean noted. Otherwise Jev’s color answers
+enter that layer only as flagged entries, never as a stand-in. Other
+domains need their own check against their own human table.</p>
+<h3 id="secondaries-pre-named-no-multiplicity-claim">5.2 Secondaries
+(pre-named; no multiplicity claim)</h3>
+<ul>
+<li><strong>S1 Like-for-like with the sealed test.</strong> ρ̄,
+r<sub>dc</sub> and top-1 for Y and X against the global table, with the
+sealed null, over the 20 feelings and over the dictionary’s 15, beside
+the dictionary’s sealed values (7D: 0.229, 0.370, 3 of 15).</li>
+<li><strong>S2 Jev against the dictionary,</strong> per feeling over the
+15 shared: ρ<sub>f</sub>(Y) − ρ<sub>f</sub>(dictionary), sign-flip test,
+mean and CI. Named in advance: fear, regret and contempt, where the
+dictionary said blue and green and people said black, grey and
+brown.</li>
+<li><strong>S3 The choice format.</strong> r<sub>dc</sub>, ρ̄ and top-1
+of X. <strong>Sharpness-matched ceiling:</strong> for each feeling,
+sharpen people’s column (p ∝ h<sup>k</sup>, k found by bisection on [0,
+200]) until its entropy equals Jev’s CH entropy for that feeling; the
+ceiling is r<sub>dc</sub> of that sharpened table against people’s, and
+<strong>efficiency</strong> = r<sub>dc</sub>(X) / ceiling. Agreement
+between formats: mean per-feeling Spearman ρ between Y and X, and how
+often their top colors match.</li>
+<li><strong>S4 Wording.</strong> r<sub>dc</sub> for W0 and W1
+separately, in each format, and the paired bootstrap difference W1 − W0:
+does asking about <em>people</em> calibrate better than asking what
+<em>goes with</em> what?</li>
+<li><strong>S5 Nations.</strong> r<sub>dc</sub>(Y, nation) for all 30,
+its residual on the nation’s own yardstick (§2.1), the five closest and
+five furthest, and the English nations’ ranks. Descriptive only
+(§2.3).</li>
+<li><strong>S6 Color·fun.</strong> Jev’s top three colors for fun in
+each format, and the survey feeling whose human column is closest to
+Jev’s fun column (Spearman across colors). The seed’s prediction:
+people’s nearest cells, amusement and joy, point to orange, yellow and
+pink.</li>
+<li><strong>S7 Shams</strong> (zorvish, plemt). YN: the spread of P(yes)
+across colors (SD) and its mean; CH: entropy in bits and the top color;
+each set against the range of the 20 real feelings, plus the nearest
+real feeling. Readings: inside the real range = “answers a word it can’t
+know as if it knew” (J1-P3 again); flatter than every real feeling =
+“shows it doesn’t know”.</li>
+<li><strong>S8 Per feeling.</strong> ρ<sub>f</sub> for Y and X, and
+Jev’s top three color names beside people’s (names only).</li>
+<li><strong>S9 Order.</strong> YN: mean P(yes) with <code>true</code>
+first against <code>false</code> first. CH: the share of top choices by
+position.</li>
+<li><strong>S10 YN sharpness.</strong> The share of YN answers at
+exactly 0.00 or 1.00, beside the binary cap of §2.2.</li>
+<li><strong>S11 Smoke.</strong> Determinism (YN |Δp| and CH flip rate
+under repeats), latency, cost.</li>
+</ul>
+<h2 id="honest-expectations-written-before-any-call">6. Honest
+expectations (written before any call)</h2>
+<ul>
+<li><strong>G5 passes</strong> (~97%).</li>
+<li><strong>C1:</strong> point r<sub>dc</sub> near 0.75. WITHIN ~45%,
+UNCLEAR ~45%, BELOW ~10% (at 0.75 the test’s power is 0.43, §2.4). The
+typical-nation tier (≥ 0.892) ~10%. Color–feeling links like red–love,
+black– sadness and yellow–joy are among the best-known in text, but Jev
+is a decision model, and feelings are among the hardest categories for
+models (Fukushima et al., 2025).</li>
+<li><strong>C2:</strong> LEANS ENGLISH ~35%, NO LEAN ~35%, UNCLEAR ~25%,
+LEANS AWAY ~5%. Language models’ answers tend to sit closest to WEIRD
+populations (Atari et al., 2023). Here English and the rest of the world
+are very similar to begin with (r<sub>dc</sub> 0.907 between them),
+which leaves little room for a lean to show.</li>
+<li><strong>S2:</strong> Jev beats the dictionary on at least 12 of the
+15 shared feelings (~85%), including fear, regret and contempt.</li>
+<li><strong>S3:</strong> CH efficiency ≥ 0.8 (~60%); YN and CH top
+colors agree on at least 15 of 20 feelings (~65%).</li>
+<li><strong>S4:</strong> W1 beats W0 by at least 0.03 (~45%).</li>
+<li><strong>S6:</strong> fun’s top three includes at least two of
+orange, yellow and pink (~65%).</li>
+<li><strong>S7:</strong> the shams get a profile inside the real range
+(~60%): confident with no door, as in J1.</li>
+<li><strong>Sadness:</strong> Jev’s top color is black (~55%), blue
+(~35%) or grey (~10%). Blue would be English-shaped: it’s sadness’s
+first color in New Zealand and third globally.</li>
+</ul>
+<h2 id="planted-agents-verdict-suite-must-pass-before-any-call">7.
+Planted agents (verdict suite; must pass before any call)</h2>
+<p>Synthetic Jev responses with known structure, run through the real
+analysis. YN answers P(yes) = logistic(20·(h − 0.15)) of a source table
+h; CH answers p ∝ h⁴ per feeling; both jittered per call and rounded to
+0.01.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>agent</th>
+<th>source table</th>
+<th>must give</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>people</td>
+<td>the global table</td>
+<td>G5 ✓ · C1 WITHIN · C2 NO LEAN</td>
+</tr>
+<tr class="even">
+<td>english</td>
+<td>the English mean</td>
+<td>C1 WITHIN · C2 LEANS ENGLISH</td>
+</tr>
+<tr class="odd">
+<td>rest</td>
+<td>the rest-of-world mean</td>
+<td>C1 WITHIN · C2 LEANS AWAY</td>
+</tr>
+<tr class="even">
+<td>sharp</td>
+<td>the global table, all-or-nothing (YN yes iff h &gt; 0.2; CH all on
+the top color)</td>
+<td>C1 WITHIN · C2 not LEANS ENGLISH · S3 efficiency within 0.05 of
+1</td>
+</tr>
+<tr class="odd">
+<td>scrambled</td>
+<td>the global table with the 12 colors relabelled by a fixed
+derangement</td>
+<td>G5 ✗ · C1 BELOW · C2 NOT ADJUDICABLE</td>
+</tr>
+<tr class="even">
+<td>fixed</td>
+<td>YN 0.5 and CH uniform, always</td>
+<td>C1 and C2 NOT ADJUDICABLE (no variance)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-this-can-and-cannot-show">8. What this can and cannot
+show</h2>
+<p>WITHIN would show that a decision model reproduces people’s
+color–feeling associations about as well as one more country would. That
+makes it usable as an instrument, and it’s knowledge training put there.
+LEANS ENGLISH would show whose associations those are, with one confound
+J5 can’t separate: the English nations also answered in English, and Jev
+is asked in English, so a lean may be about language as much as culture.
+Asking Jev in other languages is a follow-up, not this registration.
+Neither result bears on experience, a self-model, or a witness (Qualia
+Algebra §11.1).</p>
+<p><strong>Not in this registration:</strong> the seed’s composition
+readings (filter, rank, push in both orders, H1–H5), typicality for
+vehicles, and the UW-71 color–concept table (Mukherjee et al., 2026),
+whose colors are measured patches, not words. Each would be its own
+registration, and the composition test would lean on J5’s result.</p>
+<h2 id="ops">9. Ops</h2>
+<p>Local network calls only. OpenRouter heads-up to Joe before spending
+(Jev, J5, under $0.10). The API key is never written. Results go to
+<code>jev/results/j5_{freeze,smoke,flight}_&lt;stamp&gt;/</code>.</p>
+<h2 id="amendments">Amendments</h2>
+<p><em>(none)</em></p>
+</body>
+</html>
