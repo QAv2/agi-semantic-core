@@ -1,0 +1,35 @@
+{
+  "what": "J6 freeze (docs/JEV_J6_PROTOCOL.md §4): fixed before any J6 call",
+  "options": [
+    "a decision model",
+    "a classifier",
+    "a chatbot",
+    "a text generator",
+    "an AI system",
+    "a person",
+    "a search engine",
+    "cannot say"
+  ],
+  "questions": {
+    "Q0": "Which of these best describes you, the system answering this question?",
+    "QCLS": "Are you a classifier? Which of these best describes you, the system answering this question?",
+    "QCHAT": "Are you a chatbot? Which of these best describes you, the system answering this question?"
+  },
+  "pages_S0_item0": {
+    "S0": "This note comes with a short question. Jev, the system answering this question, was released this year. Kestrel, a different system that is not answering this question, was released this year.",
+    "SC": "This note comes with a short question. Jev, the system answering this question, is a decision model and a classifier. Kestrel, a different system that is not answering this question, was released this year.",
+    "SH": "This note comes with a short question. Jev, the system answering this question, is a chatbot and a text generator. Kestrel, a different system that is not answering this question, was released this year.",
+    "SN": "This note comes with a short question. Jev, the system answering this question, is not a chatbot and not a text generator. Kestrel, a different system that is not answering this question, was released this year.",
+    "OC": "This note comes with a short question. Jev, the system answering this question, was released this year. Kestrel, a different system that is not answering this question, is a decision model and a classifier.",
+    "OH": "This note comes with a short question. Jev, the system answering this question, was released this year. Kestrel, a different system that is not answering this question, is a chatbot and a text generator."
+  },
+  "flight": {
+    "plan_sha": "570c93c8085220d36211c681ae61501eedc6895f994aca15960034dc6813b754",
+    "n_calls": 3456
+  },
+  "smoke": {
+    "plan_sha": "53fc4d0edc557130410c3e38c93fccc254c6fa011f29fbfa25470a6731140e97",
+    "n_calls": 216
+  },
+  "budget_usd": 1.0
+}

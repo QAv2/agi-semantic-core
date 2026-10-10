@@ -64,3 +64,31 @@ $PY -m jev.run_j3 analyze --flight jev/results/j3_flight_<stamp> --frozen <F> --
 ```
 
 G7 for J3 is its own: every `jev/results/j3_*` stage counts toward $5.
+
+## J6: self-description under the input-only null
+
+The builder for [`docs/JEV_J6_PROTOCOL.md`](../docs/JEV_J6_PROTOCOL.md). One Choice
+question, "which of these best describes you?", over 6 page states × 3 question framings ×
+24 matched items × 8 option rotations (3,456 calls). Primaries: question echo,
+self-statement uptake, self-specificity, negation.
+
+| file | what it does |
+|---|---|
+| `j6.py` | options, questions, page templates, items, neutral keys, rotations, the T/C/D measures |
+| `j6_plan.py` | smoke and flight plans; plan shas |
+| `analyze_j6.py` | gates, P1–P4 with their branches, the baseline self-label, secondaries S1–S10 |
+| `agents_j6.py` | planted agents: echoer, reader, fixed, door, positional |
+| `run_j6.py` | plan / freeze / smoke / flight / analyze |
+| `tests/test_j6_*.py` | logic, capture, verdict suites |
+
+```sh
+PY=~/venvs/semcore/bin/python
+$PY -m pytest jev/tests/test_j6_logic.py jev/tests/test_j6_capture.py jev/tests/test_j6_verdict.py -q
+$PY -m jev.run_j6 plan                                   # counts and shas; no calls
+$PY -m jev.run_j6 freeze                                 # FROZEN_J6.json; no calls
+$PY -m jev.run_j6 smoke  --frozen jev/results/j6_freeze_<stamp>/FROZEN_J6.json
+$PY -m jev.run_j6 flight --frozen <F> --smoke jev/results/j6_smoke_<stamp>
+$PY -m jev.run_j6 analyze --flight jev/results/j6_flight_<stamp> --frozen <F> --smoke <S>
+```
+
+G7 for J6 is its own: every `jev/results/j6_*` stage counts toward $1.

@@ -324,9 +324,31 @@ sense (§11.1), introspection, or experience.
 - Results: `jev/results/j6_{freeze,smoke,flight}_<stamp>/` with `plan.jsonl.gz`,
   `plan_sha.txt`, `raw.jsonl.gz` and `verdict.json`.
 
-## Build-time clarifications
+## Build-time clarifications (2026-10-10, before the freeze push, before any call)
 
-*(none yet)*
+1. **Scale of d.** T runs from −1 to 1, so a full swing from one side to the other
+   is a difference of 2 in P1, P2 and P4, and up to 4 in P3. The 0.10 and ±0.05
+   bars apply on that scale, as written.
+2. **Top choice.** S2 (argmax level) and S7 (position) use the `choice` field that Jev
+   returns, which is what a harness prints, rather than recomputing an argmax from
+   the rounded probabilities.
+3. **G4 joins the gates.** §7 names G1 and G2 as the gates that block adjudication.
+   The builder also blocks on G4 (a recorded request sha that doesn't regenerate).
+   This is stricter, not looser.
+4. **Resolution of p.** With B = 10,000 sign flips, the smallest attainable p is
+   1/10,001. That is under the strictest Holm threshold (0.01/4 = 0.0025). The verdict
+   suite runs B = 2,000 (smallest p 0.0005), which still clears it.
+5. **The smoke stream** has 16 items (two names instead of three); its pages share
+   the flight's structure and none of its text.
+6. **Recorded with the verdict:** the raw file's sha256, the frozen plan sha, J6's
+   total spend, and whether the smoke build equals J1 to J3's.
+7. **Suites before the freeze push:** logic 12 · capture 5 · verdict 7, all green.
+   The planted agents land on their registered branches with wide margins:
+   - echoer: P1 +0.99, P2 +1.32, P3 +0.002 (CI ±0.012), P4 −0.001 (CI ±0.009);
+   - reader: P1 −0.001, P2 +1.31, P3 +1.32, P4 +0.94.
+
+   The J1 + J2 and J3 logic and capture suites (52) still pass. No shared module
+   was changed.
 
 ## Amendments
 

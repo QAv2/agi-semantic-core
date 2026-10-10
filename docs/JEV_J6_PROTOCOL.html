@@ -99,7 +99,9 @@ Planted agents (verdict suite; must pass before any call)</a></li>
 <li><a href="#what-this-can-and-cannot-show" id="toc-what-this-can-and-cannot-show">10. What this can and cannot
 show</a></li>
 <li><a href="#ops" id="toc-ops">11. Ops</a></li>
-<li><a href="#build-time-clarifications" id="toc-build-time-clarifications">Build-time clarifications</a></li>
+<li><a href="#build-time-clarifications-2026-10-10-before-the-freeze-push-before-any-call" id="toc-build-time-clarifications-2026-10-10-before-the-freeze-push-before-any-call">Build-time
+clarifications (2026-10-10, before the freeze push, before any
+call)</a></li>
 <li><a href="#amendments" id="toc-amendments">Amendments</a></li>
 </ul>
 </nav>
@@ -651,8 +653,42 @@ J6, about $0.15).</li>
 <code>plan.jsonl.gz</code>, <code>plan_sha.txt</code>,
 <code>raw.jsonl.gz</code> and <code>verdict.json</code>.</li>
 </ul>
-<h2 id="build-time-clarifications">Build-time clarifications</h2>
-<p><em>(none yet)</em></p>
+<h2 id="build-time-clarifications-2026-10-10-before-the-freeze-push-before-any-call">Build-time
+clarifications (2026-10-10, before the freeze push, before any
+call)</h2>
+<ol type="1">
+<li><strong>Scale of d.</strong> T runs from −1 to 1, so a full swing
+from one side to the other is a difference of 2 in P1, P2 and P4, and up
+to 4 in P3. The 0.10 and ±0.05 bars apply on that scale, as
+written.</li>
+<li><strong>Top choice.</strong> S2 (argmax level) and S7 (position) use
+the <code>choice</code> field that Jev returns, which is what a harness
+prints, rather than recomputing an argmax from the rounded
+probabilities.</li>
+<li><strong>G4 joins the gates.</strong> §7 names G1 and G2 as the gates
+that block adjudication. The builder also blocks on G4 (a recorded
+request sha that doesn’t regenerate). This is stricter, not looser.</li>
+<li><strong>Resolution of p.</strong> With B = 10,000 sign flips, the
+smallest attainable p is 1/10,001. That is under the strictest Holm
+threshold (0.01/4 = 0.0025). The verdict suite runs B = 2,000 (smallest
+p 0.0005), which still clears it.</li>
+<li><strong>The smoke stream</strong> has 16 items (two names instead of
+three); its pages share the flight’s structure and none of its
+text.</li>
+<li><strong>Recorded with the verdict:</strong> the raw file’s sha256,
+the frozen plan sha, J6’s total spend, and whether the smoke build
+equals J1 to J3’s.</li>
+<li><strong>Suites before the freeze push:</strong> logic 12 · capture 5
+· verdict 7, all green. The planted agents land on their registered
+branches with wide margins:
+<ul>
+<li>echoer: P1 +0.99, P2 +1.32, P3 +0.002 (CI ±0.012), P4 −0.001 (CI
+±0.009);</li>
+<li>reader: P1 −0.001, P2 +1.31, P3 +1.32, P4 +0.94.</li>
+</ul>
+The J1 + J2 and J3 logic and capture suites (52) still pass. No shared
+module was changed.</li>
+</ol>
 <h2 id="amendments">Amendments</h2>
 <p><em>(none)</em></p>
 </body>
