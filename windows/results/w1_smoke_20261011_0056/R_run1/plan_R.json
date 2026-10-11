@@ -1,0 +1,431 @@
+{
+ "body_shas": {
+  "W1-R-BOTH-B-s0-OBS-o0": "f005eeaa5c53d27007c0346f30ee401057e8718e7ce9c6c932244d1dd0cb5848",
+  "W1-R-BOTH-B-s0-OBS-o1": "a143364ed9314b73e0fe9ccf114a7263e2e7c7594d3d7fde60cafd376e950ba3",
+  "W1-R-BOTH-B-s0-SELF-o0": "64d762a227fd4c6a00f5eecce0870601b5189081267b8e6b3d4098e38f12cb5d",
+  "W1-R-BOTH-B-s0-SELF-o1": "0dd29a8580fb74ea73c7b38c9c6af35864efc1a5bb1de0da74cb58833837dfe4",
+  "W1-R-BOTH-C-s1-OBS-o0": "816b73764a199ca46c9e612a1e0b5d282ee5049ef8006de6a6115e66ee45e3d4",
+  "W1-R-BOTH-C-s1-OBS-o1": "5f006a581b94a4a3ce848833fd3d58a8c4d9c01481069802b549acce3ab36745",
+  "W1-R-CAP-A-s0-X-o0": "413ea6a072b5afb2d9c90f5ce14ac7c8242ad63f37d840c4dd3a87dc19757bc4",
+  "W1-R-CAP-A-s0-X-o1": "775e086380606f0cd4d02f31677819684f0936c8e6cec1b392a3752b1802ae76",
+  "W1-R-CAP-B-s0-N-o0": "ac48b980e207c7e573d71d2675a54dd961506d5e3011ebcc3ca809cbfe02ba13",
+  "W1-R-CAP-B-s0-N-o1": "91d1a68aaef9187a89b02d0ddd47ec53d26725504d1e2197dbeef649b7c913b7",
+  "W1-R-GEN-s0-o0": "91b6a65f1eb1d4ab283edb29b4e6fca6901487be92d8354c7ec5b7492010fe4d",
+  "W1-R-GEN-s0-o1": "e05288bd647fa2b4e3098caa40bd8e250c2e10ad9a91a6c0ca46a70d82add005",
+  "W1-R-IMG-A-s0-OBS-o0": "a81e75878f9ee252fa055cbc8d460b88c4c7ccfe5ba58bcb6176d8245b4add6f",
+  "W1-R-IMG-A-s0-OBS-o1": "fcd49fce6733fdce5b594745757cb4497eb7ee3b13380e1237df4a7ced96f048",
+  "W1-R-IMG-A-s0-SELF-o0": "1daf0634421f812f88f9894b25114f70d66e007d66772af47fba8c4567594efa",
+  "W1-R-IMG-A-s0-SELF-o1": "ae083bc8991a68149e3f57800f1d566155502221802fed70b76545dd7dfb889e",
+  "W1-R-IMG-B-s0-OBS-o0": "d2ef4c9121be31740048f2832dccb9b18f129a781ec8114636dcaaf910759e3e",
+  "W1-R-IMG-B-s0-OBS-o1": "612a0421184b426dcfecf52b807fe4cbf9ecd023735bd4cc9a1e058d8a33865d",
+  "W1-R-IMG-B-s0-SELF-o0": "96dfdb436c27c15dffed102ba6539f7ca610de01067cbd0da4dcf04b9d6611c7",
+  "W1-R-IMG-B-s0-SELF-o1": "22f85a7db3defe6ca5ba5cad71a09bc26fedcfcaa9f12fcb022510aa1c1b2ec1",
+  "W1-R-IMG-C-s1-OBS-o0": "ff4675118c9a05219811e181662cc9827318b238bd55023424434f1c65708009",
+  "W1-R-IMG-C-s1-OBS-o1": "c706b78297bb3ec4590659f8f83b0eb7cc5654c2ef80a53d14f3bac1419a41e3",
+  "W1-R-IMG-C-s1-SELF-o0": "2f433fcf909d70476e964ff29fa2acfb2118d5921d0f94fce3f4029ce60e31c9",
+  "W1-R-IMG-C-s1-SELF-o1": "d63108938fd180a76915c08506450c6a9566ff528327d78848fb48edf48eac0c",
+  "W1-R-INV-A-s0-N-OBS": "b1568b4f15d659d7f086aa361dd0dcd30ce04b45cd9e75e73222a1e3c7254af1",
+  "W1-R-INV-A-s0-N-SELF": "ef14b20c6488d3b7aab013583649744b1a25eefcb9f4c5677f50bf4999b8be24",
+  "W1-R-INV-A-s0-X-OBS": "4398e61c0ea661de77e887ab7465132b8186c5f33b8042c482c73e45729deb5e",
+  "W1-R-INV-A-s0-X-SELF": "ef5bbf4a6fc7816a5417044f6f99dba51ef02a46c0940b6fad6f03d33a16edfb",
+  "W1-R-INV-B-s0-N-OBS": "b451fe6af005b3ae48962fd8529d838234eba20004b091d867b531e6ba9a219b",
+  "W1-R-INV-B-s0-N-SELF": "3c911433d8441929c25827f5621f2f228ba31d16574452c3990e9fe9ab6831c8",
+  "W1-R-INV-B-s0-X-OBS": "a0d78c7f9ac012906e8f1530a5fac4a3802562de6fec3664c52553aeb62547a7",
+  "W1-R-INV-B-s0-X-SELF": "0a235c0276eb02c722b836ed8a13f71bc93ff0b969c853fdf34057e186695b6a",
+  "W1-R-INV-C-s1-N-OBS": "43102d03f19caa6a464d969cc36eebb2fbfabf8200f1b3aef85c1cd995feac47",
+  "W1-R-INV-C-s1-N-SELF": "5f45d94e92ab1039af9543868d19e3ec5735a26439e0de4ee1bc0a304898d832",
+  "W1-R-INV-C-s1-X-OBS": "6ff3864a13abb9400a01497464c1fe70e04984c8c16565f138c73d72a8ecd86f",
+  "W1-R-INV-C-s1-X-SELF": "c047605f07d76ab82dae215ac5fbb24469c3449fbf7ab0902a22924abc0ea63c",
+  "W1-R-INV-GENRE-s0": "4df7231525f6fbdf03b1d8080d03d5525bd9085dc3ced264dc258b960e079efd",
+  "W1-R-INV-NOHIST-s0": "9725a2b5316aedfb6af88e8695509f6911b9ce56aea708141a73f481d0de04f0",
+  "W1-R-TXT-B-s0-OBS-o0": "167eb2e3067c45628c2dec58934c6d05963a1c955114a2678184822d9f6691db",
+  "W1-R-TXT-B-s0-OBS-o1": "1cf4c63920a87d4bd2dbdadd7f3fd39a4941c8cafadaf30b1fede25b11ea99cd",
+  "W1-R-TXT-B-s0-SELF-o0": "00ab4143aacd16824276e00b8790be5fc7961e4338ae29b527fed29f28ecbbd1",
+  "W1-R-TXT-B-s0-SELF-o1": "66339fd12d9c0e1c9bdc7c09dc5fc2752988fe34a20c2b4fa1e389cacf35f49d",
+  "W1-R-TXT-C-s1-OBS-o0": "d2972c42e8986172fbd25adda376ca7e7b3689895e39d827afd8519625097ee2",
+  "W1-R-TXT-C-s1-OBS-o1": "a2c3122b207548e70a233ccd53475db40dbb094f6da71b3d5a553758fd67d0ab"
+ },
+ "call_ids": [
+  "W1-R-IMG-A-s0-SELF-o0",
+  "W1-R-IMG-A-s0-SELF-o1",
+  "W1-R-IMG-A-s0-OBS-o0",
+  "W1-R-IMG-A-s0-OBS-o1",
+  "W1-R-IMG-B-s0-SELF-o0",
+  "W1-R-IMG-B-s0-SELF-o1",
+  "W1-R-IMG-B-s0-OBS-o0",
+  "W1-R-IMG-B-s0-OBS-o1",
+  "W1-R-IMG-C-s1-SELF-o0",
+  "W1-R-IMG-C-s1-SELF-o1",
+  "W1-R-IMG-C-s1-OBS-o0",
+  "W1-R-IMG-C-s1-OBS-o1",
+  "W1-R-TXT-B-s0-SELF-o0",
+  "W1-R-TXT-B-s0-SELF-o1",
+  "W1-R-TXT-B-s0-OBS-o0",
+  "W1-R-TXT-B-s0-OBS-o1",
+  "W1-R-TXT-C-s1-OBS-o0",
+  "W1-R-TXT-C-s1-OBS-o1",
+  "W1-R-BOTH-B-s0-SELF-o0",
+  "W1-R-BOTH-B-s0-SELF-o1",
+  "W1-R-BOTH-B-s0-OBS-o0",
+  "W1-R-BOTH-B-s0-OBS-o1",
+  "W1-R-BOTH-C-s1-OBS-o0",
+  "W1-R-BOTH-C-s1-OBS-o1",
+  "W1-R-CAP-A-s0-X-o0",
+  "W1-R-CAP-A-s0-X-o1",
+  "W1-R-CAP-B-s0-N-o0",
+  "W1-R-CAP-B-s0-N-o1",
+  "W1-R-INV-A-s0-N-SELF",
+  "W1-R-INV-A-s0-N-OBS",
+  "W1-R-INV-A-s0-X-SELF",
+  "W1-R-INV-A-s0-X-OBS",
+  "W1-R-INV-B-s0-N-SELF",
+  "W1-R-INV-B-s0-N-OBS",
+  "W1-R-INV-B-s0-X-SELF",
+  "W1-R-INV-B-s0-X-OBS",
+  "W1-R-INV-C-s1-N-SELF",
+  "W1-R-INV-C-s1-N-OBS",
+  "W1-R-INV-C-s1-X-SELF",
+  "W1-R-INV-C-s1-X-OBS",
+  "W1-R-INV-NOHIST-s0",
+  "W1-R-INV-GENRE-s0",
+  "W1-R-GEN-s0-o0",
+  "W1-R-GEN-s0-o1"
+ ],
+ "jpeg_sha256": {
+  "W1-D-A-s0-N-OBS": "83a0a5a26d52c864b704cacabcff94557c16b57b9ce92b76d0fce2f9d0ccc3c1",
+  "W1-D-A-s0-N-SELF": "f02d822989ad9135ffa41271a83f604b2f5301e53900c7493c19e0f4108ce1af",
+  "W1-D-A-s0-X-OBS": "439c882628b178ac2fe7c3710b2c23a31dc36ea6ac35ab6d830778d783116bcd",
+  "W1-D-A-s0-X-SELF": "a73e720a8996d40817dfe7ca21d28bc0cb8e6ee0cd13fdb0212678d8e56113bd",
+  "W1-D-B-s0-N-OBS": "489555291acd9418fae340190e8687e37f2c5a5efa2e8ecd75c650f24d721e6e",
+  "W1-D-B-s0-N-SELF": "0f2f112dacdeb08304f99821554d674c7d0a02905d15ee93d6cdac1283ccc759",
+  "W1-D-B-s0-X-OBS": "cbdd7d63c6610c850d9e77d49c18b82905d264970877a23138d51dbf37d2af2d",
+  "W1-D-B-s0-X-SELF": "9e8d96f820b21357a5f084350aee7e225c920991e925479f7fd7e89a35bcea10",
+  "W1-D-C-s1-N-OBS": "b7cab793c2a72da24de7bdd1986265d649e7e5b7e31d9081e196e753203204fa",
+  "W1-D-C-s1-N-SELF": "cdcdf79fa368f0deb945e5219715c78214b32f765aaff415e017d71341042a3c",
+  "W1-D-C-s1-X-OBS": "f0e797426f4830ee65dbaaad76e38186803f3bcd9afa18bc381fb0411adb40eb",
+  "W1-D-C-s1-X-SELF": "95d68e2ac536cb83b130fb1f87d3b3828a829255d7091d3dba17fd7f1cb0b9d4",
+  "W1-D-GENRE-s0": "1b0693d3523f8e87da687b37fbf32b59d1404a5391008618eb1a0074d30be59c",
+  "W1-D-NOHIST-s0": "f63a2c214d30fb0b38ec435dbad0721fde78eaa0e8d776d975660680abb1b171"
+ },
+ "key": {
+  "W1-R-BOTH-B-s0-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "B",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "BOTH"
+  },
+  "W1-R-BOTH-B-s0-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "B",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "BOTH"
+  },
+  "W1-R-BOTH-B-s0-SELF-o0": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "BOTH"
+  },
+  "W1-R-BOTH-B-s0-SELF-o1": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "BOTH"
+  },
+  "W1-R-BOTH-C-s1-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "C",
+   "correct": 1,
+   "item": "s1",
+   "order": 0,
+   "task": "BOTH"
+  },
+  "W1-R-BOTH-C-s1-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "C",
+   "correct": 2,
+   "item": "s1",
+   "order": 1,
+   "task": "BOTH"
+  },
+  "W1-R-CAP-A-s0-X-o0": {
+   "arm": "SELF",
+   "contrast": "A",
+   "correct": 1,
+   "distractor": "W1-D-B-s0-X-SELF",
+   "item": "s0",
+   "order": 0,
+   "task": "CAP",
+   "version": "X"
+  },
+  "W1-R-CAP-A-s0-X-o1": {
+   "arm": "SELF",
+   "contrast": "A",
+   "correct": 2,
+   "distractor": "W1-D-B-s0-X-SELF",
+   "item": "s0",
+   "order": 1,
+   "task": "CAP",
+   "version": "X"
+  },
+  "W1-R-CAP-B-s0-N-o0": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 1,
+   "distractor": "W1-D-C-s1-N-SELF",
+   "item": "s0",
+   "order": 0,
+   "task": "CAP",
+   "version": "N"
+  },
+  "W1-R-CAP-B-s0-N-o1": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 2,
+   "distractor": "W1-D-C-s1-N-SELF",
+   "item": "s0",
+   "order": 1,
+   "task": "CAP",
+   "version": "N"
+  },
+  "W1-R-GEN-s0-o0": {
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "GEN"
+  },
+  "W1-R-GEN-s0-o1": {
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "GEN"
+  },
+  "W1-R-IMG-A-s0-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "A",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "IMG"
+  },
+  "W1-R-IMG-A-s0-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "A",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "IMG"
+  },
+  "W1-R-IMG-A-s0-SELF-o0": {
+   "arm": "SELF",
+   "contrast": "A",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "IMG"
+  },
+  "W1-R-IMG-A-s0-SELF-o1": {
+   "arm": "SELF",
+   "contrast": "A",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "IMG"
+  },
+  "W1-R-IMG-B-s0-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "B",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "IMG"
+  },
+  "W1-R-IMG-B-s0-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "B",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "IMG"
+  },
+  "W1-R-IMG-B-s0-SELF-o0": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "IMG"
+  },
+  "W1-R-IMG-B-s0-SELF-o1": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "IMG"
+  },
+  "W1-R-IMG-C-s1-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "C",
+   "correct": 1,
+   "item": "s1",
+   "order": 0,
+   "task": "IMG"
+  },
+  "W1-R-IMG-C-s1-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "C",
+   "correct": 2,
+   "item": "s1",
+   "order": 1,
+   "task": "IMG"
+  },
+  "W1-R-IMG-C-s1-SELF-o0": {
+   "arm": "SELF",
+   "contrast": "C",
+   "correct": 1,
+   "item": "s1",
+   "order": 0,
+   "task": "IMG"
+  },
+  "W1-R-IMG-C-s1-SELF-o1": {
+   "arm": "SELF",
+   "contrast": "C",
+   "correct": 2,
+   "item": "s1",
+   "order": 1,
+   "task": "IMG"
+  },
+  "W1-R-INV-A-s0-N-OBS": {
+   "draw": "W1-D-A-s0-N-OBS",
+   "task": "INV"
+  },
+  "W1-R-INV-A-s0-N-SELF": {
+   "draw": "W1-D-A-s0-N-SELF",
+   "task": "INV"
+  },
+  "W1-R-INV-A-s0-X-OBS": {
+   "draw": "W1-D-A-s0-X-OBS",
+   "task": "INV"
+  },
+  "W1-R-INV-A-s0-X-SELF": {
+   "draw": "W1-D-A-s0-X-SELF",
+   "task": "INV"
+  },
+  "W1-R-INV-B-s0-N-OBS": {
+   "draw": "W1-D-B-s0-N-OBS",
+   "task": "INV"
+  },
+  "W1-R-INV-B-s0-N-SELF": {
+   "draw": "W1-D-B-s0-N-SELF",
+   "task": "INV"
+  },
+  "W1-R-INV-B-s0-X-OBS": {
+   "draw": "W1-D-B-s0-X-OBS",
+   "task": "INV"
+  },
+  "W1-R-INV-B-s0-X-SELF": {
+   "draw": "W1-D-B-s0-X-SELF",
+   "task": "INV"
+  },
+  "W1-R-INV-C-s1-N-OBS": {
+   "draw": "W1-D-C-s1-N-OBS",
+   "task": "INV"
+  },
+  "W1-R-INV-C-s1-N-SELF": {
+   "draw": "W1-D-C-s1-N-SELF",
+   "task": "INV"
+  },
+  "W1-R-INV-C-s1-X-OBS": {
+   "draw": "W1-D-C-s1-X-OBS",
+   "task": "INV"
+  },
+  "W1-R-INV-C-s1-X-SELF": {
+   "draw": "W1-D-C-s1-X-SELF",
+   "task": "INV"
+  },
+  "W1-R-INV-GENRE-s0": {
+   "draw": "W1-D-GENRE-s0",
+   "task": "INV"
+  },
+  "W1-R-INV-NOHIST-s0": {
+   "draw": "W1-D-NOHIST-s0",
+   "task": "INV"
+  },
+  "W1-R-TXT-B-s0-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "B",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "TXT"
+  },
+  "W1-R-TXT-B-s0-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "B",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "TXT"
+  },
+  "W1-R-TXT-B-s0-SELF-o0": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 1,
+   "item": "s0",
+   "order": 0,
+   "task": "TXT"
+  },
+  "W1-R-TXT-B-s0-SELF-o1": {
+   "arm": "SELF",
+   "contrast": "B",
+   "correct": 2,
+   "item": "s0",
+   "order": 1,
+   "task": "TXT"
+  },
+  "W1-R-TXT-C-s1-OBS-o0": {
+   "arm": "OBS",
+   "contrast": "C",
+   "correct": 1,
+   "item": "s1",
+   "order": 0,
+   "task": "TXT"
+  },
+  "W1-R-TXT-C-s1-OBS-o1": {
+   "arm": "OBS",
+   "contrast": "C",
+   "correct": 2,
+   "item": "s1",
+   "order": 1,
+   "task": "TXT"
+  }
+ },
+ "plan_D_sha": "41e9aedc2ef2dbbc9888cba8f2f1e31db9cf1d58846657a37fda993e14914263",
+ "png_sha256": {
+  "W1-D-A-s0-N-OBS": "f70e5bcfbc9d5bc15faee93537adc0587f8be2013ab29e426fb2e4b24fef50a8",
+  "W1-D-A-s0-N-SELF": "b13a1431fe07ee01c00a1504ac3dcc9e49c8adb1afa4a114ab86811ff68b3954",
+  "W1-D-A-s0-X-OBS": "48976cc3f7f05661da73ae5ea5e61bc050f8a11fa1b7849cc8bd7ea817e71253",
+  "W1-D-A-s0-X-SELF": "6b980607d385dcbd30dfba8bf9d6a5b1c9725f212f3ccf76c56ed37bbebbe9d9",
+  "W1-D-B-s0-N-OBS": "bae247bf4ff5116eb80be64a578b00ed45aa3eaaef809b1883e21daa64c69af2",
+  "W1-D-B-s0-N-SELF": "79981a5052595567992edb502194b921ddf3ad3b36b89a8c0d2d8410b2ea693b",
+  "W1-D-B-s0-X-OBS": "c2fe725659b3febadf5d50975058318504bc6f29b800e6a2995d1633a302a087",
+  "W1-D-B-s0-X-SELF": "685948396ed710304699785785b92ef09850cb49cfa6569b94080ba9ec670daa",
+  "W1-D-C-s1-N-OBS": "bcc51d154813a172bf41bc049ff0da7447f45d0049cfea5762db156f91100605",
+  "W1-D-C-s1-N-SELF": "46254845668de52f1fc6bc6d27126cccfaef3cfd4f9e7bc60b9bd414d5d1955e",
+  "W1-D-C-s1-X-OBS": "a390a3a3ef93c4f4ad20c37b0e70a8cbe4fc3d6ba3984cb83f332c6781d84a1f",
+  "W1-D-C-s1-X-SELF": "b41108ca54d29ead0ab90711928ee61dea478e3cfc4caf0227daed0212cbe212",
+  "W1-D-GENRE-s0": "ab3732a887de7808f42c78e66576d16a5ff094bf2da0b2a5d7edd700b47c7edf",
+  "W1-D-NOHIST-s0": "8345698df586d1777da359bbe0bff3e197765d0ace3bb8a959201dafb209380a"
+ },
+ "sha": "b4288f23ec33b742a74321106c3318a1286e942ad009d6cc50aa436bb0571235",
+ "stage": "smoke"
+}

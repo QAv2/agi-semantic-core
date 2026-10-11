@@ -1,0 +1,47 @@
+{
+ "body_shas": {
+  "W1-D-A-s0-N-OBS": "dfe208f4052669c67afca1f40272e30d2232314da8c26ca496dba3d94fe27361",
+  "W1-D-A-s0-N-SELF": "a861807034867246df69812539cced9a5b5eae4c0c115d63db99ae617fec68b2",
+  "W1-D-A-s0-X-OBS": "0785c0012cb92fee942e396e6bbe066c200df737d8f1cceacb5997471f9f83f1",
+  "W1-D-A-s0-X-SELF": "ba2dbe6949147f33f3624be1e4a0befe373f1410c8de6014fd2e47e407a5d663",
+  "W1-D-B-s0-N-OBS": "8418fefdb938cccaaebd7d425cb4f6581fb8849e6d0f62dff1a45e06c372dd91",
+  "W1-D-B-s0-N-SELF": "96331fbd5667b0caf0da7b079a8cbb8611f8ad8731d3eca65088cb43637b82cc",
+  "W1-D-B-s0-X-OBS": "6ffb34a1c3c8c411373cc2b8d0c8c9b31518a519beaf9657b0338e6f5d3c7b5d",
+  "W1-D-B-s0-X-SELF": "0ccd70d2960c36e8c8c6dd3bc3b23b2ab96bd4a37d534b3106c6a8ed1e0bade7",
+  "W1-D-C-s1-N-OBS": "55c665ca70022fd82398d83c1631333d4403304a3f48eec85b28b7c4c7eae2c6",
+  "W1-D-C-s1-N-SELF": "7b0f1fcbea8de88f0651ddd1f3686408eb864bd83ca553535fb5c768d7daf933",
+  "W1-D-C-s1-X-OBS": "8e333da69511f86942582fd8015dc25d254a6c8ca107fe36e5df3bd6a4695e5d",
+  "W1-D-C-s1-X-SELF": "9fadf12a111fcdfa330d8f390458d89254f34e18a7c133aad43c1ae79aa6345d",
+  "W1-D-GENRE-s0": "dccd26f880346f272e5e73e6babfed91d53ddf9a0f86d4c78b0ff154c9f890c4",
+  "W1-D-NOHIST-s0": "3e6540ab4cca4bce5ed4a5c57ffc5681d550c9ed1ea3853840bf96ddb05f27c7"
+ },
+ "c_selection": [
+  {
+   "N_attempt": 1,
+   "X_attempt": 3,
+   "item": "s1",
+   "product": 7065168955551,
+   "tier": "7x7"
+  }
+ ],
+ "c_size": "7x7",
+ "call_ids": [
+  "W1-D-A-s0-N-SELF",
+  "W1-D-A-s0-N-OBS",
+  "W1-D-A-s0-X-SELF",
+  "W1-D-A-s0-X-OBS",
+  "W1-D-B-s0-N-SELF",
+  "W1-D-B-s0-N-OBS",
+  "W1-D-B-s0-X-SELF",
+  "W1-D-B-s0-X-OBS",
+  "W1-D-C-s1-N-SELF",
+  "W1-D-C-s1-N-OBS",
+  "W1-D-C-s1-X-SELF",
+  "W1-D-C-s1-X-OBS",
+  "W1-D-NOHIST-s0",
+  "W1-D-GENRE-s0"
+ ],
+ "route": "gemini-app",
+ "sha": "41e9aedc2ef2dbbc9888cba8f2f1e31db9cf1d58846657a37fda993e14914263",
+ "stage": "smoke"
+}
