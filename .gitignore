@@ -37,3 +37,9 @@ windows/results/*/*/raw.jsonl
 windows/results/**/png/
 # GUI-driver screenshots show the whole desktop: never commit
 windows/results/**/shots/
+
+# W3: raw activation parts, checkpoints and sample arrays stay on Drive and locally; the
+# committed record is the analysis output, gates, sample grids (png) and the manifest of shas
+windows/results/w3_*/*.npz
+windows/results/w3_*/ckpt*
+windows/results/w3_*/samples_*.npy

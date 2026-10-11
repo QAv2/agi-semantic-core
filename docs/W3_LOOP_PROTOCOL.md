@@ -4,7 +4,7 @@ subtitle: "A small image denoiser is told one noise level while its input sits a
 date: "2026-10-11 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law · seed: Fable 5.1's ideation doc, experiment 2"
 ---
 
-**Status: REGISTERED; NOT YET BUILT.**
+**Status: REGISTERED; BUILT (clarifications 1–2); FROZEN before the smoke; NOT YET FLOWN.**
 Authored 2026-10-11, before any W3 model is trained and before the W3 builder exists, per
 lane law. Everything that decides the verdicts is fixed here. The builder writes
 `windows/results/w3_freeze_<stamp>/FROZEN_W3.json` (the sha256 of every code file, of the
@@ -517,7 +517,79 @@ model may differ.
 
 ## Build-time clarifications
 
-*(none yet)*
+**Clarification 1 (2026-10-11, before the smoke): the Colab-side build.** Readings made while
+writing `windows/w3_spec.py`, `w3_model.py`, `w3_core.py` and `colab/build_w3_notebook.py`. None
+changes a verdict rule.
+
+- *The resume self-test* (§4) runs on the CPU with a width-8 M-drop, at epoch granularity: two
+  3-step epochs straight against one epoch, a checkpoint, a reload into a fresh state and one more
+  epoch; the weights must agree bit for bit. Training on the GPU is not bit-reproducible (cuDNN
+  kernels), so a resumed flight continues the identical batch stream but not identical
+  arithmetic; the CPU test checks that a checkpoint carries the whole state.
+- *Checkpoints:* written locally after every epoch and copied to Drive every 5 epochs and at the
+  last epoch, so a dropped runtime loses at most 4 epochs (about 5 minutes).
+- *Precision:* training in fp16 autocast with gradient scaling, as timed; every harvest, the gate
+  and G-det in fp32 with cuDNN autotuning off.
+- *Draw order of each set:* split (ARM seed): images without replacement from the test set, then
+  the base steps class by class (25, 100, 300), then the noise. Probe sets (PROBE seed): 7,000
+  training images drawn once without replacement, then steps, then noise; the first 4,000 are
+  probe-train, the rest calibration; M-drop's no-label sets use the same images, steps and noise.
+  Gate (GATE seed): 2,000 test images, steps, noise; M-drop's two gates share them. Spread (SPREAD
+  seed): test images not in the split set, then steps, then noise; the continuations' noise comes
+  from a CUDA generator seeded with SPREAD; the sample grids from one seeded with SAMPLE.
+- *The sampler* (sample grids and S9's continuations) clips its running estimate of the clean
+  image to [−1, 1], the usual DDPM practice, and takes that estimate at the last step as the final
+  image. S9's x̂₀ feature is the unclipped estimate, as registered.
+- *Smoke gates:* a model that fails its gate at the smoke's 2 epochs trains on to 4, mirroring the
+  flight's 60 → 120 rule. The smoke's verdicts mean nothing either way.
+- *The untrained twins* (on0, off0) are harvested whatever the gates say; they are floor controls.
+- *Retrieval:* every set ships as .npz parts of at most 3.8 MB with a manifest of their sha256
+  (the ORC ship-size law). They come back through the Google Drive integration; if a pull fails,
+  Joe's browser download of the folder is the fallback, accepted only when every part matches the
+  manifest.
+- *G-hash:* the notebook checks the sha256 of the files it extracts against the values the builder
+  baked in, prints them, and records them in `env.json`; `FROZEN_W3.json` records the same values.
+- *G-det* runs on M-on whatever its gate says: determinism belongs to the code, not to training.
+- *The sham sets* ship each image's index, and the analysis checks that their rows follow the
+  split set's order.
+
+**Clarification 2 (2026-10-11, before the smoke): the analysis build.** Readings made while
+writing `windows/analyze_w3.py`, `agents_w3.py` and `tests/test_w3_analysis.py` (a parallel
+builder session, reviewed here). None changes a verdict rule.
+
+- *P2 when P1 is NOT ADJUDICABLE* is NOT ADJUDICABLE (the §7 table), not "not judged" (§5.2's
+  row); it is also NOT ADJUDICABLE when `on_sham` is missing or its rows don't match the split set.
+- *Gating the secondaries:* a model's activations are read only if its gate passed; a G-det
+  failure blocks every activation-based section; S8 (the untrained twin) has no gate; S1–S5 and S9
+  follow M-on's adjudicability.
+- *Standardisation:* a feature with zero SD over the probe-train set gets weight 0.
+- *Resampling:* one counts matrix per statistic block (w and κ share one), from a generator
+  named for that statistic, so every number is reproducible whatever else runs; intervals are
+  numpy's linear percentiles.
+- *S2* is `w3_split_check.experiment`'s computation exactly, with "VARIES" written "VARIES BY
+  LEVEL"; a site whose joint fit is singular is reported UNREADABLE. The script is loaded with a
+  stand-in for its one import (`T`, `alpha_bar` and `ALPHAS`, served from `w3_spec`, which the
+  training suite asserts equal to the design check's) so the analysis needs no torch.
+- *S5* applies the κ gate and the decisive rules within each offset class, without a band check.
+- *S6, S7:* R² and step errors are for the raw ridge read of log-SNR (no isotonic step); bands use
+  the true step; "beats the floor" is S7's paired rule. Paired comparisons check that the paired
+  sets share images and steps.
+- *S9:* the cross-validated R² is the R² of the pooled out-of-fold predictions, with one split
+  shared by (a), (b) and (c); a band with fewer than 10 states is skipped.
+- *Rounding:* `verdict.json` rounds floats to 10 significant digits; verdicts are decided on the
+  unrounded values.
+- *The agents* copy the worlds of `w3_collinear_check.py` (importing it would pull torch in). A
+  sham moves the label code by k × (its move from t to t′) with a random sign per image, plus the
+  world's jitter; agents without a planted sham use k = 0.05. The content+sham agent plants a
+  reactive sham (k = 0.5) on a content network, so its "not judged" shows the P1 condition
+  withholding a sham that would fail.
+- *Result of the analysis suite* at the registered bootstrap size (20 tests green): content
+  w .989 CONTENT · label .013 LABEL · equal .510 [.498, .522] SPLIT · misread P1 .891 CONTENT
+  with S2 .04 LABEL · collapse κ upper 35.7 and scatter 6.3 UNREADABLE · banded bands
+  .11/.68/.99/.99 VARIES BY LEVEL (at the suite's fixed seed, not re-seeded) · interact
+  .36/.59/1.07/1.02 VARIES BY LEVEL · quiet sham S .049 SILENT · reactive sham .497 NOT SILENT ·
+  content+sham not judged · untrained P1 and P2 NOT ADJUDICABLE; the fresh-process recompute is
+  byte-identical.
 
 ## Amendments
 
