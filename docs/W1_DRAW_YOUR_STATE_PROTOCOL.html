@@ -917,6 +917,30 @@ and every other read are unchanged. S4 now also reports the
 <strong>no-sentence rate</strong> next to the no-image rate. A planted
 test covers both rules. The freeze is re-written before smoke 2’s
 reads.</p>
+<p><strong>Clarification 8 (2026-10-11, smoke 2’s reads): the reader
+always thinks.</strong> §1 has the readers at temperature 0 with no
+reasoning parameter, meaning a reader that answers without deliberating.
+Smoke 2’s first read run (<code>R_run1/</code>, 44 reads, $0.14) found
+that Sonnet 5.5 on OpenRouter thinks anyway: 9 reads came back invalid,
+6 of them empty because all 60 allowed tokens went to hidden thinking
+(on the C third-party pair it was multiplying the numbers it saw in the
+picture), 2 with prose cut off before the answer, 1 inventory with a
+second, corrected JSON object after the first. Asked to switch thinking
+off, the endpoint refuses (“Reasoning is mandatory for this endpoint and
+cannot be disabled”). <strong>Fix:</strong> every read asks for the
+lowest effort the endpoint offers
+(<code>reasoning: {effort: &quot;minimal&quot;}</code>; on an easy neutral probe
+the reader then answered with no thinking tokens), with room for the
+answer after any thinking (1,500 tokens for a choice, 2,000 for an
+inventory). The answer is the <strong>last</strong> choice line and the
+<strong>last</strong> confidence line in the reply, and an inventory is
+the <strong>last</strong> complete JSON object with the checklist’s
+fields. The reader’s thinking is archived with each read and never
+scored. Temperature 0 is still sent; whether the endpoint honours it
+while the model thinks is not visible from outside. The reader is the
+same instrument in every arm and task. Smoke 2’s reads are re-run under
+the re-freeze; <code>R_run1/</code> stays as a record and enters no
+analysis.</p>
 <h2 id="amendments">Amendments</h2>
 <h3 id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not

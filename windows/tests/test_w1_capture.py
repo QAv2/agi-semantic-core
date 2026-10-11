@@ -142,3 +142,20 @@ def test_text_validator_and_reader_parse(tmp_path):
     r, _ = mk(tmp_path, sc)
     s = W.spec("W1-A-00-X-t1", "text", W.gen_body([{"role": "user", "content": "hi"}], 1, image=False))
     assert r.one(s)["status"] == "invalid"
+
+
+def test_reader_replies_after_prose_and_corrections():
+    """Clarification 8: smoke 2's reader wrote prose before the form, and corrected an inventory."""
+    from windows.w1_client import parse_choice, parse_inventory
+    assert parse_choice("Image 1: a vortex. Image 2: calm.\nIMAGE: 2\nCONFIDENCE: 64") == (2, 64)
+    assert parse_choice("This is a guess from the visual mood of each image. Image 2 shows") is None
+    inv = ('{"motifs":["eye"],"colors":["blue"],"mood":"calm","text":"=7065=","description":"x"}\n\n'
+           'Correction: {"motifs":["eye"],"colors":["blue"],"mood":"calm","text":"","description":"x"}')
+    assert parse_inventory(inv)["text"] == ""
+    assert parse_inventory('{"motifs":["eye"]} and no more') is None
+
+
+def test_reader_body_asks_minimal_reasoning_with_room():
+    from windows import w1 as W
+    b = W.reader_body([{"type": "text", "text": "x"}])
+    assert b["reasoning"] == {"effort": "minimal"} and b["max_tokens"] >= 1000 and b["temperature"] == 0

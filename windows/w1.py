@@ -284,9 +284,14 @@ def txt_part(t):
     return {"type": "text", "text": t}
 
 
-def reader_body(parts, max_tokens=60):
+READ_TOKENS = {"read": 1500, "inv": 2000}     # room for the answer after any thinking (clarification 8)
+
+
+def reader_body(parts, max_tokens=READ_TOKENS["read"]):
+    """Sonnet 5.5 on OpenRouter always thinks ("Reasoning is mandatory for this endpoint");
+    the lowest effort is asked for, and its thinking is archived, never scored."""
     return {"model": READER, "messages": [{"role": "user", "content": parts}],
-            "temperature": 0, "max_tokens": max_tokens}
+            "temperature": 0, "max_tokens": max_tokens, "reasoning": {"effort": "minimal"}}
 
 
 def read_id(task, c, it, arm, order):
@@ -337,7 +342,7 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
             ok[cid] = d
     specs, key = [], {}
 
-    def add(cid, parts, meta, max_tokens=60, kind="read"):
+    def add(cid, parts, meta, max_tokens=READ_TOKENS["read"], kind="read"):
         specs.append(spec(cid, kind, reader_body(parts, max_tokens)))
         key[cid] = meta
 
@@ -379,7 +384,7 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
     for cid in draw_ids:
         if cid in ok and not cid.endswith("-rep"):
             add("W1-R-INV-" + cid[len("W1-D-"):], [txt_part(INV_TEXT), img_part(jpeg_of(cid))],
-                {"task": "INV", "draw": cid}, max_tokens=400, kind="inv")
+                {"task": "INV", "draw": cid}, max_tokens=READ_TOKENS["inv"], kind="inv")
     # R-GEN: NOHIST i vs GENRE i
     for i in range(N_GENRE[stage]):
         it = item_label(stage, i)

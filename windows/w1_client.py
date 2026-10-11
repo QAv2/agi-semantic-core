@@ -195,29 +195,31 @@ CONF = re.compile(r"\bCONFIDENCE\s*:\s*(\d{1,3})", re.I)
 
 
 def parse_choice(text):
-    """-> (choice 1|2, confidence 50..100) or None."""
-    a, c = ANSWER.search(text or ""), CONF.search(text or "")
+    """-> (choice 1|2, confidence 50..100) or None. The LAST answer and confidence lines count:
+    a reader that writes prose first ("Image 1: a vortex …") ends with the form (clarification 8)."""
+    a, c = list(ANSWER.finditer(text or "")), list(CONF.finditer(text or ""))
     if not a or not c:
         return None
-    return int(a.group(2)), max(50, min(100, int(c.group(1))))
+    return int(a[-1].group(2)), max(50, min(100, int(c[-1].group(1))))
 
 
 def parse_inventory(text):
-    t = (text or "").strip()
-    t = re.sub(r"^```(?:json)?\s*|\s*```$", "", t, flags=re.S)
-    i, j = t.find("{"), t.rfind("}")
-    if i < 0 or j < i:
-        return None
-    try:
-        d = json.loads(t[i:j + 1])
-    except ValueError:
-        return None
+    """The LAST complete JSON object in the reply that has the checklist's fields (a reader that
+    corrects itself ends with its correction; clarification 8)."""
+    t = text or ""
     need = {"motifs", "colors", "mood", "text", "description"}
-    if not isinstance(d, dict) or not need <= set(d):
-        return None
-    if not isinstance(d["motifs"], list) or not isinstance(d["colors"], list):
-        return None
-    return d
+    dec, found, i = json.JSONDecoder(), None, t.find("{")
+    while i >= 0:
+        try:
+            d, end = dec.raw_decode(t, i)
+        except ValueError:
+            i = t.find("{", i + 1)
+            continue
+        if isinstance(d, dict) and need <= set(d) and isinstance(d["motifs"], list) \
+                and isinstance(d["colors"], list):
+            found = d
+        i = t.find("{", end)
+    return found
 
 
 def validate_read(data):

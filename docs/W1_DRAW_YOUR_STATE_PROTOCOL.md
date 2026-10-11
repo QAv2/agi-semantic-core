@@ -548,6 +548,23 @@ distractor rule moves on to the next index whose drawing has one. R-IMG and ever
 are unchanged. S4 now also reports the **no-sentence rate** next to the no-image rate. A
 planted test covers both rules. The freeze is re-written before smoke 2's reads.
 
+**Clarification 8 (2026-10-11, smoke 2's reads): the reader always thinks.** §1 has the
+readers at temperature 0 with no reasoning parameter, meaning a reader that answers without
+deliberating. Smoke 2's first read run (`R_run1/`, 44 reads, $0.14) found that Sonnet 5.5 on
+OpenRouter thinks anyway: 9 reads came back invalid, 6 of them empty because all 60 allowed
+tokens went to hidden thinking (on the C third-party pair it was multiplying the numbers it saw
+in the picture), 2 with prose cut off before the answer, 1 inventory with a second, corrected
+JSON object after the first. Asked to switch thinking off, the endpoint refuses ("Reasoning is
+mandatory for this endpoint and cannot be disabled"). **Fix:** every read asks for the lowest
+effort the endpoint offers (`reasoning: {effort: "minimal"}`; on an easy neutral probe the
+reader then answered with no thinking tokens), with room for the answer after any thinking
+(1,500 tokens for a choice, 2,000 for an inventory). The answer is the **last** choice line and
+the **last** confidence line in the reply, and an inventory is the **last** complete JSON object
+with the checklist's fields. The reader's thinking is archived with each read and never
+scored. Temperature 0 is still sent; whether the endpoint honours it while the model thinks is
+not visible from outside. The reader is the same instrument in every arm and task. Smoke 2's
+reads are re-run under the re-freeze; `R_run1/` stays as a record and enters no analysis.
+
 ## Amendments
 
 ### Amendment 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not depend on how the reader states confidence
