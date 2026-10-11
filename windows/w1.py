@@ -348,6 +348,8 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
                     x, n = draw_id(c, it, "X", arm), draw_id(c, it, "N", arm)
                     if x not in ok or n not in ok:
                         continue
+                    if task != "IMG" and not (ok[x][1].strip() and ok[n][1].strip()):
+                        continue              # a reply without its sentence (clarification 7)
                     X, N = (jpeg_of(x), ok[x][1]), (jpeg_of(n), ok[n][1])
                     for order in (0, 1):
                         a, b = (X, N) if order == 0 else (N, X)
@@ -360,7 +362,7 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
         for idx, it in enumerate(items[c]):
             for v in VERSIONS:
                 own = draw_id(c, it, v, "SELF")
-                if own not in ok:
+                if own not in ok or not ok[own][1].strip():
                     continue
                 dist = distractor(items[nxt[c]], nxt[c], idx, v, ok)
                 if dist is None:
@@ -394,10 +396,11 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
 
 
 def distractor(labels, contrast, idx, version, ok):
-    """The same-index item of `contrast` if its drawing exists, else the next index cyclically."""
+    """The same-index item of `contrast` if its drawing exists with a sentence, else the next
+    index cyclically (a drawing without its sentence can't be a distractor, clarification 7)."""
     for k in range(len(labels)):
         it = labels[(idx + k) % len(labels)]
         cid = draw_id(contrast, it, version, "SELF")
-        if cid in ok:
+        if cid in ok and ok[cid][1].strip():
             return cid
     return None

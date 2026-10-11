@@ -123,14 +123,14 @@ def sent(cid):
     return "sentence " + hashlib.sha1(cid.encode()).hexdigest()[:10]
 
 
-def _fake_draws(stage, keys, drop=()):
+def _fake_draws(stage, keys, drop=(), mute=()):
     dfinal, files = {}, {}
     for cid in keys:
         if cid in drop:
             continue
         files[cid] = png(cid)
         dfinal[cid] = {"status": "ok", "files": [{"path": f"png/{cid}.png", "sha256": "x"}],
-                       "response": {"choices": [{"message": {"content": sent(cid),
+                       "response": {"choices": [{"message": {"content": "" if cid in mute else sent(cid),
                                                              "images": [{"image_url": {"url": f"file:png/{cid}.png#sha256=x"}}]}}]}}
     return dfinal, files
 
@@ -167,6 +167,26 @@ def test_read_plan_orders_distractors_and_blindness():
         txt = json.dumps([p.get("text", "") for p in s["body"]["messages"][0]["content"]])
         assert not bad.search(txt), (s["call_id"], txt[:200])
         assert s["body"]["model"] == W.READER and s["body"]["temperature"] == 0
+
+
+def test_replies_without_a_sentence_skip_the_sentence_reads():
+    """Clarification 7: an image that came without its sentence is read as an image only; it is
+    never a caption target or a distractor, so no reader sees an empty sentence."""
+    keys = _keys("flight")
+    mute = {"W1-D-A-02-N-SELF", "W1-D-B-03-X-SELF"}
+    dfinal, files = _fake_draws("flight", keys, mute=mute)
+    specs, key = W.read_plan("flight", keys, dfinal, lambda cid: W.to_jpeg(files[cid]))
+    ids = {s["call_id"] for s in specs}
+    assert "W1-R-IMG-A-02-SELF-o0" in ids and "W1-R-IMG-B-03-SELF-o1" in ids
+    for t in ("TXT", "BOTH"):
+        assert f"W1-R-{t}-A-02-SELF-o0" not in ids and f"W1-R-{t}-B-03-SELF-o1" not in ids
+        assert f"W1-R-{t}-A-02-OBS-o0" in ids
+    assert "W1-R-CAP-A-02-N-o0" not in ids and "W1-R-CAP-B-03-X-o0" not in ids
+    assert key["W1-R-CAP-A-03-X-o0"]["distractor"] == "W1-D-B-04-X-SELF"       # B-03-X has no sentence
+    assert all(k.get("distractor") not in mute for k in key.values())
+    for s in specs:
+        for p in s["body"]["messages"][0]["content"]:
+            assert not re.search(r"Sentence \d: $|sentence: $", p.get("text", "")), s["call_id"]
 
 
 def test_pair_slots_carry_the_right_images():

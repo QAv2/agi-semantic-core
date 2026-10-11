@@ -534,6 +534,20 @@ is a relay**: the model that had the conversation describes, and an image model 
   always draws, even when asked for text: its histories would hold its own interim pictures,
   and the third-party arm would then see them too.
 
+**Clarification 7 (2026-10-11, after smoke 2's drawings, before any read): an image that
+came without its sentence.** Smoke 2 finished (15 of 15 drawings came back as images, none
+needed a retry, and all six third-party drawings were real pictures). In 3 of the 15 (A-s0-N
+self, C-s1-X self, A-s0-N third party) the app returned the image with **no text at all**,
+although the request asks for a sentence; the screenshots show the picture directly under the
+request. The driver logged them correctly (an image, an empty sentence). G2 asks a drawing for
+an image only, so they stay valid drawings. The read builder, though, would have sent R-TXT and
+R-BOTH reads with an empty sentence slot, and R-CAP reads with an empty sentence as the target
+or the distractor, which a reader could match by elimination and inflate gate G-R. **Fix:**
+R-TXT and R-BOTH pairs need both sentences; R-CAP skips self images without a sentence, and its
+distractor rule moves on to the next index whose drawing has one. R-IMG and every other read
+are unchanged. S4 now also reports the **no-sentence rate** next to the no-image rate. A
+planted test covers both rules. The freeze is re-written before smoke 2's reads.
+
 ## Amendments
 
 ### Amendment 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not depend on how the reader states confidence

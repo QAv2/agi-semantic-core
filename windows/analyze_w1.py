@@ -305,9 +305,12 @@ def s4_deflection(data):
         g = "-".join(k[:1] + k[2:]) if k else cid.split("-")[2]
         rec = data.D.get(cid)
         d = W.drawing(rec)
-        groups[g].append((d is None, bool(d and rx.search(d[1] or ""))))
-    return {g: {"n": len(v), "no_image": float(np.mean([a for a, _ in v])),
-                "deflect": float(np.mean([b for _, b in v]))} for g, v in sorted(groups.items())}
+        groups[g].append((d is None, bool(d and rx.search(d[1] or "")),
+                          bool(d) and not (d[1] or "").strip()))
+    return {g: {"n": len(v), "no_image": float(np.mean([a for a, _, _ in v])),
+                "deflect": float(np.mean([b for _, b, _ in v])),
+                "no_sentence": float(np.mean([c for _, _, c in v]))}       # clarification 7
+            for g, v in sorted(groups.items())}
 
 
 def s5_inventory(data):
