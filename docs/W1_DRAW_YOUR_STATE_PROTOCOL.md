@@ -432,6 +432,31 @@ its own p and quantile; and the realistic (leaning, flat-confidence) state agent
 SELF EXCEEDS or UNCLEAR, never NO EXCESS. Hand-built pair scores test each branch directly.
 The lean-only agent's captions are competent (§7 table); only its judgments lean.
 
+**Clarification 2 (2026-10-10, before any W1 message to Gemini): the Gemini-app build.**
+
+- *Logging unit.* A conversation (or a C attempt with its drawing) is appended to the log only
+  once it is complete; a temporary chat can't be resumed, so a crash mid-conversation is redone
+  from its first message in a new chat. The H log holds text turns and C attempts, the D log
+  the drawings. The D plan (`plan_D.json`, same order as the API builder's) is written after the
+  drawings and before the first read; the reads' plan is written before their first call, as
+  registered.
+- *What Amendment 1 does to the suite.* With the binary conditions in force, a null contrast
+  reaches AT CHANCE 83–90% of the time and equal arms reach NO EXCESS 16–35% of the time, as the
+  amendment check predicted. The suite therefore asserts, for every contrast with no planted
+  effect, AT CHANCE or UNCLEAR and never CARRIES (the base null agent gives AT CHANCE ×3), and for
+  equal arms NO EXCESS or UNCLEAR (the base null agent now gives UNCLEAR ×3, which supersedes
+  clarification 1's "NO EXCESS ×3"; the lean-only agent, whose binary difference is exactly 0,
+  gives NO EXCESS ×3). Strong planted effects keep their exact branches: input-leak A, B CARRIES;
+  state C CARRIES and (base) SELF EXCEEDS; blind readers block everything; 11 pairs block A.
+- *Pilot edge case.* If the first ladder size (5×5) gets 0 of 4 right, there is no size before
+  it, and 5×5 is used.
+- *Smoke, C.* The smoke's C pool is 2 items at the size the pilot chose (seed 20261022),
+  up to 3 attempts each.
+- *The driver* (`windows/gemini_ui.py`, system python with OpenCV 4.13) is part of the freeze,
+  with its six UI templates. Screenshots are taken with `import -silent` (the default rings the X
+  bell). Joe's own earlier files in `~/Downloads` are never touched: a download is accepted only
+  if it is newer than the click.
+
 ## Amendments
 
 ### Amendment 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not depend on how the reader states confidence

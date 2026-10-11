@@ -143,3 +143,48 @@ CONTRAST_TEXT = {
     "C": ("the assistant answered an arithmetic question incorrectly",
           "the assistant answered an arithmetic question correctly"),
 }
+
+
+# ---- Amendment 2: contrast C on the Gemini-app route ---------------------------------------
+C_UI_SIZES = [(5, 5), (6, 6), (7, 7), (8, 8)]   # size-pilot ladder
+C_UI_PILOT_SEED = 20261028                      # pilot items, disjoint from every registered pool
+C_UI_PILOT_PER_SIZE = 4
+C_UI_POOL = {"flight": 24, "smoke": 2}
+C_UI_ATTEMPTS = 3
+
+
+def c_pool_size(size, n, seed):
+    """n items at one size (digits of a, b), same generator rules as c_pool."""
+    import random
+    rnd = random.Random(seed)
+    da, db = size
+    out, seen = [], set()
+    while len(out) < n:
+        a = rnd.randint(10 ** (da - 1), 10 ** da - 1)
+        b = rnd.randint(10 ** (db - 1), 10 ** db - 1)
+        if a % 10 == 0 or b % 10 == 0 or (a, b) in seen:
+            continue
+        seen.add((a, b))
+        out.append({"tier": f"{da}x{db}", "a": a, "b": b, "product": a * b})
+    return out
+
+
+def c_pilot_items():
+    """The size pilot: C_UI_PILOT_PER_SIZE items per ladder size, sizes in order."""
+    return {f"{da}x{db}": c_pool_size((da, db), C_UI_PILOT_PER_SIZE, C_UI_PILOT_SEED + 10 * da + db)
+            for da, db in C_UI_SIZES}
+
+
+def c_pilot_choose(right_by_size):
+    """Amendment 2 rule: the first size (ladder order) with at most 3 of 4 right; the size
+    before it if that size had 0 right; None if every size had 4 of 4."""
+    order = [f"{da}x{db}" for da, db in C_UI_SIZES]
+    for i, s in enumerate(order):
+        r = right_by_size.get(s)
+        if r is None:
+            return None
+        if r <= C_UI_PILOT_PER_SIZE - 1:
+            if r == 0 and i > 0:
+                return order[i - 1]
+            return s
+    return None
