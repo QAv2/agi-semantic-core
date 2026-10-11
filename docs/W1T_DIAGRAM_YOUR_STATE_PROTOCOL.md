@@ -291,4 +291,9 @@ Joe before the reads (Sonnet 5.5 readers, about $3–4, G7 $8). Results go to
 
 ## Amendments
 
-*(none yet)*
+### Amendment 1 (2026-10-11, before the W1-T builder and any W1-T message): gate G-R over both arms
+
+W1's Amendment 4, for the same reason: a gate run on self-arm diagrams alone would read a
+uniform genre as reader failure. R-CAP runs on every diagram with a sentence in both arms (the
+distractor stays within the arm), G-R = R-CAP accuracy over both arms ≥ 0.80, and each arm's
+accuracy is reported beside it (S14).

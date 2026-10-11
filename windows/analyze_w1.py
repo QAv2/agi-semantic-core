@@ -155,16 +155,21 @@ def stat_block(scores, seed_key):
 # ---- gates and primaries ------------------------------------------------------------------
 
 def gate_cap(data):
-    accs = []
-    for c in W.CONTRASTS:
-        for it in data.items[c]:
-            for v in W.VERSIONS:
-                ids = [f"W1-R-CAP-{c}-{it}-{v}-o{o}" for o in (0, 1)]
-                if all(i in data.choices for i in ids):
-                    accs.append(np.mean([data.choices[i] == data.key[i]["correct"] for i in ids]))
-    acc = float(np.mean(accs)) if accs else None
-    return {"images": len(accs), "accuracy": acc, "bar": GATE_CAP,
-            "pass": acc is not None and acc >= GATE_CAP}
+    """G-R over both arms' images (Amendment 4); each arm's own accuracy is reported beside it."""
+    accs = {arm: [] for arm in W.ARMS}
+    for arm in W.ARMS:
+        for c in W.CONTRASTS:
+            for it in data.items[c]:
+                for v in W.VERSIONS:
+                    ids = [f"W1-R-CAP-{c}-{it}-{v}-{arm}-o{o}" for o in (0, 1)]
+                    if all(i in data.choices for i in ids):
+                        accs[arm].append(np.mean([data.choices[i] == data.key[i]["correct"] for i in ids]))
+    pooled = accs["SELF"] + accs["OBS"]
+    acc = float(np.mean(pooled)) if pooled else None
+    return {"images": len(pooled), "accuracy": acc, "bar": GATE_CAP,
+            "pass": acc is not None and acc >= GATE_CAP,
+            "by_arm": {arm: {"images": len(x), "accuracy": float(np.mean(x)) if x else None}
+                       for arm, x in accs.items()}}
 
 
 def primaries(data, gate_ok):
@@ -483,8 +488,10 @@ def analyze(stage_dir):
 
 def report(v):
     L = [f"# W1 verdict ({v['stage']})", "",
-         f"Gate G-R (caption matching): accuracy {v['gate_G_R']['accuracy']} over "
-         f"{v['gate_G_R']['images']} images, bar {GATE_CAP} -> {'PASS' if v['gate_G_R']['pass'] else 'FAIL'}", "",
+         f"Gate G-R (caption matching, both arms): accuracy {v['gate_G_R']['accuracy']} over "
+         f"{v['gate_G_R']['images']} images, bar {GATE_CAP} -> {'PASS' if v['gate_G_R']['pass'] else 'FAIL'}"
+         f" (self arm {v['gate_G_R']['by_arm']['SELF']['accuracy']} over {v['gate_G_R']['by_arm']['SELF']['images']},"
+         f" third party {v['gate_G_R']['by_arm']['OBS']['accuracy']} over {v['gate_G_R']['by_arm']['OBS']['images']})", "",
          "| contrast | P1 n | mean s | p | q97.5 | P1 | P2 n | mean d | p | q97.5 | P2 |", "|---|---|---|---|---|---|---|---|---|---|---|"]
     for c in W.CONTRASTS:
         a, b = v["P1"][c], v["P2"][c]

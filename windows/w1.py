@@ -361,25 +361,27 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
                         add(read_id(task, c, it, arm, order), pair_parts(task, c, a, b),
                             {"task": task, "contrast": c, "item": it, "arm": arm, "order": order,
                              "correct": 1 if order == 0 else 2})
-    # R-CAP: self-arm images; distractor = same index, same version, same arm, next contrast
+    # R-CAP: both arms' images (Amendment 4); distractor = same index, same version, same arm,
+    # next contrast
     nxt = {"A": "B", "B": "C", "C": "A"}
-    for c in CONTRASTS:
-        for idx, it in enumerate(items[c]):
-            for v in VERSIONS:
-                own = draw_id(c, it, v, "SELF")
-                if own not in ok or not ok[own][1].strip():
-                    continue
-                dist = distractor(items[nxt[c]], nxt[c], idx, v, ok)
-                if dist is None:
-                    continue
-                for order in (0, 1):
-                    s1, s2 = (ok[own][1], ok[dist][1]) if order == 0 else (ok[dist][1], ok[own][1])
-                    parts = [txt_part(CAP_TEXT), txt_part("Image:"), img_part(jpeg_of(own)),
-                             txt_part(f"Sentence 1: {s1}"), txt_part(f"Sentence 2: {s2}"),
-                             txt_part(ANSWER_FORMAT.format(label="SENTENCE"))]
-                    add(f"W1-R-CAP-{c}-{it}-{v}-o{order}", parts,
-                        {"task": "CAP", "contrast": c, "item": it, "version": v, "arm": "SELF",
-                         "order": order, "correct": 1 if order == 0 else 2, "distractor": dist})
+    for arm in ARMS:
+        for c in CONTRASTS:
+            for idx, it in enumerate(items[c]):
+                for v in VERSIONS:
+                    own = draw_id(c, it, v, arm)
+                    if own not in ok or not ok[own][1].strip():
+                        continue
+                    dist = distractor(items[nxt[c]], nxt[c], idx, v, ok, arm)
+                    if dist is None:
+                        continue
+                    for order in (0, 1):
+                        s1, s2 = (ok[own][1], ok[dist][1]) if order == 0 else (ok[dist][1], ok[own][1])
+                        parts = [txt_part(CAP_TEXT), txt_part("Image:"), img_part(jpeg_of(own)),
+                                 txt_part(f"Sentence 1: {s1}"), txt_part(f"Sentence 2: {s2}"),
+                                 txt_part(ANSWER_FORMAT.format(label="SENTENCE"))]
+                        add(f"W1-R-CAP-{c}-{it}-{v}-{arm}-o{order}", parts,
+                            {"task": "CAP", "contrast": c, "item": it, "version": v, "arm": arm,
+                             "order": order, "correct": 1 if order == 0 else 2, "distractor": dist})
     # R-INV: every valid drawing, in plan order
     for cid in draw_ids:
         if cid in ok and not cid.endswith("-rep"):
@@ -400,12 +402,12 @@ def read_plan(stage, draw_ids, dfinal, jpeg_of):
     return specs, key
 
 
-def distractor(labels, contrast, idx, version, ok):
+def distractor(labels, contrast, idx, version, ok, arm="SELF"):
     """The same-index item of `contrast` if its drawing exists with a sentence, else the next
     index cyclically (a drawing without its sentence can't be a distractor, clarification 7)."""
     for k in range(len(labels)):
         it = labels[(idx + k) % len(labels)]
-        cid = draw_id(contrast, it, version, "SELF")
+        cid = draw_id(contrast, it, version, arm)
         if cid in ok and ok[cid][1].strip():
             return cid
     return None

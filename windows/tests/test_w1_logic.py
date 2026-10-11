@@ -156,9 +156,12 @@ def test_read_plan_orders_distractors_and_blindness():
     n_pair = sum(1 for k in key.values() if k["task"] == "IMG")
     assert n_pair == (16 * 3 * 2 - 1) * 2
     # distractor: same index, next contrast; B-03-X-SELF missing -> next index B-04
-    assert key["W1-R-CAP-A-03-X-o0"]["distractor"] == "W1-D-B-04-X-SELF"
-    assert key["W1-R-CAP-B-00-N-o0"]["distractor"] == "W1-D-C-07-N-SELF"     # C index 0 = item 07
-    assert key["W1-R-CAP-C-07-X-o1"]["distractor"] == "W1-D-A-00-X-SELF"
+    assert key["W1-R-CAP-A-03-X-SELF-o0"]["distractor"] == "W1-D-B-04-X-SELF"
+    assert key["W1-R-CAP-B-00-N-SELF-o0"]["distractor"] == "W1-D-C-07-N-SELF"     # C index 0 = item 07
+    assert key["W1-R-CAP-C-07-X-SELF-o1"]["distractor"] == "W1-D-A-00-X-SELF"
+    # Amendment 4: third-party images get caption reads too, with third-party distractors
+    assert key["W1-R-CAP-A-03-X-OBS-o0"]["distractor"] == "W1-D-B-03-X-OBS"
+    assert sum(k["task"] == "CAP" for k in key.values()) == (2 * 96 - 1) * 2
     assert sum(k["task"] == "INV" for k in key.values()) == len(keys) - 1
     assert sum(k["task"] == "GEN" for k in key.values()) == 32
     # the reader never sees a call id, a file name, an arm or version label
@@ -181,8 +184,8 @@ def test_replies_without_a_sentence_skip_the_sentence_reads():
     for t in ("TXT", "BOTH"):
         assert f"W1-R-{t}-A-02-SELF-o0" not in ids and f"W1-R-{t}-B-03-SELF-o1" not in ids
         assert f"W1-R-{t}-A-02-OBS-o0" in ids
-    assert "W1-R-CAP-A-02-N-o0" not in ids and "W1-R-CAP-B-03-X-o0" not in ids
-    assert key["W1-R-CAP-A-03-X-o0"]["distractor"] == "W1-D-B-04-X-SELF"       # B-03-X has no sentence
+    assert "W1-R-CAP-A-02-N-SELF-o0" not in ids and "W1-R-CAP-B-03-X-SELF-o0" not in ids
+    assert key["W1-R-CAP-A-03-X-SELF-o0"]["distractor"] == "W1-D-B-04-X-SELF"       # B-03-X has no sentence
     assert all(k.get("distractor") not in mute for k in key.values())
     for s in specs:
         for p in s["body"]["messages"][0]["content"]:
