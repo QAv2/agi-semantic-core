@@ -6,7 +6,8 @@ date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, 
 
 **Status: REGISTERED; AMENDED TWICE BEFORE ANY W1 CALL (Amendment 1: habit-proof bars;
 Amendment 2: the route is the Gemini app, driven by hand-pace GUI); SMOKE 1 STOPPED (see
-clarification 4); NOT YET FLOWN.**
+clarification 4); AMENDMENT 3 after smoke 1 (the Create image tool on every drawing turn; the
+driver reads the accessibility tree); NOT YET FLOWN.**
 Authored 2026-10-10, before any W1 call and
 before the W1 builder exists, per lane law. Everything that decides the verdicts is
 fixed here. The builder writes `windows/results/w1_freeze_<stamp>/FROZEN_W1.json`
@@ -596,3 +597,72 @@ bar and verdict word (as amended by Amendment 1).
 what people actually meet, rather than a bare model. The ceiling in §8 doesn't move: no
 state is read either way. Joe's picker setting (3.1 Pro, High) is restored after each
 sitting.
+
+### Amendment 3 (2026-10-11, after smoke 1, before smoke 2 and the flight): every drawing turn goes through the app's Create image tool, and the driver reads the page's accessibility tree
+
+**Why.** Smoke 1 (clarification 4) found that on this route the drawing request alone does not
+reliably reach the image tool, and that whether it does differs by arm: the self arm drew 6 of
+6, and the third-party arm answered with text diagrams in 3 of 3 chats, even after the retry. If
+an arm can answer in a different medium, arm is confounded with medium and the readers' 2AFC
+pairs mix pictures with code blocks. Smoke 1 also showed that a pixel-template driver is fragile
+over AI art (pictures hold icon-like shapes).
+
+**Change 1: the Create image tool on every drawing turn, in every arm.** Before every drawing
+request (SELF in A, B and C; OBS; NOHIST; GENRE) the driver switches on the input's Create image
+tool (Upload & tools → Create image) and checks that its chip ("Deselect Images") is shown. The
+request's text is unchanged. Text turns (the A and B histories, the C attempts) never have the
+tool on, and G1 now also checks that it is off when a chat opens. The aspect ratio stays at the
+app's default and no style preset is chosen.
+
+*Mechanics probes* (2026-10-11, neutral content, no W1 stimulus, temporary chats, 3.8 Flash /
+Low): with the tool on and a request of the form "Make an image of X, and say in one sentence
+what it shows", the app returned one image (2752×1536 JPEG) and one sentence in a fresh chat
+(a teapot), at the end of a two-turn chat (a cat's name), and for a multi-paragraph message
+shaped like the third-party request (a transcript of that cat chat). With the tool on and no
+sentence asked for, the reply was the image alone. So the sentence that G-R, R-TXT, R-BOTH, S2
+and S4 need survives the tool, because the request asks for it.
+
+**Change 2: the driver finds controls by their accessible names.** Firefox runs with
+accessibility on (`GNOME_ACCESSIBILITY=1`), and `windows/gemini_ui.py` reads the page through
+AT-SPI. Every control is found by role and name (New chat, Temporary chat, the mode picker
+"Open mode picker, currently Flash", Upload & tools, Create image, Deselect Images, the input
+"Enter a prompt for Gemini", Stop response, Redo → Try again, Copy, Download full size image)
+and clicked at the centre of its box with a real pointer click. Nothing on the page is read
+from pixels; the UI templates are retired and the freeze no longer hashes them.
+
+- **G1** is the temporary-chat heading ("Just stopping by? …"), the picker label "Flash"
+  (3.8 Flash with thinking Low), an empty chat, and the image tool off.
+- **Sending.** The pasted text is checked against the input before Enter, and a message counts
+  as sent only when its "You said" heading appears with the message's opening.
+- **Done.** A reply is finished when "Stop response" is gone and the reply's action bar is
+  shown, unchanged for two polls a second apart.
+- **Text and image.** The reply's text is copied with its own Copy button, as registered; the
+  drawing is the lowest image's full-size download. Firefox's Downloads panel, which opens
+  over the page after each download, is closed before the next click.
+- **G2.** The one retry is the reply's Redo → Try again, which replaces the reply.
+
+**Change 3: two stops, for the account's sake and the data's.**
+
+- *Usage limit.* If a drawing turn still has no image after its retry, and its reply reads like
+  a usage-limit notice (limit, quota, or "try again later/tomorrow", together with image,
+  generate or create), the sitting stops. That chat is not logged: it is parked with its records
+  in `stops.jsonl`. A person then reads the reply. If it is the app's usage notice, the chat is
+  redone from its start in a later sitting, as an HTTP 429 would be on the API route. If it is
+  the model's own words, `run_w1_ui commit-stop` logs it as registered (its drawing invalid)
+  and it is never redone, so a refusal can't be re-rolled away. Each such decision is reported
+  in a clarification.
+- *Three invalid drawings in a row* stop the sitting. They stay logged as registered; a person
+  looks before the run goes on.
+
+**Picker and clipboard.** The runner sets 3.8 Flash / Low at the start of each sitting and
+puts back Joe's setting (3.1 Pro, High) and his clipboard at its end, also when a run stops.
+
+**What stays.** Every message text, the contrasts and arms, the C plan, the readers, every
+measure, bar and verdict word, G2's single retry, the logging unit, the pace, and the route
+(Amendment 2).
+
+**What it costs the claim.** With the tool forced, the app's own choice of medium is no longer
+measured. Smoke 1 suggests that choice depends on how the request reads (a transcript reads like
+a document), which is a property of the request's form, not of a state. The tool may pass the
+request to the image model in its own words; it does so the same way in every arm. Smoke 1's
+drawings stay out of every analysis, and smoke 2 runs under this amendment before any flight.
