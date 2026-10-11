@@ -1,0 +1,63 @@
+{
+ "budget_usd": 16.0,
+ "code_sha256": {
+  "analyze_w1.py": "238f7be663f2a8222d83b9d09d3571cc6d5e524a96dd738bd3e8ba3bed10d557",
+  "gemini_ui.py": "e6e7f29fe9dedb08b834c55db33f1c94c905f11167d37960338d4f7d649313ff",
+  "run_w1.py": "6bd0902997467b5431dbfbbf3bb1d25bb16a3305599bb4ba7c0eab5050215e1c",
+  "run_w1_ui.py": "565240bd27140553f799ed8f85088eb2c07ed743aa7d2fbc22b1984971ea0f91",
+  "w1.py": "e03135792bebd72cd7445f5d534ea6947aa58717f734f95d006afd79c9a81334",
+  "w1_client.py": "2e1c8e860f7d42af3da416b78454cbba1785b7e0993c717ed1e7c3ae158a99fc",
+  "w1_stimuli.py": "d80def920b8239a8c57e35780158fe601b1b9b125b5752babdfc65e357dff5cb"
+ },
+ "flight_H_static_calls": 704,
+ "flight_H_static_sha": "1a55def10430d387411138e2e9c84dc5ec4d4d3239174c804ed694cdeb08208a",
+ "frozen_at": "2026-10-11T01:27:17+00:00",
+ "models": {
+  "pins": {
+   "anthropic/claude-sonnet-5.5": [
+    "anthropic/claude-sonnet-5.5",
+    "anthropic/claude-sonnet-5.5-20260928"
+   ],
+   "google/gemini-nano-banana-2.1": [
+    "google/gemini-nano-banana-2.1",
+    "google/gemini-nano-banana-2.1-20261006"
+   ]
+  },
+  "reader": "anthropic/claude-sonnet-5.5",
+  "under_test": "google/gemini-nano-banana-2.1"
+ },
+ "prompts_sha": "2a032c1549a182d4148b2346075f1955e5eb09ff44c17ba10e66b372fc3358c0",
+ "registration_commit": "eee339f3135c0b420f098c54894dd96a8eb1a78c",
+ "route": {
+  "c_pilot_seed": 20261028,
+  "c_ui_attempts": 3,
+  "c_ui_pool": {
+   "flight": 24,
+   "smoke": 2
+  },
+  "drawing_turns": "Create image tool on every drawing turn, every arm (Amendment 3)",
+  "driver": "windows/gemini_ui.py",
+  "perception": "Firefox accessibility tree (AT-SPI), Amendment 3",
+  "under_test": "gemini-app/3.8-flash/low (Amendment 2)"
+ },
+ "seeds": {
+  "analysis": 20261026,
+  "c_pool": 20261021,
+  "c_smoke": 20261022,
+  "flight": 20261024,
+  "smoke": 20261025
+ },
+ "tests_sha256": {
+  "agents_w1.py": "e96eb4152803cd586347f8f32092c3021bce2806502c221ba39ad065b1308a05",
+  "test_w1_capture.py": "7bbf0b6a0bf70c0d6d1f2ec594a5ca4d2551f59c03820288589fc61411d9a1cd",
+  "test_w1_logic.py": "2c8122916df820116c367280e7758b54d52edd992c65e565fcd6e7ac3b21d931",
+  "test_w1_ui_logic.py": "eac3df6765477076156c3479336e3ca6ce884372b98d5ad242500e472a7293db",
+  "test_w1_verdict.py": "4cf7a4c1958572a71b60c0fb7d3c87c263639cc2c8eee8f87ed6b5041fe78138"
+ },
+ "versions": {
+  "numpy": "2.5.2",
+  "pillow": "12.3.0",
+  "python": "3.13.5",
+  "scipy": "1.18.0"
+ }
+}
