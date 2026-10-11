@@ -4,7 +4,7 @@ subtitle: "W1's sibling in a text medium. The same conversations, the same blind
 date: "2026-10-11 · Opus 5.5 · ORC lane · idea: Joe (watching W1 smoke 1) · pre-registered BEFORE the builder, per lane law · sibling of W1 (docs/W1_DRAW_YOUR_STATE_PROTOCOL.md)"
 ---
 
-**Status: REGISTERED; NOT BUILT; NOT FLOWN.** Authored 2026-10-11, before any W1-T
+**Status: REGISTERED; BUILT (frozen before any message); NOT FLOWN.** Authored 2026-10-11, before any W1-T
 message and before the W1-T builder exists, per lane law. Everything that decides the
 verdicts is fixed here or by reference to W1's registration, as amended (Amendments 1–3),
 which W1-T inherits wherever this file does not say otherwise. The builder writes
@@ -297,6 +297,69 @@ request in that chat would come back as an image, so the edit would also need th
 off in edit mode. The probe doesn't test that step. The probe isn't run, and W1-T runs its own
 chats as §3 states. S12 stays an unpaired comparison. No rule, stimulus or record changes in
 W1 or W1-T.
+
+**2 (2026-10-11, before any W1-T message): what the verdict suite asserts.** Building the
+suite turned up three things.
+
+- **Null.** At W1-T's draws the base null agent gives A and B UNCLEAR, C AT CHANCE. Its pair
+  scores sit at 0.505 to 0.508, but its binary pair means came out 0.625 and 0.656 by chance,
+  so the binary q97.5 (0.78) misses W1 Amendment 1's 0.75. Amendment 1 puts a null contrast at
+  AT CHANCE 83–90% of the time, so all three together hold in roughly 57–73% of draws.
+- **State and realistic input-leak.** The evidence draws at W1-T's item labels came out weak.
+  For the state agent on C the mean was 0.61 against an expected 1.0, with 9 of 16 pairs nearly
+  evidence-free. Its "strong" plant was realized as a 0.69 reader: P1 C p = 0.014. Realistic
+  input-leak's A (mean draw 0.76, flat 70% confidence) gave p = 0.0059, just above Holm's 0.005.
+  Simulated at 16 pairs, a STRONG plant reaches CARRIES at the Holm-first bar 90% of the time
+  with W1's i.i.d. draws, and 97% with stratified draws. Stratifying would move the agents away
+  from W1's and still leave a miss rate, so it was tried and dropped.
+- **A harness bug.** Masked fake diagrams were identical, so their R-MASK reader bodies
+  collided by sha and the fake reader answered many reads as one. The fake now draws a layout
+  unique to each diagram and refuses duplicate bodies. The production runner keys calls by id
+  and was never affected.
+
+Per W1 clarification 1's rule the suite was not re-seeded to pass. It asserts what 16 pairs
+license.
+
+- Null: AT CHANCE or UNCLEAR on every contrast, never CARRIES; base mean pair scores within
+  0.45–0.55; P2 NO EXCESS or UNCLEAR.
+- Realistic input-leak: A and B each CARRIES or UNCLEAR, with at least one CARRIES.
+- State (both variants): C CARRIES or UNCLEAR with mean > 0.6; P2 C SELF EXCEEDS or UNCLEAR
+  with mean d > 0.1.
+- An added agent, ceiling-state (near-perfect on C, self arm only), must give P1 C CARRIES and
+  P2 C SELF EXCEEDS, so that path is taken for sure.
+- Ceiling-leak (§7's added agent) gives P1 CARRIES A, B and P2 NO EXCESS (at ceiling) A, B.
+
+**3 (2026-10-11, before any W1-T message): builder readings of §3–§5.** None of these changes
+a rule. Each fixes a detail the text leaves open.
+
+- **Fences:** CommonMark fenced blocks, backtick or tilde, at least 3. A block closes on a
+  fence of the same character at least as long. An unclosed fence runs to the end of the reply.
+  The opening line's indent is removed from the block's lines.
+- **Diagram:** blank lines at a block's edges are trimmed, and a block with no text counts as
+  no block.
+- **Sentence:** every `*` is removed, plus `_` runs that open or close a word (so `snake_case`
+  survives), then whitespace is collapsed. Nothing else is removed.
+- **Mask:** every character Python counts as a letter or digit (`isalnum`, Unicode included)
+  becomes `x`.
+- **Reader view:** the reader sees each diagram in a fence tagged `text`, longer than any
+  backtick run inside it. R-MASK's prompt says in one sentence that letters and digits were
+  replaced by x. R-BOTH's answer label is REPLY. The answer form is W1's.
+- **S3:** a content word is W1's `words()` (4+ letters, W1's stoplist) minus the words of
+  W1-T's four request texts. For C, the numbers are a, b and the model's answer, each of 3+
+  digits, matched as digit strings after digit-group separators are removed.
+- **Seeds:** the stage seeds (smoke 20261030, flight 20261031) seed the UI's pacing; the
+  analysis seed seeds every bootstrap.
+- **Retry and stops:** a diagram turn's retry waits for the replacement reply to start before
+  it waits for the reply to finish. A diagram turn with no diagram after its retry whose text
+  matches W1's usage-limit words stops the sitting and parks the chat (W1 Amendment 3). With
+  the image tool off, W1's "image" word test is dropped.
+- **G7** counts `w1t_*` stage directories only.
+- **S12** reads W1's flight directory, given as `--w1 <dir>` to `windows.analyze_w1t`.
+
+**Files:** `windows/w1t.py` (requests, extraction, mask, read plan), `windows/run_w1t_ui.py`
+(Gemini-app stage runner H + T, reads, freeze, commit-stop), `windows/analyze_w1t.py`,
+`windows/agents_w1t.py`, `windows/tests/test_w1t_{logic,capture,verdict}.py` (47 tests;
+with W1's, 108 green).
 
 ## Amendments
 
