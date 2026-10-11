@@ -1,0 +1,81 @@
+{
+ "bars": {
+  "DELTA_VARIES": 0.2,
+  "GDET_TOL": 1e-05,
+  "HI": 0.8,
+  "KAPPA_BAR": 0.5,
+  "LO": 0.2,
+  "SHAM_BAR": 0.25,
+  "SHAM_CLASS": 300
+ },
+ "code_sha256": {
+  "colab/W3_LOOP_UI.ipynb": "e101d3bc0d13030d997f051147fefa33432c876e84f77bacc7142fd8a292b18f",
+  "colab/build_w3_notebook.py": "a9246ff0a2b082278fd97f6c3b1b1932a233a18871fd0a974474f4e5d5812c8b",
+  "windows/agents_w3.py": "5b2159b6e9b579cdcef782e196b5490d9786f96b3ed5635fb72651faa241eab8",
+  "windows/analyze_w3.py": "dcafad031c221813e3cd74df1abda2c9aa53636336f68a693bca4e5565c18727",
+  "windows/freeze_w3.py": "3b4666bde6c4a283707a895032264bea82809720ad40357346b285585b09c00e",
+  "windows/power/w3_budget_check.py": "b5e0265e7531cacb07ae912b98000f5ccaa72719c4f6256dec6e82872307d6a8",
+  "windows/power/w3_collinear_check.py": "b456063b04158446eaf5b7b8a3f716cf6709b894386e91c8288c29a465c7abca",
+  "windows/power/w3_design_check.py": "9239d1baae9af7c5cb985f36ca7fdec1ebdb7a1095a5bbb3500bcea091535088",
+  "windows/power/w3_split_check.py": "229b3b43ed8943ad154779a3f21ff377fcfabb0b5e1c3f96dc248423717db03c",
+  "windows/w3_core.py": "79607f7d7749610523a7b6e85500a2d9557e2ad9b44afde46a467b4aabe3888b",
+  "windows/w3_model.py": "a274bbff7db6501c971841892ef674c72bfe0435058254fd652ce5f838977c64",
+  "windows/w3_spec.py": "c6decb8e07b64261b7636e4ec2e87c95e11571e7b1fc7d8f31f64648c77339da"
+ },
+ "frozen_at": "2026-10-11T21:41:43+00:00",
+ "notebook_embedded_sha256": {
+  "w3_core.py": "79607f7d7749610523a7b6e85500a2d9557e2ad9b44afde46a467b4aabe3888b",
+  "w3_model.py": "a274bbff7db6501c971841892ef674c72bfe0435058254fd652ce5f838977c64",
+  "w3_spec.py": "c6decb8e07b64261b7636e4ec2e87c95e11571e7b1fc7d8f31f64648c77339da"
+ },
+ "registration_commit": "73fe8bcaea4b8835049bf4d5503aece0b44d9645",
+ "route": {
+  "compute": "Colab T4 through the browser UI (Joe's Run all), mount-native notebook",
+  "retrieval": "Google Drive integration; parts <= 3.8 MB with manifest sha256",
+  "subject": "three CIFAR-10 denoisers trained from scratch (M-on, M-drop, M-off)"
+ },
+ "seeds": {
+  "ANALYSIS": 20261023,
+  "ARM": 20261021,
+  "DROP": 20261028,
+  "GATE": 20261026,
+  "PROBE": 20261022,
+  "SAMPLE": 20261027,
+  "SHAM": 20261024,
+  "SPREAD": 20261025,
+  "TRAIN": 20261020
+ },
+ "sizes": {
+  "BOOT": 10000,
+  "EPOCHS": 60,
+  "N_GATE": 2000,
+  "N_PCAL": 3000,
+  "N_PER_CLASS": 256,
+  "N_PTRAIN": 4000,
+  "N_SAMPLES": 64,
+  "SPREAD_K": 8,
+  "SPREAD_N": 64
+ },
+ "smoke_seed_offset": 100,
+ "smoke_sizes": {
+  "BOOT": 1000,
+  "EPOCHS": 2,
+  "N_GATE": 400,
+  "N_PCAL": 300,
+  "N_PER_CLASS": 32,
+  "N_PTRAIN": 400,
+  "N_SAMPLES": 16,
+  "SPREAD_K": 4,
+  "SPREAD_N": 8
+ },
+ "tests_sha256": {
+  "test_w3_analysis.py": "bc3086fbd3eda61da5045d49846c4f57dfb9cf3b5a9ddecdd77d75a07b84ea7d",
+  "test_w3_training.py": "ab4b50688e65eafff88b3d1f49807986dc79597ddb9f9f4a34090713f33a7532"
+ },
+ "versions": {
+  "numpy": "2.5.2",
+  "python": "3.13.5",
+  "sklearn": "1.9.0",
+  "torch_local": "2.13.0+cpu"
+ }
+}
