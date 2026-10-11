@@ -1,0 +1,6 @@
+{
+ "device": "cpu",
+ "pass": true,
+ "steps_per_epoch": 3,
+ "width": 8
+}

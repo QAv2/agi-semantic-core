@@ -1,0 +1,29 @@
+23:36:00 start smoke; code {"w3_spec.py": "c6decb8e07b6", "w3_model.py": "a274bbff7db6", "w3_core.py": "79607f7d7749"}
+23:36:22 resume self-test: PASS
+23:37:38   on epoch 1/2: loss 0.2799, 0.194 s/step
+23:38:54   on epoch 2/2: loss 0.0829, 0.194 s/step
+23:38:56 on: gate PASS at 2 epochs
+23:40:14   drop epoch 1/2: loss 0.2817, 0.200 s/step
+23:41:32   drop epoch 2/2: loss 0.0858, 0.200 s/step
+23:41:33 drop: gate PASS at 2 epochs
+23:42:50   off epoch 1/2: loss 0.2817, 0.196 s/step
+23:44:06   off epoch 2/2: loss 0.0865, 0.196 s/step
+23:44:08 off: gate PASS at 2 epochs
+23:44:08 shipped on_split (0 s)
+23:44:08 shipped on_sham (0 s)
+23:44:09 shipped on_ptrain (0 s)
+23:44:09 shipped on_pcal (0 s)
+23:44:41 shipped on_spread (32 s)
+23:44:41 shipped drop_split (0 s)
+23:44:41 shipped drop_sham (0 s)
+23:44:42 shipped drop_ptrain (0 s)
+23:44:42 shipped drop_pcal (0 s)
+23:44:43 shipped drop_ptrain_null (0 s)
+23:44:43 shipped drop_pcal_null (0 s)
+23:44:44 shipped off_ptrain (0 s)
+23:44:44 shipped off_pcal (0 s)
+23:44:44 shipped on0_split (0 s)
+23:44:45 shipped on0_ptrain (0 s)
+23:44:45 shipped off0_ptrain (0 s)
+23:44:46 shipped off0_pcal (0 s)
+23:45:39 run finished

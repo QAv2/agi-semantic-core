@@ -1,0 +1,1280 @@
+[
+ {
+  "arrays": {
+   "dec16": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "dec32": [
+    "float32",
+    [
+     4,
+     64
+    ]
+   ],
+   "dec8": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "enc16": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "enc32": [
+    "float32",
+    [
+     4,
+     64
+    ]
+   ],
+   "enc8": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     2,
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "off": [
+    "int32",
+    []
+   ],
+   "out": [
+    "float32",
+    [
+     4,
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ],
+   "tp": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 1216572,
+  "file": "on_split.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   96
+  ],
+  "set": "on_split",
+  "sha256": "e76873e30f4be4c231d14be4395e4e558fb1e7e6093cdf9bff6b5d16b1e50774"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float32",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float32",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float32",
+    [
+     14
+    ]
+   ]
+  },
+  "bytes": 302856,
+  "file": "on_sham.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   96
+  ],
+  "set": "on_sham",
+  "sha256": "f219fe01bceffc2acd8f685ace2ddd315ccfe8b93fd33e2a58dca206cdc4db40"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 653858,
+  "file": "on_ptrain.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   400
+  ],
+  "set": "on_ptrain",
+  "sha256": "6806139a776bf4d4b04ae9672ec5b04184d8dd132bb2e896495f8d0432ec6e0b"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 491058,
+  "file": "on_pcal.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   300
+  ],
+  "set": "on_pcal",
+  "sha256": "c31a0f32de17f2b54aaf2dd603814088041aa27339a1faa367d2fa42de9f0be4"
+ },
+ {
+  "arrays": {
+   "band": [
+    "int32",
+    []
+   ],
+   "hand_x0": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "hand_xt": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "logvar": [
+    "float32",
+    []
+   ],
+   "mid": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 22188,
+  "file": "on_spread.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   32
+  ],
+  "set": "on_spread",
+  "sha256": "5359185cfa9b41c9eb030deb3df86e794f3b000584c80c15bbbe73b240a4e571"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "dec32": [
+    "float32",
+    [
+     4,
+     64
+    ]
+   ],
+   "dec8": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "enc16": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "enc32": [
+    "float32",
+    [
+     4,
+     64
+    ]
+   ],
+   "enc8": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     2,
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "off": [
+    "int32",
+    []
+   ],
+   "out": [
+    "float32",
+    [
+     4,
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ],
+   "tp": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 1216572,
+  "file": "drop_split.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   96
+  ],
+  "set": "drop_split",
+  "sha256": "eb112ed3169123fbe9a72fe480b96b2da3c770d7a38fe94d3660b9d31a1d3164"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float32",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float32",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float32",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float32",
+    [
+     14
+    ]
+   ]
+  },
+  "bytes": 302856,
+  "file": "drop_sham.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   96
+  ],
+  "set": "drop_sham",
+  "sha256": "55fe0e5bab6f521a2a8d2a0e77bffb7343c02225d842a1f91ed8cfa912dec222"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 653858,
+  "file": "drop_ptrain.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   400
+  ],
+  "set": "drop_ptrain",
+  "sha256": "e9c68868ef46e835e34844669f5ddccc16950a2d4691a0994c544e774c51da8f"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 491058,
+  "file": "drop_pcal.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   300
+  ],
+  "set": "drop_pcal",
+  "sha256": "248b11851e6087fec4229273c091e19021721f4e0d4793b1260a9a5e30dbe104"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 653858,
+  "file": "drop_ptrain_null.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   400
+  ],
+  "set": "drop_ptrain_null",
+  "sha256": "bd329f9be2234faed6d5609490fb610d281415632d139a429c75382a3701e0bc"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 491058,
+  "file": "drop_pcal_null.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   300
+  ],
+  "set": "drop_pcal_null",
+  "sha256": "712d568c94b299a9e13a4fa6837645c1dad371bc7a515e6d7f41a34b72fc6d0c"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 653858,
+  "file": "off_ptrain.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   400
+  ],
+  "set": "off_ptrain",
+  "sha256": "ce716ece67b099100fadd135ff2c516c6b644a94606b1e5731883df03e236ef0"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 491058,
+  "file": "off_pcal.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   300
+  ],
+  "set": "off_pcal",
+  "sha256": "0e941c0276cfd59bd869c17c3479ea5957ab8199c73bb3fad702bfdb89716057"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "dec32": [
+    "float32",
+    [
+     4,
+     64
+    ]
+   ],
+   "dec8": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "enc16": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "enc32": [
+    "float32",
+    [
+     4,
+     64
+    ]
+   ],
+   "enc8": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     2,
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float32",
+    [
+     4,
+     128
+    ]
+   ],
+   "off": [
+    "int32",
+    []
+   ],
+   "out": [
+    "float32",
+    [
+     4,
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ],
+   "tp": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 1216572,
+  "file": "on0_split.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   96
+  ],
+  "set": "on0_split",
+  "sha256": "1215cf47875c0001459ede06622ae1f1cc19ed49f4e13b9587b41d4aa8bd68d1"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 653858,
+  "file": "on0_ptrain.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   400
+  ],
+  "set": "on0_ptrain",
+  "sha256": "945a0c2b06db8d8f6413531d1cc42595977e03efcd36725e3e4db0d482eb737b"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 653858,
+  "file": "off0_ptrain.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   400
+  ],
+  "set": "off0_ptrain",
+  "sha256": "cbdb29a30ba39f7b236dad1d2b86e35b35ee90d0ea8b85f9a18129d4db2acf3f"
+ },
+ {
+  "arrays": {
+   "dec16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "dec32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "dec8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc16": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "enc32": [
+    "float16",
+    [
+     64
+    ]
+   ],
+   "enc8": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "hand": [
+    "float32",
+    [
+     14
+    ]
+   ],
+   "img": [
+    "int32",
+    []
+   ],
+   "mid": [
+    "float16",
+    [
+     128
+    ]
+   ],
+   "out": [
+    "float16",
+    [
+     14
+    ]
+   ],
+   "t": [
+    "int32",
+    []
+   ]
+  },
+  "bytes": 491058,
+  "file": "off0_pcal.part00.npz",
+  "part": 0,
+  "rows": [
+   0,
+   300
+  ],
+  "set": "off0_pcal",
+  "sha256": "1e899919464535738185437f8c6a6959ca3b018484523b699d7ac9deccbf503d"
+ }
+]
