@@ -84,6 +84,16 @@ def squash(s):
     return "".join((s or "").replace("￼", "").split())
 
 
+LIST_MARKS = str.maketrans("", "", "*•◦▪-")
+
+
+def same_text(a, b):
+    """Whether the input (or a posted message) holds `b`. The app's editor turns pasted lines
+    that start with "* " or "- " into list items, which the tree shows with a bullet glyph, so
+    list and emphasis marks are left out of the comparison (smoke 2, clarification 5)."""
+    return squash(a).translate(LIST_MARKS) == squash(b).translate(LIST_MARKS)
+
+
 # ---- the accessibility tree ---------------------------------------------------------------
 
 def walk(o):
@@ -347,7 +357,7 @@ class GeminiUI:
         self.key("ctrl+v")
         time.sleep(0.6)
         got = self.entry_text()
-        if squash(got) != squash(text):
+        if not same_text(got, text):
             raise UIError(f"the input holds {got[:60]!r}, not the message")
         self.key("Return")
         self.move(*NEUTRAL)
@@ -355,7 +365,8 @@ class GeminiUI:
         while time.time() < end:
             hs = self.all("heading", prefix=YOU_SAID)
             if len(hs) == n0 + 1:
-                if not squash(name(hs[-1])[len(YOU_SAID):]).startswith(squash(text)[:40]):
+                posted = squash(name(hs[-1])[len(YOU_SAID):]).translate(LIST_MARKS)
+                if not posted.startswith(squash(text).translate(LIST_MARKS)[:40]):
                     raise UIError(f"posted message reads {name(hs[-1])[:60]!r}")
                 return
             time.sleep(0.4)

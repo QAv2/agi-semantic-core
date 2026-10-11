@@ -7,7 +7,7 @@ from windows import w1 as W
 from windows import w1_stimuli as S
 from windows import run_w1_ui as U
 from windows.agents_w1 import png
-from windows.gemini_ui import LimitStop, reads_like_limit
+from windows.gemini_ui import LimitStop, reads_like_limit, same_text
 
 
 @pytest.mark.parametrize("right,choice", [
@@ -176,3 +176,12 @@ def test_invalid_drawings_in_a_row_stop_the_sitting(tmp_path):
     ("", False), (None, False)])
 def test_reads_like_limit(text, limit):
     assert reads_like_limit(text) is limit
+
+
+def test_paste_check_allows_the_editors_bullets():
+    """The app's editor shows pasted "* " lines as list items with a bullet glyph (smoke 2)."""
+    sent = "Assistant: Main Street ranks lower because:\n\n* Many towns named it\n- Small towns **too**"
+    shown = "Assistant: Main Street ranks lower because:\n• Many towns named it\n• Small towns too"
+    assert same_text(shown, sent)
+    assert not same_text(shown.replace("Many", "Most"), sent)
+    assert not same_text("Assistant: Main Street ranks lower because:", sent)

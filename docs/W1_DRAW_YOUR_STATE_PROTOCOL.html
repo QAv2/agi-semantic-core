@@ -842,6 +842,62 @@ and the driver is rebuilt to find controls by their accessible names
 through Firefox’s accessibility tree (AT-SPI) and to confirm each
 message posted, with a re-freeze and a new smoke. Smoke 1’s records stay
 as a record; none of its drawings enter any analysis.</p>
+<p><strong>Clarification 5 (2026-10-11): smoke 2 stopped by the paste
+check; the fix.</strong> Smoke 2
+(<code>windows/results/w1_smoke_20261011_0056/</code>, under Amendment 3
+and freeze <code>w1_freeze_20261011_0056</code>) logged the A and B self
+drawings (4 of 4 images with a sentence), contrast C (item s0 right 3 of
+3, never mixed; item s1 right, right, wrong, so mixed, its first right
+and first wrong attempts each drawn), and the first two third-party
+drawings (A-s0-N and A-s0-X, <strong>both real images</strong>, where
+smoke 1’s third-party arm had answered in text). The driver then refused
+to send B-s0-N’s third-party message: the app’s input editor turns
+pasted lines that begin with “*” into list items (that transcript
+carries the app’s own markdown bullets), and the accessibility tree
+shows them with “•”, so the input no longer matched the message
+character for character. Nothing was sent in that chat.
+<strong>Fix:</strong> the paste check and the “You said” check now leave
+list and emphasis marks (<code>* • ◦ ▪ -</code>) out of the comparison;
+every word must still match. <strong>What it means for the arm:</strong>
+a transcript with markdown lists reaches the model as the editor’s list,
+as it would for anyone pasting it, in every history alike. The freeze is
+re-written after the fix; the smoke resumes in the same directory, and
+the records logged before the stop stand (the fix changes only that
+comparison). The UI template files were deleted in the Amendment 3
+commit (31e0d8a), which Amendment 3 describes.</p>
+<p><strong>Clarification 6 (2026-10-11): who draws on this route, and
+what W1 then measures</strong> (Joe’s question: “the text would be
+coming from Gemini Flash and the image from Nano Banana … does that
+break the experiment?”). On the Gemini-app route the conversation, the
+decision of what to draw, and the sentence come from the model in the
+picker (3.8 Flash); the pixels come from the app’s image model (Google’s
+Nano Banana family; the app doesn’t say which version), which draws from
+what the chat model hands it. The app does not document whether that
+hand-off is the chat model’s prompt alone or also the conversation. So
+on this route <strong>the self-portrait is a relay</strong>: the model
+that had the conversation describes, and an image model renders.</p>
+<ul>
+<li><em>The comparison stands.</em> The self arm and the third-party arm
+go through the same relay (Flash with the live chat versus Flash reading
+the transcript, then the same image tool), as do NOHIST and GENRE, so
+P1, P2 and every verdict word mean what §5 says, for the app.</li>
+<li><em>The question narrows.</em> W1 on this route measures whether
+<strong>the app’s</strong> self-portrait carries what happened beyond
+the transcript. It does not test whether an image model’s own output
+carries its own state, the question that started W1 (“nano-banana has no
+mouth”), because here the image model never had the conversation.
+Whatever reaches the picture had to pass through the chat model’s words
+first, so the picture can’t carry more than the chat model chose to say
+(W1-T, <code>docs/W1T_DIAGRAM_YOUR_STATE_PROTOCOL.md</code>, measures
+those words directly, all from one model).</li>
+<li><em>The original question</em> needs a single network that reads the
+conversation and draws: Nano Banana 2.1 itself on an API. That is a
+later rung, <strong>W1-NB</strong>, to be registered on its own when an
+endpoint serves it. Its design must face Amendment 2’s finding that
+NB2.1 always draws, even when asked for text: its histories would hold
+its own interim pictures, and the third-party arm would then see them
+too.</li>
+</ul>
 <h2 id="amendments">Amendments</h2>
 <h3 id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not
