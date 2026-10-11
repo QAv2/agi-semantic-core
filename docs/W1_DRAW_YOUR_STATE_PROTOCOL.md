@@ -457,6 +457,16 @@ The lean-only agent's captions are competent (§7 table); only its judgments lea
   bell). Joe's own earlier files in `~/Downloads` are never touched: a download is accepted only
   if it is newer than the click.
 
+**Clarification 3 (2026-10-11, after the size pilot, before the smoke): a pilot bug and its
+result.** The pilot (`windows/results/w1_cpilot_20261011_0002/`, 12 temporary chats, 00:03–00:11
+UTC) ran under freeze 0a8a180 and logged every chat, but a shadowed variable stopped it from
+writing `size.json`. The fix renames the variable (no change to any message or rule), and the
+re-run read the log without opening a chat. **Result:** 5×5 4 of 4 right, 6×6 4 of 4, 7×7 3 of 4
+(the miss: 54017502447088 for 54017502165088). By the registered rule the flight size is **7×7**.
+At about 75% accuracy, 3 attempts make an item mixed about 56% of the time, so the 24-item pool
+should give about 13 mixed items: fewer than the 16 wanted, but above the 12 that C needs. The
+freeze is re-written after the fix (`w1_freeze_*` with the later stamp is the one in force).
+
 ## Amendments
 
 ### Amendment 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not depend on how the reader states confidence

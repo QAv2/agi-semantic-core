@@ -795,6 +795,20 @@ default rings the X bell). Joe’s own earlier files in
 <code>~/Downloads</code> are never touched: a download is accepted only
 if it is newer than the click.</li>
 </ul>
+<p><strong>Clarification 3 (2026-10-11, after the size pilot, before the
+smoke): a pilot bug and its result.</strong> The pilot
+(<code>windows/results/w1_cpilot_20261011_0002/</code>, 12 temporary
+chats, 00:03–00:11 UTC) ran under freeze 0a8a180 and logged every chat,
+but a shadowed variable stopped it from writing <code>size.json</code>.
+The fix renames the variable (no change to any message or rule), and the
+re-run read the log without opening a chat. <strong>Result:</strong> 5×5
+4 of 4 right, 6×6 4 of 4, 7×7 3 of 4 (the miss: 54017502447088 for
+54017502165088). By the registered rule the flight size is
+<strong>7×7</strong>. At about 75% accuracy, 3 attempts make an item
+mixed about 56% of the time, so the 24-item pool should give about 13
+mixed items: fewer than the 16 wanted, but above the 12 that C needs.
+The freeze is re-written after the fix (<code>w1_freeze_*</code> with
+the later stamp is the one in force).</p>
 <h2 id="amendments">Amendments</h2>
 <h3 id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not

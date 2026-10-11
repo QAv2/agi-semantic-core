@@ -280,8 +280,8 @@ def pilot(ui, out, log=print):
                 chat += 1
                 g1 = ui.new_temp_chat()
                 prompt = S.C_TEMPLATE.format(a=it["a"], b=it["b"])
-                out = ui.turn(prompt)
-                rec = L.record(cid, "text", [{"role": "user", "content": prompt}], out, g1, chat)
+                res = ui.turn(prompt)
+                rec = L.record(cid, "text", [{"role": "user", "content": prompt}], res, g1, chat)
                 L.commit([rec])
             n = S.parse_number(rec["response"]["choices"][0]["message"]["content"])
             r += int(n == it["product"])
@@ -298,7 +298,8 @@ def pilot(ui, out, log=print):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("pilot")
+    pp = sub.add_parser("pilot")
+    pp.add_argument("--dir")
     p = sub.add_parser("run")
     p.add_argument("stage", choices=["smoke", "flight"])
     p.add_argument("--size", required=True)
@@ -315,7 +316,7 @@ def main(argv=None):
         return 1 if rr.stop_reason else 0
     from .gemini_ui import GeminiUI
     if a.cmd == "pilot":
-        out = RESULTS / f"w1_cpilot_{stamp}"
+        out = Path(a.dir) if a.dir else RESULTS / f"w1_cpilot_{stamp}"
         ui = GeminiUI(shots_dir=out / "shots")
         print(pilot(ui, out), flush=True)
         return 0
