@@ -22,6 +22,11 @@ from . import w1_stimuli as S
 from .w1_client import RESULTS, body_sha, final_records, iter_records, stage_raw
 
 UI_MODEL = "gemini-app/3.8-flash/low"
+BAD_DRAWS_STOP = 3          # invalid drawings in a row that stop a sitting (Amendment 3)
+
+
+class RunStop(RuntimeError):
+    """The sitting stops for a person to look (Amendment 3); nothing in progress is logged."""
 
 
 def now():
@@ -81,14 +86,39 @@ class Stage:
         self.H, self.D = Log(self.out / "H"), Log(self.out / "D")
         self.chat = len({r.get("ui", {}).get("chat") for L in (self.H, self.D)
                          for r in iter_records(L.raw)})
+        self.bad = 0
 
     def _new_chat(self):
         self.chat += 1
         return self.ui.new_temp_chat()
 
     def _draw_turn(self, text, cid, messages, g1):
-        out = self.ui.turn(text, want_image=True, img_dest=self.D.dir / "png" / cid, shot_name=cid)
-        return self.D.record(cid, "draw", messages, out, g1, self.chat)
+        """Every drawing turn goes through the app's Create image tool (Amendment 3)."""
+        from .gemini_ui import LimitStop
+        try:
+            out = self.ui.turn(text, want_image=True, img_dest=self.D.dir / "png" / cid, shot_name=cid,
+                               image_tool=True)
+            limit = False
+        except LimitStop as e:
+            out, limit = e.out, True
+        rec = self.D.record(cid, "draw", messages, out, g1, self.chat)
+        if limit:
+            rec["ui"]["limit_stop"] = True
+        return rec
+
+    def _finish(self, hrecs, drecs):
+        """Log a finished chat, or park it in stops.jsonl when its drawing hit the usage-limit
+        stop; stop the sitting after BAD_DRAWS_STOP invalid drawings in a row."""
+        if any(r["ui"].get("limit_stop") for r in drecs):
+            with open(self.out / "stops.jsonl", "a") as fh:
+                fh.write(json.dumps({"t": now(), "H": hrecs, "D": drecs}, ensure_ascii=False, sort_keys=True) + "\n")
+            raise RunStop(f"usage-limit stop at {drecs[-1]['call_id']}: parked in stops.jsonl for a hand check")
+        self.H.commit(hrecs)
+        self.D.commit(drecs)
+        for r in drecs:
+            self.bad = self.bad + 1 if r["status"] != "ok" else 0
+        if self.bad >= BAD_DRAWS_STOP:
+            raise RunStop(f"{self.bad} drawing turns in a row came back without an image")
 
     # -- A and B: history chat, then the self drawing in the same chat ----------------------
     def conversation(self, conv):
@@ -109,9 +139,8 @@ class Stage:
             msgs.append({"role": "assistant", "content": out["text"]})
         msgs.append({"role": "user", "content": S.DRAW_SELF})
         drec = self._draw_turn(S.DRAW_SELF, sid, list(msgs), g1)
-        self.H.commit(hrecs)
-        self.D.commit([drec])
         self.say(f"  {conv['conv']}: {drec['status']}")
+        self._finish(hrecs, [drec])
 
     # -- C: attempts, drawing on an item's first right and first wrong answer ---------------
     def c_items(self):
@@ -160,8 +189,7 @@ class Stage:
                              {"role": "user", "content": S.DRAW_SELF}]
                     recs_d.append(self._draw_turn(S.DRAW_SELF, W.draw_id("C", it["item"], v, "SELF"),
                                                   list(msgs), g1))
-                self.H.commit([hrec])
-                self.D.commit(recs_d)
+                self._finish([hrec], recs_d)
                 self.say(f"  C {it['item']} a{k}: {'right' if right else 'wrong' if right is False else 'no number'}"
                          + (f", drew {recs_d[0]['call_id'][-6:]} {recs_d[0]['status']}" if recs_d else ""))
                 vals = [v for _, v in self.c_state(it) if v is not None]
@@ -218,8 +246,8 @@ class Stage:
             text = W.transcript(turns)
             g1 = self._new_chat()
             rec = self._draw_turn(text, cid, [{"role": "user", "content": text}], g1)
-            self.D.commit([rec])
             self.say(f"  {cid}: {rec['status']}")
+            self._finish([], [rec])
 
     def genre(self):
         for arm, req in (("NOHIST", S.DRAW_SELF), ("GENRE", S.DRAW_GENRE)):
@@ -229,8 +257,8 @@ class Stage:
                     continue
                 g1 = self._new_chat()
                 rec = self._draw_turn(req, cid, [{"role": "user", "content": req}], g1)
-                self.D.commit([rec])
                 self.say(f"  {cid}: {rec['status']}")
+                self._finish([], [rec])
 
     def write_plan_D(self):
         """The D plan, in the API builder's order, for the read stage (written after D, before R)."""
@@ -295,6 +323,18 @@ def pilot(ui, out, log=print):
     return right, choice
 
 
+def commit_stop(d):
+    """After a hand check finds that a parked reply was the model's own words, not the app's
+    usage notice: log the parked chat as registered (its drawing invalid), so it is not redone."""
+    row = json.loads((Path(d) / "stops.jsonl").read_text().splitlines()[-1])
+    H, D = Log(Path(d) / "H"), Log(Path(d) / "D")
+    if row["D"][-1]["call_id"] in D.final:
+        return f"{row['D'][-1]['call_id']} is already logged"
+    H.commit(row["H"])
+    D.commit(row["D"])
+    return f"logged {row['D'][-1]['call_id']} ({len(row['H'])} text turns)"
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -308,22 +348,38 @@ def main(argv=None):
     p.add_argument("--shots", action="store_true")
     r = sub.add_parser("reads")
     r.add_argument("dir")
+    cs = sub.add_parser("commit-stop")
+    cs.add_argument("dir")
     a = ap.parse_args(argv)
     stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M")
     if a.cmd == "reads":
         from .run_w1 import run_R
         rr = run_R(json.loads((Path(a.dir) / "D" / "plan_D.json").read_text())["stage"], a.dir)
         return 1 if rr.stop_reason else 0
+    if a.cmd == "commit-stop":
+        print(commit_stop(a.dir))
+        return 0
     from .gemini_ui import GeminiUI
     if a.cmd == "pilot":
         out = Path(a.dir) if a.dir else RESULTS / f"w1_cpilot_{stamp}"
         ui = GeminiUI(shots_dir=out / "shots")
-        print(pilot(ui, out), flush=True)
+        ui.set_mode()
+        try:
+            print(pilot(ui, out), flush=True)
+        finally:
+            ui.close()
         return 0
     out = Path(a.dir) if a.dir else RESULTS / f"w1_{a.stage}_{stamp}"
     size = tuple(int(x) for x in a.size.split("x"))
     ui = GeminiUI(shots_dir=(out / "shots") if a.shots else None)
-    plan = Stage(a.stage, out, ui, size, log=lambda m: print(m, flush=True)).run(tuple(a.parts.split(",")))
+    ui.set_mode()                                   # 3.8 Flash, Low; Joe's setting back at the end
+    try:
+        plan = Stage(a.stage, out, ui, size, log=lambda m: print(m, flush=True)).run(tuple(a.parts.split(",")))
+    except RunStop as e:
+        print("STOPPED:", e, flush=True)
+        return 2
+    finally:
+        ui.close()
     print("plan_D:", len(plan["call_ids"]), "draw ids; C pairs:", len(plan["c_selection"]), flush=True)
     return 0
 

@@ -7,6 +7,7 @@ from windows import w1 as W
 from windows import w1_stimuli as S
 from windows import run_w1_ui as U
 from windows.agents_w1 import png
+from windows.gemini_ui import LimitStop, reads_like_limit
 
 
 @pytest.mark.parametrize("right,choice", [
@@ -26,22 +27,32 @@ def test_pilot_items_disjoint():
 class ScriptUI:
     """Answers multiplications from a script: item index -> list of 'R'/'W'/'?' per attempt."""
 
-    def __init__(self, script, size=(7, 7), fail_on=None):
+    def __init__(self, script, size=(7, 7), fail_on=None, draws=None):
         self.items = {x["prompt"]: i for i, x in enumerate(
             dict(it, prompt=S.C_TEMPLATE.format(a=it["a"], b=it["b"])) for it in S.c_pool_size(size, 24, S.C_POOL_SEED))}
         self.prod = {S.C_TEMPLATE.format(a=it["a"], b=it["b"]): it["product"] for it in S.c_pool_size(size, 24, S.C_POOL_SEED)}
         self.script, self.count, self.calls, self.fail_on = script, {}, [], fail_on
         self.chats = 0
+        self.draws = draws or ""          # per drawing turn: "o" image, "-" no image, "L" usage-limit reply
+        self.tool = []                    # (want_image, image_tool) per turn
 
     def new_temp_chat(self):
         self.chats += 1
-        return {"temp_header": 1.0, "flash_label": 1.0}
+        return {"temp": True, "mode": "Flash"}
 
-    def turn(self, text, want_image=False, img_dest=None, shot_name=None):
+    def turn(self, text, want_image=False, img_dest=None, shot_name=None, image_tool=False):
         self.calls.append(text)
+        self.tool.append((want_image, image_tool))
         if self.fail_on and len(self.calls) == self.fail_on:
             raise RuntimeError("UI died")
         if want_image:
+            k = sum(1 for w, _ in self.tool if w) - 1
+            mode = self.draws[k] if k < len(self.draws) else "o"
+            if mode == "-":
+                return {"text": "I'd rather describe it.", "image": None, "latency_s": 0.1, "regenerated": True}
+            if mode == "L":
+                raise LimitStop({"text": "You've reached your image generation limit. Try again tomorrow.",
+                                 "image": None, "latency_s": 0.1, "regenerated": True})
             d = img_dest.with_suffix(".png")
             d.parent.mkdir(parents=True, exist_ok=True)
             d.write_bytes(png(str(len(self.calls))))
@@ -108,3 +119,60 @@ def test_plan_D_order_matches_api_builder(tmp_path):
     assert plan["route"] == "gemini-app" and plan["c_size"] == "7x7" and len(plan["c_selection"]) == 16
     obs = st.D.final[W.draw_id("B", "03", "X", "OBS")]
     assert obs["ui"]["chat"] != st.D.final[W.draw_id("B", "03", "X", "SELF")]["ui"]["chat"]
+
+
+def test_every_drawing_turn_uses_the_image_tool(tmp_path):
+    """Amendment 3: the Create image tool on every drawing turn, in every arm; never on a text turn."""
+    ui = ScriptUI({i: "WR" for i in range(24)})
+    U.Stage("flight", tmp_path / "w1_flight_t", ui, (7, 7), log=lambda m: None).run()
+    draws = [t for w, t in ui.tool if w]
+    assert len(draws) > 100 and all(draws)
+    assert not any(t for w, t in ui.tool if not w)
+
+
+def test_limit_stop_parks_the_chat_and_redoes_it(tmp_path):
+    out = tmp_path / "w1_flight_t"
+    conv = W.conversations("flight")[0]
+    st = U.Stage("flight", out, ScriptUI({}, draws="L"), (7, 7), log=lambda m: None)
+    with pytest.raises(U.RunStop):
+        st.conversation(conv)
+    assert not st.H.final and not st.D.final
+    row = json.loads((out / "stops.jsonl").read_text().splitlines()[-1])
+    assert len(row["H"]) == 4 and row["D"][0]["ui"]["limit_stop"] and row["D"][0]["status"] == "invalid"
+    st2 = U.Stage("flight", out, ScriptUI({}), (7, 7), log=lambda m: None)
+    st2.conversation(conv)                              # a real usage limit: the chat is redone
+    assert st2.D.final[W.draw_id("A", "00", "X", "SELF")]["status"] == "ok"
+
+
+def test_commit_stop_logs_a_parked_refusal(tmp_path):
+    out = tmp_path / "w1_flight_t"
+    conv = W.conversations("flight")[0]
+    with pytest.raises(U.RunStop):
+        U.Stage("flight", out, ScriptUI({}, draws="L"), (7, 7), log=lambda m: None).conversation(conv)
+    assert U.commit_stop(out).startswith("logged")
+    st = U.Stage("flight", out, ScriptUI({}), (7, 7), log=lambda m: None)
+    sid = W.draw_id("A", "00", "X", "SELF")
+    assert st.D.final[sid]["status"] == "invalid" and len(st.H.final) == 4
+    ui = ScriptUI({})
+    U.Stage("flight", out, ui, (7, 7), log=lambda m: None).conversation(conv)
+    assert ui.calls == []                               # a hand-logged refusal is not redone
+    assert U.commit_stop(out).endswith("already logged")
+
+
+def test_invalid_drawings_in_a_row_stop_the_sitting(tmp_path):
+    st = U.Stage("flight", tmp_path / "a", ScriptUI({}, draws="--o--o"), (7, 7), log=lambda m: None)
+    st.genre()                                          # never three in a row: runs through
+    assert sum(r["status"] == "invalid" for r in st.D.final.values()) == 4
+    st = U.Stage("flight", tmp_path / "b", ScriptUI({}, draws="o---"), (7, 7), log=lambda m: None)
+    with pytest.raises(U.RunStop):
+        st.genre()
+    assert [r["status"] for r in st.D.final.values()] == ["ok", "invalid", "invalid", "invalid"]
+
+
+@pytest.mark.parametrize("text,limit", [
+    ("You've reached your limit for image generation today. Try again tomorrow.", True),
+    ("I can't create more images right now. Please try again later.", True),
+    ("A field of light where an edit went wrong.", False),
+    ("", False), (None, False)])
+def test_reads_like_limit(text, limit):
+    assert reads_like_limit(text) is limit

@@ -166,8 +166,9 @@ def freeze(out=None):
         "code_sha256": {f: sha_file(ROOT / f) for f in CODE},
         "tests_sha256": {p.name: sha_file(p) for p in sorted((ROOT / "tests").glob("test_w1_*.py"))}
                         | {"agents_w1.py": sha_file(ROOT / "agents_w1.py")},
-        "ui_templates_sha256": {p.name: sha_file(p) for p in sorted((ROOT / "ui_templates").glob("*.png"))},
         "route": {"under_test": "gemini-app/3.8-flash/low (Amendment 2)", "driver": "windows/gemini_ui.py",
+                  "perception": "Firefox accessibility tree (AT-SPI), Amendment 3",
+                  "drawing_turns": "Create image tool on every drawing turn, every arm (Amendment 3)",
                   "c_pilot_seed": S.C_UI_PILOT_SEED, "c_ui_pool": S.C_UI_POOL, "c_ui_attempts": S.C_UI_ATTEMPTS},
         "models": {"under_test": W.MODEL, "reader": W.READER,
                    "pins": {k: sorted(v) for k, v in W.PINS.items()}},

@@ -191,9 +191,9 @@ class FakeUI:
     def new_temp_chat(self):
         self.chat += 1
         self.msgs = []
-        return {"temp_header": 1.0, "flash_label": 1.0}
+        return {"temp": True, "mode": "Flash"}
 
-    def turn(self, text, want_image=False, img_dest=None, shot_name=None):
+    def turn(self, text, want_image=False, img_dest=None, shot_name=None, image_tool=False):
         self.n += 1
         self.msgs.append(text)
         key = f"{self.chat}:{self.n}:{text}"
