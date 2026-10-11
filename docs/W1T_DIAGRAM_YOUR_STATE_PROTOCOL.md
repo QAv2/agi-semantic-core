@@ -287,7 +287,16 @@ Joe before the reads (Sonnet 5.5 readers, about $3–4, G7 $8). Results go to
 
 ## Build-time clarifications
 
-*(none yet)*
+**1 (2026-10-11, before W1's flight and any W1-T message): the Edit-branch fork is declined.**
+The fork could only use W1's chats during W1's flight, because temporary chats can't be
+reopened. Taking it would mean pushing W1-T's builder, suites and freeze before W1's first
+flight message and putting a W1-T step inside W1's frozen runner. That would couple a frozen,
+flight-ready experiment to an unbuilt one. There is also a second blocker. W1's drawing turn
+has the Create image tool on (W1 Amendment 3), and the tool stays on within a chat. An edited
+request in that chat would come back as an image, so the edit would also need the tool turned
+off in edit mode. The probe doesn't test that step. The probe isn't run, and W1-T runs its own
+chats as §3 states. S12 stays an unpaired comparison. No rule, stimulus or record changes in
+W1 or W1-T.
 
 ## Amendments
 
