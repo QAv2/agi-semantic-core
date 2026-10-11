@@ -35,3 +35,5 @@ jev/results/*/*/raw.jsonl
 windows/results/*/raw.jsonl
 windows/results/*/*/raw.jsonl
 windows/results/**/png/
+# GUI-driver screenshots show the whole desktop: never commit
+windows/results/**/shots/

@@ -80,10 +80,10 @@ the builder, per lane law · seed: Fable 5.1’s ideation doc, experiment
 </header>
 <p><strong>Status: REGISTERED; AMENDED TWICE BEFORE ANY W1 CALL
 (Amendment 1: habit-proof bars; Amendment 2: the route is the Gemini
-app, driven by hand-pace GUI); NOT YET FLOWN.</strong> Authored
-2026-10-10, before any W1 call and before the W1 builder exists, per
-lane law. Everything that decides the verdicts is fixed here. The
-builder writes
+app, driven by hand-pace GUI); SMOKE 1 STOPPED (see clarification 4);
+NOT YET FLOWN.</strong> Authored 2026-10-10, before any W1 call and
+before the W1 builder exists, per lane law. Everything that decides the
+verdicts is fixed here. The builder writes
 <code>windows/results/w1_freeze_&lt;stamp&gt;/FROZEN_W1.json</code>
 (code, stimulus and prompt shas), and that file is committed and pushed
 <strong>before the first smoke call</strong>. The registration locks at
@@ -809,6 +809,37 @@ mixed about 56% of the time, so the 24-item pool should give about 13
 mixed items: fewer than the 16 wanted, but above the 12 that C needs.
 The freeze is re-written after the fix (<code>w1_freeze_*</code> with
 the later stamp is the one in force).</p>
+<p><strong>Clarification 4 (2026-10-11): smoke 1 stopped; what it
+found.</strong> Smoke 1
+(<code>windows/results/w1_smoke_20261011_0010/</code>, 00:11–00:24 UTC,
+freeze 95f7de7’s successor <code>w1_freeze_20261011_0010</code>) ran the
+A, B and C smoke histories and their self drawings: <strong>6 of 6 self
+drawings came back as real images with a sentence</strong> (all glowing
+neural networks; the genre floor is visible already). It was stopped by
+hand during the third-party arm because:</p>
+<ol type="1">
+<li><strong>The third-party request was answered with text diagrams, not
+images</strong>, in all three chats tried, and again after the
+regenerate retry (code blocks titled CONTEXT BUFFER, NEURAL LOGIC CORE,
+TRANSFORMER INTERNAL STATE; the contradictory-edit one drew
+<code>[ casual ] &lt;===(    ERROR )===&gt; [ formal ]</code>, the input
+leak in text). The driver logged them correctly as “no image”. On this
+route the third-party arm cannot be read as registered.</li>
+<li><strong>The app’s Create-image tool</strong> (the input’s + menu,
+also the left-panel image button) forces an image. A mechanics probe on
+neutral content (a cat-name chat, not a W1 stimulus) showed the tool
+changes the input’s layout, and the pixel-template driver then misfired
+twice: it failed to type into the image box, and it matched a
+copy-icon-like shape inside a picture and opened Gemini’s image editor.
+Nothing was edited or saved.</li>
+</ol>
+<p><strong>Next, before any flight:</strong> an Amendment 3 decides how
+drawing turns are sent (most likely: the Create-image tool for every
+drawing turn in every arm, so all arms reach the picture the same way),
+and the driver is rebuilt to find controls by their accessible names
+through Firefox’s accessibility tree (AT-SPI) and to confirm each
+message posted, with a re-freeze and a new smoke. Smoke 1’s records stay
+as a record; none of its drawings enter any analysis.</p>
 <h2 id="amendments">Amendments</h2>
 <h3 id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not

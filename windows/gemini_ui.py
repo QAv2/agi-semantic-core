@@ -57,7 +57,8 @@ class GeminiUI:
             raise UIError("no Gemini window in Firefox")
         self.win = ids[0]
         self.tpl = {}
-        for name in ("temp_header", "flash_label", "mic", "copy", "regen", "download"):
+        for name in ("temp_header", "flash_label", "mic", "copy", "regen", "download",
+                     "plus", "create_image_item", "images_chip"):
             g = cv2.cvtColor(cv2.imread(str(TPL_DIR / f"{name}.png")), cv2.COLOR_BGR2GRAY)
             self.tpl[name] = g
 
@@ -141,11 +142,34 @@ class GeminiUI:
             return None
         return 600, mic[0][1]
 
+    def image_tool(self):
+        """Switch on the input's Create image tool (Amendment 3); -> the Images chip's score."""
+        img = self.shot()
+        plus = self.find("plus", img, region=(380, 380, 460, 740), thr=0.8)
+        if not plus:
+            raise UIError("the input's + button was not found")
+        self.click(plus[0][0], plus[0][1])
+        time.sleep(1.2)
+        item = self.find("create_image_item", self.shot(), binary=False, thr=0.85)
+        if not item:
+            raise UIError("'Create image' was not in the + menu")
+        self.click(item[0][0], item[0][1])
+        time.sleep(1.2)
+        self.move(*NEUTRAL)
+        time.sleep(0.3)
+        chip = self.find("images_chip", self.shot(), region=(380, 380, 1060, 740), binary=False, thr=0.85)
+        if not chip:
+            raise UIError("the Images chip did not appear")
+        return chip[0][2]
+
     def send(self, text):
         """Paste `text` into the input and press Enter."""
-        pt = self.input_point()
+        img = self.shot()
+        pt = self.input_point(img)
         if not pt:
             raise UIError("input box not found (no mic icon)")
+        if self.find("images_chip", img, region=(380, 380, 1060, 740), binary=False, thr=0.85):
+            pt = (pt[0], pt[1] - 41)          # with the tool on, the text field sits above the chip row
         self.click(*pt)
         time.sleep(0.3)
         set_clipboard(text.encode())
@@ -257,8 +281,10 @@ class GeminiUI:
         return None
 
     # ---- one turn -----------------------------------------------------------------------
-    def turn(self, text, want_image=False, img_dest=None, shot_name=None):
+    def turn(self, text, want_image=False, img_dest=None, shot_name=None, image_tool=False):
         """Send one message; -> dict(text, image path | None, latency, regenerated)."""
+        if image_tool:
+            self.image_tool()
         self.send(text)
         img, lat = self.wait_done()
         out = {"text": self.copy_last_text(img), "image": None, "latency_s": round(lat, 2), "regenerated": False}

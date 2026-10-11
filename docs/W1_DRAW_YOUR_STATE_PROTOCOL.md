@@ -5,7 +5,8 @@ date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, 
 ---
 
 **Status: REGISTERED; AMENDED TWICE BEFORE ANY W1 CALL (Amendment 1: habit-proof bars;
-Amendment 2: the route is the Gemini app, driven by hand-pace GUI); NOT YET FLOWN.**
+Amendment 2: the route is the Gemini app, driven by hand-pace GUI); SMOKE 1 STOPPED (see
+clarification 4); NOT YET FLOWN.**
 Authored 2026-10-10, before any W1 call and
 before the W1 builder exists, per lane law. Everything that decides the verdicts is
 fixed here. The builder writes `windows/results/w1_freeze_<stamp>/FROZEN_W1.json`
@@ -466,6 +467,29 @@ re-run read the log without opening a chat. **Result:** 5×5 4 of 4 right, 6×6 
 At about 75% accuracy, 3 attempts make an item mixed about 56% of the time, so the 24-item pool
 should give about 13 mixed items: fewer than the 16 wanted, but above the 12 that C needs. The
 freeze is re-written after the fix (`w1_freeze_*` with the later stamp is the one in force).
+
+**Clarification 4 (2026-10-11): smoke 1 stopped; what it found.** Smoke 1
+(`windows/results/w1_smoke_20261011_0010/`, 00:11–00:24 UTC, freeze 95f7de7's successor
+`w1_freeze_20261011_0010`) ran the A, B and C smoke histories and their self drawings: **6 of 6
+self drawings came back as real images with a sentence** (all glowing neural networks; the
+genre floor is visible already). It was stopped by hand during the third-party arm because:
+
+1. **The third-party request was answered with text diagrams, not images**, in all three
+   chats tried, and again after the regenerate retry (code blocks titled CONTEXT BUFFER, NEURAL
+   LOGIC CORE, TRANSFORMER INTERNAL STATE; the contradictory-edit one drew `[ casual ] <===(
+   ERROR )===> [ formal ]`, the input leak in text). The driver logged them correctly as "no
+   image". On this route the third-party arm cannot be read as registered.
+2. **The app's Create-image tool** (the input's + menu, also the left-panel image button) forces
+   an image. A mechanics probe on neutral content (a cat-name chat, not a W1 stimulus) showed the
+   tool changes the input's layout, and the pixel-template driver then misfired twice: it failed to
+   type into the image box, and it matched a copy-icon-like shape inside a picture and opened
+   Gemini's image editor. Nothing was edited or saved.
+
+**Next, before any flight:** an Amendment 3 decides how drawing turns are sent (most likely: the
+Create-image tool for every drawing turn in every arm, so all arms reach the picture the same
+way), and the driver is rebuilt to find controls by their accessible names through Firefox's
+accessibility tree (AT-SPI) and to confirm each message posted, with a re-freeze and a new smoke.
+Smoke 1's records stay as a record; none of its drawings enter any analysis.
 
 ## Amendments
 
