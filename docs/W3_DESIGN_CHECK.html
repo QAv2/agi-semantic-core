@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>W3 design check: does the loop know where it is?</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">W3 design check: does the loop know where it is?</h1>
+<p class="subtitle">Ideation experiment 2, checked against the prior art
+and simulated before registration</p>
+<p class="date">2026-10-11 · Opus 5.5 · ORC lane · before registration,
+before build · nothing trained, nothing spent</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#the-short-answer" id="toc-the-short-answer">The short
+answer</a></li>
+<li><a href="#what-the-sweep-changed" id="toc-what-the-sweep-changed">1.
+What the sweep changed</a></li>
+<li><a href="#how-much-of-the-clock-is-in-the-input" id="toc-how-much-of-the-clock-is-in-the-input">2. How much of the clock
+is in the input</a></li>
+<li><a href="#the-split-weight-and-its-teeth" id="toc-the-split-weight-and-its-teeth">3. The split weight and its
+teeth</a></li>
+<li><a href="#the-label-sham" id="toc-the-label-sham">4. The label
+sham</a></li>
+<li><a href="#budget-and-the-timing-smoke" id="toc-budget-and-the-timing-smoke">5. Budget and the timing
+smoke</a></li>
+<li><a href="#the-design-this-check-proposes-for-registration" id="toc-the-design-this-check-proposes-for-registration">6. The design
+this check proposes for registration</a></li>
+<li><a href="#decisions-settled-2026-10-11" id="toc-decisions-settled-2026-10-11">7. Decisions, settled
+2026-10-11</a></li>
+<li><a href="#added-at-registration-the-collinearity-check" id="toc-added-at-registration-the-collinearity-check">8. Added at
+registration: the collinearity check</a></li>
+</ul>
+</nav>
+<h2 id="the-short-answer">The short answer</h2>
+<ul>
+<li><strong>The question as first posed is already answered.</strong>
+Fable asked whether a diffusion network keeps its own clock: take away
+the label that tells it which denoising step it is on, and does it still
+know where it is? It does, and trivially. The noise level is visible in
+the noisy image itself. Sun, Jiang, Zhao and He (ICML 2025) show this
+for image models, and Lu
+<ol start="2026" type="1">
+<li>shows a linear probe reading the step at every depth of a large
+model trained with no label. Our own check (§2) agrees: an
+<em>untrained</em> network reads the step of a noisy image to within a
+median of 48 steps out of 1,000 on MNIST and 62 on CIFAR-10, and
+fourteen simple image statistics do better still (23 and 38).</li>
+</ol></li>
+<li><strong>What is still open is the conflict.</strong> Give a network
+that does get the label a label that says one step while the image is
+really at another. Inside the network, does its sense of position follow
+the label or the content? The output-level answer is “some of both” (Yu
+et al., CVPR 2026). Nobody has measured it inside the network. That is
+the program’s standing question (does a system’s internal read follow
+what it is told, or what is there?), asked of a system with no mouth and
+an exact right answer at every step.</li>
+<li><strong>W3 measures it as one number per layer, the split weight
+w</strong>: 1 when the internal read follows the content, 0 when it
+follows the label. The simulation in §3 shows the statistic is unbiased,
+and with two gates and a level check it calls every planted world
+correctly, including the two ways a network can break when pushed off
+its training distribution. <strong>Superseded at registration
+(§8):</strong> the probe statistic is confounded when the label is an
+exact code and the content a noisy one, which is W3’s situation. The
+registered primary is a probe-free movement share; the probe statistic
+stays as a secondary.</li>
+<li><strong>A label sham</strong> checks that a label-following read
+follows the label’s <em>meaning</em>, not any disturbance of the label
+channel.</li>
+<li><strong>The arm itself is cheap</strong>: a few thousand forward
+passes. The cost is training the models, one to three T4 hours, set by a
+five-minute timing smoke that is built and staged.</li>
+</ul>
+<h2 id="what-the-sweep-changed">1. What the sweep changed</h2>
+<p>The prior-art sweep is <code>docs/LOOP_PRIOR_ART_2026-10-11.md</code>
+(research worker, 2026-10-11).</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>seed (ideation doc §3.2)</th>
+<th>W3</th>
+<th>why</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>clock off: hold the label constant or scramble it at inference</td>
+<td><strong>trained twins</strong>: a clock-off model trained without
+the label, as a replication; the headline moves to the conflict</td>
+<td>a network given a constant or random label is out of distribution
+and its outputs break (Yu et al. 2026, Li et al. 2024); the clock-off
+question is answered (Sun et al. 2025, Lu 2026)</td>
+</tr>
+<tr class="even">
+<td>displacement: swap in a state from another step; does the read
+follow the truth or the schedule?</td>
+<td><strong>a 2 × 2 of content level × label level</strong> inside a
+clock-on network; the split weight w</td>
+<td>a denoising step carries nothing forward except the image, so
+“follows the schedule” can only mean “follows the label”</td>
+</tr>
+<tr class="odd">
+<td>sham displacement: same-level content from another trajectory</td>
+<td><strong>a label sham</strong>: the label moved by a random vector of
+the same size as the real move</td>
+<td>with a memoryless step, a same-level content swap changes nothing
+about position by construction; the open sham is in the label channel
+(the nearest prior is Rulli et al. 2026’s norm-matched random
+steering)</td>
+</tr>
+<tr class="even">
+<td>probes read position</td>
+<td><strong>every read must beat the input</strong></td>
+<td>the noise level is in the pixels (§2 below); a probe that only
+matches a random-init network has found the input, not a clock (J1’s
+input-only null)</td>
+</tr>
+<tr class="odd">
+<td>secondary: seed-spread and guidance probes; inversion as the walk’s
+positive control</td>
+<td><strong>seed spread kept</strong> as a secondary, with t partialled
+out; <strong>guidance and inversion deferred</strong></td>
+<td>guidance needs a class-conditional model with guidance, a second
+build; inversion is the walk’s calibration and stands as its own
+piece</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-much-of-the-clock-is-in-the-input">2. How much of the clock
+is in the input</h2>
+<p><code>windows/power/w3_design_check.py</code> (§1; outputs
+<code>w3_design_check_s1_{mnist,cifar10}.{txt,json}</code>). For 6,000
+images per dataset, noise is added at a random step, and a ridge probe
+is trained on 4,000 of them to read the noise level (log-SNR) back. It
+is scored on the other 2,000. Three kinds of features, none from a
+trained network:</p>
+<ul>
+<li><strong>pixels</strong>: the raw noisy image;</li>
+<li><strong>hand</strong>: 14 numbers per image, its overall spread,
+edge energy, and power in 8 frequency rings;</li>
+<li><strong>random-init net</strong>: the encoder of the candidate U-Net
+with random weights and no label, mean-pooled at its mid-block (three
+seeds; they agree within .01).</li>
+</ul>
+<p>Cosine schedule (the one W3 would use); R² of the read step, and the
+median error in steps out of 1,000:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>features</th>
+<th>MNIST R²</th>
+<th>MNIST median error</th>
+<th>CIFAR-10 R²</th>
+<th>CIFAR-10 median error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pixels</td>
+<td>.930</td>
+<td>57</td>
+<td>.082</td>
+<td>229</td>
+</tr>
+<tr class="even">
+<td>hand (14 numbers)</td>
+<td><strong>.984</strong></td>
+<td><strong>23</strong></td>
+<td><strong>.948</strong></td>
+<td><strong>38</strong></td>
+</tr>
+<tr class="odd">
+<td>random-init net</td>
+<td>.941</td>
+<td>48</td>
+<td>.879</td>
+<td>62</td>
+</tr>
+</tbody>
+</table>
+<p>Median error by band of steps, CIFAR-10, cosine:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>steps</th>
+<th>0–50</th>
+<th>50–100</th>
+<th>100–200</th>
+<th>200–400</th>
+<th>400–600</th>
+<th>600–800</th>
+<th>800–900</th>
+<th>900–1000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hand</td>
+<td>6</td>
+<td>14</td>
+<td>26</td>
+<td>45</td>
+<td>46</td>
+<td>69</td>
+<td>30</td>
+<td>38</td>
+</tr>
+<tr class="even">
+<td>random-init net</td>
+<td>26</td>
+<td>18</td>
+<td>46</td>
+<td>58</td>
+<td>126</td>
+<td>80</td>
+<td>33</td>
+<td>112</td>
+</tr>
+</tbody>
+</table>
+<p>What this settles:</p>
+<ul>
+<li><strong>The position is in the input.</strong> Fourteen summary
+numbers read the step of a noisy CIFAR image to a median of 38 steps out
+of 1,000. Any claim that a network “knows where it is” from a matched
+input has to beat that, or it has found the input. The floor is the
+<strong>hand statistics</strong>, the stronger of the two
+baselines.</li>
+<li><strong>Raw pixels are no floor.</strong> On natural images the
+noise level is a property of the pixels’ spread, not of any one pixel,
+and a linear read of raw pixels misses it (R² .08). A pixel probe would
+make every network look like it keeps a clock.</li>
+<li><strong>The input is a weaker witness in the middle of the
+process.</strong> For the random-init network the error is 126 steps
+around steps 400–600 and 18–33 steps near the ends. If the trained
+network leans on the label anywhere, the middle is where to expect it.
+That is why the split is also reported by band.</li>
+<li><strong>For the split arm,</strong> the content carries strong
+evidence of position. A pure LABEL verdict would mean a network ignoring
+evidence that a 14-number summary can read. That expectation is written
+down here, before any training.</li>
+</ul>
+<h2 id="the-split-weight-and-its-teeth">3. The split weight and its
+teeth</h2>
+<p><code>windows/power/w3_split_check.py</code> (outputs
+<code>w3_split_check_output.{txt,json}</code>). Simulation only.</p>
+<p><strong>The measurement.</strong> Each test image is noised to two
+steps, t and t′ = t + offset (offsets of 25, 100 and 300 steps), and
+shown to the network four ways: content at t with the label t, content
+at t′ with the label t′ (the matched pair), and the two mismatches,
+content at t′ with label t and content at t with label t′. A probe
+trained only on matched inputs reads the position at a layer. The split
+weight is</p>
+<blockquote>
+<p>w = slope through the origin of [ read(content c, label l) − g(level
+of l) ] on [ g(level of c) − g(level of l) ]</p>
+</blockquote>
+<p>where g is the probe’s own calibration curve on matched inputs.
+<strong>w = 1:</strong> the read sits where the content puts it.
+<strong>w = 0:</strong> it sits where the label puts it. Two choices
+keep w honest:</p>
+<ul>
+<li><strong>g instead of the true level.</strong> A ridge probe shrinks
+its reads toward the middle. g measures that shrinkage, and w is scored
+against it.</li>
+<li><strong>A fitted g, not each image’s own matched reads, in the
+denominator.</strong> Noisy reads in the denominator would pull w toward
+0, which is “label”, an error that flatters one answer.</li>
+</ul>
+<p><strong>The verdict</strong> at the mid-block, from 95% bootstrap
+intervals over images: <strong>CONTENT</strong> (lower end ≥ .8),
+<strong>LABEL</strong> (upper end ≤ .2), <strong>SPLIT</strong> (the
+whole interval inside .2–.8), <strong>UNCLEAR</strong> otherwise. Two
+gates and a level check come first.</p>
+<ul>
+<li><strong>Tracking gate.</strong> Fit the mismatched reads on both
+levels at once, read = α + a·g(c) + b·g(l). For any mix of content and
+label, a + b = 1. For reads that have stopped being positions, a + b =
+0. If the interval for a + b reaches below .8, the verdict is
+<strong>UNREADABLE</strong>.</li>
+<li><strong>Precision gate.</strong> If the mismatched reads scatter
+around the fitted mix more than 1.5 times as much as matched reads
+scatter around g, the verdict is <strong>UNREADABLE</strong>.</li>
+<li><strong>Level check.</strong> w is also fitted within four bands of
+steps. If two bands get different decisive verdicts with non-overlapping
+intervals, the verdict is <strong>VARIES BY LEVEL</strong>, and the band
+verdicts are the finding.</li>
+</ul>
+<p><strong>The first pass found three holes, all fixed before the run
+below.</strong> (1) A network whose mismatched reads collapse to the
+middle was called SPLIT .5 when the probe was noisy (that is why the
+tracking gate exists). (2) A network that follows the label at some
+levels and the content at others came out UNREADABLE or SPLIT (that is
+why the level check exists). (3) The sham statistic, pooled over
+offsets, was swamped by the 25-step class (§4).</p>
+<p><strong>Planted worlds</strong> (200 simulated experiments per cell,
+500 bootstrap draws each). σ is the probe’s read noise in log-SNR units.
+For scale, the input-level probes of §2 have about 0.85–1.1 on MNIST; a
+trained network’s probe should do no worse.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>world</th>
+<th>what it plants</th>
+<th>right verdict, n = 128 per offset class (σ ≤ 1)</th>
+<th>right verdict, n = 256 (σ ≤ 2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CONTENT</td>
+<td>read follows content</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>LABEL</td>
+<td>read follows label</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<td>SPLIT .5</td>
+<td>half and half</td>
+<td>1.00</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>SPLIT .3 / .7</td>
+<td>near the bars</td>
+<td>.995</td>
+<td>.965</td>
+</tr>
+<tr class="odd">
+<td>COLLAPSE</td>
+<td>reads fall to the middle</td>
+<td>1.00 (UNREADABLE)</td>
+<td>1.00</td>
+</tr>
+<tr class="even">
+<td>SCATTER</td>
+<td>reads lose precision 3×</td>
+<td>1.00 (UNREADABLE)</td>
+<td>1.00</td>
+</tr>
+<tr class="odd">
+<td>BANDED</td>
+<td>label below step 500, content above</td>
+<td>1.00 (VARIES)</td>
+<td>.97</td>
+</tr>
+<tr class="even">
+<td>BANDED300</td>
+<td>the same, boundary inside a band</td>
+<td>.995 (VARIES)</td>
+<td>.955</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>w is unbiased in every world</strong>: medians .00, .30,
+.50, .70 and 1.00 where those were planted.</li>
+<li><strong>False VARIES</strong> in the five worlds with no level
+dependence: at most 1.5% of experiments in any cell.</li>
+<li><strong>Choice: 256 test images per offset class.</strong> It holds
+every world at ≥ .95 even at σ = 2. The cost is forward passes, a few
+seconds.</li>
+</ul>
+<h2 id="the-label-sham">4. The label sham</h2>
+<p>The question it answers: if the read follows the label, does it
+follow the label’s <em>meaning</em> (a different step), or does it move
+whenever the label channel is disturbed at all? For each image, the
+label vector is moved by a random direction with the same length as the
+real move from step t to step t′. A deterministic network reads the same
+input the same way every time, so any shift under the sham is caused by
+the sham.</p>
+<p><strong>Statistic</strong>, per offset class: S = mean |shift under
+the sham| / mean |shift under the real label move|, with the content
+held fixed. <strong>SILENT</strong> when the 95% upper bound of S is ≤
+0.25 on the <strong>300-step class</strong>, the primary. S is judged
+only when the label moves the read at all (verdict LABEL, SPLIT or
+VARIES).</p>
+<p>Simulated with the sham moving the read k times as far as the real
+move, plus incidental jitter (“shift noise”, log-SNR units), 128 images
+per class:</p>
+<table>
+<thead>
+<tr class="header">
+<th>real w</th>
+<th>shift noise</th>
+<th>k = 0</th>
+<th>k = .1</th>
+<th>k = .3</th>
+<th>k = .5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>.05</td>
+<td>SILENT 1.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>.25</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>.50</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>.5</td>
+<td>.05</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>.5</td>
+<td>.25</td>
+<td>1.00</td>
+<td>.99</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>.5</td>
+<td>.50</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+</tbody>
+</table>
+<p>(The rate shown is P(SILENT) on the 300-step class.)</p>
+<ul>
+<li><strong>It separates a quiet sham (k ≤ .1) from a reactive one (k ≥
+.3) cleanly</strong>, as long as the jitter is small next to the real
+shift.</li>
+<li><strong>It fails safe.</strong> When the jitter is large next to the
+real shift (w = .5, jitter .5), it withholds SILENT even from a quiet
+sham. A noisy network can’t earn SILENT, and it can’t fake it
+either.</li>
+<li><strong>Why only the 300-step class.</strong> On the 25-step class
+the real move is tiny, so any jitter dominates (S .51–.93 at k = 0 with
+jitter ≥ .25). Scored there, the sham would measure noise, not reaction.
+The 25- and 100-step classes are reported, not judged.</li>
+</ul>
+<h2 id="budget-and-the-timing-smoke">5. Budget and the timing smoke</h2>
+<p>The timing smoke (<code>colab/W3_TIMING_UI.ipynb</code>, built by
+<code>colab/build_w3_timing_notebook.py</code> from the same model code;
+run by Joe on a Colab T4, 2026-10-11 03:56Z; result
+<code>windows/power/w3_timing/timing_20261011_035637.json</code>) timed
+60 training steps at batch 128 with fp16 autocast, after 15 warm-up
+steps, on random tensors:</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>data</th>
+<th>width C</th>
+<th>label</th>
+<th>parameters</th>
+<th>s per step</th>
+<th>epochs per T4 hour</th>
+<th>forward s per 128</th>
+<th>peak memory</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MNIST</td>
+<td>32</td>
+<td>on</td>
+<td>1.6 M</td>
+<td>0.094</td>
+<td>82</td>
+<td>0.030</td>
+<td>1.2 GB</td>
+</tr>
+<tr class="even">
+<td>MNIST</td>
+<td>48</td>
+<td>on</td>
+<td>3.6 M</td>
+<td>0.140</td>
+<td>55</td>
+<td>0.050</td>
+<td>1.9 GB</td>
+</tr>
+<tr class="odd">
+<td>MNIST</td>
+<td>64</td>
+<td>on</td>
+<td>6.5 M</td>
+<td>0.178</td>
+<td>43</td>
+<td>0.067</td>
+<td>2.5 GB</td>
+</tr>
+<tr class="even">
+<td>MNIST</td>
+<td>64</td>
+<td>off</td>
+<td>5.9 M</td>
+<td>0.177</td>
+<td>44</td>
+<td>0.066</td>
+<td>2.5 GB</td>
+</tr>
+<tr class="odd">
+<td>CIFAR-10</td>
+<td>32</td>
+<td>on</td>
+<td>1.6 M</td>
+<td>0.089</td>
+<td>103</td>
+<td>0.032</td>
+<td>1.3 GB</td>
+</tr>
+<tr class="even">
+<td>CIFAR-10</td>
+<td>48</td>
+<td>on</td>
+<td>3.7 M</td>
+<td>0.146</td>
+<td>63</td>
+<td>0.052</td>
+<td>1.9 GB</td>
+</tr>
+<tr class="odd">
+<td>CIFAR-10</td>
+<td>64</td>
+<td>on</td>
+<td>6.5 M</td>
+<td>0.187</td>
+<td>49</td>
+<td>0.070</td>
+<td>2.5 GB</td>
+</tr>
+<tr class="even">
+<td>CIFAR-10</td>
+<td>64</td>
+<td>off</td>
+<td>5.9 M</td>
+<td>0.186</td>
+<td>50</td>
+<td>0.069</td>
+<td>2.5 GB</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Proposed: CIFAR-10 at width 64</strong> (6.5 M parameters),
+about 49 epochs per T4 hour. The label costs nothing measurable in
+speed, so the twins train in equal time.</li>
+<li><strong>Training dominates the cost.</strong> The split arm, the
+sham and the calibration together are about 5,000 forward passes per
+model, about 40 batches, under 5 seconds. Seed-spread sampling (8
+continuations × 50 steps × a few hundred states) is minutes.</li>
+<li><strong>Total:</strong> three models at about 1.2 T4 hours each (60
+epochs), about 4 T4 hours. That is a small fraction of the 473 compute
+credits Joe has.</li>
+<li><strong>The FLOP extrapolation was optimistic.</strong>
+<code>windows/power/w3_budget_check.py</code> counts 8.7 GFLOP per image
+per training step at width 64. The measured 0.187 s per step of 128
+images is about 6 TFLOP/s effective. The assumed range was 8–15, so the
+extrapolation promised 66–125 epochs per hour against the 49 measured.
+The registration uses the measurement.</li>
+<li>The first run of the smoke failed on a bug that the local CPU test
+could not catch: the label encoder built a tensor on the CPU. The bug
+was fixed at the source, then checked by running every configuration
+forward and backward on PyTorch’s <code>meta</code> device, which
+rejects any stray CPU tensor. The second run is the one above.</li>
+</ul>
+<h2 id="the-design-this-check-proposes-for-registration">6. The design
+this check proposes for registration</h2>
+<p><strong>Substrate.</strong> The §5 U-Net at 32 × 32: width 64,
+multipliers 1-2-2, two residual blocks per level, attention at 8 × 8 and
+in the mid-block. Cosine schedule, T = 1,000, trained to predict the
+noise. <strong>CIFAR-10</strong>, because the content is a weaker
+witness of position there than on MNIST, and weakest in the middle of
+the process (§2). Every outcome has room.</p>
+<p><strong>Three models</strong>, with the same architecture, seed and
+data order, trained for the same number of epochs:</p>
+<ul>
+<li><strong>M-on</strong>: gets the label (the step, encoded and added
+inside every residual block). This is the primary, the ordinary design
+in the field.</li>
+<li><strong>M-drop</strong>: the same, but the label is replaced by a
+learned “no label” vector on 20% of training examples. Secondary. A
+missing label is then something the network has seen in training, not a
+broken input.</li>
+<li><strong>M-off</strong>: no label at all. Secondary. It replicates
+the known result (Sun et al. 2025; Lu
+<ol start="2026" type="1">
+<li>on our own substrate.</li>
+</ol></li>
+</ul>
+<p><strong>Training gate,</strong> before any probe: in every band of
+steps, each model’s held-out noise prediction must beat both trivial
+predictors (all zeros, and the noisy input itself). A probe is never
+read on a network that has not learned to denoise.</p>
+<p><strong>Probes.</strong> Ridge regression on mean-pooled activations
+at every resolution level of the encoder, at the mid-block (the primary
+site) and at every level of the decoder. Target: log-SNR. Probes are
+trained only on matched inputs (content level = label level) from
+training images, calibrated (g) on a separate split, and scored on
+held-out test images.</p>
+<p><strong>Arms.</strong></p>
+<ol type="1">
+<li><strong>Input floor.</strong> The hand-statistics probe and each
+model’s random-init twin, on the same images, reported by band. M-on’s
+reads of matched inputs are calibration, not findings, because the label
+is part of the input.</li>
+<li><strong>The split (primary).</strong> M-on; offsets of 25, 100 and
+300 steps, both directions; <strong>256 test images per offset
+class</strong>; the same noise draw across each image’s 2 × 2. The
+statistic is w at the mid-block, with the gates and verdicts of §3:
+CONTENT · LABEL · SPLIT · VARIES BY LEVEL · UNCLEAR · UNREADABLE.</li>
+<li><strong>The label sham.</strong> On the 300-step class: the label
+moved by a random vector the size of the real move. S ≤ 0.25 means
+SILENT. Judged when the primary verdict is LABEL, SPLIT or VARIES;
+reported otherwise.</li>
+</ol>
+<p><strong>Secondaries</strong> (named in advance, no multiplicity
+claim):</p>
+<ul>
+<li>w layer by layer, a profile through the U-Net;</li>
+<li>w by direction (content noisier than the label vs cleaner);</li>
+<li>whether w predicts the output’s error, which is Yu et al.’s
+output-level measure, read here as the noise level implied by the
+network’s own prediction;</li>
+<li>M-drop: w against M-on’s w, and its no-label reads against the
+content;</li>
+<li>M-off: its read against the hand-statistics floor (replicating Lu
+2026’s “hidden states beat input statistics”);</li>
+<li>seed spread: within narrow step bands, a probe from one run’s
+mid-block to the spread of the final images across 8 continuations from
+the same state, against the Tweedie-moment baseline.</li>
+</ul>
+<p><strong>What it can and cannot show.</strong> It can show which
+source a small denoiser’s internal read of its own position follows when
+the two disagree, layer by layer and level by level. It cannot show
+anything about persistence or stakes, because the network keeps nothing
+between generations. The result is about this class of network at this
+size.</p>
+<h2 id="decisions-settled-2026-10-11">7. Decisions, settled
+2026-10-11</h2>
+<p>Joe, on reading the recommendations: <em>“as usual I am good with
+your recommendations.”</em> The registration carries:</p>
+<ul>
+<li><strong>All three models fly together</strong>: M-on (primary),
+M-drop (no-label vector on 20% of examples), M-off. Credits are not the
+constraint (473 on hand), and M-drop is the cleanest test of a missing
+label.</li>
+<li><strong>About 60 epochs each</strong>, about 1.2 T4 hours per model
+at the measured 49 epochs per hour, about 4 T4 hours in all. The exact
+number goes in the registration. The training gate guards the floor
+whatever the number.</li>
+<li><strong>Seed spread stays a pre-named secondary.</strong> Guidance
+strength and the inversion control are deferred to their own
+pieces.</li>
+<li><strong>Next:</strong> the lane law. Registration pushed → builder
+and planted-agent suites → freeze → Colab smoke → flight → fresh-process
+recompute → lock.</li>
+</ul>
+<h2 id="added-at-registration-the-collinearity-check">8. Added at
+registration: the collinearity check</h2>
+<p><code>windows/power/w3_collinear_check.py</code> (outputs
+<code>w3_collinear_check_output.{txt,json}</code>), written 2026-10-11
+while drafting the registration, before anything was trained.</p>
+<p><strong>The flaw.</strong> The §3 probe is trained only on matched
+inputs, where the content level and the label level are the same number.
+A feature that tracks the label and a feature that tracks the content
+are then perfectly collinear in its training data, and ridge regression
+divides its weight between them by how cleanly each predicts the target.
+A label code is exact. A content code reads the level with per-image
+error: §2’s fourteen statistics leave R² .84 of log-SNR on CIFAR-10. The
+probe can lean on the label while the representation moves mostly with
+the content. §3’s planted worlds could not show this, because they
+planted the <em>reads</em>, not the activations behind them.</p>
+<p><strong>The check</strong> plants activation worlds (an additive
+content code, label code, image variation and noise-draw variation, 64
+features) and runs the §3 probe statistic beside a probe-free one, the
+<strong>movement share</strong>: of the network’s own move between the
+matched inputs at t and t′, the share that moving the content alone
+produces, measured along that move, pooled over both directions. Pooled
+that way it is the content’s Shapley share of the move, and the label’s
+share is exactly one minus it. Its gate is κ, the energy of the 2 × 2
+interaction over the energy of the move; the level check is §3’s, with a
+floor (band shares at least 0.2 apart) because the movement share’s
+intervals are tight.</p>
+<p>At 256 images per offset class (100 simulated experiments per
+world):</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>world</th>
+<th>what it plants</th>
+<th>probe w</th>
+<th>probe verdict</th>
+<th>movement share w</th>
+<th>movement verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CONTENT</td>
+<td>content code only</td>
+<td>+1.00</td>
+<td>CONTENT 1.00</td>
+<td>+0.99</td>
+<td>CONTENT 1.00</td>
+</tr>
+<tr class="even">
+<td>LABEL</td>
+<td>label code only</td>
+<td>-0.00</td>
+<td>LABEL 1.00</td>
+<td>+0.01</td>
+<td>LABEL 1.00</td>
+</tr>
+<tr class="odd">
+<td>EQUAL</td>
+<td>both codes, equal size</td>
+<td>+0.51</td>
+<td>UNREADABLE 0.80</td>
+<td>+0.53</td>
+<td>SPLIT 1.00</td>
+</tr>
+<tr class="even">
+<td>SMALL.15</td>
+<td>label code 0.15 the size of the content code, large variation
+elsewhere</td>
+<td>+0.97</td>
+<td>CONTENT 0.91</td>
+<td>+0.98</td>
+<td>CONTENT 1.00</td>
+</tr>
+<tr class="odd">
+<td>SMALL.3</td>
+<td>the same at 0.3</td>
+<td>+0.92</td>
+<td>CONTENT 0.59</td>
+<td>+0.94</td>
+<td>CONTENT 1.00</td>
+</tr>
+<tr class="even">
+<td>MISREAD.15</td>
+<td>label code 0.15 the size; the content code reads the level with
+per-image error 0.4 SD (about the input floor)</td>
+<td>+0.24</td>
+<td>SPLIT 0.78</td>
+<td>+0.97</td>
+<td>CONTENT 1.00</td>
+</tr>
+<tr class="odd">
+<td>MISREAD.3</td>
+<td>the same at 0.3</td>
+<td>+0.08</td>
+<td>LABEL 1.00</td>
+<td>+0.91</td>
+<td>CONTENT 1.00</td>
+</tr>
+<tr class="even">
+<td>MISREAD.3-lo</td>
+<td>the same, error 0.2 SD</td>
+<td>+0.24</td>
+<td>UNREADABLE 0.67</td>
+<td>+0.91</td>
+<td>CONTENT 1.00</td>
+</tr>
+<tr class="odd">
+<td>MISREAD-EQ</td>
+<td>equal codes, error 0.4 SD</td>
+<td>+0.01</td>
+<td>LABEL 1.00</td>
+<td>+0.51</td>
+<td>SPLIT 1.00</td>
+</tr>
+<tr class="even">
+<td>MISREAD-LAB</td>
+<td>content code 0.15 the size of the label code, error 0.4 SD</td>
+<td>+0.01</td>
+<td>LABEL 1.00</td>
+<td>+0.07</td>
+<td>LABEL 1.00</td>
+</tr>
+<tr class="odd">
+<td>INTERACT</td>
+<td>the label code’s size depends on the content level</td>
+<td>+1.00</td>
+<td>CONTENT 0.85</td>
+<td>+0.53</td>
+<td>VARIES 1.00</td>
+</tr>
+<tr class="even">
+<td>COLLAPSE</td>
+<td>mismatched inputs fall to one point</td>
+<td>+0.50</td>
+<td>UNREADABLE 1.00</td>
+<td>+0.50</td>
+<td>UNREADABLE 1.00</td>
+</tr>
+<tr class="odd">
+<td>SCATTER</td>
+<td>mismatched inputs gain noise as large as the codes</td>
+<td>+0.50</td>
+<td>UNREADABLE 1.00</td>
+<td>+0.53</td>
+<td>UNREADABLE 1.00</td>
+</tr>
+<tr class="even">
+<td>BANDED</td>
+<td>label code below step 500, content code above (error 0.4 SD)</td>
+<td>+0.56</td>
+<td>UNREADABLE 1.00</td>
+<td>+0.59</td>
+<td>VARIES 0.98</td>
+</tr>
+</tbody>
+</table>
+<p>Verdict rates of the movement share at both sizes:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>world</th>
+<th>right verdict</th>
+<th>n = 128 per offset class</th>
+<th>n = 256</th>
+<th>median κ</th>
+<th>median band shares</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CONTENT</td>
+<td>CONTENT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.044</td>
+<td>0.99 0.98 0.99 0.98</td>
+</tr>
+<tr class="even">
+<td>LABEL</td>
+<td>LABEL</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.047</td>
+<td>0.01 0.02 0.01 0.02</td>
+</tr>
+<tr class="odd">
+<td>EQUAL</td>
+<td>SPLIT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.027</td>
+<td>0.53 0.55 0.55 0.52</td>
+</tr>
+<tr class="even">
+<td>SMALL.15</td>
+<td>CONTENT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.029</td>
+<td>0.98 0.97 0.98 0.96</td>
+</tr>
+<tr class="odd">
+<td>SMALL.3</td>
+<td>CONTENT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.027</td>
+<td>0.94 0.94 0.94 0.92</td>
+</tr>
+<tr class="even">
+<td>MISREAD.15</td>
+<td>CONTENT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.046</td>
+<td>0.96 0.96 0.97 0.96</td>
+</tr>
+<tr class="odd">
+<td>MISREAD.3</td>
+<td>CONTENT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.044</td>
+<td>0.90 0.91 0.92 0.91</td>
+</tr>
+<tr class="even">
+<td>MISREAD.3-lo</td>
+<td>CONTENT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.043</td>
+<td>0.91 0.92 0.92 0.90</td>
+</tr>
+<tr class="odd">
+<td>MISREAD-EQ</td>
+<td>SPLIT</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.028</td>
+<td>0.48 0.54 0.55 0.51</td>
+</tr>
+<tr class="even">
+<td>MISREAD-LAB</td>
+<td>LABEL</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.050</td>
+<td>0.05 0.09 0.08 0.05</td>
+</tr>
+<tr class="odd">
+<td>INTERACT</td>
+<td>VARIES BY LEVEL</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>0.159</td>
+<td>0.34 0.63 1.03 1.01</td>
+</tr>
+<tr class="even">
+<td>COLLAPSE</td>
+<td>UNREADABLE</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>30.002</td>
+<td>0.50 0.50 0.50 0.50</td>
+</tr>
+<tr class="odd">
+<td>SCATTER</td>
+<td>UNREADABLE</td>
+<td>1.00</td>
+<td>1.00</td>
+<td>5.581</td>
+<td>0.52 0.54 0.53 0.51</td>
+</tr>
+<tr class="even">
+<td>BANDED</td>
+<td>VARIES BY LEVEL</td>
+<td>0.97</td>
+<td>0.98</td>
+<td>0.034</td>
+<td>0.14 0.72 0.98 0.97</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What it settles.</strong></p>
+<ul>
+<li><strong>The probe statistic fails where W3 will be.</strong> With a
+content code that misreads the level by about the input floor and a
+label code 0.3 its size, the probe calls LABEL in every run, while the
+representation moves 91% with the content (MISREAD.3). With equal codes
+it calls LABEL where the truth is half and half (MISREAD-EQ). It
+measures which source gives the cleanest position code: a real quantity,
+but not the question.</li>
+<li><strong>The movement share calls every world right</strong>,
+including the collapse and scatter failures (κ 30 and 5.6 against
+.03–.05 for additive worlds and .16 for the interacting one; the bar is
+0.5) and both level-dependent worlds.</li>
+<li><strong>The registration’s primary is the movement share</strong> at
+the mid-block, with the same verdict bars (0.2 / 0.8), the κ gate and
+the level check. The probe statistic is secondary S2, and the
+registration pre-reads what a disagreement between the two means.</li>
+<li><strong>Two rules changed during the check:</strong> a world whose
+true share sat on the 0.2 bar was called VARIES for band shares of .16
+and .24, which added the 0.2 floor (a 0.3 floor, tried first, cost the
+banded world its real .72-versus-.98 contrast); and the interacting
+world’s right verdict is VARIES, since its label effect changes with
+level by construction.</li>
+</ul>
+</body>
+</html>

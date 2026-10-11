@@ -1,0 +1,14 @@
+W3 budget check — §4 candidate sizes and T4 time (extrapolated; Colab timing smoke decides)
+batch 128; assumed effective T4 throughput (8.0, 15.0) TFLOP/s
+  MNIST 32x32     C 32:   1.6 M params,  2.18 GFLOP per image (fwd+bwd); one step 0.019-0.035 s ⇒  221- 414 epochs per T4 hour
+      arm reads: 9144 forward passes ≈ 0.8 s
+  MNIST 32x32     C 48:   3.6 M params,  4.88 GFLOP per image (fwd+bwd); one step 0.042-0.078 s ⇒   98- 184 epochs per T4 hour
+      arm reads: 9144 forward passes ≈ 1.9 s
+  MNIST 32x32     C 64:   6.5 M params,  8.66 GFLOP per image (fwd+bwd); one step 0.074-0.139 s ⇒   55- 104 epochs per T4 hour
+      arm reads: 9144 forward passes ≈ 3.3 s
+  CIFAR-10 32x32  C 32:   1.6 M params,  2.18 GFLOP per image (fwd+bwd); one step 0.019-0.035 s ⇒  264- 495 epochs per T4 hour
+      arm reads: 9144 forward passes ≈ 0.8 s
+  CIFAR-10 32x32  C 48:   3.6 M params,  4.89 GFLOP per image (fwd+bwd); one step 0.042-0.078 s ⇒  118- 221 epochs per T4 hour
+      arm reads: 9144 forward passes ≈ 1.9 s
+  CIFAR-10 32x32  C 64:   6.5 M params,  8.67 GFLOP per image (fwd+bwd); one step 0.074-0.139 s ⇒   66- 125 epochs per T4 hour
+      arm reads: 9144 forward passes ≈ 3.3 s

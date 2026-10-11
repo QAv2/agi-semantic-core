@@ -1,0 +1,88 @@
+{
+ "gpu": "Tesla T4, 15360 MiB",
+ "torch": "2.11.0+cu130",
+ "batch": 128,
+ "steps_timed": 60,
+ "rows": [
+  {
+   "data": "MNIST",
+   "C": 32,
+   "clock": true,
+   "params_M": 1.62,
+   "train_s_per_step": 0.094,
+   "epochs_per_hour": 81.7,
+   "fwd_s_per_batch": 0.0303,
+   "peak_mem_GB": 1.24
+  },
+  {
+   "data": "MNIST",
+   "C": 48,
+   "clock": true,
+   "params_M": 3.64,
+   "train_s_per_step": 0.1398,
+   "epochs_per_hour": 54.9,
+   "fwd_s_per_batch": 0.0497,
+   "peak_mem_GB": 1.87
+  },
+  {
+   "data": "MNIST",
+   "C": 64,
+   "clock": true,
+   "params_M": 6.47,
+   "train_s_per_step": 0.1782,
+   "epochs_per_hour": 43.1,
+   "fwd_s_per_batch": 0.0668,
+   "peak_mem_GB": 2.5
+  },
+  {
+   "data": "MNIST",
+   "C": 64,
+   "clock": false,
+   "params_M": 5.91,
+   "train_s_per_step": 0.1766,
+   "epochs_per_hour": 43.5,
+   "fwd_s_per_batch": 0.066,
+   "peak_mem_GB": 2.49
+  },
+  {
+   "data": "CIFAR-10",
+   "C": 32,
+   "clock": true,
+   "params_M": 1.62,
+   "train_s_per_step": 0.0892,
+   "epochs_per_hour": 103.4,
+   "fwd_s_per_batch": 0.0316,
+   "peak_mem_GB": 1.28
+  },
+  {
+   "data": "CIFAR-10",
+   "C": 48,
+   "clock": true,
+   "params_M": 3.65,
+   "train_s_per_step": 0.1455,
+   "epochs_per_hour": 63.4,
+   "fwd_s_per_batch": 0.0521,
+   "peak_mem_GB": 1.88
+  },
+  {
+   "data": "CIFAR-10",
+   "C": 64,
+   "clock": true,
+   "params_M": 6.47,
+   "train_s_per_step": 0.1865,
+   "epochs_per_hour": 49.4,
+   "fwd_s_per_batch": 0.0697,
+   "peak_mem_GB": 2.51
+  },
+  {
+   "data": "CIFAR-10",
+   "C": 64,
+   "clock": false,
+   "params_M": 5.91,
+   "train_s_per_step": 0.1857,
+   "epochs_per_hour": 49.6,
+   "fwd_s_per_batch": 0.0688,
+   "peak_mem_GB": 2.5
+  }
+ ]
+}

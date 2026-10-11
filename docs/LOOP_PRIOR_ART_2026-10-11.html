@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Loop prior art: does the loop know where it is</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root { color-scheme: light; --ink:#23241f; --paper:#faf8f2; --rule:#d8d2bd; --accent:#8a7f5c;
+--head:#4a4433; --sub:#5d5540; --card:#f3efe2; --ok:#3f6b3a; --no:#8c3a2b; --warn:#8a6a1f; }
+body { max-width: 48em; margin: 3em auto; padding: 0 1.5em; font-family: Georgia, 'Times New Roman', serif;
+font-size: 1.05em; line-height: 1.65; color: var(--ink); background: var(--paper); }
+header#title-block-header { margin-bottom: 2em; }
+h1.title { font-size: 1.9em; border-bottom: 3px double var(--accent); padding-bottom: .35em; margin-bottom: .2em; letter-spacing: .01em; }
+p.subtitle { font-style: italic; color: var(--sub); margin-top: .3em; font-size: 1.08em; }
+p.date { color: #6f6852; font-size: .92em; margin-top: .2em; }
+h2 { font-size: 1.3em; margin-top: 2.4em; color: var(--head); border-bottom: 1px solid var(--rule); padding-bottom: .2em; }
+h3 { font-size: 1.12em; margin-top: 2em; color: var(--sub); }
+strong { color: #1a1b16; }
+em { color: #3d3a2e; }
+a { color: #5b4d1f; }
+blockquote { border-left: 3px solid #b5ab88; margin-left: 0; padding-left: 1.2em; color: #55503e; }
+code { background: #efece0; padding: .08em .3em; border-radius: 3px; font-size: .9em; }
+pre { background: #efece0; padding: .8em 1em; border-radius: 4px; overflow-x: auto; font-size: .85em; line-height: 1.45; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2.5em 0; }
+ul, ol { padding-left: 1.4em; } li { margin: .4em 0; } p { margin: .9em 0; }
+nav#TOC { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: .6em 1.2em; font-size: .93em; }
+nav#TOC ul { list-style: none; padding-left: .8em; } nav#TOC > ul { padding-left: 0; } nav#TOC li { margin: .15em 0; }
+
+.table-wrap, table { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; margin: 1.1em 0; font-size: .9em; display: block; }
+thead th { background: #ebe5d2; color: var(--head); text-align: left; }
+th, td { border: 1px solid var(--rule); padding: .4em .6em; vertical-align: top; }
+tbody tr:nth-child(even) { background: #f5f2e8; }
+
+.answer { background: #f1ecdc; border: 1px solid #cfc5a3; border-left: 5px solid var(--accent); border-radius: 4px; padding: .3em 1.3em; margin: 1.5em 0; }
+.answer h2 { margin-top: .8em; border: none; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: 5px; padding: .2em 1.3em .6em; margin: 1.6em 0; }
+.card h3 { margin-top: 1em; }
+.probe { border: 1px dashed #b5ab88; border-radius: 4px; padding: .1em 1.2em; margin: 1.4em 0; background: #fbfaf5; }
+.rec { background: #eef2e6; border: 1px solid #b9c7a4; border-left: 5px solid var(--ok); border-radius: 4px; padding: .2em 1.3em; margin: 1.4em 0; }
+span.tag { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: .72em; letter-spacing: .04em; text-transform: uppercase;
+border-radius: 3px; padding: .08em .4em; vertical-align: .12em; white-space: nowrap; border: 1px solid; }
+span.v { color: var(--ok); border-color: #9db594; background: #eef4ea; }
+span.m { color: var(--warn); border-color: #d6c28e; background: #faf4e2; }
+span.u { color: var(--no); border-color: #d2a497; background: #f8ece8; }
+figure { margin: 1.6em 0; } figcaption { font-size: .9em; color: var(--sub); font-style: italic; margin-top: .4em; }
+svg text { font-family: Georgia, 'Times New Roman', serif; }
+.small { font-size: .9em; color: #55503e; }
+@media (max-width: 560px) { body { padding: 0 1em; font-size: 1em; } }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Loop prior art: does the loop know where it is</h1>
+<p class="subtitle">Prior-art sweep for experiment 2 of
+IDEATION_WINDOWS_2026-10-10, required before pre-registration</p>
+<p class="date">2026-10-11 · research worker (Opus 5.5) · ORC lane ·
+about 25 minutes of searching · nothing registered, nothing run, no paid
+calls</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#prior-art-does-the-loop-know-where-it-is" id="toc-prior-art-does-the-loop-know-where-it-is">Prior art: does the
+loop know where it is?</a>
+<ul>
+<li><a href="#short-answer" id="toc-short-answer">Short answer</a></li>
+<li><a href="#closest-prior-work" id="toc-closest-prior-work">Closest
+prior work</a></li>
+<li><a href="#q1.-noise-level-inference-without-timestep-conditioning" id="toc-q1.-noise-level-inference-without-timestep-conditioning">Q1.
+Noise-level inference without timestep conditioning</a></li>
+<li><a href="#q2.-linear-probes-and-representation-analyses-on-diffusion-features" id="toc-q2.-linear-probes-and-representation-analyses-on-diffusion-features">Q2.
+Linear probes and representation analyses on diffusion features</a></li>
+<li><a href="#q3.-exposure-bias-and-the-traintest-gap" id="toc-q3.-exposure-bias-and-the-traintest-gap">Q3. Exposure bias and
+the train–test gap</a></li>
+<li><a href="#q4.-ensemble-spread-and-guidance-as-internal-referents" id="toc-q4.-ensemble-spread-and-guidance-as-internal-referents">Q4.
+Ensemble spread and guidance as internal referents</a></li>
+<li><a href="#q5.-feasibility-on-a-t4" id="toc-q5.-feasibility-on-a-t4">Q5. Feasibility on a T4</a></li>
+<li><a href="#q6.-verdict-on-novelty" id="toc-q6.-verdict-on-novelty">Q6. Verdict on novelty</a></li>
+<li><a href="#recommended-design-changes-before-registration" id="toc-recommended-design-changes-before-registration">Recommended
+design changes before registration</a></li>
+<li><a href="#references" id="toc-references">References</a></li>
+<li><a href="#open-questions" id="toc-open-questions">Open
+questions</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="prior-art-does-the-loop-know-where-it-is">Prior art: does the
+loop know where it is?</h1>
+<p>Source design: <code>docs/IDEATION_WINDOWS_2026-10-10.md</code>,
+section 3, card “### 2. Does the loop know where it is?”.</p>
+<p>Terms used below: - <strong>Noise level / position.</strong> The
+variance of the noise mixed into the current image x_t. In a DDPM it is
+set by the step index t through the schedule; “position in the process”
+and “noise level” mean the same thing here. - <strong>Clock.</strong>
+The timestep embedding, the extra input that tells the network t. -
+<strong>Noise-unconditional (blind) model.</strong> A denoiser trained
+with no clock input at all. - <strong>Probe.</strong> A linear (ridge or
+logistic) readout trained on frozen activations. -
+<strong>Input-statistics baseline.</strong> The same probe fitted on
+simple statistics of x_t itself (pixel variance, high-frequency energy,
+and so on) instead of on network activations.</p>
+<h2 id="short-answer">Short answer</h2>
+<ul>
+<li><strong>The clock-off arm is already answered in substance, and the
+answer is “yes, and trivially so”.</strong> Sun, Jiang, Zhao and He
+(ICML 2025) show the posterior over noise level given x_t is sharply
+peaked for images (variance about t²/2d in their flow-matching analysis,
+d = pixel count). A separate 30K-parameter CNN predicts the noise level
+with mean error about 0.01. Diffusion models trained with no clock at
+all lose little sample quality, and some improve. A probe reading
+position from content is therefore expected, not discovered.</li>
+<li><strong>The image-domain probe itself has been done, in a 2026
+preprint.</strong> Lu (arXiv 2605.06169, Appendix H) trained a 400-layer
+rectified-flow transformer with no timestep embedding and found that a
+linear probe on the token mean predicts t with near-perfect R² at every
+depth, and that hidden states remove nearly all the error left by scalar
+input statistics. The language-model analog has been done twice in 2026
+(Rulli et al., arXiv 2607.01774, EMNLP 2026; the “Induction in Both
+Directions” preprint, arXiv 2607.15893), both with causal steering of
+the inferred time.</li>
+<li><strong>The displacement arm is partly answered at the output
+level.</strong> Yu et al. (CVPR 2026, arXiv 2604.16044) hold the clock
+fixed and feed images of other noise levels: the network’s noise
+prediction grows with the actual noise, so it responds to content, but
+its predictions are “significantly inaccurate” under mismatch, so it
+also leans on the label. The exposure-bias line (Ning et al. ICML 2023
+and ICLR 2024; Li et al. ICLR 2024) shows sampled states drift off the
+schedule and that feeding the network the timestep matching the actual
+variance improves samples. Nobody I found has asked this at the level of
+internal activations.</li>
+<li><strong>The framing has a structural problem the prior art makes
+visible.</strong> A DDPM step is memoryless: the only thing that
+survives from one step to the next is x_t itself. “Swap in the state
+from step t′” therefore just means “evaluate the network on a t′-level
+input with a t label”. In a clock-off model there is no schedule
+anywhere inside the network for the probe to follow, so the “reads the
+schedule” outcome is impossible by construction. In a clock-on model,
+“schedule versus truth” reduces to “label versus content”. The
+experiment should be stated that way.</li>
+<li><strong>What is still open, as far as this sweep found:</strong> (a)
+a label-versus-content dissociation measured inside a clock-on image
+U-Net, with the internal read decomposed into t and t′ weights; (b)
+whether a single run’s activations encode seed-ensemble spread (no
+direct prior work found; trajectory-variance and Tweedie-moment work are
+adjacent); (c) whether activations encode the classifier-free-guidance
+disagreement magnitude (no prior work found).</li>
+<li><strong>Design changes forced:</strong> add an input-statistics
+baseline that every positive must beat; replace “hold t constant or
+scramble it at inference” with a model trained without a clock (plus,
+ideally, one trained with clock dropout); recast displacement as a 2×2
+of content level × label level; keep the sham. Details in the last
+section.</li>
+<li><strong>Confidence.</strong> High that clock-off is answered
+(several independent, verified sources). Medium that no prior work
+probes ensemble spread or guidance magnitude from activations (two
+searches each; absence is weak evidence).</li>
+</ul>
+<h2 id="closest-prior-work">Closest prior work</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Work</th>
+<th>What it showed</th>
+<th>Clock on</th>
+<th>Clock off</th>
+<th>Displacement</th>
+<th>Sham</th>
+<th>Secondary (spread, CFG)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sun, Jiang, Zhao, He 2025 (ICML)</td>
+<td>p(t given x_t) is sharply peaked for images; blind models degrade
+gracefully or improve (except deterministic DDIM, FID 3.99 to 40.90); a
+30K-param CNN estimates noise level to about 0.01</td>
+<td>Noise level is in the input, so a probe should read it</td>
+<td>Answered at the behavioural level: networks do not need the
+clock</td>
+<td>Implies the content route is always available</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>Lu 2026 (arXiv 2605.06169, App. H)</td>
+<td>No-timestep rectified-flow DiT: linear probe on token mean predicts
+t with near-perfect R² at all depths; hidden states beat scalar input
+statistics</td>
+<td>n/a</td>
+<td><strong>Directly answered</strong> for a large blind transformer,
+including an input-statistics comparison</td>
+<td>not tested</td>
+<td>not tested</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>Rulli et al. 2026 (arXiv 2607.01774, EMNLP 2026) and arXiv
+2607.15893</td>
+<td>Diffusion LMs with no timestep input carry a decodable “latent
+clock” (probe R² 0.82–0.91 after layer-0 attention in 2607.15893);
+steering it shifts confidence and entropy</td>
+<td>n/a</td>
+<td>Answered for text diffusion, with causal tests</td>
+<td>Rulli et al. state they did not decouple the input’s actual noise
+from the schedule</td>
+<td>steering compared with a norm-matched random direction (a sham-like
+control)</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>Yu et al. 2026 (CVPR, arXiv 2604.16044)</td>
+<td>Fixed-t network fed inputs of other SNRs: noise-prediction norm
+tracks actual SNR, predictions are inaccurate under mismatch; sampled
+states have lower SNR than the schedule says</td>
+<td>n/a</td>
+<td>n/a</td>
+<td><strong>Output-level answer:</strong> the network uses both label
+and content</td>
+<td>n/a</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>Li et al. 2024 (ICLR, arXiv 2305.15583); Ning et al. 2023 (ICML) and
+2024 (ICLR)</td>
+<td>Exposure bias: sampled x_t drift off the training distribution.
+Time-Shift Sampler picks the t whose schedule variance matches the
+sample’s measured variance, and FID improves</td>
+<td>n/a</td>
+<td>Shows a one-number input statistic (variance) already locates the
+state</td>
+<td>Shows that re-labelling to the true level helps, so the network does
+not fully self-correct from content</td>
+<td>n/a</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>Chen, Viégas, Wattenberg 2023 (NeurIPS)</td>
+<td>Linear probes on SD-class LDM activations read depth and salience;
+these appear early in denoising; probe-guided interventions change
+output</td>
+<td>Method template for probes and interventions on an SD U-Net</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="q1.-noise-level-inference-without-timestep-conditioning">Q1.
+Noise-level inference without timestep conditioning</h2>
+<ul>
+<li><strong>Sun, Jiang, Zhao, He (2025).</strong> Verified. Their
+Statement 1 gives Var[t] ≈ t*²/(2d) for the flow-matching posterior,
+small when the dimension d is large. Checked empirically on AFHQ-v2
+64×64. On CIFAR-10, removing the clock costs little for most families
+(e.g. EDM Heun 1.99 to 3.36 FID; flow matching Euler 3.01 to 2.61,
+slightly better). The one catastrophic case is DDIM with the
+deterministic sampler (3.99 to 40.90). Their error bound predicts which
+models fail. Section 6.2 and Appendix B.2: conditioning on a separately
+trained noise-level predictor (two conv layers, global pooling, linear
+head, under 30K parameters, MSE about 1e-4, mean error about 0.01)
+performs about the same as no conditioning at all, which the authors
+read as both sharing the same error from estimating t. Their
+noise-unconditional “uEDM” reaches FID 2.23 on CIFAR-10. They do not
+probe the internal features of the blind network.</li>
+<li><strong>Chávez (2026), “On the Redundancy of Timestep Embeddings in
+Diffusion Models”, arXiv 2606.20416.</strong> Verified as a
+single-author preprint, no venue. U-Net and DiT trained with and without
+the timestep embedding on CelebA 128 and CIFAR-10. The time-agnostic
+versions match or beat their conditioned twins (e.g. CIFAR-10
+class-conditional DiT FID 51.3 conditioned versus 34.7 without).
+Absolute FIDs are poor (short training), which is useful: it is roughly
+the quality regime a one-hour T4 model will be in. No probing of hidden
+states.</li>
+<li><strong>Mohan, Kadkhodaie, Simoncelli, Fernandez-Granda (2020),
+ICLR, arXiv 1906.05478.</strong> Verified. Blind denoisers (no
+noise-level input) overfit their training noise range; removing all bias
+terms makes them generalize across noise levels and makes the network
+locally linear, which allows linear-algebra analysis of what it does at
+each noise level.</li>
+<li><strong>Kadkhodaie and Simoncelli (2021), NeurIPS, arXiv
+2007.13640.</strong> Verified. Sampling from the prior implicit in a
+blind denoiser, with step size and injected noise “jointly and
+adaptively controlled by the denoiser”. In practice the effective noise
+level is estimated from the norm of the denoiser’s residual at each step
+(my reading of the method; the exact formula was not re-checked in this
+sweep). This is the oldest working example of a loop that sets its own
+position from content.</li>
+<li><strong>Kadkhodaie, Guth, Simoncelli, Mallat (2024), ICLR, arXiv
+2310.02557.</strong> Verified as to title, venue and main claim. Whether
+their denoisers are blind was not confirmed in this sweep (unverified,
+though I believe they follow the bias-free blind lineage).</li>
+<li><strong>Zheng et al. (2025), ICLR, arXiv 2409.02908.</strong>
+Verified. Masked diffusion models are theoretically time-agnostic: for
+discrete masking, the mask fraction carries the time.</li>
+<li><strong>Text diffusion, the same question already asked.</strong>
+Rulli et al. (2026), arXiv 2607.01774, verified: LLaDA-1.5 and Dream-7B,
+no timestep input, MLP probes R² above 0.5 at all layers; linear probes
+work in early and middle layers but collapse in the last ones; mean-swap
+steering at layers 29 and 25 shifts confidence and entropy; a
+norm-matched random direction is the control. The paper does not
+decouple actual noise from the schedule. “Induction in Both Directions”,
+arXiv 2607.15893 (authors not recorded in this sweep): six small DLMs
+with no timestep embedding; probe R² about 0 at the input embedding (one
+token carries no global mask rate) and 0.82–0.91 after layer-0
+attention; patching the direction causally changes prediction
+entropy.</li>
+<li><strong>Bottom line for Q1.</strong> Networks infer noise level from
+content readily and accurately; the information is in the input
+statistics already; the representation is linearly decodable inside at
+least one large blind image model and several text models.</li>
+</ul>
+<h2 id="q2.-linear-probes-and-representation-analyses-on-diffusion-features">Q2.
+Linear probes and representation analyses on diffusion features</h2>
+<ul>
+<li><strong>Baranchuk et al. (2022), ICLR, arXiv 2112.03126.</strong>
+Verified. DDPM decoder activations, chosen by block and timestep, give
+pixel features for few-label segmentation. Shows mid/decoder features
+are rich and timestep-dependent.</li>
+<li><strong>Chen, Viégas, Wattenberg (2023), NeurIPS, arXiv
+2306.05720.</strong> Verified. Linear probes on Stable Diffusion
+self-attention activations read depth and salient-object masks; these
+emerge early in denoising; intervening on them edits output. Code and
+probe weights public
+(github.com/yc015/scene-representation-diffusion-model). The closest
+method template for the SD 1.5 replication arm.</li>
+<li><strong>Tang et al. (2023), DIFT, NeurIPS, arXiv
+2306.03881.</strong> Verified. Features at a chosen (t, layer) give
+semantic correspondence. The choice of t matters a great deal, which is
+indirect evidence that activations change strongly and systematically
+with t.</li>
+<li><strong>Kwon, Jeong, Uh (2023), ICLR, arXiv 2210.10960.</strong>
+Verified. The U-Net bottleneck (“h-space”, the mid-block output) is a
+semantic latent space, “consistent across timesteps”. This is the same
+layer the design plans to probe. It suggests semantic content and
+position may be separable there.</li>
+<li><strong>Park et al. (2023), NeurIPS, arXiv 2307.12868.</strong>
+Verified. Pullback-metric analysis of x_t to h-space; the local latent
+basis changes across timesteps (coarse to fine).</li>
+<li><strong>Direct timestep probes in image diffusion.</strong> Only one
+found: Lu (2026), arXiv 2605.06169, Appendix H, read directly from the
+arXiv HTML. A 400-layer rectified-flow DiT with no AdaLN and no timestep
+embedding; ridge probes on the image-token mean predict t with
+near-perfect R² across depth; the text-token mean becomes predictive
+after a few layers (the model routes time information there); and adding
+hidden-state features removes nearly all residual error left by scalar
+input statistics. This is the experiment’s clock-off arm, done at scale,
+with the input-statistics control. Single-author preprint, not peer
+reviewed. I found no paper that probes timestep inside a clock-on image
+U-Net (absence from two searches; medium confidence).</li>
+<li><strong>Bottom line for Q2.</strong> The probe method is standard.
+Position is expected to be near-perfectly decodable in both clock-on (it
+is injected) and clock-off (it is inferred) models, so a raw R² is not
+informative. The informative quantities are the margin over the
+input-statistics baseline and causal tests.</li>
+</ul>
+<h2 id="q3.-exposure-bias-and-the-traintest-gap">Q3. Exposure bias and
+the train–test gap</h2>
+<ul>
+<li><strong>Ning, Sangineto, Porrello, Calderara, Cucchiara (2023),
+ICML, arXiv 2301.11706.</strong> Verified. Prediction errors accumulate
+along the sampling chain (the diffusion analog of exposure bias).
+Perturbing training inputs to simulate this improves FID (CelebA 64:
+1.27).</li>
+<li><strong>Ning, Li, Su, Salah, Ertugrul (2024), ICLR, arXiv
+2308.15321.</strong> Verified. Analytic model of the sampling
+distribution; sampled x_t have larger norm/variance than training x_t at
+the same t. “Epsilon Scaling”, shrinking the network’s predicted noise,
+pulls the trajectory back; works across ADM, DDIM, EDM, LDM, DiT,
+PFGM++.</li>
+<li><strong>Li, Qu, Yao, Sun, Moens (2024), ICLR, arXiv
+2305.15583.</strong> Verified from the PDF text. At each step the
+Time-Shift Sampler measures the variance of the current sample x_{t-1}
+and picks, within a window around the nominal step, the timestep whose
+schedule variance (1 − ᾱ) is closest. That is: an external one-number
+noise-level estimate, fed back as the label, improves samples. Two
+implications: a single input statistic already locates the state well
+enough to be useful, and the clock-on network does not fully correct for
+a wrong label from content alone.</li>
+<li><strong>Yu, Sun, Zeng, Chu, Zhan (2026), CVPR, arXiv
+2604.16044.</strong> Verified from the arXiv HTML. Their Fig. 1(b) is
+close to a displacement experiment at the output: a network with fixed
+timestep s receives forward-process samples from other t. Lower-SNR
+inputs give larger noise predictions, higher-SNR inputs smaller ones,
+and predictions are “significantly inaccurate” under mismatch. So the
+output follows the content partly and the label partly. They also find
+sampled states have lower SNR than forward states at the same t.</li>
+<li><strong>Lin, Liu, Li, Yang (2024), WACV, arXiv 2305.08891.</strong>
+Verified. SD-class schedules do not reach zero SNR at the last step, so
+at t = T the “noise” still carries signal (low-frequency brightness),
+and the model learns to exploit it. Relevant to the SD 1.5 arm: early
+steps of that model are not pure-noise states, and the true noise level
+of a sampled state differs from the nominal one by schedule design.</li>
+<li><strong>Bottom line for Q3.</strong> For a clock-on network, “does
+it act on actual noise or on the schedule?” has a published output-level
+answer: both, with measurable error from the label. What has not been
+measured is how the <em>internal</em> position read splits between label
+and content, and whether that split predicts the output error. That is
+the defensible novel core of the displacement arm.</li>
+</ul>
+<h2 id="q4.-ensemble-spread-and-guidance-as-internal-referents">Q4.
+Ensemble spread and guidance as internal referents</h2>
+<ul>
+<li><strong>Aithal, Maini, Lipton, Kolter (2024), NeurIPS, arXiv
+2406.09358.</strong> Verified. Variance of the predicted clean image
+across the final sampling steps flags hallucinated (out-of-support)
+samples; a simple threshold removes over 95% of them while keeping 96%
+of in-support samples (workshop figure). This is a single-run,
+trajectory-level uncertainty signal, read from outputs, not
+activations.</li>
+<li><strong>Berry, Brando, Meger (2024), UAI, DECU.</strong> Verified
+(PMLR v244). Ensembles of conditional diffusion models sharing a
+pretrained backbone; pairwise-distance estimators of epistemic
+uncertainty. This is model-weight uncertainty, not seed spread.</li>
+<li><strong>Chan, Molina, Metzler (2024), NeurIPS, HyperDM, arXiv
+2402.03478.</strong> Verified via search listing. Hyper-network ensemble
+for epistemic and aleatoric uncertainty. Same caveat.</li>
+<li><strong>Meng, Song, Li, Ermon (2021), NeurIPS, arXiv
+2111.04726.</strong> Verified. Tweedie’s formula extended to second
+order: the posterior covariance of x_0 given x_t can be estimated by
+denoising, which “quantifies denoising uncertainty”. <em>Inference:</em>
+the seed-ensemble spread at step t is, in expectation, this posterior
+covariance, which a denoiser’s Jacobian already encodes. So “does one
+run encode how undetermined it is?” has a theoretical yes at the level
+of the function; whether it is linearly readable from mid-block
+activations is open.</li>
+<li><strong>Biroli, Bonnaire, de Bortoli, Mézard (2024), Nature
+Communications, arXiv 2402.18491; Sclocchi, Favero, Wyart (2025), PNAS,
+arXiv 2402.16991.</strong> Verified. Trajectories commit to coarse
+structure (class) at a sharp “speciation” time and to details later.
+Ensemble spread is therefore a non-monotone, step-dependent quantity
+with a known transition, which gives the spread probe a sharp prediction
+to test against, and also means spread is strongly confounded with t.
+The spread probe must control for t (partial out t, or evaluate within a
+narrow t band).</li>
+<li><strong>Guidance magnitude from activations.</strong> No work found
+that probes the classifier-free-guidance disagreement (conditional minus
+unconditional prediction) from activations. Adjacent: prompt-aware CFG
+scale prediction from text embeddings (arXiv 2509.22728, not from
+activations) and a gradient-free classifier guidance method that sets
+scale from the model’s “confusion” (arXiv 2411.15393; mechanism not
+checked). Both unverified beyond abstracts.</li>
+<li><strong>Bottom line for Q4.</strong> Both secondary referents look
+open. The spread probe needs t partialled out, and the CFG probe needs a
+check that it beats the prompt embedding alone (inputs are the first
+suspect).</li>
+</ul>
+<h2 id="q5.-feasibility-on-a-t4">Q5. Feasibility on a T4</h2>
+<ul>
+<li><strong>Small DDPM in about an hour.</strong> I found no published
+T4 timing (unverified). Reference points: original DDPM CIFAR-10 runs
+are hundreds of thousands of iterations on TPUs, far beyond an hour; a
+single-GPU learning project reports MNIST (9.5M parameters, 50 epochs)
+FID 34 and CIFAR-10 (46M parameters, 100 epochs) FID 65–71
+(search-snippet figures, unverified). Chávez (2026) reports FIDs of
+35–70 at CIFAR-10/CelebA scale for both clock-on and clock-off twins, a
+sign that short training still gives a usable comparison.
+<em>Recommendation (inference):</em> MNIST or Fashion-MNIST at 28×28 (or
+32×32 padded), a U-Net of roughly 5–15M parameters, T = 1000 training
+steps with 50–100 sampling steps, fp16 autocast, batch 128; tens of
+epochs should fit in an hour. CIFAR-10 32×32 is possible but samples
+will be poor; the probe question does not need good samples, only a
+trained denoiser.</li>
+<li><strong>Two models, not one.</strong> Because the clock-off arm
+needs a model trained without a clock (see below), budget two trainings
+of the same architecture (clock-on and clock-off, same seed and data
+order), ideally a third with clock dropout. That is two to three T4
+hours, or one hour with a smaller model.</li>
+<li><strong>SD 1.5 in fp16 on 15 GB.</strong> The U-Net is about 860M
+parameters, about 1.7 GB of weights in fp16; inference at 512×512 with
+diffusers fits comfortably in a T4’s 15 GB (common practice, not
+re-verified here). The mid-block output at 512×512 is 1280 channels × 8
+× 8 = 81,920 values per image per step, so caching pooled or full
+mid-block activations with a forward hook is cheap: 1,000 trajectories ×
+50 steps × 1,280 pooled values is about 128 MB in fp16. Chen et al.’s
+public probe code is a working template for hooks on SD. Note the
+non-zero terminal SNR (Lin et al. 2024) when defining “true noise level”
+for this arm.</li>
+</ul>
+<h2 id="q6.-verdict-on-novelty">Q6. Verdict on novelty</h2>
+<ul>
+<li><strong>Clock on: not novel, and close to circular.</strong> The
+clock is injected, so a probe reading t from mid-block activations reads
+the input. Keep it only as a calibration of the probe.</li>
+<li><strong>Clock off: answered.</strong> Behaviourally by Sun et
+al. (2025) and Chávez (2026); representationally by Lu (2026) for a
+large blind DiT, including the comparison against input statistics; and
+for text diffusion by Rulli et al. (2026) and arXiv 2607.15893. A small
+blind DDPM U-Net will almost certainly carry a linearly readable
+position. A small replication on a substrate we own is still worth
+running as the baseline for the other arms, but it should not be
+registered as the headline question.</li>
+<li><strong>“Hold the embedding constant or scramble it at inference” is
+the wrong manipulation.</strong> A clock-on network given a fixed or
+random label is out of distribution; Yu et al. (2026) and Li et
+al. (2024) show its outputs go wrong. A probe result from that condition
+mixes “infers position from content” with “is broken by a lying label”.
+Sun et al. and Chávez both answer the question properly by training
+without the clock.</li>
+<li><strong>Displacement: partly novel, if restated.</strong> Since a
+step is memoryless, the arm is really “label says t, content is at t′”.
+The output-level answer exists (Yu et al. 2026: both matter). The
+internal decomposition — what fraction of the position read follows the
+label versus the content, by layer — does not appear in the literature I
+found. That is the novel core.</li>
+<li><strong>Sham displacement: novel as a control, cheap, keep
+it.</strong> Swapping a same-level state from another trajectory should
+not move the position read. No prior work runs it. Rulli et al.’s
+norm-matched random steering direction is the nearest analog.</li>
+<li><strong>Ensemble spread and CFG magnitude probes: apparently
+open.</strong> Two searches each found adjacent work (trajectory
+variance, Tweedie second moments, speciation times) but no activation
+probe. Medium confidence.</li>
+<li><strong>DDIM inversion positive control.</strong> Not searched in
+depth (outside the six questions). One remark from Q1: deterministic
+DDIM is the one sampler that fails badly without a clock (Sun et
+al. 2025), so the inversion control should use the clock-on model, or
+should expect the clock-off model to invert poorly.</li>
+</ul>
+<h2 id="recommended-design-changes-before-registration">Recommended
+design changes before registration</h2>
+<ol type="1">
+<li><strong>Add an input-statistics baseline to every probe.</strong>
+Fit the same probe on simple features of x_t (per-channel variance,
+mean, a few band-pass energies, a Laplacian-residual norm, and the
+30K-parameter CNN estimator of Sun et al. as an upper baseline). A
+position read counts only when activations beat this baseline on
+held-out trajectories. This is the program’s law “inputs are the first
+suspect”, and Lu (2026) shows how to report it (fraction of residual
+error removed by adding hidden-state features).</li>
+<li><strong>Replace the inference-time clock ablation with trained
+twins.</strong> Train (a) clock-on, (b) clock-off from scratch, and if
+time allows (c) clock-dropout (the label is replaced by a null token on,
+say, 20% of training batches), so “clock off” is an in-distribution
+condition for the same weights. Report sample quality for each, so a
+probe result is never read on a broken model.</li>
+<li><strong>Recast displacement as a 2×2: content level (t or t′) ×
+label (t or t′).</strong> Use forward-noised states (exact ground-truth
+level) as well as sampled states (level known only from the schedule;
+measure it with the variance estimator, as in Li et al.). Fit the
+internal read as a weighted mix of t and t′, by layer, and test whether
+that weight predicts the output error that Yu et al. measured. Grade the
+displacement size: small offsets at the scale of exposure bias, and
+large ones.</li>
+<li><strong>State the pre-registered readings in label-versus-content
+terms.</strong> “Reads the schedule” can only mean “follows the label”;
+it cannot occur in the clock-off model, which has no schedule input. Say
+so in the registration so a clock-off result cannot be read as the
+network “trusting evidence over expectation”.</li>
+<li><strong>Keep the sham, and add the label-only sham.</strong>
+Same-level content from another trajectory with the true label (position
+read must not move), and true content with the true label re-encoded
+through a second, equivalent path (e.g. the same t passed twice or from
+a cached embedding) to check the hook itself does not move the
+read.</li>
+<li><strong>For the spread probe, partial out t.</strong> Fit the probe
+within narrow t bands, or regress t out of both target and features
+first. Prediction to pre-register: probe skill peaks near the speciation
+time (Biroli et al. 2024; Sclocchi et al. 2025). Add the Tweedie
+second-moment estimate (Meng et al. 2021) as the theoretical baseline
+the activation probe must match or beat.</li>
+<li><strong>For the CFG-magnitude probe, beat the prompt.</strong>
+Baseline: the same probe on the text embedding alone. Only the excess
+counts.</li>
+<li><strong>Scrambled-geometry and held-out controls stay as in the lane
+law</strong>, applied to every probe above.</li>
+</ol>
+<h2 id="references">References</h2>
+<p>All URLs were reached during this sweep unless marked unverified.</p>
+<ul>
+<li>Aithal, S. K., Maini, P., Lipton, Z. C., Kolter, J. Z. (2024).
+Understanding Hallucinations in Diffusion Models through Mode
+Interpolation. NeurIPS 2024. arXiv:2406.09358.
+https://arxiv.org/abs/2406.09358</li>
+<li>Baranchuk, D., Rubachev, I., Voynov, A., Khrulkov, V., Babenko, A.
+(2022). Label-Efficient Semantic Segmentation with Diffusion Models.
+ICLR 2022. arXiv:2112.03126. https://arxiv.org/abs/2112.03126 (author
+list beyond first author recalled, not re-checked)</li>
+<li>Berry, L., Brando, A., Meger, D. (2024). Shedding Light on Large
+Generative Networks: Estimating Epistemic Uncertainty in Diffusion
+Models. UAI 2024, PMLR 244.
+https://proceedings.mlr.press/v244/berry24a.html</li>
+<li>Biroli, G., Bonnaire, T., de Bortoli, V., Mézard, M. (2024).
+Dynamical Regimes of Diffusion Models. Nature Communications (DOI
+10.1038/s41467-024-54281-3). arXiv:2402.18491.
+https://arxiv.org/abs/2402.18491</li>
+<li>Chan, M. A., Molina, M. J., Metzler, C. A. (2024). Estimating
+Epistemic and Aleatoric Uncertainty with a Single Model (HyperDM).
+NeurIPS 2024. arXiv:2402.03478. https://arxiv.org/abs/2402.03478</li>
+<li>Chávez, J. A. (2026). On the Redundancy of Timestep Embeddings in
+Diffusion Models. arXiv:2606.20416 (preprint, no venue).
+https://arxiv.org/abs/2606.20416</li>
+<li>Chen, Y., Viégas, F., Wattenberg, M. (2023). Beyond Surface
+Statistics: Scene Representations in a Latent Diffusion Model. NeurIPS
+2023. arXiv:2306.05720. https://arxiv.org/abs/2306.05720</li>
+<li>Kadkhodaie, Z., Simoncelli, E. P. (2021). Stochastic Solutions for
+Linear Inverse Problems using the Prior Implicit in a Denoiser. NeurIPS
+2021. arXiv:2007.13640.
+https://papers.nips.cc/paper/2021/hash/6e28943943dbed3c7f82fc05f269947a-Abstract.html</li>
+<li>Kadkhodaie, Z., Guth, F., Simoncelli, E. P., Mallat, S. (2024).
+Generalization in Diffusion Models Arises from Geometry-Adaptive
+Harmonic Representations. ICLR 2024. arXiv:2310.02557.
+https://arxiv.org/abs/2310.02557</li>
+<li>Kwon, M., Jeong, J., Uh, Y. (2023). Diffusion Models Already Have a
+Semantic Latent Space. ICLR 2023. arXiv:2210.10960.
+https://arxiv.org/abs/2210.10960</li>
+<li>Li, M., Qu, T., Yao, R., Sun, W., Moens, M.-F. (2024). Alleviating
+Exposure Bias in Diffusion Models through Sampling with Shifted Time
+Steps. ICLR 2024. arXiv:2305.15583.
+https://arxiv.org/abs/2305.15583</li>
+<li>Lin, S., Liu, B., Li, J., Yang, X. (2024). Common Diffusion Noise
+Schedules and Sample Steps are Flawed. WACV 2024. arXiv:2305.08891.
+https://arxiv.org/abs/2305.08891</li>
+<li>Lu, P. (2026). Mean Mode Screaming: Mean–Variance Split Residuals
+for 1000-Layer Diffusion Transformers. arXiv:2605.06169 (preprint),
+Appendix H. https://arxiv.org/abs/2605.06169</li>
+<li>Meng, C., Song, Y., Li, W., Ermon, S. (2021). Estimating High Order
+Gradients of the Data Distribution by Denoising. NeurIPS 2021.
+arXiv:2111.04726. https://arxiv.org/abs/2111.04726</li>
+<li>Mohan, S., Kadkhodaie, Z., Simoncelli, E. P., Fernandez-Granda, C.
+(2020). Robust and Interpretable Blind Image Denoising via Bias-Free
+Convolutional Neural Networks. ICLR 2020. arXiv:1906.05478.
+https://arxiv.org/abs/1906.05478</li>
+<li>Ning, M., Sangineto, E., Porrello, A., Calderara, S., Cucchiara, R.
+(2023). Input Perturbation Reduces Exposure Bias in Diffusion Models.
+ICML 2023, PMLR 202. arXiv:2301.11706.
+https://arxiv.org/abs/2301.11706</li>
+<li>Ning, M., Li, M., Su, J., Salah, A. A., Ertugrul, I. O. (2024).
+Elucidating the Exposure Bias in Diffusion Models. ICLR 2024.
+arXiv:2308.15321. https://arxiv.org/abs/2308.15321</li>
+<li>Park, Y.-H., Kwon, M., Choi, J., Jo, J., Uh, Y. (2023).
+Understanding the Latent Space of Diffusion Models through the Lens of
+Riemannian Geometry. NeurIPS 2023. arXiv:2307.12868.
+https://arxiv.org/abs/2307.12868</li>
+<li>Rulli, M. E., Fontanari, T. V., Petruzzi, S., Alvetreti, F., Strano,
+G., Crisostomi, D., Nikolaou, G., Mencattini, T., Santilli, A., Rodolà,
+E., Scardapane, S., Devoto, A. (2026). Subliminal Clocks: Latent Time
+Modelling in Diffusion Language Models. EMNLP 2026 (per arXiv comments).
+arXiv:2607.01774. https://arxiv.org/abs/2607.01774</li>
+<li>Sclocchi, A., Favero, A., Wyart, M. (2025). A Phase Transition in
+Diffusion Models Reveals the Hierarchical Nature of Data. PNAS (DOI
+10.1073/pnas.2408799121). arXiv:2402.16991.
+https://arxiv.org/abs/2402.16991</li>
+<li>Sun, Q., Jiang, Z., Zhao, H., He, K. (2025). Is Noise Conditioning
+Necessary for Denoising Generative Models? ICML 2025, PMLR
+267:57469–57502. arXiv:2502.13129. https://arxiv.org/abs/2502.13129</li>
+<li>Tang, L., Jia, M., Wang, Q., Phoo, C. P., Hariharan, B. (2023).
+Emergent Correspondence from Image Diffusion (DIFT). NeurIPS 2023.
+arXiv:2306.03881. https://arxiv.org/abs/2306.03881</li>
+<li>Yu, M., Sun, L., Zeng, J., Chu, X., Zhan, K. (2026). Elucidating the
+SNR-t Bias of Diffusion Probabilistic Models. CVPR 2026 (per arXiv
+comments). arXiv:2604.16044. https://arxiv.org/abs/2604.16044</li>
+<li>Zheng, K., Chen, Y., Mao, H., Liu, M.-Y., Zhu, J., Zhang, Q. (2025).
+Masked Diffusion Models are Secretly Time-Agnostic Masked Models and
+Exploit Inaccurate Categorical Sampling. ICLR 2025. arXiv:2409.02908.
+https://arxiv.org/abs/2409.02908</li>
+<li>Authors not recorded (2026). Induction in Both Directions: A
+Mechanistic Analysis of In-Context Learning in Masked Diffusion Language
+Models. arXiv:2607.15893. https://arxiv.org/abs/2607.15893 (content read
+from arXiv HTML; author list not captured)</li>
+<li>Adjacent, abstract-level only (unverified beyond search listing):
+Prompt-aware classifier-free guidance, arXiv:2509.22728,
+https://arxiv.org/abs/2509.22728 ; Gradient-Free Classifier Guidance for
+Diffusion Model Sampling, arXiv:2411.15393,
+https://arxiv.org/abs/2411.15393</li>
+</ul>
+<h2 id="open-questions">Open questions</h2>
+<ul>
+<li>Full text of Rulli et al. 2026 and arXiv 2607.15893 not read end to
+end; whether either runs a content/label mismatch was checked only
+against Rulli et al. (it does not).</li>
+<li>Lu (2026) is a single-author preprint; its probe numbers are read
+from a figure caption, not a table.</li>
+<li>Whether any clock-on image U-Net timestep probe exists; two searches
+found none.</li>
+<li>Exact noise-level estimator in Kadkhodaie and Simoncelli (2021) not
+re-derived.</li>
+<li>T4 training time for the recommended small DDPM is an estimate; run
+a 5-minute timing smoke before registering the epoch count.</li>
+<li>DDIM-inversion positive control was not searched.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,72 @@
+W3 collinearity check — §1 the probe's w against the probe-free movement share w_rep; §2 the movement share's verdict rates
+seed 20261013; activation dim 64; probe train 4000, calibration 3000; reps 100, bootstrap 500; bars 0.2/0.8; probe gates: tracking 0.8, precision 1.5; movement gate: kappa upper bound <= 0.5; VARIES floor 0.2; step bands ((20, 250), (250, 500), (500, 750), (750, 1000))
+  CONTENT      (movement should be CONTENT)
+    n 128  probe w +1.00 {'CONTENT': 1.0}
+           w_rep +0.99 (l_rep +0.01, kappa 0.046, bands +0.99 +0.98 +0.99 +0.98) {'CONTENT': 1.0}  RIGHT 1.00
+    n 256  probe w +1.00 {'CONTENT': 1.0}
+           w_rep +0.99 (l_rep +0.01, kappa 0.044, bands +0.99 +0.98 +0.99 +0.98) {'CONTENT': 1.0}  RIGHT 1.00
+  LABEL        (movement should be LABEL)
+    n 128  probe w +0.00 {'LABEL': 1.0}
+           w_rep +0.01 (l_rep +0.99, kappa 0.049, bands +0.01 +0.02 +0.01 +0.02) {'LABEL': 1.0}  RIGHT 1.00
+    n 256  probe w -0.00 {'LABEL': 1.0}
+           w_rep +0.01 (l_rep +0.99, kappa 0.047, bands +0.01 +0.02 +0.01 +0.02) {'LABEL': 1.0}  RIGHT 1.00
+  EQUAL        (movement should be SPLIT)
+    n 128  probe w +0.50 {'SPLIT': 0.26, 'UNREADABLE': 0.74}
+           w_rep +0.54 (l_rep +0.46, kappa 0.028, bands +0.53 +0.56 +0.54 +0.51) {'SPLIT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.51 {'SPLIT': 0.2, 'UNREADABLE': 0.8}
+           w_rep +0.53 (l_rep +0.47, kappa 0.027, bands +0.53 +0.55 +0.55 +0.52) {'SPLIT': 1.0}  RIGHT 1.00
+  SMALL.15     (movement should be CONTENT)
+    n 128  probe w +0.98 {'CONTENT': 0.91, 'UNREADABLE': 0.09}
+           w_rep +0.98 (l_rep +0.02, kappa 0.029, bands +0.98 +0.98 +0.98 +0.97) {'CONTENT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.97 {'CONTENT': 0.91, 'UNREADABLE': 0.09}
+           w_rep +0.98 (l_rep +0.02, kappa 0.029, bands +0.98 +0.97 +0.98 +0.96) {'CONTENT': 1.0}  RIGHT 1.00
+  SMALL.3      (movement should be CONTENT)
+    n 128  probe w +0.91 {'CONTENT': 0.52, 'UNREADABLE': 0.48}
+           w_rep +0.93 (l_rep +0.07, kappa 0.027, bands +0.93 +0.94 +0.94 +0.91) {'CONTENT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.92 {'CONTENT': 0.59, 'UNREADABLE': 0.41}
+           w_rep +0.94 (l_rep +0.06, kappa 0.027, bands +0.94 +0.94 +0.94 +0.92) {'CONTENT': 1.0}  RIGHT 1.00
+  MISREAD.15   (movement should be CONTENT)
+    n 128  probe w +0.24 {'LABEL': 0.07, 'SPLIT': 0.67, 'UNCLEAR': 0.26}
+           w_rep +0.97 (l_rep +0.03, kappa 0.047, bands +0.97 +0.96 +0.97 +0.96) {'CONTENT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.24 {'LABEL': 0.06, 'SPLIT': 0.78, 'UNCLEAR': 0.16}
+           w_rep +0.97 (l_rep +0.03, kappa 0.046, bands +0.96 +0.96 +0.97 +0.96) {'CONTENT': 1.0}  RIGHT 1.00
+  MISREAD.3    (movement should be CONTENT)
+    n 128  probe w +0.08 {'LABEL': 1.0}
+           w_rep +0.91 (l_rep +0.09, kappa 0.044, bands +0.91 +0.92 +0.93 +0.91) {'CONTENT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.08 {'LABEL': 1.0}
+           w_rep +0.91 (l_rep +0.09, kappa 0.044, bands +0.90 +0.91 +0.92 +0.91) {'CONTENT': 1.0}  RIGHT 1.00
+  MISREAD.3-lo (movement should be CONTENT)
+    n 128  probe w +0.25 {'LABEL': 0.06, 'SPLIT': 0.19, 'UNCLEAR': 0.09, 'UNREADABLE': 0.66}
+           w_rep +0.92 (l_rep +0.08, kappa 0.043, bands +0.91 +0.92 +0.92 +0.91) {'CONTENT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.24 {'LABEL': 0.06, 'SPLIT': 0.2, 'UNCLEAR': 0.07, 'UNREADABLE': 0.67}
+           w_rep +0.91 (l_rep +0.09, kappa 0.043, bands +0.91 +0.92 +0.92 +0.90) {'CONTENT': 1.0}  RIGHT 1.00
+  MISREAD-EQ   (movement should be SPLIT)
+    n 128  probe w +0.01 {'LABEL': 1.0}
+           w_rep +0.51 (l_rep +0.49, kappa 0.028, bands +0.47 +0.54 +0.55 +0.52) {'SPLIT': 1.0}  RIGHT 1.00
+    n 256  probe w +0.01 {'LABEL': 1.0}
+           w_rep +0.51 (l_rep +0.49, kappa 0.028, bands +0.48 +0.54 +0.55 +0.51) {'SPLIT': 1.0}  RIGHT 1.00
+  MISREAD-LAB  (movement should be LABEL)
+    n 128  probe w +0.01 {'LABEL': 1.0}
+           w_rep +0.07 (l_rep +0.93, kappa 0.053, bands +0.06 +0.10 +0.08 +0.06) {'LABEL': 1.0}  RIGHT 1.00
+    n 256  probe w +0.01 {'LABEL': 1.0}
+           w_rep +0.07 (l_rep +0.93, kappa 0.050, bands +0.05 +0.09 +0.08 +0.05) {'LABEL': 1.0}  RIGHT 1.00
+  INTERACT     (movement should be VARIES)
+    n 128  probe w +1.00 {'CONTENT': 0.89, 'UNREADABLE': 0.11}
+           w_rep +0.53 (l_rep +0.47, kappa 0.159, bands +0.33 +0.63 +1.03 +1.01) {'VARIES': 1.0}  RIGHT 1.00
+    n 256  probe w +1.00 {'CONTENT': 0.85, 'UNREADABLE': 0.15}
+           w_rep +0.53 (l_rep +0.47, kappa 0.159, bands +0.34 +0.63 +1.03 +1.01) {'VARIES': 1.0}  RIGHT 1.00
+  COLLAPSE     (movement should be UNREADABLE)
+    n 128  probe w +0.50 {'UNREADABLE': 1.0}
+           w_rep +0.50 (l_rep +0.50, kappa 30.596, bands +0.50 +0.50 +0.50 +0.50) {'UNREADABLE': 1.0}  RIGHT 1.00
+    n 256  probe w +0.50 {'UNREADABLE': 1.0}
+           w_rep +0.50 (l_rep +0.50, kappa 30.002, bands +0.50 +0.50 +0.50 +0.50) {'UNREADABLE': 1.0}  RIGHT 1.00
+  SCATTER      (movement should be UNREADABLE)
+    n 128  probe w +0.48 {'UNREADABLE': 1.0}
+           w_rep +0.54 (l_rep +0.46, kappa 5.639, bands +0.53 +0.56 +0.53 +0.50) {'UNREADABLE': 1.0}  RIGHT 1.00
+    n 256  probe w +0.50 {'UNREADABLE': 1.0}
+           w_rep +0.53 (l_rep +0.47, kappa 5.581, bands +0.52 +0.54 +0.53 +0.51) {'UNREADABLE': 1.0}  RIGHT 1.00
+  BANDED       (movement should be VARIES)
+    n 128  probe w +0.56 {'UNREADABLE': 1.0}
+           w_rep +0.60 (l_rep +0.40, kappa 0.035, bands +0.14 +0.71 +0.98 +0.97) {'SPLIT': 0.03, 'VARIES': 0.97}  RIGHT 0.97
+    n 256  probe w +0.56 {'UNREADABLE': 1.0}
+           w_rep +0.59 (l_rep +0.41, kappa 0.034, bands +0.14 +0.72 +0.98 +0.97) {'SPLIT': 0.02, 'VARIES': 0.98}  RIGHT 0.98
