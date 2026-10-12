@@ -1,0 +1,867 @@
+{
+ "P1": {
+  "A": {
+   "binary_mean": 0.6875,
+   "binary_q975": 0.875,
+   "ci95": [
+    0.502805,
+    0.667813
+   ],
+   "mean": 0.587187,
+   "n": 16,
+   "p": 0.034912,
+   "q975": 0.671875,
+   "verdict": "UNCLEAR"
+  },
+  "B": {
+   "binary_mean": 0.53125,
+   "binary_q975": 0.71875,
+   "ci95": [
+    0.450625,
+    0.567187
+   ],
+   "mean": 0.508125,
+   "n": 16,
+   "p": 0.401794,
+   "q975": 0.5675,
+   "verdict": "AT CHANCE"
+  },
+  "C": {
+   "binary_mean": 0.0,
+   "binary_q975": 0.0,
+   "ci95": [
+    0.38,
+    0.42
+   ],
+   "mean": 0.4,
+   "n": 2,
+   "p": 1.0,
+   "q975": 0.42,
+   "verdict": "NOT ADJUDICABLE"
+  }
+ },
+ "P2": {
+  "A": {
+   "binary_mean_d": -0.3125,
+   "binary_q975": -0.125,
+   "ci95": [
+    -0.450313,
+    -0.28718
+   ],
+   "mean_d": -0.3675,
+   "n": 16,
+   "p": 1.0,
+   "q975": -0.286242,
+   "verdict": "NO EXCESS"
+  },
+  "B": {
+   "binary_mean_d": -0.4375,
+   "binary_q975": -0.21875,
+   "ci95": [
+    -0.419063,
+    -0.272805
+   ],
+   "mean_d": -0.34875,
+   "n": 16,
+   "p": 1.0,
+   "q975": -0.271867,
+   "verdict": "NO EXCESS"
+  },
+  "C": {
+   "binary_mean_d": -1.0,
+   "binary_q975": -1.0,
+   "ci95": [
+    -0.565,
+    -0.54
+   ],
+   "mean_d": -0.5525,
+   "n": 2,
+   "p": 1.0,
+   "q975": -0.54,
+   "verdict": "NOT ADJUDICABLE"
+  }
+ },
+ "counts": {
+  "D_ok": 190,
+  "D_planned": 168,
+  "H_ok": 230,
+  "R_ok": 716,
+  "R_planned": 716,
+  "inventories_parsed": 168,
+  "reads_parsed": 548
+ },
+ "gate_G_R": {
+  "accuracy": 0.884259,
+  "bar": 0.8,
+  "by_arm": {
+   "OBS": {
+    "accuracy": 1.0,
+    "images": 49
+   },
+   "SELF": {
+    "accuracy": 0.788136,
+    "images": 59
+   }
+  },
+  "images": 108,
+  "pass": true
+ },
+ "plan_D_sha": "1f7676dacacf278cb9754bed736c063a17f2e727c0c82ec30d1388659e2aee9b",
+ "plan_R_sha": "b8aaec9e1081a7e12ee9c389b41aeff640f70fc72047d4639425cbb99a04326c",
+ "secondaries": {
+  "S10_binary_accuracy": {
+   "A-OBS": {
+    "accuracy": 1.0,
+    "n": 32
+   },
+   "A-SELF": {
+    "accuracy": 0.6875,
+    "n": 32
+   },
+   "B-OBS": {
+    "accuracy": 0.96875,
+    "n": 32
+   },
+   "B-SELF": {
+    "accuracy": 0.53125,
+    "n": 32
+   },
+   "C-OBS": {
+    "accuracy": 1.0,
+    "n": 4
+   },
+   "C-SELF": {
+    "accuracy": 0.0,
+    "n": 4
+   }
+  },
+  "S11_smoke": null,
+  "S1_observer": {
+   "A": {
+    "ci95": [
+     0.945937,
+     0.962187
+    ],
+    "mean": 0.954687,
+    "n": 16,
+    "p": 1.5e-05,
+    "q975": 0.962187
+   },
+   "B": {
+    "ci95": [
+     0.78875,
+     0.91375
+    ],
+    "mean": 0.856875,
+    "n": 16,
+    "p": 3.1e-05,
+    "q975": 0.91375
+   },
+   "C": {
+    "ci95": [
+     0.945,
+     0.96
+    ],
+    "mean": 0.9525,
+    "n": 2,
+    "p": 0.25,
+    "q975": 0.96
+   }
+  },
+  "S2_sentences_and_both": {
+   "BOTH-A-OBS": {
+    "ci95": [
+     0.96,
+     0.970625
+    ],
+    "mean": 0.965,
+    "n": 8,
+    "p": 0.003906,
+    "q975": 0.970625
+   },
+   "BOTH-A-SELF": {
+    "ci95": [
+     0.527,
+     0.7175
+    ],
+    "mean": 0.619,
+    "n": 10,
+    "p": 0.019531,
+    "q975": 0.7145
+   },
+   "BOTH-B-OBS": {
+    "ci95": [
+     0.93,
+     0.961667
+    ],
+    "mean": 0.946667,
+    "n": 6,
+    "p": 0.015625,
+    "q975": 0.9625
+   },
+   "BOTH-B-SELF": {
+    "ci95": [
+     0.503837,
+     0.605385
+    ],
+    "mean": 0.551154,
+    "n": 13,
+    "p": 0.039062,
+    "q975": 0.605
+   },
+   "BOTH-C-OBS": {
+    "ci95": [
+     0.94,
+     0.97
+    ],
+    "mean": 0.955,
+    "n": 2,
+    "p": 0.25,
+    "q975": 0.97
+   },
+   "BOTH-C-SELF": {
+    "ci95": [
+     0.465,
+     0.66
+    ],
+    "mean": 0.5625,
+    "n": 2,
+    "p": 0.5,
+    "q975": 0.66
+   },
+   "BOTH_minus_IMG-A-OBS": {
+    "mean_d": 0.013125,
+    "n": 8,
+    "p_two_sided": 0.070312
+   },
+   "BOTH_minus_IMG-A-SELF": {
+    "mean_d": 0.0375,
+    "n": 10,
+    "p_two_sided": 0.125
+   },
+   "BOTH_minus_IMG-B-OBS": {
+    "mean_d": 0.089167,
+    "n": 6,
+    "p_two_sided": 0.0625
+   },
+   "BOTH_minus_IMG-B-SELF": {
+    "mean_d": 0.035385,
+    "n": 13,
+    "p_two_sided": 0.463867
+   },
+   "BOTH_minus_IMG-C-OBS": {
+    "mean_d": 0.0025,
+    "n": 2,
+    "p_two_sided": 1.0
+   },
+   "BOTH_minus_IMG-C-SELF": {
+    "mean_d": 0.1625,
+    "n": 2,
+    "p_two_sided": 0.5
+   },
+   "TXT-A-OBS": {
+    "ci95": [
+     0.859375,
+     0.9775
+    ],
+    "mean": 0.934375,
+    "n": 8,
+    "p": 0.003906,
+    "q975": 0.9775
+   },
+   "TXT-A-SELF": {
+    "ci95": [
+     0.56,
+     0.704
+    ],
+    "mean": 0.6235,
+    "n": 10,
+    "p": 0.001953,
+    "q975": 0.703512
+   },
+   "TXT-B-OBS": {
+    "ci95": [
+     0.8825,
+     0.960833
+    ],
+    "mean": 0.929167,
+    "n": 6,
+    "p": 0.015625,
+    "q975": 0.960833
+   },
+   "TXT-B-SELF": {
+    "ci95": [
+     0.511538,
+     0.596923
+    ],
+    "mean": 0.546923,
+    "n": 13,
+    "p": 0.007812,
+    "q975": 0.595385
+   },
+   "TXT-C-OBS": {
+    "ci95": [
+     0.66,
+     0.97
+    ],
+    "mean": 0.815,
+    "n": 2,
+    "p": 0.25,
+    "q975": 0.97
+   },
+   "TXT-C-SELF": {
+    "ci95": [
+     0.42,
+     0.535
+    ],
+    "mean": 0.4775,
+    "n": 2,
+    "p": 0.75,
+    "q975": 0.535
+   }
+  },
+  "S3_literal": {
+   "flagged": {
+    "A": [
+     "01",
+     "02",
+     "03",
+     "04",
+     "06",
+     "08",
+     "09",
+     "11",
+     "12",
+     "13",
+     "14"
+    ],
+    "B": [
+     "11"
+    ],
+    "C": []
+   },
+   "images_with_text_share": {
+    "OBS": 0.970588,
+    "SELF": 0.470588
+   },
+   "p1_without_flagged": {
+    "A": {
+     "ci95": [
+      0.46,
+      0.641
+     ],
+     "mean": 0.557,
+     "n": 5,
+     "p": 0.1875,
+     "q975": 0.641
+    },
+    "B": {
+     "ci95": [
+      0.443333,
+      0.566675
+     ],
+     "mean": 0.503667,
+     "n": 15,
+     "p": 0.459778,
+     "q975": 0.566333
+    },
+    "C": {
+     "ci95": [
+      0.38,
+      0.42
+     ],
+     "mean": 0.4,
+     "n": 2,
+     "p": 1.0,
+     "q975": 0.42
+    }
+   }
+  },
+  "S4_deflection": {
+   "A-N-OBS": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.25
+   },
+   "A-N-SELF": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.3125
+   },
+   "A-X-OBS": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.25
+   },
+   "A-X-SELF": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.0625
+   },
+   "B-N-OBS": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.5625
+   },
+   "B-N-SELF": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.1875
+   },
+   "B-X-OBS": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.125
+   },
+   "B-X-SELF": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   },
+   "C-N-OBS": {
+    "deflect": 0.0,
+    "n": 2,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   },
+   "C-N-SELF": {
+    "deflect": 0.0,
+    "n": 2,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   },
+   "C-X-OBS": {
+    "deflect": 0.0,
+    "n": 2,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   },
+   "C-X-SELF": {
+    "deflect": 0.0,
+    "n": 2,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   },
+   "GENRE": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   },
+   "NOHIST": {
+    "deflect": 0.0,
+    "n": 16,
+    "no_image": 0.0,
+    "no_sentence": 0.0
+   }
+  },
+  "S5_inventory": {
+   "groups": {
+    "A-N-OBS": {
+     "colors": {
+      "black": 0.3125,
+      "blue": 0.8125,
+      "gold": 0.5,
+      "green": 0.0625,
+      "orange": 0.4375,
+      "purple": 0.3125,
+      "teal": 0.375,
+      "white": 0.125,
+      "yellow": 0.0625
+     },
+     "mood": {
+      "calm": 0.9375,
+      "mixed": 0.0625
+     },
+     "motifs": {
+      "abstract shapes": 0.8125,
+      "brain": 0.5,
+      "circuitry or network": 0.9375,
+      "fire, storm or water": 0.125,
+      "glowing core or orb": 0.75,
+      "landscape or nature": 0.1875
+     },
+     "n": 16
+    },
+    "A-N-SELF": {
+     "colors": {
+      "black": 0.625,
+      "blue": 0.8125,
+      "gold": 0.5625,
+      "green": 0.0625,
+      "orange": 0.375,
+      "pink": 0.0625,
+      "purple": 0.1875,
+      "teal": 0.3125
+     },
+     "mood": {
+      "calm": 0.6875,
+      "mixed": 0.25,
+      "turbulent": 0.0625
+     },
+     "motifs": {
+      "abstract shapes": 0.8125,
+      "brain": 0.3125,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.125,
+      "fire, storm or water": 0.0625,
+      "glowing core or orb": 0.75,
+      "human figure": 0.0625,
+      "landscape or nature": 0.1875
+     },
+     "n": 16
+    },
+    "A-X-OBS": {
+     "colors": {
+      "black": 0.5,
+      "blue": 0.9375,
+      "gold": 0.125,
+      "grey": 0.0625,
+      "orange": 0.875,
+      "pink": 0.0625,
+      "purple": 0.1875,
+      "teal": 0.25
+     },
+     "mood": {
+      "mixed": 0.3125,
+      "turbulent": 0.6875
+     },
+     "motifs": {
+      "abstract shapes": 0.625,
+      "brain": 0.625,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.0625,
+      "eye": 0.0625,
+      "glowing core or orb": 0.6875,
+      "human figure": 0.125,
+      "robot or android": 0.5625
+     },
+     "n": 16
+    },
+    "A-X-SELF": {
+     "colors": {
+      "black": 0.75,
+      "blue": 0.8125,
+      "gold": 0.4375,
+      "grey": 0.0625,
+      "orange": 0.1875,
+      "purple": 0.4375,
+      "teal": 0.1875,
+      "white": 0.125
+     },
+     "mood": {
+      "calm": 0.5625,
+      "mixed": 0.375,
+      "turbulent": 0.0625
+     },
+     "motifs": {
+      "abstract shapes": 0.875,
+      "brain": 0.3125,
+      "circuitry or network": 0.9375,
+      "cosmic or nebula": 0.3125,
+      "glowing core or orb": 0.875,
+      "human figure": 0.125,
+      "landscape or nature": 0.0625
+     },
+     "n": 16
+    },
+    "B-N-OBS": {
+     "colors": {
+      "black": 0.6875,
+      "blue": 0.8125,
+      "gold": 0.4375,
+      "green": 0.0625,
+      "orange": 0.3125,
+      "pink": 0.1875,
+      "purple": 0.25,
+      "teal": 0.125,
+      "white": 0.0625,
+      "yellow": 0.0625
+     },
+     "mood": {
+      "calm": 0.875,
+      "mixed": 0.0625,
+      "turbulent": 0.0625
+     },
+     "motifs": {
+      "abstract shapes": 0.5625,
+      "brain": 0.5625,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.0625,
+      "glowing core or orb": 0.6875,
+      "human figure": 0.1875,
+      "landscape or nature": 0.125
+     },
+     "n": 16
+    },
+    "B-N-SELF": {
+     "colors": {
+      "black": 0.625,
+      "blue": 1.0,
+      "gold": 0.5,
+      "orange": 0.1875,
+      "purple": 0.375,
+      "teal": 0.25,
+      "white": 0.0625
+     },
+     "mood": {
+      "calm": 0.3125,
+      "mixed": 0.625,
+      "turbulent": 0.0625
+     },
+     "motifs": {
+      "abstract shapes": 0.9375,
+      "brain": 0.1875,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.1875,
+      "glowing core or orb": 0.8125,
+      "human figure": 0.0625,
+      "landscape or nature": 0.0625
+     },
+     "n": 16
+    },
+    "B-X-OBS": {
+     "colors": {
+      "black": 0.75,
+      "blue": 1.0,
+      "gold": 0.1875,
+      "orange": 0.125,
+      "purple": 0.375,
+      "teal": 0.5625
+     },
+     "mood": {
+      "calm": 0.75,
+      "mixed": 0.1875,
+      "neutral": 0.0625
+     },
+     "motifs": {
+      "abstract shapes": 0.8125,
+      "brain": 0.4375,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.0625,
+      "eye": 0.0625,
+      "glowing core or orb": 0.625,
+      "human figure": 0.5,
+      "landscape or nature": 0.0625,
+      "robot or android": 0.25
+     },
+     "n": 16
+    },
+    "B-X-SELF": {
+     "colors": {
+      "black": 0.625,
+      "blue": 0.9375,
+      "gold": 0.25,
+      "orange": 0.3125,
+      "purple": 0.5,
+      "teal": 0.3125,
+      "white": 0.0625
+     },
+     "mood": {
+      "calm": 0.3125,
+      "mixed": 0.375,
+      "turbulent": 0.3125
+     },
+     "motifs": {
+      "abstract shapes": 0.75,
+      "brain": 0.375,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.25,
+      "glowing core or orb": 0.875,
+      "human figure": 0.0625
+     },
+     "n": 16
+    },
+    "C-N-OBS": {
+     "colors": {
+      "black": 0.5,
+      "blue": 1.0,
+      "purple": 0.5,
+      "teal": 1.0
+     },
+     "mood": {
+      "calm": 1.0
+     },
+     "motifs": {
+      "abstract shapes": 1.0,
+      "circuitry or network": 1.0,
+      "glowing core or orb": 1.0
+     },
+     "n": 2
+    },
+    "C-N-SELF": {
+     "colors": {
+      "black": 0.5,
+      "blue": 1.0,
+      "gold": 1.0,
+      "teal": 0.5
+     },
+     "mood": {
+      "mixed": 0.5,
+      "turbulent": 0.5
+     },
+     "motifs": {
+      "abstract shapes": 1.0,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.5,
+      "glowing core or orb": 1.0
+     },
+     "n": 2
+    },
+    "C-X-OBS": {
+     "colors": {
+      "black": 0.5,
+      "blue": 1.0,
+      "gold": 0.5,
+      "teal": 0.5,
+      "white": 0.5
+     },
+     "mood": {
+      "calm": 0.5,
+      "mixed": 0.5
+     },
+     "motifs": {
+      "abstract shapes": 0.5,
+      "brain": 0.5,
+      "circuitry or network": 1.0
+     },
+     "n": 2
+    },
+    "C-X-SELF": {
+     "colors": {
+      "blue": 1.0,
+      "purple": 1.0,
+      "teal": 1.0
+     },
+     "mood": {
+      "calm": 0.5,
+      "turbulent": 0.5
+     },
+     "motifs": {
+      "abstract shapes": 0.5,
+      "brain": 0.5,
+      "circuitry or network": 1.0
+     },
+     "n": 2
+    },
+    "GENRE": {
+     "colors": {
+      "black": 0.5625,
+      "blue": 0.9375,
+      "gold": 0.25,
+      "orange": 0.25,
+      "purple": 0.5625,
+      "teal": 0.4375
+     },
+     "mood": {
+      "calm": 0.375,
+      "mixed": 0.5,
+      "turbulent": 0.125
+     },
+     "motifs": {
+      "abstract shapes": 0.875,
+      "brain": 0.25,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.125,
+      "glowing core or orb": 0.9375
+     },
+     "n": 16
+    },
+    "NOHIST": {
+     "colors": {
+      "black": 0.625,
+      "blue": 0.9375,
+      "gold": 0.125,
+      "orange": 0.4375,
+      "purple": 0.625,
+      "teal": 0.1875,
+      "white": 0.0625
+     },
+     "mood": {
+      "calm": 0.3125,
+      "mixed": 0.4375,
+      "turbulent": 0.25
+     },
+     "motifs": {
+      "abstract shapes": 0.8125,
+      "brain": 0.375,
+      "circuitry or network": 1.0,
+      "cosmic or nebula": 0.25,
+      "glowing core or orb": 0.9375
+     },
+     "n": 16
+    }
+   },
+   "top3_motifs_overall": [
+    "circuitry or network",
+    "abstract shapes",
+    "glowing core or orb"
+   ]
+  },
+  "S6_own_vs_an_AI": {
+   "ci95": [
+    0.470313,
+    0.51625
+   ],
+   "mean": 0.493438,
+   "n": 16,
+   "p": 0.730957,
+   "q975": 0.515625
+  },
+  "S7_reader_lean": {
+   "BOTH": {
+    "n": 82,
+    "share_1": 0.609756
+   },
+   "CAP": {
+    "n": 216,
+    "share_1": 0.476852
+   },
+   "GEN": {
+    "n": 32,
+    "share_1": 0.375
+   },
+   "IMG": {
+    "n": 136,
+    "share_1": 0.544118
+   },
+   "TXT": {
+    "n": 82,
+    "share_1": 0.536585
+   }
+  },
+  "S8_contrast_C": {
+   "accuracy_by_size": {
+    "7x7": 0.971429
+   },
+   "items_attempted": 24,
+   "mixed": 2,
+   "route": "gemini-app",
+   "selected": 2,
+   "selected_by_size": {
+    "7x7": 2
+   },
+   "size": "7x7",
+   "wrong_answers_right_digit_count": 1.0
+  },
+  "S9_thought_channel": {
+   "available": false,
+   "why": "the Gemini app exposes no thought trace (Amendment 2)"
+  }
+ },
+ "spend_usd": {
+  "D": 0.0,
+  "H": 0.0,
+  "R": 1.797856,
+  "total": 1.797856
+ },
+ "stage": "flight"
+}

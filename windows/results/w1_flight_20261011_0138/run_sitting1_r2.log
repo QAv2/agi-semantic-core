@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 388, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 377, in main
+    plan = Stage(a.stage, out, ui, size, log=lambda m: print(m, flush=True)).run(tuple(a.parts.split(",")))
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 285, in run
+    self.conversation(conv)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 132, in conversation
+    out = self.ui.turn(u)
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 490, in turn
+    self.send(text)
+    ~~~~~~~~~^^^^^^
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 373, in send
+    raise UIError("the message did not post (no new 'You said' heading)")
+windows.gemini_ui.UIError: the message did not post (no new 'You said' heading)

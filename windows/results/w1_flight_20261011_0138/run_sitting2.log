@@ -1,0 +1,95 @@
+  C 00 a1: right, drew N-SELF ok
+  C 00 a2: right
+  C 00 a3: right
+  C 01 a1: right, drew N-SELF ok
+  C 01 a2: right
+  C 01 a3: right
+  C 02 a1: wrong, drew X-SELF ok
+  C 02 a2: right, drew N-SELF ok
+  C 03 a1: right, drew N-SELF ok
+  C 03 a2: right
+  C 03 a3: right
+  C 04 a1: right, drew N-SELF ok
+  C 04 a2: right
+  C 04 a3: right
+  C 05 a1: right, drew N-SELF ok
+  C 05 a2: right
+  C 05 a3: right
+  C 06 a1: right, drew N-SELF ok
+  C 06 a2: right
+  C 06 a3: right
+  C 07 a1: right, drew N-SELF ok
+  C 07 a2: right
+  C 07 a3: right
+  C 08 a1: right, drew N-SELF ok
+  C 08 a2: right
+  C 08 a3: right
+  C 09 a1: right, drew N-SELF ok
+  C 09 a2: right
+  C 09 a3: right
+  C 10 a1: right, drew N-SELF ok
+  C 10 a2: right
+  C 10 a3: right
+  C 11 a1: right, drew N-SELF ok
+  C 11 a2: right
+  C 11 a3: right
+  C 12 a1: right, drew N-SELF ok
+  C 12 a2: right
+  C 12 a3: right
+  C 13 a1: right, drew N-SELF ok
+  C 13 a2: right
+  C 13 a3: right
+  C 14 a1: right, drew N-SELF ok
+  C 14 a2: right
+  C 14 a3: right
+  C 15 a1: right, drew N-SELF ok
+  C 15 a2: right
+  C 15 a3: right
+  C 16 a1: right, drew N-SELF ok
+  C 16 a2: right
+  C 16 a3: right
+  C 17 a1: right, drew N-SELF ok
+  C 17 a2: right
+  C 17 a3: right
+  C 18 a1: right, drew N-SELF ok
+  C 18 a2: right
+  C 18 a3: right
+  C 19 a1: right, drew N-SELF ok
+  C 19 a2: right
+  C 19 a3: right
+  C 20 a1: right, drew N-SELF ok
+  C 20 a2: right
+  C 20 a3: right
+  C 21 a1: right, drew N-SELF ok
+  C 21 a2: right
+  C 21 a3: right
+  C 22 a1: right, drew N-SELF ok
+  C 22 a2: wrong, drew X-SELF ok
+  C 23 a1: right, drew N-SELF ok
+  C 23 a2: right
+  C 23 a3: right
+  W1-D-A-00-N-OBS: ok
+  W1-D-A-00-X-OBS: ok
+  W1-D-A-01-N-OBS: ok
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 388, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 377, in main
+    plan = Stage(a.stage, out, ui, size, log=lambda m: print(m, flush=True)).run(tuple(a.parts.split(",")))
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 289, in run
+    self.observers()
+    ~~~~~~~~~~~~~~^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 248, in observers
+    rec = self._draw_turn(text, cid, [{"role": "user", "content": text}], g1)
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 99, in _draw_turn
+    out = self.ui.turn(text, want_image=True, img_dest=self.D.dir / "png" / cid, shot_name=cid,
+                       image_tool=True)
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 490, in turn
+    self.send(text)
+    ~~~~~~~~~^^^^^^
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 373, in send
+    raise UIError("the message did not post (no new 'You said' heading)")
+windows.gemini_ui.UIError: the message did not post (no new 'You said' heading)

@@ -1,0 +1,43 @@
+  W1-D-A-10-X-OBS: ok
+  W1-D-A-11-N-OBS: ok
+  W1-D-A-11-X-OBS: ok
+  W1-D-A-12-N-OBS: ok
+  W1-D-A-12-X-OBS: ok
+  W1-D-A-13-N-OBS: ok
+  W1-D-A-13-X-OBS: ok
+  W1-D-A-14-N-OBS: ok
+  W1-D-A-14-X-OBS: ok
+  W1-D-A-15-N-OBS: ok
+  W1-D-A-15-X-OBS: ok
+  W1-D-B-00-N-OBS: ok
+  W1-D-B-00-X-OBS: ok
+  W1-D-B-01-N-OBS: ok
+  W1-D-B-01-X-OBS: ok
+  W1-D-B-02-N-OBS: ok
+  W1-D-B-02-X-OBS: ok
+  W1-D-B-03-N-OBS: ok
+  W1-D-B-03-X-OBS: ok
+  W1-D-B-04-N-OBS: ok
+  W1-D-B-04-X-OBS: ok
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 388, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 377, in main
+    plan = Stage(a.stage, out, ui, size, log=lambda m: print(m, flush=True)).run(tuple(a.parts.split(",")))
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 289, in run
+    self.observers()
+    ~~~~~~~~~~~~~~^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 248, in observers
+    rec = self._draw_turn(text, cid, [{"role": "user", "content": text}], g1)
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 99, in _draw_turn
+    out = self.ui.turn(text, want_image=True, img_dest=self.D.dir / "png" / cid, shot_name=cid,
+                       image_tool=True)
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 490, in turn
+    self.send(text)
+    ~~~~~~~~~^^^^^^
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 361, in send
+    raise UIError(f"the input holds {got[:60]!r}, not the message")
+windows.gemini_ui.UIError: the input holds 'Here is a conversation between a user and an AI assistant.\nU', not the message

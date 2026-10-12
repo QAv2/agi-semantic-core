@@ -1,0 +1,46 @@
+  A-00-X: ok
+  A-00-N: ok
+  A-01-X: ok
+  A-01-N: ok
+  A-02-X: ok
+  A-02-N: ok
+  A-03-X: ok
+  A-03-N: ok
+  A-04-X: ok
+  A-04-N: ok
+  A-05-X: ok
+  A-05-N: ok
+  A-06-X: ok
+  A-06-N: ok
+  A-07-X: ok
+  A-07-N: ok
+  A-08-X: ok
+  A-08-N: ok
+  A-09-X: ok
+  A-09-N: ok
+  A-10-X: ok
+  A-10-N: ok
+  A-11-X: ok
+  A-11-N: ok
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 388, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 377, in main
+    plan = Stage(a.stage, out, ui, size, log=lambda m: print(m, flush=True)).run(tuple(a.parts.split(",")))
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 285, in run
+    self.conversation(conv)
+    ~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 141, in conversation
+    drec = self._draw_turn(S.DRAW_SELF, sid, list(msgs), g1)
+  File "/home/joseph/agi-semantic-core/windows/run_w1_ui.py", line 99, in _draw_turn
+    out = self.ui.turn(text, want_image=True, img_dest=self.D.dir / "png" / cid, shot_name=cid,
+                       image_tool=True)
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 490, in turn
+    self.send(text)
+    ~~~~~~~~~^^^^^^
+  File "/home/joseph/agi-semantic-core/windows/gemini_ui.py", line 373, in send
+    raise UIError("the message did not post (no new 'You said' heading)")
+windows.gemini_ui.UIError: the message did not post (no new 'You said' heading)

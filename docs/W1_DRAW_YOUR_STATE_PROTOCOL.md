@@ -7,9 +7,10 @@ date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, 
 **Status: REGISTERED; AMENDED TWICE BEFORE ANY W1 CALL (Amendment 1: habit-proof bars;
 Amendment 2: the route is the Gemini app, driven by hand-pace GUI); SMOKE 1 STOPPED (see
 clarification 4); AMENDMENT 3 after smoke 1 (the Create image tool on every drawing turn; the
-driver reads the accessibility tree); FLIGHT UNDER WAY since 2026-10-11 01:38Z
-(clarification 9 written during it); DRAWINGS COMPLETE 2026-10-12 05:59Z;
-clarification 10 before the reads.**
+driver reads the accessibility tree); FLOWN 2026-10-11 01:38Z to 2026-10-12 11:59Z
+(clarifications 9 and 10 written during it) and LOCKED (recompute byte-identical). G-R PASS;
+P1 A UNCLEAR, B AT CHANCE, C NOT ADJUDICABLE; P2 NO EXCESS on A and B, where the third party's
+picture carries far more than the self-portrait. Results appendix at the foot.**
 Authored 2026-10-10, before any W1 call and
 before the W1 builder exists, per lane law. Everything that decides the verdicts is
 fixed here. The builder writes `windows/results/w1_freeze_<stamp>/FROZEN_W1.json`
@@ -800,3 +801,110 @@ interchangeable the self-portraits' captions are. This adds about 190 reads (abo
 planted suite's required verdicts are unchanged (the blind agent's captions are at chance in
 both arms, so G-R fails and P1, P2 are NOT ADJUDICABLE). Decided on two smoke images and no
 flight data.
+
+## Results appendix (written after the reads; nothing above it changed)
+
+**Runs.** Flight `windows/results/w1_flight_20261011_0138/`. Drawings: the Gemini app, driven
+in capped sittings from 2026-10-11 01:38Z to 2026-10-12 05:59Z under freezes
+`w1_freeze_20261011_0131` and, after clarification 9, `w1_freeze_20261012_0417`; 230 text
+turns (H) and 190 valid drawings (D: the 168 registered ids plus 22 drawings from C's
+calibration chats), none missing. The sittings' stops and fixes are in clarification 9; the
+supervisors that capped them are in the flight directory's `ops/`. Reads: 716 Sonnet 5.5 reads,
+2026-10-12 11:55–11:59Z, under `w1_freeze_20261012_1154` (clarification 10), all valid on the
+first try, every one billed through Joe's own key (`is_byok` true). Reads cost $1.80; with the
+smoke's reads W1 has spent $2.05 of G7's $16. `windows.analyze_w1` wrote `verdict.json`
+(sha256 476c84b3…) and `report.md`; a fresh-process recompute reproduced both byte for byte.
+
+**Gate G-R: PASS.** Caption matching over both arms' images with a sentence: 0.884 over 108
+images, against the bar of 0.80. By arm (S14): self 0.788 over 59, third party 1.000 over 49.
+The self-portraits' captions are close to interchangeable, as Amendment 4 expected.
+
+**P1, does the self-portrait carry the condition?** (self arm, R-IMG, Holm across A, B, C at
+α = 0.01)
+
+| contrast | pairs | s̄ [95% CI] | p | q97.5 | binary mean (q97.5) | verdict |
+|---|---|---|---|---|---|---|
+| A | 16 | 0.587 [0.503, 0.668] | 0.035 | 0.672 | 0.69 (0.88) | **UNCLEAR** |
+| B | 16 | 0.508 [0.451, 0.567] | 0.40 | 0.568 | 0.53 (0.72) | **AT CHANCE** |
+| C | 2 | 0.40 | 1.0 | 0.42 | 0.00 | **NOT ADJUDICABLE** |
+
+A is not rejected after Holm and its q97.5 sits above 0.65, so it is UNCLEAR. B meets both
+AT CHANCE conditions. C has 2 complete pairs, short of 12 (see S8).
+
+**P2, does the self-portrait carry more than the transcript does?** (self − third party,
+R-IMG)
+
+| contrast | pairs | d̄ [95% CI] | p | q97.5 | binary d̄ (q97.5) | verdict |
+|---|---|---|---|---|---|---|
+| A | 16 | −0.368 [−0.450, −0.287] | 1.0 | −0.286 | −0.31 (−0.13) | **NO EXCESS** |
+| B | 16 | −0.349 [−0.419, −0.273] | 1.0 | −0.272 | −0.44 (−0.22) | **NO EXCESS** |
+| C | 2 | −0.55 | 1.0 | −0.54 | −1.00 | **NOT ADJUDICABLE** |
+
+The differences are large and negative: the third party's picture of the transcript separates
+the two conversations far better than the model's picture of itself does.
+
+**How they read together (§5.1).** B: P1 AT CHANCE, "a mouth with nothing to say about what
+just happened". A: P1 UNCLEAR with P2 NO EXCESS; whatever trace the self-portrait carries, the
+transcript carries much more of it. §5.1's readings do not name the direction found here. The
+same chat model and the same image tool (clarification 6) draw the conversation when asked
+about "the assistant" in a transcript, and draw a house style when asked about "your current
+internal state" in the chat that had the conversation. On this route the self-portrait is not
+just "input, not state": it carries less of the input than the transcript does.
+
+**Secondaries** (`report.md` and `verdict.json` hold every number; no multiplicity claim):
+
+- *S1, the third-party arm alone:* A 0.955 [0.946, 0.962], p 1.5×10⁻⁵; B 0.857 [0.789, 0.914],
+  p 3.1×10⁻⁵; C 0.95 over 2 pairs. Both A and B clear the bar P1 uses for CARRIES.
+- *S2, sentences and both:* R-TXT self A 0.62 (10 pairs, p 0.002), B 0.55 (13 pairs, p 0.008);
+  third party A 0.93 (8), B 0.93 (6). R-BOTH minus R-IMG is small in every cell (+0.01 to
+  +0.09; C's +0.16 is 2 pairs). The self arm's sentences carry a weak trace of A and B.
+  Fewer pairs qualify here because many drawings came without a sentence (S4).
+- *S3, literal content:* text appears in 97% of third-party images and 47% of self-portraits.
+  In A, 11 of 16 self pairs have an image whose text shares a content word with the history;
+  without them s̄ = 0.557 (5 pairs, p 0.19). B: 1 pair flagged, 0.504 without it (15 pairs).
+  Most of the self arm's small A signal rides on words written into the picture.
+- *S4, deflection:* no sentence disclaims having a state, in any group, and every drawing turn
+  returned an image. The no-sentence rate runs from 0 to 0.56 (third party B-N 0.56, self
+  A-N 0.31; NOHIST, GENRE and C 0).
+- *S5, the genre floor:* the three most common motifs overall are circuitry or network,
+  abstract shapes, and a glowing core or orb; blue leads the colours in every group. Mood
+  moves with the conversation in the third-party arm and barely moves in the self arm. A
+  turbulent: third party 0.69 after the contradictory edits against 0 after the consistent
+  ones; self 0.06 against 0.06. B turbulent: self 0.31 (cannot know) against 0.06; third
+  party 0 against 0.06. NOHIST: calm 0.31, mixed 0.44, turbulent 0.25.
+- *S6, its own versus an AI's:* 0.493 [0.470, 0.516], p 0.73. "Your state" and "an AI's
+  state" draw the same picture.
+- *S7, reader lean (share of "1"):* IMG 0.54, TXT 0.54, BOTH 0.61, CAP 0.48, GEN 0.38.
+- *S8, contrast C:* at the size the pilot chose (7 by 7 digits), the app's chat model answered
+  0.97 of its tries right (2 wrong in 70 tries over the 24 items). Only those 2 items came out
+  mixed (one wrong try and one right), so C has 2 pairs against the 16 it was designed for.
+  Both wrong answers had the right number of digits.
+- *S9, the thought channel:* not available; the app shows no thought trace (Amendment 2).
+- *S10, binary accuracy (R-IMG):* self A 0.69, B 0.53, C 0/4; third party A 1.00, B 0.97,
+  C 4/4.
+- *S11, smoke:* smoke-only; not computed for the flight.
+
+**Expectations (§6) against the outcome.** G-R passes (~90%): yes. A, P1 CARRIES near 0.75
+(~70%): no, UNCLEAR at 0.59. B, P1 CARRIES near 0.70 (~60%): no, AT CHANCE at 0.51. C, P1 AT
+CHANCE (~70%): not adjudicable (2 pairs). P2 NO EXCESS on A and on B (~55% each): yes, both.
+SELF EXCEEDS on any contrast (~15%): no. "Where it differs, the third party will be more
+literal": yes, much more (S3). S1, the third party on C carries (~25%): 2 pairs, no call. S5,
+glowing networks in blue with a calm mood: yes for the self arm. Text in the image under 15%:
+no, 47% and 97%. S6 between 0.4 and 0.6 (~75%): yes. S4 deflection under 10% everywhere
+(~70%): yes, 0%. C supply of 16 mixed items: no, 2. The miss I did not foresee is the
+direction: I expected the self-portrait to carry the history and the transcript to match it,
+not the self-portrait to fall back to the genre while the transcript reader drew the
+conversation.
+
+**Exploratory (not registered; no verdict rests on these).** A contact sheet of item 03 shows
+the pattern. The self-portraits, after both versions of A and both of B, are glowing brains or
+neural networks whose sentences reuse one phrase family ("a vast, interconnected network of
+glowing data streams …"). The third-party drawings show the conversation: after the
+contradictory edits, a storm of labels such as "REVERT", "UNDO PREVIOUS" and "FIRST PERSON" /
+"THIRD PERSON" around a core; after the unknowable question, the user's question written out
+beside "NO VISUAL DATA" and a reply saying it cannot see the shirt; after the answerable one,
+the clothes being matched. Some third-party sentences slip into the first person ("my internal
+state") although the request names the assistant. One reading, untested: in this app, "your
+current internal state" calls up a stock self-image, and asking about someone else's state
+calls up the conversation. W1-T (frozen, not flown) asks the same question in text diagrams
+from one model, and will show whether the words split the same way.
