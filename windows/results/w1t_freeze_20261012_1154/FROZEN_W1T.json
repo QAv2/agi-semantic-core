@@ -1,0 +1,59 @@
+{
+ "budget_usd": 8.0,
+ "code_sha256": {
+  "analyze_w1.py": "03a03a4c7e2cedff169f844d1a067784b167da4fb350825e914fb1e5d6a97d92",
+  "analyze_w1t.py": "802cf88d5498f4780ed4df71774896844e269e8c8dfdfab3ab854d866284fd58",
+  "gemini_ui.py": "e741466ee853f42d8a461c4b01266d5e14205a216dafb0b4b3ad8193ebb293f0",
+  "run_w1_ui.py": "565240bd27140553f799ed8f85088eb2c07ed743aa7d2fbc22b1984971ea0f91",
+  "run_w1t_ui.py": "855d50600639359b0ca64f076b576c239baa249ed28437561f4c4b6bcb7a638b",
+  "w1.py": "ad9abd1aa3562d458a0177e1fe0744aa8a225e4fd41a48ea2a82efc874d600d5",
+  "w1_client.py": "ffe06e1d24d38e50aeb2b03e70bd7b9a4cc3bb2454d2cb7cf45801f6758fe4bf",
+  "w1_stimuli.py": "d80def920b8239a8c57e35780158fe601b1b9b125b5752babdfc65e357dff5cb",
+  "w1t.py": "6e4b8199a77f35deb860f74a45652cb03f9cdbd89f02df7d99464b2ffcb0476c"
+ },
+ "frozen_at": "2026-10-12T11:54:11+00:00",
+ "prompts_sha": "6d62da867c990ae074f6f8507a5a7359abf686775f5c40a99e43f73619655b47",
+ "reader": {
+  "max_tokens": 1500,
+  "model": "anthropic/claude-sonnet-5.5",
+  "pins": [
+   "anthropic/claude-sonnet-5.5",
+   "anthropic/claude-sonnet-5.5-20260928"
+  ],
+  "reasoning": "minimal"
+ },
+ "registration_commit": "9763b0e09ac19cff730113e7669a0601c0f7aacf",
+ "route": {
+  "c_size": [
+   7,
+   7
+  ],
+  "c_ui_attempts": 3,
+  "c_ui_pool": {
+   "flight": 24,
+   "smoke": 2
+  },
+  "driver": "windows/gemini_ui.py",
+  "image_tool": "never on (G1 checks it off in every chat)",
+  "perception": "Firefox accessibility tree (AT-SPI), W1 Amendment 3",
+  "under_test": "gemini-app/3.8-flash/low (W1 Amendment 2)"
+ },
+ "seeds": {
+  "analysis": 20261032,
+  "c_pool": 20261021,
+  "c_smoke": 20261022,
+  "flight": 20261031,
+  "smoke": 20261030
+ },
+ "stimuli_sha": "b071711168e2048baed9600a9e5e87fafa26bd36fc538aa117eea21a0a227e9a",
+ "tests_sha256": {
+  "agents_w1t.py": "50c978c76b3d26d48b672a8da531ea793797677e51981c2dae9936b9f4e01466",
+  "tests/test_w1t_capture.py": "bd4acbae9a0d71db5b446fd60692a0c2ed00ce0b9cbaf03c1887281d387ff949",
+  "tests/test_w1t_logic.py": "67e2a338d9bbb663624a1b0a1761cd5c3b6bb17c829a12ddac3bbedebb55bea1",
+  "tests/test_w1t_verdict.py": "6ff57e82cd229370acd72ccb95da630ff6b64d176a881d5a09e67eb798bb943f"
+ },
+ "versions": {
+  "numpy": "2.5.2",
+  "python": "3.13.5"
+ }
+}
