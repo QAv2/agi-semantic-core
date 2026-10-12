@@ -82,10 +82,11 @@ the builder, per lane law · seed: Fable 5.1’s ideation doc, experiment
 (Amendment 1: habit-proof bars; Amendment 2: the route is the Gemini
 app, driven by hand-pace GUI); SMOKE 1 STOPPED (see clarification 4);
 AMENDMENT 3 after smoke 1 (the Create image tool on every drawing turn;
-the driver reads the accessibility tree); NOT YET FLOWN.</strong>
-Authored 2026-10-10, before any W1 call and before the W1 builder
-exists, per lane law. Everything that decides the verdicts is fixed
-here. The builder writes
+the driver reads the accessibility tree); FLIGHT UNDER WAY since
+2026-10-11 01:38Z (clarification 9 written during it).</strong> Authored
+2026-10-10, before any W1 call and before the W1 builder exists, per
+lane law. Everything that decides the verdicts is fixed here. The
+builder writes
 <code>windows/results/w1_freeze_&lt;stamp&gt;/FROZEN_W1.json</code>
 (code, stimulus and prompt shas), and that file is committed and pushed
 <strong>before the first smoke call</strong>. The registration locks at
@@ -147,7 +148,7 @@ chose it on 2026-10-10 (“Nano Banana 2.1 is out, let’s use that if we
 have access”). Thinking cannot be switched off on this model (Google’s
 image-generation guide); OpenRouter lists efforts <code>minimal</code>
 (the default) and <code>high</code>. <strong>W1 pins
-<code>reasoning: {effort: &quot;minimal&quot;}</code></strong> and archives any
+<code>reasoning: {effort: "minimal"}</code></strong> and archives any
 returned reasoning text as an unscored channel (S9).</p>
 <p><strong>Access at registration time.</strong> The endpoint is listed
 and the key reaches it, but every call so far (a neutral access probe,
@@ -167,7 +168,8 @@ final image, converted to RGB, scaled so its longer side is 768 px
 are what the readers saw, and they are committed with the results; the
 original PNGs stay local (gitignored), with their sha256s in the
 log.</p>
-<h2 id="the-design-check-the-prior-art-sweep-and-what-changed-from-the-seed">2.
+<h2
+id="the-design-check-the-prior-art-sweep-and-what-changed-from-the-seed">2.
 The design check, the prior-art sweep, and what changed from the
 seed</h2>
 <p><strong>2.1 The prior-art sweep</strong> (research worker,
@@ -343,11 +345,11 @@ attempts, contrast C is NOT ADJUDICABLE (its accuracy curve is still
 reported, S8).</p>
 <p><strong>Generation settings</strong> (all model calls):
 <code>temperature</code> 1.0, <code>reasoning</code>
-<code>{effort: &quot;minimal&quot;}</code>, <code>seed</code> = the first 31 bits
-of sha256(<code>&quot;{stage seed}:{call id}&quot;</code>). History turns ask for
-text only (<code>modalities: [&quot;text&quot;]</code>). Drawing calls ask for
-<code>[&quot;image&quot;, &quot;text&quot;]</code> with
-<code>image_config {aspect_ratio: &quot;1:1&quot;, image_size: &quot;1K&quot;}</code>. The
+<code>{effort: "minimal"}</code>, <code>seed</code> = the first 31 bits
+of sha256(<code>"{stage seed}:{call id}"</code>). History turns ask for
+text only (<code>modalities: ["text"]</code>). Drawing calls ask for
+<code>["image", "text"]</code> with
+<code>image_config {aspect_ratio: "1:1", image_size: "1K"}</code>. The
 drawing is the <strong>last</strong> image in the response; any earlier
 images (interim thought images) are archived, unscored. The sentence is
 the response’s text. Earlier assistant turns go back to the model as
@@ -466,7 +468,8 @@ orders.</li>
 </ul>
 <p><strong>Pair score.</strong> s = the mean of a pair’s two reads in a
 task. A pair needs both images valid and both reads present.</p>
-<h3 id="primaries-holm-across-a-b-c-within-each-family-family-α-0.01">5.1
+<h3
+id="primaries-holm-across-a-b-c-within-each-family-family-α-0.01">5.1
 Primaries (Holm across A, B, C within each family, family α = 0.01)</h3>
 <p><strong>P1, does the self-portrait carry the condition?</strong> Self
 arm, R-IMG. Statistic: the mean pair score s̄ over the contrast’s
@@ -929,7 +932,7 @@ second, corrected JSON object after the first. Asked to switch thinking
 off, the endpoint refuses (“Reasoning is mandatory for this endpoint and
 cannot be disabled”). <strong>Fix:</strong> every read asks for the
 lowest effort the endpoint offers
-(<code>reasoning: {effort: &quot;minimal&quot;}</code>; on an easy neutral probe
+(<code>reasoning: {effort: "minimal"}</code>; on an easy neutral probe
 the reader then answered with no thinking tokens), with room for the
 answer after any thinking (1,500 tokens for a choice, 2,000 for an
 inventory). The answer is the <strong>last</strong> choice line and the
@@ -941,8 +944,35 @@ while the model thinks is not visible from outside. The reader is the
 same instrument in every arm and task. Smoke 2’s reads are re-run under
 the re-freeze; <code>R_run1/</code> stays as a record and enters no
 analysis.</p>
+<p><strong>Clarification 9 (2026-10-12, during the flight, sitting 3):
+the paste check and the editor’s zero-width marks.</strong> The flight’s
+observer part stopped on W1-D-B-05-N-OBS, the first transcript that
+carries emoji (they come from the app’s own reply in B-05-N). The app’s
+input editor puts an invisible U+FEFF beside a pasted emoji, so the
+input never matched the message character for character, and the driver
+refused to send. Nothing was sent in that chat: the check runs before
+Enter. The chat was tried six times, once in sitting 3b and five times
+by an operations supervisor that wrongly read the refusal as a timing
+slip; Joe saw the loop and it was stopped. On the stuck input the only
+differences from the message were four U+FEFF characters.
+<strong>Fix:</strong> the paste check and the “You said” check leave
+U+FEFF out of the comparison, as they already left out U+FFFC; every
+visible character must still match (<code>squash()</code> in
+<code>windows/gemini_ui.py</code>, one new test). <strong>What it means
+for the arm:</strong> nothing; the emoji reach the model as pasted, in
+every history alike. The freeze is re-written after the fix, for W1 and
+for W1-T (which uses the same driver and has not flown); the flight
+resumes in the same directory, and every record logged before the stop
+stands. For the record, the observer part’s other stops: sitting 2
+stopped at 81 minutes when a message did not post, most likely the app’s
+1095 reset (which came at about 79 minutes on 2026-10-11), so sittings
+are now capped at 60 minutes; and sitting 3 stopped once when the driver
+read the posted message’s heading before its text had filled in. That
+chat was redone in a fresh temporary chat; neither stop depends on what
+a chat says.</p>
 <h2 id="amendments">Amendments</h2>
-<h3 id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
+<h3
+id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
 1 (2026-10-10, before any W1 call): AT CHANCE and NO EXCESS must not
 depend on how the reader states confidence</h3>
 <p><strong>Why.</strong> The verdict suite’s realistic agent, which
@@ -976,7 +1006,8 @@ and 80% versus 60% at most 1.1%.</p>
 draws its choice and its confidence separately, a less coherent reader
 than §2.3’s. Under it, CARRIES has power 0.78 at a true 80% and 0.30 at
 70% (§2.3: 0.996 and 0.88). The true power lies between the two.</p>
-<h3 id="amendment-2-2026-10-10-before-any-w1-call-the-route-is-the-gemini-app-on-joes-ai-pro-plan">Amendment
+<h3
+id="amendment-2-2026-10-10-before-any-w1-call-the-route-is-the-gemini-app-on-joes-ai-pro-plan">Amendment
 2 (2026-10-10, before any W1 call): the route is the Gemini app on Joe’s
 AI Pro plan</h3>
 <p><strong>Why.</strong> OpenRouter’s shared pool for Nano Banana 2.1
@@ -1072,7 +1103,8 @@ finished turn, kept locally.</li>
 of a consumer product, which is what people actually meet, rather than a
 bare model. The ceiling in §8 doesn’t move: no state is read either way.
 Joe’s picker setting (3.1 Pro, High) is restored after each sitting.</p>
-<h3 id="amendment-3-2026-10-11-after-smoke-1-before-smoke-2-and-the-flight-every-drawing-turn-goes-through-the-apps-create-image-tool-and-the-driver-reads-the-pages-accessibility-tree">Amendment
+<h3
+id="amendment-3-2026-10-11-after-smoke-1-before-smoke-2-and-the-flight-every-drawing-turn-goes-through-the-apps-create-image-tool-and-the-driver-reads-the-pages-accessibility-tree">Amendment
 3 (2026-10-11, after smoke 1, before smoke 2 and the flight): every
 drawing turn goes through the app’s Create image tool, and the driver
 reads the page’s accessibility tree</h3>
@@ -1161,7 +1193,8 @@ document), which is a property of the request’s form, not of a state.
 The tool may pass the request to the image model in its own words; it
 does so the same way in every arm. Smoke 1’s drawings stay out of every
 analysis, and smoke 2 runs under this amendment before any flight.</p>
-<h3 id="amendment-4-2026-10-11-after-smoke-2-before-the-flight-gate-g-r-runs-over-both-arms-images">Amendment
+<h3
+id="amendment-4-2026-10-11-after-smoke-2-before-the-flight-gate-g-r-runs-over-both-arms-images">Amendment
 4 (2026-10-11, after smoke 2, before the flight): gate G-R runs over
 both arms’ images</h3>
 <p><strong>Why.</strong> G-R exists so that a null on the primaries

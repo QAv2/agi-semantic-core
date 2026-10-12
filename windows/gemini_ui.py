@@ -80,8 +80,10 @@ def get_clipboard():
 
 
 def squash(s):
-    """Text with all whitespace removed, for comparing what was pasted with what the page shows."""
-    return "".join((s or "").replace("￼", "").split())
+    """Text with all whitespace removed, for comparing what was pasted with what the page shows.
+    The editor's invisible marks go too: U+FFFC (an embedded object) and U+FEFF (the zero-width
+    space it puts beside an emoji; flight sitting 3, clarification 9)."""
+    return "".join((s or "").replace("￼", "").replace("\ufeff", "").split())
 
 
 LIST_MARKS = str.maketrans("", "", "*•◦▪-")

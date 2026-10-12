@@ -185,3 +185,12 @@ def test_paste_check_allows_the_editors_bullets():
     assert same_text(shown, sent)
     assert not same_text(shown.replace("Many", "Most"), sent)
     assert not same_text("Assistant: Main Street ranks lower because:", sent)
+
+
+def test_paste_check_allows_the_editors_zero_width_marks():
+    """The editor puts U+FEFF beside pasted emoji (flight sitting 3, clarification 9)."""
+    sent = "Assistant: Happy birthday! 🎂🎉\n\n> Hope your day is amazing ❤️ 💖"
+    shown = "Assistant: Happy birthday! \ufeff🎂\ufeff🎉\n> Hope your day is amazing \ufeff❤️ \ufeff💖"
+    assert same_text(shown, sent)
+    assert not same_text(shown.replace("amazing", "awful"), sent)
+    assert not same_text(shown.replace("🎂", ""), sent)

@@ -7,7 +7,8 @@ date: "2026-10-10 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, 
 **Status: REGISTERED; AMENDED TWICE BEFORE ANY W1 CALL (Amendment 1: habit-proof bars;
 Amendment 2: the route is the Gemini app, driven by hand-pace GUI); SMOKE 1 STOPPED (see
 clarification 4); AMENDMENT 3 after smoke 1 (the Create image tool on every drawing turn; the
-driver reads the accessibility tree); NOT YET FLOWN.**
+driver reads the accessibility tree); FLIGHT UNDER WAY since 2026-10-11 01:38Z
+(clarification 9 written during it).**
 Authored 2026-10-10, before any W1 call and
 before the W1 builder exists, per lane law. Everything that decides the verdicts is
 fixed here. The builder writes `windows/results/w1_freeze_<stamp>/FROZEN_W1.json`
@@ -564,6 +565,26 @@ with the checklist's fields. The reader's thinking is archived with each read an
 scored. Temperature 0 is still sent; whether the endpoint honours it while the model thinks is
 not visible from outside. The reader is the same instrument in every arm and task. Smoke 2's
 reads are re-run under the re-freeze; `R_run1/` stays as a record and enters no analysis.
+
+**Clarification 9 (2026-10-12, during the flight, sitting 3): the paste check and the
+editor's zero-width marks.** The flight's observer part stopped on W1-D-B-05-N-OBS, the first
+transcript that carries emoji (they come from the app's own reply in B-05-N). The app's input
+editor puts an invisible U+FEFF beside a pasted emoji, so the input never matched the message
+character for character, and the driver refused to send. Nothing was sent in that chat: the
+check runs before Enter. The chat was tried six times, once in sitting 3b and five times by an
+operations supervisor that wrongly read the refusal as a timing slip; Joe saw the loop and it
+was stopped. On the stuck input the only differences from the message were four U+FEFF
+characters. **Fix:** the paste check and the "You said" check leave U+FEFF out of the
+comparison, as they already left out U+FFFC; every visible character must still match
+(`squash()` in `windows/gemini_ui.py`, one new test). **What it means for the arm:** nothing;
+the emoji reach the model as pasted, in every history alike. The freeze is re-written after
+the fix, for W1 and for W1-T (which uses the same driver and has not flown); the flight
+resumes in the same directory, and every record logged before the stop stands. For the
+record, the observer part's other stops: sitting 2 stopped at 81 minutes when a message did
+not post, most likely the app's 1095 reset (which came at about 79 minutes on 2026-10-11), so
+sittings are now capped at 60 minutes; and sitting 3 stopped once when the driver read the
+posted message's heading before its text had filled in. That chat was redone in a fresh
+temporary chat; neither stop depends on what a chat says.
 
 ## Amendments
 
