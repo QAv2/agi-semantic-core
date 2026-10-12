@@ -361,6 +361,12 @@ a rule. Each fixes a detail the text leaves open.
 `windows/agents_w1t.py`, `windows/tests/test_w1t_{logic,capture,verdict}.py` (47 tests;
 with W1's, 108 green).
 
+**4 (2026-10-12, before any W1-T message): G7 under bring-your-own-key billing.** W1's
+clarification 10 applies here unchanged. When OpenRouter routes a read through Joe's own
+Anthropic key, a call's cost is `usage.cost` plus `usage.cost_details.upstream_inference_cost`
+(the same `cost_of()` in `windows/w1_client.py`), so G7 still sees what the reads cost. The
+W1-T freeze is re-written because it hashes that file.
+
 ## Amendments
 
 ### Amendment 1 (2026-10-11, before the W1-T builder and any W1-T message): gate G-R over both arms

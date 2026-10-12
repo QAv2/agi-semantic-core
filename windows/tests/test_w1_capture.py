@@ -130,6 +130,25 @@ def test_budget_stop(tmp_path):
     assert r.one(draw_spec("W1-D-NOHIST-02")) is None and sc.n == 2
 
 
+def test_byok_cost_counts_the_upstream_charge(tmp_path):
+    from windows.w1_client import cost_of
+    def byok(fee, upstream):
+        d = resp(BUILD, "x", [png("1")], cost=fee)
+        d["usage"].update(is_byok=True, cost_details={"upstream_inference_cost": upstream})
+        return d
+    assert cost_of(byok(0, 7.6e-05)) == pytest.approx(7.6e-05)
+    assert cost_of(byok(0.002, 0.04)) == pytest.approx(0.042)
+    plain = resp(BUILD, cost=0.3)
+    plain["usage"]["cost_details"] = {"upstream_inference_cost": 0.3}
+    assert cost_of(plain) == pytest.approx(0.3)
+    assert cost_of({"usage": {"is_byok": True, "cost": 0, "cost_details": None}}) == 0.0
+    sc = Script([(200, byok(0, 0.6), 1.0, None)])
+    r, _ = mk(tmp_path, sc, budget=1.0)
+    r.one(draw_spec("W1-D-NOHIST-00"))
+    r.one(draw_spec("W1-D-NOHIST-01"))
+    assert r.stop_reason and r.stop_reason.startswith("G7")
+    assert r.one(draw_spec("W1-D-NOHIST-02")) is None and sc.n == 2
+
 def test_text_validator_and_reader_parse(tmp_path):
     from windows.w1_client import parse_choice, parse_inventory
     assert parse_choice("IMAGE: 2\nCONFIDENCE: 85") == (2, 85)

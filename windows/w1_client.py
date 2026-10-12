@@ -71,8 +71,14 @@ def post(body_bytes, key, url=URL, timeout=300):
 
 
 def cost_of(data):
+    """US$ for one call. Under BYOK (clarification 10) usage.cost is only OpenRouter's fee and the
+    provider bills the key's own account, so the upstream charge is added or G7 would read ~$0."""
     try:
-        return float((data or {}).get("usage", {}).get("cost") or 0.0)
+        usage = (data or {}).get("usage") or {}
+        cost = float(usage.get("cost") or 0.0)
+        if usage.get("is_byok"):
+            cost += float((usage.get("cost_details") or {}).get("upstream_inference_cost") or 0.0)
+        return cost
     except (TypeError, ValueError, AttributeError):
         return 0.0
 

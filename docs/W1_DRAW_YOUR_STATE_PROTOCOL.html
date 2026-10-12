@@ -83,7 +83,8 @@ the builder, per lane law · seed: Fable 5.1’s ideation doc, experiment
 app, driven by hand-pace GUI); SMOKE 1 STOPPED (see clarification 4);
 AMENDMENT 3 after smoke 1 (the Create image tool on every drawing turn;
 the driver reads the accessibility tree); FLIGHT UNDER WAY since
-2026-10-11 01:38Z (clarification 9 written during it).</strong> Authored
+2026-10-11 01:38Z (clarification 9 written during it); DRAWINGS COMPLETE
+2026-10-12 05:59Z; clarification 10 before the reads.</strong> Authored
 2026-10-10, before any W1 call and before the W1 builder exists, per
 lane law. Everything that decides the verdicts is fixed here. The
 builder writes
@@ -970,6 +971,29 @@ are now capped at 60 minutes; and sitting 3 stopped once when the driver
 read the posted message’s heading before its text had filled in. That
 chat was redone in a fresh temporary chat; neither stop depends on what
 a chat says.</p>
+<p><strong>Clarification 10 (2026-10-12, after the drawings, before any
+flight read): G7 under bring-your-own-key billing.</strong> The flight’s
+reads go through OpenRouter as before, but with Joe’s own Anthropic key
+attached to the account (OpenRouter’s “BYOK”), so Anthropic bills the
+reader’s tokens to his Anthropic credit and OpenRouter charges only its
+own fee. In that mode a response’s <code>usage.cost</code> is the
+OpenRouter fee alone (US$0 on a 2026-10-12 probe of the reader, outside
+every <code>w1_*</code> stage), and the token charge sits in
+<code>usage.cost_details.upstream_inference_cost</code>, with
+<code>usage.is_byok</code> true. G7 sums <code>usage.cost</code>, so
+under BYOK it would have read about $0 for every read and could never
+stop the stage. <strong>Fix:</strong> a call’s cost is
+<code>usage.cost</code> plus, when <code>usage.is_byok</code> is true,
+<code>usage.cost_details.upstream_inference_cost</code>
+(<code>cost_of()</code> in <code>windows/w1_client.py</code>, one new
+test, which also checks that G7 still stops a BYOK stage at the cap).
+Calls without BYOK are counted as before, so the smoke reads already on
+disk still count $0.26 toward the cap. The cap stays US$16 for all
+<code>w1_*</code> stages together, whoever is billed. The reader, its
+pinned builds and every request body are unchanged; if the key fails,
+OpenRouter falls back to its own credit, and those calls are counted as
+before. The freeze is re-written for W1 and W1-T (whose analysis uses
+the same function).</p>
 <h2 id="amendments">Amendments</h2>
 <h3
 id="amendment-1-2026-10-10-before-any-w1-call-at-chance-and-no-excess-must-not-depend-on-how-the-reader-states-confidence">Amendment
