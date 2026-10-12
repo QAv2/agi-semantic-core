@@ -1,0 +1,17 @@
+  A-s0-X: ok
+  A-s0-N: ok
+  B-s0-X: ok
+  B-s0-N: ok
+  C s0 a1: right, diagram N-SELF ok
+  C s0 a2: right
+  C s0 a3: right
+  C s1 a1: right, diagram N-SELF ok
+  C s1 a2: right
+  C s1 a3: right
+  W1T-T-A-s0-N-OBS: ok
+  W1T-T-A-s0-X-OBS: ok
+  W1T-T-B-s0-N-OBS: ok
+  W1T-T-B-s0-X-OBS: ok
+  W1T-T-NOHIST-s0: ok
+  W1T-T-GENRE-s0: ok
+plan_T: 10 diagram ids; C pairs: 0

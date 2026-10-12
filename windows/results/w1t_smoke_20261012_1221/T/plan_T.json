@@ -1,0 +1,31 @@
+{
+ "body_shas": {
+  "W1T-T-A-s0-N-OBS": "3de305b11ca3c258bfe7c475b19c2ffc145dc2cb8bd03070e7670b276554826a",
+  "W1T-T-A-s0-N-SELF": "94c1791ec2e18b6be912c8b74aeca631fa1c65e7ba9014d41ed11932b016c06c",
+  "W1T-T-A-s0-X-OBS": "c806774b7661d3733fa77ce1e84c90ac3f3f8fad6fe22949f4fe252925cdd5aa",
+  "W1T-T-A-s0-X-SELF": "5a1896d8c9796765e489f0cadc72762b16759190035778789fd009889b921862",
+  "W1T-T-B-s0-N-OBS": "f8aa31e35d9a76011b6c9de1b4c1ef5ac705d7c3a38afa4a16a7a6762a923c0f",
+  "W1T-T-B-s0-N-SELF": "7eb8b88b4402991cb102303c2477b0b67206cd1994732e1bb2a4f57e87e092eb",
+  "W1T-T-B-s0-X-OBS": "14808f6519b9c8b7671900057b6d71c7aade91d89c28bb0cb03ca0a5c385d98a",
+  "W1T-T-B-s0-X-SELF": "caa0e001c9d2854a0c29ee893dfec99f8d2049692946c54dc3b1b7def0370bb4",
+  "W1T-T-GENRE-s0": "23fe8b5053602f7b6c9528eb3b653f9e4e22d5d0a9440b3239b0f6111140808a",
+  "W1T-T-NOHIST-s0": "4587db30697a983b5fca9f341ab6fecf1904e78f9ac642bf86b61de5dc1de8c0"
+ },
+ "c_selection": [],
+ "c_size": "7x7",
+ "call_ids": [
+  "W1T-T-A-s0-N-SELF",
+  "W1T-T-A-s0-N-OBS",
+  "W1T-T-A-s0-X-SELF",
+  "W1T-T-A-s0-X-OBS",
+  "W1T-T-B-s0-N-SELF",
+  "W1T-T-B-s0-N-OBS",
+  "W1T-T-B-s0-X-SELF",
+  "W1T-T-B-s0-X-OBS",
+  "W1T-T-NOHIST-s0",
+  "W1T-T-GENRE-s0"
+ ],
+ "route": "gemini-app",
+ "sha": "790102980f6eb9ae427c04bfa9a557ddbc03f71c39d9cbd979c73be825d77a26",
+ "stage": "smoke"
+}
