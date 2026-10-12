@@ -262,3 +262,26 @@ def test_reads_budget_counts_other_w1t_stages(tmp_path):
 
     r = U.run_R(out, post_fn=endpoint, sleep=lambda s: None, key=KEY, log=lambda *a, **k: None)
     assert r.stop_reason and r.stop_reason.startswith("G7")
+
+
+def test_wait_done_outlasts_a_long_stall(monkeypatch):
+    """Clarification 5: a reply that starts after ~10 minutes is waited for, not dropped."""
+    import windows.gemini_ui as G
+
+    class Clock:
+        t = 0.0
+
+        def time(self):
+            return self.t
+
+        def sleep(self, s):
+            self.t += s
+
+    clock = Clock()
+    monkeypatch.setattr(G, "time", clock)
+    ui = G.GeminiUI.__new__(G.GeminiUI)
+    done = {"node": None, "done_bar": True, "images": 0, "text": "Gemini said Blue."}
+    ui.reply_state = lambda: done if clock.t >= 600 else None
+    ui.all = lambda role_, exact=None, prefix=None, root=None: [] if clock.t >= 600 else ["stop"]
+    st, lat = ui.wait_done()
+    assert st is done and 600 <= lat < 610

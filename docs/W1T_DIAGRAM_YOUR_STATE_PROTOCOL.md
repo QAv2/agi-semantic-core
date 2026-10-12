@@ -4,7 +4,7 @@ subtitle: "W1's sibling in a text medium. The same conversations, the same blind
 date: "2026-10-11 · Opus 5.5 · ORC lane · idea: Joe (watching W1 smoke 1) · pre-registered BEFORE the builder, per lane law · sibling of W1 (docs/W1_DRAW_YOUR_STATE_PROTOCOL.md)"
 ---
 
-**Status: REGISTERED; BUILT (frozen before any message); NOT FLOWN.** Authored 2026-10-11, before any W1-T
+**Status: REGISTERED; BUILT (frozen before any message); SMOKE GO (2026-10-12); FLIGHT UNDER WAY (clarification 5).** Authored 2026-10-11, before any W1-T
 message and before the W1-T builder exists, per lane law. Everything that decides the
 verdicts is fixed here or by reference to W1's registration, as amended (Amendments 1–3),
 which W1-T inherits wherever this file does not say otherwise. The builder writes
@@ -366,6 +366,21 @@ clarification 10 applies here unchanged. When OpenRouter routes a read through J
 Anthropic key, a call's cost is `usage.cost` plus `usage.cost_details.upstream_inference_cost`
 (the same `cost_of()` in `windows/w1_client.py`), so G7 still sees what the reads cost. The
 W1-T freeze is re-written because it hashes that file.
+
+**5 (2026-10-12, during the flight, after sitting 1b): the reply wait.** Twice on the first
+flight day the app took about 8 and 9.5 minutes to start a reply: turn 2 of A-00-N in sitting
+1, and turn 2 of A-01-N in sitting 1b. Both times the message posted, the spinner ran with no
+text, and a normal reply came in afterwards. The same A-00-N message went through in seconds
+in sitting 1b, and the machine was not short of memory, so the wait does not depend on what a
+chat says. The driver gave up after 240 s, so each sitting stopped and its open chat was
+dropped. A chat is logged only when it is complete, so nothing partial was kept, and A-00-N
+was redone from a fresh temporary chat. **Fix:** the driver waits up to 900 s for a reply to
+finish (`wait_done()` in `windows/gemini_ui.py`, one new test). Restarting a stalled chat
+instead was rejected, because it would open a new chat while the old request was still
+queued on Joe's account. **What it means for the arms:** nothing. How long a reply takes is
+neither recorded nor measured, and every rule, stimulus and record is unchanged. The W1-T
+freeze is re-written; W1's is not, because W1 is locked. Sittings resume in the same
+directory, and the three conversations logged before this change stand.
 
 ## Amendments
 

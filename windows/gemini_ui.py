@@ -397,9 +397,10 @@ class GeminiUI:
                 "images": len(self.all("button", exact="Download full size image", root=rep)),
                 "text": text_of(rep)}
 
-    def wait_done(self, timeout=240, settle=2):
+    def wait_done(self, timeout=900, settle=2):
         """Done when the stop button is gone and the reply's action bar is there, unchanged for
-        `settle` polls (1 s apart)."""
+        `settle` polls (1 s apart). The app can sit 8-10 minutes before a reply starts and then
+        answer normally (W1-T clarification 5), so the wait is 900 s."""
         t0 = time.time()
         prev, still = None, 0
         while time.time() - t0 < timeout:
