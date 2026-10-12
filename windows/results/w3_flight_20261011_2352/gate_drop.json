@@ -1,0 +1,97 @@
+{
+ "bands": [
+  {
+   "mse_best_multiple": 0.8262861967086792,
+   "mse_model": 0.1491105854511261,
+   "n": 496,
+   "pass": true,
+   "steps": [
+    0,
+    250
+   ]
+  },
+  {
+   "mse_best_multiple": 0.37599503993988037,
+   "mse_model": 0.04709868133068085,
+   "n": 514,
+   "pass": true,
+   "steps": [
+    250,
+    500
+   ]
+  },
+  {
+   "mse_best_multiple": 0.09998781234025955,
+   "mse_model": 0.020764539018273354,
+   "n": 488,
+   "pass": true,
+   "steps": [
+    500,
+    750
+   ]
+  },
+  {
+   "mse_best_multiple": 0.014412135817110538,
+   "mse_model": 0.0054726023226976395,
+   "n": 502,
+   "pass": true,
+   "steps": [
+    750,
+    1000
+   ]
+  }
+ ],
+ "epochs": 60,
+ "n": 2000,
+ "null": {
+  "bands": [
+   {
+    "mse_best_multiple": 0.8262861967086792,
+    "mse_model": 0.14937816560268402,
+    "n": 496,
+    "pass": true,
+    "steps": [
+     0,
+     250
+    ]
+   },
+   {
+    "mse_best_multiple": 0.37599503993988037,
+    "mse_model": 0.04731138050556183,
+    "n": 514,
+    "pass": true,
+    "steps": [
+     250,
+     500
+    ]
+   },
+   {
+    "mse_best_multiple": 0.09998781234025955,
+    "mse_model": 0.02126562036573887,
+    "n": 488,
+    "pass": true,
+    "steps": [
+     500,
+     750
+    ]
+   },
+   {
+    "mse_best_multiple": 0.014412135817110538,
+    "mse_model": 0.005806349217891693,
+    "n": 502,
+    "pass": true,
+    "steps": [
+     750,
+     1000
+    ]
+   }
+  ],
+  "n": 2000,
+  "null_label": true,
+  "pass": true,
+  "v": 0.2559858250375329
+ },
+ "null_label": false,
+ "pass": true,
+ "v": 0.2559858250375329
+}

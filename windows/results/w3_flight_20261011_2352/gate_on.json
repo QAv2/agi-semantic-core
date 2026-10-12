@@ -1,0 +1,49 @@
+{
+ "bands": [
+  {
+   "mse_best_multiple": 0.8262861967086792,
+   "mse_model": 0.1486639380455017,
+   "n": 496,
+   "pass": true,
+   "steps": [
+    0,
+    250
+   ]
+  },
+  {
+   "mse_best_multiple": 0.37599503993988037,
+   "mse_model": 0.0469752736389637,
+   "n": 514,
+   "pass": true,
+   "steps": [
+    250,
+    500
+   ]
+  },
+  {
+   "mse_best_multiple": 0.09998781234025955,
+   "mse_model": 0.020701002329587936,
+   "n": 488,
+   "pass": true,
+   "steps": [
+    500,
+    750
+   ]
+  },
+  {
+   "mse_best_multiple": 0.014412135817110538,
+   "mse_model": 0.0054359170608222485,
+   "n": 502,
+   "pass": true,
+   "steps": [
+    750,
+    1000
+   ]
+  }
+ ],
+ "epochs": 60,
+ "n": 2000,
+ "null_label": false,
+ "pass": true,
+ "v": 0.2559858250375329
+}

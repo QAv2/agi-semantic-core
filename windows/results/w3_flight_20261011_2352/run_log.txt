@@ -1,0 +1,203 @@
+23:52:34 start flight; code {"w3_spec.py": "c6decb8e07b6", "w3_model.py": "a274bbff7db6", "w3_core.py": "79607f7d7749"}
+23:52:51 resume self-test: PASS
+23:54:06   on epoch 1/60: loss 0.2957, 0.191 s/step
+23:55:24   on epoch 2/60: loss 0.0809, 0.199 s/step
+23:56:42   on epoch 3/60: loss 0.0716, 0.200 s/step
+23:58:00   on epoch 4/60: loss 0.0679, 0.200 s/step
+23:59:18   on epoch 5/60: loss 0.0663, 0.200 s/step
+00:00:37   on epoch 6/60: loss 0.0647, 0.200 s/step
+00:01:55   on epoch 7/60: loss 0.0634, 0.200 s/step
+00:03:14   on epoch 8/60: loss 0.0634, 0.200 s/step
+00:04:32   on epoch 9/60: loss 0.0626, 0.200 s/step
+00:05:50   on epoch 10/60: loss 0.0623, 0.200 s/step
+00:07:09   on epoch 11/60: loss 0.0610, 0.200 s/step
+00:08:28   on epoch 12/60: loss 0.0604, 0.200 s/step
+00:09:46   on epoch 13/60: loss 0.0609, 0.200 s/step
+00:11:04   on epoch 14/60: loss 0.0604, 0.200 s/step
+00:12:22   on epoch 15/60: loss 0.0607, 0.200 s/step
+00:13:41   on epoch 16/60: loss 0.0606, 0.200 s/step
+00:14:59   on epoch 17/60: loss 0.0601, 0.200 s/step
+00:16:18   on epoch 18/60: loss 0.0602, 0.200 s/step
+00:17:36   on epoch 19/60: loss 0.0601, 0.200 s/step
+00:18:54   on epoch 20/60: loss 0.0598, 0.200 s/step
+00:20:13   on epoch 21/60: loss 0.0595, 0.201 s/step
+00:21:31   on epoch 22/60: loss 0.0600, 0.200 s/step
+00:22:49   on epoch 23/60: loss 0.0590, 0.200 s/step
+00:24:08   on epoch 24/60: loss 0.0590, 0.200 s/step
+00:25:26   on epoch 25/60: loss 0.0591, 0.200 s/step
+00:26:45   on epoch 26/60: loss 0.0598, 0.201 s/step
+00:28:03   on epoch 27/60: loss 0.0591, 0.200 s/step
+00:29:21   on epoch 28/60: loss 0.0587, 0.201 s/step
+00:30:40   on epoch 29/60: loss 0.0585, 0.200 s/step
+00:31:58   on epoch 30/60: loss 0.0589, 0.201 s/step
+00:33:17   on epoch 31/60: loss 0.0581, 0.200 s/step
+00:34:35   on epoch 32/60: loss 0.0577, 0.200 s/step
+00:35:54   on epoch 33/60: loss 0.0584, 0.200 s/step
+00:37:12   on epoch 34/60: loss 0.0586, 0.201 s/step
+00:38:30   on epoch 35/60: loss 0.0588, 0.201 s/step
+00:39:50   on epoch 36/60: loss 0.0580, 0.201 s/step
+00:41:08   on epoch 37/60: loss 0.0586, 0.200 s/step
+00:42:26   on epoch 38/60: loss 0.0580, 0.200 s/step
+00:43:44   on epoch 39/60: loss 0.0582, 0.200 s/step
+00:45:03   on epoch 40/60: loss 0.0579, 0.200 s/step
+00:46:22   on epoch 41/60: loss 0.0580, 0.201 s/step
+00:47:40   on epoch 42/60: loss 0.0577, 0.201 s/step
+00:48:58   on epoch 43/60: loss 0.0575, 0.200 s/step
+00:50:17   on epoch 44/60: loss 0.0583, 0.200 s/step
+00:51:35   on epoch 45/60: loss 0.0577, 0.201 s/step
+00:52:54   on epoch 46/60: loss 0.0576, 0.200 s/step
+00:54:12   on epoch 47/60: loss 0.0587, 0.200 s/step
+00:55:31   on epoch 48/60: loss 0.0581, 0.201 s/step
+00:56:49   on epoch 49/60: loss 0.0579, 0.200 s/step
+00:58:08   on epoch 50/60: loss 0.0577, 0.200 s/step
+00:59:26   on epoch 51/60: loss 0.0575, 0.200 s/step
+01:00:45   on epoch 52/60: loss 0.0576, 0.200 s/step
+01:02:03   on epoch 53/60: loss 0.0569, 0.200 s/step
+01:03:21   on epoch 54/60: loss 0.0576, 0.200 s/step
+01:04:39   on epoch 55/60: loss 0.0576, 0.200 s/step
+01:05:58   on epoch 56/60: loss 0.0575, 0.200 s/step
+01:07:17   on epoch 57/60: loss 0.0576, 0.201 s/step
+01:08:35   on epoch 58/60: loss 0.0579, 0.201 s/step
+01:09:54   on epoch 59/60: loss 0.0570, 0.201 s/step
+01:11:12   on epoch 60/60: loss 0.0572, 0.200 s/step
+01:11:15 on: gate PASS at 60 epochs
+01:12:34   drop epoch 1/60: loss 0.2977, 0.201 s/step
+01:13:52   drop epoch 2/60: loss 0.0835, 0.200 s/step
+01:15:10   drop epoch 3/60: loss 0.0735, 0.200 s/step
+01:16:29   drop epoch 4/60: loss 0.0692, 0.200 s/step
+01:17:47   drop epoch 5/60: loss 0.0674, 0.200 s/step
+01:19:05   drop epoch 6/60: loss 0.0657, 0.200 s/step
+01:20:24   drop epoch 7/60: loss 0.0642, 0.200 s/step
+01:21:42   drop epoch 8/60: loss 0.0642, 0.200 s/step
+01:23:00   drop epoch 9/60: loss 0.0633, 0.200 s/step
+01:24:19   drop epoch 10/60: loss 0.0630, 0.200 s/step
+01:25:38   drop epoch 11/60: loss 0.0616, 0.201 s/step
+01:26:56   drop epoch 12/60: loss 0.0609, 0.201 s/step
+01:28:14   drop epoch 13/60: loss 0.0615, 0.201 s/step
+01:29:33   drop epoch 14/60: loss 0.0609, 0.200 s/step
+01:30:51   drop epoch 15/60: loss 0.0612, 0.200 s/step
+01:32:10   drop epoch 16/60: loss 0.0611, 0.201 s/step
+01:33:28   drop epoch 17/60: loss 0.0606, 0.201 s/step
+01:34:47   drop epoch 18/60: loss 0.0606, 0.201 s/step
+01:36:05   drop epoch 19/60: loss 0.0605, 0.200 s/step
+01:37:24   drop epoch 20/60: loss 0.0602, 0.201 s/step
+01:38:43   drop epoch 21/60: loss 0.0599, 0.201 s/step
+01:40:01   drop epoch 22/60: loss 0.0604, 0.201 s/step
+01:41:20   drop epoch 23/60: loss 0.0594, 0.201 s/step
+01:42:39   drop epoch 24/60: loss 0.0593, 0.201 s/step
+01:43:57   drop epoch 25/60: loss 0.0594, 0.201 s/step
+01:45:16   drop epoch 26/60: loss 0.0602, 0.201 s/step
+01:46:35   drop epoch 27/60: loss 0.0594, 0.201 s/step
+01:47:53   drop epoch 28/60: loss 0.0591, 0.201 s/step
+01:49:12   drop epoch 29/60: loss 0.0589, 0.201 s/step
+01:50:30   drop epoch 30/60: loss 0.0592, 0.201 s/step
+01:51:49   drop epoch 31/60: loss 0.0585, 0.201 s/step
+01:53:08   drop epoch 32/60: loss 0.0580, 0.201 s/step
+01:54:26   drop epoch 33/60: loss 0.0588, 0.201 s/step
+01:55:45   drop epoch 34/60: loss 0.0589, 0.201 s/step
+01:57:03   drop epoch 35/60: loss 0.0591, 0.201 s/step
+01:58:23   drop epoch 36/60: loss 0.0583, 0.201 s/step
+01:59:41   drop epoch 37/60: loss 0.0590, 0.200 s/step
+02:00:59   drop epoch 38/60: loss 0.0583, 0.200 s/step
+02:02:18   drop epoch 39/60: loss 0.0585, 0.200 s/step
+02:03:36   drop epoch 40/60: loss 0.0582, 0.200 s/step
+02:04:54   drop epoch 41/60: loss 0.0583, 0.200 s/step
+02:06:12   drop epoch 42/60: loss 0.0580, 0.200 s/step
+02:07:31   drop epoch 43/60: loss 0.0578, 0.200 s/step
+02:08:49   drop epoch 44/60: loss 0.0586, 0.200 s/step
+02:10:07   drop epoch 45/60: loss 0.0579, 0.200 s/step
+02:11:26   drop epoch 46/60: loss 0.0579, 0.201 s/step
+02:12:44   drop epoch 47/60: loss 0.0589, 0.200 s/step
+02:14:03   drop epoch 48/60: loss 0.0584, 0.200 s/step
+02:15:21   drop epoch 49/60: loss 0.0582, 0.200 s/step
+02:16:39   drop epoch 50/60: loss 0.0579, 0.200 s/step
+02:17:58   drop epoch 51/60: loss 0.0578, 0.200 s/step
+02:19:16   drop epoch 52/60: loss 0.0579, 0.200 s/step
+02:20:34   drop epoch 53/60: loss 0.0572, 0.200 s/step
+02:21:53   drop epoch 54/60: loss 0.0579, 0.200 s/step
+02:23:11   drop epoch 55/60: loss 0.0578, 0.201 s/step
+02:24:30   drop epoch 56/60: loss 0.0578, 0.201 s/step
+02:25:49   drop epoch 57/60: loss 0.0579, 0.201 s/step
+02:27:07   drop epoch 58/60: loss 0.0582, 0.201 s/step
+02:28:25   drop epoch 59/60: loss 0.0573, 0.200 s/step
+02:29:43   drop epoch 60/60: loss 0.0575, 0.200 s/step
+02:29:49 drop: gate PASS at 60 epochs
+02:31:05   off epoch 1/60: loss 0.2813, 0.196 s/step
+02:32:22   off epoch 2/60: loss 0.0863, 0.196 s/step
+02:33:38   off epoch 3/60: loss 0.0754, 0.196 s/step
+02:34:55   off epoch 4/60: loss 0.0709, 0.196 s/step
+02:36:12   off epoch 5/60: loss 0.0686, 0.196 s/step
+02:37:28   off epoch 6/60: loss 0.0667, 0.195 s/step
+02:38:45   off epoch 7/60: loss 0.0650, 0.196 s/step
+02:40:02   off epoch 8/60: loss 0.0650, 0.196 s/step
+02:41:18   off epoch 9/60: loss 0.0640, 0.196 s/step
+02:42:35   off epoch 10/60: loss 0.0637, 0.196 s/step
+02:43:52   off epoch 11/60: loss 0.0623, 0.196 s/step
+02:45:08   off epoch 12/60: loss 0.0615, 0.196 s/step
+02:46:25   off epoch 13/60: loss 0.0620, 0.196 s/step
+02:47:41   off epoch 14/60: loss 0.0613, 0.196 s/step
+02:48:58   off epoch 15/60: loss 0.0617, 0.196 s/step
+02:50:15   off epoch 16/60: loss 0.0616, 0.196 s/step
+02:51:32   off epoch 17/60: loss 0.0610, 0.196 s/step
+02:52:48   off epoch 18/60: loss 0.0610, 0.196 s/step
+02:54:05   off epoch 19/60: loss 0.0609, 0.196 s/step
+02:55:21   off epoch 20/60: loss 0.0606, 0.196 s/step
+02:56:38   off epoch 21/60: loss 0.0603, 0.196 s/step
+02:57:55   off epoch 22/60: loss 0.0608, 0.196 s/step
+02:59:12   off epoch 23/60: loss 0.0597, 0.196 s/step
+03:00:28   off epoch 24/60: loss 0.0597, 0.195 s/step
+03:01:45   off epoch 25/60: loss 0.0597, 0.196 s/step
+03:03:02   off epoch 26/60: loss 0.0605, 0.196 s/step
+03:04:18   off epoch 27/60: loss 0.0597, 0.195 s/step
+03:05:35   off epoch 28/60: loss 0.0594, 0.196 s/step
+03:06:51   off epoch 29/60: loss 0.0592, 0.196 s/step
+03:08:08   off epoch 30/60: loss 0.0595, 0.196 s/step
+03:09:25   off epoch 31/60: loss 0.0588, 0.196 s/step
+03:10:42   off epoch 32/60: loss 0.0583, 0.196 s/step
+03:11:58   off epoch 33/60: loss 0.0591, 0.196 s/step
+03:13:15   off epoch 34/60: loss 0.0592, 0.196 s/step
+03:14:31   off epoch 35/60: loss 0.0594, 0.196 s/step
+03:15:48   off epoch 36/60: loss 0.0586, 0.196 s/step
+03:17:05   off epoch 37/60: loss 0.0592, 0.196 s/step
+03:18:21   off epoch 38/60: loss 0.0585, 0.196 s/step
+03:19:38   off epoch 39/60: loss 0.0587, 0.196 s/step
+03:20:55   off epoch 40/60: loss 0.0584, 0.196 s/step
+03:22:12   off epoch 41/60: loss 0.0586, 0.196 s/step
+03:23:29   off epoch 42/60: loss 0.0582, 0.196 s/step
+03:24:45   off epoch 43/60: loss 0.0581, 0.196 s/step
+03:26:02   off epoch 44/60: loss 0.0588, 0.196 s/step
+03:27:19   off epoch 45/60: loss 0.0582, 0.196 s/step
+03:28:36   off epoch 46/60: loss 0.0581, 0.196 s/step
+03:29:53   off epoch 47/60: loss 0.0592, 0.196 s/step
+03:31:09   off epoch 48/60: loss 0.0586, 0.196 s/step
+03:32:26   off epoch 49/60: loss 0.0584, 0.196 s/step
+03:33:42   off epoch 50/60: loss 0.0582, 0.195 s/step
+03:34:59   off epoch 51/60: loss 0.0580, 0.196 s/step
+03:36:16   off epoch 52/60: loss 0.0581, 0.196 s/step
+03:37:32   off epoch 53/60: loss 0.0574, 0.196 s/step
+03:38:49   off epoch 54/60: loss 0.0581, 0.196 s/step
+03:40:06   off epoch 55/60: loss 0.0580, 0.196 s/step
+03:41:23   off epoch 56/60: loss 0.0580, 0.196 s/step
+03:42:39   off epoch 57/60: loss 0.0581, 0.196 s/step
+03:43:56   off epoch 58/60: loss 0.0584, 0.196 s/step
+03:45:12   off epoch 59/60: loss 0.0575, 0.196 s/step
+03:46:29   off epoch 60/60: loss 0.0577, 0.196 s/step
+03:46:32 off: gate PASS at 60 epochs
+03:46:36 shipped on_split (4 s)
+03:46:37 shipped on_sham (1 s)
+03:46:42 shipped on_ptrain (5 s)
+03:46:47 shipped on_pcal (5 s)
+03:50:58 shipped on_spread (251 s)
+03:51:02 shipped drop_split (4 s)
+03:51:03 shipped drop_sham (1 s)
+03:51:08 shipped drop_ptrain (5 s)
+03:51:12 shipped drop_pcal (4 s)
+03:51:17 shipped drop_ptrain_null (5 s)
+03:51:21 shipped drop_pcal_null (4 s)
+03:51:26 shipped off_ptrain (5 s)
+03:51:30 shipped off_pcal (4 s)
+03:51:33 shipped on0_split (4 s)
+03:51:38 shipped on0_ptrain (5 s)
+03:51:43 shipped off0_ptrain (5 s)
+03:51:47 shipped off0_pcal (4 s)
+03:53:41 run finished

@@ -4,7 +4,8 @@ subtitle: "A small image denoiser is told one noise level while its input sits a
 date: "2026-10-11 · Opus 5.5 · ORC lane · pre-registered BEFORE the builder, per lane law · seed: Fable 5.1's ideation doc, experiment 2"
 ---
 
-**Status: REGISTERED; BUILT (clarifications 1–2); FROZEN before the smoke; NOT YET FLOWN.**
+**Status: REGISTERED; BUILT (clarifications 1–2); FROZEN before the smoke; FLOWN 2026-10-11/12;
+LOCKED (recompute byte-identical). P1 UNREADABLE; P2 not judged. Results appendix at the foot.**
 Authored 2026-10-11, before any W3 model is trained and before the W3 builder exists, per
 lane law. Everything that decides the verdicts is fixed here. The builder writes
 `windows/results/w3_freeze_<stamp>/FROZEN_W3.json` (the sha256 of every code file, of the
@@ -594,3 +595,88 @@ builder session, reviewed here). None changes a verdict rule.
 ## Amendments
 
 *(none yet)*
+
+## Results appendix (written after the flight; nothing above it changed)
+
+**Runs.** Smoke `windows/results/w3_smoke_20261011_2336/` (own seeds, 2 epochs): every go-rule
+check passed (17 parts match the manifest; gates pass; G-det difference 0.0; resume test
+pass; 0.194–0.200 s per step against the registered 0.187). Flight
+`windows/results/w3_flight_20261011_2352/`: Joe's Run all on a Colab T4, 23:52 to 03:53 UTC
+(4 h 01 min), code sha256 equal to freeze `w3_freeze_20261011_2141`, registered seeds, the full
+50,000 training images. All 34 parts match the manifest; the files came back as Joe's Drive
+folder download (the ship-size law's fallback), checkpoints left on Drive.
+
+**Training and gates.** Each model trained 60 epochs (0.200, 0.200 and 0.196 s per step;
+final epoch loss 0.0572 M-on, 0.0575 M-drop, 0.0577 M-off) and passed G-train in every band;
+no model needed the 120-epoch try. M-on's error against the best fixed multiple, by band:
+0.149 < 0.826 (0–250), 0.047 < 0.376 (250–500), 0.021 < 0.100 (500–750), 0.0054 < 0.0144
+(750–1000). G-det passed with a difference of 0.0. Sample grids: `samples_{on,drop,off}.png`
+(the three share the sampling seed, so they look alike).
+
+**P1, the movement share at M-on's mid-block: UNREADABLE.** The content's share of the move is
+w = 0.17 [0.15, 0.19] (label share 0.83), but the interaction gate fails by a wide margin:
+κ = 1.25, upper bound 1.43, against the bar of 0.5. The network's response to a conflicting
+pair is not the sum of its responses to each change alone, so by §5.1 the split does not
+describe it, and neither source is said to be followed.
+
+**P2, the label sham: not judged** (P1 is UNREADABLE). For the record, S = 0.10 (upper 0.12)
+for the 25-step class, 0.07 (0.08) for 100 and 0.07 (0.07) for 300: a random label direction
+moves the mid-block about a tenth as much as a real label change.
+
+**Secondaries** (`report.md` and `verdict.json` hold every number):
+
+- *S1, by site:* six of seven sites are UNREADABLE as well (κ above the bar); enc-32 alone
+  passes the gate and reads VARIES BY LEVEL (w 0.16).
+- *S2, the probe read:* LABEL or UNREADABLE at every site (mid −0.03 [−0.04, −0.02] LABEL), as
+  the collinearity check predicted for this statistic.
+- *S3, the output:* w 1.45 [1.31, 1.61] with κ 17.7: UNREADABLE.
+- *S4, the two directions:* content share 0.19 from (t, t) and 0.14 from (t′, t′).
+- *S5, by offset:* w 0.07 (25 steps), 0.11 (100) and 0.19 (300).
+- *S6, M-drop:* w 0.28 [0.26, 0.31], VARIES BY LEVEL; 0.12 [0.10, 0.13] more content than
+  M-on. Its sham S is 0.06 (upper 0.07). Read without a label (e∅), every site beats the hand
+  floor at reading the noise level.
+- *S7, M-off:* trained without any label, its best site (enc-8) reads the step with a median
+  error of 16 steps against the hand statistics' 39; six sites beat the hand floor and all seven
+  beat the untrained twin.
+- *S8, M-on's untrained twin:* the move already leans to the label at every site (w 0.08 to
+  0.26) and is additive (κ 0.01–0.02).
+- *S9, seed spread:* adding the mid-block to the baseline raises the cross-validated R² of the
+  continuations' spread by +0.42 at step 100 and +0.44 at step 300, by +0.18 at 500, and lowers
+  it by 0.16 at 700.
+
+**Expectations (§6) against the outcome.** G-train passed (~90%). P1 came out UNREADABLE, to
+which I gave ~10%. S2 sat further toward LABEL than P1 (~75%): yes. S1's content share falling
+from enc-32 to mid (~55%): no, and most sites are unreadable. S3 further toward CONTENT (~55%):
+not assessable (UNREADABLE). S6 within 0.15 of M-on (~60%): yes; its no-label reads beat the
+floor (~55%): yes. S7 beats the floor (~65%): yes. S8 near 0.5 or UNREADABLE (~60%): no; the
+untrained architecture already leans to the label. S9 adds in at least one band (~40%): yes,
+at steps 100 and 300.
+
+**Exploratory (not registered; no verdict rests on these).** The interaction is concentrated
+at low noise. Per band, κ is 4.09 at steps 20–250, 2.44 at 250–500, 0.52 at 500–750 and 0.05
+at 750–1000. In the noisiest band the move decomposes cleanly and the label carries about 91%
+of it (w 0.09 [0.065, 0.115]). At low noise a 300-step disagreement means a nearly clean image
+paired with a label claiming heavy noise, far from anything in training, and the mid-block's
+response there is mostly the interaction itself. The untrained twin's κ of 0.01–0.02 says the
+non-additivity is learned. The twin's lean toward the label says some of the label's share is
+the architecture's prior: the label adds a per-channel offset in every residual block, and the
+spatial mean keeps it whole. Taken together: the trained network does not treat a conflict as
+a weighted vote between two clocks. Where the two disagree sharply, it does something that is
+neither, and the registered decomposition cannot say what. A follow-up would need a measure
+built for the interaction, registered before it is run.
+
+**What this licenses (§8).** This experiment did not answer the question it was built to
+answer, and says so. It does show that the question in its additive form does not fit this
+network at its primary site, and that the misfit is learned. The secondaries stand as
+measurements: M-off and M-drop carry the noise level without a label, better than hand
+statistics; M-on's inside carries information about where a trajectory can still go beyond
+its own estimate of the image, at steps 100 and 300. Nothing here bears on experience or
+stakes.
+
+**Record.** `verdict.json`, `report.md`, gate and training JSON, `run_log.txt`, `env.json`,
+`manifest.json` (the sha256 of every raw part), `samples_{on,drop,off}.png`, and
+`per_image_terms.npz` (the per-image 2 × 2 sums behind P1 and the move secondaries, written by
+`windows/w3_record.py`; they reproduce P1's w and κ exactly). The fresh-process recompute of
+`verdict.json` and `report.md` is byte-identical (verdict sha256 50ac37ff…). Raw activations
+and checkpoints stay on Drive and locally, gitignored.
+
